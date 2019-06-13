@@ -2,24 +2,28 @@
     "headerTitle": "Developer Documentation",
     "headerTopLinks": [
         {
+            "href": "https://iotajapan.com",
+            "name": "IOTA JAPAN"
+        },
+        {
             "href": "https://iota.org",
             "name": "iota.org"
         },
         {
             "href": "https://blog.iota.org/",
-            "name": "news"
+            "name": "ニュース"
         },
         {
             "href": "https://trinity.iota.org/",
-            "name": "wallet"
+            "name": "ウォレット"
         },
         {
             "href": "https://qubic.iota.org/",
-            "name": "qubic"
+            "name": "キュービック"
         },
         {
             "href": "https://ecosystem.iota.org/",
-            "name": "ecosystem"
+            "name": "エコシステム"
         }
     ],
     "popularTopics": [
