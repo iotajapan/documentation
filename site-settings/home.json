@@ -1,5 +1,5 @@
 {
-    "headerTitle": "Developer Documentation",
+    "headerTitle": "開発者用ドキュメント",
     "headerTopLinks": [
         {
             "href": "https://iotajapan.com",
@@ -33,28 +33,28 @@
         },
         {
             "query": "hub",
-            "name": "Hub"
+            "name": "ハブ"
         },
         {
             "query": "trinity",
-            "name": "Trinity"
+            "name": "トリニティ"
         }
     ],
     "cards": [
         {
             "href": "/docs/getting-started/0.1/introduction/what-is-iota",
             "image": "1.png",
-            "name": "What is IOTA?"
+            "name": "IOTAとは？"
         },
         {
             "href": "/docs/getting-started/0.1/introduction/what-is-dlt",
             "image": "2.png",
-            "name": "What is DLT?"
+            "name": "DLTとは？"
         },
         {
             "href": "/docs/getting-started/0.1/tutorials/get-started",
             "image": "3.png",
-            "name": "Start Building"
+            "name": "開発を始める"
         }
     ]
 }

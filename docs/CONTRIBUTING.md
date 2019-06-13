@@ -16,7 +16,7 @@ Thanks! :heart:
 
 If you are creating or editing an article, please follow our writing guide to help us do the following:
 
-* Create and maintain a consistent tone of voice 
+* Create and maintain a consistent tone of voice
 * Offer documentation in a standard format
 * Make our documentation straightforward to read for non-native English readers
 * Make sure that our documentation educates our readers
@@ -185,22 +185,22 @@ Please follow our [writing guide](#writing-guide) when you write and edit articl
     ```cmd
     git add .
     ```
-    
+
   **Note:**  you may be asked to set your account's default identity
-  
+
     ```
     Please tell me who you are
-    Run 
+    Run
     git config --global user.email "you@example.com"
     git config --global user.name "Your Name"
     ```
-    
+
 2. Commit your changes by doing the following:
 
     ```
     git commit -v -a -m "<Describe the changes you made>"
     ```
-    
+
   **Note:** Make any additional changes to the same files in subsequent commits as you work. Not all changes need to be in the same commit.
 
 3. Push your changes by doing the following:
@@ -208,7 +208,7 @@ Please follow our [writing guide](#writing-guide) when you write and edit articl
     ```
     git push origin <your branch name>
     ```
-    
+
 4. In GitHub, go to the repository that you forked from `iotaledger/documentation`, and click **Pull Request** at the top of the page
 
 5. Make sure that the base branch is `iotaledger/documentation@develop` and the head branch is `<your username>/documentation@<your branch name>`

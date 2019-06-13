@@ -9,7 +9,6 @@
         "PoW": "Proof of work",
         "TPS": "Transactions per second",
         "W-OTS": "Winternitz one-time signature"
-    
     }
 
 },
@@ -31,7 +30,7 @@
 {
     "cat": "cryptography",
     "terms": {
-        "checksum": "Hashed data that allows you to detect errors and verify that you entered the correct data.  For example, in Trinity, a 9-tryte checksum is appended to the 81-tryte address so users can easily differentiate between their seed (81 trytes) and their address (90 trytes).", 
+        "checksum": "Hashed data that allows you to detect errors and verify that you entered the correct data.  For example, in Trinity, a 9-tryte checksum is appended to the 81-tryte address so users can easily differentiate between their seed (81 trytes) and their address (90 trytes).",
         "Curl": "Main hash function that's used in IOTA. Curl is based on a sponge construction, which was invented by the Keccak creators (SHA-3). Curl is designed for the Internet of things (IoT).",
         "Kerl": "Keccek-384 hash function that includes the additional conversion of its input and output from/to 243 trits to 48 bytes, using two's complement.",
         "Winternitz one-time signature": "Post-quantum signature scheme that's used to sign transactions that withdraw IOTA tokens."
@@ -42,7 +41,7 @@
 {
     "cat": "general terms",
     "terms": {
-        "directed acyclic graph": "Data structure that's based on a graph without any directed cycles. In IOTA, vertices represent transactions, and edges represent approvals.", 
+        "directed acyclic graph": "Data structure that's based on a graph without any directed cycles. In IOTA, vertices represent transactions, and edges represent approvals.",
         "peer-to-peer network": "Decentralized network that consists of nodes, which share data among each other.",
         "proof of work": "Computational puzzle that's hard to solve and easy to verify. IOTA uses a Hashcash-based puzzle to prevent both denial of service (DoS) attacks and spam attacks on the network."
 
@@ -85,7 +84,7 @@
         "tip selection": "Process whereby an IRI node selects two tip transactions and returns them to a client for use as a new transaction's branch transaction and trunk transaction",
         "tip transaction": "Transaction with no children",
         "transaction": "Instruction sent to an IRI node to deposit or withdraw IOTA tokens to/from an address or send a message. Transactions must be structured in a way that conforms to the IOTA protocol.",
-        "trunk transaction": "Name of one of the transactions that are referenced by a child. Transactions in a bundle are connected to each other through the trunk transaction. This connection makes it faster for IRI nodes to validate transactions in a bundle.", 
+        "trunk transaction": "Name of one of the transactions that are referenced by a child. Transactions in a bundle are connected to each other through the trunk transaction. This connection makes it faster for IRI nodes to validate transactions in a bundle.",
         "weighted random walk": "Algorithm that an IRI node uses during tip selection to find a path to a tip transaction in the ledger. To increase the probability of new transactions being selected and appended to the ledger, the algorithm favors a path through transactions that have a larger cumulative weight."
     }
 
@@ -96,7 +95,6 @@
         "trinary": "Base-3 numeral system",
         "trit": "Digit in a trinary number system. Trits are often represented by 1, 0, -1.",
         "tryte": "A tryte is 3 trits which can represent 27 values"
-
     }
 
 }
