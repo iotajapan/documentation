@@ -13,7 +13,7 @@
 
 [前置き/ノードとは？](/introduction/what-is-a-node.md)
 
-[チュートリアル/はじめに](/tutorials/first-steps.md)
+[チュートリアル/はじめに](/tutorials/get-started.md)
 
 [チュートリアル/はじめてのデータトランザクションを送信する（Node.js）](/tutorials/send-a-zero-value-transaction-with-nodejs.md)
 
