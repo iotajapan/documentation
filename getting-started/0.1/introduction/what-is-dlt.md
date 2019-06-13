@@ -1,4 +1,5 @@
-# What is distributed ledger technology?
+# 分散型台帳技術とは？
+<!-- # What is distributed ledger technology? -->
 
 **Distributed ledger technology (DLT) is a database architecture that allows the owners of digital goods to transfer them from peer to peer.**
 
