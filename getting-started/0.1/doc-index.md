@@ -17,7 +17,7 @@
 
 [チュートリアル/はじめてのデータトランザクションを送信する（Node.js）](/tutorials/send-a-zero-value-transaction-with-nodejs.md)
 
-[チュートリアル/フリーなテストトークンを受け取る](/tutorials/receive-test-tokens.md)
+[チュートリアル/無料のテストトークンを受け取る](/tutorials/receive-test-tokens.md)
 
 [チュートリアル/テストトークンを送信する （Node.js）](/tutorials/send-iota-tokens.md)
 
