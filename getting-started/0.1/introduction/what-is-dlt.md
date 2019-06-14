@@ -1,7 +1,7 @@
 # 分散型台帳技術とは？
 <!-- # What is distributed ledger technology? -->
 
-**分散型台帳技術（DLT）とは、デジタル商品（デジタル形式で存在する無形の商品）の所有者がデジタル商品をP2Pで転送できるようにしたデータベースアーキテクチャのです。**
+**分散型台帳技術（DLT）は、デジタル商品（デジタル形式で存在する無形の商品）の所有者がデジタル商品をP2Pで転送できるようにしたデータベースアーキテクチャです。**
 <!-- **Distributed ledger technology (DLT) is a database architecture that allows the owners of digital goods to transfer them from peer to peer.** -->
 
 DLTの各転送は、分散型台帳の記録として保持されます。

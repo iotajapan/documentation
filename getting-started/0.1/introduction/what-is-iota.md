@@ -108,7 +108,7 @@ IOTAは無料で利用でき、購読料を支払う必要も、契約にサイ�
 ## どのようにIOTAを始めれば良いか？
 <!-- ## How do I get started? -->
 
-* [こちらからはじめましょう](../tutorials/first-steps.md)。
+* [こちらからはじめましょう](../tutorials/get-started.md)。
 <!-- * [Start your IOTA journey](../tutorials/get-started.md) -->
 
 * IOTAを既に使用している[いくつかのアプリケーション](../references/use-cases.md)をご覧ください。
