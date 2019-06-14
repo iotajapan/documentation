@@ -1,6 +1,8 @@
-# What is IOTA?
+# IOTAとは？
+<!-- # What is IOTA? -->
 
-**IOTA is a distributed ledger technology that allows computers in an IOTA network to transfer immutable data and value among each other.**
+**IOTAは、IOTAネットワーク内のコンピュータがイミュータブルなデータと価値を相互に転送できるようにする分散型台帳技術です。**
+<!-- **IOTA is a distributed ledger technology that allows computers in an IOTA network to transfer immutable data and value among each other.** -->
 
 IOTA aims to improve efficiency, increase production, and ensure data integrity in a machine-to-machine economy.
 
