@@ -52,7 +52,7 @@
             "name": "DLTとは？"
         },
         {
-            "href": "/docs/getting-started/0.1/tutorials/get-started",
+            "href": "/docs/client-libraries/0.1/introduction/overview",
             "image": "3.png",
             "name": "開発を始める"
         }

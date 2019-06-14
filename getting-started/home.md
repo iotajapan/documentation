@@ -9,6 +9,7 @@
 [ユースケース](/0.1/references/use-cases.md)
 ## IOTAを使用して既に構築されているプロダクトについて学ぶ。
 
+<<<<<<< HEAD
 [はじめに](/0.1/tutorials/get-started.md)
 ## アプリにIOTAを統合することから始める。
 
@@ -25,3 +26,7 @@
 <!--  -->
 <!-- [Get started](/0.1/tutorials/get-started.md) -->
 <!-- ## Start integrating IOTA in your apps and send your first transactions -->
+=======
+[Get started](/0.1/tutorials/get-started.md)
+## Start integrating IOTA in your apps and send your first transactions
+>>>>>>> upstream/develop
