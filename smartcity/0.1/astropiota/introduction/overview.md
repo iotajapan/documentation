@@ -3,7 +3,7 @@
 **AstroPiOTA is a clone of [AstroPi](https://www.nasa.gov/mission_pages/station/research/experiments/2429.html), which is a project that used Raspberry Pis on the International Space Station (ISS) to keep astronauts up to date about their environment.  AstroPi was made with a Raspberry Pi computer and a Sense HAT sensor for sensing temperature, humidity, and other data.**
 
  AstroPiOTA uses masked authenticated messaging (MAM) for keeping track of local environment data on the Tangle. Here on earth, AstroPiOTA helps us understand and report local weather and may aid in earthquake prediction.
- 
+
  MAM is a subscription service. Subscribe to the AstroPiOTA channel to receive the latest data.
 
 Watch the video:  (Coming soon)
@@ -23,7 +23,7 @@ Some IMU data is measured using [Cartesian coordinates](https://en.wikipedia.org
         x is roll or rotation about the x-axis
         y is pitch or rotation about the y-axis
         z is yaw or rotation about the z-axis
-        
+
 ## Programming Language
 
 AstroPiOTA is written in JavaScript and sends Sense HAT data to the Tangle in this json format:
