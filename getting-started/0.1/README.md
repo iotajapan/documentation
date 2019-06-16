@@ -1,6 +1,6 @@
 # An introduction to IOTA
 
-This section introduces users to IOTA by giving them a foundation of knowledge that they can build on through each section of the documentation portal. 
+This section introduces users to IOTA by giving them a foundation of knowledge that they can build on through each section of the documentation portal.
 
 ## Documentation
 
