@@ -22,15 +22,17 @@ IOTAトークンを転送するには、バンドルに少なくとも1つの入
 今回の例では、受取人Aに100Miを送信したいとし、トークンが3つのアドレス0、1、2に別れているとします。
 <!-- In this example, you want to send 100Mi to recipient A, and your balance is distributed among three addresses: -->
 
-* **Address 0:** 20Mi
-* **Address 1:** 30Mi
-* **Address 2:** 55Mi
+* **アドレス0:** 20Mi
+* **アドレス1:** 30Mi
+* **アドレス2:** 55Mi
+<!-- * **Address 0:** 20Mi -->
+<!-- * **Address 1:** 30Mi -->
+<!-- * **Address 2:** 55Mi -->
 
 受信者Aに100Miを送信すると、以下のトランザクションが作成され、転送バンドルとしてノードに送信されます。
 <!-- When you send 100Mi to recipient A, the following transactions are created and sent to a node as a transfer bundle: -->
 
-私の住所から100Miを引き出し、私がそれを所有していることを確認するために署名をチェックする取引
-* **入力トランザクション：**送信者のアドレス0、1、2から100Miを取り出し、送信者がその3つのアドレスの所有権を有していることを検証するために、署名をチェックするトランザクション
+* **入力トランザクション：**送信者のアドレス0、1、2から100Miを取り出し、送信者がその3つのアドレスの所有権を有していることを検証するために署名をチェックするトランザクション
 * **出力トランザクション：**受取人Aのアドレスへ100Miを送金するトランザクション
 * **出力トランザクション：**アドレス2から残りの5Miをアドレス3に送金するトランザクション
 <!-- * **Input transaction:** Withdraw 100Mi from my address and check the signature to verify that I own it -->
