@@ -133,7 +133,7 @@ dependencies {
     compile 'com.github.iotaledger:iota-java:1.0.0-beta5'
 }
 ```
-[Javaのドキュメントを参照してください](root://iota-java/0.1/README.md)。
+[Javaドキュメントを参照してください](root://iota-java/0.1/README.md)。
 ---
 ### Go
 IOTA Goクライアントライブラリとその依存関係をダウンロードするには、[Goモジュール](https://github.com/golang/go/wiki/Modules)（バージョン1.11以降で利用可能）を使用してプロジェクト内の依存関係を管理することをお勧めします。
@@ -151,7 +151,7 @@ $ go get github.com/iotaledger/iota.go/api
 ```
 上記のコマンドは、最新バージョンのIOTA Goクライアントライブラリをダウンロードし、そのバージョンを`go.mod`ファイルに書き込みます。
 
-[Goのドキュメントを参照してください](root://iota-go/0.1/README.md)。
+[Goドキュメントを参照してください](root://iota-go/0.1/README.md)。
 --------------------
 
 ## 手順.3 テストAPIリクエストを送信する
@@ -286,7 +286,7 @@ func handleErr(err error) {
 ## コミュニティに参加する
 <!-- ## Get involved -->
 
-次のことができる[Discordチャンネルに参加](https://discordapp.com/invite/fNGZXvh)してください。
+次のことができる[Discordチャンネル](https://discordapp.com/invite/fNGZXvh)に参加してください。
 <!-- [Join our Discord channel](https://discordapp.com/invite/fNGZXvh) where you can: -->
 
 * IOTA開発者やコミュニティとの議論に参加する。
@@ -312,4 +312,4 @@ func handleErr(err error) {
 <!-- [Send your first data transaction with Node.js](../tutorials/send-a-zero-value-transaction-with-nodejs.md). -->
 
 [いくつかの無料のIOTAテストトークンを取得](../tutorials/receive-test-tokens.md)し、テストトランザクションでIOTAテストトークンを転送する。
-[Get some free test tokens](../tutorials/receive-test-tokens.md) and start transferring them in test transactions.
+<!-- [Get some free test tokens](../tutorials/receive-test-tokens.md) and start transferring them in test transactions. -->
