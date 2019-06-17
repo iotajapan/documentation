@@ -32,7 +32,7 @@ mamState = Mam.changeMode(mamState, mamType, mamSecret);
 
 Sender.js configures the Sense Hat scrolling marquee to post humidity and temperature data in centigrade or Celsius and Fahrenheit.  To speed up the marquee, this data was rounded.  
 
-> Raw temperature data is shown.  However, the Sense Hat temperature sensor is near Raspberry Pi which heats up during use.  Calibration tests indicate that the Sense Hat temperature is about 13 degrees above local temperature.  You can calibrate to your location by comparing Sense Hat temperature to local temperature.  You may want to change the data being reported in your MAM message. 
+> Raw temperature data is shown.  However, the Sense Hat temperature sensor is near Raspberry Pi which heats up during use.  Calibration tests indicate that the Sense Hat temperature is about 13 degrees above local temperature.  You can calibrate to your location by comparing Sense Hat temperature to local temperature.  You may want to change the data being reported in your MAM message.
 
 Scroll speed is 0.2, making the scrolling text slow enough to read, but not too slow.  The `backColour` and `textColour` are set using RGB values between 0 and 255.  In this example, the background color is orange and the text is blue.
 
@@ -183,4 +183,4 @@ Receiver.js initializes and starts monitoring the Tangle for MAM messages from A
 ```javascript
 initMam();
 checkMam();
-
+```

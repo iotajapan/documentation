@@ -1,6 +1,6 @@
 # Run AstroPiOTA
 
-The following instructions assume the operating system is configured. Because this installation has several components, scripts are included to make sure that each component works individually before combining them.  
+The following instructions assume the operating system is configured. Because this installation has several components, scripts are included to make sure that each component works individually before combining them.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ The easiest way to configure Raspberry Pi is by directly interacting with it. Pl
     Default password:  raspberry
     ```
 
-2. Connect the Raspberry Pi to WiFi 
+2. Connect the Raspberry Pi to WiFi
 
 3. Set the keyboard mapping to USA English. Otherwise, you will be surprised when installation commands fail because the pipe symbol (|) is mapped to the tilde symbol (~).
 
@@ -165,7 +165,7 @@ sudo npm install
 
     ```
     npm run receiver ADDRESSXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    ``` 
+    ```
 
 2. Copy the output command and paste it into another terminal window to monitor the MAM Stream
 

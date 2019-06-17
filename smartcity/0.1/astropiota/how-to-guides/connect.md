@@ -69,5 +69,3 @@ To shut down the Raspberry Pi, do the following:
 ```bash
 sudo shutdown now
 ```
-
-
