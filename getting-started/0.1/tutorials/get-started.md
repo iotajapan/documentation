@@ -30,7 +30,7 @@ IOTAをアプリやWebサイトに統合するには、次の3つの手順を完
 <!-- A [seed](../introduction/what-is-a-seed.md) is your unique password that gives you access to all your addresses. These addresses hold your IOTA tokens and as such have a balance. To spend IOTA tokens, you must use your seed to prove that you own the address that holds them. Seeds can include only the number 9 and the uppercase letters A-Z. -->
 
 :::warning:
-シードは安全に保ちバックアップしなければなりません。シードを失うと回復できません。
+シードは安全に保ちバックアップしなければなりません。シードを失うとIOTAトークンを回復することはできません。
 :::
 <!-- :::warning: -->
 <!-- You must keep your seed safe and back it up. If you lose your seed, you can't recover it. -->
@@ -39,83 +39,84 @@ IOTAをアプリやWebサイトに統合するには、次の3つの手順を完
 --------------------
 ### Linux
 1\. コマンドプロンプトで次の操作を行います。
-<!-- 1\. Do the following in a command prompt: -->
 
 ```bash
 cat /dev/urandom |tr -dc A-Z9|head -c${1:-81}
 ```
 2\. 81文字の出力をコピーしてどこかにペーストします。後でシードが必要になります。今すぐシードをバックアップするのは良い考えです。
-<!-- 2\. Copy and paste the 81 character output somewhere. You'll need the seed later. It's a good idea to back up your seed now. -->
 ---
 ### macOS
-1\. Do the following in a command prompt:
+1\. コマンドプロンプトで次の操作を行います。
 
 ```bash
 cat /dev/urandom |LC_ALL=C tr -dc 'A-Z9' | fold -w 81 | head -n 1
 ```
 
-2\. Copy and paste the 81 character output somewhere. You'll need the seed later. It's a good idea to back up your seed now.
+2\. 81文字の出力をコピーしてどこかにペーストします。後でシードが必要になります。今すぐシードをバックアップするのは良い考えです。
 ---
 ### Windows
-1\. [Download the KeePass installer](https://keepass.info/)
+1\. [KeePassインストーラをダウンロードする](https://keepass.info/)。
 
-KeePass is a password manager that stores passwords in encrypted databases, which can be unlocked with one master password or key file.
+KeePassは、1つのマスターパスワードまたはキーファイルでロック解除できる暗号化されたデータベースに複数のパスワードを保存するパスワードマネージャです。
 
-2\. Open the installer and follow the on-screen instructions
+2\. インストーラを開き、画面上の指示に従います。
 
-3\. Open KeePass and click **New**
+3\. KeePassを開き、**New**をクリックします。
 
 ![Creating a new KeePass database](../images/keypass-new.png)
 
-4\. After you've followed the instructions and saved the KeePass file on your computer, right click the empty space and click **Add entry**
+4\. 指示に従い、KeePassファイルをコンピュータに保存したら、空白の部分を右クリックして**Add entry**をクリックします。
 
 ![Adding a new KeePass entry](../images/keepass-add-entry.png)
 
-5\. Click **Generate a password**
+5\. **Generate a password**をクリックします。
 
 ![Selecting the Keepass password generator](../images/keypass-password-generator.png)
 
-6\. Select only the following options and click **OK**:
+6\. 以下のオプションのみを選択して、**OK**をクリックします。
 
 * Length of generated password: 81
 * Upper-case (A, B, C, ...)
 * Also include the following characters: 9
 
-7\. Click **OK** to save your seed
+7\. **OK**をクリックして、シードを保存します。
 --------------------
 
-## Step 2. Install a client library
+## 手順2. クライアントライブラリをインストールする
+<!-- ## Step 2. Install a client library -->
 
-We have [three official libraries](root://client-libraries/0.1/introduction/overview.md). As well as these libraries, the IOTA community has created some [community ones](root://client-libraries/0.1/introduction/overview.md) so you can use a language that we don't officially support.
+[3つの公式ライブラリ](root://client-libraries/0.1/introduction/overview.md)があります。これらのライブラリと同様に、IOTAコミュニティが[コミュニティライブラリ](root://client-libraries/0.1/introduction/overview.md)をいくつか作成しています。公式にサポートしていないこれらのライブラリを使うこともできます。
+<!-- We have [three official libraries](root://client-libraries/0.1/introduction/overview.md). As well as these libraries, the IOTA community has created some [community ones](root://client-libraries/0.1/introduction/overview.md) so you can use a language that we don't officially support. -->
 
 --------------------
 ### Node.js
-To use the library, your computer must have one of the following supported versions of Node.js:
+このライブラリを使用するには、コンピュータにNode.jsの次のサポート対象のバージョンのいずれかがインストールされている必要があります。
 
-* Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
+* Node.js 10 以上。[最新のLTS](https://nodejs.org/en/download/)をお勧めします。
 * Node.js 8
 
-To install the library packages, you must have one of the following package managers:
+ライブラリパッケージをインストールするには、次のいずれかのパッケージマネージャが必要です。
 
-* [npm](https://www.npmjs.com/) (included in Node.js downloads)
+* [npm](https://www.npmjs.com/)（Node.jsのダウンロードに含まれています。）
 * [Yarn](https://yarnpkg.com/)
 
-Install the library with npm:
+npmを使ってライブラリをインストールします。
 
 ```bash
 npm install @iota/core
 ```
-Install the library with Yarn:
+
+Yarnを使ってライブラリをインストールします。
 
 ```bash
 yarn add @iota/core
 ```
 
-[See the JavaScript documentation](root://iota-js/0.1/README.md).
+[JavaScriptドキュメントを参照してください](root://iota-js/0.1/README.md)。
 ---
 ### Java
-Download the library with Gradle
-Add the following repository to your **root** `build.gradle` file (not your module file):
+Gradleでライブラリをダウンロードします。
+モジュールファイルではなく、**root**の`build.gradle`ファイルに次のリポジトリを追加してください。
 
 ```java
 allprojects {
@@ -125,43 +126,46 @@ allprojects {
 }
 ```
 
-Add the following dependency to your **module** `build.gradle` file:
+**module**の`build.gradle`ファイルに次の依存関係を追加してください。
 
 ```java
 dependencies {
     compile 'com.github.iotaledger:iota-java:1.0.0-beta5'
 }
 ```
-
-[See the Java documentation](root://iota-java/0.1/README.md).
+[Javaのドキュメントを参照してください](root://iota-java/0.1/README.md)。
 ---
 ### Go
-To download the IOTA Go client library and its dependencies, we recommend that you use [Go modules](https://github.com/golang/go/wiki/Modules) (available since version 1.11) to manage dependencies in your project.
+IOTA Goクライアントライブラリとその依存関係をダウンロードするには、[Goモジュール](https://github.com/golang/go/wiki/Modules)（バージョン1.11以降で利用可能）を使用してプロジェクト内の依存関係を管理することをお勧めします。
 
-In any directory outside of GOPATH, initiate your project. Change the placeholder to your chosen path such as github.com/me/awesome-project.
-
+GOPATH以外のディレクトリで、プロジェクトを開始してください。プレースホルダをgithub.com/me/awesome-projectなどのパスに変更します。
 
 ```bash
 go mod init <your-module-path>
 ```
 
-Download the library and its dependencies:
+ライブラリとその依存関係をダウンロードしてください。
 
 ```bash
 $ go get github.com/iotaledger/iota.go/api
 ```
-This command downloads the latest version of the IOTA Go client library and writes the version into the `go.mod` file.
+上記のコマンドは、最新バージョンのIOTA Goクライアントライブラリをダウンロードし、そのバージョンを`go.mod`ファイルに書き込みます。
 
-[See the Go documentation](root://iota-go/0.1/README.md).
+[Goのドキュメントを参照してください](root://iota-go/0.1/README.md)。
 --------------------
 
-## Step 3. Make a test API request
+## 手順.3 テストAPIリクエストを送信する
+<!-- ## Step 3. Make a test API request -->
 
-To test the libraries, you can connect to a node and request information about the Tangle from it by calling the `getNodeInfo()` method.
+ライブラリをテストするには、`getNodeInfo()`メソッドを呼び出してノードに接続し、そこからタングルに関する情報をリクエストします。
+<!-- To test the libraries, you can connect to a node and request information about the Tangle from it by calling the `getNodeInfo()` method. -->
 
 :::info:
-Here, we connect to a node on the Devnet, which is one of the [IOTA networks](../references/iota-networks.md) that you can use for testing. The Devnet is similar to the Mainnet, except the tokens are free.
+ここでは、テストに使用できる[IOTAネットワーク](../references/iota-networks.md)の1つであるDevnet上のノードに接続します。 Devnetは、トークンが無料であること以外はMainnetとほとんど同じです。
 :::
+<!-- :::info: -->
+<!-- Here, we connect to a node on the Devnet, which is one of the [IOTA networks](../references/iota-networks.md) that you can use for testing. The Devnet is similar to the Mainnet, except the tokens are free. -->
+<!-- ::: -->
 
 --------------------
 ### JavaScript
@@ -172,14 +176,14 @@ const Iota = require('@iota/core');
 // Create a new instance of the IOTA API object
 // Use the `provider` field to specify which node to connect to
 const iota = Iota.composeAPI({
-provider: 'https://nodes.devnet.iota.org:443'
+  provider: 'https://nodes.devnet.iota.org:443'
 });
 
 // Call the `getNodeInfo()` method for information about the node and the Tangle
 iota.getNodeInfo()
-// Convert the returned object to JSON to make the output more readable
-.then(info => console.log(JSON.stringify(info, null, 1)))
-.catch(err => {
+  // Convert the returned object to JSON to make the output more readable
+  .then(info => console.log(JSON.stringify(info, null, 1)))
+  .catch(err => {
     // Catch any errors
     console.log(err);
 });
@@ -232,7 +236,8 @@ func handleErr(err error) {
 ```
 --------------------
 
-The node returns a response object:
+ノードは応答オブジェクトを返します。
+<!-- The node returns a response object: -->
 
 ```json
 {
@@ -259,34 +264,52 @@ The node returns a response object:
 }
 ```
 
-:::success: Congratulations :tada:
-You've confirmed your connection to the node. Now, you're ready to [send a transaction to it](../tutorials/send-a-zero-value-transaction-with-nodejs.md).
+:::success: おめでとうございます:tada:
+ノードへの接続を確認できました。これで、[トランザクションを送信する](../tutorials/send-a-zero-value-transaction-with-nodejs.md)準備が整いました。
 :::
+<!-- :::success: Congratulations :tada: -->
+<!-- You've confirmed your connection to the node. Now, you're ready to [send a transaction to it](../tutorials/send-a-zero-value-transaction-with-nodejs.md). -->
+<!-- ::: -->
 
 :::info:
-To learn what these fields mean, [see the API reference](root://iri/0.1/references/api-reference.md#getNodeInfo).
+返答オブジェクトの各フィールドの意味については、[APIリファレンス](root://iri/0.1/references/api-reference.md#getNodeInfo)を参照してください。
 :::
+<!-- :::info: -->
+<!-- To learn what these fields mean, [see the API reference](root://iri/0.1/references/api-reference.md#getNodeInfo). -->
+<!-- ::: -->
 
-## Run the code (Node.js)
+## コードを実行する（Node.js）
+<!-- ## Run the code (Node.js) -->
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/Connect-to-a-node?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-## Get involved
+## コミュニティに参加する
+<!-- ## Get involved -->
 
-[Join our Discord channel](https://discordapp.com/invite/fNGZXvh) where you can:
+次のことができる[Discordチャンネルに参加](https://discordapp.com/invite/fNGZXvh)してください。
+<!-- [Join our Discord channel](https://discordapp.com/invite/fNGZXvh) where you can: -->
 
-* Take part in discussions with IOTA developers and the community
-* Ask for help
-* Share your knowledge to help others
+* IOTA開発者やコミュニティとの議論に参加する。
+* 助けを求める。
+* 他の人を助けるためにあなたの知識を共有する。
+<!-- * Take part in discussions with IOTA developers and the community -->
+<!-- * Ask for help -->
+<!-- * Share your knowledge to help others -->
 
-We have many channels, including the following:
+次のような多くのチャンネルがあります。
+<!-- We have many channels, including the following: -->
 
-* `-dev`: These channels are read-only and are where developers discuss topics with each other and where you can see any code updates from GitHub.
+* `-dev`：これらのチャンネルは読み取り専用で、開発者同士がトピックについて話し合ったり、GitHubからのコードの更新を見ることができる場所です。
+<!-- * `-dev`: These channels are read-only and are where developers discuss topics with each other and where you can see any code updates from GitHub. -->
 
-* `-discussion`: These channels are where you can participate.
+* `-discussion`：これらのチャンネルはあなたが参加できる場所です。
+<!-- * `-discussion`: These channels are where you can participate. -->
 
-## Next steps
+## 次のステップ
+<!-- ## Next steps -->
 
-[Send your first data transaction with Node.js](../tutorials/send-a-zero-value-transaction-with-nodejs.md).
+[Node.jsを使って初めてのデータトランザクションを送信する](../tutorials/send-a-zero-value-transaction-with-nodejs.md)。
+<!-- [Send your first data transaction with Node.js](../tutorials/send-a-zero-value-transaction-with-nodejs.md). -->
 
+[いくつかの無料のIOTAテストトークンを取得](../tutorials/receive-test-tokens.md)し、テストトランザクションでIOTAテストトークンを転送する。
 [Get some free test tokens](../tutorials/receive-test-tokens.md) and start transferring them in test transactions.
