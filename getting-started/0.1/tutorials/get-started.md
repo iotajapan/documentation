@@ -1,36 +1,51 @@
-# Get started
+# はじめに
+<!-- # Get started -->
 
-**IOTA is a lightweight protocol that allows you to transfer immutable data and/or value in the form of IOTA tokens.**
+**IOTAは、イミュータブルなデータや値をIOTAトークンの形式で転送できる軽量のプロトコルです。**
+<!-- **IOTA is a lightweight protocol that allows you to transfer immutable data and/or value in the form of IOTA tokens.** -->
 
-To start integrating IOTA into your app or website you need complete these three steps:
+IOTAをアプリやWebサイトに統合するには、次の3つの手順を完了する必要があります。
+<!-- To start integrating IOTA into your app or website you need complete these three steps: -->
 
-1. [Create a seed](#step-1.-create-a-seed) so you can have access to addresses that can hold IOTA tokens
+1. IOTAトークンを保持できるアドレスにアクセスできるように[シードを作成する](#step-1.-create-a-seed)。
+<!-- 1. [Create a seed](#step-1.-create-a-seed) so you can have access to addresses that can hold IOTA tokens -->
 
-2. [Install a client library](#step-2.-install-a-client-library) so that you can interact with an IOTA network through a node
+2. ノードを介してIOTAネットワークと対話できるように[クライアントライブラリをインストールする](#step-2.-install-a-client-library)。
+<!-- 2. [Install a client library](#step-2.-install-a-client-library) so that you can interact with an IOTA network through a node -->
 
-3. [Make a test API request](#step-2.-make-a-test-api-request) to confirm that you're connected to a node
+3. [テストAPIリクエストを送信](#step-2.-make-a-test-api-request)して、自分がノードに接続できていることを確認する。
+<!-- 3. [Make a test API request](#step-2.-make-a-test-api-request) to confirm that you're connected to a node -->
 
-:::info:Not a developer?
-If you want to see how IOTA works without having to write code, you can [use Trinity to create a seed and send your first data transaction](../tutorials/send-a-zero-value-transaction-with-the-trinity-wallet.md).
+:::info:開発者ではありませんか？
+コードを記述しなくてもIOTAがどのように機能するかを知りたい場合は、[トリニティを使用してシードを作成し、初めてのデータトランザクションを送信する](../tutorials/send-a-zero-value-transaction-with-the-trinity-wallet.md)こともできます。
 :::
+<!-- :::info:Not a developer? -->
+<!-- If you want to see how IOTA works without having to write code, you can [use Trinity to create a seed and send your first data transaction](../tutorials/send-a-zero-value-transaction-with-the-trinity-wallet.md). -->
+<!-- ::: -->
 
-## Step 1. Create a seed
+## 手順1. シードを作成する
+<!-- ## Step 1. Create a seed -->
 
-A [seed](../introduction/what-is-a-seed.md) is your unique password that gives you access to all your addresses. These addresses hold your IOTA tokens and as such have a balance. To spend IOTA tokens, you must use your seed to prove that you own the address that holds them. Seeds can include only the number 9 and the uppercase letters A-Z.
+[シード](../introduction/what-is-a-seed.md)はそのシードから派生したすべてのアドレスにアクセスするための唯一のパスワードです。これらのアドレスはIOTAトークンを保持しているので残高を持っています。IOTAトークンを使うには、シードを使って、アドレスの所有権を証明する必要があります。シードには数字9と大文字のA〜Zのみを使うことができます。
+<!-- A [seed](../introduction/what-is-a-seed.md) is your unique password that gives you access to all your addresses. These addresses hold your IOTA tokens and as such have a balance. To spend IOTA tokens, you must use your seed to prove that you own the address that holds them. Seeds can include only the number 9 and the uppercase letters A-Z. -->
 
 :::warning:
-You must keep your seed safe and back it up. If you lose your seed, you can't recover it.
+シードは安全に保ちバックアップしなければなりません。シードを失うと回復できません。
 :::
+<!-- :::warning: -->
+<!-- You must keep your seed safe and back it up. If you lose your seed, you can't recover it. -->
+<!-- ::: -->
 
 --------------------
 ### Linux
-1\. Do the following in a command prompt:
+1\. コマンドプロンプトで次の操作を行います。
+<!-- 1\. Do the following in a command prompt: -->
 
 ```bash
 cat /dev/urandom |tr -dc A-Z9|head -c${1:-81}
 ```
-
-2\. Copy and paste the 81 character output somewhere. You'll need the seed later. It's a good idea to back up your seed now.
+2\. 81文字の出力をコピーしてどこかにペーストします。後でシードが必要になります。今すぐシードをバックアップするのは良い考えです。
+<!-- 2\. Copy and paste the 81 character output somewhere. You'll need the seed later. It's a good idea to back up your seed now. -->
 ---
 ### macOS
 1\. Do the following in a command prompt:
@@ -65,7 +80,7 @@ KeePass is a password manager that stores passwords in encrypted databases, whic
 * Length of generated password: 81
 * Upper-case (A, B, C, ...)
 * Also include the following characters: 9
-    
+
 7\. Click **OK** to save your seed
 --------------------
 
