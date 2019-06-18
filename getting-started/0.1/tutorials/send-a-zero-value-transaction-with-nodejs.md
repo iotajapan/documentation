@@ -161,7 +161,7 @@
     ```
 
     :::info:Depth
-    `depth`引数はチップ選択に影響します。depthが深ければ深いほど（タングルの奥に戻るほど）、重み付きランダムウォークが始まります。
+    `depth`引数はチップ選択に影響します。depthが深ければ深いほど、タングルのより奥から重み付きランダムウォークが始まります。
     :::
     <!-- :::info:Depth -->
     <!-- The `depth` argument affects tip selection. The greater the depth, the farther back in the Tangle the weighted random walk starts. -->
@@ -178,44 +178,67 @@
     <!-- Every IOTA network enforces its own MWM. On the Devnet, the MWM is 9. But, on the Mainnet the MWM is 14. If you use a MWM that's too small, your transactions won't be valid and will never be confirmed. -->
     <!-- ::: -->
 
-:::success:Congratulations :tada:
-You've just sent your first zero-value transaction. Your transaction is attached to [the Tangle](../introduction/what-is-the-tangle.md), which makes your message immutable.
+:::success:おめでとうございます:tada:
+初めてのゼロトークントランザクションを送信しました。トランザクションは[タングル](../introduction/what-is-the-tangle.md)に添付されるので、メッセージはイミュータブルになります。
 :::
+<!-- :::success:Congratulations :tada: -->
+<!-- You've just sent your first zero-value transaction. Your transaction is attached to [the Tangle](../introduction/what-is-the-tangle.md), which makes your message immutable. -->
+<!-- ::: -->
 
-In the console, you'll see information about the the [bundle](../introduction/what-is-a-bundle.md) that you sent.
+コンソールには、送信した[バンドル](../introduction/what-is-a-bundle.md)に関する情報が表示されます。
+<!-- In the console, you'll see information about the the [bundle](../introduction/what-is-a-bundle.md) that you sent. -->
 
-The transaction in your bundle will propagate through the network until all the nodes have it in their ledgers.
+バンドル内のトランザクションは、すべてのノードが各々の元帳にトランザクションを書き込むまで、ネットワーク内を伝搬します。
+<!-- The transaction in your bundle will propagate through the network until all the nodes have it in their ledgers. -->
 
-## Confirm that your transaction is on the network
+## トランザクションがネットワーク上にあることを確認する
+<!-- ## Confirm that your transaction is on the network -->
 
-To confirm that your transaction is on the network (attached to the Tangle), copy the value of the `bundle` field from the console, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar.
+トランザクションが（タングルに接続された）ネットワーク上にあることを確認するには、コンソールから`bundle`フィールドの値をコピーし、[Devnetタングルエクスプローラ](https://devnet.thetangle.org/)を開き、`bundle`フィールドの値を検索バーに貼り付けます。
+<!-- To confirm that your transaction is on the network (attached to the Tangle), copy the value of the `bundle` field from the console, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar. -->
 
-You'll see your message in the Message field.
+メッセージフィールドにメッセージが表示されます。
+<!-- You'll see your message in the Message field. -->
 
 ![Immutable message on the Tangle](../images/zero-value-message.png)
 
 :::info:
-You can also see the Parent transactions field to check which transactions your transaction is attached to in the Tangle.
+親トランザクションフィールドを表示して、自分のトランザクションがどのトランザクションに添付されているかを確認することもできます。
 
-These transactions were chosen during tip selection and added to the [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md) of your transaction.
+親トランザクションはチップ選択中に選択され、トランザクションの [`branchTransaction`と`trunkTransaction`フィールド](root://iota-basics/0.1/references/structure-of-a-transaction.md)に追加されます。
 :::
+<!-- :::info: -->
+<!-- You can also see the Parent transactions field to check which transactions your transaction is attached to in the Tangle. -->
+<!--  -->
+<!-- These transactions were chosen during tip selection and added to the [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md) of your transaction. -->
+<!-- ::: -->
 
-## Run the code
-
-Click the green button to run the sample code in this tutorial and see the results in the web browser.
+## コードを走らせる
+<!-- ## Run the code -->
+このチュートリアルのサンプルコードを実行してWebブラウザで結果を確認するには、緑色のボタンをクリックします。
+<!-- Click the green button to run the sample code in this tutorial and see the results in the web browser. -->
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/51-Send-ASCII-Data?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 :::info:
-[Learn what these transaction fields mean](root://iota-basics/0.1/references/structure-of-a-transaction.md).
+[トランザクションフィールドが何を意味するのかを学んでみましょう](root://iota-basics/0.1/references/structure-of-a-transaction.md)。
 
-Messages are stored in the `signatureMessageFragment` field.
+メッセージは`signatureMessageFragment`フィールドに格納されます。
 :::
+<!-- :::info: -->
+<!-- [Learn what these transaction fields mean](root://iota-basics/0.1/references/structure-of-a-transaction.md). -->
+<!--  -->
+<!-- Messages are stored in the `signatureMessageFragment` field. -->
+<!-- ::: -->
 
-## Next steps
+## 次のステップ
+<!-- ## Next steps -->
 
-[Send some test IOTA tokens](../tutorials/send-iota-tokens.md)
+[テスト用のIOTAトークンを送信する](../tutorials/send-iota-tokens.md)
+<!-- [Send some test IOTA tokens](../tutorials/send-iota-tokens.md) -->
 
-[Send a bundle of two zero-value transactions](root://iota-basics/0.1/how-to-guides/send-bundle.md) to learn how bundles are structured.
+バンドルがどのように構成されているかを知るために、[2つのゼロトークントランザクションのバンドルを送信する](root://iota-basics/0.1/how-to-guides/send-bundle.md)。
+<!-- [Send a bundle of two zero-value transactions](root://iota-basics/0.1/how-to-guides/send-bundle.md) to learn how bundles are structured. -->
 
-[Run your own node in a Docker container](../tutorials/run-your-own-iri-node.md) for direct access to the Tangle without relying on third parties.
+第三者に頼らずにタングルに直接アクセスするために、[Dockerコンテナ内で自分のノードを実行する](../tutorials/run-your-own-iri-node.md)。
+<!-- [Run your own node in a Docker container](../tutorials/run-your-own-iri-node.md) for direct access to the Tangle without relying on third parties. -->
