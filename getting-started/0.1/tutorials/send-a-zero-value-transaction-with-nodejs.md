@@ -75,7 +75,7 @@
     // Create a new instance of the IOTA object
     // Use the `provider` field to specify which IRI node to connect to
     const iota = Iota.composeAPI({
-    provider: 'https://nodes.devnet.iota.org:443'
+      provider: 'https://nodes.devnet.iota.org:443'
     });
     ```
 
@@ -124,10 +124,14 @@
     <!-- ::: -->
 
     :::info:
-    The `asciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error.
+    `asciiToTrytes()`メソッドは[基本的なASCII文字](https://en.wikipedia.org/wiki/ASCII#Printable_characters)のみをサポートします。その結果、アクセントやウムラウトなどの発音区別符号はサポートされず、`INVALID_ASCII_CHARS`エラーが発生します。
     :::
+    <!-- :::info: -->
+    <!-- The `asciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error. -->
+    <!-- ::: -->
 
-9. Create a transfer object that specifies the amount of IOTA tokens you want to send, the message that you want to send, and the address to send it to
+9. 送信するIOTAトークンの量、送信するメッセージ、および送信先のアドレスを指定する転送オブジェクトを作成します。
+  <!-- 9. Create a transfer object that specifies the amount of IOTA tokens you want to send, the message that you want to send, and the address to send it to -->
 
     ```js
     const transfers = [
@@ -139,7 +143,8 @@
     ];
     ```
 
-10. To construct a [bundle](../introduction/what-is-a-bundle.md) from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method. Then, pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md), and send the bundle to the [node](../introduction/what-is-a-node.md)
+10. `転送`オブジェクトから[バンドル](../introduction/what-is-a-bundle.md)を作成するには、それを[`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers)メソッドに渡します。次に、返されたバンドルのトライトを`sendTrytes()`メソッドに渡して、[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)、[プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)、および[ノード](../introduction/what-is-a-node.md)へのバンドル送信を行います。
+  <!-- 10. To construct a [bundle](../introduction/what-is-a-bundle.md) from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method. Then, pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md), and send the bundle to the [node](../introduction/what-is-a-node.md) -->
 
     ```js
     iota.prepareTransfers(seed, transfers)
@@ -156,14 +161,22 @@
     ```
 
     :::info:Depth
-    The `depth` argument affects tip selection. The greater the depth, the farther back in the Tangle the weighted random walk starts.
+    `depth`引数はチップ選択に影響します。depthが深ければ深いほど（タングルの奥に戻るほど）、重み付きランダムウォークが始まります。
     :::
+    <!-- :::info:Depth -->
+    <!-- The `depth` argument affects tip selection. The greater the depth, the farther back in the Tangle the weighted random walk starts. -->
+    <!-- ::: -->
 
     :::info:Minimum weight magnitude
-    The [`minimum weight magnitude`](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) argument affects the difficulty of proof of work (PoW). The greater the MWM, the more difficult the PoW.
-    
-    Every IOTA network enforces its own MWM. On the Devnet, the MWM is 9. But, on the Mainnet the MWM is 14. If you use a MWM that's too small, your transactions won't be valid and will never be confirmed.
+    [`minimum weight magnitude`](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)（MWM）は、フルーフオブワーク（PoW）の困難さに影響を与えます。 MWMが大きいほど、PoWはより困難になります。
+
+    すべてのIOTAネットワークはそれぞれのMWMを強制します。 Devnetでは、MWMは9です。一方、Mainnetでは、MWMは14です。小さすぎるMWMを使用すると、トランザクションは有効にならず、確定もされません。
     :::
+    <!-- :::info:Minimum weight magnitude -->
+    <!-- The [`minimum weight magnitude`](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) argument affects the difficulty of proof of work (PoW). The greater the MWM, the more difficult the PoW. -->
+    <!--  -->
+    <!-- Every IOTA network enforces its own MWM. On the Devnet, the MWM is 9. But, on the Mainnet the MWM is 14. If you use a MWM that's too small, your transactions won't be valid and will never be confirmed. -->
+    <!-- ::: -->
 
 :::success:Congratulations :tada:
 You've just sent your first zero-value transaction. Your transaction is attached to [the Tangle](../introduction/what-is-the-tangle.md), which makes your message immutable.
