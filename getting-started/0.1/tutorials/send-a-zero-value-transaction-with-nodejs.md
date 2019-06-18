@@ -56,9 +56,11 @@
     これで、`package.json`ファイルと、IOTAクライアントライブラリとその依存関係を含む`node_modules`ディレクトリができました。
     <!-- You now have a `package.json` file and a `node_modules` directory, which contains the IOTA client libraries and their dependencies. -->
 
-3. In the `iota-example` directory, create a new file called `data-transaction.js`
+3. `iota-example`ディレクトリに、`data-transaction.js`という新しいファイルを作成します。
+  <!-- 3. In the `iota-example` directory, create a new file called `data-transaction.js` -->
 
-4. Require the IOTA client libraries
+4. IOTAクライアントライブラリが必要です。
+  <!-- 4. Require the IOTA client libraries -->
 
     ```js
     // Require the IOTA libraries
@@ -66,6 +68,7 @@
     const Converter = require('@iota/converter');
     ```
 
+5. ノードに接続します。
 5. Connect to a node
 
     ```js
@@ -76,7 +79,8 @@
     });
     ```
 
-6. Create a variable to store the address to which you want to send a message
+6. メッセージを送信したいアドレスを格納するための変数を作成します。
+  <!-- 6. Create a variable to store the address to which you want to send a message -->
 
     ```js
     const address =
@@ -84,10 +88,14 @@
     ```
 
     :::info:
-    You aren't sending any IOTA tokens, so this address does not have to belong to anyone. To be valid, the address just needs to consist of 81 [trytes](root://iota-basics/0.1/concepts/trinary.md).
+    IOTAトークンを送信していないので、このアドレスは誰にも属している必要はありません。有効であるためには、アドレスはただ81[トライト](root://iota-basics/0.1/concepts/trinary.md)で構成されている必要があるだけです。
     :::
+    <!-- :::info: -->
+    <!-- You aren't sending any IOTA tokens, so this address does not have to belong to anyone. To be valid, the address just needs to consist of 81 [trytes](root://iota-basics/0.1/concepts/trinary.md). -->
+    <!-- ::: -->
 
-7. Create a variable to store your seed
+7. シードを保存するための変数を作成します。
+  <!-- 7. Create a variable to store your seed -->
 
     ```js
     const seed =
@@ -95,18 +103,25 @@
     ```
 
     :::info:
-    This seed doesn't have to contain any addresses with IOTA tokens. If you enter a seed that consists of less than 81 characters, the library will append 9s to the end of it to make 81 characters.
+    このシードはIOTAトークンを持つアドレスを含む必要はありません。 81文字未満のシードを入力した場合、ライブラリは末尾に9を追加して81文字にします。
     :::
+    <!-- :::info: -->
+    <!-- This seed doesn't have to contain any addresses with IOTA tokens. If you enter a seed that consists of less than 81 characters, the library will append 9s to the end of it to make 81 characters. -->
+    <!-- ::: -->
 
-8. Create a message that you want to send to the address and convert it to trytes
+8. アドレスに送信したいメッセージを作成し、メッセージをトライトに変換します。
+  <!-- 8. Create a message that you want to send to the address and convert it to trytes -->
 
     ```js
     const message = Converter.asciiToTrytes('Hello World!');
     ```
 
     :::info:
-    IOTA networks accept only [tryte-encoded](root://iota-basics/0.1/concepts/trinary.md) messages.
+    IOTAネットワークは、[トライトにエンコードされた](root://iota-basics/0.1/concepts/trinary.md)メッセージのみを受け入れます。
     :::
+    <!-- :::info: -->
+    <!-- IOTA networks accept only [tryte-encoded](root://iota-basics/0.1/concepts/trinary.md) messages. -->
+    <!-- ::: -->
 
     :::info:
     The `asciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error.
@@ -143,7 +158,7 @@
     :::info:Depth
     The `depth` argument affects tip selection. The greater the depth, the farther back in the Tangle the weighted random walk starts.
     :::
-    
+
     :::info:Minimum weight magnitude
     The [`minimum weight magnitude`](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) argument affects the difficulty of proof of work (PoW). The greater the MWM, the more difficult the PoW.
     
