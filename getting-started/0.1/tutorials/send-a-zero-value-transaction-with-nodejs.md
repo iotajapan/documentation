@@ -188,7 +188,7 @@
 コンソールには、送信した[バンドル](../introduction/what-is-a-bundle.md)に関する情報が表示されます。
 <!-- In the console, you'll see information about the the [bundle](../introduction/what-is-a-bundle.md) that you sent. -->
 
-バンドル内のトランザクションは、すべてのノードが各々の元帳にトランザクションを書き込むまで、ネットワーク内を伝搬します。
+バンドル内のトランザクションは、すべてのノードが各々の台帳にトランザクションを書き込むまで、ネットワーク内を伝搬します。
 <!-- The transaction in your bundle will propagate through the network until all the nodes have it in their ledgers. -->
 
 ## トランザクションがネットワーク上にあることを確認する
@@ -234,7 +234,7 @@
 ## 次のステップ
 <!-- ## Next steps -->
 
-[テスト用のIOTAトークンを送信する](../tutorials/send-iota-tokens.md)
+[テスト用のIOTAトークンを送信する](../tutorials/send-iota-tokens.md)。
 <!-- [Send some test IOTA tokens](../tutorials/send-iota-tokens.md) -->
 
 バンドルがどのように構成されているかを知るために、[2つのゼロトークントランザクションのバンドルを送信する](root://iota-basics/0.1/how-to-guides/send-bundle.md)。
