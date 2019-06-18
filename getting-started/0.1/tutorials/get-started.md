@@ -161,7 +161,7 @@ $ go get github.com/iotaledger/iota.go/api
 <!-- To test the libraries, you can connect to a node and request information about the Tangle from it by calling the `getNodeInfo()` method. -->
 
 :::info:
-ここでは、テストに使用できる[IOTAネットワーク](../references/iota-networks.md)の1つであるDevnet上のノードに接続します。 Devnetは、トークンが無料であること以外はMainnetとほとんど同じです。
+ここでは、テストに使用できる[IOTAネットワーク](../references/iota-networks.md)の1つであるDevnet上のノードに接続します。Devnetは、トークンが無料であること以外はMainnetと似ています。
 :::
 <!-- :::info: -->
 <!-- Here, we connect to a node on the Devnet, which is one of the [IOTA networks](../references/iota-networks.md) that you can use for testing. The Devnet is similar to the Mainnet, except the tokens are free. -->

@@ -1,45 +1,60 @@
-# Send your first message to the Tangle (Node.js)
+# 最初のメッセージをタングルに送信する（Node.js）
+<!-- # Send your first message to the Tangle (Node.js) -->
 
-**IOTA allows you to send data (zero-value) transactions as well as IOTA tokens. These zero-value transactions are useful for applications that want to send and store immutable messages on the Tangle. To send only a zero-value [transaction](../introduction/what-is-a-transaction.md), you don't need any IOTA tokens.**
+**IOTAを使用すると、IOTAトークンと同様にデータ（ゼロトークン）トランザクションを送信できます。これらのゼロトークントランザクションは、イミュータブルなメッセージをタングルに送信して保存したいアプリケーションに役立ちます。ゼロトークンの[トランザクション](../introduction/what-is-a-transaction.md)のみを送信するためには、IOTAトークンは必要ありません。**
+<!-- **IOTA allows you to send data (zero-value) transactions as well as IOTA tokens. These zero-value transactions are useful for applications that want to send and store immutable messages on the Tangle. To send only a zero-value [transaction](../introduction/what-is-a-transaction.md), you don't need any IOTA tokens.** -->
 
-To send any transaction, you must connect to a node, create a bundle, then send that bundle to it.
+トランザクションを送信するには、ノードに接続してバンドルを作成してからそのバンドルを送信する必要があります。
+<!-- To send any transaction, you must connect to a node, create a bundle, then send that bundle to it. -->
 
-## Prerequisites
+## 前提条件
+<!-- ## Prerequisites -->
 
-To complete this tutorial, you need the following:
+このチュートリアルを完了するには、次のものが必要です。
+<!-- To complete this tutorial, you need the following: -->
 
-* Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
-* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* Access to a command prompt
+* Node.js 8、またはNode.js 10以上。[最新のLTS](https://nodejs.org/en/download/)をお勧めします。
+<!-- * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
+* [Visual Studio Code](https://code.visualstudio.com/Download)のようなコードエディタ
+<!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
+* コマンドプロンプトへのアクセス
+<!-- * Access to a command prompt -->
+* インターネット接続
 * An Internet connection
 
-## Attach an immutable message to the Tangle
+## イミュータブルなメッセージをタングルに添付する
+<!-- ## Attach an immutable message to the Tangle -->
 
-In this example, we connect to a [Devnet node](../references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
+この例では、[Devnetノード](../references/iota-networks.md#devnet)に接続します。 Devnetは、トークンが無料であること以外はMainnetと似ています。Devnetに送信したトランザクションは、Mainnetのような他のネットワークには存在しません。
+<!-- In this example, we connect to a [Devnet node](../references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
 
-1. In the command prompt, create a working directory called `iota-example`
+1. コマンドプロンプトで、`iota-example`という作業ディレクトリを作成します。
+<!-- 1. In the command prompt, create a working directory called `iota-example` -->
 
-    ```bash
-    mkdir iota-example
-    ```
+  ```bash
+  mkdir iota-example
+  ```
 
-2. Change into the `iota-example` directory and install the `core` and `converter` IOTA client libraries
+2. `iota-example`ディレクトリに移動して、`core`および`converter`IOTAクライアントライブラリをインストールします。
+<!-- 2. Change into the `iota-example` directory and install the `core` and `converter` IOTA client libraries -->
 
-    ```bash
-    cd iota-example
-    npm install @iota/core @iota/converter --save
-    ```
+  ```bash
+  cd iota-example
+  npm install @iota/core @iota/converter --save
+  ```
 
-    If everything went well, you should see something like the following in the output. You can ignore any 'npm WARN' messages.
+  すべてうまくいけば、標準出力に次のようなものが表示されるはずです。 'npm WARN'メッセージは無視してかまいません。
+  <!-- If everything went well, you should see something like the following in the output. You can ignore any 'npm WARN' messages. -->
 
-    ```shell
-    + @iota/converter@1.0.0-beta.8
-    + @iota/core@1.0.0-beta.8
-    added 19 packages from 10 contributors and audited 68 packages in 5.307s
-    found 0 vulnerabilities
-    ```
+  ```shell
+  + @iota/converter@1.0.0-beta.8
+  + @iota/core@1.0.0-beta.8
+  added 19 packages from 10 contributors and audited 68 packages in 5.307s
+  found 0 vulnerabilities
+  ```
 
-    You now have a `package.json` file and a `node_modules` directory, which contains the IOTA client libraries and their dependencies.
+  これで、`package.json`ファイルと、IOTAクライアントライブラリとその依存関係を含む`node_modules`ディレクトリができました。
+  <!-- You now have a `package.json` file and a `node_modules` directory, which contains the IOTA client libraries and their dependencies. -->
 
 3. In the `iota-example` directory, create a new file called `data-transaction.js`
 
