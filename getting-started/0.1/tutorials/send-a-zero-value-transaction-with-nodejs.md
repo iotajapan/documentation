@@ -29,13 +29,14 @@
 <!-- In this example, we connect to a [Devnet node](../references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
 
 1. コマンドプロンプトで、`iota-example`という作業ディレクトリを作成します。
-<!-- 1. In the command prompt, create a working directory called `iota-example` -->
+  <!-- 1. In the command prompt, create a working directory called `iota-example` -->
 
   ```bash
   mkdir iota-example
   ```
 
 2. `iota-example`ディレクトリに移動して、`core`および`converter`IOTAクライアントライブラリをインストールします。
+  <!-- 2. Change into the `iota-example` directory and install the `core` and `converter` IOTA client libraries -->
 
     ```bash
     cd iota-example
