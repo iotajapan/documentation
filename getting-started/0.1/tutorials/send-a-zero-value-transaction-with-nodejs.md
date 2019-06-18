@@ -69,7 +69,7 @@
     ```
 
 5. ノードに接続します。
-5. Connect to a node
+  <!-- 5. Connect to a node -->
 
     ```js
     // Create a new instance of the IOTA object
@@ -88,7 +88,7 @@
     ```
 
     :::info:
-    IOTAトークンを送信しないので、このアドレスは誰にも属している必要はありません。有効であるために、アドレスはただ81[トライト](root://iota-basics/0.1/concepts/trinary.md)で構成されている必要があるだけです。
+    今回はIOTAトークンを送信しないので、このアドレスは誰にも属している必要はありません。アドレスが有効であるためには、ただ81[トライト](root://iota-basics/0.1/concepts/trinary.md)で構成されている必要があるだけです。
     :::
     <!-- :::info: -->
     <!-- You aren't sending any IOTA tokens, so this address does not have to belong to anyone. To be valid, the address just needs to consist of 81 [trytes](root://iota-basics/0.1/concepts/trinary.md). -->
