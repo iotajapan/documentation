@@ -88,7 +88,7 @@
     ```
 
     :::info:
-    IOTAトークンを送信していないので、このアドレスは誰にも属している必要はありません。有効であるためには、アドレスはただ81[トライト](root://iota-basics/0.1/concepts/trinary.md)で構成されている必要があるだけです。
+    IOTAトークンを送信しないので、このアドレスは誰にも属している必要はありません。有効であるために、アドレスはただ81[トライト](root://iota-basics/0.1/concepts/trinary.md)で構成されている必要があるだけです。
     :::
     <!-- :::info: -->
     <!-- You aren't sending any IOTA tokens, so this address does not have to belong to anyone. To be valid, the address just needs to consist of 81 [trytes](root://iota-basics/0.1/concepts/trinary.md). -->
@@ -103,7 +103,7 @@
     ```
 
     :::info:
-    このシードはIOTAトークンを持つアドレスを含む必要はありません。 81文字未満のシードを入力した場合、ライブラリは末尾に9を追加して81文字にします。
+    このシードはIOTAトークンを持つアドレスを含む必要がありません。 81文字未満のシードを入力した場合、ライブラリは末尾に9を追加して81文字にします。
     :::
     <!-- :::info: -->
     <!-- This seed doesn't have to contain any addresses with IOTA tokens. If you enter a seed that consists of less than 81 characters, the library will append 9s to the end of it to make 81 characters. -->
@@ -117,7 +117,7 @@
     ```
 
     :::info:
-    IOTAネットワークは、[トライトにエンコードされた](root://iota-basics/0.1/concepts/trinary.md)メッセージのみを受け入れます。
+    IOTAネットワークは、[トライトにエンコード](root://iota-basics/0.1/concepts/trinary.md)されたメッセージのみを受け入れます。
     :::
     <!-- :::info: -->
     <!-- IOTA networks accept only [tryte-encoded](root://iota-basics/0.1/concepts/trinary.md) messages. -->
