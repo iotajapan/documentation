@@ -38,23 +38,23 @@
 2. `iota-example`ディレクトリに移動して、`core`および`converter`IOTAクライアントライブラリをインストールします。
 <!-- 2. Change into the `iota-example` directory and install the `core` and `converter` IOTA client libraries -->
 
-  ```bash
-  cd iota-example
-  npm install @iota/core @iota/converter --save
-  ```
+    ```bash
+    cd iota-example
+    npm install @iota/core @iota/converter --save
+    ```
 
-  すべてうまくいけば、標準出力に次のようなものが表示されるはずです。 'npm WARN'メッセージは無視してかまいません。
-  <!-- If everything went well, you should see something like the following in the output. You can ignore any 'npm WARN' messages. -->
+    すべてうまくいけば、標準出力に次のようなものが表示されるはずです。 'npm WARN'メッセージは無視してかまいません。
+    <!-- If everything went well, you should see something like the following in the output. You can ignore any 'npm WARN' messages. -->
 
-  ```bash
-  + @iota/converter@1.0.0-beta.8
-  + @iota/core@1.0.0-beta.8
-  added 19 packages from 10 contributors and audited 68 packages in 5.307s
-  found 0 vulnerabilities
-  ```
+    ```shell
+    + @iota/converter@1.0.0-beta.8
+    + @iota/core@1.0.0-beta.8
+    added 19 packages from 10 contributors and audited 68 packages in 5.307s
+    found 0 vulnerabilities
+    ```
 
-  これで、`package.json`ファイルと、IOTAクライアントライブラリとその依存関係を含む`node_modules`ディレクトリができました。
-  <!-- You now have a `package.json` file and a `node_modules` directory, which contains the IOTA client libraries and their dependencies. -->
+    これで、`package.json`ファイルと、IOTAクライアントライブラリとその依存関係を含む`node_modules`ディレクトリができました。
+    <!-- You now have a `package.json` file and a `node_modules` directory, which contains the IOTA client libraries and their dependencies. -->
 
 3. In the `iota-example` directory, create a new file called `data-transaction.js`
 
