@@ -36,7 +36,6 @@
   ```
 
 2. `iota-example`ディレクトリに移動して、`core`および`converter`IOTAクライアントライブラリをインストールします。
-<!-- 2. Change into the `iota-example` directory and install the `core` and `converter` IOTA client libraries -->
 
     ```bash
     cd iota-example
