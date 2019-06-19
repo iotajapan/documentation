@@ -1,7 +1,7 @@
-# テストトークンを送信する
+# テストトークンを送信する（Node.js）
 <!-- # Send test IOTA tokens -->
 
-**あなたは商品やサービスと引き換えにIOTAトークンを誰かに送ることができます。このチュートリアルでは、あなたのアドレスの一つから他のアドレスへテストトークンを送ります。**
+**商品やサービスと引き換えにIOTAトークンを誰かに送ることができます。このチュートリアルでは、アドレスの一つから他のアドレスへテストトークンを送信します。**
 <!-- **You may want to send IOTA tokens to someone in exchange for goods or services. In this tutorial we send test tokens from one of your addresses to another.** -->
 
 ## 前提条件
@@ -102,7 +102,7 @@
     <!-- [Learn how a seed is used to prove ownership of an address](root://iota-basics/0.1/concepts/addresses-and-signatures.md). -->
     <!-- ::: -->
 
-7. シードから新しいアドレスを導出する。先ほどの無料のテストトークンをこのアドレスに送ります。
+7. シードから新しいアドレスを導出します。先ほどの無料のテストトークンをこのアドレスに送ります。
   <!-- 7. Derive a new address from your seed. You will send your tokens to this address. -->
 
     ```js
@@ -113,16 +113,17 @@
     ```
 
     :::warning:
-    これが使用済みのアドレス（以前に1回でもIOTAトークンを取り出したことがあるアドレス）ではないことを確認してください。
+    このアドレスが使用済みのアドレス（以前に1回でもIOTAトークンを取り出したことがあるアドレス）ではないことを確認してください。
 
-    [なぜIOTAトークンを取り出したアドレスを2度と使ってはならないのかを学ぶ](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)。
+    [なぜIOTAトークンを取り出したアドレスを使ってはならないのかを学ぶ](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)。
+    :::
     <!-- :::warning: -->
     <!-- Be sure that this is not a spent address (one that you have withdrawn from before). -->
     <!--  -->
     <!-- [Learn why you should never use spent addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). -->
     <!-- ::: -->
 
-8. 送信するIOTAトークンの量、トランザクションに追加するタグ、およびトークンの送信先アドレスを指定する転送オブジェクトを作成する。
+8. 送信するIOTAトークンの量、トランザクションに追加するタグ、およびトークンの送信先アドレスを指定する転送オブジェクトを作成します。
   <!-- 8. Create a transfer object that specifies the amount of IOTA tokens you want to send, the tag you want to add to the transaction, and the address to send the tokens to -->
 
     ```js

@@ -25,7 +25,7 @@
 ## イミュータブルなメッセージをタングルに添付する
 <!-- ## Attach an immutable message to the Tangle -->
 
-この例では、[Devnetノード](../references/iota-networks.md#devnet)に接続します。 Devnetは、トークンが無料であること以外はMainnetと似ています。Devnetに送信したトランザクションは、Mainnetのような他のネットワークには存在しません。
+この例では、[Devnetノード](../references/iota-networks.md#devnet)に接続します。 Devnetは、トークンが無料であること以外はMainnetとほぼ同じです。Devnetに送信したトランザクションは、Mainnetのような他のネットワークには存在しません。
 <!-- In this example, we connect to a [Devnet node](../references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
 
 1. コマンドプロンプトで、`iota-example`という作業ディレクトリを作成します。
@@ -75,7 +75,7 @@
     // Create a new instance of the IOTA object
     // Use the `provider` field to specify which IRI node to connect to
     const iota = Iota.composeAPI({
-      provider: 'https://nodes.devnet.iota.org:443'
+        provider: 'https://nodes.devnet.iota.org:443'
     });
     ```
 
