@@ -82,7 +82,7 @@ Linuxオペレーティングシステムを使用している場合は、以下
     https://docs.docker.com/get-started/
     ```
 
-3. 構築済みのDockerコンテナをダウンロードします。
+3. IRIを構築済みのDockerコンテナをダウンロードします。
   <!-- 3. Download the pre-built Docker container -->
 
     ```bash
