@@ -1,11 +1,11 @@
 # IOTAネットワーク
 <!-- # IOTA networks -->
 
-**IOTAでは、トランザクションのバンドルを[ノード](../introduction/what-is-a-node.md)に送信する必要があります。IOTAには、3つの[パブリックノードネットワーク](../references/iota-networks.md)があります。各ネットワークには、ノードがトランザクションを追加できるそれぞれ独自の分散台帳（タングル）があります。どのパブリックネットワーク上のノードにバンドルを接続して送信するかを選べます。**
+**IOTAでは、トランザクションのバンドルを[ノード](../introduction/what-is-a-node.md)に送信する必要があります。IOTAには、3つの[パブリックネットワーク](../references/iota-networks.md)があります。各ネットワークには、ノードがトランザクションを追加できるそれぞれ独自の分散台帳（タングル）があります。どのパブリックネットワーク上のノードにバンドルを接続して送信するかを選べます。**
 <!-- **In IOTA, bundles of transactions must be sent to [nodes](../introduction/what-is-a-node.md). IOTA has three [public networks](../references/iota-networks.md) of nodes. Each network has its own unique distributed ledger (the Tangle) that the nodes can append transactions to. You can choose to connect and send bundles to nodes on any public network.** -->
 
-IOTAには、以下の[無許可型（パブリック）ネットワーク](../introduction/what-is-dlt.md)があります。
-IOTA has the following [permissionless (public) networks](../introduction/what-is-dlt.md):
+IOTAには、以下の[無許可制（パブリック）ネットワーク](../introduction/what-is-dlt.md)があります。
+<!-- IOTA has the following [permissionless (public) networks](../introduction/what-is-dlt.md): -->
 * **Mainnet:** IOTAトークン
 * **Devnet:** Devnetトークン（無料）
 * **Spamnet:** Spamnetトークン（無料）
@@ -13,7 +13,7 @@ IOTA has the following [permissionless (public) networks](../introduction/what-i
 <!-- * **Devnet:** Devnet token (free) -->
 <!-- * **Spamnet:** Spamnet token (free) -->
 
-すべての無許可型ネットワークは、ノード、クライアント、およびコーディネーターで構成されています。
+すべての無許可制ネットワークは、ノード、クライアント、およびコーディネーターで構成されています。
 <!-- All permissionless networks consist of nodes, clients, and the Coordinator. -->
 
 :::info:
@@ -25,11 +25,11 @@ IOTA has the following [permissionless (public) networks](../introduction/what-i
 
 ## Mainnet
 
-暗号通貨交換からIOTAトークンを購入すると、購入したIOTAトークンはメインネットで有効になります。
+暗号資産取引所からIOTAトークンを購入すると、購入したIOTAトークンはメインネットで有効になります。
 <!-- When you buy IOTA tokens from a cryptocurrency exchange, those tokens are valid on the Mainnet. -->
 
 :::info:
-暗号通貨取引所では、IOTAトークンをメガIOTA（1,000,000）単位で販売しています。これはMIOTAまたはMiとも呼ばれます。
+暗号資産取引所では、IOTAトークンをメガIOTA（1,000,000）単位で販売しています。これはMIOTAまたはMiとも呼ばれます。
 
 [IOTAトークンの単位](root://iota-basics/0.1/references/units-of-iota-tokens.md)について詳しく学んでみましょう。
 :::
@@ -48,7 +48,7 @@ Mainnet上のトランザクションが有効であるためには、14の[mini
 
 ## Devnet
 
-Devnetは、トークンが無料であること以外はMainnetとほとんど同じです。
+Devnetは、トークンが無料であること以外はMainnetとほぼ同じです。
 <!-- The Devnet is similar to the Mainnet, except the tokens are free. -->
 
 Devnetネットワークでは、アプリケーションをテストして、無料のDevnetトークンを使用するPOCを構築できます。
