@@ -1,40 +1,57 @@
-# Run your own IRI node
+# 自分のIRIノードを走らせる（Docker）
+<!-- # Run your own IRI node -->
 
-**Nodes are the core of an IOTA network. Clients must send their transactions to nodes to have them validated and recorded in the ledger.**
+**ノードはIOTAネットワークの中核です。クライアントは、トランザクションをノードに送信して検証し、台帳に記録する必要があります。**
+<!-- **Nodes are the core of an IOTA network. Clients must send their transactions to nodes to have them validated and recorded in the ledger.** -->
 
-Without nodes, IOTA networks wouldn't exist. No one would be able to send transactions because there would be no way of recording who sent what to whom.
+ノードがなければ、IOTAネットワークは存在しません。誰が誰に何を送信したかを記録する方法がないため、トランザクションを送信することはできません。
+<!-- Without nodes, IOTA networks wouldn't exist. No one would be able to send transactions because there would be no way of recording who sent what to whom. -->
 
-By running your own IRI node, you have the following benefits:
-* You have your own direct access to a ledger on an IOTA network instead of having to connect to someone else's node
-* You help the IOTA network to become more distributed by adding to the number of ledgers and validating other users' transactions
+自分のIRIノードを実行することで、次のような利点があります。
+<!-- By running your own IRI node, you have the following benefits: -->
+* 他の誰かのノードに接続しなくても、IOTAネットワーク上の台帳に直接アクセスできます。
+<!-- * You have your own direct access to a ledger on an IOTA network instead of having to connect to someone else's node -->
+* 台帳の数を増やし、他のユーザーのトランザクションを検証することで、IOTAネットワークをより分散させることができます。
+<!-- * You help the IOTA network to become more distributed by adding to the number of ledgers and validating other users' transactions -->
 
-In this tutorial, you're going to run your own IRI node in a [Docker](https://www.docker.com/) container.
+このチュートリアルでは、[Docker](https://www.docker.com/)コンテナ内で自分のIRIノードを実行します。
+<!-- In this tutorial, you're going to run your own IRI node in a [Docker](https://www.docker.com/) container. -->
 
-The IRI Docker container is suitable for the following operating systems:
+IRI Dockerコンテナは、以下のオペレーティングシステムに適しています。
+<!-- The IRI Docker container is suitable for the following operating systems: -->
 * Linux
 * MacOSX
 * Windows
 
-If you're using a Linux operating system, add `sudo` before all the commands in the following tasks.
+Linuxオペレーティングシステムを使用している場合は、以下のタスクのすべてのコマンドの前に`sudo`を追加してください。
+<!-- If you're using a Linux operating system, add `sudo` before all the commands in the following tasks. -->
 
-## Prerequisites
+## 前提条件
+<!-- ## Prerequisites -->
 
-To complete this tutorial, you need the following:
+このチュートリアルを完了するには、次のものが必要です。
+<!-- To complete this tutorial, you need the following: -->
 
-* Access to a command prompt
-* An Internet connection
+* コマンドプロンプトへのアクセス
+<!-- * Access to a command prompt -->
+* インターネット接続
+<!-- * An Internet connection -->
 
-## Run an IRI node
+## IRIノードを走らせる
+<!-- ## Run an IRI node -->
 
-1. [Install Docker](https://docs.docker.com/install/#supported-platforms). If you're running a version of Mac or Windows that's older than the system requirements, install the [Docker toolbox](https://docs.docker.com/toolbox/overview/) instead.
+1. [Dockerをインストール](https://docs.docker.com/install/#supported-platforms)します。システム要件よりも古いバージョンのMacまたはWindowsを実行している場合は、代わりに[Docker Toolbox](https://docs.docker.com/toolbox/overview/)をインストールします。
+<!-- 1. [Install Docker](https://docs.docker.com/install/#supported-platforms). If you're running a version of Mac or Windows that's older than the system requirements, install the [Docker toolbox](https://docs.docker.com/toolbox/overview/) instead. -->
 
-2. Make sure that Docker is installed
+2. Dockerがインストールされていることを確認します。
+  <!-- 2. Make sure that Docker is installed -->
 
     ```bash
     docker run hello-world
     ```
 
-    You should see some Docker information like the following:
+    以下のようなDocker情報が表示されるはずです。
+    <!-- You should see some Docker information like the following: -->
 
     ```
     Unable to find image 'hello-world:latest' locally
@@ -65,27 +82,32 @@ To complete this tutorial, you need the following:
     https://docs.docker.com/get-started/
     ```
 
-3. Download the pre-built Docker container
+3. 構築済みのDockerコンテナをダウンロードします。
+  <!-- 3. Download the pre-built Docker container -->
 
     ```bash
     docker pull iotaledger/iri:latest
     ```
 
-4. Run the IRI
+4. IRIを実行します。
+  <!-- 4. Run the IRI -->
 
     ```bash
     docker run --name iri iotaledger/iri:latest --remote -p 14265
     ```
-    
-    Your IRI node is now running and you can interact with it through the [IRI API](root://iri/0.1/references/api-reference.md) at the following URL:
-    http://localhost.com:14265
 
-5. Use cURL to send a request to the [`getNodeInfo` endpoint](root://iri/0.1/references/api-reference.md#getNodeInfo)
+    IRIノードは現在実行中で、次のURL：http://localhost.com:14265 で[IRI API](root://iri/0.1/references/api-reference.md)を通してIRIノードと対話することができます。
+    <!-- Your IRI node is now running and you can interact with it through the [IRI API](root://iri/0.1/references/api-reference.md) at the following URL: -->
+    <!-- http://localhost.com:14265 -->
+
+5. cURLを使用して[`getNodeInfo` endpoint](root://iri/0.1/references/api-reference.md#getNodeInfo)にリクエストを送信します。
+  <!-- 5. Use cURL to send a request to the [`getNodeInfo` endpoint](root://iri/0.1/references/api-reference.md#getNodeInfo) -->
     ```bash
     curl http://localhost:14265 -X POST -H 'Content-Type: application/json' -H 'X-IOTA-API-Version: 1' -d '{"command": "getNodeInfo"}'
     ```
 
-    You should see something like the following in the output:
+    標準出力に次のようなものが表示されるはずです。
+    <!-- You should see something like the following in the output: -->
     ```json
     {
     "appName": "IRI",
@@ -112,12 +134,17 @@ To complete this tutorial, you need the following:
     }
     ```
 
-You'll notice in the output that the value of the `neighbors` field is 0. This means that your node is not connected to an IOTA network. To do so, you need to connect to [neighbors](root://iri/0.1/concepts/neighbor-iri-node.md).
+出力には、`neighbors`フィールドの値が0であることがわかります。これは、ノードがIOTAネットワークに接続されていないことを意味します。IOTAネットワークに接続するためには、[neighbors](root://iri/0.1/concepts/neighbor-iri-node.md)に接続する必要があります。
+<!-- You'll notice in the output that the value of the `neighbors` field is 0. This means that your node is not connected to an IOTA network. To do so, you need to connect to [neighbors](root://iri/0.1/concepts/neighbor-iri-node.md). -->
 
-For help connecting to neighbors, go to the #help or #nodesharing channel on our [Discord](https://discordapp.com/invite/fNGZXvh).
+neighborsと繋がるには、[Discord](https://discordapp.com/invite/fNGZXvh)の#helpまたは#nodesharingチャンネルにアクセスしてください。
+<!-- For help connecting to neighbors, go to the #help or #nodesharing channel on our [Discord](https://discordapp.com/invite/fNGZXvh). -->
 
-## Next steps
+## 次のステップ
+<!-- ## Next steps -->
 
-[Read more in-depth guides about running a node](root://iri/0.1/introduction/overview.md).
+[ノードの実行に関する詳細なガイドを読む](root://iri/0.1/introduction/overview.md)。
+<!-- [Read more in-depth guides about running a node](root://iri/0.1/introduction/overview.md). -->
 
-[Send your first data transaction](../tutorials/send-a-zero-value-transaction-with-nodejs.md) to a node that's connected to the Devnet network.
+Devnetネットワークに接続されているノードに[初めてのデータトランザクションを送信する](../tutorials/send-a-zero-value-transaction-with-nodejs.md)。
+<!-- [Send your first data transaction](../tutorials/send-a-zero-value-transaction-with-nodejs.md) to a node that's connected to the Devnet network. -->
