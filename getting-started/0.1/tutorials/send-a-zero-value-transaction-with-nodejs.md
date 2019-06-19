@@ -20,7 +20,7 @@
 * コマンドプロンプトへのアクセス
 <!-- * Access to a command prompt -->
 * インターネット接続
-* An Internet connection
+<!-- * An Internet connection -->
 
 ## イミュータブルなメッセージをタングルに添付する
 <!-- ## Attach an immutable message to the Tangle -->
