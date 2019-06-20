@@ -9,7 +9,6 @@
 [バンドルとトランザクション](/0.1/concepts/bundles-and-transactions.md)
 ## バンドルとトランザクションの詳細を学ぶ。
 
-
 [アドレス生成](/0.1/how-to-guides/create-an-address.md)
 ## JavaScriptクライアントライブラリを使って新しいアドレスを生成する。
 
