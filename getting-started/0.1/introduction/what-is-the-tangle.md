@@ -1,7 +1,7 @@
 # タングルとは？
 <!-- # What is the Tangle? -->
 
-**バンドルを送信する前に、トランザクションをネットワーク内の2つの既存のトランザクションに添付する必要があります。これを行うと、ノードは接続をたどって各トランザクションを見つけて検証できます。これらの接続は、タングルと呼ばれるデータ構造を形成します。 タングル内のトランザクションは、保留中または確定済みの2つの状態のいずれかになります。**
+**バンドルを送信する前に、トランザクションをネットワーク内の2つの既存のトランザクションに添付する必要があります。これを行うと、ノードは接続をたどって各トランザクションを見つけて検証できます。これらの接続は、タングルと呼ばれるデータ構造を形成します。 タングル内のトランザクションは、ペンディングまたは確定済みの2つの状態のいずれかになります。**
 <!-- **Before you send a bundle, you must attach your transactions to two existing ones in the network. You do this so that the node can walk on the connections to find and validate each transaction. These connections form a data structure that's called the Tangle. Transactions in the Tangle can be in one of two states: Pending or confirmed.** -->
 
 タングルは、各トランザクションが1つの頂点を表す一種の[有向非巡回グラフ](https://en.wikipedia.org/wiki/Directed_acyclic_graph)（DAG）を形成します。
@@ -24,7 +24,7 @@
 全ノードは、バンドル内のすべてのトランザクションが確定されるまでIOTAトークンを転送しません。
 <!-- Nodes do not transfer IOTA tokens until all transactions in the bundle are confirmed. -->
 
-保留状態から確定済み状態に移行するには、全ノードがトランザクションの状態について合意に達する必要があります。
+ペンディング状態から確定済み状態に移行するには、全ノードがトランザクションの状態について合意に達する必要があります。
 <!-- To go from a pending state to a confirmed state, nodes must reach consensus on the state of a transaction. -->
 
 現時点では、全ノードは**マイルストーン（コーディネータによって作成および送信されたトランザクション）によって直接的または間接的に参照された**トランザクションについてのみ合意に達します。
