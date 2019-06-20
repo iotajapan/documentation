@@ -153,8 +153,8 @@
     <!-- The `depth` argument affect tip selection. The greater the depth, the farther back in the Tangle the weighted random walk starts. -->
     <!-- ::: -->
 
-    :::info:Minimum weight magnitude
-    [`minimum weight magnitude`](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)（MWM）は、フルーフオブワーク（PoW）の困難さに影響を与えます。 MWMが大きいほど、PoWはより困難になります。
+    :::info:最小重量値
+    [`最小重量値`](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)（minimum weight magnitude、MWM）は、フルーフオブワーク（PoW）の困難さに影響を与えます。 MWMが大きいほど、PoWはより困難になります。
 
     すべてのIOTAネットワークはそれぞれのMWMを強制します。 Devnetでは、MWMは9です。一方、Mainnetでは、MWMは14です。小さすぎるMWMを使用すると、トランザクションは有効にならず、確定もされません。
     :::
@@ -201,5 +201,5 @@
 
 ## 次のステップ
 <!-- ## Next steps -->
-[トランザクションが確定したかどうかチェックする](root://iota-basics/0.1/how-to-guides/check-transaction-confirmation.md)。
+[トランザクションが確定したか確認する](root://iota-basics/0.1/how-to-guides/check-transaction-confirmation.md)。
 <!-- [Check if your transaction is confirmed](root://iota-basics/0.1/how-to-guides/check-transaction-confirmation.md). -->

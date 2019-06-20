@@ -41,9 +41,9 @@ IOTAには、以下の[無許可制（パブリック）ネットワーク](../i
 
 ![Mainnet configuration](../images/mainnet-configuration.png)
 
-### Minimum weight magnitude
+### 最小重量値
 
-Mainnet上のトランザクションが有効であるためには、14の[minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)（MWM）を使用しなければなりません。
+Mainnet上のトランザクションが有効であるためには、14の[最小重量値](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)（MWM）を使用しなければなりません。
 <!-- Transactions on the Mainnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 14 to be valid. -->
 
 ## Devnet
@@ -63,9 +63,9 @@ Devnetネットワークでは、アプリケーションをテストして、�
 
 ![Devnet Configuration](../images/devnet-configuration.png)
 
-### Minimum weight magnitude
+### 最小重量値
 
-Devnet上のトランザクションが有効になるには、9の[minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)（MWM）を使用する必要があります。
+Devnet上のトランザクションが有効になるには、9の[最小重量値](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)（MWM）を使用する必要があります。
 <!-- Transactions on the Devnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 9 to be valid. -->
 
 Mainnetと比較して、9のMWMは[プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)（PoW）が完了するのにかかる時間を短縮します。そのため、トランザクションを作成して送信するのにかかる時間と計算能力が少なく済みます。
@@ -126,9 +126,9 @@ PoWノードを使用して小型デバイスの電力を節約します。
 
 ![Spamnet configuration](../images/spamnet-topology.png)
 
-### Minimum weight magnitude
+### 最小重量値
 
-Spamnet上のトランザクションが有効になるには、7の[minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)（MWM）を使用する必要があります。 Mainnetと比較して、このMWMは[プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)（PoW）が完了するのにかかる時間を短縮します。そのため、トランザクションを作成して送信するのにかかる時間と計算能力が少なく済みます。
+Spamnet上のトランザクションが有効になるには、7の[最小重量値](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)（MWM）を使用する必要があります。 Mainnetと比較して、このMWMは[プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)（PoW）が完了するのにかかる時間を短縮します。そのため、トランザクションを作成して送信するのにかかる時間と計算能力が少なく済みます。
 <!-- Transactions on the Spamnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 7 to be valid. Compared to the Mainnet, this MWM reduces the time it takes for [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) (PoW) to be completed. So, it takes less time and computational power to create and send a transaction. -->
 
 ### IRIノード
