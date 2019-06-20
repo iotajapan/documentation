@@ -7,7 +7,7 @@
 ## クライアント
 <!-- ## Clients -->
 
-口座番号と分類コードのように、IOTAのアドレスは、各シードごとの固有の81文字（[トライト](../concepts/trinary.md)）の文字列です。
+口座番号と分類コードのように、IOTAのアドレスは、各シードに固有の81文字（[トライト](../concepts/trinary.md)）の文字列です。
 <!-- Like an account number and sort code, an address in IOTA is a unique string of 81 characters ([trytes](../concepts/trinary.md)) that are unique to each seed. -->
 
 :::info:
@@ -52,7 +52,7 @@ IOTA[クライアントライブラリ](root://client-libraries/0.1/introduction
 ノードを本当に信頼して良いかどうか疑問に思うかもしれません。結局のところ、ノードに接続することがタングルから読み書きする唯一の方法です。ノードが[`getBalances`](root://iri/0.1/references/api-reference.md#getBalances)などのAPIエンドポイントへの応答を改ざんするとどうなるのでしょうか？自分の本当の残高がどのようなものであるかをどのようにして知るのでしょうか？
 <!-- You might be wondering how you can trust a node. After all, connecting to a node is the only way to read from and write to the Tangle. What if a node were to change the response to an API endpoint such as [`getBalances`](root://iri/0.1/references/api-reference.md#getBalances)? How would you know what your real balance is? -->
 
-IOTAは[分散台帳技術](root://getting-started/0.1/introduction/what-is-dlt.md)です。分散という言葉が重要です。ノードがトランザクションを受け取り、検証し、台帳に追加しても、そこで停止することはありません。 IOTAプロトコルは、すべてのノードが隣接ノードと呼ばれる他のノードにトランザクションを転送しなければなりません。このようにして、すべてのノードが一貫したトランザクションの分散型台帳を受信、検証、および保存することで、個々を信頼する必要性がなくなります。その結果、あるノードが怪しい場合は、複数のノードにリクエストを送信し、返されたデータから整合性を確認することができます。
+IOTAは[分散型台帳技術](root://getting-started/0.1/introduction/what-is-dlt.md)です。分散という言葉が重要です。ノードがトランザクションを受け取り、検証し、台帳に追加しても、そこで停止することはありません。 IOTAプロトコルは、すべてのノードが隣接ノードと呼ばれる他のノードにトランザクションを転送しなければなりません。このようにして、すべてのノードが一貫したトランザクションの分散型台帳を受信、検証、および保存することで、個々を信頼する必要性がなくなります。その結果、あるノードが怪しい場合は、複数のノードにリクエストを送信し、返されたデータから整合性を確認することができます。
 <!-- Well, IOTA is a [distributed ledger technology](root://getting-started/0.1/introduction/what-is-dlt.md). The word _distributed_ is the key. When a node receives a transaction, validates it, and appends it to its ledger, it doesn't stop there. The IOTA protocol states that all nodes must forward transactions onto other nodes, called their neighbors. This way, all nodes receive, validate, and store a consistent, distributed ledger of transactions, removing the need to trust any individual. As a result, you can send requests to multiple nodes and check the consistency of the returned data. -->
 
 ### 不変性
@@ -61,10 +61,10 @@ IOTAは[分散台帳技術](root://getting-started/0.1/introduction/what-is-dlt.
 ノードがトランザクションを変更できないのはなぜでしょう？
 <!-- What stops a node from being able to change a transaction? -->
 
-トランザクションの不変性への最初のステップは、トランザクションを81トライトのハッシュ値に変換することです。このハッシュ値はトランザクションに固有のものです。トランザクションの内容の1文字でも変更されると、ハッシュ値は無効になります。
+トランザクションの不変性への最初のステップは、トランザクションを81トライトのハッシュ値に変換することです。このハッシュ値はトランザクションに固有のものです。トランザクションの内容の1文字でも変更すると、ハッシュ値は無効になります。
 <!-- The first step to transaction immutability is to hash its contents into 81 trytes. This hash is unique to the transaction. If one character of the transaction's contents were to be changed, the hash would be invalid. -->
 
-次のステップは、`branchTransaction`フィールドと`trunkTransaction`フィールドのトランザクションハッシュを参照して、トランザクション（子）を他の2つ（子の親）に接続することです。その時、子トランザクションの運命はその親にバインドされます。どちらかの親の内容が変更されると、その親のトランザクションのハッシュ値は無効になり、子も無効になります。
+次のステップは、`branchTransaction`フィールドと`trunkTransaction`フィールドのトランザクションハッシュ値を参照して、トランザクション（子）を他の2つ（子の親）に接続することです。その時、子トランザクションの運命はその親にバインドされます。どちらかの親の内容が変更されると、その親のトランザクションのハッシュ値は無効になり、子も無効になります。
 <!-- The next step is to connect the transaction (called a child) to two others (called its parents) by referencing their transaction hashes in the `branchTransaction` and `trunkTransaction` fields. Now, the fate of the child transaction is bound to its parent. If the contents of either parents change, their transaction hashes will be invalid, making the child invalid. -->
 
 台帳のこのつながった構造は、[タングル](root://the-tangle/0.1/introduction/overview.md)と呼ばれるもので、チップトランザクションと呼ばれる新しい孤児（親を持たないトランザクション）が、2人の親を参照する必要があるトランザクションハッシュ値のタングル集合です。その結果、トランザクションの子の数が多いほど、関連付けられているトランザクションのハッシュ値が多くなり、不変のものと見なされます。
@@ -85,7 +85,7 @@ IOTAは[分散台帳技術](root://getting-started/0.1/introduction/what-is-dlt.
 これらのフィールドの親は、[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)中にノードによって選択されます。これはノードがある古いトランザクションから開始し、親を持たないトランザクション（チップトランザクション）が見つかるまで、その子、孫などを辿るプロセスです。
 <!-- The parents in these fields are chosen by a node during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md). A process where a node starts from an old transaction and traverses its children, grandchildren, and so on, until it finds one without any parents (the selected tip). -->
 
-トランザクションを辿っている間、ノードは[辿っている最中のバンドル全体を検証する](root://iri/0.1/concepts/transaction-validation.md#bundle-validator)必要があります。結果として、ノードはチップトラザクションの履歴を検証し、それらのトランザクションハッシュ値を参照することで、**子はその親のバンドルと子に関連した全体の履歴を承認します**。
+トランザクションを辿っている間、ノードは[辿っている最中のバンドル全体を検証する](root://iri/0.1/concepts/transaction-validation.md#bundle-validator)必要があります。結果として、ノードはチップトラザクションの履歴を検証し、それらのトランザクションハッシュ値を参照することで、**子はその親のバンドルと子に関連したすべての履歴を承認します**。
 <!-- While traversing transactions, the node must [validate their entire bundle](root://iri/0.1/concepts/transaction-validation.md#bundle-validator). As a result, by having the node validate the history of the tip transactions and by referencing their transaction hashes, **a child approves its parents' bundles and their entire history**. -->
 
 すべてのバンドルが2つの新しいバンドルを承認するため、ネットワーク内のバンドルが多いほど、新しいバンドルが早く承認されます。
