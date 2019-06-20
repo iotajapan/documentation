@@ -10,7 +10,7 @@
 
 [コンセプト/再添付、再ブロードキャスト、促進](/concepts/reattach-rebroadcast-promote.md)
 
-[コンセプト/三進法](/concepts/trinary.md)
+[コンセプト/3進法](/concepts/trinary.md)
 
 [ハウツーガイド/データをトライトへ変換する](/how-to-guides/convert-data-to-trytes.md)
 
@@ -30,7 +30,7 @@
 
 [参考文献/セキュリティレベル](/references/security-levels.md)
 
-[参考文献/トライト文字列](/references/tryte-alphabet.md)
+[参考文献/トライト文字列表](/references/tryte-alphabet.md)
 
 [参考文献/IOTAトークンの単位](/references/units-of-iota-tokens.md)
 
