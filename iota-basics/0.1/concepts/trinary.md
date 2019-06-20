@@ -1,7 +1,7 @@
 # 3進法
 <!-- # Trinary -->
 
-**IOTAは、3進数値システムに従ってデータを表します。2進数と比較すると、2進数計算ではなく3つの状態でデータを表すことができるため、2進数計算より効率的です。**
+**IOTAは、3進数システムに従ってデータを表します。2進数と比較すると、2値計算ではなく3つの状態でデータを表すことができるため、2進数計算より効率的です。**
 <!-- **IOTA represents data according to the trinary numeric system. Compared to binary, trinary computing is more efficient as it can represent data in three states rather then just two.** -->
 
 2進数では、データは1または0として表すことができます。これらの値はビットと呼ばれます。8ビットは1バイトに相当し、256（2<sup>8</sup>）個の値を取ります。
