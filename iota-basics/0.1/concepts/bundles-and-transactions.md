@@ -7,7 +7,7 @@
 バンドル内の各トランザクションは、IOTAプロトコルに従って[構造化](../references/structure-of-a-transaction.md)され、すべてのトランザクションフィールドに対して有効な値を含んでいる必要があります。
 <!-- Each transaction in a bundle must be [structured](../references/structure-of-a-transaction.md) according to the IOTA protocol and contain valid values for all the transaction fields. -->
 
-トランザクションがバンドルにパッケージ化されると、バンドル内での位置を定義する`currentIndex`フィールドと、バンドルの終わり（先頭）を定義する`lastIndex`フィールドの両方が与えられます。次に、先頭トランザクションを除くバンドル内の各トランザクションは、`trunkTransaction`フィールドを介して互いに接続されます。次に、各トランザクションの`address`、`value`、`obsoleteTag`、`currentIndex`、`lastIndex`、および`timestamp`の各フィールドの値が、スポンジ関数によって吸収されて圧搾され、81トライトのバンドルハッシュ値が生成されます。このバンドルハッシュ値は、パッケージを一纏めにするために各トランザクションのバンドルフィールドに含まれています。
+トランザクションがバンドルにパッケージ化されると、バンドル内での位置を定義する`currentIndex`フィールドと、バンドルの終わり（先頭トランザクション）を定義する`lastIndex`フィールドの両方が与えられます。次に、先頭トランザクションを除くバンドル内の各トランザクションは、`trunkTransaction`フィールドを介して互いに接続されます。次に、各トランザクションの`address`、`value`、`obsoleteTag`、`currentIndex`、`lastIndex`、および`timestamp`の各フィールドの値が、スポンジ関数によって吸収され圧搾され、81トライトのバンドルハッシュ値が生成されます。このバンドルハッシュ値は、パッケージを一纏めにするために各トランザクションのバンドルフィールドに含まれています。
 <!-- When a transaction is packaged in a bundle, it's given both a `currentIndex` field, which defines its place in the bundle, and a `lastIndex` field, which defines the end of the bundle (head). Next, each transaction in the bundle, except the head, is [connected to each other](../references/structure-of-a-bundle.md) through the `trunkTransaction` field. Then, the values of each transaction's `address`, `value`, `obsoleteTag`, `currentIndex`, `lastIndex` and `timestamp` fields are absorbed and squeezed by a cryptographic sponge function to produce an 81-tryte bundle hash. This bundle hash is included in each transaction's `bundle` field to seal the package. -->
 
 バンドルは不可分です。つまり、バンドル内のトランザクションのいずれかが変更された場合、各トランザクションのバンドルハッシュ値は無効になります。
@@ -16,14 +16,14 @@
 バンドルを不可分にする必要がある理由を説明するために、次の例を挙げます。
 <!-- To explain why bundles need to be atomic, take this example. -->
 
-オンラインで精算をするとして、支払うべき合計が10Miとします。あなたのシードは2つのアドレス（インデックス0と1）を持ち、両方とも5Miを含みます。したがって、3つの取引を作成します。アドレス0から5Miを取り出す入力トランザクション、アドレス1から5Miを取り出す入力トランザクション、およびベンダーのアドレスに10Miを支払う出力トランザクションです。（入力トランザクションの両方のアドレスがセキュリティレベル1の秘密鍵から作成されたものとします。そのため、署名は各入力トランザクションに含まれています。）
+オンラインで精算をするとして、支払うべき合計が10Miとします。あなたのシードは2つのアドレス（インデックス0と1）を持ち、両方とも5Miを含みます。したがって、3つのトランザクションを作成します。アドレス0から5Miを取り出す入力トランザクション、アドレス1から5Miを取り出す入力トランザクション、およびベンダーのアドレスに10Miを支払う出力トランザクションです。（入力トランザクションの両方のアドレスがセキュリティレベル1の秘密鍵から作成されたものとします。そのため、署名は各入力トランザクションに含まれています。）
 <!-- You're at an online checkout and the total to pay is 10Mi. Your seed has 2 addresses (index 0 and 1), which both contain 5Mi. So, you create three transactions: One input transaction to withdraw 5Mi from address 0, another input transaction to withdraw 5Mi from address 1, and one output transaction to deposit 10Mi to the vendor's address. (We'll assume that both addresses in the input transactions were created from a private key with security level 1, so the signatures can fit in each transaction.) -->
 
 ベンダーが10Miを受け取るには、これら3つのトランザクションすべてが有効でなければなりません。各トランザクションは、IOTAトークンを転送するという全体的な目標を達成するために、互いの有効性に依存する連続的な命令です。
 <!-- For the vendor to receive 10Mi, all three of those transactions must be valid. They're sequential instructions that rely on each other's validity to achieve the overall goal of transferring IOTA tokens. -->
 
 :::info:
-バンドルにパッケージ化する必要があるのは複数のトランザクションだけではありません。
+バンドルにパッケージ化する必要があるのは、複数のトランザクションだけではありません。
 1つのトランザクションでも、パッケージ化する必要があります。
 :::
 <!-- :::info: -->
@@ -33,7 +33,7 @@
 ## 取り出しと預け入れ
 <!-- ## Withdrawals and deposits -->
 
-バンドルは、任意の数の取り出しと預け入れのトランザクションで構成できます。ただし、[プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)には時間とリソースが関係しているため、バンドル内で最大30のトランザクションを推奨します。
+バンドルは、任意の数の取り出しと預け入れのトランザクションで構成できます。ただし、[プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)には時間とリソースが関係しているため、バンドル内で最大30個のトランザクションを推奨します。
 <!-- A bundle can consist of any number of withdrawals and deposits. However because of the time and resources that are involved during [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md), we recommend a maximum of 30 transactions in a bundle. -->
 
 ### 入力トランザクション
@@ -60,10 +60,10 @@
 
 * `signatureMessageFragment`フィールドにメッセージのみを含むゼロトークントランザクション
 <!-- * A zero-value transactions that contains only a message in the `signatureMessageFragment` field -->
-* IOTAトークンをアドレスに預け入れる正の値を持つトランザクション
+* IOTAトークンを目的のアドレスに預け入れる正の値を持つトランザクション
 <!-- * A transaction with a positive value that deposits IOTA tokens into an address -->
 
-バンドルには複数の出力トランザクションを含めることができます。出力トランザクション内のメッセージが`signatureMessageFragment`フィールドよりも大きい場合、そのメッセージは他のゼロトークン出力トランザクションにまたがって分断化される可能性があります。
+バンドルには複数の出力トランザクションを含めることができます。出力トランザクション内のメッセージが`signatureMessageFragment`フィールド（2187トライト）よりも大きい場合、そのメッセージは他のゼロトークン出力トランザクションにまたがって分断化される可能性があります。
 <!-- Bundles can contain multiple output transactions. If a message in an output transaction is larger than the `signatureMessageFragment` field, the message can be fragmented across other zero-value output transactions. -->
 
 :::info:
@@ -98,11 +98,6 @@ IOTAトークンを預け入れるトランザクションは、IOTAトークン
 | 0 | 受信者のアドレス | 80（受信者への送信量）|
 | 1 | 送信者のアドレスと署名 | -100（送信者のアドレスのトークン合計量 マイナス表示される）|
 | 2 | 残りのIOTAトークンを転送するためのアドレス（通常は送信者のアドレスの1つ）| 20（トランザクション1の送信者のアドレスの残りのトークン量）|
-<!-- | Transaction index | Transaction contents                                                     | Transaction value                                          | -->
-<!-- | ----- | ------------------------------------------------------------------------- | --------------------------------------------------------------- | -->
-<!-- | 0     | Recipient's address                       | 80 (sent to the recipient's address)                    | -->
-<!-- | 1     | Sender's address and its signature | -100 (the total balance of the sender's address as a negative value) | -->
-<!-- | 2    | An address for the transfer of the remaining IOTA tokens (usually one of the sender's addresses)                      | 20 (remainder of the sender's address in transaction 1)                          | -->
 
 ### セキュリティレベル2のアドレスからの取り出し
 <!-- ### Withdraw from address with security level 2 -->
@@ -116,12 +111,6 @@ IOTAトークンを預け入れるトランザクションは、IOTAトークン
 | 1 | 送信者のアドレスと署名の1番目の断片 | -100（送信者のアドレスのトークン合計量 マイナス表示される）|
 | 2 | 送信者のアドレスと署名の最後の断片 | 0 |
 | 3 | 残りのIOTAトークンを転送するためのアドレス（通常は送信者のアドレスの1つ）| 20（トランザクション1の送信者のアドレスの残りのトークン量）|
-<!-- | Transaction index | Transaction contents                                                     | Transaction value                                          | -->
-<!-- | ----- | ------------------------------------------------------------------------- | --------------------------------------------------------------- | -->
-<!-- | 0     | Recipient's address                       | 80 (sent to the recipient's address)                    | -->
-<!-- | 1     | Sender's address and the first part of its signature | -100 (the total balance of the sender's address as a negative value) | -->
-<!-- | 2     | Sender's address and the rest of its signature                                        | 0                                                               | -->
-<!-- | 3     | An address for the transfer of the remaining IOTA tokens (usually one of the sender's addresses)                      | 20 (remainder of the sender's address in transaction 1)                          | -->
 
 ### セキュリティレベル3のアドレスからの取り出し
 <!-- ### Withdraw from an address with security level 3 -->
@@ -136,10 +125,3 @@ IOTAトークンを預け入れるトランザクションは、IOTAトークン
 | 2 | 送信者のアドレスと署名の2番目の断片 | 0 |
 | 3 | 送信者のアドレスと署名の最後の断片 | 0 |
 | 4 | 残りのIOTAトークンを転送するためのアドレス（通常は送信者のアドレスの1つ）| 20（トランザクション1の送信者のアドレスの残りのトークン量）|
-<!-- | Transaction index | Transaction contents                                                     | Transaction value                                          | -->
-<!-- | ----- | ------------------------------------------------------------------------- | --------------------------------------------------------------- | -->
-<!-- | 0     | Recipient's address                       | 80 (sent to the recipient's address)                    | -->
-<!-- | 1     | Sender's address and the first part of its signature | -100 (the total balance of the sender's address as a negative value) | -->
-<!-- | 2     | Sender's address and the second part of its signature                                         | 0                                                               | -->
-<!-- | 3    | Sender's address and the rest of its signature                                         | 0                                                               | -->
-<!-- | 4     | An address for the transfer of the remaining IOTA tokens (usually one of the sender's addresses)                             | 20 (remainder of the sender's address in transaction 1)                          | -->
