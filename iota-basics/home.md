@@ -1,6 +1,6 @@
 # IOTAネットワークを使い始める前に習得する必要がある新しい概念を紹介します。
 
-[IOTAの基本的全体像](/0.1/introduction/overview.md)
+[IOTAの基本概要](/0.1/introduction/overview.md)
 ## IOTAの重要事項を学び、基本的な用語と概念に慣れる。
 
 [アドレスと署名](/0.1/concepts/addresses-and-signatures.md)
