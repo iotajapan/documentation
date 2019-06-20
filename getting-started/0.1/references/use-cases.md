@@ -1,13 +1,14 @@
-# Use cases
+# ユースケース
+<!-- # Use cases -->
 
-**This table displays some applications that are already using IOTA.**
+**この表には、すでにIOTAを使用したアプリケーションが表示されています。**
+<!-- **This table displays some applications that are already using IOTA.** -->
 
-
-| **Company**  | **Description** |  **References** |
+| **会社**  | **説明** |  **参考文献** |
 | :-------:| :-------:| :---------: |
-| bIOTAsphere|bIOTAsphere connected a Tesla car to an IOTA network. The car buys dynamic insurance with IOTA tokens |[YouTube video that showcases this use case](https://www.youtube.com/watch?v=2zvrA5KqeYw) |
-| High Mobility| High Mobility develop a standardized API platform for vehicles. This API can be combined with IOTA to create connected vehicle applications on the Tangle.|[High Mobility website](https://high-mobility.com/get-started) |
-| iampass|iampass is an identity and access management system that authenticates users by taking an encrypted scan of their palms and checking for that data on an IOTA network  | [iampass website](https://iampass.io/)|
-|+CityxChange consortium |CityxChange consortium is a project that builds smart cities that use IOTA as the secure data transfer layer |[+CityxChange website](http://cityxchange.eu/)|
-eCl@ss|eCl@ss is cooperating with IOTA to share and store ISO/IEC-compliant product classifications and descriptions|[eCl@ss website](https://www.eclass.eu/en/association/cooperation.html)|
-|Elaadnl| Elaadnl is creating electric car chargers that accept payment in IOTA tokens| [Elaadnl website](https://www.elaad.nl/news/worlds-first-iota-charging-station-released/)
+|bIOTAsphere|bIOTAsphereがTesla車をIOTAネットワークに接続しました。自動車はIOTAトークンで動的保険を購入します。|[ユースケースを紹介するYouTubeビデオ](https://www.youtube.com/watch?v=2zvrA5KqeYw)|
+|High Mobility| High Mobilityは、自動車用の標準化されたAPIプラットフォームを開発しています。このAPIをIOTAと組み合わせて、タングル上にコネクテッドカーアプリケーションを作成できます。|[High Mobilityウェブサイト](https://high-mobility.com/get-started)|
+|iampass|iampassは、手のひらの静脈を暗号化してスキャンし、IOTAネットワーク上でそのデータをチェックすることでユーザーを認証するIDおよびアクセス管理システムです。| [iampass ウェブサイト](https://iampass.io/)|
+|+CityxChange consortium |CityxChangeコンソーシアムは、安全なデータ転送層としてIOTAを使用するスマートシティを構築するプロジェクトです。|[+CityxChangeウェブサイト](http://cityxchange.eu/)|
+|eCl@ss|eCl@ssはIOTAと協力してISO/IECに準拠した製品分類および説明を共有および保存しています。|[eCl@ssウェブサイト](https://www.eclass.eu/en/association/cooperation.html)|
+|Elaadnl|Elaadnlは、IOTAトークンでの支払いを受け入れる電気自動車の充電器を作成しています。|[Elaadnlウェブサイト](https://www.elaad.nl/news/worlds-first-iota-charging-station-released/)
