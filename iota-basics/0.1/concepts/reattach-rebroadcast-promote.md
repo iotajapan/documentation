@@ -19,7 +19,7 @@
 トランザクションが10分以上ペンディングの場合は、バンドルを再添付することをお勧めします。10分以上が経過すると、バンドルの末尾トランザクションが他のトランザクションのチップ選択で選択される可能性が低くなり、確定する可能性も低くなります。
 <!-- You may want to reattach a bundle if its transactions have been pending for more than ten minutes. After this time, the tail transaction in the pending bundle is unlikely to be selected during tip selection, which makes it unlikely to be confirmed. -->
 
-IOTAトークンを転送するバンドルを再添付すると、確定されるのは1つだけです。二重支出につながるので、他方のトランザクションはペンディングのままになります。
+IOTAトークンを転送するバンドルを再添付すると、確定されるのは1つだけです。二重支出につながるので、一方のトランザクションはペンディングのままになります。
 <!-- When you reattach a bundle that transfers IOTA tokens, only one will ever be confirmed. The others will remain pending because they will lead to double-spends. -->
 
 ## 再ブロードキャスト
