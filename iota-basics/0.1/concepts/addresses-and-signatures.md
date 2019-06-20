@@ -16,7 +16,7 @@ IOTAネットワークを使用するには、クライアントは[シードを
 秘密鍵とアドレスの各ペアには、独自のインデックスと[セキュリティレベル](../references/security-levels.md)があります。セキュリティレベルは秘密鍵の長さに影響します。セキュリティレベルが高いほど、秘密鍵が長くなり、トランザクションの署名がより安全になります。
 <!-- Each pair of private keys and addresses has its own index and [security level](../references/security-levels.md). The security level affects the length of the private key. The greater the security level, the longer the private key, and the more secure a transaction's signature. -->
 
-IOTAでは、署名方法の性質上、[各アドレスから一度だけしかIOTAトークンを取り出さない方が良い](#address-reuse)ため、秘密鍵とアドレスのペアが複数個必要となります。そのため、アドレスからIOTAトークンを取り出すたびに、インデックスをインクリメントするかセキュリティレベルを変更して、[新しいアドレスを作成する](../how-to-guides/create-an-address.md)必要があります。
+IOTAでは、署名方法の性質上、[各アドレスから1度だけしかIOTAトークンを取り出さない方が良い](#address-reuse)ため、秘密鍵とアドレスのペアが複数個必要となります。そのため、アドレスからIOTAトークンを取り出すたびに、インデックスをインクリメントするかセキュリティレベルを変更して、[新しいアドレスを作成する](../how-to-guides/create-an-address.md)必要があります。
 <!-- In IOTA, multiple pairs of private keys and addresses are needed because [each address can be withdrawn from (spent) only once](#address-reuse). So, each time you withdraw from an address, you must [create a new address](../how-to-guides/create-an-address.md) by either incrementing the index or changing the security level. -->
 
 :::info:
@@ -48,7 +48,7 @@ IOTAでは、署名方法の性質上、[各アドレスから一度だけしか
 
     hash(seed + index)
 
-秘密鍵を導出するために、サブシードは[スポンジ関数](https://en.wikipedia.org/wiki/Sponge_function)に渡されます。スポンジ関数はサブシードを1度吸収し、セキュリティレベルごとに27回圧搾されます（セキュリティレベル1だと27回、セキュリティレベル2だと54回、セキュリティレベル3だと81回圧搾されます）。
+秘密鍵を導出するために、サブシードは[スポンジ関数](https://en.wikipedia.org/wiki/Sponge_function)に渡されます。スポンジ関数はサブシードを1度吸収し、セキュリティレベルごとに27回圧搾します（セキュリティレベル1だと27回、セキュリティレベル2だと54回、セキュリティレベル3だと81回圧搾します）。
 <!-- To derive a private key, the subseed is passed to a [cryptographic sponge function](https://en.wikipedia.org/wiki/Sponge_function), which absorbs it and squeezes it 27 times per security level. -->
 
 スポンジ関数の結果が、秘密鍵であり、[セキュリティレベル](../references/security-levels.md)に応じて、2,187、4,374、または6,561トライトとなります。
@@ -98,22 +98,22 @@ IOTAでは、署名方法の性質上、[各アドレスから一度だけしか
 <a id="address-reuse"></a>
 
 :::danger:使用済みアドレス
-1つのアドレスを2回以上取り出しとして使用すると、より多くの秘密鍵が漏洩するため、攻撃者はその署名に総当たり攻撃を行いIOTAトークンを盗むことができます。
+1つのアドレスから2回以上IOTAトークンを取り出すと（署名すると）、より多くの秘密鍵が漏洩するため、攻撃者はその署名に総当たり攻撃を行いIOTAトークンを盗むことができます。
 :::
 <!-- :::danger:Spent addresses -->
 <!-- If an address is withdrawn from (spent) more than once, more of the private key is revealed, so an attacker could brute force its signature and steal the IOTA tokens. -->
 <!-- ::: -->
 
-秘密鍵が持つキーフラグメントの数に応じて、27、54、または81トライトの正規化されるバンドルハッシュが選択されます。（正規化されるバンドルハッシュは、バンドルをハッシュ関数に通したダイジェストの前方から27トライト分、54トライト分、81トライト分。）これらのトライトはキーフラグメント内のセグメントの個数に対応しています。
+秘密鍵が持つキーフラグメントの数に応じて、27、54、または81トライトの正規化バンドルハッシュが選択されます。これらのトライトはキーフラグメント内のセグメントの個数に対応しています。
 <!-- Depending on the number of key fragments that a private key has, 27, 54, or 81 trytes of the normalized bundle hash are selected. These trytes correspond to the number of segments in a key fragment. -->
 
-正規化されるバンドルハッシュの各トライトは、[10進数に変換](../references/tryte-alphabet.md)されます。そして、それぞれについて次の計算が実行されます。
+正規化バンドルハッシュの各トライトは、[10進数に変換](../references/tryte-alphabet.md)されます。そして、それぞれについて次の計算が実行されます。
 <!-- The selected trytes of the normalized bundle hash are [converted to their decimal values](../references/tryte-alphabet.md). Then, the following calculation is performed on each of them: -->
 
     13 - 10進数の値
     <!-- 13 - decimal value -->
 
-この計算結果は、署名フラグメントを導出するためにキーフラグメント内の27個のセグメントそれぞれがハッシュ化されなければならない回数です。各署名フラグメントには2,187トライトが含まれています。
+この計算結果は、署名フラグメントを導出するためにキーフラグメント内の27個のセグメントそれぞれがハッシュ化される回数です。各署名フラグメントには2,187トライトが含まれています。
 <!-- The result of this calculation is the number of times that each of the 27 segments in the key fragment must be hashed to derive the signature fragment. Each signature fragment contains 2,187 trytes. -->
 
 トランザクションの[`signatureMessageFragment`フィールド](../references/structure-of-a-transaction.md)に含めることができるのは2187トライトだけなので、1より大きいセキュリティレベルを持つインプットアドレスは、ゼロトークンのアウトプットトランザクションの`signatureMessageFragment`フィールドに残りの署名を分けて入れる必要があります。
@@ -128,19 +128,19 @@ IOTAでは、署名方法の性質上、[各アドレスから一度だけしか
 署名を検証するために、トランザクションのバンドルハッシュは正規化されます。
 <!-- To verify a signature, the bundle hash of a transaction is normalized. -->
 
-署名の長さに応じて、正規化されたバンドルハッシュの27、54、または81トライトが選択されます。これらのトライトは、署名フラグメント内の81トライトセグメントの数に対応しています。
+署名の長さに応じて、正規化バンドルハッシュの27、54、または81トライトが選択されます。これらのトライトは、署名フラグメント内の81トライトセグメントの数に対応しています。
 <!-- Depending on the length of the signature, 27, 54, or 81 trytes of the normalized bundle hash are selected. These trytes correspond to the number of 81-tryte segments in a signature fragment. -->
 
-正規化されるバンドルハッシュの各トライトは[10進数に変換](../references/tryte-alphabet.md)されます。そして、それぞれについて次の計算が実行されます。
+正規化バンドルハッシュの各トライトは[10進数に変換](../references/tryte-alphabet.md)されます。そして、それぞれについて次の計算が実行されます。
 <!-- The selected trytes of the normalized bundle hash are [converted to decimal values](../references/tryte-alphabet.md). Then, the following calculation is performed on each of them: -->
 
     13 + 10進数の値
     <!-- 13 + decimal value -->
 
-この計算の結果は、署名フラグメント内の27個のセグメントからキーフラグメントを導出するためにハッシュ化されなければならない回数です。
+この計算の結果は、署名フラグメント内の27個のセグメントからキーフラグメントを導出するために、各セグメントをハッシュ化する回数です。
 <!-- The result of this calculation is the number of times that each of the 27 segments in the signature fragments must be hashed to derive the key fragments. -->
 
-各キーフラグメントは、キーダイジェストを導出するために1回ハッシュ化されます。キーダイジェストは結合され、81トライトのアドレスを導出するために1回ハッシュ化されます。
+各キーフラグメントは、キーダイジェストを導出するために1回ハッシュ化されます。そしてキーダイジェストは結合され、81トライトのアドレスを導出するために1回ハッシュ化されます。
 <!-- Each key fragment is hashed once to derive the **key digests**, which are combined and hashed once to derive an 81-tryte address. -->
 
 こうやって導出したアドレスがトランザクションのアドレスと一致する場合、署名は有効であり、IOTAトークンの取り出しは受け入れられます。
