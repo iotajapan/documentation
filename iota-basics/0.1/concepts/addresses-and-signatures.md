@@ -4,7 +4,7 @@
 **IOTAネットワーク内の各クライアントには、シードと呼ばれる秘密のパスワードがあります。シードは、アドレスの導出とバンドルの署名に使用されます。アドレスはIOTAトークンを保持するアカウントで、署名はアドレスの所有権を証明します。**
 <!-- **Each client in an IOTA network has a secret password called a seed, which is used to derive addresses and to sign bundles. Addresses are the accounts that hold IOTA tokens and signatures prove ownership of an address.** -->
 
-IOTAネットワークを使用するには、クライアントは[シードを作成して秘密にする](root://getting-started/0.1/tutorials/create-a-seed.md)必要があります。シードとは、クライアントにアドレスへのアクセスを許可する81[トライト](../references/tryte-alphabet.md)の文字列です。
+IOTAネットワークを使用するには、クライアントは[シードを作成して秘密にする](root://getting-started/0.1/tutorials/get-started.md)必要があります。シードとは、クライアントにアドレスへのアクセスを許可する81[トライト](../references/tryte-alphabet.md)の文字列です。
 <!-- To use an IOTA network, clients must [create a seed and keep it private](root://getting-started/0.1/tutorials/get-started.md). A seed is a string of 81 [trytes](../references/tryte-alphabet.md) that gives a client access to addresses. -->
 
 シードは、IOTAプロトコルの暗号学的ハッシュ関数のマスターキーです。各シードは、ほぼ無制限の固有の秘密鍵とアドレス（9<sup>57</sup>個）を導出することができます。
