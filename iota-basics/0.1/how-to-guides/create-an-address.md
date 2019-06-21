@@ -62,7 +62,7 @@
     <!-- ::: -->
 
 4. アドレスを作成するために、`seed`変数を`getNewAddress()`メソッドに渡します。
-<!-- 4. Pass the `seed` variable to the `getNewAddress()` method to create an address -->
+  <!-- 4. Pass the `seed` variable to the `getNewAddress()` method to create an address -->
 
     ```js
     iota.getNewAddress(seed, {index: 0, security: 2})
