@@ -137,19 +137,19 @@
 
     :::info:トランクトランザクションとブランチトランザクションは、親トランザクションと呼ばれます。
 
-    [バンドル内のすべてのトランザクションは、それらの`trunkTransaction`フィールドの値によって接続されています](../references/structure-of-a-bundle.md)。トランザクション0の`trunkTransaction`ハッシュ値は、トランザクション1のトランザクションハッシュ値（`hash`）と同じであることがわかります。
+    [バンドル内のすべてのトランザクションは、それらの`trunkTransaction`フィールドの値によって接続されています](../references/structure-of-a-bundle.md)。トランザクション0の`trunkTransaction`ハッシュは、トランザクション1のトランザクションハッシュ（`hash`）と同じであることがわかります。
     :::
     <!-- :::info:Trunk and branch transactions are called parent transactions. -->
     <!--  -->
     <!-- [All transactions in a bundle are connected through the value of their `trunkTransaction` fields](../references/structure-of-a-bundle.md). You should see that the `trunkTransaction` hash of transaction 0 is the same as the transaction hash (`hash`) of transaction 1. -->
     <!-- ::: -->
 
-6. 1番目のトランザクションの詳細を見るには、1番目のトランザクションのハッシュ値をコピーして[devnet.thetangle.org](https://devnet.thetangle.org/)に貼り付けます。これらの詳細は、Webサイトが接続しているノードから供給されています。
+6. 1番目のトランザクションの詳細を見るには、1番目のトランザクションのハッシュをコピーして[devnet.thetangle.org](https://devnet.thetangle.org/)に貼り付けます。これらの詳細は、Webサイトが接続しているノードから供給されています。
   <!-- 6. To see details about your first transaction, copy the hash of the first transaction and paste it into [devnet.thetangle.org](https://devnet.thetangle.org/). These details have been sourced from the nodes that the website is connected to. -->
 
     ![Transaction in a Tangle explorer](../images/tangle-explorer.PNG)
 
-7. 2番目のトランザクションの詳細を表示するには、`Parent transactions`までスクロールしてTrunkのハッシュ値をクリックします。
+7. 2番目のトランザクションの詳細を表示するには、`Parent transactions`までスクロールしてTrunkのハッシュをクリックします。
   <!-- 7. To see details about your second transaction, scroll down to 'Parent transactions' and click the Trunk hash -->
 
     ![Trunk transaction in a Tangle explorer](../images/tangle-explorer-trunk.PNG)

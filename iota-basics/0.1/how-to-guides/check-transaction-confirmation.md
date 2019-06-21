@@ -12,7 +12,7 @@
 <!-- ::: -->
 
 :::info:
-コーディネーター、マイルストーン、または確定という用語に慣れていない場合は、[タングルについて](root://the-tangle/0.1/introduction/overview.md)を読むことをお勧めします。
+コーディネーター、マイルストーン、または確定という用語に慣れていない場合は、[タングル概略](root://the-tangle/0.1/introduction/overview.md)を読むことをお勧めします。
 :::
 <!-- :::info: -->
 <!-- If you're unfamiliar with the terms Coordinator, milestone, or confirmation, we recommend that you [read about the Tangle](root://the-tangle/0.1/introduction/overview.md). -->
@@ -59,7 +59,7 @@
   <!-- 3. Go to [devnet.thetangle.org](https://devnet.thetangle.org/) and find a confirmed transaction -->
 
     :::info:確定したトランザクションが見つかりませんか？
-    `Latest milestones`欄でトランザクションハッシュ値をクリックし、次にブランチトランザクションハッシュ値をクリックします。このトランザクションはマイルストーンによって参照および承認されているため、確定済みの状態です。
+    `Latest milestones`欄でトランザクションハッシュをクリックし、次にブランチトランザクションハッシュをクリックします。このトランザクションはマイルストーンによって参照および承認されているため、確定済みの状態です。
     :::
     <!-- :::info:Can't find a confirmed transaction? -->
     <!-- Click a transaction hash in the Latest milestones box, then click the branch transaction hash. This transaction is referenced and approved by the milstone, so it is in a confirmed state. -->
@@ -73,7 +73,7 @@
     .then(states => console.log(states));
     ```
 
-    ファイルを実行すると、`true`のブーリアンを含む配列が表示されます。これは、トランザクションが確定されたことを意味します。
+    ファイルを実行すると、`true`のブーリアンを含む配列が表示されます。これは、トランザクションが確定されていることを意味します。
     <!-- When you execute the file, you should see an array that contains the `true` boolean, meaning that the transaction is confirmed. -->
 
     :::info:
@@ -87,13 +87,13 @@
   <!-- 5. Go to [devnet.thetangle.org](https://devnet.thetangle.org) and find a pending transaction -->
 
     :::info:ペンディング中のトランザクションが見つかりませんか？
-    `Latest transactions`欄でトランザクションハッシュ値をクリックします。このトランザクションはチップなので、ペンディング状態にあります。
+    `Latest transactions`欄でトランザクションハッシュをクリックします。このトランザクションはチップなので、ペンディング状態にあります。
     :::
     <!-- :::info:Can't find a pending transaction? -->
     <!-- Click a transaction hash in the Latest transactions box. This transaction is a tip, so it is in a pending state. -->
     <!-- ::: -->
 
-6. トランザクションハッシュ値を`getLatestInclusion()`メソッドに渡して、IRIノードの最新のソリッドサブタングルマイルストーンが承認したかどうかを確認します。
+6. トランザクションハッシュを`getLatestInclusion()`メソッドに渡して、IRIノードの最新のソリッドサブタングルマイルストーンが承認したかどうかを確認します。
   <!-- 6. Pass the transaction hash to the `getLatestInclusion()` method to check if the IRI node's latest solid subtangle milestone approves it -->
 
     ```js
