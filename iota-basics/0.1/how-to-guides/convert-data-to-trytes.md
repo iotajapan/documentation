@@ -4,7 +4,7 @@
 **トランザクションフィールドの値は、トライトで表現する必要があります。データ変換を容易にするために、IOTAクライアントライブラリには、トライト、トリット、およびASCII文字との間でデータを変換するための組み込みコンバータがあります。**
 <!-- **The values of transaction fields must be represented in trytes. To facilitate data conversion, the IOTA client libraries have built-in functions to convert data to/from trytes, trits, and ASCII characters.** -->
 
-:::info:クライアントライブラリを初めて使用する場合
+:::info:クライアントライブラリを初めて使用されますか？
 公式クライアントライブラリを使い始めるための[クイックスタートガイド](root://getting-started/0.1/tutorials/get-started.md)を試してください。
 :::
 <!-- :::info:First time using a client library? -->
@@ -21,8 +21,6 @@
 <!-- * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
 * [Visual Studio Code](https://code.visualstudio.com/Download)のようなコードエディタ
 <!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
-* コマンドプロンプトへのアクセス
-<!-- * Access to a command prompt -->
 * インターネット接続
 <!-- * An Internet connection -->
 
