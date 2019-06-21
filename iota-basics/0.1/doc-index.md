@@ -2,15 +2,15 @@
 
 [序説/概要](/introduction/overview.md)
 
-[コンセプト/アドレスと署名](/concepts/addresses-and-signatures.md)
+[概念/アドレスと署名](/concepts/addresses-and-signatures.md)
 
-[コンセプト/バンドルとトランザクション](/concepts/bundles-and-transactions.md)
+[概念/バンドルとトランザクション](/concepts/bundles-and-transactions.md)
 
-[コンセプト/最小重量値](/concepts/minimum-weight-magnitude.md)
+[概念/最小重量値](/concepts/minimum-weight-magnitude.md)
 
-[コンセプト/再添付、再ブロードキャスト、促進](/concepts/reattach-rebroadcast-promote.md)
+[概念/再添付、再ブロードキャスト、促進](/concepts/reattach-rebroadcast-promote.md)
 
-[コンセプト/3進法](/concepts/trinary.md)
+[概念/3進法](/concepts/trinary.md)
 
 [ハウツーガイド/データをトライトへ変換する](/how-to-guides/convert-data-to-trytes.md)
 
