@@ -93,10 +93,10 @@
 [`isPromotable()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.isPromotable)メソッドは、末尾トランザクションが矛盾していないことと、最新の6マイルストーンより前に末尾トランザクションがタングルに添付されていないことを確認します。
 <!-- The [`isPromotable()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.isPromotable) method checks if the tail transaction is consistent and was not attached to the Tangle before the most recent 6 milestones. -->
 
-末尾トランザクションが促進可能であれば、[`encourageTransaction()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.promoteTransaction)メソッドは末尾トランザクションを促進します。
+末尾トランザクションが促進可能であれば、[`promoteTransaction()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.promoteTransaction)メソッドは末尾トランザクションを促進します。
 <!-- If the tail transaction is promotable, the [`promoteTransaction()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.promoteTransaction) method promotes it. -->
 
-末尾トランザクションが促進できない場合は、[`replayBundle()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.replayBundle)メソッドがバンドルを再添付し、後で確定されたかどうかを確認するために、新しい再添付されたバンドルの末尾トランザクションハッシュを`tails`配列に追加します。
+末尾トランザクションが促進できない場合は、[`replayBundle()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.replayBundle)メソッドがバンドルを再添付し、後で確定されたかどうかを確認するために、新しく再添付されたバンドルの末尾トランザクションハッシュを`tails`配列に追加します。
 <!-- If the tail transaction isn't promotable, the [`replayBundle()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.replayBundle) method reattaches the bundle, then the new reattached bundle's tail transaction hash is added to the `tails` array so that it can be checked for confirmation later on. -->
 
 ```js
@@ -123,22 +123,22 @@ function autoPromoteReattach (tail) {
 }
 ```
 
-### 手順 3. 定期的に確定を確認する関数を作成する
+### 手順 3. 定期的に確定したかを確認する関数を作成する
 <!-- ### Step 3. Create a function to check for confirmation at regular intervals -->
 
 末尾トランザクション配列が確定しかたどうかを定期的にチェックできるようにするには、`setInterval()`関数に渡すことができる関数が必要です。
 <!-- To be able to check the array of tail transactions for confirmation at regular intervals, you need a function that can be passed to a `setInterval()` function. -->
 
-[`getLatestInclusion()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getLatestInclusion)メソッドは、配列内の末尾トランザクションのいずれかが確定されたかどうかを確認します。いずれかのトランザクションが確定された場合、このメソッドは`true`を返します。
+[`getLatestInclusion()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getLatestInclusion)メソッドは、配列内の末尾トランザクションのいずれかが確定しているかどうかを確認します。いずれかの末尾トランザクションが確定している場合、このメソッドは`true`を返します。
 <!-- The [`getLatestInclusion()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getLatestInclusion) method checks if any of the tail transactions in the array have been confirmed. If any of the transactions have been confirmed this method returns `true`. -->
 
 `tail`変数は、最新の再添付したバンドルをさらに促進または再添付できるように、最新の末尾トランザクションを配列に格納します。
 <!-- The `tail` variable stores the last tail transaction in the array so that the latest reattachment can be promoted or reattached. -->
 
-末尾トランザクションがまだ確定されていない場合は、`tail`変数が[`autoPromoteReattach()`](#create-a-function-to-auto-promote-and-auto-reattach-bundles)関数に渡されます。
+末尾トランザクションがまだ確定していない場合は、`tail`変数が上記で作成した[`autoPromoteReattach()`](#create-a-function-to-auto-promote-and-auto-reattach-bundles)関数に渡されます。
 <!-- If none of the tail transactions have been confirmed yet, the `tail` variable is passed to the [`autoPromoteReattach()`](#create-a-function-to-auto-promote-and-auto-reattach-bundles) function. -->
 
-末尾トランザクションが確定された場合、確定に要した分数とともにコンソールに記録されます。
+末尾トランザクションが確定した場合、確定に要した分数とともにコンソールに記録されます。
 <!-- If a tail transaction has been confirmed, it's logged to the console along with the number of minutes it took to confirm. -->
 
 ```js
@@ -152,7 +152,7 @@ console.log(tails);
                 const tail = tails[tails.length - 1]
                 autoPromoteReattach(tail);
             } else {
-                console.log(JSON.stringify(states,null, 1));
+                console.log(JSON.stringify(states, null, 1));
                 clearInterval(interval);
                 clearInterval(timer);
                 var minutes = (seconds / 60).toFixed(2);
@@ -174,7 +174,7 @@ console.log(tails);
 <!-- Click the green button to run the sample code in this guide and see the results in the web browser. -->
 
 このサンプルコードを実行する前に、ペンディング中の末尾トランザクションハッシュを見つけ、それを`tails`配列に格納します。
-<!-- Before you run this sample code, find a pending tail transaction hash and store it in the `tails` array. -->
+  <!-- Before you run this sample code, find a pending tail transaction hash and store it in the `tails` array. -->
 
     :::info:ペンディング中のトランザクションが見つかりませんか?
     [devnet.thetangle.org](https://devnet.thetangle.org)に行き、`Latest transactions`欄でトランザクションハッシュをクリックします。このトランザクションはチップなので、ペンディング状態にあります。
