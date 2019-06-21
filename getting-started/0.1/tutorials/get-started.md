@@ -181,9 +181,9 @@ const iota = Iota.composeAPI({
 
 // Call the `getNodeInfo()` method for information about the node and the Tangle
 iota.getNodeInfo()
-  // Convert the returned object to JSON to make the output more readable
-  .then(info => console.log(JSON.stringify(info, null, 1)))
-  .catch(err => {
+// Convert the returned object to JSON to make the output more readable
+.then(info => console.log(JSON.stringify(info, null, 1)))
+.catch(err => {
     // Catch any errors
     console.log(err);
 });

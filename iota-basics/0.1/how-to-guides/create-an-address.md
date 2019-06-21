@@ -66,7 +66,7 @@
 
     ```js
     iota.getNewAddress(seed, {index: 0, security: 2})
-      .then(address => console.log(address));
+    .then(address => console.log(address));
     ```
 
     ファイルを実行すると、アドレスが表示されます。スクリプトをもう一度実行すると、同じシード、インデックス、およびセキュリティレベルから導出しているため、同じアドレスが表示されます。

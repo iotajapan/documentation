@@ -104,11 +104,11 @@
 
     ```js
     iota.prepareTransfers(seed, [transfer1, transfer2])
-      .then(function(trytes){
-          return iota.sendTrytes(trytes, 3, 9);
+    .then(function(trytes){
+        return iota.sendTrytes(trytes, 3, 9);
     })
 
-      .then(results => console.log(JSON.stringify(results, ['hash', 'currentIndex', 'lastIndex', 'bundle', 'trunkTransaction', 'branchTransaction'], 1)));
+    .then(results => console.log(JSON.stringify(results, ['hash', 'currentIndex', 'lastIndex', 'bundle', 'trunkTransaction', 'branchTransaction'], 1)));
     ```
 
     コンソールに、送信したバンドルに関する情報が表示されます。`currentIndex`フィールドは、バンドル内のトランザクションの位置です。`lastIndex`フィールドは、バンドル内の最後のトランザクションです。`lastIndex`フィールドは、バンドル内のトランザクションの総数を表します。
