@@ -5,7 +5,7 @@
 <!-- **The values of transaction fields must be represented in trytes. To facilitate data conversion, the IOTA client libraries have built-in functions to convert data to/from trytes, trits, and ASCII characters.** -->
 
 :::info:クライアントライブラリを初めて使用されますか？
-公式クライアントライブラリを使い始めるための[クイックスタートガイド](root://getting-started/0.1/tutorials/get-started.md)を試してください。
+公式クライアントライブラリを使い始めるための[クイックスタートガイド](root://getting-started/0.1/tutorials/get-started.md)をお試してください。
 :::
 <!-- :::info:First time using a client library? -->
 <!-- [Try our quickstart guide](root://getting-started/0.1/tutorials/get-started.md) for getting started with the official client libraries. -->

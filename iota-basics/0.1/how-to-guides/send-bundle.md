@@ -2,10 +2,10 @@
 <!-- # Send a bundle of zero-value transactions -->
 
 **トランザクションは、ノードに送信される前にバンドルにまとめられる必要があります。 IOTAクライアントライブラリには、転送オブジェクトからバンドルを作成する組み込み関数があります。**
-**Transactions must be packaged in a bundle before being sent to a node. The IOTA client libraries have built-in functions that create bundles from transfer objects.**
+<!-- **Transactions must be packaged in a bundle before being sent to a node. The IOTA client libraries have built-in functions that create bundles from transfer objects.** -->
 
 :::info:クライアントライブラリを初めて使用されますか？
-公式クライアントライブラリを使い始めるための[クイックスタートガイド](root://getting-started/0.1/tutorials/get-started.md)を試してください。
+公式クライアントライブラリを使い始めるための[クイックスタートガイド](root://getting-started/0.1/tutorials/get-started.md)をお試してください。
 :::
 <!-- :::info:First time using a client library? -->
 <!-- [Try our quickstart guide](root://getting-started/0.1/tutorials/get-started.md) for getting started with the official client libraries. -->

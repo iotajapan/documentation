@@ -5,7 +5,7 @@
 <!-- **By using a client library to derive addresses from private keys, you can gain a better understanding of the relationship among addresses, private keys, and security levels.** -->
 
 :::info:クライアントライブラリを初めて使用されますか？
-公式クライアントライブラリを使い始めるための[クイックスタートガイド](root://getting-started/0.1/tutorials/get-started.md)を試してください。
+公式クライアントライブラリを使い始めるための[クイックスタートガイド](root://getting-started/0.1/tutorials/get-started.md)をお試してください。
 :::
 <!-- :::info:First time using a client library? -->
 <!-- [Try our quickstart guide](root://getting-started/0.1/tutorials/get-started.md) for getting started with the official client libraries. -->
