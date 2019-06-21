@@ -167,7 +167,7 @@
     console.log(Iota.generateAddress(seed, 0 /*index*/, 3 /*security level*/));
     ```
 
-    ステップ8からのアドレスと同じアドレスが標準出力に表示されます。
+    ステップ5のアドレスと同じアドレスが標準出力に表示されます。
     <!-- You should see the same addresses in the output as those from step 8. -->
 
 :::success:おめでとうございます:tada:
