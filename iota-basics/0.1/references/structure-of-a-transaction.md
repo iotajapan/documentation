@@ -16,9 +16,9 @@
 | `timestamp` | integer | Unix時間：協定世界時（UTC）での1970年1月1日からの経過秒数（強制されていないため任意） | 9 |
 | `currentIndex` | integer | バンドル中のトランザクションインデックス | 9 |
 | `lastIndex` | integer | バンドル中の最後のトランザクションのインデックス | 9 |
-| `bundle` | string | バンドルのハッシュ値 | 81 |
-| `trunkTransaction` | string | 親トランザクションのトランザクションハッシュ値 | 81 |
-| `branchTransaction` | string | 親トランザクションのトランザクションハッシュ値 | 81 |
+| `bundle` | string | バンドルのハッシュ | 81 |
+| `trunkTransaction` | string | 親トランザクションのトランザクションハッシュ | 81 |
+| `branchTransaction` | string | 親トランザクションのトランザクションハッシュ | 81 |
 | `attachmentTag` | string | ユーザーが決められるタグ | 27 |
 | `attachmentTimestamp` | integer | UNIX時間：POW後の協定世界時（UTC）での1970年1月1日からのミリ秒 | 9 |
 | `attachmentTimestampLowerBound` | integer | `attachmentTimestamp`フィールドの下限（現在使用されていません） | 9 |
