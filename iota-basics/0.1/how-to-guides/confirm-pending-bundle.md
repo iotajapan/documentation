@@ -173,8 +173,8 @@ console.log(tails);
 このガイドのサンプルコードを実行してWebブラウザに結果を表示するには、緑色のボタンをクリックします。
 <!-- Click the green button to run the sample code in this guide and see the results in the web browser. -->
 
+<!-- Before you run this sample code, find a pending tail transaction hash and store it in the `tails` array. -->
 このサンプルコードを実行する前に、ペンディング中の末尾トランザクションハッシュを見つけ、それを`tails`配列に格納します。
-  <!-- Before you run this sample code, find a pending tail transaction hash and store it in the `tails` array. -->
 
     :::info:ペンディング中のトランザクションが見つかりませんか?
     [devnet.thetangle.org](https://devnet.thetangle.org)に行き、`Latest transactions`欄でトランザクションハッシュをクリックします。このトランザクションはチップなので、ペンディング状態にあります。
