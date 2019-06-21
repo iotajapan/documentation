@@ -21,6 +21,8 @@
 <!-- * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
 * [Visual Studio Code](https://code.visualstudio.com/Download)のようなコードエディタ
 <!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
+* コマンドプロンプトへのアクセス
+<!-- * Access to a command prompt -->
 * インターネット接続
 <!-- * An Internet connection -->
 
@@ -34,7 +36,7 @@
   <!-- 1. Require the IOTA client library -->
 
     ```js
-    const Iota = require('@iota/converter');
+    const Converter = require('@iota/converter');
     ```
 
 2. メッセージを保持するための変数を作成する。
