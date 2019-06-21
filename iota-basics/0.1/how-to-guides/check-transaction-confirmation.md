@@ -12,7 +12,7 @@
 <!-- ::: -->
 
 :::info:
-コーディネーター、マイルストーン、または確定という用語に慣れていない場合は、[タングル概略](root://the-tangle/0.1/introduction/overview.md)を読むことをお勧めします。
+コーディネーター、マイルストーン、または確定という用語に慣れていない場合は、[タングル概要](root://the-tangle/0.1/introduction/overview.md)を読むことをお勧めします。
 :::
 <!-- :::info: -->
 <!-- If you're unfamiliar with the terms Coordinator, milestone, or confirmation, we recommend that you [read about the Tangle](root://the-tangle/0.1/introduction/overview.md). -->

@@ -22,7 +22,7 @@
 
 [ハウツーガイド/トランザクションが確定したか確認する](/how-to-guides/check-transaction-confirmation.md)
 
-[ハウツーガイド/保留中のバンドルを確定させる](/how-to-guides/confirm-pending-bundle.md)
+[ハウツーガイド/ペンディング中のバンドルを確定させる](/how-to-guides/confirm-pending-bundle.md)
 
 [参考文献/トランザクションの構造](/references/structure-of-a-transaction.md)
 
