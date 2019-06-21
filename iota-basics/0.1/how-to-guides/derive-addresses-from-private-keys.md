@@ -1,28 +1,44 @@
-# Derive addresses from private keys
+# 秘密鍵からアドレスを導出する
+<!-- # Derive addresses from private keys -->
 
-**By using a client library to derive addresses from private keys, you can gain a better understanding of the relationship among addresses, private keys, and security levels.**
+**クライアントライブラリを使用して秘密鍵からアドレスを導出することで、アドレス、プライベートキー、およびセキュリティレベルの間の関係についてより深く理解することができます。**
+<!-- **By using a client library to derive addresses from private keys, you can gain a better understanding of the relationship among addresses, private keys, and security levels.** -->
 
-:::info:First time using a client library?
-[Try our quickstart guide](root://getting-started/0.1/tutorials/get-started.md) for getting started with the official client libraries.
+:::info:クライアントライブラリを初めて使用されますか？
+公式クライアントライブラリを使い始めるための[クイックスタートガイド](root://getting-started/0.1/tutorials/get-started.md)を試してください。
 :::
+<!-- :::info:First time using a client library? -->
+<!-- [Try our quickstart guide](root://getting-started/0.1/tutorials/get-started.md) for getting started with the official client libraries. -->
+<!-- ::: -->
 
 :::info:
-If you're unfamiliar with the terms private key, subseed, and key digest, we recommend [reading about addresses and signatures](../concepts/addresses-and-signatures.md).
+秘密鍵、サブシード、およびキーダイジェストという用語に慣れていない場合は、[アドレスと署名](../concepts/addresses-and-signatures.md)についてを読むことをお勧めします。
 :::
+<!-- :::info: -->
+<!-- If you're unfamiliar with the terms private key, subseed, and key digest, we recommend [reading about addresses and signatures](../concepts/addresses-and-signatures.md). -->
+<!-- ::: -->
 
-## Prerequisites
+## 前提条件
+<!-- ## Prerequisites -->
 
-To complete this guide, you need the following:
+このガイドを完成するには、次のものが必要です。
+<!-- To complete this guide, you need the following: -->
 
-* Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
-* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* An Internet connection
+* Node.js 8、またはNode.js 10以上。[最新のLTS](https://nodejs.org/en/download/)をお勧めします。
+<!-- * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
+* [Visual Studio Code](https://code.visualstudio.com/Download)のようなコードエディタ
+<!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
+* インターネット接続
+<!-- * An Internet connection -->
 
-## Derive addresses from private keys
+## 秘密鍵からアドレスを導出する
+<!-- ## Derive addresses from private keys -->
 
-In this example, we use the [`signing` package](https://github.com/iotaledger/iota.js/tree/next/packages/signing) of the iota.js library to derive private keys from a seed and then to derive addresses from those private keys.
+この例では、iota.jsライブラリの[`signing`パッケージ](https://github.com/iotaledger/iota.js/tree/next/packages/signing)を使用して、シードから秘密鍵を導出し、次に秘密鍵からアドレスを導出します。
+<!-- In this example, we use the [`signing` package](https://github.com/iotaledger/iota.js/tree/next/packages/signing) of the iota.js library to derive private keys from a seed and then to derive addresses from those private keys. -->
 
-1. Require the IOTA libraries
+1. IOTAライブラリが必要です。
+  <!-- 1. Require the IOTA libraries -->
 
     ```js
     const Iota = require('@iota/core');
@@ -30,7 +46,8 @@ In this example, we use the [`signing` package](https://github.com/iotaledger/io
     const Converter = require('@iota/converter');
     ```
 
-2. Derive a subseed by passing a seed in trits and an index to the `subseed()` method
+2. `subseed`メソッドに、トライトに変換したシードとインデックスを渡してサブシードを導出します。
+  <!-- 2. Derive a subseed by passing a seed in trits and an index to the `subseed()` method -->
 
     ```js
     const seed = "PUETTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX";
@@ -39,10 +56,14 @@ In this example, we use the [`signing` package](https://github.com/iotaledger/io
     ```
 
     :::info:
-    Any code that uses a seed is executed on the client side. Your seed never leaves your device.
+    シードを使用するコードはすべてクライアント側で実行されます。シードがご使用中のデバイスから離れることはありません。
     :::
+    <!-- :::info: -->
+    <!-- Any code that uses a seed is executed on the client side. Your seed never leaves your device. -->
+    <!-- ::: -->
 
-3. Derive one private key for each of the three security levels by passing the same subseed and a different security level to the `key()` method
+3. `key`メソッドに同じサブシードと異なるセキュリティレベルを渡して、3つのセキュリティレベルそれぞれに対して1つの秘密鍵を導出します。
+  <!-- 3. Derive one private key for each of the three security levels by passing the same subseed and a different security level to the `key()` method -->
 
     ```js
     var privateKey1 = Sign.key(subseed, 1 /*security level*/);
@@ -58,7 +79,8 @@ In this example, we use the [`signing` package](https://github.com/iotaledger/io
     console.log('Private key length for security level 3: ' + Converter.tritsToTrytes(privateKey3).length);
     ```
 
-    When you execute the file, you should see the length of each private key in trytes:
+    ファイルを実行すると、各秘密鍵の長さがトライトで表示されます。
+    <!-- When you execute the file, you should see the length of each private key in trytes: -->
 
     ```console
     Private key length for security level 1: 2187
@@ -69,10 +91,14 @@ In this example, we use the [`signing` package](https://github.com/iotaledger/io
     ```
 
     :::info:
-    [Find out more about security levels](../references/security-levels.md).
+    セキュリティレベルの詳細については[こちら](../references/security-levels.md)。
     :::
+    <!-- :::info: -->
+    <!-- [Find out more about security levels](../references/security-levels.md). -->
+    <!-- ::: -->
 
-4. Derive the key digests for each private key by passing each one to the `digests()` method
+4. それぞれの秘密鍵を`digests()`メソッドに渡して、秘密鍵ごとにキーダイジェストを導出します。
+  <!-- 4. Derive the key digests for each private key by passing each one to the `digests()` method -->
 
     ```js
     var privateKey1Digests = Sign.digests(privateKey1);
@@ -88,7 +114,8 @@ In this example, we use the [`signing` package](https://github.com/iotaledger/io
     console.log(`Total key digests for security level 3: ` + Converter.tritsToTrytes(privateKey3Digests).length/81);
     ```
 
-    When you execute the file, you should see the amount of key digests for each private key:
+    ファイルを実行すると、各秘密鍵のキーダイジェスト量がわかります。
+    <!-- When you execute the file, you should see the amount of key digests for each private key: -->
 
     ```console
     Total key digests for security level 1: 1
@@ -99,10 +126,14 @@ In this example, we use the [`signing` package](https://github.com/iotaledger/io
     ```
 
     :::info:
-    [Find out more about key digests](../concepts/addresses-and-signatures.md).
+    キーダイジェストの詳細については[こちら](../concepts/addresses-and-signatures.md)。
     :::
+    <!-- :::info: -->
+    <!-- [Find out more about key digests](../concepts/addresses-and-signatures.md). -->
+    <!-- ::: -->
 
-5. Derive an address for each private key by passing the digests to the `address()` method
+5. ダイジェストを`address()`メソッドに渡して、各秘密鍵のアドレスを導出します。
+  <!-- 5. Derive an address for each private key by passing the digests to the `address()` method -->
 
     ```js
     var privateKey1Address = Sign.address(privateKey1Digests);
@@ -118,7 +149,8 @@ In this example, we use the [`signing` package](https://github.com/iotaledger/io
     console.log('Address with security level 3: ' + Converter.tritsToTrytes(privateKey3Address));
     ```
 
-    When you execute the file, you should see the addresses for each security level:
+    ファイルを実行すると、各セキュリティレベルごとのアドレスが表示されます。
+    <!-- When you execute the file, you should see the addresses for each security level: -->
 
     ```console
     Address with security level 1: ZWENNY9JOIQRJIRHV9PCQMCHKBXVZTTKMVRSZSKQNQCQCTZMTMUPEWE9DPCVBVZOVGFFI9JYLTIFXGJAX
@@ -126,7 +158,8 @@ In this example, we use the [`signing` package](https://github.com/iotaledger/io
     Address with security level 3: LJGSYD9N9JEAQ9AVN9BJCAOW9LFVZGFHOXFVFVLQEBKVZFGBIDJJIRK9FBJUKRS9VMUXTCXBRIOOEMQJ9
     ```
 
-6. To check that the same addresses would be returned from the IOTA core library, do the following:
+6. 同じアドレスがIOTA core ライブラリから返されることを確認するために、以下を実行します。
+  <!-- 6. To check that the same addresses would be returned from the IOTA core library, do the following: -->
 
     ```js
     console.log(Iota.generateAddress(seed, 0 /*index*/, 1 /*security level*/));
@@ -134,15 +167,20 @@ In this example, we use the [`signing` package](https://github.com/iotaledger/io
     console.log(Iota.generateAddress(seed, 0 /*index*/, 3 /*security level*/));
     ```
 
-    You should see the same addresses in the output as those from step 8.
-    
-:::success:Congratulations :tada:
-You've proven that, under the hood of the IOTA core library, addresses are derived from private keys with a certain index and security level.
+    ステップ8からのアドレスと同じアドレスが標準出力に表示されます。
+    <!-- You should see the same addresses in the output as those from step 8. -->
+
+:::success:おめでとうございます:tada:
+IOTA core ライブラリの内部で、アドレスは特定のインデックスとセキュリティレベルを持つ秘密鍵から導出されていることを証明しました。
 :::
+<!-- :::success:Congratulations :tada: -->
+<!-- You've proven that, under the hood of the IOTA core library, addresses are derived from private keys with a certain index and security level. -->
+<!-- ::: -->
 
-## Run the code
+## コードを走らせる
+<!-- ## Run the code -->
 
-Click the green button to run the sample code in this guide and see the results in the web browser.
+このガイドのサンプルコードを実行してWebブラウザに結果を表示するには, 緑色のボタンをクリックしてください。
+<!-- Click the green button to run the sample code in this guide and see the results in the web browser. -->
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/Derive-addresses-from-private-keys?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
-
