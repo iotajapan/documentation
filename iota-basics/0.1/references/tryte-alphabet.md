@@ -1,17 +1,17 @@
 # トライト文字
 <!-- # Tryte alphabet -->
 
-**この表は、トライトからトライトがエンコードされた文字への変換と、それに相当する10進数の値を表示します。**
+**この表は、トライトからトライトがエンコードされた文字への変換と、それに相当する10進数の値を表しています。**
 <!-- **This table displays the conversion from trytes to tryte-encoded characters, and the equivalent values in decimal numbers.** -->
 
 IOTAは[3進数](../concepts/trinary.md)システムを使用しています。そのため、アドレス、シード、署名などのデータはトライトに変換されます。読みやすくするために、これらの文字は27個ある文字コードの1つとして表示されます。
 <!-- IOTA uses a [trinary](../concepts/trinary.md) numeric system. As such, data, such as addresses, seeds, and signatures, is converted to trytes. To make the trytes easy to read, these trytes are represented as one of 27 possible tryte-encoded characters. -->
 
-| トライトがエンコードされた文字 | トライト | 10進数 |
-| :----------------------------- | :------- | :----- |
-|                              9 | 0, 0, 0  |       0|
-|                               A| 1, 0, 0  |       1|
-|                               B| -1, 1, 0 |       2|
+| トライトがエンコードされた文字 |  トライト  |10進数|
+| :----------------------------- | :--------- | :--- |
+|                               9|  0,  0,  0 |     0|
+|                               A|  1,  0,  0 |     1|
+|                               B| -1,  1,  0 |     2|
 |                               C|  0,  1,  0 |     3|
 |                               D|  1,  1,  0 |     4|
 |                               E| -1, -1,  1 |     5|
