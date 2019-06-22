@@ -117,7 +117,7 @@ Mainnetでは、これらの秘密鍵はセキュリティレベル2です。結
 <!-- If the Merkle root is the same as the Coordinator's address, the bundle was signed with one of the private keys in the Coordinator's Merkle tree. -->
 
 :::info:独自のコーディネーターを走らせたいですか？
-[コンパス](root://compass/0.1/how-to-guides/create-an-iota-network)を使用して、独自のIOTAネットワークでマイルストーンを作成、署名、および送信する。
+[コンパス](root://compass/0.1/how-to-guides/create-an-iota-network.md)を使用して、独自のIOTAネットワークでマイルストーンを作成、署名、および送信する。
 :::
 <!-- :::info:Want to run your own Coordinator? -->
 <!-- Use Compass to create, sign, and send milestones in your own IOTA network. -->
