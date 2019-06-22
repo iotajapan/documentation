@@ -1,12 +1,11 @@
 # Index
 
-[Introduction/Overview](/introduction/overview.md)
+[序説/概要](/introduction/overview.md)
 
-[Concepts/The Coordinator](/concepts/the-coordinator.md)
+[概念/コーディネーター](/concepts/the-coordinator.md)
 
-[Concepts/Tip selection](/concepts/tip-selection.md)
+[概念/チップ選択](/concepts/tip-selection.md)
 
-[Concepts/Incentives in the Tangle](/concepts/incentives-in-the-tangle.md)
+[概念/タングル内でのインセンティブ](/concepts/incentives-in-the-tangle.md)
 
-[Concepts/Proof of work](/concepts/proof-of-work.md)
-
+[概念/プルーフオブワーク](/concepts/proof-of-work.md)

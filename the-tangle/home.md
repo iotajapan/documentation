@@ -1,13 +1,13 @@
-# The Tangle is the data structure that's formed by the connections among transactions in the distributed ledger.
+# タングルは、分散型台帳のトランザクション間の接続によって形成されるデータ構造です。
 
-[The Tangle overview](/0.1/introduction/overview.md)
-## Learn what the Tangle is and its role in IOTA
+[タングル概要](/0.1/introduction/overview.md)
+## タングルとは何か、およびIOTAにおけるその役割について学ぶ。
 
-[The Coordinator](/0.1/concepts/the-coordinator.md)
-## Learn about the Coordinator and its milestones that confirm other transactions
+[コーディネーター](/0.1/concepts/the-coordinator.md)
+## 他のトランザクションを確定するコーディネーターとそのマイルストーンについて学ぶ。
 
-[Tip selection](/0.1/concepts/tip-selection.md)
-## Learn the details of how transactions are selected as references for other transactions
+[チップ選択](/0.1/concepts/tip-selection.md)
+## トランザクションが他のトランザクションの参照として選択される方法の詳細を学ぶ。
 
-[Proof of work](/0.1/concepts/proof-of-work.md)
-## Learn how the IOTA protocol protects the Tangle from spam transactions
+[プルーフオブワーク](/0.1/concepts/proof-of-work.md)
+## IOTAプロトコルがどのようにしてスパムトランザクションからタングルを保護するのかを学ぶ。
