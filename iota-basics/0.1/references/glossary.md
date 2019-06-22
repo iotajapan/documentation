@@ -112,7 +112,7 @@
 <a name="inconsistent"></a><dl><dt>矛盾している</dt><dd>利用不可能な資金の取り出しにつながるトランザクションの状態。</dd></dl>
 <!-- <dl><dt>inconsistent</dt><dd>State of a transaction when it leads to withdrawing non-available funds</dd></dl> -->
 
-<a name="inclusion-state"></a><dl><dt>包含ステート</dt><dd>[IRIノード](#iota-terms)がトランザクションの受け入れまたはトランザクションの確定のいずれかをチェックするために実行するプロセス。トランザクションとチップトランザクションの一覧が与えられた場合、チップトランザクションがそのトランザクションを参照していれば、包含ステートは真です。</dd></dl>
+<a name="inclusion-state"></a><dl><dt>包含ステート</dt><dd>[IRIノード](#iri-node)がトランザクションの受け入れまたはトランザクションの確定のいずれかをチェックするために実行するプロセス。トランザクションとチップトランザクションの一覧が与えられた場合、チップトランザクションがそのトランザクションを参照していれば、包含ステートは真です。</dd></dl>
 <!-- <dl><dt>inclusion state</dt><dd>Process that an [IRI node](#iota-terms) performs to check either the acceptance of a transaction or the confirmation of a transaction. Given a transaction and a list of tip transactions, the inclusion state is true if the tip transactions reference that transaction.</dd></dl> -->
 
 <a name="invalid"></a><dl><dt>無効</dt><dd>トランザクションの情報が足りない、矛盾している、古すぎるトランザクションを参照しているときのトランザクションの状態。</dd></dl>
