@@ -13,7 +13,7 @@
 どのトランザクションがマイルストーンであるかを判断するために、同じIOTAネットワーク内のすべてのノードはコーディネーターのアドレスを知っています。
 <!-- To determine which transactions are milestones, all nodes in the same IOTA network know the address of the Coordinator. -->
 
-ノードがコーディネーターのアドレスから送信されたトランザクションを確認したら、次の手順を実行してそれを検証します。
+ノードがコーディネーターのアドレスから送信されたトランザクション（マイルストーン）を確認したら、次の手順を実行してマイルストーンを検証します。
 <!-- When nodes see a transaction that's been sent from the Coordinator's address, they validate it by doing the following: -->
 
 * 二重支払いにつながらないことを確かめる
@@ -21,13 +21,13 @@
 * 署名を確認する
 <!-- * Verify its signature -->
 
-IOTAはWinternitzワンタイム署名方式（W-OTS）を使用するため、秘密鍵は1つのバンドルにのみサインする必要があります。コーディネーターが複数のバンドルに署名しつつ、かつ署名が1つのアドレスに対して検証できるようにするために、コーディネーターのアドレスは下記のコーディネーターのマークル木から取得されます。
+IOTAはWinternitzワンタイム署名方式（W-OTS）を使用しているため、秘密鍵は1つのバンドルに対してのみ署名する必要があります。コーディネーターが複数のバンドルに署名しつつ、かつそれらすべての署名が1つのアドレスに対して検証できるようにするために、コーディネーターのアドレスは下記の方法でコーディネーターのマークル木から取得されます。
 <!-- Because IOTA uses the Winternitz one-time signature scheme (W-OTS), a private key should sign only one bundle. To allow the Coordinator to sign multiple bundles whose signatures can still be verified against one address, that address is derived from the Coordinator's Merkle tree. -->
 
 ### コーディネーターのマークル木
 <!-- ### The Coordinator's Merkle tree -->
 
-マークル木は、リーフのデータをハッシュすることから始まり、マークルルート（コーディネーターのアドレス）で終わるデータ構造です。
+マークル木は、リーフのデータをハッシュ化することから始まり、マークルルート（コーディネーターのアドレス）で終わるデータ構造です。
 <!-- A Merkle tree is a data structure that starts by hashing data at the leaves and ends at the Merkle root (the Coordinator's address). -->
 
 ![Example Merkle tree](../images/merkle-tree-example.png)
@@ -35,7 +35,7 @@ IOTAはWinternitzワンタイム署名方式（W-OTS）を使用するため、�
 コーディネーターは、このマークル木の各リーフに対して、1つの署名付きバンドルを署名して送信できます。
 <!-- The Coordinator can sign and send one signed bundle for each leaf in its Merkle tree. -->
 
-上の例では、4つのリーフがあり、それぞれがコーディネーターの公開鍵と秘密鍵のペアの1つを表します。これらの鍵ペアは事前に作成され、コーディネーターのアドレスを計算するために使用されます。マークル木内の鍵ペアの総数は、数式:2<sup>depth</sup>の`depth`によって異なります。上の例では、マークル木の深さは2です。
+上の図では、4つのリーフがあり、それぞれがコーディネーターの公開鍵と秘密鍵のペアの1つを表します。これらの鍵ペアは事前に作成され、コーディネーターのアドレスを計算するために使用されます。マークル木内の鍵ペアの総数は、数式：2<sup>depth</sup>の`depth`によって定まります。上の図では、マークル木の深さは2です。
 <!-- In this example, we have four leaves, which each represent one of the Coordinator's public/private key pairs. These key pairs are created in advance and used to calculate the the Coordinator's address. The total number of key pairs in a Merkle tree depends on its depth in this formula: 2<sup>depth</sup>. In this example, the Merkle tree's depth is 2. -->
 
 :::info:
@@ -59,9 +59,9 @@ Mainnetでは、コーディネーターのマークル木の深さは23です�
 <!-- Node 1 is a hash of the result of hashing both the public key of leaf 1 and the public key of leaf 2. Node 2 is a hash of the result of hashing both the public key of leaf 3 and the public key of leaf 4. The Coordinator's address is a hash of the result of hashing the hash of node 1 and node 2. -->
 
 :::info:
-コーディネータの秘密鍵は、シード、インデックス、およびセキュリティレベルから派生します。
+コーディネータの秘密鍵は、シード、インデックス、およびセキュリティレベルから導出します。
 
-Mainnetでは、これらの秘密鍵はセキュリティレベル2です。結果として、マイルストーン署名は1つのトランザクションに収まるには大きすぎるため、2つに分割する必要があります。
+Mainnetでは、コーディネーターの秘密鍵はセキュリティレベル2です。結果として、マイルストーン署名は1つのトランザクションに収まるには大きすぎるため、2つに分割する必要があります。
 
 [秘密鍵の導出方法](root://iota-basics/0.1/concepts/addresses-and-signatures.md)を学ぶ。
 :::
@@ -82,17 +82,17 @@ Mainnetでは、これらの秘密鍵はセキュリティレベル2です。結
 ノードがマークル木を再構築できるようにするために、コーディネーターはバンドル内に次のマイルストーントランザクションを送信します。
 <!-- To allow nodes to rebuild the Merkle tree, the Coordinator sends the following milestone transactions in the bundle: -->
 
-* 断片化された署名を含む2つのトランザクション
+* 分割された署名を含む2つのトランザクション（マイルストーンのセキュリティレベルが2の場合）
 <!-- * Two transactions that contain the fragmented signature -->
-* [`signatureMessageFragment`](root://iota-basics/0.1/references/structure-of-a-transaction.md)フィールドに、それを再構築できるようにするためにマークル木から足りないデータが含まれている1つのトランザクション
-* One transaction whose [`signatureMessageFragment`](root://iota-basics/0.1/references/structure-of-a-transaction.md) field contains enough missing data from the Merkle tree to be able to rebuild it
+* [`signatureMessageFragment`](root://iota-basics/0.1/references/structure-of-a-transaction.md)フィールドに、マークル木を再構築できるようにするためにマークル木から足りないデータが含まれている1つのトランザクション
+<!-- * One transaction whose [`signatureMessageFragment`](root://iota-basics/0.1/references/structure-of-a-transaction.md) field contains enough missing data from the Merkle tree to be able to rebuild it -->
 
 ![Example Merkle tree](../images/merkle-tree-example.png)
 
-たとえば、ノードとして、リーフ1の秘密鍵で署名されたバンドルを見ました。
+たとえば、ノードが、リーフ1の秘密鍵で署名されたバンドルを見つけたとします。
 <!-- For example, as a node, we have seen a bundle that was signed with the private key of leaf 1. -->
 
-まず、署名を検証してリーフ1の公開鍵を見つけます。
+次に、署名を検証してリーフ1の公開鍵を見つけます。
 <!-- First, we verify the signature to find out the public key of leaf 1. -->
 
 :::info:
@@ -113,11 +113,11 @@ Mainnetでは、これらの秘密鍵はセキュリティレベル2です。結
 ここで、リーフ1と2の公開鍵をハッシュ化してノード1のハッシュ値を見つけます。次に、ノード1と2のハッシュ値をハッシュ化してマークルルートを見つけます。
 <!-- Now, we hash the public keys of leaves 1 and 2 to find the hash of node 1. Then we hash the hash of nodes 1 and 2 to find the Merkle root. -->
 
-マークルルートがコーディネータのアドレスと同じ場合、バンドルはコーディネーターのマークル木の秘密鍵の1つで署名されています。
+マークルルートがコーディネーターのアドレスと同じ場合、バンドルはコーディネーターのマークル木の秘密鍵の1つで署名されているということです。
 <!-- If the Merkle root is the same as the Coordinator's address, the bundle was signed with one of the private keys in the Coordinator's Merkle tree. -->
 
 :::info:独自のコーディネーターを走らせたいですか？
-[コンパス](root://compass/0.1/how-to-guides/create-an-iota-network.md)を使用して、独自のIOTAネットワークでマイルストーンを作成、署名、および送信する。
+[コンパス](root://compass/0.1/how-to-guides/create-an-iota-network.md)を使用して、独自のIOTAネットワークでマイルストーンを作成、署名、および送信できます。
 :::
 <!-- :::info:Want to run your own Coordinator? -->
 <!-- Use Compass to create, sign, and send milestones in your own IOTA network. -->
