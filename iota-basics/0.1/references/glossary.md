@@ -13,13 +13,13 @@
 <dl><dt>CTPS</dt><dd>1秒あたりの確定済みトランザクション数。</dd></dl>
 <!-- <dl><dt>CTPS</dt><dd>Number of Confirmed Transactions Per Second</dd></dl> -->
 
-<dl><dt>TPS</dt><dd>[IRIノード](#iota-terms)を介した1秒あたりのトランザクション処理数。</dd></dl>
-<dl><dt>TPS</dt><dd>Number of Transactions Per Second processing through an [IRI node](#iota-terms)</dd></dl>
+<a name="TPS"></a><dl><dt>TPS</dt><dd>[IRIノード](#iota-terms)を介した1秒あたりのトランザクション処理数。</dd></dl>
+<!-- <dl><dt>TPS</dt><dd>Number of Transactions Per Second processing through an [IRI node](#iota-terms)</dd></dl> -->
 
 ### アカウント
 <!-- ### Accounts -->
 
-<dl><dt>アドレス</dt><dd>IOTAトークンを所有するアカウント。アドレスはデータとIOTAトークンを送受信できます。</dd></dl>
+<dl><dt>アドレス</dt><dd>IOTAトークンを所有するアカウント。アドレスを使ってデータとIOTAトークンを送受信できます。</dd></dl>
 <!-- <dl><dt>address</dt><dd>Account that owns IOTA tokens. Addresses can send and receive data and IOTA tokens</dd></dl> -->
 
 <dl><dt>複数署名アドレス（マルチシグアドレス）</dt><dd>IOTAトークンを取り出せるようにするには、複数の当事者がトランザクションに署名する必要があるアドレス。</dd></dl>
@@ -37,7 +37,7 @@
 ### 暗号法
 <!-- ### Cryptography -->
 
-<dl><dt>チェックサム</dt><dd>エラーを検出し、正しいデータを入力したことを確認できるようにするためにデータをハッシュしたもの。例えば、トリニティでは、9文字のチェックサムが81文字のアドレスに追加されるので、ユーザーは自分のシード（81文字）とアドレス（90文字）を簡単に区別できます。</dd></dl>
+<dl><dt>チェックサム</dt><dd>エラーを検出し、正しいデータを入力したことを確認できるようにするためにデータをハッシュしたもの。例えば、トリニティでは、9文字のチェックサムが81文字のアドレスの後ろに追加されるので、ユーザーは自分のシード（81文字）とアドレス（90文字）を簡単に区別できます。</dd></dl>
 <!-- <dl><dt>checksum</dt><dd>Hashed data that allows you to detect errors and verify that you entered the correct data.  For example, in Trinity, a 9-character checksum is appended to the 81-tryte address so users can easily differentiate between their seed (81-trytes) and their address (90-characters) </dd></dl> -->
 
 <dl><dt>Curl</dt><dd>IOTAで使用されている主なハッシュ関数。Curlは[Keccakクリエイター](https://en.wikipedia.org/wiki/SHA-3)（SHA-3）によって発明されたスポンジ構造に基づいています。 Curlはモノのインターネット（IoT）用に設計されています。</dd></dl>
@@ -46,7 +46,7 @@
 <dl><dt>Kerl</dt><dd>[2の補数](https://en.wikipedia.org/wiki/Two%27s_complement)を使用して、243トリットから48バイトへ、48バイトから243トリットへの入出力の追加変換を含むKeccek-384ハッシュ関数。</dd></dl>
 <!-- <dl><dt>Kerl</dt><dd>Keccek-384 hash function that includes the additional conversion of its input and output from/to 243 trits to 48 bytes, using [two's complement](https://en.wikipedia.org/wiki/Two%27s_complement).</dd></dl> -->
 
-<dl><dt>Winternitzワンタイム署名（W-OTS）</dt><dd>IOTAトークンを引き出す入力トランザクションに署名するために使用されるポスト量子耐性署名スキーム。</dd></dl>
+<dl><dt>Winternitzワンタイム署名（W-OTS）</dt><dd>IOTAトークンを取り出す入力トランザクションに署名するために使用されるポスト量子耐性署名スキーム。</dd></dl>
 <!-- <dl><dt>Winternitz one-time signature (W-OTS)</dt><dd>Post-quantum signature scheme that's used to sign input transactions that withdraw IOTA tokens.</dd></dl> -->
 
 ## 一般用語
@@ -55,7 +55,7 @@
 <dl><dt>有向非巡回グラフ（DAG）</dt><dd>有向で循環のないグラフに基づくデータ構造。 IOTAでは、頂点はトランザクションを表し、辺は承認を表します。</dd></dl>
 <!-- <dl><dt>directed acyclic graph (DAG)</dt><dd>Data structure that's based on a graph without any directed cycles. In IOTA, vertices represent transactions, and edges represent approvals </dd></dl> -->
 
-<dl><dt>ピアツーピアニットワーク</dt><dd>互いにデータを共有するノードで構成される分散ネットワーク。</dd></dl>
+<dl><dt>ピアツーピアネットワーク</dt><dd>互いにデータを共有するノードで構成される分散ネットワーク。</dd></dl>
 <!-- <dl><dt>peer-to-peer network</dt><dd>Decentralized network that consists of nodes, which share data among each other</dd></dl> -->
 
 <dl><dt>プルーフオブワーク（PoW）</dt><dd>解くのが難しく、検証が簡単な計算パズル。 IOTAはHashcashベースのパズルを使用してネットワークへのDoS攻撃とスパム攻撃の両方を防止します。</dd></dl>
@@ -70,7 +70,7 @@
 <dl><dt>クライアント</dt><dd>IOTAネットワークと対話して、トランザクションを送信するためにIRIノードに接続するソフトウェアを実行しているデバイス。</dd></dl>
 <!-- <dl><dt>client</dt><dd>Device running software that connects to an IRI node to interact with an IOTA network and send transactions.</dd></dl> -->
 
-<dl><dt>分散型台帳</dt><dd>IOTAネットワーク内のすべてのIRIノードによって保持されている共通元帳。IRIノードは、それらすべてに同じ有効なトランザクションが含まれるまで、台帳を互いに共有します。</dd></dl>
+<dl><dt>分散型台帳</dt><dd>IOTAネットワーク内のすべてのIRIノードによって保持されている共通台帳。IRIノードは、同じ有効なトランザクションが繋がっているすべてのノードの台帳に含まれるまで、台帳の内容を互いに共有します。</dd></dl>
 <!-- <dl><dt>distributed ledger</dt><dd>Common ledger that is held by all IRI nodes in an IOTA network. IRI nodes share their ledgers with each other until all of them contain the same valid transactions.</dd></dl> -->
 
 <dl><dt>IRIノード</dt><dd>トランザクションを検証し、トランザクションのコピーを台帳に保存することを担当するソフトウェア。</dd></dl>
@@ -109,13 +109,13 @@
 <dl><dt>未来集合</dt><dd>同じトランザクションを承認するトランザクションのグループ。</dd></dl>
 <!-- <dl><dt>future set</dt><dd>Group of transactions that approve the same transaction</dd></dl> -->
 
-<dl><dt>矛盾する</dt><dd>利用不可能な資金の取り出しにつながるトランザクションの状態。</dd></dl>
+<dl><dt>矛盾している</dt><dd>利用不可能な資金の取り出しにつながるトランザクションの状態。</dd></dl>
 <!-- <dl><dt>inconsistent</dt><dd>State of a transaction when it leads to withdrawing non-available funds</dd></dl> -->
 
 <dl><dt>包含ステート</dt><dd>[IRIノード](#iota-terms)がトランザクションの受け入れまたはトランザクションの確定のいずれかをチェックするために実行するプロセス。トランザクションとチップトランザクションの一覧が与えられた場合、チップトランザクションがそのトランザクションを参照していれば、包含ステートは真です。</dd></dl>
 <!-- <dl><dt>inclusion state</dt><dd>Process that an [IRI node](#iota-terms) performs to check either the acceptance of a transaction or the confirmation of a transaction. Given a transaction and a list of tip transactions, the inclusion state is true if the tip transactions reference that transaction.</dd></dl> -->
 
-<dl><dt>無効</dt><dd>トランザクションが欠けている、矛盾している、古すぎるトランザクションを参照しているときのトランザクションの状態。</dd></dl>
+<dl><dt>無効</dt><dd>トランザクションの情報が足りない、矛盾している、古すぎるトランザクションを参照しているときのトランザクションの状態。</dd></dl>
 <!-- <dl><dt>invalid</dt><dd>State of a transaction when it's either non-solid, inconsistent, or it references a transaction that's too old.</dd></dl> -->
 
 <a name="milestone"></a><dl><dt>マイルストーン</dt><dd>コーディネーターによって作成された有効なトランザクション。[ノード](#iota-terms)はマイルストーンを使用して、他のトランザクションが確定済み状態にあるかどうかを判断します。</dd></dl>
@@ -142,7 +142,7 @@
 <dl><dt>チップ選択</dt><dd>[IRIノード](#iota-terms)が2つの[チップトランザクション](#tip-transaction)を選択してクライアントに返し、新規トランザクションの[ブランチトランザクション](#branch)と[トランクトランザクション](#trunk)として使用する処理。</dd></dl>
 <!-- <dl><dt>tip selection</dt><dd>Process whereby an [IRI node](#iota-terms) selects two [tip transactions](#tip-transaction) and returns them to a client for use as a new transaction's [branch transaction](#branch) and [trunk transaction](#trunk)</dd></dl> -->
 
-<a name="tip-transaction"></a><dl><dt>チップトランザクション</dt><dd>承認者がいないトランザクション</dd></dl>
+<a name="tip-transaction"></a><dl><dt>チップトランザクション</dt><dd>承認者がいないトランザクション。</dd></dl>
 <!-- <a name="tip-transaction"></a><dl><dt>tip transaction</dt><dd>Transaction with no approvers</dd></dl> -->
 
 <dl><dt>トランザクション</dt><dd>IOTAトークンまたはデータを転送するために[IRIノード](#iota-terms)に送信される命令。トランザクションは、IOTAプロトコルに準拠した方法で構造化されている必要があります。</dd></dl>
