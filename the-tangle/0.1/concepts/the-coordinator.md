@@ -61,7 +61,7 @@ Mainnetでは、コーディネーターのマークル木の深さは23です�
 :::info:
 コーディネータの秘密鍵は、シード、インデックス、およびセキュリティレベルから導出します。
 
-Mainnetでは、コーディネーターの秘密鍵はセキュリティレベル2です。結果として、マイルストーン署名は1つのトランザクションに収まるには大きすぎるため、2つに分割する必要があります。
+Mainnetでは、コーディネーターの秘密鍵はセキュリティレベル2です。結果として、マイルストーン署名は1つのトランザクションに収まるには大きすぎるため、2つのトランザクションに分割する必要があります。
 
 [秘密鍵の導出方法](root://iota-basics/0.1/concepts/addresses-and-signatures.md)を学ぶ。
 :::
@@ -79,7 +79,7 @@ Mainnetでは、コーディネーターの秘密鍵はセキュリティレベ�
 マイルストーンを検証するには、ノードはマークル木を再構築してマークルルートを見つける必要があります。再構築されたマークルルートがコーディネーターのアドレスと同じ場合、ノードはマイルストーンがコーディネーターによって送信されたことを確認できます。
 <!-- To verify a milestone, nodes must rebuild the Merkle tree to find the Merkle root. If the rebuilt Merkle root is the same as the Coordinator's address, nodes know the milestone was sent by the Coordinator. -->
 
-ノードがマークル木を再構築できるようにするために、コーディネーターはバンドル内に次のマイルストーントランザクションを送信します。
+ノードがマークル木を再構築できるようにするために、コーディネーターは次のマイルストーントランザクションを含むバンドルを送信します。
 <!-- To allow nodes to rebuild the Merkle tree, the Coordinator sends the following milestone transactions in the bundle: -->
 
 * 分割された署名を含む2つのトランザクション（マイルストーンのセキュリティレベルが2の場合）
@@ -102,7 +102,7 @@ Mainnetでは、コーディネーターの秘密鍵はセキュリティレベ�
 <!-- [Learn how nodes verify signatures](root://iota-basics/0.1/concepts/addresses-and-signatures.md#how-nodes-verify-signatures) -->
 <!-- ::: -->
 
-マークルルートを計算するために、バンドルの3番目のマイルストーンには次のものが含まれています。
+マークルルートを計算するために、バンドルの3番目のマイルストーントランザクションには次のものが含まれています。
 <!-- To help us calculate the Merkle root, the third milestone in the bundle contains the following: -->
 
 * リーフ2の公開鍵
@@ -113,7 +113,7 @@ Mainnetでは、コーディネーターの秘密鍵はセキュリティレベ�
 ここで、リーフ1と2の公開鍵をハッシュ化してノード1のハッシュ値を見つけます。次に、ノード1と2のハッシュ値をハッシュ化してマークルルートを見つけます。
 <!-- Now, we hash the public keys of leaves 1 and 2 to find the hash of node 1. Then we hash the hash of nodes 1 and 2 to find the Merkle root. -->
 
-マークルルートがコーディネーターのアドレスと同じ場合、バンドルはコーディネーターのマークル木の秘密鍵の1つで署名されているということです。
+このマークルルートがコーディネーターのアドレスと同じ場合、バンドルはコーディネーターのマークル木の秘密鍵の1つで署名されていることが分かります。
 <!-- If the Merkle root is the same as the Coordinator's address, the bundle was signed with one of the private keys in the Coordinator's Merkle tree. -->
 
 :::info:独自のコーディネーターを走らせたいですか？
