@@ -40,7 +40,7 @@
 <!-- The greater the value of the `depth` parameter, the more computations the node must do. To restrict the value of the `depth` parameter, nodes can change the [`MAX-DEPTH`](root://iri/0.1/references/iri-configuration-options.md#max-depth) configuration option. -->
 <!-- ::: -->
 
-<a name="weighted-random-walk></a>### 重み付きランダムウォーク
+### 重み付きランダムウォーク
 <!-- ### Weighted random walk -->
 
 重み付きランダムウォークは、ノードが部分グラフ内のチップトランザクションへの経路を見つけるために使用するアルゴリズムです。
@@ -105,7 +105,7 @@
 アルゴリズムは台帳の部分グラフを選択し、それを通る2つの重み付きランダムウォークを行います。各重み付きランダムウォークはチップトランザクションハッシュを返します。
 <!-- The algorithm selects a subgraph of the ledger and does two weighted random walks through it. Each weighted random walk returns a tip transaction hash. -->
 
-2つの[重み付きランダムウォーク](#weighted-random-walk)は、同じマイルストーントランザクションから開始されます（`latestSolidMilestone` - `depth`）。
+2つの[重み付きランダムウォーク](#重み付きランダムウォーク)は、同じマイルストーントランザクションから開始されます（`latestSolidMilestone` - `depth`）。
 <!-- Both [weighted random walks](#weighted-random-walk) start from the same milestone transaction (`latestSolidMilestone - depth`). -->
 
 クライアントがAPI呼び出しに`reference`引数を指定した場合、そのトランザクションが部分グラフ内にある場合にのみ、`branchTransaction`ウォークは`reference`引数内のトランザクションから開始されます。
