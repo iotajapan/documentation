@@ -40,7 +40,7 @@
 <!-- The greater the value of the `depth` parameter, the more computations the node must do. To restrict the value of the `depth` parameter, nodes can change the [`MAX-DEPTH`](root://iri/0.1/references/iri-configuration-options.md#max-depth) configuration option. -->
 <!-- ::: -->
 
-### 重み付きランダムウォーク
+<a name="weighted-random-walk></a>### 重み付きランダムウォーク
 <!-- ### Weighted random walk -->
 
 重み付きランダムウォークは、ノードが部分グラフ内のチップトランザクションへの経路を見つけるために使用するアルゴリズムです。
