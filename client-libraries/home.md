@@ -1,10 +1,10 @@
-# Creating, sending, and receiving transactions requires an in-depth understanding of the IOTA protocol. The IOTA client libraries abstract the complexity of the protocol into simple functions.
+# トランザクションを作成、送信、および受信するには、IOTAプロトコルを深く理解する必要があります。IOTAクライアントライブラリはプロトコルの複雑さを単純な関数に抽象化します。
 
-[Client libraries overview](/0.1/introduction/overview.md)
-## Learn what client libraries are, why they're useful, and which projects are using them
+[クライアントライブラリ概要](/0.1/introduction/overview.md)
+## クライアントライブラリとは何か、ライブラリがなぜ有用なのか、そしてどのプロジェクトで使われているかを学ぶ。
 
 [iota.js](root://iota-js/0.1/README.md)
-## Familiarize yourself with the IOTA JavaScript client library
+## IOTA JavaScriptクライアントライブラリに慣れる。
 
-[Libraries](/0.1/introduction/overview.md)
-## Learn about the official client libraries for [JavaScript](root://iota-js/0.1/README.md), [GoLang](root://iota-go/0.1/README.md), [Java](root://iota-java/0.1/README.md)
+[ライブラリ](/0.1/introduction/overview.md)
+## [JavaScript](root://iota-js/0.1/README.md)、[GoLang](root://iota-go/0.1/README.md)、[Java](root://iota-java/0.1/README.md)の公式クライアントライブラリについて学ぶ。
