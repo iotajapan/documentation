@@ -51,18 +51,18 @@
 
 トランザクションの累積荷重は、以下の変数を使用して計算されます。
 <!-- The cumulative weight of a transaction is calculated using the following variables: -->
-* **未来集合：** トランザクションを承認するトランザクション
+* **未来集合：** トランザクションを直接・間接的に承認するトランザクション
 <!-- * **Future set:** Transactions that approves the transaction -->
-* **[`ALPHA`設定パラメータ](root://iri/0.1/references/iri-configuration-options.md#alpha)：**チップ選択プロセスのランダムさに影響する数
+* **[`ALPHA`設定パラメータ](root://iri/0.1/references/iri-configuration-options.md#alpha)：**チップ選択プロセスのランダムさに影響する数値
 <!-- * **[`ALPHA` configuration parameter](root://iri/0.1/references/iri-configuration-options.md#alpha):** A number that affects the randomness of the tip selection process -->
 
 未来集合が小さいトランザクションよりも未来集合が大きいトランザクションの方が確定する可能性が高いため、ノードは未来集合が大きいトランザクションに高い評価を与えます。
 ただし、ノードが未来集合の大きさだけでトランザクションを評価すると、台帳の形状が、多くのトランザクションで少数のトランザクションだけを参照する長く狭いチェーンになってしまいます。
-これにより、新しいトランザクションの将来集合が十分大きくなる前に、多くのトランザクションが既に大きな未来集合を持つトランザクションを参照してしまうため、台帳に追加される新規トランザクションの速度は遅くなります。
+これにより、新しいトランザクションの未来集合が十分大きくなる前に、多くのトランザクションが既に大きな未来集合を持つトランザクションを参照してしまうため、台帳に追加される新規トランザクションの速度は遅くなります。
 そのため、新しいトランザクションが台帳に追加される速度を上げるために、ノードは未来集合と`ALPHA`設定パラメータを併用して累積荷重を計算します。
 <!-- Nodes gives a high rating to a transaction with a large future set because it has a higher probability of being confirmed than one with a small future set. However, if a node were to rate transactions based only on this variable, the ledger would become a long, narrow chain of transactions, which are referenced by many other transactions. This would slow the rate of new transactions being appended to the ledger because new transactions would have to wait until they had a large enough future set before other transactions would reference them. So, to increase the speed at which new transactions are appended to the ledger, nodes also use the `ALPHA` configuration parameter to calculate the cumulative weight. -->
 
-`ALPHA`設定パラメータは、各トランザクションの累積荷重がランダム性の要素を使用して計算されるようにします。このパラメータを使用すると、ノードは将来集合が小さいトランザクションをいくつか選択できます。そうすることで、新しいトランザクションが台帳に追加される速度を上げることができます。
+`ALPHA`設定パラメータは、各トランザクションの累積荷重がランダム性の要素を使用して計算されるようにします。このパラメータを使用すると、ノードは未来集合が小さいトランザクションをいくつか選択できます。そうすることで、新しいトランザクションが台帳に追加される速度を上げることができます。
 <!-- The `ALPHA` configuration parameter makes sure that the cumulative weight of each transaction is calculated with an element of randomness. This parameter allows nodes to select some transactions that have a small future set and by doing so, increase the speed at which new transactions are appended to the ledger. -->
 
 重み付きランダムウォークの詳細、および`ALPHA`設定パラメータの最適値を取り巻く理論に関する詳細な説明については、[ブログの投稿](https://blog.iota.org/confirmation-rates-in-the-tangle-186ef02878bb)を参照してください。
@@ -71,7 +71,7 @@
 ## チップ選択アルゴリズムの詳細な説明
 <!-- ## In-depth explanation of the tip selection algorithm -->
 
-以下の情報は、クライアントが[getTransactionsToApprove](root://iri/0.1/references/api-reference.md#getTransactionsToApprove)エンドポイントを呼び出したときにノードが何をするかを説明しています。
+以下の情報は、クライアントが[getTransactionsToApprove](root://iri/0.1/references/api-reference.md#getTransactionsToApprove)エンドポイントを呼び出したときにノードが何をしているかを説明しています。
 <!-- The following information describes what nodes do when a client calls the [getTransactionsToApprove](root://iri/0.1/references/api-reference.md#getTransactionsToApprove) endpoint. -->
 
 クライアントは、トランザクションを送信したいときにこのエンドポイントを呼び出します。エンドポイントによって、2つのチップトランザクションハッシュが生成され、それらが新しいトランザクションの`trunkTransaction`フィールドと`branchTransaction`フィールドで使用されます。
@@ -139,7 +139,7 @@ Map<TxId -> Integer> calculate(TxId entryPoint)
 #### 未来集合作成
 <!-- #### Future set creation -->
 
-ソートされた部分グラフに含まれるすべてのトランザクションに対して、直接承認者と間接承認者を含む未来集合が作成されます。各トランザクションの評価は、`未来集合 + 1（トランザクションの自重）`のサイズです。
+ソートされた部分グラフに含まれるすべてのトランザクションに対して、直接承認トランザクションと間接承認トランザクションを含む未来集合が作成されます。各トランザクションの評価は、`未来集合 + 1（トランザクションの自重）`のサイズです。
 <!-- For every transaction included in our sorted subgraph, a future set is created, containing direct and indirect approvers. The rating of each transaction is the size of its future set + 1 (the transaction's own weight). -->
 
 ```java
@@ -175,7 +175,7 @@ class CumulativeWeightCalculator(RatingCalculator):
 * トランザクションの識別子を格納しながらスペースを確保するために、トランザクションのハッシュバイトの一部のみを格納し、それを`PREFIX_LENGTH`の長さに切り捨てます。現在、この値は44バイトにハードコードされています。これは220トリットに相当します。
 <!-- * In order to preserve space while storing transaction's identifiers, we only store a portion of the transaction's hash bytes, truncating it to the `PREFIX_LENGTH` length. Currently, this value has been hardcoded to 44 bytes, corresponding to 220 trits. -->
 
-* アルゴリズムのメモリ消費量を制限するために、評価スコアが高くなってもウォーカーの偏りが大きくなることはないという仮定の下、検討中のトランザクションに対して最大`MAX_FUTURE_SET_SIZE`個の承認者を保存できます。この値は、ヒューリスティクスに5000にハードコードされています。この最適化は、トランザクションの未来集合が`MAX_FUTURE_SET_SIZE`に制限されている可能性が高いため、実行時のメモリ使用量を制限しながら、考慮される部分グラフの始めにより近いところでランダムに振る舞うようにしています。しかし、望ましい動作は逆です。ウォークの始まりでは、本ブランチに向かって強くランダムに偏りながらも、チップに近づくほどよりランダムになって、多くのチップが選択される機会を広げることです。
+* アルゴリズムのメモリ消費量を制限するために、評価スコアが高くなってもウォーカーの偏りが大きくなることはないという仮定の下、検討中のトランザクションに対して最大`MAX_FUTURE_SET_SIZE`個の承認トランザクションを保存できます。この値は、ヒューリスティクスに5000にハードコードされています。この最適化は、トランザクションの未来集合が`MAX_FUTURE_SET_SIZE`に制限されている可能性が高いため、実行時のメモリ使用量を制限しながら、考慮される部分グラフの始めにより近いところでランダムに振る舞うようにしています。しかし、望ましい動作は逆です。ウォークの始まりでは、本ブランチに向かって強くランダムに偏りながらも、チップに近づくほどよりランダムになって、多くのチップが選択される機会を広げることが理想です。
 <!-- * In order to cap the memory consumption of the algorithm, we allow to store up to `MAX_FUTURE_SET_SIZE` number of approvers for the transaction we are considering, under the assumption that a higher rating score won't contribute significantly to bias the walker. This value has been heuristically hardcoded to 5000. Please note that this optimization, while capping memory usage during runtime, makes the walk to behave more randomly closer the beginning of the considered subgraph since the future sets of those transactions are more likely to have been capped to `MAX_FUTURE_SET_SIZE`. The desired behavior is instead the contrary: we would like the beginning of the walk to be strongly biased towards the main branch while being more random closer to the tips, spreading the chance for any of them to get selected. -->
 
 ### 重み付きランダムウォーク
@@ -197,10 +197,10 @@ TxId walk(TxId entryPoint, Map<TxId -> Integer> ratings, WalkValidator validator
 この関数は選択されたチップトランザクションを返します。
 <!-- This function should return the selected tip transaction. -->
 
-#### ウォーカーアルファの実装
+#### WalkerAlphaの実装
 <!-- #### WalkerAlpha Implementation -->
 
-評価は正規化され、`alpha`設定オプションを使用して`荷重`に変換されます。最後に、0とすべての`荷重`の合計の間の`ランダム`な値が生成され、0の値に達するまで承認者の荷重によって減算されます。`ランダム`な値を0に変えた承認者が、ウォークの次のステップとして選択されます。
+評価は正規化され、`alpha`設定オプションを使用して`荷重`に変換されます。最後に、0とすべての`荷重`の合計の間の`ランダム`な値が生成され、0の値に達するまで承認トランザクションの荷重によって減算されます。`ランダム`な値を0に変えた承認トランザクションが、ウォークの次のステップとして選択されます。
 <!-- Ratings are normalized and transformed into `weights` with the help of the `alpha` configuration option. Finally, a `random` value between 0 and the sum of all the weights is generated and subtracted by the approvers' weights until reaching the value of 0. The approver that turned the `random` value to 0 is selected as the next step in the walk. -->
 
 ```python
@@ -289,13 +289,13 @@ class WalkerAlpha(Walker):
 次のいずれかが発生した場合、トランザクションは無効と見なされます。
 <!-- A transaction is considered invalid if any of the following occur: -->
 
-* トランザクションが参照するタングルの一部が未知であるとき、ソリッドではなくなる為、トランザクションの状態を再構築することができない場合。
+* トランザクションが参照するタングルの一部が未知であるとき、トランザクションは[ソリッド](root://iota-basics/0.1/references/glossary.md#solid)ではなくなる為、トランザクションの状態を再構築することができない場合。
 <!-- * It is not solid and we cannot reconstruct its state, since a portion of the Tangle that this transaction references is unknown. -->
 
 * トランザクションが過去の遠すぎるトランザクション、つまり`latestSolidMilestone - maxDepth`を超えるトランザクションを参照している場合。
 <!-- * It references a transaction that's too far in the past, namely beyond `latestSolidMilestone - maxDepth`. -->
 
-* 台帳の状態が、不足している資金の取り出しや預け入れ、二重支出など、矛盾している場合。
+* 台帳の状態が、不足している資金の取り出しや預け入れ、二重支出など、一貫性がない場合。
 <!-- * The ledger state is not consistent, such as trying to withdraw or deposit missing funds or double-spending. -->
 
 * バリデータは有効性がチェックされたトランザクションのリストを管理します。新しいトランザクションが検証されるたびに、新しいトランザクションもチェックリストに対してチェックされます。
@@ -340,8 +340,8 @@ class WalkValidator:
 #### バンドルと一貫性
 <!-- #### Bundles and consistency -->
 
-IOTAのトランザクションはバンドルにまとめて送信されます。したがって、ウォーカーが承認者を辿るとき、承認者がバンドルの途中にいる可能性もあります。故にバンドルを検証するには、ウォーカーはトランクトランザクションを辿ることによって末尾トランザクションを見つけます。
+IOTAのトランザクションはバンドルにまとめて送信されます。したがって、ウォーカーが承認トランザクションを辿るとき、承認トランザクションがバンドルの途中にいる可能性もあります。故にバンドルを検証するには、ウォーカーはトランクトランザクションを辿ることによって末尾トランザクションを見つけます。
 <!-- Transactions in IOTA are sent in bundles. Therefore, when the walker traverses an approver, that approver may be in the middle of a bundle. To validate the bundle, the walker finds the tail transaction by traversing the trunk transactions. -->
 
-2つのチップトランザクションは、どちらも無効ではないことを確認するために、互いの間の一貫性についてチェックされます。したがって、クライアントのトランザクションは、他のトランザクションによって承認される可能性が高い2つの有効なトランザクションを参照するため、累積荷重が大きくなります。
+2つのチップトランザクションは、どちらも無効ではないことを確認するために、互いの間の一貫性についてチェックします。したがって、クライアントのトランザクションは、他のトランザクションによって承認される可能性が高い2つの有効なトランザクションを参照するため、累積荷重が大きくなります。
 <!-- The two tip transactions are checked for consistency between each other to make sure that neither one is invalid. Therefore, the clients transaction references two valid transactions that have a better chance of being approved by another transaction, thus increasing its cumulative weight. -->
