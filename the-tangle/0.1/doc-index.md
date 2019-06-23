@@ -6,6 +6,6 @@
 
 [概念/チップ選択](/concepts/tip-selection.md)
 
-[概念/タングル内でのインセンティブ](/concepts/incentives-in-the-tangle.md)
+[概念/タングル内のインセンティブ](/concepts/incentives-in-the-tangle.md)
 
 [概念/プルーフオブワーク](/concepts/proof-of-work.md)
