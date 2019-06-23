@@ -1,10 +1,10 @@
 # プルーフオブワーク
 <!-- # Proof of work -->
 
-**プルーフオブワークは、計算が難しいが検証が簡単な数学的問題に対する答えです。 IOTAでは、プルーフオブワークはスパムトランザクションからネットワークを保護します。バンドル内の各トランザクションには、有効であることを証明するプルーフオブワークが含まれている必要があります。**
+**プルーフオブワークは、計算は難しいが検証は簡単な数学的問題に対する答えです。 IOTAでは、プルーフオブワークはスパムトランザクションからネットワークを保護します。バンドル内の各トランザクションには、有効であることを証明するプルーフオブワークが含まれている必要があります。**
 <!-- **Proof of work is the answer to a mathematical problem that's difficult to calculate, but easy to verify. In IOTA, proof of work protects the network from spam transactions. Each transaction in a bundle must include a proof of work to be valid.** -->
 
-プルーフオブワーク（PoW）は試行錯誤を用いて計算され、それ故、PoWは計算能力の使用を必要とする。
+プルーフオブワーク（PoW）は試行錯誤を用いて計算され、それ故、PoWは計算能力の使用を必要とします。
 <!-- Proof of work (PoW) is calculated using trial and error, therefore it requires the use of computational power. -->
 
 もともと、PoWは大量の電子メールスパムを減らすための概念として導入されました。この概念は[hashcash](https://en.wikipedia.org/wiki/Hashcash)として知られており、すべてのEメールの内容についてプルーフオブワークを要求することによってEメールのスパムを防ぐ方法です。
