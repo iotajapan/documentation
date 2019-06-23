@@ -1,10 +1,10 @@
 # タングル内のインセンティブ
 <!-- # Incentives in The Tangle -->
 
-**チップ選択アルゴリズムは強制されません。その代わりに、ノードは、自分のトランザクションが確定される最良の機会を得るためにチップ選択アルゴリズムを使用するインセンティブを持っています。**
+**チップ選択アルゴリズムは強制されていません。その代わりに、ノードは、自分のトランザクションが確定される最良の機会を得るためにチップ選択アルゴリズムを使用するインセンティブがあります。**
 <!-- **The tip selection algorithm is not enforced. Instead, nodes have an incentive to use it to have the best chance of their transactions becoming confirmed.** -->
 
-ノードがチップ選択アルゴリズムを使用したかどうか、または独自の目的のためにカスタムのチップトランザクションを返すように変更したかどうかを確認することは不可能です。
+ノードがチップ選択アルゴリズムを使用したかどうか、または独自の目的のためにカスタムのチップトランザクションを返すように変更したかどうかを確認することはできません。
 <!-- It's impossible to check if a node used the tip selection algorithm or even changed it to return custom tip transactions for its own purposes. -->
 
 ただし、[ホワイトペーパー](https://iota.org/IOTA_Whitepaper.pdf)で説明したように、チップトランザクションはランダムに選択される必要があります。
@@ -15,7 +15,7 @@
 
 ![Nodes select the best tip transactions](https://cdn-images-1.medium.com/max/1600/1*Qs_KFwcXxXKuoERjfJ5xsw.jpeg)
 
-上図では、黒色のトランザクションが最良と見なされ、新しい各トランザクションは黒色のトランザクションを参照しようとします。この状況は、すべてのトランザクションが確定される割合を減らします。
+上図では、黒色のトランザクションが最良と見なされ、新しい各トランザクションは黒色のトランザクションを参照しようとします。この状況では、すべてのトランザクションが確定される割合を減らします。
 <!-- In this diagram, the black transactions are considered the best, and each new transaction tries to reference them. This situation reduces the rate at which all transactions are confirmed. -->
 
 すべてのノードがチップ選択アルゴリズムを使用すると、すべてのチップトランザクションがランダムに選択されます。このランダム性は、新しいトランザクションがタングルに添付されて最終的に確定される割合を増加させます。
