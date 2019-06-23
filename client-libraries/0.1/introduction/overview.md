@@ -11,7 +11,7 @@
 <!-- The client libraries are currently in beta. Their use in production is not supported. -->
 <!-- ::: -->
 
-### **公式サポートライブラリ**
+### **公式サポートライブラリ** ###
 <!-- ### **Official support** ### -->
 
 ---------------
@@ -63,9 +63,9 @@ C＃.NET 4.6クライアントライブラリ。このライブラリには、�
 ## 便利なリンク
 <!-- ## Useful links -->
 
-- **[タングルエクスプローラ](https://www.thetangle.org)：** タングル内のトランザクション見る。
+- **[タングルエクスプローラ](https://www.thetangle.org)：** タングル内のトランザクションを見る。
 <!-- - **[Tangle explorer](https://www.thetangle.org):** View transactions on the Tangle -->
-- **[公式Discord](https://discord.gg/NaAy8k7):** 言語固有のチャンネルでディスカッションに参加する。
+- **[公式Discord](https://discord.gg/NaAy8k7)：** 言語固有のチャンネルでディスカッションに参加する。
 <!-- - **[Official Discord](https://discord.gg/NaAy8k7):** Join the discussion in language-specific channels. -->
 
 ## IoTでの試み
@@ -77,5 +77,5 @@ C＃.NET 4.6クライアントライブラリ。このライブラリには、�
 - [MAM - High Mobility](https://github.com/iotaledger/high-mobility-blueprints) EVからタングルに安全にデータを送信する。
 <!-- - [MAM - High Mobility](https://github.com/iotaledger/high-mobility-blueprints) securely sending data from onboard an EV to the Tangle -->
 
-- [Smart City - AstroPiOTA](root://smartcity/0.1/introduction/overview.md) タングルへローカル環境センサーのデータを公開する。
+- [スマートシティ - AstroPiOTA](root://smartcity/0.1/introduction/overview.md) タングルへローカル環境センサーのデータを公開する。
 <!-- - [Smart City - AstroPiOTA](root://smartcity/0.1/introduction/overview.md) publishing local environment sensor data to the Tangle -->
