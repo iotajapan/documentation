@@ -63,7 +63,7 @@
     <!-- ::: -->
 
     :::danger:シードごとにアカウントを1つ作成する
-    同じシードで複数のアカウントを作成してはいけません。作成してしまうと、シード状態が上書きされるという競合状態が発生する可能性があります。
+    同じシードで複数のアカウントを作成してはいけません。作成してしまうと、シードステートが上書きされるという競合状態が発生する可能性があります。
     :::
     <!-- :::danger:Create one account per seed -->
     <!-- You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten. -->
