@@ -1,14 +1,14 @@
 # トランザクションを送受信する
 <!-- # Send and receive transactions -->
 
-**アカウントでトランザクションを送受信するには、条件付預け入れアドレス（CDA）を使用する必要があります。CDAは、アカウント内のIOTAトークンの取り出しおよび預け入れに使用される可能性がある条件を指定できるようにする特別なアドレスです。**
+**アカウントでトランザクションを送受信するには、条件付預け入れアドレス（CDA）を使用する必要があります。CDAは、アカウント内のIOTAトークンの取り出しおよび預け入れに使用される可能性がある条件を指定できるようにした特別なアドレスです。**
 <!-- **To send and receive transactions in an account, you must use conditional deposit addresses (CDA). CDAs are special addresses that allow you to specify the conditions in which they may be used in account withdrawals and deposits.** -->
 
-アカウントはCDAを使用して、[使用済みアドレスからの2度目のIOTAトークンの取り出し](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)のリスクを軽減します。誰かにIOTAトークンを要求すると、一定期間アクティブなCDAを作成できます。このようにして、あなたは送信者にあなたがその時間の後にだけそのアドレスからIOTAトークンを取り出すつもりであることを知らせます。その結果、送信者は、CDAの残り時間に応じて、IOTAトークンを送金するかどうかを決定できます。
+アカウントはCDAを使用して、[使用済みアドレスからの2度目のIOTAトークン取り出し](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)のリスクを軽減します。誰かにIOTAトークンを要求すると、一定期間アクティブなCDAを作成できます。このようにして、あなたは送信者にあなたがその時間の後にだけCDAからIOTAトークンを取り出すつもりであることを知らせます。その結果、送信者は、CDAの残り時間に応じて、IOTAトークンを預け入れるかどうかを決定できます。
 <!-- Accounts use CDAs to help reduce the [risks of withdrawing from spent addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). When you request IOTA tokens from a someone, you can create a CDA that's active for a certain period of time. This way, you let the sender know that you intend to withdraw from that address only after that time. As a result, the sender can decide whether to make a deposit, depending on how much time is left on a CDA. -->
 
 :::info:
-CDAsはアカウント内でのみ使用でき、汎用[クライアントライブラリメソッド](root://client-libraries/0.1/introduction/overview.md)では使用できません。その結果、CDAsを使用できるようにするには、あなたと送信者の両方にアカウントが必要です。
+CDAはアカウント内でのみ使用でき、汎用[クライアントライブラリメソッド](root://client-libraries/0.1/introduction/overview.md)では使用できません。その結果、CDAを使用できるようにするには、あなたと送信者の両方にアカウントが必要です。
 :::
 <!-- :::info: -->
 <!-- CDAs can be used only in an account and not in the generic [client library methods](root://client-libraries/0.1/introduction/overview.md). As a result, both you and the sender must have an account to be able to use CDAs. -->
@@ -32,7 +32,7 @@ CDAは、アクティブ状態または期限切れ状態のどちらかです�
 CDAを作成するには、CDAがアクティブか期限切れかを定義する次の条件を指定します。
 <!-- To create a CDA, specify the following condition, which defines whether it's active or expired: -->
 
-* **timeoutAt（必須）：** アドレスが期限切れになる時刻
+* **timeoutAt（必須）：** アドレスが期限切れになる時刻。
 <!-- * **timeoutAt (required):** The time at which the address expires -->
 
 と、以下の推奨フィールドのうちの1つを指定できます。
@@ -70,7 +70,7 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
 ## CDAを作成する
 <!-- ## Create a CDA -->
 
-1. CDAフィールドを`generateCDA()`メソッドに渡す
+1. CDAフィールドを`generateCDA()`メソッドに渡す。
   <!-- 1. Pass the CDA fields to the `generateCDA()` method -->
 
     ```js
@@ -99,7 +99,7 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
 ## IOTAトークンをCDAに預け入れる
 <!-- ## Deposit IOTA tokens into a CDA -->
 
-1. CDAがまだアクティブであることを確認した後、`account.sendToCDA()`メソッドを使用してIOAトークンをCDAに預け入れる。
+1. CDAがまだアクティブであることを確認した後、`sendToCDA()`メソッドを使用してIOAトークンをCDAに預け入れる。
   <!-- 1. After making sure that the CDA is still active, use the `account.sendToCDA()` method to deposit IOTA tokens into it -->
 
     ```js
@@ -130,7 +130,7 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
     account.stopAttaching();
     ```
 
-2. **オプション：** CDAをマグネットリンクとして使用するには、CDAを`parseCDAMagnet()`メソッドに渡してから、結果を`thesendToCDA()`メソッドに渡します。
+2. **オプション：** CDAをマグネットリンクとして使用するには、CDAを`parseCDAMagnet()`メソッドに渡してから、結果を`sendToCDA()`メソッドに渡します。
   <!-- 2. **Optional:** To use a CDA as a magnet link, pass it to the `parseCDAMagnet()` method, then and pass the result to the`sendToCDA()` method -->
 
     ```js

@@ -4,7 +4,7 @@
 **アカウントは、トランザクションの送受信を簡単にするためのオブジェクトです。アカウントは、アドレスやペンディング中のバンドルハッシュなどのデータをローカルデータベースに格納します。このデータにより、使用済みアドレスの再利用やペンディング中のトランザクションの促進や再添付を心配することなく、IOTAネットワークとやり取りすることができます。**
 <!-- **An account is an object that makes it easier to send and receive transactions. Accounts store data such as addresses and pending bundle hashes in a local database. This data allows you to interact with an IOTA network without worrying about reusing spent addresses or promoting and reattaching pending transactions.** -->
 
-アカウントでは、すべてのアドレスは単純なIOTAアドレス以上のものです。これらのアドレスは、[条件付預け入れアドレス（CDAs）](../how-to-guides/create-and-manage-cda.md)と呼ばれます。 CDAは81トライトのアドレスだけでなく、そのアドレスが[転送バンドル](root://getting-started/0.1/introduction/what-is-a-bundle.md)内で使用される可能性のある条件も定義します。
+アカウントでは、すべてのアドレスは単純なIOTAアドレス以上のものです。これらのアドレスは、[条件付預け入れアドレス（CDA）](../how-to-guides/create-and-manage-cda.md)と呼ばれます。 CDAは81トライトのアドレスだけでなく、そのアドレスが[転送バンドル](root://getting-started/0.1/introduction/what-is-a-bundle.md)内で使用される可能性のある条件も定義できます。
 <!-- In accounts, all addresses are more than simple IOTA addresses. These addresses are called [conditional deposit addresses (CDAs)](../how-to-guides/create-and-manage-cda.md). A CDA defines not only the 81-tryte address, but also the conditions in which that address may be used in a [transfer bundle](root://getting-started/0.1/introduction/what-is-a-bundle.md). -->
 
 ## シードステート
@@ -16,7 +16,7 @@
 |**データ**|**目的**|
 |:---------|:-------|
 |CDAの作成に使用された最後のキーインデックス|これまで使用されたことのない新しいCDAを作成する|
-|すべてのアクティブなCDAs|IOTAトークンの預け入れを受け取る可能性のあるCDAsからのIOTAトークンの取り出しを停止する|
+|すべてのアクティブなCDA|IOTAトークンの預け入れを受け取る可能性のあるCDAからのIOTAトークンの取り出しを停止する|
 |ペンディング中の転送|ペンディング中のトランザクションを監視して再ブロードキャストするか、必要に応じて再添付を行う|
 
 ## 新しいアカウントを作成する
@@ -111,7 +111,7 @@
     ```
 
 :::success:おめでとうございます！:tada:
-CDAsの状態を管理するだけでなく、自動的にトランザクションを促進し再添付するアカウントも作成しました。
+CDAの状態を管理するだけでなく、自動的にトランザクションを促進し再添付するアカウントも作成しました。
 :::
 <!-- :::success:Congratulations! :tada: -->
 <!-- You've created an account that will automatically promote and reattach transactions as well as manage the state of your CDAs. -->
