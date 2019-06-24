@@ -4,7 +4,7 @@
 **アカウントでトランザクションを送受信するには、条件付預け入れアドレス（CDA）を使用する必要があります。CDAは、アカウント内のIOTAトークンの取り出しおよび預け入れに使用される可能性がある条件を指定できるようにした特別なアドレスです。**
 <!-- **To send and receive transactions in an account, you must use conditional deposit addresses (CDA). CDAs are special addresses that allow you to specify the conditions in which they may be used in account withdrawals and deposits.** -->
 
-アカウントはCDAを使用して、[使用済みアドレスからの2度目のIOTAトークン取り出し](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)のリスクを軽減します。誰かにIOTAトークンを要求すると、一定期間アクティブなCDAを作成できます。このようにして、あなたは送信者にあなたがその時間の後にだけCDAからIOTAトークンを取り出すつもりであることを知らせます。その結果、送信者は、CDAの残り時間に応じて、IOTAトークンを預け入れるかどうかを決定できます。
+アカウントはCDAを使用して、[使用済みアドレスからのIOTAトークンの2重取り出し](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)のリスクを軽減します。誰かにIOTAトークンを要求すると、一定期間アクティブなCDAを作成できます。このようにして、あなたは送信者にあなたがその時間の後にだけCDAからIOTAトークンを取り出すつもりであることを知らせます。その結果、送信者は、CDAの残り時間に応じて、IOTAトークンを預け入れるかどうかを決定できます。
 <!-- Accounts use CDAs to help reduce the [risks of withdrawing from spent addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). When you request IOTA tokens from a someone, you can create a CDA that's active for a certain period of time. This way, you let the sender know that you intend to withdraw from that address only after that time. As a result, the sender can decide whether to make a deposit, depending on how much time is left on a CDA. -->
 
 :::info:
