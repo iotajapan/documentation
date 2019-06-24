@@ -56,7 +56,7 @@
 [ライブラリパッケージ](https://www.npmjs.com/org/iota)をインストールするには、コンピュータに次のいずれかのパッケージマネージャが必要です。
 <!-- To install [library packages](https://www.npmjs.com/org/iota), your computer must have one of the following package managers: -->
 
-- [npm](https://www.npmjs.com/) (Node.jsの[ダウンロード](https://nodejs.org/en/download/)に含まれています)
+- [npm](https://www.npmjs.com/)（Node.jsの[ダウンロード](https://nodejs.org/en/download/)に含まれています）
 <!-- - [npm](https://www.npmjs.com/) (Included in Node.js [downloads](https://nodejs.org/en/download/)) -->
 - [Yarn](https://yarnpkg.com/)
 
@@ -66,7 +66,7 @@
 ## ライブラリをインストールする
 <!-- ## Install the library -->
 
-IOTA JavaScriptクライアントライブラリとその依存関係をインストールするには、以下のいずれかのオプションを使用できます。
+IOTA JavaScriptクライアントライブラリとその依存関係をインストールするには、以下のいずれかのオプションを使用します。
 <!-- To install the IOTA JavaScript client library and its dependencies, you can use one of the following options: -->
 
 - npmでライブラリをインストールする
@@ -83,7 +83,7 @@ IOTA JavaScriptクライアントライブラリとその依存関係をイン�
 ## はじめに
 <!-- ## Get started -->
 
-[ライブラリをインストール](#ライブラリをインストールする)した後は、IRIノードに接続して、やり取りすることができます。
+[ライブラリをインストール](#ライブラリをインストールする)した後は、IRIノードに接続して、IRIノードとやり取りすることができます。
 <!-- After you've [installed the library](#install-the-library), you can connect to an IRI and interface with it. -->
 
 ローカルIRIノードに接続するには、以下の手順に従います。
@@ -147,7 +147,7 @@ iota.getNodeInfo()
 ## 例
 <!-- ## Examples -->
 
-以下に示す例と同様に、IOTA財団の[実例ディレクトリ](https://github.com/iotaledger/iota.js/tree/next/examples)を見てください。
+以下に示す例と同様に、IOTA財団の[例ディレクトリ](https://github.com/iotaledger/iota.js/tree/next/examples)もご覧ください。
 <!-- As well as the following examples, you can take a look at our [examples directory](https://github.com/iotaledger/iota.js/tree/next/examples) for more. -->
 
 ### トランザクションを作成してブロードキャストする
@@ -231,15 +231,15 @@ iota.prepareTransfers(seed, transfers)
 ## プロジェクトを支援する
 <!-- ## Support the project -->
 
-IOTA JavaScriptクライアントライブラリがあなたにとって役に立ち、プロジェクトに貢献したいと思うならば、[バグレポート](https://github.com/iotaledger/iota.js/issues/new)、[機能リクエスト](https://github.com/iotaledger/iota.js/issues/new)または[プルリクエスト](https://github.com/iotaledger/iota.js/pulls/)を投稿することをご検討ください。
+IOTA JavaScriptクライアントライブラリがあなたにとって役に立ち、プロジェクトに貢献したいとお考えでしたら、[バグレポート](https://github.com/iotaledger/iota.js/issues/new)、[機能リクエスト](https://github.com/iotaledger/iota.js/issues/new)または[プルリクエスト](https://github.com/iotaledger/iota.js/pulls/)を投稿することをご検討ください。
 <!-- If the IOTA JavaScript client library has been useful to you and you feel like contributing, consider posting a [bug report](https://github.com/iotaledger/iota.js/issues/new), [feature request](https://github.com/iotaledger/iota.js/issues/new) or a [pull request](https://github.com/iotaledger/iota.js/pulls/). -->
 
 ### GitHubでリポジトリのクローンを作成してブートストラップする
 <!-- ### Clone and bootstrap the repository on GitHub -->
 
-1. 右上隅にある<kbd>Fork</kbd>ボタンをクリックします
+1. 右上隅にある<kbd>Fork</kbd>ボタンをクリックする
   <!-- 1. Click the <kbd>Fork</kbd> button in the top-right corner -->
-2. フォークをクローンしてディレクトリを移動してください
+2. フォークをクローンしてディレクトリに移動する
   <!-- 2. Clone your fork and change directory into it -->
 3. 環境をブートストラップする
   <!-- 3. Bootstrap your environment -->
@@ -248,7 +248,7 @@ IOTA JavaScriptクライアントライブラリがあなたにとって役に�
     npm run init
     ```
 
-このステップでは、すべての依存関係をダウンロードし、パッケージをビルドしてリンクします。 iota.jsは[Lerna](https://lernajs.io/)を使って複数のパッケージを管理します。`lerna bootstrap`コマンドを使用して、いつでもセットアップを再ブートストラップできます。
+このステップでは、すべての依存関係をダウンロードし、パッケージをビルドしてリンクします。 iota.jsは[Lerna](https://lerna.js.org)を使って複数のパッケージを管理します。`lerna bootstrap`コマンドを使用して、いつでもセットアップを再ブートストラップできます。
 <!-- This step will download all dependencies, build and link the packages together. iota.js uses [Lerna](https://lernajs.io/) to manage multiple packages. You can re-bootstrap your setup at any point with `lerna bootstrap` command. -->
 
 ### テストを実行する
