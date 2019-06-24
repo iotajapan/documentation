@@ -17,7 +17,7 @@
 ライブラリの機能の詳細については、以下をご覧ください。
 <!-- To learn more about how the library works: -->
 
-- [アカウントを使用する方法](root://iota-js/0.1/how-to-guides/create-account.md)を確認する。
+- [アカウントを作成する方法](root://iota-js/0.1/how-to-guides/create-account.md)を確認する。
 <!-- - See how you can [work with accounts](root://iota-js/0.1/how-to-guides/create-account.md). -->
 - [トランザクションの送受信方法](root://iota-js/0.1/how-to-guides/create-and-manage-cda.md)を確認する。
 <!-- - See how you can [send and receive](root://iota-js/0.1/how-to-guides/create-and-manage-cda.md) transactions. -->

@@ -21,7 +21,7 @@
 ライブラリの機能の詳細については、以下をご覧ください。
 <!-- To learn more about how the library works: -->
 
-- [アカウントを使用する方法](root://iota-java/0.1/how-to-guides/create-account.md)を確認する。
+- [アカウントを作成する方法](root://iota-java/0.1/how-to-guides/create-account.md)を確認する。
 <!-- - See how you can [work with accounts](root://iota-java/0.1/how-to-guides/create-account.md). -->
 - [トランザクションの送受信方法](root://iota-java/0.1/how-to-guides/create-and-manage-cda.md)を確認する。
 <!-- - See how you can [send and receive](root://iota-java/0.1/how-to-guides/create-and-manage-cda.md) transactions. -->
@@ -42,7 +42,7 @@
 ## 対象読者
 <!-- ## Audience -->
 
-この文書は、Javaプログラミング言語とオブジェクト指向プログラミングの概念に精通している人を対象にしています。[アドレスの再利用](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)、[バンドルとトランザクション](root://iota-basics/0.1/concepts/bundles-and-transactions.md)など、IOTAの基本概念にも精通している必要があります。
+このドキュメントは、Javaプログラミング言語とオブジェクト指向プログラミングの概念に精通している人を対象にしています。[アドレスの再利用](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)、[バンドルとトランザクション](root://iota-basics/0.1/concepts/bundles-and-transactions.md)など、IOTAの基本概念にも精通している必要があります。
 <!-- This documentation is designed for people who are familiar with the Java programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [address reuse](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse), [bundles, and transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md). -->
 
 このガイドは、IOTAを使用したアプリケーションの探求と開発を迅速に開始できるようにすることを目的としています。
@@ -51,7 +51,7 @@
 ## 前提条件
 <!-- ## Prerequisites -->
 
-IOTA Javaクライアントライブラリを使用するには、コンピュータに次の最低要件が必要です。
+IOTA Javaクライアントライブラリを使用するには、コンピュータに次の最低条件が必要です。
 <!-- To use the IOTA Java client library, your computer must have the following minimum requirement: -->
 
 * Java 6 (もしくは6以上)
@@ -135,8 +135,9 @@ IOTA Javaクライアントライブラリとその依存関係をダウンロ�
     </dependency>
     ```
 
-3. `<version>タグ</version>`の値をリリース番号またはGitコミットハッシュの最初の10文字のいずれかに変更する。`<version>a98de8ea50</version>`または`<version>1.0.0-beta3</version>`など。
+3. `<version>タグ</version>`の値をリリース番号またはGitコミットハッシュの最初の10文字のいずれかに変更する。
 <!-- 3. Change the value of the `<version>` tag to either a release number or the first 10 characters of a Git commit hash: -->
+`<version>a98de8ea50</version>`または`<version>1.0.0-beta3</version>`など。
 <!-- `<version>a98de8ea50</version>` or `<version>1.0.0-beta3</version>` -->
 
 **注釈：** [JitPack](https://jitpack.io/#iotaledger/iota-java)のページで最新バージョンを見つけてください。
@@ -148,10 +149,10 @@ IOTA Javaクライアントライブラリとその依存関係をダウンロ�
 1. [GitHubリポジトリ](https://github.com/iotaledger/iota-java)をクローンまたはダウンロードする。
   <!-- 1. Clone or download the [GitHub repository](https://github.com/iotaledger/iota-java) -->
 
-      プロジェクト内には、次のディレクトリがあります。
-      <!-- Inside the project, you'll have the following directories: -->
-      * jota
-      * jota-parent
+  プロジェクト内には、次のディレクトリがあります。
+  <!-- Inside the project, you'll have the following directories: -->
+  * jota
+  * jota-parent
 
 2. プロジェクト内のjotaディレクトリを参照する。
   <!-- 2. Reference the jota directory in your project -->
@@ -208,7 +209,7 @@ iota.node.port=14265
 ## APIリファレンス
 <!-- ## API reference -->
 
-IOTA Javaクライアントライブラリ用のAPIコマンドの完全な一覧表については、[GitHubページ](https://iotaledger.github.io/iota-java/javadoc/jota/IotaAPICommands.html#enum.constant.summary)にアクセスしてください。
+IOTA Javaクライアントライブラリ用のAPIコマンドの完全な一覧については、[GitHubページ](https://iotaledger.github.io/iota-java/javadoc/jota/IotaAPICommands.html#enum.constant.summary)にアクセスしてください。
 <!-- For a full list of API commands for the IOTA Java client library, go to the [GitHub page](https://iotaledger.github.io/iota-java/javadoc/jota/IotaAPICommands.html#enum.constant.summary). -->
 
 最も一般的に使用されるAPI関数は次のとおりです。
@@ -263,7 +264,7 @@ IOTA Javaクライアントライブラリが役に立ち、貢献したいと�
 ## ディスカッションに参加する
 <!-- ## Join the Discussion -->
 
-コミュニティに参加したい場合、セットアップの手助けが必要な場合、ライブラリに関する問題がある場合、あるいはブロックチェーン、分散元帳、およびIoTについて他の人と話したい場合は、遠慮なく[Discord](https://discordapp.com/invite/fNGZXvh)に参加してください。
+コミュニティに参加したい場合、セットアップの手助けが必要な場合、ライブラリに関する問題がある場合、あるいはブロックチェーン、分散型台帳、およびIoTについて他の人と話したい場合は、遠慮なく[Discord](https://discordapp.com/invite/fNGZXvh)に参加してください。
 <!-- If you want to get involved in the community, need help with getting setup, have any issues related with the library or just want to discuss blockchain, distributed ledgers, and IoT with other people, feel free to join our [Discord](https://discordapp.com/invite/fNGZXvh). -->
 
 ## ライセンス
