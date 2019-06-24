@@ -1,7 +1,7 @@
 # アカウントを作成する
 <!-- # Create an account -->
 
-**アカウントは、トランザクションの送受信を簡単にするためのオブジェクトです。アカウントは、アドレスやペンディング中のバンドルハッシュなどのデータをローカルデータベースに格納します。このデータにより、使用済みアドレスの再利用やペンディング中のトランザクションの促進や再添付を心配することなく、IOTAネットワークとやり取りすることができます。**
+**アカウントは、トランザクションの送受信を簡単にするためのオブジェクトです。アカウントは、アドレスやペンディング中のバンドルハッシュなどのデータをローカルデータベースに格納します。このデータにより、署名済みアドレスの再利用やペンディング中のトランザクションの促進や再添付を心配することなく、IOTAネットワークとやり取りすることができます。**
 <!-- **An account is an object that makes it easier to send and receive transactions. Accounts store data such as addresses and pending bundle hashes in a local database. This data allows you to interact with an IOTA network without worrying about reusing spent addresses or promoting and reattaching pending transactions.** -->
 
 アカウントでは、すべてのアドレスは単純なIOTAアドレス以上のものです。これらのアドレスは、[条件付預け入れアドレス（CDA）](../how-to-guides/create-and-manage-cda.md)と呼ばれます。 CDAは81トライトのアドレスだけでなく、そのアドレスが[転送バンドル](root://getting-started/0.1/introduction/what-is-a-bundle.md)内で使用される可能性のある条件も定義できます。
@@ -17,7 +17,7 @@
 |:---------|:-------|
 |CDAの作成に使用された最後のキーインデックス|これまで使用されたことのない新しいCDAを作成する|
 |すべてのアクティブなCDA|IOTAトークンの預け入れを受け取る可能性のあるCDAからのIOTAトークンの取り出しを停止する|
-|ペンディング中の転送|ペンディング中のトランザクションを監視して再ブロードキャストするか、必要に応じて再添付を行う|
+|ペンディング中の転送バンドル|ペンディング中のトランザクションを監視して再ブロードキャストするか、必要に応じて再添付を行う|
 
 ## 新しいアカウントを作成する
 <!-- ## Create a new account -->
@@ -25,14 +25,14 @@
 この例では、[Devnetノード](root://getting-started/0.1/references/iota-networks.md#devnet)に接続します。 Devnetは、トークンが無料であること以外はMainnetとほぼ同じです。Devnetに送信したトランザクションは、Mainnetのような他のネットワークには存在しません。
 <!-- In this example, we connect to a [Devnet node](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
 
-1. ライブラリをインストールする
+1. ライブラリをインストールします。
   <!-- 1. Install the library -->
 
     ```bash
     npm install @iota/account
     ```
 
-2. 新しいシードで`account`オブジェクトを作成してノードに接続する
+2. 新しいシードで`account`オブジェクトを作成してノードに接続します。
   <!-- 2. Create an `account` object with a new seed and connect to a node -->
 
     ```js
@@ -111,7 +111,7 @@
     ```
 
 :::success:おめでとうございます！:tada:
-CDAの状態を管理するだけでなく、自動的にトランザクションを促進し再添付するアカウントも作成しました。
+CDAの状態を管理するだけでなく、自動的にトランザクションを促進し再添付するアカウントを作成しました。
 :::
 <!-- :::success:Congratulations! :tada: -->
 <!-- You've created an account that will automatically promote and reattach transactions as well as manage the state of your CDAs. -->

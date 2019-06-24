@@ -20,7 +20,7 @@ IOTAでは、署名方法の性質上、[各アドレスから1度だけしかIO
 <!-- In IOTA, multiple pairs of private keys and addresses are needed because [each address can be withdrawn from (spent) only once](#address-reuse). So, each time you withdraw from an address, you must [create a new address](../how-to-guides/create-an-address.md) by either incrementing the index or changing the security level. -->
 
 :::info:
-秘密鍵とアドレスのペアのセキュリティレベルが高いほど、攻撃者が使用済みアドレスの署名に対し総当たり攻撃を成功させることはより困難になります。
+秘密鍵とアドレスのペアのセキュリティレベルが高いほど、攻撃者が署名済みアドレスの署名に対し総当たり攻撃を成功させることはより困難になります。
 :::
 <!-- :::info: -->
 <!-- The greater the security level of a private key and address pair, the more difficult it is for an attacker to brute force the signature of a spent address. -->
@@ -97,7 +97,7 @@ IOTAでは、署名方法の性質上、[各アドレスから1度だけしかIO
 <!-- If the bundle hash weren't normalized, the W-OTS would reveal an unknown amount of the private key. By revealing half of the private key, an address can safely be withdrawn from once. -->
 <a id="address-reuse"></a>
 
-:::danger:使用済みアドレス
+:::danger:署名済みアドレス
 1つのアドレスから2回以上IOTAトークンを取り出すと（署名すると）、より多くの秘密鍵が漏洩するため、攻撃者はその署名に総当たり攻撃を行いIOTAトークンを盗むことができます。
 :::
 <!-- :::danger:Spent addresses -->

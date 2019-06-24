@@ -8,7 +8,7 @@
 <!-- The value that you specify in the `timeout_at` field depends on how fast you expect the depositor to make a deposit. If you are in direct contact with the depositor and you are both waiting to settle the transfer, you can specify a shorter timeout. -->
 
 :::danger:重要
-`timeout_at`フィールドのみを使用してCDAを作成した場合は、期限切れになっていなくてもゼロではない残高になるとすぐにIOTAトークンを取り出すことができます。そのため、使用済みアドレスからの2重取り出しを避けるために、可能な限り`multi_use`フィールドまたは`expected_amount`フィールドのいずれかを`timeout_at`フィールドと併用してCDAを作成することを強くお勧めします。
+`timeout_at`フィールドのみを使用してCDAを作成した場合は、期限切れになっていなくてもゼロではない残高になるとすぐにIOTAトークンを取り出すことができます。そのため、署名済みアドレスの再利用を避けるために、可能な限り`multi_use`フィールドまたは`expected_amount`フィールドのいずれかを`timeout_at`フィールドと併用してCDAを作成することを強くお勧めします。
 :::
 <!-- :::danger:Important -->
 <!-- If a CDA was created with only the `timeout_at` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. So, to avoid withdrawing from a spent address, we recommend creating CDAs with either the `multi_use` field or with the `expected_amount` field whenever possible. -->

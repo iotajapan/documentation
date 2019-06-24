@@ -4,7 +4,7 @@
 **アカウントでトランザクションを送受信するには、条件付預け入れアドレス（CDA）を使用する必要があります。CDAは、アカウント内のIOTAトークンの取り出しおよび預け入れに使用される可能性がある条件を指定できるようにした特別なアドレスです。**
 <!-- **To send and receive transactions in an account, you must use conditional deposit addresses (CDA). CDAs are special addresses that allow you to specify the conditions in which they may be used in account withdrawals and deposits.** -->
 
-アカウントはCDAを使用して、[使用済みアドレスからのIOTAトークンの2重取り出し](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)のリスクを軽減します。誰かにIOTAトークンを要求すると、一定期間アクティブなCDAを作成できます。このようにして、あなたは送信者にあなたがその時間の後にだけCDAからIOTAトークンを取り出すつもりであることを知らせます。その結果、送信者は、CDAの残り時間に応じて、IOTAトークンを預け入れるかどうかを決定できます。
+アカウントはCDAを使用して、[署名済みアドレスの再利用](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)のリスクを軽減します。誰かにIOTAトークンを要求すると、一定期間アクティブなCDAを作成できます。このようにして、あなたは送信者にあなたがその時間の後にだけCDAからIOTAトークンを取り出すつもりであることを知らせます。その結果、送信者は、CDAの残り時間に応じて、IOTAトークンを預け入れるかどうかを決定できます。
 <!-- Accounts use CDAs to help reduce the [risks of withdrawing from spent addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). When you request IOTA tokens from a someone, you can create a CDA that's active for a certain period of time. This way, you let the sender know that you intend to withdraw from that address only after that time. As a result, the sender can decide whether to make a deposit, depending on how much time is left on a CDA. -->
 
 :::info:
@@ -59,7 +59,7 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
 :::warning:注意
 `timeoutAt`フィールドのみを使用してCDAを作成した場合は、期限切れになっていなくてもゼロではない残高になるとすぐに取り出しに使用できます。
 
-使用済みアドレスからの2度目の取り出しを避けるために、可能であれば、`multiUse`フィールドまたは`expectedAmount`フィールドのいずれかを`timeoutAt`と併用してCDAを作成することをお勧めします。
+署名済みアドレスの再利用を避けるために、可能であれば、`multiUse`フィールドまたは`expectedAmount`フィールドのいずれかを`timeoutAt`と併用してCDAを作成することをお勧めします。
 :::
 <!-- :::warning:Warning -->
 <!-- If a CDA was created with only the `timeoutAt` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. -->
@@ -70,7 +70,7 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
 ## CDAを作成する
 <!-- ## Create a CDA -->
 
-1. CDAフィールドを`generateCDA()`メソッドに渡す。
+1. CDAフィールドを`generateCDA()`メソッドに渡します。
   <!-- 1. Pass the CDA fields to the `generateCDA()` method -->
 
     ```js
@@ -99,7 +99,7 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
 ## IOTAトークンをCDAに預け入れる
 <!-- ## Deposit IOTA tokens into a CDA -->
 
-1. CDAがまだアクティブであることを確認した後、`sendToCDA()`メソッドを使用してIOAトークンをCDAに預け入れる。
+1. CDAがまだアクティブであることを確認した後、`sendToCDA()`メソッドを使用してIOAトークンをCDAに預け入れます。
   <!-- 1. After making sure that the CDA is still active, use the `account.sendToCDA()` method to deposit IOTA tokens into it -->
 
     ```js

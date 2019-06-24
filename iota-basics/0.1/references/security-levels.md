@@ -1,7 +1,7 @@
 # セキュリティレベル
 <!-- # Security levels -->
 
-**以下の表には、秘密鍵とアドレスのペアで考えられるセキュリティレベルが表示されています。セキュリティレベルが高ければ高いほど、使用済み（IOTAトークンを取り出し済み）アドレスの署名はより大きく、より安全になります。**
+**以下の表には、秘密鍵とアドレスのペアで考えられるセキュリティレベルが表示されています。セキュリティレベルが高ければ高いほど、署名済み（IOTAトークンを取り出し済み）アドレスの署名はより大きく、より安全になります。**
 <!-- **This table displays the possible security levels of a private key and address pair. The greater the security level, the larger and more secure the signature of a spent address is against brute force attacks.** -->
 
 セキュリティレベルが高いほど、トランザクションに署名するためにより多くの計算を行わなければならず、またその署名を含めるにはバンドル内により多くのトランザクションが必要になります。その結果、低電力機器はセキュリティレベル2を使用したいと思うかもしれません。大規模企業はセキュリティレベル3を使用したいと思うかもしれません。
