@@ -18,11 +18,6 @@
 |CDAの作成に使用された最後のキーインデックス|これまで使用されたことのない新しいCDAを作成する|
 |すべてのアクティブなCDAs|IOTAトークンの預け入れを受け取る可能性のあるCDAsからのIOTAトークンの取り出しを停止する|
 |ペンディング中の転送|ペンディング中のトランザクションを監視して再ブロードキャストするか、必要に応じて再添付を行う|
-<!-- |**Data**| **Purpose**| -->
-<!-- |:-----------------|:----------| -->
-<!-- |The last key index that was used to create a CDA| Create a new CDA that has never been used before| -->
-<!-- |All active CDAs|Stop withdrawals from CDAs that may receive deposits| -->
-<!-- |Pending transfers| Monitor pending transactions and rebroadcast or reattach them if necessary| -->
 
 ## 新しいアカウントを作成する
 <!-- ## Create a new account -->
@@ -33,9 +28,9 @@
 1. ライブラリをインストールする
   <!-- 1. Install the library -->
 
-      ```bash
-      npm install @iota/account
-      ```
+    ```bash
+    npm install @iota/account
+    ```
 
 2. 新しいシードで`account`オブジェクトを作成してノードに接続する
   <!-- 2. Create an `account` object with a new seed and connect to a node -->
