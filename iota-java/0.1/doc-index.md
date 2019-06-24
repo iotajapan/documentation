@@ -1,6 +1,6 @@
 # Index
 
-[Introduction/Overview](README.md)
-[How-to Guides/Create an account](/how-to-guides/create-account.md)
-[How-to Guides/Send and receive transactions](/how-to-guides/create-and-manage-cda.md)
-[References/Conditional deposit address FAQ](/references/cda-faq.md)
+[序説/概要](README.md)
+[ハウツーガイド/アカウントを作成する](/how-to-guides/create-account.md)
+[ハウツーガイド/トランザクションを送受信する](/how-to-guides/create-and-manage-cda.md)
+[参考文献/条件付預け入れアドレスに関するFQA](/references/cda-faq.md)

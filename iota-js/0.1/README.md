@@ -1,4 +1,4 @@
-# IOTA JAライブラリ
+# IOTA JAクライアントライブラリ
 <!-- # IOTA JS Library -->
 
 これは**公式**のJavaScriptクライアントライブラリで、次のことができます。
