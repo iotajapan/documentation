@@ -14,7 +14,7 @@
 <!-- If a CDA was created with only the `timeout_at` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. So, to avoid withdrawing from a spent address, we recommend creating CDAs with either the `multi_use` field or with the `expected_amount` field whenever possible. -->
 <!-- ::: -->
 
-## `multi_use`フィールドを持つCDAはいつ使えば良いか？
+## multi_useフィールドを持つCDAはいつ使えば良いか？
 <!-- ## When should I create a multi-use CDA? -->
 
 次のような場合には、`multi_use`フィールドを持つCDAを使用することをお勧めします。
@@ -33,7 +33,7 @@
 `multi_use` CDAアドレスの1つのシナリオは、Webサイトまたはスライドのスクリーンなどの他のデジタル媒体で寄付アドレスを共有する場合です。このシナリオでは、任意の量の複数の預け入れを受け取ることができ、CDAの共有を完全に管理できます。`timeout_at`値がなくなる前に、72時間経過するたびに、WebサイトまたはスライドのスクリーンでCDAを更新することができます。これにより、CDAを更新する前に、送信者が送った支払いを確定するのに十分な時間が送信者に与えられます。
 <!-- One scenario for `multi_use` CDA addresses is sharing a donation address on a website or other digital medium, such as a screen. In this scenario, you can receive multiple deposits of arbitrary value and you fully control the sharing of the CDA. You can refresh the CDA on the website or screen each time the CDA is 72 hours before its `timeout_at` value runs out. This gives depositors enough time to finalize the payments they may have sent before you refreshed the CDA. -->
 
-## `expected_amount`フィールドを持つCDAはいつ使えば良いか？
+## expected_amountフィールドを持つCDAはいつ使えば良いか？
 <!-- ## When should I create a CDA with an expected amount? -->
 
 預け入れの値が送信者と受信者の両方の観点から明らかである場合は、`expected_amount`フィールドの値を指定する必要があります。たとえば、あなたが取引所からIOTAトークンを取り出したいときなどです。あなたは取引所に予想される量を持つCDAを与えることができます。
