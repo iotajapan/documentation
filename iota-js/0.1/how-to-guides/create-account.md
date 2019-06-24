@@ -120,5 +120,5 @@ CDAsの状態を管理するだけでなく、自動的にトランザクショ�
 ## 次のステップ
 <!-- ## Next steps -->
 
-[トランザクションを送受信できるようにCDAを作成する](../how-to-guides/create-and-manage-cda.md)。
+[トランザクションを送受信できるCDAを作成する](../how-to-guides/create-and-manage-cda.md)。
 <!-- [Create a CDA so that you can send and receive transactions](../how-to-guides/create-and-manage-cda.md). -->
