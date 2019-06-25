@@ -153,7 +153,7 @@ iota.getNodeInfo()
 ### トランザクションを作成してブロードキャストする
 <!-- ### Create and broadcast transactions -->
 
-この例では、[`prepareTransfers`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers)メソッドを呼び出して、用意したバンドルを[`sendTrytes`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.sendTrytes)メソッドにパイプ処理することによって、トランザクションを作成してIRIノードに送信する方法を示します。
+この例では、[`prepareTransfers`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers)メソッドを呼び出して、準備済みバンドルを[`sendTrytes`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.sendTrytes)メソッドにパイプ処理することによって、トランザクションを作成してIRIノードに送信する方法を示します。
 <!-- This example shows you how to create and send a transaction to an IRI node by calling the [`prepareTransfers`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method and piping the prepared bundle to the [`sendTrytes`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.sendTrytes) method. -->
 
 ```js

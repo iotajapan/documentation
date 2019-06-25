@@ -1,61 +1,91 @@
-# IOTA Go Library
+# IOTA GOクライアントライブラリ
+<!-- # IOTA Go Library -->
 
-This is the **official** Go client library, which allows you to do the following:
-- Create, import, export, and manage accounts
-- Send transactions
-- Promote and reattach pending transactions
-- Request deposits into conditional deposit addresses (CDA)
-- Listen to events
-- Extend the library functionality with plug-ins
-- Interact with an IRI node
+これは**公式**のGoクライアントライブラリで、次のことができます。
+<!-- This is the **official** Go client library, which allows you to do the following: -->
+- アカウントを作成、インポート、エクスポート、および管理する
+<!-- - Create, import, export, and manage accounts -->
+- トランザクションを送信する
+<!-- - Send transactions -->
+- ペンディングトランザクションの促進と再添付を行う
+<!-- - Promote and reattach pending transactions -->
+- 条件付預け入れアドレス（CDA）への預け入れをリクエストする
+<!-- - Request deposits into conditional deposit addresses (CDA) -->
+- イベントをリッスンする
+<!-- - Listen to events -->
+- プラグインでライブラリ機能を拡張する
+<!-- - Extend the library functionality with plug-ins -->
+- IRIノードと対話する
+<!-- - Interact with an IRI node -->
 
-To learn more about how the library works:
+ライブラリの機能の詳細については、以下をご覧ください。
+<!-- To learn more about how the library works: -->
 
-- See how you can [work with accounts](root://iota-go/0.1/how-to-guides/create-account.md).
-- See how you can [send and receive](root://iota-go/0.1/how-to-guides/create-and-manage-cda.md) transactions.
+- [アカウントを作成する方法](root://iota-java/0.1/how-to-guides/create-account.md)を確認する。
+<!-- - See how you can [work with accounts](root://iota-go/0.1/how-to-guides/create-account.md). -->
+- [トランザクションの送受信方法](root://iota-java/0.1/how-to-guides/create-and-manage-cda.md)を確認する。
+<!-- - See how you can [send and receive](root://iota-go/0.1/how-to-guides/create-and-manage-cda.md) transactions. -->
 
-Get the library at the [IOTA Go GitHub repository](https://github.com/iotaledger/iota.go).
+[IOTA Go GitHubレポジトリ](https://github.com/iotaledger/iota.go)でライブラリを入手してください。
+<!-- Get the library at the [IOTA Go GitHub repository](https://github.com/iotaledger/iota.go). -->
 
-:::warning:Beta software
-The client libraries are currently in beta. Their use in production is not supported.
+:::warning:ベータソフトウェア
+クライアントライブラリは現在ベータ版です。本番環境での使用はサポートされていません。
 :::
+<!-- :::warning:Beta software -->
+<!-- The client libraries are currently in beta. Their use in production is not supported. -->
+<!-- ::: -->
 
-Please report any issues in our [issue tracker](https://github.com/iotaledger/iota.go/issues/new).
+問題があれば[issueトラッカー](https://github.com/iotaledger/iota.go/issues/new)で報告してください。
+<!-- Please report any issues in our [issue tracker](https://github.com/iotaledger/iota.go/issues/new). -->
 
-## Audience
+## 対象読者
+<!-- ## Audience -->
 
-This documentation is designed for people who are familiar with the Go programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [address reuse](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse), [bundles, and transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md).
+このドキュメントは、Goプログラミング言語とオブジェクト指向プログラミングの概念に精通している人を対象にしています。[アドレスの再利用](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)、[バンドルとトランザクション](root://iota-basics/0.1/concepts/bundles-and-transactions.md)など、IOTAの基本概念にも精通している必要があります。
+<!-- This documentation is designed for people who are familiar with the Go programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [address reuse](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse), [bundles, and transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md). -->
 
-This guide is designed to let you quickly start exploring and developing applications with IOTA.
+このガイドは、IOTAを使用したアプリケーションの探求と開発を迅速に開始できるようにすることを目的としています。
+<!-- This guide is designed to let you quickly start exploring and developing applications with IOTA. -->
 
-## Prerequisites
+## 前提条件
+<!-- ## Prerequisites -->
 
-To download the IOTA Go client library and its dependencies, we recommend that you use [vgo modules](https://github.com/golang/go/wiki/Modules) 
-(since Go 1.11) to manage dependencies in your project.
+IOTA Goクライアントライブラリとその依存関係をダウンロードするには、プロジェクト内の依存関係を管理する`vgoモジュール`(https://github.com/golang/go/wiki/Modules)（Go 1.11以降）を使用することをお勧めします。
+<!-- To download the IOTA Go client library and its dependencies, we recommend that you use [vgo modules](https://github.com/golang/go/wiki/Modules) -->
+<!-- (since Go 1.11) to manage dependencies in your project. -->
 
-## Download the library
+## ライブラリをダウンロードする
+<!-- ## Download the library -->
 
-To download the IOTA Go client library and its dependencies, do the following:
+IOTA Goクライアントライブラリとその依存関係をダウンロードするには、次の手順に従います。
+<!-- To download the IOTA Go client library and its dependencies, do the following: -->
 
-1. In any directory outside of $GOPATH, create a directory for your project and initialize it. Change the `<your-module-path>` placeholder to the path of your project such as `github.com/me/awesome-project`.
+1. $GOPATH以外のディレクトリに、プロジェクト用のディレクトリを作成して初期化します。`<your-module-path>`プレースホルダを`github.com/me/awesome-project`などのプロジェクトのパスに変更します。
+  <!-- 1. In any directory outside of $GOPATH, create a directory for your project and initialize it. Change the `<your-module-path>` placeholder to the path of your project such as `github.com/me/awesome-project`. -->
 
 	```bash
 	go mod init <your-module-path>
 	```
 
-2. Download the library
+2. ライブラリをダウンロードします。
+  <!-- 2. Download the library -->
 
 	```bash
 	go get github.com/iotaledger/iota.go/api
 	```
 
-This command downloads the latest version of the IOTA Go client library and writes the version into the `go.mod` file.
+このコマンドは、最新バージョンのIOTA Goクライアントライブラリをダウンロードし、そのバージョンを`go.mod`ファイルに書き込みます。
+<!-- This command downloads the latest version of the IOTA Go client library and writes the version into the `go.mod` file. -->
 
-## Get started
+## はじめに
+<!-- ## Get started -->
 
-After you've [downloaded the library](#download-the-library), you can connect to an IRI node to send transactions to it and interact with the ledger.
+[ライブラリをダウンロード](#ライブラリをダウンロードする)したら、IRIノードに接続してトランザクションを送信したり、台帳と対話したりできます。
+<!-- After you've [downloaded the library](#download-the-library), you can connect to an IRI node to send transactions to it and interact with the ledger. -->
 
-1. To connect to a local IRI node, do the following:
+1. ローカルIRIノードに接続するには、以下の手順に従います。
+  <!-- 1. To connect to a local IRI node, do the following: -->
 
 	```go
 	package main
@@ -84,17 +114,24 @@ After you've [downloaded the library](#download-the-library), you can connect to
 		}
 	}
 	```
-## API reference
 
-For details on all available API methods, see the [API folder](https://github.com/iotaledger/iota.go/tree/master/api).
-	
-## Examples
+# APIリファレンス
+<!-- ## API reference -->
 
-As well as the following examples, you can take a look at our [examples folder](https://github.com/iotaledger/iota.go/tree/master/api/.examples) for more.
+利用可能なすべてのAPIメソッドの詳細については、[APIフォルダ](https://github.com/iotaledger/iota.go/tree/master/api)を参照してください。
+<!-- For details on all available API methods, see the [API folder](https://github.com/iotaledger/iota.go/tree/master/api). -->
 
-### Create and broadcast transactions
+## 例
+<!-- ## Examples -->
 
-This example shows you how to create and send a transaction to an IRI node by calling the `PrepareTransfers()` method and piping the prepared bundle to the `SendTrytes()` method.
+以下の例と同様に、IOTA財団の[例フォルダ](https://github.com/iotaledger/iota.go/tree/master/api/.examples)もご覧ください。
+<!-- As well as the following examples, you can take a look at our [examples folder](https://github.com/iotaledger/iota.go/tree/master/api/.examples) for more. -->
+
+### トランザクションを作成してブロードキャストする
+<!-- ### Create and broadcast transactions -->
+
+この例では、`PrepareTransfers()`メソッドを呼び出して準備済みバンドルを`SendTrytes()`メソッドにパイプ処理することによって、トランザクションを作成してIRIノードに送信する方法を示します。
+<!-- This example shows you how to create and send a transaction to an IRI node by calling the `PrepareTransfers()` method and piping the prepared bundle to the `SendTrytes()` method. -->
 
 ```go
 package main
@@ -202,63 +239,86 @@ func must(err error) {
 
 ```
 
-### Native code and PoW
+### ネイティブコードとPoW
+<!-- ### Native code and PoW -->
 
-If the library is compiled with CGO enabled, certain functions such as Curl's `transform()` method will
-run native C code for increased speed. 
+ライブラリがCGOを有効にしてコンパイルされている場合、Curlの`transform()`メソッドなどの特定の関数はネイティブCコードを実行して速度を上げます。
+<!-- If the library is compiled with CGO enabled, certain functions such as Curl's `transform()` method will -->
+<!-- run native C code for increased speed. -->
 
-Certain PoW implementations are enabled if the correct flags are passed while compiling your program:
+プログラムのコンパイル中に正しいフラグが渡されると、特定のPoW実装が有効になります。
+<!-- Certain PoW implementations are enabled if the correct flags are passed while compiling your program: -->
 
-- `pow_avx` for AVX based PoW
-- `pow_sse` for SSE based PoW
-- `pow_c128` for C int128 based using PoW
-- `pow_arm_c128` for ARM64 int128 C based PoW
-- `pow_c` for C based PoW
+- `pow_avx`： AVXベースのPoW用
+<!-- - `pow_avx` for AVX based PoW -->
+- `pow_sse`： SSEベースのPoW用
+<!-- - `pow_sse` for SSE based PoW -->
+- `pow_c128`： C int128ベースのPoW用
+<!-- - `pow_c128` for C int128 based using PoW -->
+- `pow_arm_c128`： ARM64 int128 CベースのPoW用
+<!-- - `pow_arm_c128` for ARM64 int128 C based PoW -->
+- `pow_c`： CベースのPoW用
+<!-- - `pow_c` for C based PoW -->
 
-PoW implementation in Go is always available.
-If you want to use local PoW, make sure you define `LocalProofOfWorkFunc` in your provider settings such as `HTTPClientSettings`. 
+GoでのPoW実装はいつでも利用可能です。
+<!-- PoW implementation in Go is always available. -->
+ローカルPoWを使用する場合は、必ず`HTTPClientSettings`などのプロバイダ設定で`LocalProofOfWorkFunc`を定義してください。
+<!-- If you want to use local PoW, make sure you define `LocalProofOfWorkFunc` in your provider settings such as `HTTPClientSettings`. -->
 
-## Support the project
+## プロジェクトを支援する
+<!-- ## Support the project -->
 
-We thank everyone for their contributions. In order for your pull requests to be accepted, 
-they must fulfill the following criteria:
-- You must write tests for your additions with Ginkgo
-- You must write example code that desribes the parameters and the functionality of your additions 
-- Your pull request must pass the continuous integration configuration
+皆さんの貢献に感謝します。プルリクエストが受け入れられるようにするには、次の基準を満たす必要があります。
+<!-- We thank everyone for their contributions. In order for your pull requests to be accepted, -->
+<!-- they must fulfill the following criteria: -->
+- Ginkgoで追加のためのテストを書かなければなりません。
+<!-- - You must write tests for your additions with Ginkgo -->
+- 追加のパラメータと機能を説明するサンプルコードを書く必要があります。
+<!-- - You must write example code that desribes the parameters and the functionality of your additions -->
+- プルリクエストは継続的インテグレーション設定に合格する必要があります。
+<!-- - Your pull request must pass the continuous integration configuration -->
 
-### Write tests with Ginkgo
+### Ginkgoでテストを書く
+<!-- ### Write tests with Ginkgo -->
 
-Before your pull requests can be accepted, you must test your code in Ginkgo.
+プルリクエストを出す前に、Ginkgoでコードをテストする必要があります。
+<!-- Before your pull requests can be accepted, you must test your code in Ginkgo. -->
 
-1. Download Ginkgo
+1. Ginkgoをダウンロードします。
+  <!-- 1. Download Ginkgo -->
 
 	```bash
 	go get github.com/onsi/ginkgo/ginkgo
 	go get github.com/onsi/gomega/...
 	```
 
-2. If you've written a new package, generate a corresponding test-suite file
+2. 新しいパッケージを書いた場合は、対応するテストスイートファイルを生成してください。
+  <!-- 2. If you've written a new package, generate a corresponding test-suite file -->
 
 	```bash
 	cd <dir-of-your-package>
 	ginkgo bootstrap
 	```
 
-3. Generate a new testing file
+3. 新しいテストファイルを生成します。
+  <!-- 3. Generate a new testing file -->
 
 	```bash
 	ginkgo generate <package-name>
 	```
 
-After creating a testing file, you'll have following two files:
+テストファイルを作成したら、次の2つのファイルが作成されます。
+<!-- After creating a testing file, you'll have following two files: -->
 
-- `<package-name>_suite_test.go`
-- `<package-name>_test.go`
+- `\<package-name\>_suite_test.go`
+- `\<package-name\>_test.go`
 
-**Note:** You can use the existing tests as a reference on how to write Ginkgo tests or
-you can [read the documentation](https://onsi.github.io/ginkgo/).
+**注釈：** 既存のテストをGinkgoのテストの書き方のリファレンスとして使うことも、[Ginkgoのドキュメント](https://onsi.github.io/ginkgo/)を読むこともできます。
+<!-- **Note:** You can use the existing tests as a reference on how to write Ginkgo tests or -->
+<!-- you can [read the documentation](https://onsi.github.io/ginkgo/). -->
 
-4. Run your tests
+4. テストを実行する
+<!-- 4. Run your tests -->
 	```bash
 	go test -v
 	=== RUN   TestAddress
@@ -275,18 +335,24 @@ you can [read the documentation](https://onsi.github.io/ginkgo/).
 	ok  	github.com/iotaledger/iota.go/address	0.264s
 	```
 
-### Write documentation and example code
+### ドキュメントとサンプルコードを書く
+<!-- ### Write documentation and example code -->
 
-While godoc.org gives a good enough documentation of the package already, the IOTA Foundation's
-documentation portal needs additional information, such as parameter description, examples and so on.
+godoc.orgはすでに十分なパッケージのドキュメンテーションを提供していますが、IOTA Foundationのドキュメンテーションポータルにはパラメータの説明や例などの追加情報が必要です。
+<!-- While godoc.org gives a good enough documentation of the package already, the IOTA Foundation's -->
+<!-- documentation portal needs additional information, such as parameter description, examples and so on. -->
 
-1. If non existent, add a `.examples` directory in your newly created package
+1. 存在しない場合は、新しく作成したパッケージに`.examples`ディレクトリを追加します。
+  <!-- 1. If non existent, add a `.examples` directory in your newly created package -->
 
-2. Create a new file with the following convention: `<package-name>_examples_test.go` inside
-the `.examples` directory
+2. 次の規則に従って新しいファイルを作成します。
+`.examples`ディレクトリ内に`\<package-name\>_examples_test.go`
+  <!-- 2. Create a new file with the following convention: `<package-name>_examples_test.go` inside -->
+  <!-- the `.examples` directory -->
 
-3. Write examples in the following schema:
-	```
+3. 次のスキーマで例を書きます。
+  <!-- 3. Write examples in the following schema: -->
+	```go
 	// i req: s, The ASCII string to convert to Trytes.
 	// o: Trytes, The Trytes representation of the input ASCII string.
 	// o: error, Returned for non ASCII string inputs.
@@ -300,18 +366,20 @@ the `.examples` directory
 	}
 	```
 
-	| Symbol     | Description |
-	|:---------------|:--------|
-	| i req | Describes a parameter to the function. |
-	| i | Describes an optional parameter to the function. |
-	| o | Describes a return value of the function. |
+	| シンボル | 説明 |
+	| :------- | :--- |
+	| i req    | 関数へのパラメータを記述します。 |
+	| i        | 関数に対するオプションのパラメータを記述します。 |
+	| o        | 関数の戻り値を記述します。 |
 
-	Syntax:
+	構文:
 
-	- For parameters: `<symbol>: <parameter_name>, <description>.`  
-	- For return values: `<symbol>: <type>, <description>.`
-	- Example function: `Example<OriginFunctionName>`
+	- パラメータ用： `\<シンボル\>: \<パラメータ名\>, \<説明\>.`
+	- 戻り値用： `\<シンボル\>: \<型\>, \<説明\>.`
+	- 関数例： `Example\<オリジナルの関数名\>`
 
-## Join the discussion
+## ディスカッションに参加する
+<!-- ## Join the discussion -->
 
-If you want to get involved in the community, need help with getting setup, have any issues related with the library or just want to discuss blockchain, distributed ledgers, and IoT with other people, feel free to join our [Discord](https://discordapp.com/invite/fNGZXvh).  
+コミュニティに参加したい場合、セットアップの手助けが必要な場合、ライブラリに関する問題がある場合、あるいはブロックチェーン、分散型台帳、およびIoTについて他の人と話したい場合は、遠慮なく[Discord](https://discordapp.com/invite/fNGZXvh)に参加してください。
+<!-- If you want to get involved in the community, need help with getting setup, have any issues related with the library or just want to discuss blockchain, distributed ledgers, and IoT with other people, feel free to join our [Discord](https://discordapp.com/invite/fNGZXvh). -->
