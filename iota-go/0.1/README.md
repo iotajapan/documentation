@@ -71,9 +71,9 @@ IOTA Goクライアントライブラリとその依存関係をダウンロー�
 2. ライブラリをダウンロードします。
   <!-- 2. Download the library -->
 
-```bash
-go get github.com/iotaledger/iota.go/api
-```
+    ```bash
+    go get github.com/iotaledger/iota.go/api
+    ```
 
 このコマンドは、最新バージョンのIOTA Goクライアントライブラリをダウンロードし、そのバージョンを`go.mod`ファイルに書き込みます。
 <!-- This command downloads the latest version of the IOTA Go client library and writes the version into the `go.mod` file. -->
@@ -87,33 +87,33 @@ go get github.com/iotaledger/iota.go/api
 1. ローカルIRIノードに接続するには、以下の手順に従います。
   <!-- 1. To connect to a local IRI node, do the following: -->
 
-	```go
-	package main
+    ```go
+    package main
 
-	import (
-	    . "github.com/iotaledger/iota.go/api"
-	    "fmt"
-	)
+    import (
+    	. "github.com/iotaledger/iota.go/api"
+    	"fmt"
+    )
 
-	var endpoint = "<node-url>"
+    var endpoint = "<node-url>"
 
-	func main() {
-		// compose a new API instance
-		api, err := ComposeAPI(HTTPClientSettings{URI: endpoint})
-		must(err)
+    func main() {
+    	// compose a new API instance
+    	api, err := ComposeAPI(HTTPClientSettings{URI: endpoint})
+    	must(err)
 
-		nodeInfo, err := api.GetNodeInfo()
-		must(err)
+        nodeInfo, err := api.GetNodeInfo()
+        must(err)
 
-		fmt.Println("latest milestone index:", nodeInfo.LatestMilestoneIndex)
-	}
+        fmt.Println("latest milestone index:", nodeInfo.LatestMilestoneIndex)
+    }
 
-	func must(err error) {
-		if err != nil {
-			panic(err)
-		}
-	}
-	```
+    func must(err error) {
+        if err != nil {
+            panic(err)
+        }
+    }
+    ```
 
 # APIリファレンス
 <!-- ## API reference -->
