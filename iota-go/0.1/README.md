@@ -21,9 +21,9 @@
 ライブラリの機能の詳細については、以下をご覧ください。
 <!-- To learn more about how the library works: -->
 
-- [アカウントを作成する方法](root://iota-java/0.1/how-to-guides/create-account.md)を確認する。
+- [アカウントを作成する方法](root://iota-go/0.1/how-to-guides/create-account.md)を確認する。
 <!-- - See how you can [work with accounts](root://iota-go/0.1/how-to-guides/create-account.md). -->
-- [トランザクションの送受信方法](root://iota-java/0.1/how-to-guides/create-and-manage-cda.md)を確認する。
+- [トランザクションの送受信方法](root://iota-go/0.1/how-to-guides/create-and-manage-cda.md)を確認する。
 <!-- - See how you can [send and receive](root://iota-go/0.1/how-to-guides/create-and-manage-cda.md) transactions. -->
 
 [IOTA Go GitHubレポジトリ](https://github.com/iotaledger/iota.go)でライブラリを入手してください。
@@ -51,7 +51,7 @@
 ## 前提条件
 <!-- ## Prerequisites -->
 
-IOTA Goクライアントライブラリとその依存関係をダウンロードするには、プロジェクト内の依存関係を管理する`vgoモジュール`(https://github.com/golang/go/wiki/Modules)（Go 1.11以降）を使用することをお勧めします。
+IOTA Goクライアントライブラリとその依存関係をダウンロードするには、プロジェクト内の依存関係を管理する[vgoモジュール](https://github.com/golang/go/wiki/Modules)（Go 1.11以降）を使用することをお勧めします。
 <!-- To download the IOTA Go client library and its dependencies, we recommend that you use [vgo modules](https://github.com/golang/go/wiki/Modules) -->
 <!-- (since Go 1.11) to manage dependencies in your project. -->
 
@@ -61,19 +61,19 @@ IOTA Goクライアントライブラリとその依存関係をダウンロー�
 IOTA Goクライアントライブラリとその依存関係をダウンロードするには、次の手順に従います。
 <!-- To download the IOTA Go client library and its dependencies, do the following: -->
 
-1. $GOPATH以外のディレクトリに、プロジェクト用のディレクトリを作成して初期化します。`<your-module-path>`プレースホルダを`github.com/me/awesome-project`などのプロジェクトのパスに変更します。
+1. $GOPATH以外のディレクトリに、プロジェクト用のディレクトリを作成して初期化します。`&lt;your-module-path&gt;`プレースホルダを`github.com/me/awesome-project`などのプロジェクトのパスに変更します。
   <!-- 1. In any directory outside of $GOPATH, create a directory for your project and initialize it. Change the `<your-module-path>` placeholder to the path of your project such as `github.com/me/awesome-project`. -->
 
-	```bash
-	go mod init <your-module-path>
-	```
+    ```bash
+    go mod init <your-module-path>
+    ```
 
 2. ライブラリをダウンロードします。
   <!-- 2. Download the library -->
 
-	```bash
-	go get github.com/iotaledger/iota.go/api
-	```
+```bash
+go get github.com/iotaledger/iota.go/api
+```
 
 このコマンドは、最新バージョンのIOTA Goクライアントライブラリをダウンロードし、そのバージョンを`go.mod`ファイルに書き込みます。
 <!-- This command downloads the latest version of the IOTA Go client library and writes the version into the `go.mod` file. -->
