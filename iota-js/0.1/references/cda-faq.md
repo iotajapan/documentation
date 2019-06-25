@@ -1,7 +1,7 @@
 # 条件付預け入れアドレスに関するFAQ
 <!-- # Conditional deposit address FAQ -->
 
-## CDAのタイムアウトにはどのくらいの期間を指定すべきですか？
+## CDAのタイムアウトにはどのくらいの期間を指定すべきか？
 <!-- ## How long should I specify in a CDA's timeout? -->
 
 `timeout_at`フィールドに指定する値は、送信者が預け入れをするのにどれだけ早くかかるかによって異なります。あなたが送信者と直接連絡を取り合っていて、両方ともが清算の転送を待っている場合は、より短いタイムアウトを指定できます。
@@ -36,7 +36,7 @@
 ## expected_amountフィールドを持つCDAはいつ使えば良いか？
 <!-- ## When should I create a CDA with an expected amount? -->
 
-預け入れの値が送信者と受信者の両方の観点から明らかである場合は、`expected_amount`フィールドの値を指定する必要があります。たとえば、あなたが取引所からIOTAトークンを取り出したいときなどです。あなたは取引所に予想される量を持つCDAを与えることができます。
+預け入れの値が送信者と受信者の両方の観点から明らかである場合は、`expected_amount`フィールドの値を指定する必要があります。たとえば、あなたが取引所からIOTAトークンを取り出したいときなどです。あなたは取引所に`expected_amount`フィールドを持つCDAを与えることができます。
 <!-- You should specify the value of the `expected_amount` field when the value of the deposit is clear from both the depositor's and the receiver's point of views. For example, when you want to withdraw from an exchange. You can give a CDA with an expected amount to the exchange. -->
 
 または、直接連絡を取れる単一の送信者からの、特定のサービスまたは商品に対する支払いを要求する場合です。
