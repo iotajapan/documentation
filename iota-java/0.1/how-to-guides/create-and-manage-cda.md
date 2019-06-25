@@ -18,7 +18,7 @@ CDAはアカウント内でのみ使用でき、汎用[クライアントライ�
 <!-- ## State of a CDA -->
 
 CDAは、アクティブ状態または期限切れ状態のどちらかです。 CDAの状態によって、CDAからIOTAトークンを取り出すことができるのか、CDAにIOTAトークンを預け入れることができるのかが決まります。
-CDAs can be in either an active or expired state. The state of a CDA determines whether you can withdraw from it or deposit into it:
+<!-- CDAs can be in either an active or expired state. The state of a CDA determines whether you can withdraw from it or deposit into it: -->
 
 **アクティブCDA：** IOTAトークンをアクティブアドレスに預け入れることができます。アクティブなアドレスからトークンを取り出すことはできません。
 <!-- **Active CDA:** You can deposit IOTA tokens into an active address. You can't withdraw tokens from an active address. -->
@@ -55,8 +55,6 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
 | `timeoutAt` | CDAは、IOTAトークンが含まれている限り、取り出しに使用できます。 |
 | `timeoutAt`と`multiUse`（推奨） | CDAは、預け入れられた量に関係なく、有効期限が切れるとすぐに取り出しに使用できます。 `multiUse`フィールドが設定されたアドレスをいつ使用するかについては、[CDA FAQ](../references/cda-faq.md)を参照してください。 |
 | `timeoutAt`と`expectedAmount`（推奨） | CDAは、予想された量が含まれるとすぐに取り出しに使用できます。 `expectedAmount`フィールドが設定されたアドレスをいつ使用するかについては、[CDA FAQ](../references/cda-faq.md)を参照してください。 |
-|  **Combination of fields** | **Withdrawal conditions**
-| :----------| :----------|
 
 :::warning:注意
 `timeoutAt`フィールドのみを使用してCDAを作成した場合は、期限切れになっていなくてもゼロではない残高になるとすぐに取り出しに使用できます。
@@ -90,7 +88,7 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
 ## IOTAトークンをCDAに預け入れる
 <!-- ## Deposit IOTA tokens into a CDA -->
 
-1. CDAに予想量が含まれている場合は、そのオブジェクトを`account.send()`メソッドに渡すことで、その量を取り出すことができます。
+1. CDAに予想量が含まれている場合は、CDAオブジェクトを`account.send()`メソッドに渡すことで、予想量を取り出すことができます。
   <!-- 1. When a CDA contains an expected amount, you can deposit that amount into it by passing the object to the `account.send()` method. -->
 
     ```java
