@@ -1,24 +1,32 @@
-# Create an account
+# アカウントを作成する
+<!-- # Create an account -->
 
-**An account is an object that makes it easier to send and receive transactions. Accounts store data such as addresses and pending bundle hashes in a local database. This data allows you to interact with an IOTA network without worrying about reusing spent addresses or promoting and reattaching pending transactions.**
+**アカウントは、トランザクションの送受信を簡単にするためのオブジェクトです。アカウントは、アドレスやペンディング中のバンドルハッシュなどのデータをローカルデータベースに格納します。このデータにより、署名済みアドレスの再利用やペンディング中のトランザクションの促進や再添付を心配することなく、IOTAネットワークとやり取りすることができます。**
+<!-- **An account is an object that makes it easier to send and receive transactions. Accounts store data such as addresses and pending bundle hashes in a local database. This data allows you to interact with an IOTA network without worrying about reusing spent addresses or promoting and reattaching pending transactions.** -->
 
-In accounts, all addresses are more than simple IOTA addresses. These addresses are called [conditional deposit addresses (CDAs)](../how-to-guides/create-and-manage-cda.md). A CDA defines not only the 81-tryte address, but also the conditions in which that address may be used in a [transfer bundle](root://getting-started/0.1/introduction/what-is-a-bundle.md).
+アカウントでは、すべてのアドレスは単純なIOTAアドレス以上のものです。これらのアドレスは、[条件付預け入れアドレス（CDA）](../how-to-guides/create-and-manage-cda.md)と呼ばれます。 CDAは81トライトのアドレスだけでなく、そのアドレスが[転送バンドル](root://getting-started/0.1/introduction/what-is-a-bundle.md)内で使用される可能性のある条件も定義できます。
+<!-- In accounts, all addresses are more than simple IOTA addresses. These addresses are called [conditional deposit addresses (CDAs)](../how-to-guides/create-and-manage-cda.md). A CDA defines not only the 81-tryte address, but also the conditions in which that address may be used in a [transfer bundle](root://getting-started/0.1/introduction/what-is-a-bundle.md). -->
 
-## Seed state
+## シードステート
+<!-- ## Seed state -->
 
-The data that accounts store is called the seed state. Accounts use this data to keep a history of activity and to avoid making unnecessary API calls to nodes.
+アカウントがローカルデータベースに格納するデータは、シードステートと呼ばれます。アカウントはこのデータを使用して活動履歴を保持し、ノードへの不要なAPI呼び出しを回避します。
+<!-- The data that accounts store is called the seed state. Accounts use this data to keep a history of activity and to avoid making unnecessary API calls to nodes. -->
 
-|**Data**| **Purpose**|
-|:-----------------|:----------|
-|The index of the most recent CDA| Create a new CDA|
-|All active CDAs|Stop withdrawals from CDAs that may still receive deposits|
-|Pending transfers| Monitor pending transactions to rebroadcast or reattach them if necessary|
+|**データ**|**目的**|
+|:---------|:-------|
+|CDAの作成に使用された最後のキーインデックス|これまで使用されたことのない新しいCDAを作成する|
+|すべてのアクティブなCDA|IOTAトークンの預け入れを受け取る可能性のあるCDAからのIOTAトークンの取り出しを停止する|
+|ペンディング中の転送バンドル|ペンディング中のトランザクションを監視して再ブロードキャストするか、必要に応じて再添付を行う|
 
-## Prerequisites
+## 前提条件
+<!-- ## Prerequisites -->
 
-This guide assumes that you've followed our [Getting started guide](../README.md) and are using the [Go modules](https://github.com/golang/go/wiki/Modules) to manage dependencies in your project.
+このガイドは概要の[はじめに](../README.md#はじめに)で紹介されている、プロジェクトの依存関係を管理するための[Goモジュール](https://github.com/golang/go/wiki/Modules)を使っていると仮定します。
+<!-- This guide assumes that you've followed our [Getting started guide](../README.md) and are using the [Go modules](https://github.com/golang/go/wiki/Modules) to manage dependencies in your project. -->
 
-## Create a new account
+## アカウントを作成する
+<!-- ## Create a new account -->
 
 In this example, we connect to a [Devnet node](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet.
 
