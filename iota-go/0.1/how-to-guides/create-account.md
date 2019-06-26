@@ -22,7 +22,7 @@
 ## 前提条件
 <!-- ## Prerequisites -->
 
-このガイドは[概要のはじめに](../README.md)で紹介されている、プロジェクトの依存関係を管理するための[Goモジュール](https://github.com/golang/go/wiki/Modules)を使っていると仮定します。
+このガイドは[概要の「はじめに」](../README.md)で紹介されている、プロジェクトの依存関係を管理するための[Goモジュール](https://github.com/golang/go/wiki/Modules)を使っていると仮定します。
 <!-- This guide assumes that you've followed our [Getting started guide](../README.md) and are using the [Go modules](https://github.com/golang/go/wiki/Modules) to manage dependencies in your project. -->
 
 ## アカウントを作成する
@@ -101,7 +101,7 @@
     <!-- ::: -->
 
     :::info:
-    ストレージでは、各アカウントは一意のIDを持ちます。このIDは、インデックス0およびセキュリティレベル2のアカウントの最初のアドレスのハッシュ値です。
+    ストレージ内で、各アカウントは一意のIDを持ちます。このIDは、インデックス0およびセキュリティレベル2のアカウントの最初のアドレスのハッシュ値です。
 
     その結果、複数のアカウントに同じストレージオブジェクトを同時に使用することができます。
     :::
@@ -161,7 +161,7 @@
     handleErr(account.Start())
     ```
 
-    30秒ごとに、`transfer-poller`プラグインは、取り出しが確定されたかどうか、またはペンディング中の預け入れがあるかどうかを確認します。それから、`promoter-reattacher`プラグインは、ペンディング中の取り出しトランザクションの促進または再添付を行います。
+    30秒ごとに、`transfer-poller`プラグインは、取り出しトランザクションが確定されたかどうか、またはペンディング中の預け入れトランザクションがあるかどうかを確認します。それから、`promoter-reattacher`プラグインは、ペンディング中の取り出しトランザクションの促進または再添付を行います。
     <!-- Every 30 seconds, the `transfer-poller` plugin will check whether withdrawals have been confirmed or whether any deposits are pending. Then, the `promoter-reattacher` plugin will promote or reattach any pending withdrawal transactions. -->
 
     :::danger:重要
