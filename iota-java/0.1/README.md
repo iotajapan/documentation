@@ -234,13 +234,13 @@ IOTA Javaクライアントライブラリ用のAPIコマンドの完全な一�
 ## 例
 <!-- ## Examples -->
 
-IOTAを使用してアプリケーションを開発する際の参考として使用できるテストケースの一覧が[src/test/javaディレクトリ][tests]にあります。
-<!-- We have a list of test cases on the [`src/test/java` directory][tests] that you can use as a reference when developing apps with IOTA. -->
-良いスターターは[`IotaAPITest`のケース](https://github.com/iotaledger/iota-java/blob/master/jota/src/test/java/jota/IotaAPITest.java)です。
-<!-- A good starter is the [`IotaAPITest` case](https://github.com/iotaledger/iota-java/blob/master/jota/src/test/java/jota/IotaAPITest.java). -->
+IOTAを使用してアプリケーションを開発する際の参考として使用できるテストケースの一覧が[`src/test/java`ディレクトリ](https://github.com/iotaledger/iota-java/blob/dev/jota/src/test)にあります。
+<!-- We have a list of test cases in the [`src/test/java` directory](https://github.com/iotaledger/iota-java/blob/dev/jota/src/test) that you can use as a reference when developing apps with IOTA. -->
+良いスターターは[`IotaAPITest`のケース](https://github.com/iotaledger/iota-java/blob/dev/jota/src/test/java/org/iota/jota/IotaAPITest.java)です。
+<!-- A good place to start is the [`IotaAPITest` case](https://github.com/iotaledger/iota-java/blob/dev/jota/src/test/java/org/iota/jota/IotaAPITest.java). -->
 
 ## 変更ログ
-<!-- ## Change logs: -->
+<!-- ## Change logs -->
 
 - Changes in [**1.0.0-beta3**](https://github.com/iotaledger/iota-java/compare/1.0.0-beta2...1.0.0-beta3)
 - Changes in [**1.0.0-beta2**](https://github.com/iotaledger/iota-java/compare/1.0.0-beta1...1.0.0-beta2)
