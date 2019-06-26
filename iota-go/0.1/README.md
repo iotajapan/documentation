@@ -102,16 +102,16 @@ IOTA Goクライアントライブラリとその依存関係をダウンロー�
     	api, err := ComposeAPI(HTTPClientSettings{URI: endpoint})
     	must(err)
 
-        nodeInfo, err := api.GetNodeInfo()
-        must(err)
+    	nodeInfo, err := api.GetNodeInfo()
+    	must(err)
 
-        fmt.Println("latest milestone index:", nodeInfo.LatestMilestoneIndex)
+    	fmt.Println("latest milestone index:", nodeInfo.LatestMilestoneIndex)
     }
 
     func must(err error) {
-        if err != nil {
-            panic(err)
-        }
+    	if err != nil {
+    		panic(err)
+    	}
     }
     ```
 
@@ -236,7 +236,6 @@ func must(err error) {
 		panic(err)
 	}
 }
-
 ```
 
 ### ネイティブコードとPoW
@@ -287,31 +286,31 @@ GoでのPoW実装はいつでも利用可能です。
 1. Ginkgoをダウンロードします。
   <!-- 1. Download Ginkgo -->
 
-	```bash
-	go get github.com/onsi/ginkgo/ginkgo
-	go get github.com/onsi/gomega/...
-	```
+    ```bash
+    go get github.com/onsi/ginkgo/ginkgo
+    go get github.com/onsi/gomega/...
+    ```
 
 2. 新しいパッケージを書いた場合は、対応するテストスイートファイルを生成してください。
   <!-- 2. If you've written a new package, generate a corresponding test-suite file -->
 
-	```bash
-	cd <dir-of-your-package>
-	ginkgo bootstrap
-	```
+    ```bash
+    cd <dir-of-your-package>
+    ginkgo bootstrap
+    ```
 
 3. 新しいテストファイルを生成します。
   <!-- 3. Generate a new testing file -->
 
-	```bash
-	ginkgo generate <package-name>
-	```
+    ```bash
+    ginkgo generate <package-name>
+    ```
 
 テストファイルを作成したら、次の2つのファイルが作成されます。
 <!-- After creating a testing file, you'll have following two files: -->
 
-- `\<package-name\>_suite_test.go`
-- `\<package-name\>_test.go`
+- `&lt;package-name&rt;_suite_test.go`
+- `&lt;package-name&rt;_test.go`
 
 **注釈：** 既存のテストをGinkgoのテストの書き方のリファレンスとして使うことも、[Ginkgoのドキュメント](https://onsi.github.io/ginkgo/)を読むこともできます。
 <!-- **Note:** You can use the existing tests as a reference on how to write Ginkgo tests or -->
@@ -319,21 +318,21 @@ GoでのPoW実装はいつでも利用可能です。
 
 4. テストを実行する
 <!-- 4. Run your tests -->
-	```bash
-	go test -v
-	=== RUN   TestAddress
-	Running Suite: Address Suite
-	============================
-	Random Seed: 1542616006
-	Will run 11 of 11 specs
+    ```bash
+    go test -v
+    === RUN   TestAddress
+    Running Suite: Address Suite
+    ============================
+    Random Seed: 1542616006
+    Will run 11 of 11 specs
 
-	•••••••••••
-	Ran 11 of 11 Specs in 0.261 seconds
-	SUCCESS! -- 11 Passed | 0 Failed | 0 Pending | 0 Skipped
-	--- PASS: TestAddress (0.26s)
-	PASS
-	ok  	github.com/iotaledger/iota.go/address	0.264s
-	```
+    •••••••••••
+    Ran 11 of 11 Specs in 0.261 seconds
+    SUCCESS! -- 11 Passed | 0 Failed | 0 Pending | 0 Skipped
+    --- PASS: TestAddress (0.26s)
+    PASS
+    ok  	github.com/iotaledger/iota.go/address	0.264s
+    ```
 
 ### ドキュメントとサンプルコードを書く
 <!-- ### Write documentation and example code -->
@@ -352,31 +351,31 @@ godoc.orgはすでに十分なパッケージのドキュメンテーション�
 
 3. 次のスキーマで例を書きます。
   <!-- 3. Write examples in the following schema: -->
-	```go
-	// i req: s, The ASCII string to convert to Trytes.
-	// o: Trytes, The Trytes representation of the input ASCII string.
-	// o: error, Returned for non ASCII string inputs.
-	func ExampleASCIIToTrytes() {
-		trytes, err := converter.ASCIIToTrytes("IOTA")
-		if err != nil {
-			// handle error
-			return
-		}
-		fmt.Println(trytes) // output: "SBYBCCKB"
-	}
-	```
+    ```go
+    // i req: s, The ASCII string to convert to Trytes.
+    // o: Trytes, The Trytes representation of the input ASCII string.
+    // o: error, Returned for non ASCII string inputs.
+    func ExampleASCIIToTrytes() {
+        trytes, err := converter.ASCIIToTrytes("IOTA")
+        if err != nil {
+            // handle error
+            return
+        }
+        fmt.Println(trytes) // output: "SBYBCCKB"
+    }
+    ```
 
-	| シンボル | 説明 |
-	| :------- | :--- |
-	| i req    | 関数へのパラメータを記述します。 |
-	| i        | 関数に対するオプションのパラメータを記述します。 |
-	| o        | 関数の戻り値を記述します。 |
+    | シンボル | 説明 |
+    | :------- | :--- |
+    | i req    | 関数へのパラメータを記述します。 |
+    | i        | 関数に対するオプションのパラメータを記述します。 |
+    | o        | 関数の戻り値を記述します。 |
 
-	構文:
+    構文:
 
-	- パラメータ用： `\<シンボル\>: \<パラメータ名\>, \<説明\>.`
-	- 戻り値用： `\<シンボル\>: \<型\>, \<説明\>.`
-	- 関数例： `Example\<オリジナルの関数名\>`
+    - パラメータ用： `\<シンボル\>: \<パラメータ名\>, \<説明\>.`
+    - 戻り値用： `\<シンボル\>: \<型\>, \<説明\>.`
+    - 関数例： `Example\<オリジナルの関数名\>`
 
 ## ディスカッションに参加する
 <!-- ## Join the discussion -->
