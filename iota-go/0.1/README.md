@@ -345,7 +345,7 @@ godoc.orgはすでに十分なパッケージのドキュメンテーション�
   <!-- 1. If non existent, add a `.examples` directory in your newly created package -->
 
 2. 次の規則に従って新しいファイルを作成します。
-`.examples`ディレクトリ内に`&lt;package-name&gt;_examples_test.go`
+`.examples`ディレクトリ内に`&lt;package-name&gt;_examples_test.go`を作成する。
   <!-- 2. Create a new file with the following convention: `<package-name>_examples_test.go` inside -->
   <!-- the `.examples` directory -->
 
@@ -356,12 +356,12 @@ godoc.orgはすでに十分なパッケージのドキュメンテーション�
     // o: Trytes, The Trytes representation of the input ASCII string.
     // o: error, Returned for non ASCII string inputs.
     func ExampleASCIIToTrytes() {
-        trytes, err := converter.ASCIIToTrytes("IOTA")
-        if err != nil {
-            // handle error
-            return
-        }
-        fmt.Println(trytes) // output: "SBYBCCKB"
+    	trytes, err := converter.ASCIIToTrytes("IOTA")
+    	if err != nil {
+    		// handle error
+    		return
+    	}
+    	fmt.Println(trytes) // output: "SBYBCCKB"
     }
     ```
 
