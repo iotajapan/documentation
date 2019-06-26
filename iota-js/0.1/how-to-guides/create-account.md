@@ -22,7 +22,7 @@
 ## 新しいアカウントを作成する
 <!-- ## Create a new account -->
 
-この例では、[Devnetノード](root://getting-started/0.1/references/iota-networks.md#devnet)に接続します。 Devnetは、トークンが無料であること以外はMainnetとほぼ同じです。Devnetに送信したトランザクションは、Mainnetのような他のネットワークには存在しません。
+この例では、[Devnetノード](root://getting-started/0.1/references/iota-networks.md#devnet)に接続します。Devnetは、トークンが無料であること以外はMainnetとほぼ同じです。Devnetに送信したトランザクションは、Mainnetのような他のネットワークには存在しません。
 <!-- In this example, we connect to a [Devnet node](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
 
 1. ライブラリをインストールします。
@@ -111,7 +111,7 @@
     ```
 
 :::success:おめでとうございます！:tada:
-CDAの状態を管理するだけでなく、自動的にトランザクションを促進し再添付するアカウントを作成しました。
+CDAのステートを管理し、かつ自動的にトランザクションを促進、再添付するアカウントを作成しました。
 :::
 <!-- :::success:Congratulations! :tada: -->
 <!-- You've created an account that will automatically promote and reattach transactions as well as manage the state of your CDAs. -->

@@ -25,7 +25,7 @@
 アカウントを作成するには、IOTAネットワークに接続するための`IotaAPI`オブジェクトと、シードを管理するための`IotaAccount`オブジェクトを作成する必要があります。
 <!-- To create an account, you need to create an `IotaAPI` object to connect to an IOTA network and an `IotaAccount` object to manage a seed. -->
 
-この例では、[Devnetノード](root://getting-started/0.1/references/iota-networks.md#devnet)に接続します。 Devnetは、トークンが無料であること以外はMainnetとほぼ同じです。Devnetに送信したトランザクションは、Mainnetのような他のネットワークには存在しません。
+この例では、[Devnetノード](root://getting-started/0.1/references/iota-networks.md#devnet)に接続します。Devnetは、トークンが無料であること以外はMainnetとほぼ同じです。Devnetに送信したトランザクションは、Mainnetのような他のネットワークには存在しません。
 <!-- In this example, we connect to a [Devnet node](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
 
 :::danger:重要:
@@ -87,7 +87,7 @@
     :::info:
     ストレージでは、各アカウントは一意のIDを持ちます。このIDは、インデックス0、セキュリティレベル2のアドレスのハッシュ値です。
 
-    その結果、複数のアカウントに同じストレージオブジェクトを同時に使用できます。
+    その結果、複数のアカウントに同じストレージオブジェクトを同時に使用することができます。
     :::
     <!-- :::info: -->
     <!-- In storage, each account has a unique ID, which is a hash of an address with index 0 and security level 2. -->
@@ -106,8 +106,8 @@
                     .build();
     ```
 
-    :::info:デフォルトの設定
-    カスタム設定を指定しないと、アカウントは[デフォルトの設定](https://github.com/iotaledger/iota-java/blob/dev/jota/src/main/java/org/iota/jota/config/types/IotaDefaultConfig.java)を使用します。
+    :::info:デフォルト設定
+    カスタム設定を指定しないとき、アカウントは[デフォルト設定](https://github.com/iotaledger/iota-java/blob/dev/jota/src/main/java/org/iota/jota/config/types/IotaDefaultConfig.java)を使用します。
     :::
     <!-- :::info:Default settings -->
     <!-- If you don't specify any custom settings, the account uses the [defaults](https://github.com/iotaledger/iota-java/blob/dev/jota/src/main/java/org/iota/jota/config/types/IotaDefaultConfig.java). -->
