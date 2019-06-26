@@ -309,8 +309,8 @@ GoでのPoW実装はいつでも利用可能です。
 テストファイルを作成したら、次の2つのファイルが作成されます。
 <!-- After creating a testing file, you'll have following two files: -->
 
-- `&lt;package-name &rt; _suite_test.go`
-- `&lt;package-name &rt;_test.go`
+- `&lt;package-name&gt;_suite_test.go`
+- `&lt;package-name&gt;_test.go`
 
 **注釈：** 既存のテストをGinkgoのテストの書き方のリファレンスとして使うことも、[Ginkgoのドキュメント](https://onsi.github.io/ginkgo/)を読むこともできます。
 <!-- **Note:** You can use the existing tests as a reference on how to write Ginkgo tests or -->
@@ -345,7 +345,7 @@ godoc.orgはすでに十分なパッケージのドキュメンテーション�
   <!-- 1. If non existent, add a `.examples` directory in your newly created package -->
 
 2. 次の規則に従って新しいファイルを作成します。
-`.examples`ディレクトリ内に`&lt;package-name&rt; _examples_test.go`
+`.examples`ディレクトリ内に`&lt;package-name&gt;_examples_test.go`
   <!-- 2. Create a new file with the following convention: `<package-name>_examples_test.go` inside -->
   <!-- the `.examples` directory -->
 
@@ -373,8 +373,8 @@ godoc.orgはすでに十分なパッケージのドキュメンテーション�
 
     構文:
     - パラメータ用： `<シンボル>: <パラメータ名>, <説明>.`
-    - 戻り値用： `\<シンボル\>: \<型\>, \<説明\>.`
-    - 関数例： `Example\<オリジナルの関数名\>`
+    - 戻り値用： `<シンボル>: <型>, <説明>.`
+    - 関数例： `Example<オリジナルの関数名>`
 
 ## ディスカッションに参加する
 <!-- ## Join the discussion -->
