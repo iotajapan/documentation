@@ -58,7 +58,7 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
 ## 前提条件
 <!-- ## Prerequisites -->
 
-[新しいアカウントを作成](../how-to-guides/create-account.md)してください。
+[新しいアカウントを作成](../how-to-guides/create-account.md)します。
 <!-- [Create a new account](../how-to-guides/create-account.md). -->
 
 このガイドは[概要の「はじめに」](../README.md)で紹介されている、プロジェクトの依存関係を管理するための[Goモジュール](https://github.com/golang/go/wiki/Modules)を使っていると仮定します。
@@ -150,7 +150,7 @@ CDAは、バンドルの作成、送信、および確定にかかる時間内�
 <!-- ## Deposit IOTA tokens into a CDA -->
 
 1. CDAに予想量が含まれている場合は、CDAオブジェクトを`account.Send()`メソッドに渡すことで、予想量のIOTAトークンをCDAに預け入れることができます。
-1. When a CDA contains an expected amount, you can deposit that amount into it by passing the object to the `account.Send()` method.
+  <!-- 1. When a CDA contains an expected amount, you can deposit that amount into it by passing the object to the `account.Send()` method. -->
 
     ```go
     bundle, err := account.Send(cda.AsTransfer())
@@ -160,7 +160,7 @@ CDAは、バンドルの作成、送信、および確定にかかる時間内�
     ```
 
 :::info:
-Devnetで自分のアカウントをテストしていて、十分な残高がない場合は、[Devnet蛇口](https://faucet.devnet.iota.org/)からDevnetトークンを取得できます。
+Devnetでアカウントをテストしていて、十分な残高がない場合は、[Devnet蛇口](https://faucet.devnet.iota.org/)からDevnetトークンを取得できます。
 :::
 <!-- :::info: -->
 <!-- If you're testing your account on the Devnet and you don't have enough balance, use the [Devnet faucet](https://faucet.devnet.iota.org/) to request Devnet tokens. -->
@@ -173,7 +173,7 @@ CDAは記述的なオブジェクトなので、それらを任意の形式に�
 <!-- Because CDAs are descriptive objects, you can serialize them into any format and distribute them. For example, you can create a magnet-link for a CDA, with the `timeout_at`, `multi_use`, and `expected_amount` parameters. -->
 
 1. CDAをマグネットリンクにシリアル化するには、CDAオブジェクトの`AsMagnetLink()`メソッドを使用します。
-<!-- 1. To serialize the CDA into a magent link, use the `AsMagnetLink()` method of the CDA object -->
+  <!-- 1. To serialize the CDA into a magent link, use the `AsMagnetLink()` method of the CDA object -->
 
     ```go
     fmt.Println(cda.AsMagnetLink())
@@ -181,7 +181,7 @@ CDAは記述的なオブジェクトなので、それらを任意の形式に�
     ```
 
 2. マグネットリンクをCDAにパースするには、`deposit`オブジェクトの`ParseMagnetLink()`メソッドを使用します。
-2. To parse the magnet link into a CDA, use the `ParseMagnetLink()` method of the `deposit` object
+  <!-- 2. To parse the magnet link into a CDA, use the `ParseMagnetLink()` method of the `deposit` object -->
 
     ```go
     cda, err := deposit.ParseMagnetLink(cda.AsMagnetLink())
