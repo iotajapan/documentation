@@ -133,7 +133,7 @@
 <a name="rebroadcast"></a><dl><dt>再ブロードキャスト</dt><dd>トランザクションをIRIノードにもう一度送信します。</dd></dl>
 <!-- <dl><dt>rebroadcast</dt><dd>Send a transaction to an IRI node again</dd></dl> -->
 
-<a name="solid"></a><dl><dt>ソリッド</dt><dd>IRIノードが自分の台帳に、対象となるトランザクションのすべての履歴（直接的および間接的に参照するすべてのトランザクション）を持っているときのトランザクションの状態。</dd></dl>
+<a name="solid"></a><dl><dt>凝固</dt><dd>IRIノードが自分の台帳に、対象となるトランザクションのすべての履歴（直接的および間接的に参照するすべてのトランザクション）を持っているときのトランザクションの状態。</dd></dl>
 <!-- <dl><dt>solid</dt><dd>State of a transaction when an IRI node has its entire history (all directly and indirectly referenced transactions) in its ledger</dd></dl> -->
 
 <a name="tail-transaction"></a><dl><dt>末尾トランザクション</dt><dd>バンドル内のトランザクション0（インデックスが0のトランザクション）。[IRIノード](#iri-node)は、各末尾トランザクションのトランクトランザクションを辿ることでバンドルを再構築し検証します。</dd></dl>
