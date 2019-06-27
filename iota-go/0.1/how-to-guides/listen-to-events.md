@@ -4,11 +4,11 @@
 **`EventMachine`オブジェクトでアカウントが開始されると、`EventMachine`オブジェクトは発生時にイベントを発行します。イベントの一例は、バンドルをノードに送信したときです。リスナーのインスタンスを作成することで、これらのイベントをリッスンしてイベントに対処することができます。**
 <!-- **When an account is started with an `EventMachine` object, that object emits events when they happen. An example of an event is when you send a bundle to a node. You can listen for these events and act on them by creating an instance of a listener.** -->
 
-2種類のリスナーがあります。1つはチャンネルを使用するもので、もう1つはコールバックを使用します。このガイドでは、コールバックリスナーを使います。チャンネルリスナーの使い方に興味があるなら、[イベントリスナープラグインを作成する](../how-to-guides/create-plugin.md)ためのガイドをご覧ください。
+2種類のリスナーがあります。1つはチャンネルを使用するもので、もう1つはコールバックを使用します。このガイドでは、コールバックリスナーを使います。チャンネルリスナーの使い方に興味があるなら、[イベントリスナープラグインを作成する](../how-to-guides/create-plugin.md)をご覧ください。
 <!-- We have two types of listeners: One that uses channels and one that uses callbacks. In this guide, we use a callback listener. If you're interesting in using a channel listener, see our guide for [creating an event-listener plugin](../how-to-guides/create-plugin.md). -->
 
 :::info:
-利用可能性なすべてのコールバックイベントのリストは[こちら](https://github.com/iotaledger/iota.go/blob/master/account/event/listener/callback_listener.go)をご参照ください。
+利用可能性なすべてのコールバックイベントの一覧は[こちら](https://github.com/iotaledger/iota.go/blob/master/account/event/listener/callback_listener.go)をご参照ください。
 :::
 <!-- :::info: -->
 <!-- See the list of all possible [callback events](https://github.com/iotaledger/iota.go/blob/master/account/event/listener/callback_listener.go). -->
@@ -72,7 +72,7 @@
 
     ```go
     lis := listener.NewCallbackEventListener(em)
-	lis.RegAttachingToTangle(func() {
+    lis.RegAttachingToTangle(func() {
         fmt.Println("Doing proof of work")
         // Do something here
     })
@@ -116,7 +116,7 @@
     ```
 
 :::success:おめでとうございます！:tada:
-アカウントはリッスンして行動することができるイベントを発信しています。
+アカウントはリッスンして行動することができるイベントを発行しています。
 :::
 <!-- :::success:Congratulations! :tada: -->
 <!-- You're account is now emitting events that you can listen to and act on. -->
