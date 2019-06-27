@@ -10,7 +10,7 @@ IRIノードが隣接IRIノードに接続する主な理由は、互いのト�
 したがって、IRIノードは、受信したすべてのトランザクションを隣接IRIノードに送信して、それらの隣接ノードが同じトランザクションを検証および保存できるようにします。
 <!-- Therefore, IRI nodes send all transactions that they receive to their neighbor IRI nodes so that those neighbors can validate and store the same transactions. -->
 
-すべてのIRIノードがそれぞれの台帳に同じトランザクションを持っていると、合意に達しています。この合意は、クライアントが任意のIRIノードに接続し、同じ台帳にアクセスできるようにする分散型元帳を形成します。
+すべてのIRIノードがそれぞれの台帳に同じトランザクションを持っていると、合意に達しています。この合意は、クライアントが任意のIRIノードに接続した時に、同じ台帳にアクセスできるようにする分散型元帳を形成します。
 <!-- When all IRI nodes have the same transactions in their ledgers, they have reached a consensus. This consensus forms the distributed ledger that allows clients to connect to any IRI node and have access to the same ledger. -->
 
 ## ゴシッププロトコル
