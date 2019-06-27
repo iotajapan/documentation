@@ -4,7 +4,7 @@
 **`EventMachine`オブジェクトでアカウントが開始されると、`EventMachine`オブジェクトは発生時にイベントを発行します。イベントの一例は、バンドルをノードに送信したときです。リスナーのインスタンスを作成することで、これらのイベントをリッスンしてイベントに対処することができます。**
 <!-- **When an account is started with an `EventMachine` object, that object emits events when they happen. An example of an event is when you send a bundle to a node. You can listen for these events and act on them by creating an instance of a listener.** -->
 
-2種類のリスナーがあります。1つはチャンネルを使用するもので、もう1つはコールバックを使用します。このガイドでは、コールバックリスナーを使います。チャンネルリスナーの使い方に興味があるなら、[イベントリスナープラグインを作成する](../how-to-guides/create-plugin.md)をご覧ください。
+2種類のリスナーがあります。1つはチャネルを使用するもので、もう1つはコールバックを使用します。このガイドでは、コールバックリスナーを使います。チャネルの使い方に興味があるなら、[イベントリスナープラグインを作成する](../how-to-guides/create-plugin.md)をご覧ください。
 <!-- We have two types of listeners: One that uses channels and one that uses callbacks. In this guide, we use a callback listener. If you're interesting in using a channel listener, see our guide for [creating an event-listener plugin](../how-to-guides/create-plugin.md). -->
 
 :::info:
