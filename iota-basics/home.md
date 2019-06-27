@@ -1,19 +1,19 @@
 # IOTAネットワークを使い始める前に習得する必要がある新しい概念を紹介します。
 
 [IOTAの基本概要](/0.1/introduction/overview.md)
-## IOTAの重要事項を学び、基本的な用語と概念に慣れる。
+## IOTAの重要事項を学び、基本的な用語と概念に慣れます。
 
 [アドレスと署名](/0.1/concepts/addresses-and-signatures.md)
-## アドレスと署名の詳細を学ぶ。
+## アドレスと署名の詳細を学びます。
 
 [バンドルとトランザクション](/0.1/concepts/bundles-and-transactions.md)
-## バンドルとトランザクションの詳細を学ぶ。
+## バンドルとトランザクションの詳細を学びます。
 
 [アドレス生成](/0.1/how-to-guides/create-an-address.md)
-## JavaScriptクライアントライブラリを使って新しいアドレスを生成する。
+## JavaScriptクライアントライブラリを使って新しいアドレスを生成します。
 
 [バンドル送信](/0.1/how-to-guides/send-bundle.md)
-## JavaScriptクライアントライブラリを使ってトランザクションのバンドルを送信する。
+## JavaScriptクライアントライブラリを使ってトランザクションのバンドルを送信します。
 
 <!-- # IOTA introduces new concepts that are essential to learn before you start using an IOTA network. -->
 <!--  -->

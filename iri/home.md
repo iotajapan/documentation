@@ -1,16 +1,16 @@
-# The IRI (IOTA reference implementation) is open-source software that detects counterfeit transactions and stores an immutable history of all transactions.
+# IRI（IOTAリファレンス実装）は、偽造トランザクションを検出し、すべてのトランザクションのイミュータブルな履歴を保存するオープンソースソフトウェアです。
 
-[IRI node software overview](/0.1/introduction/overview.md)
-## Learn what the IRI is, what it's responsible for, and why you should run it
+[IRIノードソフトウェア概要](/0.1/introduction/overview.md)
+## IRIが何であるか、IRIの責任とは何か、そしてなぜIRIを実行する必要があるのかを学びます。
 
-[The ledger](/0.1/concepts/the-ledger.md)
-## Learn about the immutable ledger that's stored, distributed, and maintained by all IRI nodes in an IOTA network
+[台帳](/0.1/concepts/the-ledger.md)
+## IOTAネットワーク内のすべてのIRIノードによって保管、配布、および保守されるイミュータブルな台帳について学びます。
 
-[Transaction validation](/0.1/concepts/transaction-validation.md)
-## Learn how and when IRI nodes determine if a transaction is valid
+[トランザクション検証](/0.1/concepts/transaction-validation.md)
+## IRIノードがトランザクションが有効かどうかを判断する方法といつ判断するかを学びます。
 
-[Run an IRI node on a Linux server](/0.1/how-to-guides/run-an-iri-node-on-linux.md)
-## Contribute to the network and have direct access to an IOTA network
+[LinuxサーバーでIRIノードを実行する](/0.1/how-to-guides/run-an-iri-node-on-linux.md)
+## ネットワークに貢献し、IOTAネットワークに直接アクセスします。
 
-[Interact with an IRI node](/0.1/how-to-guides/interact-with-an-iri-node.md)
-## Communicate with an IRI node to send and request data on an IOTA network
+[IRIノードと対話する](/0.1/how-to-guides/interact-with-an-iri-node.md)
+## IRIノードと通信してIOTAネットワーク上でデータを送受信します。
