@@ -102,7 +102,7 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
     ```
 
 :::info:
-Devnetで自分のアカウントをテストしていて、十分な残高がない場合は、[Devnet蛇口](https://faucet.devnet.iota.org/)からDevnetトークンを取得してください。
+Devnetで自分のアカウントをテストしていて、十分な残高がない場合は、[Devnet蛇口](https://faucet.devnet.iota.org/)からDevnetトークンを取得できます。
 :::
 <!-- :::info: -->
 <!-- If you're testing your account on the Devnet and you don't have enough balance, use the [Devnet faucet](https://faucet.devnet.iota.org/) to request Devnet tokens. -->
