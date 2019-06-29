@@ -130,9 +130,9 @@ HTTP request sent, awaiting response ... 200 OK
 
 ビルド済みのIRI Javaファイルをダウンロードする代わりに、次のいずれかの理由でソースコードからファイルをビルドすることをお勧めします。
 <!-- Instead of downloading the pre-built IRI Java file, you may want to build the file from the source code the any of the following reasons: -->
-* 実行するコードがソースコードと同じであることを確認したい。
+* 実行するコードがソースコードと同じであることを確認したい場合。
 <!-- * You want to be sure that the code you run is the same as the source code -->
-* IRIを実行する前にコードを修正したい。
+* IRIを実行する前にコードを修正したい場合。
 <!-- * You want to modify the code before you run it -->
 
 1. Java 8 OpenJDKをダウンロードしてインストールします。
@@ -348,27 +348,27 @@ IRIをダウンロードして設定したら、実行します。
 
     ```json
      {
-    "appName": "IRI",
-    "appVersion": "1.7.0-RELEASE",
-    "jreAvailableProcessors": 8,
-    "jreFreeMemory": 2115085674,
-    "jreVersion": "1.8.0_191",
-    "jreMaxMemory": 20997734400,
-    "jreTotalMemory": 4860129502,
-    "latestMilestone": "CUOENIPTRCNECMVOXSWKOONGZJICAPH9FIG9F9KYXF9VYXFUKTNDCCLLWRZNUHZIGLJZFWPOVCIZA9999",
-    "latestMilestoneIndex": 1050373,
-    "latestSolidSubtangleMilestone": "CUOENIPTRCNECMVOXSWKOONGZJICAPH9FIG9F9KYXF9VYXFUKTNDCCLLWRZNUHZIGLJZFWPOVCIZA9999",
-    "latestSolidSubtangleMilestoneIndex": 1050373,
-    "milestoneStartIndex": -1,
-    "lastSnapshottedMilestoneIndex": 1039138,
-    "neighbors":0,
-    "packetsQueueSize":0,
-    "time":1548407444641,
-    "tips":0,
-    "transactionsToRequest":0,
-    "features":["snapshotPruning","dnsRefresher","tipSolidification"],
-    "coordinatorAddress": "EQSAUZXULTTYZCLNJNTXQTQHOMOFZERHTCGTXOLTVAHKSA9OGAZDEKECURBRIXIJWNPFCQIOVFVVXJVD9",
-    "duration": 0
+      "appName": "IRI",
+      "appVersion": "1.7.0-RELEASE",
+      "jreAvailableProcessors": 8,
+      "jreFreeMemory": 2115085674,
+      "jreVersion": "1.8.0_191",
+      "jreMaxMemory": 20997734400,
+      "jreTotalMemory": 4860129502,
+      "latestMilestone": "CUOENIPTRCNECMVOXSWKOONGZJICAPH9FIG9F9KYXF9VYXFUKTNDCCLLWRZNUHZIGLJZFWPOVCIZA9999",
+      "latestMilestoneIndex": 1050373,
+      "latestSolidSubtangleMilestone": "CUOENIPTRCNECMVOXSWKOONGZJICAPH9FIG9F9KYXF9VYXFUKTNDCCLLWRZNUHZIGLJZFWPOVCIZA9999",
+      "latestSolidSubtangleMilestoneIndex": 1050373,
+      "milestoneStartIndex": -1,
+      "lastSnapshottedMilestoneIndex": 1039138,
+      "neighbors":0,
+      "packetsQueueSize":0,
+      "time":1548407444641,
+      "tips":0,
+      "transactionsToRequest":0,
+      "features":["snapshotPruning","dnsRefresher","tipSolidification"],
+      "coordinatorAddress": "EQSAUZXULTTYZCLNJNTXQTQHOMOFZERHTCGTXOLTVAHKSA9OGAZDEKECURBRIXIJWNPFCQIOVFVVXJVD9",
+      "duration": 0
     }
     ```
 
