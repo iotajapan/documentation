@@ -27,11 +27,11 @@
 マイルストーンは約2分ごとに送信されます。したがって、次の公式を使用して、新しいトランザクションが台帳に残る日数を計算します。
   <!-- Milestones are sent approximately every two minute. So, use the following formula to calculate the number of days that new transactions will remain in the ledger: -->
 
-* **総マイルストーンインデックス:** `LOCAL_SNAPSHOTS_PRUNING_DELAY` + `LOCAL_SNAPSHOTS_DEPTH`
+* **総マイルストーンインデックス：** `LOCAL_SNAPSHOTS_PRUNING_DELAY` + `LOCAL_SNAPSHOTS_DEPTH`
 <!-- * **Total milestone index:** `LOCAL_SNAPSHOTS_PRUNING_DELAY` + `LOCAL_SNAPSHOTS_DEPTH` -->
 
-* **分単位の合計時間:** 総マイルストーンインデックス / 120
+* **分単位の総時間：** 総マイルストーンインデックス / 120
 <!-- * **Total amount of time in minutes:** Total milestone index / 120 -->
 
-* **日数での合計時間:** 分単位の合計時間 / 24
+* **日単位の総時間：** 分単位の合計時間 / 24
 <!-- * **Total amount of time in days:** Total amount of time in minutes / 24 -->
