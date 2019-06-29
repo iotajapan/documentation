@@ -15,7 +15,7 @@
     <!-- * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org) -->
 
 * デフォルトでは、IRIは次のポートを使用します。ローカルネットワークでLinuxサーバーを実行している場合は、これらのポートをコンピュータの[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)に転送する必要があります。
-<!-- * By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must [forward these ports to your computer's public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md). -->
+  <!-- * By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must [forward these ports to your computer's public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md). -->
 
     * **UDP隣接ノードのピアリングポート：** 14600
     <!-- * **UDP neighbor peering port:** 14600 -->
@@ -42,9 +42,9 @@ IRI Dockerコンテナには、IRIを実行するために必要なソフトウ�
 
 IRI Dockerコンテナをダウンロードする方法は2つあります。
 <!-- You have two options for downloading the IRI Docker container: -->
-* [ビルド済みのDockerコンテナをダウンロードする](#download-the-pre-built-iri-docker-container)（最速のオプション）。
+* [ビルド済みのDockerコンテナをダウンロードする](#ビルド済みのIRI Dockerコンテナをダウンロードする)（最速のオプション）。
 <!-- * [Download the pre-built Docker container](#download-the-pre-built-iri-docker-container)(quickest option) -->
-* [ソースコードからDockerコンテナをビルドする](#build-the-iri-docker-container-from-the-source-code)。
+* [ソースコードからDockerコンテナをビルドする](#ソースコードからIRI Dockerコンテナをビルドする)。
 <!-- * [Build the Docker container from the source code](#build-the-iri-docker-container-from-the-source-code) -->
 
 ## Dockerをインストールする
