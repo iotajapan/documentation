@@ -15,8 +15,8 @@
     * 静的[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)か、[duckdns.org](https://www.duckdns.org)などの動的DNSサービスに接続されている[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)
     <!-- * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org) -->
 
-* デフォルトでは、IRIは次のポートを使用します。ローカルネットワークでLinuxサーバーを実行している場合は、これらのポートをコンピューターの[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)に転送する必要があります。
-<!-- * By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must [forward these ports to your computer's public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md). -->
+* デフォルトでは、IRIは次のポートを使用します。ローカルネットワークでLinuxサーバーを実行している場合は、これらのポートをコンピュータの[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)に転送する必要があります。
+  <!-- * By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must [forward these ports to your computer's public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md). -->
 
     * **UDP隣接ノードのピアリングポート：** 14600
     <!-- * **UDP neighbor peering port:** 14600 -->
@@ -39,9 +39,9 @@ IRIはJavaソフトウェアなので、Javaランタイム環境（JRE）で実
 
 最新のIRIソフトウェアをダウンロードする方法は2つあります。
 <!-- You have two options for downloading the latest IRI software: -->
-* GitHubからのビルド済みJavaファイルのダウンロードする。（最速オプション）
+* GitHubからビルド済みJavaファイルをダウンロードする。（最速オプション）
 <!-- * Download the pre-built Java file from GitHub (quickest option) -->
-* GitHub上のソースコードからJavaファイルを構築する。
+* GitHub上のソースコードからJavaファイルをビルドする。
 <!-- * Build the Java file from the source code on GitHub -->
 
 ### ビルド済みのIRI Javaファイルをダウンロードする
@@ -66,7 +66,7 @@ IRIはJavaソフトウェアなので、Javaランタイム環境（JRE）で実
     ```
 
     :::info:
-    出力に「mkdir：ディレクトリを作成できません...」と表示された場合は、おそらくjakeをご自分のLinuxユーザー名に変更せずにコマンドをコピーして貼り付けたはずです。
+    標準出力に「mkdir：ディレクトリを作成できません...」と表示された場合は、おそらくjakeをご自分のLinuxユーザー名に変更せずにコマンドをコピーアンドペーストしたはずです。
     :::
     <!-- :::info: -->
     <!-- If you see 'mkdir: cannot create directory...' in the output, you probably copied and pasted the command without changing `jake` to your Linux username. -->
@@ -83,7 +83,7 @@ IRIはJavaソフトウェアなので、Javaランタイム環境（JRE）で実
     ```
 
     :::info:
-    Javaがインストールされていることを確認するには、`java -version`を実行します。出力にバージョン番号が表示されます。
+    Javaがインストールされていることを確認するには、`java -version`を実行します。標準出力にバージョン番号が表示されます。
     :::
     <!-- :::info: -->
     <!-- To check that Java is installed, do `java -version`. You should see a version number in the output. -->
@@ -103,7 +103,7 @@ IRIはJavaソフトウェアなので、Javaランタイム環境（JRE）で実
     <!-- Make sure that you include the whole version, for example 1.6.0-RELEASE. -->
     <!-- ::: -->
 
-ダウンロードにはしばらく時間がかかります。すべてうまくいけば、出力に次のようなものが表示されるはずです。
+ダウンロードにはしばらく時間がかかります。すべてうまくいけば、標準出力に次のようなものが表示されるはずです。
 <!-- The download may take some time. You should see something like the following in the output if everything went well: -->
 
 ```bash
@@ -144,7 +144,7 @@ HTTP request sent, awaiting response ... 200 OK
     sudo apt-get update
     ```
 
-2. [Maven](https://maven.apache.org/what-is-maven.html)ルドツールをインストールします。`USER_HOME_DIR`変数をご自身のディレクトリパスに変更します。
+2. [Maven](https://maven.apache.org/what-is-maven.html)ビルドツールをインストールします。`USER_HOME_DIR`変数をご自身のディレクトリパスに変更します。
   <!-- 2. Install the [Maven](https://maven.apache.org/what-is-maven.html) build tool. Change the `USER_HOME_DIR` variable to your chosen path. -->
 
     ```bash
@@ -312,7 +312,7 @@ IRIをダウンロードして設定したら、実行します。
     ```bash
     java ${JAVA_OPTIONS} -Xms${JAVA_MIN_MEMORY} -Xmx${JAVA_MAX_MEMORY} -Djava.net.preferIPv4Stack=true -jar /home/jake/node/iri-${VERSION}.jar
     ```
-    IRIはアクティビティログを標準出力に出力します。
+    IRIはアクティビティログを出力します。
     <!-- The IRI should start to log its activity to the output. -->
 
     IRIに`config.ini`ファイルを読み込ませるには、`-c`フラグの後にパスを追加します。<br>例えば：
@@ -329,7 +329,7 @@ IRIをダウンロードして設定したら、実行します。
     <!-- You're now running an IRI node! -->
     <!-- ::: -->
 
-3. Linuxサーバーで新しいターミナルウィンドウを開き、CurlとJQをインストールします。CurlはREST APIリクエストをIRIノードに送信するために使用されます。JQは、JSONデータを読みやすい形式で表示するコマンドラインプロセッサです。
+3. Linuxサーバーで新しいターミナルウィンドウを開き、CurlとJQをインストールします。CurlはREST APIリクエストをIRIノードに送信するために使用します。JQは、JSONデータを読みやすい形式で表示するコマンドラインプロセッサです。
   <!-- 3. Open a new terminal window on your Linux server, and install Curl and JQ. Curl is used to send REST API requests to your IRI node. JQ is a command-line processor that displays JSON data in an easy-to-read format. -->
 
     ```bash
@@ -388,7 +388,7 @@ IRIをダウンロードして設定したら、実行します。
 ノードが起動して実行されているので、[IOTAネットワークを使い台帳の同期](../concepts/the-ledger.md#ledger-synchronization)を開始します。ノードに同期をとる時間を与えます。IRIノードが同期していない場合は、[トラブルシューティングガイド](../references/troubleshooting.md)をお読みください。
 <!-- Now that your node is up and running, it'll start to [synchronize its ledger with the network](../concepts/the-ledger.md#ledger-synchronization). Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing. -->
 
-## IRIが同期していることを確認します
+## IRIが同期していることを確認する
 <!-- ## Check that the IRI is synchronized -->
 
 `latestMilestoneIndex`フィールドが`latestSolidSubtangleMilestoneIndex`フィールドと等しい場合、IRIは同期していると見なされます。
@@ -397,7 +397,7 @@ IRIをダウンロードして設定したら、実行します。
 `latestMilestoneIndex`フィールドは、IRIが隣接ノードから受け取った最新のマイルストーンのインデックスです。
 <!-- The `latestMilestoneIndex` field is the index of the latest milestone that the IRI has received from its neighbors. -->
 
-`latestSolidSubtangleMilestoneIndex`フィールドは、IRIノードがマイルストーンを凝固にした（マイルストーンが直接および間接的に参照するすべてのトランザクションをIRIノードが持った）最新のマイルストーンのインデックスです。
+`latestSolidSubtangleMilestoneIndex`フィールドは、IRIノードがマイルストーンを凝固（マイルストーンが直接および間接的に参照するすべてのトランザクションをIRIノードが持った状態）にした最新のマイルストーンのインデックスです。
 <!-- The `latestSolidSubtangleMilestoneIndex` field is the index of the latest milestone for which the IRI node's ledger has all the transactions that the milestone directly and indirectly references. -->
 
 `latestMilestoneIndex`フィールドと`latestSolidSubtangleMilestoneIndex`フィールドは、IRIノードが同期済み隣接ノードに接続されている場合にのみ正確です。

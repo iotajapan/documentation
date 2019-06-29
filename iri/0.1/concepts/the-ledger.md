@@ -41,7 +41,7 @@ IRIノードは、最新のものまですべてのマイルストーンを凝�
 `latestMilestoneIndex`フィールドは、IRIが近隣IRIノードから受け取った最新のマイルストーンのインデックスです。
 <!-- The `latestMilestoneIndex` field is the index of the latest milestone that the IRI has received from its neighbors. -->
 
-`latestSolidSubtangleMilestoneIndex`フィールドは、IRIノードがマイルストーンを凝固にした（マイルストーンが直接および間接的に参照するすべてのトランザクションをIRIノードが持った）最新のマイルストーンのインデックスです。
+`latestSolidSubtangleMilestoneIndex`フィールドは、IRIノードがマイルストーンを凝固（マイルストーンが直接および間接的に参照するすべてのトランザクションをIRIノードが持った状態）にした最新のマイルストーンのインデックスです。
 <!-- The `latestSolidSubtangleMilestoneIndex` field is the index of the latest milestone for which the IRI node has all the transactions that the milestone directly and indirectly references. -->
 
 :::info:
