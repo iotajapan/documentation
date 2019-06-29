@@ -13,7 +13,7 @@
 台帳凝固は、ノードが[タングル](root://the-tangle/0.1/introduction/overview.md)のすべての[マイルストーン](root://the-tangle/0.1/concepts/the-coordinator.md)の履歴を受け取るプロセスです。
 <!-- Ledger solidification is the process by which a node receives the history of all [milestones](root://the-tangle/0.1/concepts/the-coordinator.md) in the [Tangle](root://the-tangle/0.1/introduction/overview.md). -->
 
-ノードが実行を開始すると、**エントリポイントのマイルストーン**から始めて最新のマイルストーンまでの各マイルストーンが参照するトランザクション（マイルストーンの履歴）の要求を開始します。
+ノードが実行を開始すると、**エントリポイントのマイルストーン**から始めて最新のマイルストーンまでの各マイルストーンが参照するトランザクション（マイルストーンの履歴）のリクエストを開始します。
 <!-- When a node starts running, it starts to request the transactions that each milestone references (its history), starting from an **entry point milestone** and ending at the latest one. -->
 
 :::info:
@@ -23,7 +23,7 @@
 <!-- References are defined in a transaction's [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md). -->
 <!-- ::: -->
 
-ノードにマイルストーンのブランチトランザクションとトランクトランザクションがある場合、ノードはマイルストーンのブランチトランザクションとトランクトランザクションが参照するすべてのトランザクションを要求し始めます。このプロセスは、ノードがエントリポイントのマイルストーンに達するまで各トランザクションに対して継続します。この時点で、ノードはそのマイルストーンを**凝固**なものとしてマークし、次のマイルストーンからプロセスを再開します。
+ノードにマイルストーンのブランチトランザクションとトランクトランザクションがある場合、ノードはマイルストーンのブランチトランザクションとトランクトランザクションが参照するすべてのトランザクションをリクエストし始めます。このプロセスは、ノードがエントリポイントのマイルストーンに達するまで各トランザクションに対して継続します。この時点で、ノードはそのマイルストーンを**凝固**なものとしてマークし、次のマイルストーンからプロセスを再開します。
 <!-- When a node has the milestone's branch and trunk, it starts to request all the transactions that those transactions reference. This process continues for each transaction until the node reaches the entry point milestone. At this point, the node marks that milestone as **solid**, and starts the process again from the next one. -->
 
 エントリポイントのマイルストーンが古いほど、凝固にかかる時間が長くなります。

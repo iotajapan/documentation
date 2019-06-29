@@ -1,10 +1,10 @@
 # リバースプロキシサーバーを設定する
 <!-- # Set up a reverse proxy server -->
 
-**クライアントは、APIリクエストをスパムすることによって、IRIノードのオープンAPIポートを悪用することができます。IPアドレスでAPIリクエストを制限したり、APIリクエストの数を制限したりするには、IRIノードをリバースプロキシサーバーに接続します。**
+**クライアントは、APIリクエストをスパミングすることによって、IRIノードのオープンAPIポートを悪用することができます。IPアドレスでAPIリクエストを制限したり、APIリクエストの数を制限したりするには、IRIノードをリバースプロキシサーバーに接続します。**
 <!-- **Clients can abuse the open API port of an IRI node by spamming API requests to it. To restrict API requests by IP address or to limit the number of API requests, you can connect your IRI node to a reverse proxy server.** -->
 
-多くの[リバースプロキシサーバー](https://en.wikipedia.org/wiki/Reverse_proxy) exist. Iが存在します。このガイドでは、[Nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)をIRIノードと同じLinuxサーバーにインストールします。
+多くの[リバースプロキシサーバー](https://en.wikipedia.org/wiki/Reverse_proxy)が存在します。このガイドでは、[Nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)をIRIノードと同じLinuxサーバーにインストールします。
 <!-- Many [reverse proxy servers](https://en.wikipedia.org/wiki/Reverse_proxy) exist. In this guide, you'll install [Nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/) on the same Linux server as your IRI node. -->
 
 1. Linuxサーバーで、ターミナルウィンドウを開いて、Nginxをインストールします。
@@ -60,7 +60,7 @@
             └─12858 nginx: worker process
     ```
 
-3. Webブラウザを開き、アドレスバーにLinuxサーバのIPアドレスを入力します。
+3. Webブラウザを開き、アドレスバーにLinuxサーバーのIPアドレスを入力します。
   <!-- 3. Go to a web browser and enter the IP address of your Linux server in the address bar -->
 
     NginxのWebページが表示されます。このページはNginxに含まれており、サーバーが稼働していることを示しています。次に、IRIノードのリバースプロキシとしてNginxを設定する必要があります。
@@ -122,7 +122,7 @@
     ```
 
 :::success:おめでとうございます！:tada:
-NginxはIRIノードへのリクエストを制御しています。Nginxがリクエストを受け取ると、そのリクエストをIRIノードに送信し、レスポンスを取得して、レスポンスをクライアントに送り返します。
+NginxはIRIノードへのリクエストを制御しています。Nginxがリクエストを受け取ると、そのリクエストをIRIノードに送信し、レスポンスを取得して、レスポンスをクライアントに返します。
 :::
 <!-- :::success:Congratulations! :tada: -->
 <!-- Nginx is now controlling the requests to your IRI node. -->
@@ -136,7 +136,7 @@ NginxがAPIリクエストのレートを制限していることをテストす
 for i in {0..20}; do (curl  http://localhost:5000 -X POST -H 'X-IOTA-API-Version: 1' -H 'Content-Type: application/json' -d '{"command": "getNodeInfo"}') 2>/dev/null; done
 ```
 
-同じIPアドレスからの要求が多すぎると、JSONレスポンスと503エラーが混在して返されます。
+同じIPアドレスからのリクエストが多すぎると、JSONレスポンスと503エラーが混在して返されます。
 <!-- You should see a mixture of JSON responses and 503 errors, which are returned when too many requests are made from the same IP address. -->
 
 ```shell
@@ -149,7 +149,7 @@ for i in {0..20}; do (curl  http://localhost:5000 -X POST -H 'X-IOTA-API-Version
 </html>
 ```
 
-## 特定のIPアドレスからの要求をブロックする
+## 特定のIPアドレスからのリクエストをブロックする
 <!-- ## Block requests from certain IP addresses -->
 
 特定のIPアドレスからのリクエストがIRIノードに問題を引き起こしている場合は、特定のIPアドレスをブロックすることができます。
@@ -162,7 +162,7 @@ for i in {0..20}; do (curl  http://localhost:5000 -X POST -H 'X-IOTA-API-Version
     sudo nano /etc/nginx/sites-enabled/iri.conf
     ```
 
-2. IPアドレスを`server`ブロックディレクティブに追加します。`ipaddress`を制限したいIPアドレスに変更します。
+2. 制限したいIPアドレスを`server`ブロックディレクティブに追加します。`ipaddress`を制限したいIPアドレスに変更します。
   <!-- 2. Add the IP addresses to the `server` block directive. Change `ipaddress` to the IP address that you want to restrict. -->
 
 
@@ -189,7 +189,7 @@ NginxがこれらのIPアドレスからのリクエストを受信したとき�
     sudo nano /etc/nginx/sites-enabled/iri.conf
     ```
 
-2. `http`ブロックディレクティブに、`upstream`ブロックディレクティブを追加して、iriのような名前を付けます。
+2. `http`ブロックディレクティブに、`upstream`ブロックディレクティブを追加して、`iri`のような名前を付けます。
   <!-- 2. In the `http` block directive, add an `upstream` block directive and give it a name such as iri -->
 
     ```shell

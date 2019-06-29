@@ -35,7 +35,7 @@ IRIノードが新しいトランザクションを受信すると、トラン�
 ## チップ選択プロセス中の検証
 <!-- ## Validation during the tip selection process -->
 
-クライアントがチップトランザクションをIRIノードに要求すると、[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)が行われます。
+クライアントがチップトランザクションをIRIノードにリクエストすると、[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)が行われます。
 <!-- When clients ask an IRI node for tip transactions, it does the [tip selection](root://the-tangle/0.1/concepts/tip-selection.md). -->
 
 チップ選択プロセス中にIRIノードが辿る各トランザクションのバンドルは、バンドルバリデータと台帳バリデータによってチェックされます。

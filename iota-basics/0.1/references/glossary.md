@@ -127,7 +127,7 @@
 <a name="pending"></a><dl><dt>ペンディング</dt><dd>ネットワークから見た時にまだ確定されていないトランザクションの状態。</dd></dl>
 <!-- <dl><dt>pending</dt><dd>State of a transaction when it's been seen by the network, but not yet confirmed.</dd></dl> -->
 
-<a name="reattach"></a><dl><dt>再添付</dt><dd>新しいチップトランザクションを要求し、再度プルーフオブワークを行い、トランザクションをIRIノードに送信します。</dd></dl>
+<a name="reattach"></a><dl><dt>再添付</dt><dd>新しいチップトランザクションをリクエストし、再度プルーフオブワークを行い、トランザクションをIRIノードに送信します。</dd></dl>
 <!-- <dl><dt>reattach</dt><dd>Request new tip transactions, do the proof of work again, and send the transaction to an IRI node</dd></dl> -->
 
 <a name="rebroadcast"></a><dl><dt>再ブロードキャスト</dt><dd>トランザクションをIRIノードにもう一度送信します。</dd></dl>

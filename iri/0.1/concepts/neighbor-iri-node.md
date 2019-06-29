@@ -25,11 +25,11 @@ IRIノードはゴシッププロトコルを介して隣接ノードと通信�
 ## 非凝固トランザクション
 <!-- ## Non-solid transactions -->
 
-IRIノードは、隣接ノードにトランザクションを送信するだけでなく、同期をとるために、隣接ノードからの非凝固トランザクションを要求します。
+IRIノードは、隣接ノードにトランザクションを送信するだけでなく、同期をとるために、隣接ノードからの非凝固トランザクションをリクエストします。
 <!-- As well as sending transactions to neighbors, IRI nodes request non-solid transactions from its neighbors in order to become synchronized. -->
 
 非凝固トランザクションは、IRIノードの台帳のトランザクションによって参照されているトランザクションですが、IRIはまだ検証していません。
 <!-- A non-solid transaction is one that is referenced by a transaction in an IRI node's ledger, but that the IRI has not yet validated. -->
 
-[検証](../concepts/transaction-validation.md)中または[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)中にIRIノードが非凝固トランザクションを検出した場合、IRIノードは隣接ノードに非凝固トランザクションを要求します。隣接ノードにその情報が欠落している場合、隣接ノードは隣接ノードの隣接ノードに問い合わせ、それをどんどん続けていきます。
+[検証](../concepts/transaction-validation.md)中または[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)中にIRIノードが非凝固トランザクションを検出した場合、IRIノードは隣接ノードに非凝固トランザクションをリクエストします。隣接ノードにその情報が欠落している場合、隣接ノードは隣接ノードの隣接ノードに問い合わせ、それをどんどん続けていきます。
 <!-- If an IRI node sees a non-solid transaction during [validation](../concepts/transaction-validation.md) or [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), the IRI node asks its neighbors for it, and if its neighbors are missing the information, those neighbors will ask their neighbors, and so on. -->
