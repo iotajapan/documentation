@@ -1,7 +1,7 @@
 # ノードに情報をリクエストする
 <!-- # Request information from a node -->
 
-**ノードは、`PORT`設定パラメーターに設定されているAPIポートでクライアントからのトランザクションを受信するのを待ちます。このポートにHTTPリクエストを送信して、ノードのREST APIとやり取りすることができます。これにより、タングルに対してデータの読み書きを行うことができます。**
+**ノードは、`PORT`設定パラメーターに設定されているAPIポートでクライアントからのトランザクションを受信します。このポートにHTTPリクエストを送信して、ノードのREST APIとやり取りすることができます。これにより、タングルに対してデータの読み書きを行うことができます。**
 <!-- **Nodes wait to receive transactions from clients on the API port that's set in the `PORT` configuration parameter. You can send HTTP requests to this port to interact with a node's REST API, which allows you to read/write data to the Tangle.** -->
 
 以下のハウツーガイドでは、Devnet上のIRIノードにリクエストを送信するためにNode.jsとPythonを使用します。
