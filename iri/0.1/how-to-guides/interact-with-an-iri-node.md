@@ -147,7 +147,7 @@ print(json.dumps(results, indent=1, sort_keys=True))
 <!-- [Take a look at the `getNodeInfo()` API reference](root://iri/0.1/references/api-reference.md#getnodeinfo). -->
 <!-- ::: -->
 
-## コードを走らせる
+## コードを実行する
 <!-- ## Run the code -->
 
 このガイドのサンプルコードを実行してWebブラウザに結果を表示するには、緑色のボタンをクリックします。
