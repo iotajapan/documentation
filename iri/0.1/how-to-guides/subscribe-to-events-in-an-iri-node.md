@@ -1,7 +1,7 @@
 # ノードのイベントを購読する
 <!-- # Subscribe to events on a node -->
 
-**ノードでZMQポートが有効になっている場合は、トランザクション確定などのイベントを購読できます。これらのイベントにより、IOTAネットワークからのリアルタイムデータが得られます。**
+**ノードのZMQポートが有効になっている場合は、トランザクション確定などのイベントを購読できます。これらのイベントにより、IOTAネットワークからのリアルタイムデータが得られます。**
 <!-- **If a node has the ZMQ port enabled, you can subscribe to its events such as transaction confirmations. These events give you real-time data from an IOTA network.** -->
 
 以下を実行するために、[ゼロメッセージキュー（ZMQ）](../concepts/zero-message-queue.md)のイベントを購読することができます。
@@ -127,7 +127,7 @@ print ("Socket connected")
 --------------------
 
 5\. ノードが返すイベントデータを処理します。
-5\. Process the event data that the node returns
+<!-- 5\. Process the event data that the node returns -->
 
 --------------------
 ### Node.js
@@ -193,5 +193,5 @@ ZMQがノードからデータを受信するのに数分かかることがあ�
 ## 次のステップ
 <!-- ## Next steps -->
 
-ZMQに関する知識を活用して、他の[イベント](../references/zmq-events.md)についてIRIを監視するアプリケーションを構築してください。
+ZMQに関する知識を活用して、他の[イベント](../references/zmq-events.md)についてIRIを監視するアプリケーションを構築してみてください。
 <!-- Use your knowledge of the ZMQ to build an application that monitors the IRI for other [events](../references/zmq-events.md). -->
