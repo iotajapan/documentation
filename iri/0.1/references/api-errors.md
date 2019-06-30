@@ -36,7 +36,7 @@
 IRIノードの台帳にチップトランザクションがありません。
 <!-- The IRI node doesn't have the tip transaction in its ledger. -->
 
-別のチップトランザクションをパラメーターとして使用するか、または別のIRIノードにリクエストを出してみてください。
+別のチップトランザクションをパラメータとして使用するか、または別のIRIノードにリクエストを出してみてください。
 <!-- Use a different tip transaction as a parameter, or try making the request to a different IRI node. -->
 
 ## 401: COMMAND is not available on this node
