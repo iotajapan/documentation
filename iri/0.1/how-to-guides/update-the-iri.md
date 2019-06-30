@@ -1,17 +1,27 @@
-# Update the IRI
+# IRIをアップデートする
+<!-- # Update the IRI -->
 
-**The IRI is in a beta development stage, so it's likely to change, meaning that you'll need to update it.**
+**IRIはベータ開発段階にあるため、変更される可能性があります。つまり、アップデートする必要があります。**
+<!-- **The IRI is in a beta development stage, so it's likely to change, meaning that you'll need to update it.** -->
 
-When a new version of the [IRI is released on GitHub](https://github.com/iotaledger/iri/releases), we recommend that you update your local IRI to the new version.
+新しいバージョンのIRIが[GitHubでリリース](https://github.com/iotaledger/iri/releases)されたら、ローカルのIRIを新しいバージョンにアップデートすることをお勧めします。
+<!-- When a new version of the [IRI is released on GitHub](https://github.com/iotaledger/iri/releases), we recommend that you update your local IRI to the new version. -->
 
-1. Stop the IRI
+1. IRIを止めます。
+  <!-- 1. Stop the IRI -->
 
-2. Delete the `mainnetdb` directory, the `mainnet.log` file, and your current IRI .jar file
+2. `mainnetdb`ディレクトリ、`mainnet.log`ファイル、および現在のIRIの`.jar`ファイルを削除します。
+  <!-- 2. Delete the `mainnetdb` directory, the `mainnet.log` file, and your current IRI .jar file -->
 
     :::warning:
-    Do not delete your `spent-address-db` directory.
+    `spent-address-db`ディレクトリは削除しないでください。
     :::
+    <!-- :::warning: -->
+    <!-- Do not delete your `spent-address-db` directory. -->
+    <!-- ::: -->
 
-4. [Download the latest IRI](../how-to-guides/run-an-iri-node-on-linux.md#download-the-pre-built-iri-java-file)
+3. [最新のIRIをダウンロードします](../how-to-guides/run-an-iri-node-on-linux.md#download-the-pre-built-iri-java-file)。
+  <!-- 4. [Download the latest IRI](../how-to-guides/run-an-iri-node-on-linux.md#download-the-pre-built-iri-java-file) -->
 
-5. [Run the IRI](../how-to-guides/run-an-iri-node-on-linux.md#run-the-iri)
+4. [IRIを実行します](../how-to-guides/run-an-iri-node-on-linux.md#run-the-iri)。
+  <!-- 5. [Run the IRI](../how-to-guides/run-an-iri-node-on-linux.md#run-the-iri) -->
