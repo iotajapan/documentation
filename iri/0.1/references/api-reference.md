@@ -7,7 +7,7 @@
 以下のすべてのコマンドにHTTPヘッダーを含める必要があります。
 <!-- All the following commands must include an HTTP header. -->
 
-| ヘッダー | 値 | 必須か任意か |
+| ヘッダー | 値 | 必須または任意 |
 |:---------------|:--------|:--------|
 | X-IOTA-API-Version | 1 | 必須 |
 | Content-Type | application/json | 任意 |
@@ -22,7 +22,7 @@
 <!-- Add a list of temporary neighbors to a node. -->
 
 :::info:
-ノードが再起動すると、隣接ノードは削除されます。ノードに恒久的に隣接ノードを追加したいのなら、[`NEIGHBORS`](../references/iri-configuration-options.md#neighbors)設定オプションに隣接ノードのURIを追加してください。
+ノードが再起動すると、隣接ノードは削除されます。ノードに恒久的に隣接ノードを追加したい場合は、[`NEIGHBORS`](../references/iri-configuration-options.md#neighbors)設定オプションに隣接ノードのURIを追加してください。
 :::
 <!-- :::info: -->
 <!-- The neighbors are removed if the node restarts. If you want to permanently add the neighbors to your own node, add their URIs to the [`NEIGHBORS`](../references/iri-configuration-options.md#neighbors) configuration option. -->
@@ -33,7 +33,7 @@
 隣接ノードを追加するためのURI（unique resource identification）フォーマットは、`"udp：// IPADDRESS：PORT"`です。
 <!--  The URI (unique resource identification) format for adding neighbors is `"udp://IPADDRESS:PORT"`. -->
 
-| パラメータ | 必須か任意か | 説明 | 型 |
+| パラメータ | 必須または任意 | 説明 | 型 |
 |--|--|--|--|
 | `uris` | 必須 | 追加する隣接ノードのURIの文字列 | 文字列の配列 |
 
@@ -131,7 +131,7 @@ curl http://localhost:14265 \
 ```
 --------------------
 
-## 結果
+### 結果
 <!-- ### Results -->
 
 | リターンフィールド | 説明 |
@@ -149,7 +149,7 @@ curl http://localhost:14265 \
  `branchTransaction`および`trunkTransaction`パラメーターは、[`getTransactionsToApprove`](#getTransactionsToApprove)エンドポイントから返されます。
 <!--  The `branchTransaction` and  `trunkTransaction` parameters are returned from the [`getTransactionsToApprove`](#getTransactionsToApprove) endpoint. -->
 
-| パラメータ | 必須か任意か | 説明 | 型 |
+| パラメータ | 必須または任意 | 説明 | 型 |
 |--|--|--|--|
 | `trunkTransaction` | 必須 | [トランクトランザクション](root://iota-basics/0.1/references/structure-of-a-transaction.md)ハッシュ | 文字列型 |
 | `branchTransaction` | 必須 | [ブランチトランザクション](root://iota-basics/0.1/references/structure-of-a-transaction.md)ハッシュ | 文字列型 |
@@ -280,7 +280,7 @@ curl http://localhost:14265 \
 このエンドポイントの`trytes`パラメータには、[`attachToTangle`](#attachToTangle)エンドポイントによって行われるプルーフオブワークを含める必要があります。
 <!-- The `trytes` parameter for this endpoint must include proof of work, which is done by the [`attachToTangle`](#attachToTangle) endpoint. -->
 
-| パラメータ | 必須か任意か | 説明 | 型 |
+| パラメータ | 必須または任意 | 説明 | 型 |
 |--|--|--|--|
 | `trytes` | 必須 | 有効なトランザクショントライト | 文字列の配列 |
 
@@ -387,7 +387,7 @@ curl http://localhost:14265 \
 
 ### パラメータ
 
-| パラメータ | 必須か任意か | 説明 | 型 |
+| パラメータ | 必須または任意 | 説明 | 型 |
 |--|--|--|--|
 | `tails` | 必須 | 確認するトランザクションハッシュ | 文字列の配列 |
 
