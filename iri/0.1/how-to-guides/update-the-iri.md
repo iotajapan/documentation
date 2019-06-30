@@ -20,8 +20,8 @@
     <!-- Do not delete your `spent-address-db` directory. -->
     <!-- ::: -->
 
-3. [最新のIRIをダウンロードします](../how-to-guides/run-an-iri-node-on-linux.md#ビルド済みのIRI-Javaファイルをダウンロードする)。
+3. [最新のIRIをダウンロードします](../how-to-guides/run-an-iri-node-on-linux.md#download-the-pre-built-iri-java-file)。
   <!-- 4. [Download the latest IRI](../how-to-guides/run-an-iri-node-on-linux.md#download-the-pre-built-iri-java-file) -->
 
-4. [IRIを実行します](../how-to-guides/run-an-iri-node-on-linux.md#IRIを実行する)。
+4. [IRIを実行します](../how-to-guides/run-an-iri-node-on-linux.md#run-the-iri)。
   <!-- 5. [Run the IRI](../how-to-guides/run-an-iri-node-on-linux.md#run-the-iri) -->
