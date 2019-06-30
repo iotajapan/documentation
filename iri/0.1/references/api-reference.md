@@ -1,34 +1,43 @@
-# API reference
+# APIリファレンス
+<!-- # API reference -->
 
-**This list contains the commands for communicating with a node through the HTTP API.**
+**この一覧には、HTTP APIを介してノードと通信するためのコマンドが含まれています。**
+<!-- **This list contains the commands for communicating with a node through the HTTP API.** -->
 
-All the following commands must include an HTTP header.
+以下のすべてのコマンドにHTTPヘッダーを含める必要があります。
+<!-- All the following commands must include an HTTP header. -->
 
-| Header       | Value | Required or Optional |
+| ヘッダー | 値 | 必須か任意か |
 |:---------------|:--------|:--------|
-| X-IOTA-API-Version | 1 | Required |
-| Content-Type | application/json | Optional |
-| Authorization  | Bearer {token} | Optional  |
+| X-IOTA-API-Version | 1 | 必須 |
+| Content-Type | application/json | 任意 |
+| Authorization | Bearer {token} | 任意 |
 
-**Important:** This API is in beta, and is subject to change. We recommend that you don't use this API in production applications.
+**重要：** このAPIはベータ版であり、変更される可能性があります。運用版アプリケーションではこのAPIを使用しないことをお勧めします。
+<!-- **Important:** This API is in beta, and is subject to change. We recommend that you don't use this API in production applications. -->
 
 ## addNeighbors
 
-Add a list of temporary neighbors to a node.
+ノードに一時的な隣接ノードのリストを追加します。
+<!-- Add a list of temporary neighbors to a node. -->
 
 :::info:
-The neighbors are removed if the node restarts. If you want to permanently add the neighbors to your own node, add their URIs to the [`NEIGHBORS`](../references/iri-configuration-options.md#neighbors) configuration option.
+ノードが再起動すると、隣接ノードは削除されます。ノードに恒久的に隣接ノードを追加したいのなら、[`NEIGHBORS`](../references/iri-configuration-options.md#neighbors)設定オプションに隣接ノードのURIを追加してください。
 :::
+<!-- :::info: -->
+<!-- The neighbors are removed if the node restarts. If you want to permanently add the neighbors to your own node, add their URIs to the [`NEIGHBORS`](../references/iri-configuration-options.md#neighbors) configuration option. -->
+<!-- ::: -->
 
- ### Parameters
+### パラメータ
 
- The URI (unique resource identification) format for adding neighbors is `"udp://IPADDRESS:PORT"`.
-	
-|Parameter | Required or Optional|Description | Type|
+隣接ノードを追加するためのURI（unique resource identification）フォーマットは、`"udp：// IPADDRESS：PORT"`です。
+<!--  The URI (unique resource identification) format for adding neighbors is `"udp://IPADDRESS:PORT"`. -->
+
+| パラメータ | 必須か任意か | 説明 | 型 |
 |--|--|--|--|
-| `uris` | Required|Strings of neighbor URIs to add | array of strings|
+| `uris` | 必須 | 追加する隣接ノードのURIの文字列 | 文字列の配列 |
 
-### Examples
+### 例
 --------------------
 ### Python
 ```python
@@ -75,7 +84,7 @@ var options = {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-		'X-IOTA-API-Version': '1',
+    'X-IOTA-API-Version': '1',
     'Content-Length': Buffer.byteLength(JSON.stringify(command))
   },
   json: command
@@ -104,7 +113,7 @@ curl http://localhost:14265 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
 --------------------
 ### 200
 ```json
@@ -122,37 +131,40 @@ curl http://localhost:14265 \
 ```
 --------------------
 
-### Results
+## 結果
+<!-- ### Results -->
 
-|Return field | Description |
+| リターンフィールド | 説明 |
 |--|--|
-| `addedNeighbors` | Total number of added neighbors |
-| `duration` | Number of milliseconds it took to complete the request|
+| `addedNeighbors` | 追加した隣接ノードの総数 |
+| `duration` | リクエストを完了するのにかかったミリ秒数 |
 
 ## attachToTangle
 
-Do [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) on a node for the given transaction trytes.
+与えられたトランザクショントライトについてノード上で[プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)を行います。
+<!-- Do [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) on a node for the given transaction trytes. -->
 
- ### Parameters
+ ### パラメータ
 
- The `branchTransaction` and  `trunkTransaction` parameters are returned from the [`getTransactionsToApprove`](#getTransactionsToApprove) endpoint.
-	
-|Parameter |Required or Optional |Description |Type|
+ `branchTransaction`および`trunkTransaction`パラメーターは、[`getTransactionsToApprove`](#getTransactionsToApprove)エンドポイントから返されます。
+<!--  The `branchTransaction` and  `trunkTransaction` parameters are returned from the [`getTransactionsToApprove`](#getTransactionsToApprove) endpoint. -->
+
+| パラメータ | 必須か任意か | 説明 | 型 |
 |--|--|--|--|
-| `trunkTransaction` |Required| [Trunk transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md) hash | string|
-| `branchTransaction` |Required| [Branch transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md) hash | string|
-| `minWeightMagnitude` |Required| [Minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) | integer|
-| `trytes` |Required| String of transaction trytes |array of strings|
+| `trunkTransaction` | 必須 | [トランクトランザクション](root://iota-basics/0.1/references/structure-of-a-transaction.md)ハッシュ | 文字列型 |
+| `branchTransaction` | 必須 | [ブランチトランザクション](root://iota-basics/0.1/references/structure-of-a-transaction.md)ハッシュ | 文字列型 |
+| `minWeightMagnitude` | 必須 | [最小重量値](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) | 整数型 |
+| `trytes` | 必須 | トランザクショントライトの文字列 | 文字列の配列 |
 
-### Examples
+### 例
 --------------------
 ### Python
 ```python
 import urllib2
 import json
 
-command = { 
-"command": "attachToTangle", 
+command = {
+"command": "attachToTangle",
 "trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI",
 "branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P",
 "minWeightMagnitude": 14,
@@ -181,8 +193,8 @@ print jsonData
 ```js
 var request = require('request');
 
-var command = { 
-"command": "attachToTangle", 
+var command = {
+"command": "attachToTangle",
 "trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI",
 "branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P",
 "minWeightMagnitude": 14,
@@ -197,7 +209,7 @@ var options = {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-		'X-IOTA-API-Version': '1',
+    'X-IOTA-API-Version': '1',
     'Content-Length': Buffer.byteLength(JSON.stringify(command))
   },
   json: command
@@ -229,7 +241,7 @@ curl http://localhost:14265 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
 --------------------
 ### 200
 ```json
@@ -247,29 +259,32 @@ curl http://localhost:14265 \
 ```
 --------------------
 
-### Results
+### 結果
 
-The last 243 trytes of the return value consist of the following:
+戻り値の最後の243トライトは、以下のもので構成されています。
+<!-- The last 243 trytes of the return value consist of the following: -->
 
 `trunkTransaction` + `branchTransaction` + `nonce`.
 
-|Return field | Description |
+| リターンフィールド | 説明 |
 |--|--|
-| `trytes` | Transaction trytes that include a valid `nonce` field |
+| `trytes` | 有効な`nance`フィールドを含むトランザクショントライト |
 
 ## broadcastTransactions
 
-Broadcast transaction trytes to a node. 
+トランザクショントライトをノードへブロードキャストします。
+<!-- Broadcast transaction trytes to a node. -->
 
- ### Parameters
+### パラメータ
 
-The `trytes` parameter for this endpoint must include proof of work, which is done by the [`attachToTangle`](#attachToTangle) endpoint.
-	
-|Parameters |Required or Optional |Description |Type
+このエンドポイントの`trytes`パラメータには、[`attachToTangle`](#attachToTangle)エンドポイントによって行われるプルーフオブワークを含める必要があります。
+<!-- The `trytes` parameter for this endpoint must include proof of work, which is done by the [`attachToTangle`](#attachToTangle) endpoint. -->
+
+| パラメータ | 必須か任意か | 説明 | 型 |
 |--|--|--|--|
-| `trytes` |Required| Valid transaction trytes | array of strings
+| `trytes` | 必須 | 有効なトランザクショントライト | 文字列の配列 |
 
-### Examples
+### 例
 --------------------
 ### Python
 ```python
@@ -310,7 +325,7 @@ var options = {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-		'X-IOTA-API-Version': '1',
+    'X-IOTA-API-Version': '1',
     'Content-Length': Buffer.byteLength(JSON.stringify(command))
   },
   json: command
@@ -336,7 +351,7 @@ curl http://localhost:14265 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
 --------------------
 ### 200
 ```json
@@ -353,26 +368,30 @@ curl http://localhost:14265 \
 ```
 --------------------
 
-### Results
+### 結果
 
-|Return field | Description |
+| リターンフィールド | 説明 |
 |--|--|
-| `duration` | Number of milliseconds it took to complete the request |
+| `duration` | リクエストを完了するのにかかったミリ秒数 |
 
 ## checkConsistency
 
-Check the consistency of transactions. A consistent transaction is one where the following statements are true:
-* The transaction isn't missing a reference transaction
-* The transaction's bundle is valid
-* The transaction's reference transactions are valid
+トランザクションの整合性を確認します。整合性のあるトランザクションとは、次のことが当てはまるトランザクションです。
+<!-- Check the consistency of transactions. A consistent transaction is one where the following statements are true: -->
+* トランザクションの参照トランザクションが欠落していない。
+<!-- * The transaction isn't missing a reference transaction -->
+* トランザクションのバンドルが有効。
+<!-- * The transaction's bundle is valid -->
+* トランザクションの参照トランザクションが有効。
+<!-- * The transaction's reference transactions are valid -->
 
-### Parameters
+### パラメータ
 
-|Parameter | Required or Optional|Description |Type
+| パラメータ | 必須か任意か | 説明 | 型 |
 |--|--|--|--|
-| `tails` |Required| Transaction hashes to check | array of strings
+| `tails` | 必須 | 確認するトランザクションハッシュ | 文字列の配列 |
 
-### Examples
+### 例
 --------------------
 ### Python
 ```python
@@ -380,7 +399,7 @@ import urllib2
 import json
 
 command = {
-  "command": "checkConsistency", 
+  "command": "checkConsistency",
   "tails": [
     "SHHXOGUUYSCCFVMCZYCNBJIMGEEIBEPCCEUXKXF9ROYQNJFFGEHOOHDLNDN9XAWXYBVYYARTPRAFFOJN9",
     "QMMDUXSUOSITO9JVPCJWHIQRVDBPKKZGTSYOKLUNMSM9WIXLLJLFEMKUPEO9MOFDYRDC9GMRRETRGAWJD"
@@ -407,9 +426,9 @@ print jsonData
 var request = require('request');
 
 var command = {
-  "command": "checkConsistency", 
+  "command": "checkConsistency",
   "tails": [
-    "SHHXOGUUYSCCFVMCZYCNBJIMGEEIBEPCCEUXKXF9ROYQNJFFGEHOOHDLNDN9XAWXYBVYYARTPRAFFOJN9", 
+    "SHHXOGUUYSCCFVMCZYCNBJIMGEEIBEPCCEUXKXF9ROYQNJFFGEHOOHDLNDN9XAWXYBVYYARTPRAFFOJN9",
     "QMMDUXSUOSITO9JVPCJWHIQRVDBPKKZGTSYOKLUNMSM9WIXLLJLFEMKUPEO9MOFDYRDC9GMRRETRGAWJD"
   ]
 };
@@ -419,7 +438,7 @@ var options = {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-		'X-IOTA-API-Version': '1',
+    'X-IOTA-API-Version': '1',
     'Content-Length': Buffer.byteLength(JSON.stringify(command))
   },
   json: command
@@ -438,8 +457,8 @@ curl http://localhost:14265 \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'X-IOTA-API-Version: 1' \
--d '{ 
-"command": "checkConsistency", 
+-d '{
+"command": "checkConsistency",
 "tails": [
   "SHHXOGUUYSCCFVMCZYCNBJIMGEEIBEPCCEUXKXF9ROYQNJFFGEHOOHDLNDN9XAWXYBVYYARTPRAFFOJN9", 
   "QMMDUXSUOSITO9JVPCJWHIQRVDBPKKZGTSYOKLUNMSM9WIXLLJLFEMKUPEO9MOFDYRDC9GMRRETRGAWJD"
@@ -448,7 +467,7 @@ curl http://localhost:14265 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
 --------------------
 ### 200
 ```json
@@ -467,13 +486,13 @@ curl http://localhost:14265 \
 ```
 --------------------
 
-### Results
+### 結果
 
-|Return field | Description |
+| リターンフィールド | 説明 |
 |--|--|
-| `state` | State of the given transactions in the `tails` parameter. A `true` value means that all given transactions are consistent. A `false` value means that one or more of the given transactions aren't consistent. |
-| `info` | If the `state` field is false, this field contains information about why the transaction is inconsistent |
-| `duration` | Number of milliseconds it took to complete the request |
+| `state` | `tails`パラメータ内の与えられたトランザクションの状態。`true`は、与えられたすべてのトランザクションに整合性があることを意味します。`false`は、与えられたトランザクションの一つ以上に整合性がないことを意味します。 |
+| `info` | `state`フィールドが`false`の場合、このフィールドにはトランザクションに整合性がない理由に関する情報が含まれます。 |
+| `duration` | リクエストを完了するのにかかったミリ秒数 |
 
 ## findTransactions
 
