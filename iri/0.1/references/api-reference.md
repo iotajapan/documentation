@@ -33,9 +33,9 @@
 隣接ノードを追加するためのURI（unique resource identification）フォーマットは、`"udp://IPADDRESS:PORT"`です。
 <!--  The URI (unique resource identification) format for adding neighbors is `"udp://IPADDRESS:PORT"`. -->
 
-| パラメータ | 必須または任意 | 説明 | 型 |
+| パラメータ | 必須または任意 | 説明 | タイプ |
 |--|--|--|--|
-| `uris` | 必須 | 追加する隣接ノードのURIの文字列 | 文字列の配列 |
+| `uris` | 必須 | 追加する隣接ノードのURIの文字列 | stringの配列 |
 
 ### 例
 --------------------
@@ -149,12 +149,12 @@ curl http://localhost:14265 \
  `branchTransaction`および`trunkTransaction`パラメーターは、[`getTransactionsToApprove`](#getTransactionsToApprove)エンドポイントから返されます。
 <!--  The `branchTransaction` and  `trunkTransaction` parameters are returned from the [`getTransactionsToApprove`](#getTransactionsToApprove) endpoint. -->
 
-| パラメータ | 必須または任意 | 説明 | 型 |
+| パラメータ | 必須または任意 | 説明 | タイプ |
 |--|--|--|--|
-| `trunkTransaction` | 必須 | [トランクトランザクション](root://iota-basics/0.1/references/structure-of-a-transaction.md)ハッシュ | 文字列型 |
-| `branchTransaction` | 必須 | [ブランチトランザクション](root://iota-basics/0.1/references/structure-of-a-transaction.md)ハッシュ | 文字列型 |
-| `minWeightMagnitude` | 必須 | [最小重量値](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) | 整数型 |
-| `trytes` | 必須 | トランザクショントライトの文字列 | 文字列の配列 |
+| `trunkTransaction` | 必須 | [トランクトランザクション](root://iota-basics/0.1/references/structure-of-a-transaction.md)ハッシュ | string |
+| `branchTransaction` | 必須 | [ブランチトランザクション](root://iota-basics/0.1/references/structure-of-a-transaction.md)ハッシュ | string |
+| `minWeightMagnitude` | 必須 | [最小重量値](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) | integer |
+| `trytes` | 必須 | トランザクショントライトの文字列 | stringの配列 |
 
 ### 例
 --------------------
@@ -280,9 +280,9 @@ curl http://localhost:14265 \
 このエンドポイントの`trytes`パラメータには、[`attachToTangle`](#attachToTangle)エンドポイントによって行われるプルーフオブワークを含める必要があります。
 <!-- The `trytes` parameter for this endpoint must include proof of work, which is done by the [`attachToTangle`](#attachToTangle) endpoint. -->
 
-| パラメータ | 必須または任意 | 説明 | 型 |
+| パラメータ | 必須または任意 | 説明 | タイプ |
 |--|--|--|--|
-| `trytes` | 必須 | 有効なトランザクショントライト | 文字列の配列 |
+| `trytes` | 必須 | 有効なトランザクショントライト | stringの配列 |
 
 ### 例
 --------------------
@@ -387,9 +387,9 @@ curl http://localhost:14265 \
 
 ### パラメータ
 
-| パラメータ | 必須または任意 | 説明 | 型 |
+| パラメータ | 必須または任意 | 説明 | タイプ |
 |--|--|--|--|
-| `tails` | 必須 | 確認するトランザクションハッシュ | 文字列の配列 |
+| `tails` | 必須 | 確認するトランザクションハッシュ | stringの配列 |
 
 ### 例
 --------------------
@@ -505,12 +505,12 @@ curl http://localhost:14265 \
 
 ### パラメータ
 
-| パラメータ | 説明 | 型 |
+| パラメータ | 説明 | タイプ |
 |--|--|--|
-| `bundles` | 検索するバンドルハッシュ | 文字列の配列 |
-| `addresses` | 検索するアドレス（チェックサムを含まない） | 文字列の配列 |
-| `tags` | 検索するタグ | 文字列の配列 |
-| `approvees` | 検索する子トランザクション | 文字列の配列 |
+| `bundles` | 検索するバンドルハッシュ | stringの配列 |
+| `addresses` | 検索するアドレス（チェックサムを含まない） | stringの配列 |
+| `tags` | 検索するタグ | stringの配列 |
+| `approvees` | 検索する子トランザクション | stringの配列 |
 
 ### 例
 --------------------
@@ -626,11 +626,11 @@ curl http://localhost:14265 \
 
  ### パラメータ
 
-| パラメータ | 必須または任意 | 説明 | 型 |
+| パラメータ | 必須または任意 | 説明 | タイプ |
 |--|--|--|--|
-| `addresses` | 必須 | 残高を取得するアドレス（チェックサムを含まない） | 文字列の配列 |
-| `threshold` | 必須 | 0から100までの確認しきい値 | 整数型 |
-| `tips` | 任意 | 残高を見つけるためにトランザクションの履歴をたどるチップ | 文字列の配列 |
+| `addresses` | 必須 | 残高を取得するアドレス（チェックサムを含まない） | stringの配列 |
+| `threshold` | 必須 | 0から100までの確認しきい値 | integer |
+| `tips` | 任意 | 残高を見つけるためにトランザクションの履歴をたどるチップ | stringの配列 |
 
 ### 例
 --------------------
@@ -748,10 +748,10 @@ curl http://localhost:14265 \
 
 ### パラメータ
 
-| パラメータ | 必須または任意 | 説明 | 型 |
+| パラメータ | 必須または任意 | 説明 | タイプ |
 |--|--|--|--|
-| `transactions` | 必須 | 包含状態を取得したいトランザクションハッシュのリスト | 文字列の配列 |
-| `tips` | 任意 | 検索したいチップトランザクションハッシュ（マイルストーンを含む）のリスト | 文字列の配列 |
+| `transactions` | 必須 | 包含状態を取得したいトランザクションハッシュのリスト | stringの配列 |
+| `tips` | 任意 | 検索したいチップトランザクションハッシュ（マイルストーンを含む）のリスト | stringの配列 |
 
 ### 例
 --------------------
@@ -1195,10 +1195,10 @@ curl http://localhost:14265 \
 
 ### パラメータ
 
-| パラメータ | 必須または任意 | 説明 | 型 |
+| パラメータ | 必須または任意 | 説明 | タイプ |
 |--|--|--|--|
-| `depth` | 必須 | 承認のためのトランザクションを決定するために戻るバンドルの数。 | 整数型 |
-| `reference` | 任意 | 重み付きランダムウォークを開始するトランザクションハッシュ。このパラメータを使用して、返されたチップトランザクションハッシュが与えられた参照トランザクションを確実に承認するようにします。 | 文字列型 |
+| `depth` | 必須 | 承認のためのトランザクションを決定するために戻るバンドルの数。 | integer |
+| `reference` | 任意 | 重み付きランダムウォークを開始するトランザクションハッシュ。このパラメータを使用して、返されたチップトランザクションハッシュが与えられた参照トランザクションを確実に承認するようにします。 | string |
 
 ### 例
 --------------------
@@ -1302,9 +1302,9 @@ curl http://localhost:14265 \
 
 ### パラメータ
 
-| パラメータ | 必須または任意 | 説明 | 型 |
+| パラメータ | 必須または任意 | 説明 | タイプ |
 |--|--|--|--|
-| `hashes` | 必須 | トランザクションハッシュ | 文字列の配列 |
+| `hashes` | 必須 | トランザクションハッシュ | stringの配列 |
 
 ### 例
 --------------------
@@ -1514,9 +1514,9 @@ curl http://localhost:14265 \
 隣接ノードを削除するためのURI（unique resource identification）フォーマットは`"udp://IPADDRESS:PORT"`です。
 <!-- The URI (unique resource identification) format for removing neighbors is `"udp://IPADDRESS:PORT"`. -->
 
-| パラメータ | 必須または任意 | 説明 | 型 |
+| パラメータ | 必須または任意 | 説明 | タイプ |
 |--|--|--|--|
-| `uris` | 必須 | 削除する隣接ノードのURIの文字列 | 文字列の配列 |
+| `uris` | 必須 | 削除する隣接ノードのURIの文字列 | stringの配列 |
 
 ### 例
 --------------------
@@ -1609,9 +1609,9 @@ curl http://localhost:14265 \
 `trytes`パラメータの値は有効でなければなりません。有効なトライトは[`attachToTangle`](#attachToTangle)エンドポイントによって返されます。
 <!-- The value of the `trytes` parameter must be valid. Valid trytes are returned by the [`attachToTangle`](#attachToTangle) endpoint. -->
 
-| パラメータ | 必須または任意 | 説明 | 型 |
+| パラメータ | 必須または任意 | 説明 | タイプ |
 |--|--|--|--|
-| `trytes` | 必須 | トランザクショントライト | 文字列の配列 |
+| `trytes` | 必須 | トランザクショントライト | stringの配列 |
 
 ### 例
 --------------------
@@ -1714,9 +1714,9 @@ curl http://localhost:14265 \
 
 ### パラメータ
 
-| パラメータ | 必須または任意 | 説明 | 型 |
+| パラメータ | 必須または任意 | 説明 | タイプ |
 |--|--|--|--|
-| `addresses` | 必須 | チェックするアドレス（チェックサムを含まない） | 文字列の配列 |
+| `addresses` | 必須 | チェックするアドレス（チェックサムを含まない） | stringの配列 |
 
 ### 例
 --------------------
