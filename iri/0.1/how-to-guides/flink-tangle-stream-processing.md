@@ -162,9 +162,9 @@ val stream = env.addSource(new TangleSource(zeroMQHost, zeroMQPort, ""))
 :::info:
 ここでは、ホスト名とポートでノードに接続します。[tx](../references/zmq-events.md#tx)イベントなどの特定のトピックを購読することができます。
 
-  ```scala
-  val stream = env.addSource(new TangleSource(zeroMQHost, zeroMQPort, "tx"))
-  ```
+```scala
+val stream = env.addSource(new TangleSource(zeroMQHost, zeroMQPort, "tx"))
+```
 :::
 
 <!-- :::info: -->
@@ -184,12 +184,12 @@ val filteredStream = stream
 ```
 
 これにより、ストリームにUnconfirmedTransactionMessagesのみが含まれるようになります。
-<!-- We can make sure with this that the stream only contains UnconfirmedTransactionMessages. -->
 型をチェックし、ストリームをオプションでラップして値を取得します。
-<!-- So now we check the type, wrap it in an option and getting the value. -->
 すでにディスクリプタをフィルタリングしているので、すべてのイベントはUnconfirmedTransactionMessage型であることがわかります。
-<!-- Since we already filtered on the descriptor, we know that every event is of type UnconfirmedTransactionMessage. -->
 そうでない場合、基本的なことが間違っており、NullPointerExceptionが発生するとアプリケーションがクラッシュします。
+<!-- We can make sure with this that the stream only contains UnconfirmedTransactionMessages. -->
+<!-- So now we check the type, wrap it in an option and getting the value. -->
+<!-- Since we already filtered on the descriptor, we know that every event is of type UnconfirmedTransactionMessage. -->
 <!-- If not, something fundamental is wrong and a NullPointerException will crash the application. -->
 
 ```scala
@@ -201,30 +201,30 @@ val unconfirmedTransactionStream = filteredStream.map(_ match {
 ```
 
 これは一般的でない方法です。 `NullPointer`例外が発生する可能性があるため、決してgetを使用しないでください。
-<!-- This is a uncommon and dirty way to do. You should never use get, since you can run into `NullPointer` exceptions. -->
 代わりに[getOrElse](https://www.tutorialspoint.com/scala/scala_options.htm)を使用してください。
-<!-- Use [getOrElse](https://www.tutorialspoint.com/scala/scala_options.htm) instead. -->
 正しい型が返されるように、ライブラリにフィルタを実装することも意味があります。
-<!-- It would also make sense to implement a filter into the library, so that the correct type is returned. -->
 これは型チェックを時代遅れにするでしょう。
-<!-- That would make the type checking obsolete. -->
 このライブラリはPoCにすぎないので、当面はこの解決策を使用します。
+<!-- This is a uncommon and dirty way to do. You should never use get, since you can run into `NullPointer` exceptions. -->
+<!-- Use [getOrElse](https://www.tutorialspoint.com/scala/scala_options.htm) instead. -->
+<!-- It would also make sense to implement a filter into the library, so that the correct type is returned. -->
+<!-- That would make the type checking obsolete. -->
 <!-- Since this library is just a proof of concept, we go with this dirty solution for now. -->
 
 これで、UnconfirmedTransactionMessage型のストリームができました。
-<!-- Now we have our stream of the type UnconfirmedTransactionMessage. -->
 基本的に、フルノードが受信するすべてのメッセージを受け取り、どのアドレスが最も多く使用されたかを調べます。
+つまり、アドレスとカウンターがあれば十分です。
+簡単にするために、トランザクション内のすべてのアドレスを1つとして数えます。
+また入力しか保存できませんでした。
+二重に使用されているアドレスを検出するために、出力をフィルタリングすることもできます。
+出力をフィルタリングする場合は、`value > 0`または`value < 0`のフィルタを適用する必要があります。
+<!-- Now we have our stream of the type UnconfirmedTransactionMessage. -->
 <!-- We basically get every message our full-node receives. -->
 <!-- We want to find out which addresses were used the most. -->
-つまり、アドレスとカウンターがあれば十分です。
 <!-- That means, we only need the address and some counter. -->
-簡単にするために、トランザクション内のすべてのアドレスを1つとして数えます。
 <!-- For simplicity we count every address in a transaction as one. -->
-また入力しか保存できませんでした。
 <!-- We could also only keep the inputs. -->
-二重に使用されているアドレスを検出するために、出力をフィルタリングすることもできます。
 <!-- To detect double used addresses, we can also filter on outputs. -->
-出力をフィルタリングする場合は、`値 > 0`または`値 < 0`のフィルタを適用する必要があります。
 <!-- If you want to do that, you have to apply a filter with value > 0 or value < 0. -->
 
 ```scala
@@ -232,49 +232,49 @@ val addressOnlyStream = unconfirmedTransactionStream.map(e => (e.address, 1L))
 ```
 
 このような単純な関数です。この単純なmap関数を使って要素の構造を変更します。
-<!-- Simple as that. We change the structure of our element with this simple map function. -->
 アドレスとカウンターを保管するだけです。[タプル](https://docs.scala-lang.org/tour/tuples.html)はこれに役立ちます。
+<!-- Simple as that. We change the structure of our element with this simple map function. -->
 <!-- We only keep the address and a counter. [Tuples](https://docs.scala-lang.org/tour/tuples.html) are useful for this. -->
 
 要素を数えたいのでアドレスによってストリームを合わせることができる。
-<!-- Since we want to count our elements, we can key our stream by the address. -->
 これにより、アドレスで区切られたKeyedStreamが得られます。
-<!-- This gives us a KeyedStream partitioned by the address. -->
 より複雑なユースケースには[windowAll](https://ci.apache.org/projects/flink/flink-docs-stable/dev/stream/operators/windows.html#window-assigners)を使うことができます。
+<!-- Since we want to count our elements, we can key our stream by the address. -->
+<!-- This gives us a KeyedStream partitioned by the address. -->
 <!-- For more complex use-cases you can use [windowAll](https://ci.apache.org/projects/flink/flink-docs-stable/dev/stream/operators/windows.html#window-assigners) -->
 
 ```scala
 val keyedStream = addressOnlyStream.keyBy(_._1)
 ```
 
-そして、今、すべてのパーティションが同じ種類のいくつかのタプルのみを含むKeyedStreamができます。
-<!-- So, now we have a KeyedStream where every partition only contain some tuples of the same kind. -->
+そして、すべてのパーティションに同じ種類のタプルしか含まれていないKeyedStreamができます。
 基本的に同じアドレスと1Lのタプルがたくさんできます。
-<!-- Basically a lot of tuples with the same address and 1L. -->
 大量のデータを処理したい場合は、パーティション化が便利です。
-<!-- Partitioning is useful if you want to process a huge amount of data. -->
 Flinkはクラスタ内の異なるノード上の各パーティションに対してプロセッサを実行することができるので、各ストリームのプロセス関数は並行して動作することができます。
+したがって、水平方向にスケールすることができます。
+<!-- So, now we have a KeyedStream where every partition only contain some tuples of the same kind. -->
+<!-- Basically a lot of tuples with the same address and 1L. -->
+<!-- Partitioning is useful if you want to process a huge amount of data. -->
 <!-- Flink can execute the processor for each partition on different nodes in your cluster, so that the process functions -->
 <!-- on each stream can work in parallel. -->
-したがって、水平方向に拡大縮小することができます。
 <!-- Therefore you are able to scale horizontally. -->
 
 次に、1時間以内のアドレスごとのトランザクション数を計算する必要があります。
+スライディングウィンドウはこれに役立ちます。今回のユースケースでは、30秒の更新間隔で問題ありません。
 <!-- Next, we need to calculate the number of transactions for each address within one hour. -->
-スライド式ウィンドウはこれに役立ちます。今回のユースケースでは、30秒の更新間隔で問題ありません。
 <!-- Sliding Windows are useful for this. An update interval of 30 seconds is fine for our use-case. -->
 
 ```scala
 val keyedTimedWindow = keyedStream.timeWindow(Time.minutes(60), Time.seconds(30))
 ```
 
-keyedTimeWindowsを入手しました。次にパーティションを集約する必要があります。
-<!-- We got our keyedTimeWindows. Now we need to aggregate our partitions. -->
+これでkeyedTimeWindowsを入手しました。次にパーティションを集約する必要があります。
 これには2つの選択肢があります。最もシンプルな変形はreduce関数です。
-<!-- We have two options for this. The simplest variant is the reduce function. -->
 reduce関数は、すべての要素を実際に必要な数に減らす関数です。
-<!-- This is a function which reduces all elements to the few we really need. -->
 今回のケースにおけるreduce関数は以下のようになります。
+<!-- We got our keyedTimeWindows. Now we need to aggregate our partitions. -->
+<!-- We have two options for this. The simplest variant is the reduce function. -->
+<!-- This is a function which reduces all elements to the few we really need. -->
 <!-- In our case, this would be our reduce function: -->
 
 ```scala
@@ -306,27 +306,27 @@ class AddressCountAggregator extends AggregateFunction[(String, Long), (String, 
 ```
 
 結果を減らす必要があるときはいつでもreduce関数が使われます。合計が良い例です。
-<!-- The reduce function is used whenever you just need to reduce your result. Sums are a good example. -->
 したがって、今回の場合、reduce関数は集約関数よりも意味があります。
-<!-- Therefore in our case the reduce function makes more sense than the aggregation function. -->
 集約関数は、複雑な操作があるときに役立ちます。
-<!-- Aggregation functions are helpful when you have complex operations. -->
 1つの複雑な例が[BundleAggregation.scala](https://github.com/iota-community/flink-tangle-examples/blob/master/src/main/scala/org/iota/tangle/flink/examples/BundleAggregation.scala)にあります。
-<!-- You can find one more complex example in [BundleAggregation.scala](https://github.com/iota-community/flink-tangle-examples/blob/master/src/main/scala/org/iota/tangle/flink/examples/BundleAggregation.scala). -->
 BundleAggregationは入ってくるトランザクションをバンドルにまとめ、それらをUnconfirmedBundlesとReattachedUnconfirmedBundlesに分割します。
-<!-- The BundleAggregation combines incoming transaction into a Bundle and split them into UnconfirmedBundles and ReattachedUnconfirmedBundles. -->
 この例は単純化したもので、バンドルを正確な方法で分割するものではありません。
+<!-- The reduce function is used whenever you just need to reduce your result. Sums are a good example. -->
+<!-- Therefore in our case the reduce function makes more sense than the aggregation function. -->
+<!-- Aggregation functions are helpful when you have complex operations. -->
+<!-- You can find one more complex example in [BundleAggregation.scala](https://github.com/iota-community/flink-tangle-examples/blob/master/src/main/scala/org/iota/tangle/flink/examples/BundleAggregation.scala). -->
+<!-- The BundleAggregation combines incoming transaction into a Bundle and split them into UnconfirmedBundles and ReattachedUnconfirmedBundles. -->
 <!-- This example is a simplification and does not split the Bundles in an accurate way. -->
 
 次に、すべての要素を集約して、上位10のアドレスを見つけます。
-<!-- Next we want to aggregate all elements and want to find the top ten addresses. -->
 timeWindowAll関数はAllWindowedStreamを返します。
-<!-- The timeWindowAll functions returns a AllWindowedStream. -->
 そのため、すべての要素が1つのストリームにまとめられます。
-<!-- So all elements are combined in one stream again. -->
-以前はパーティションでSlidingWindowを使用していたので、ここでの時間はそれほど重要ではありません。
-<!-- Since we used a SlidingWindow on our partitions before, the time here is not that important anymore. -->
+パーティションでSlidingWindowを使用したので、ここでの時間はそれほど重要ではありません。
 よって、1秒を使います。
+<!-- Next we want to aggregate all elements and want to find the top ten addresses. -->
+<!-- The timeWindowAll functions returns a AllWindowedStream. -->
+<!-- So all elements are combined in one stream again. -->
+<!-- Since we used a SlidingWindow on our partitions before, the time here is not that important anymore. -->
 <!-- So, we just use one second. -->
 
 ```scala
@@ -335,12 +335,12 @@ val timeWindowAll = aggregatedKeyedTimeWindow
 ```
 
 ここでのAllWindowedStreamはタプル内のすべてのreduceされたパーティションを含みます。
-<!-- Our AllWindowedStream contains all reduced partitions in a tuple. -->
 各パーティションは、構造（ADDRESS、AMOUNT_OF_TRANSACTIONS）内に1つのタプルを持っています。
-<!-- Each partition has one tuple in the structure (ADDRESS, AMOUNT_OF_TRANSACTIONS). -->
 最後のステップは、どのアドレスが最も使用されているかを調べることです。
-<!-- The last step is to find out which addresses are used the most. -->
 そのために集約関数を使います。
+<!-- Our AllWindowedStream contains all reduced partitions in a tuple. -->
+<!-- Each partition has one tuple in the structure (ADDRESS, AMOUNT_OF_TRANSACTIONS). -->
+<!-- The last step is to find out which addresses are used the most. -->
 <!-- So we use an aggregation function for this. -->
 
 ```scala
@@ -373,12 +373,12 @@ class MostUsedAddressesAggregator(number: Int) extends AggregateFunction[(String
 ```
 
 Mapをアキュムレータとして使います。マップはキーとバリューのペアを含んでいるので、本当に便利です。
-<!-- We use a Map as accumulator. Maps are really useful, since they contain key value pairs. -->
 AggregateFunctionは一番上のアドレスから一番下のアドレスへソートされたリストを返します。
-<!-- AggregateFunction returns a sorted List. From the top used address to the bottom one. -->
 最初の10個だけに興味があるので、最初の10個だけを取ります。
+クラスのコンストラクタは10を取ります。
+<!-- We use a Map as accumulator. Maps are really useful, since they contain key value pairs. -->
+<!-- AggregateFunction returns a sorted List. From the top used address to the bottom one. -->
 <!-- We are only interested in the first ten, so we only take the first 10. -->
-クラスのコンストラクタは10の数を取ります。
 <!-- The constructor of the class takes the number for it. -->
 
 最後のステップは簡単で、リストをプリントしてプログラムを実行します。
