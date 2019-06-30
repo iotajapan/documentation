@@ -162,9 +162,9 @@ val stream = env.addSource(new TangleSource(zeroMQHost, zeroMQPort, ""))
 :::info:
 ここでは、ホスト名とポートでノードに接続します。[tx](../references/zmq-events.md#tx)イベントなどの特定のトピックを購読することができます。
 
-    ```scala
-    val stream = env.addSource(new TangleSource(zeroMQHost, zeroMQPort, "tx"))
-    ```
+  ```scala
+  val stream = env.addSource(new TangleSource(zeroMQHost, zeroMQPort, "tx"))
+  ```
 :::
 
 <!-- :::info: -->
