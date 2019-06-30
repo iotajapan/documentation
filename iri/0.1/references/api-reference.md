@@ -30,7 +30,7 @@
 
 ### パラメータ
 
-隣接ノードを追加するためのURI（unique resource identification）フォーマットは、`"udp：// IPADDRESS：PORT"`です。
+隣接ノードを追加するためのURI（unique resource identification）フォーマットは、`"udp://IPADDRESS:PORT"`です。
 <!--  The URI (unique resource identification) format for adding neighbors is `"udp://IPADDRESS:PORT"`. -->
 
 | パラメータ | 必須または任意 | 説明 | 型 |
@@ -490,7 +490,7 @@ curl http://localhost:14265 \
 
 | リターンフィールド | 説明 |
 |--|--|
-| `state` | `tails`パラメータ内の与えられたトランザクションの状態。`true`は、与えられたすべてのトランザクションに整合性があることを意味します。`false`は、与えられたトランザクションの一つ以上に整合性がないことを意味します。 |
+| `state` | `tails`パラメータ内で与えられたトランザクションの状態。`true`は、与えられたすべてのトランザクションに整合性があることを意味します。`false`は、与えられたトランザクションの一つ以上に整合性がないことを意味します。 |
 | `info` | `state`フィールドが`false`の場合、このフィールドにはトランザクションに整合性がない理由に関する情報が含まれます。 |
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
 
@@ -613,7 +613,7 @@ curl http://localhost:14265 \
 
 | リターンフィールド | 説明 |
 |--|--|
-| `hashes` | 返されるトランザクションハッシュは入力によって異なります。`bundles`：与えられたバンドルハッシュを含むトランザクションハッシュの配列を返します。`addresses`：`address`フィールドに与えられたアドレスを含むトランザクションハッシュの配列を返します。`tags`：`tag`フィールドに与えられた値を含むトランザクションハッシュの配列を返します。`approvees`：`branchTransaction`フィールドまたは`trunkTransaction`フィールドに、与えられたトランザクションを含むトランザクションハッシュの配列を返します。 |
+| `hashes` | 返されるトランザクションハッシュは入力によって異なります。`bundles`：与えられたバンドルハッシュを含むトランザクションハッシュの配列を返します。`addresses`：`address`フィールドに与えられたアドレスを含むトランザクションハッシュの配列を返します。`tags`：`tag`フィールドに与えられた値を含むトランザクションハッシュの配列を返します。`approvees`：`branchTransaction`フィールドまたは`trunkTransaction`フィールドに与えられたトランザクションを含むトランザクションハッシュの配列を返します。 |
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
 
 ## getBalances
@@ -1092,7 +1092,7 @@ curl http://localhost:14265 \
 | `packetsQueueSize` | パケットキューのサイズ |
 | `time` | 現在のUNIXタイムスタンプ |
 | `tips` | ネットワーク内のチップ数 |
-| `transactionsToRequest` | ノードが自身の台帳に欠落しているトランザクションの総数 |
+| `transactionsToRequest` | ノードの台帳に欠落しているトランザクションの総数 |
 | `features` | 有効な設定オプション |
 | `coordinatorAddress` | コーディネーターのアドレス（マークルルート） |
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
