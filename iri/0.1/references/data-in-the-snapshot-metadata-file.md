@@ -1,13 +1,15 @@
-# Data in the snapshot metadata file
+# スナップショットメタデータファイルのデータ
+<!-- # Data in the snapshot metadata file -->
 
-**This table contains the data that's added to the snapshot.meta file during a [local snapshot](../concepts/local-snapshot.md).**
+**この表には、[ローカルスナップショット](../concepts/local-snapshot.md)中にsnapshot.metaファイルに追加されるデータが含まれています。**
+<!-- **This table contains the data that's added to the snapshot.meta file during a [local snapshot](../concepts/local-snapshot.md).** -->
 
-| **Data**|    **Description** |                                      
-| :-----: |  :---------------: | 
-|Bootstrap milestone hash |The hash of the milestone transaction from which the IRI started the local snapshot|
-|Bootstrap milestone index | The index of the milestone transaction from which the IRI started the local snapshot |
-|Unix timestamp |The time that the snapshot files were created |
-|<a name="solid-entry-point"></a>Total number of solid entry points|Confirmed transactions for which the IRI had all approvers in its ledger during the time of the snapshot. An IRI node will stop solidifying a transaction if it references a solid entry point.|
-|<a name="seen-milestone"></a>Total number of seen milestones| Milestones that are newer than the bootstrap milestone. The number of seen milestones is equal to the [`LOCAL_SNAPSHOTS_DEPTH`](../references/iri-configuration-options.md#local-snapshots-depth) configuration option. |
-|List of solid entry points | A semicolon-separated list of transaction hashes and the index of the milestones that made them solid|
-|List of seen milestones | A semicolon-separated list of seen milestone transaction hashes |
+| **データ** | **説明** |
+| :--------: | :------: |
+| ブートストラップマイルストーンハッシュ | IRIがローカルスナップショットを開始したマイルストーントランザクションのハッシュ |
+| ブートストラップマイルストーンインデックス | IRIがローカルスナップショットを開始したマイルストーントランザクションのインデックス |
+| Unixタイプスタンプ | スナップショットファイルが作成された時刻 |
+| <a name="solid-entry-point"></a>凝固エントリポイントの総数 | スナップショット時点で、IRIがすべての承認トランザクションを台帳に持っていることを確定したトランザクション。IRIノードが凝固エントリポイントを参照すると、トランザクションの凝固を停止します。 |
+| <a name="seen-milestone"></a>シーンマイルストーンの総数 | ブートストラップマイルストーンよりも新しいマイルストーン。シーンマイルストーンの数は、[`LOCAL_SNAPSHOTS_DEPTH`](../references/iri-configuration-options.md#local-snapshots-depth)設定オプションと同じです。 |
+| 凝固エントリーポイントのリスト | セミコロンで区切ったトランザクションハッシュのリストとそのトランザクションハッシュを凝固にしたマイルストーンのインデックス |
+| シーンマイルストーンのリスト | セミコロンで区切ったシーンマイルストーントランザクションハッシュのリスト |
