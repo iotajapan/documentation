@@ -19,7 +19,7 @@ java.security.InvalidAlgorithmParameterException: the trustAnchors parameter mus
 ## IRIが隣接ノードと同期しない
 <!-- ## The IRI won't synchronize with its neighbors -->
 
-IRIが同期するまでに時間がかかることがあります。IRIが自動的に同期するかどうかを確認するためにしばらくお待ちください。
+IRIが同期するまでには時間がかかることがあります。IRIが自動的に同期するかどうかを確認するためにしばらくお待ちください。
 <!-- It may take some time for the IRI to synchronize. Wait a while to see if the IRI synchronizes by itself. -->
 
 * [6か7の隣接ノードがいることを確認してください](../how-to-guides/find-neighbor-iri-nodes.md)。
@@ -29,7 +29,7 @@ IRIが同期するまでに時間がかかることがあります。IRIが自�
 <!-- * Make sure that you're running the [latest version of the IRI](https://github.com/iotaledger/iri/releases) -->
 
 * IRIと隣接ノードが互いにデータを送信しあっていることを確認してください。getNeighbors APIメソッドを呼び出して、着信トランザクション（`numberOfAllTransactions`）と発信トランザクション数（`numberOfSentTransactions`）の両方を確認します。隣接ノードがIRIにデータを送っていない場合は、接続する新しい隣接ノードを見つけてください。
-<!-- * Make sure that the IRI and its neighbors are sending data among each other. Call the getNeighbors API method to see both the incoming transactions (`numberOfAllTransactions`) and the number of outgoing transactions (`numberOfSentTransactions`). If your neighbors aren't sending you data, find new neighbors to connect to. -->
+  <!-- * Make sure that the IRI and its neighbors are sending data among each other. Call the getNeighbors API method to see both the incoming transactions (`numberOfAllTransactions`) and the number of outgoing transactions (`numberOfSentTransactions`). If your neighbors aren't sending you data, find new neighbors to connect to. -->
 
     ```bash
     curl http://localhost:14265 -X POST -H 'Content-Type: application/json' -H 'X-IOTA-API-Version: 1' -d '{"command": "getNeighbors"}'
