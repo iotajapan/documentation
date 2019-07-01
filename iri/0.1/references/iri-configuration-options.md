@@ -1,44 +1,64 @@
-# IRI configuration options
+# IRI設定オプション
+<!-- # IRI configuration options -->
 
-**The IRI configuration options allow you to customize your node. You can choose to set these options either in the command line (CL flags) or in a .ini configuration file (config file parameters).**
+**IRI設定オプションを使用すると、ノードをカスタマイズできます。これらのオプションは、コマンドライン（CLフラグ）または.ini設定ファイル（設定ファイルパラメータ）のどちらでも設定できます。**
+<!-- **The IRI configuration options allow you to customize your node. You can choose to set these options either in the command line (CL flags) or in a .ini configuration file (config file parameters).** -->
 
-To make it easier to find the options you want to change, we've separated them into the following categories:
+変更したいオプションを見つけやすくするために、次のカテゴリに分類しました。
+<!-- To make it easier to find the options you want to change, we've separated them into the following categories: -->
 
-* **API:** How the API responds and which hosts can access it
-* **Network:** How your node communicates with neighbors
-* **IXI:** How your node uses IXI modules
-* **Ledger:** What your node does with its ledger
-* **Protocol:** What transactions will be accepted by the network, and how they will be propagated to other nodes
-* **ZMQ:** How clients can [subscribe to your node's ZMQ events](../how-to-guides/subscribe-to-events-in-an-iri-node.md)
-* **Tip selection:** The length and randomness of the weighted random walk during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md)
-* **Tip solidification:** How tip transactions become solid.
-* **Proof of work:** How your node does [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md)
-* **Local snapshots:** How and when your node does [local snapshots](../concepts/local-snapshot.md)
+* **API：** APIがどのように応答し、どのホストがAPIにアクセスできるか
+<!-- * **API:** How the API responds and which hosts can access it -->
+* **Network：** ノードが隣接ノードと通信する方法
+<!-- * **Network:** How your node communicates with neighbors -->
+* **IXI：** ノードがIXIモジュールを使用する方法
+<!-- * **IXI:** How your node uses IXI modules -->
+* **Ledger：** ノードが台帳で何をするのか
+<!-- * **Ledger:** What your node does with its ledger -->
+* **Protocol：** どのトランザクションがネットワークによって受け入れられるのか、そしてトランザクションが他のノードにどのように伝播されるのか
+<!-- * **Protocol:** What transactions will be accepted by the network, and how they will be propagated to other nodes -->
+* **ZMQ：** クライアントが[ノードのZMQイベントを購読する](../how-to-guides/subscribe-to-events-in-an-iri-node.md)方法
+<!-- * **ZMQ:** How clients can [subscribe to your node's ZMQ events](../how-to-guides/subscribe-to-events-in-an-iri-node.md) -->
+* **Tip selection：** [チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)中の重み付きランダムウォークの長さとランダムさ
+<!-- * **Tip selection:** The length and randomness of the weighted random walk during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md) -->
+* **Tip solidification：** チップトランザクションが凝固になる方法
+<!-- * **Tip solidification:** How tip transactions become solid. -->
+* **プルーフオブワーク：** ノードが[プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)を行う方法
+<!-- * **Proof of work:** How your node does [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) -->
+* **ローカルスナップショット：** ノードが[ローカルスナップショット](../concepts/local-snapshot.md)を実行する方法とタイミング
+<!-- * **Local snapshots:** How and when your node does [local snapshots](../concepts/local-snapshot.md) -->
 
 :::info:
-If you've downloaded the IRI, you can also run it with the `--help` flag to see a list of all the configuration options.
+IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実行して、すべての設定オプションの一覧を見ることもできます。
 :::
+<!-- :::info: -->
+<!-- If you've downloaded the IRI, you can also run it with the `--help` flag to see a list of all the configuration options. -->
+<!-- ::: -->
 
 :::info:
-All boolean flags require a parameter, for example `--remote=true` or `--remote=false`.
+`--remote=true`または`--remote=false`のように、すべてのブールフラグにはパラメータが必要です。
 :::
+<!-- :::info: -->
+<!-- All boolean flags require a parameter, for example `--remote=true` or `--remote=false`. -->
+<!-- ::: -->
 
 ## API
 
-Use these settings to customize how the API behaves and which hosts can access it.
+これらの設定を使用して、APIの動作方法とアクセスできるホストをカスタマイズします。
+<!-- Use these settings to customize how the API behaves and which hosts can access it. -->
 
-| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
-| :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
-|<a name="api-host"></a> `--api-host`|`API_HOST` |Set the host to which the API listens| string | localhost | To accept any host, set this option to 0.0.0.0 or set the `REMOTE` option to `true`|
-|<a name="port"></a>`--port, -p` (**required**) |`API_PORT`|Set the port on which the API listens |string |14265 |
-|<a name="max-body-length"></a> `--max-body-length` | `MAX_BODY_LENGTH`|Set a maximum number of characters that the body of an API call may contain|number |1,000,000 | If the length of a request body exceeds this number, an error is returned
-|<a name="max-find-transactions"></a>`--max-find-transactions` |`MAX_FIND_TRANSACTIONS`|Set a maximum number of transactions that may be returned by the [findTransactions endpoint](../references/api-reference.md#findTransactions) |number | 100,000 | If the number of transactions exceeds this number, an error is returned
-|<a name="max-requests-list"></a>`--max-requests-list` |`MAX_REQUESTS_LIST`|Set a maximum number of parameters in an API call |number |1,000 | If the number of parameters exceeds this number, an error is returned
-|<a name="max-get-trytes"></a>`--max-get-trytes` |`MAX_GET_TRYTES`|Set a maximum number of trytes that may be returned by the [getTrytes endpoint](../references/api-reference.md#getTrytes)  |number |10,000 | If the number of trytes exceeds this number, an error is returned
-|<a name="remote"></a> ` --remote `|`REMOTE`|Open the API interface to any host |boolean | false| When set to true, this option is equivalent to setting the `API_HOST` option to 0.0.0.0
-|<a name="remote-auth"></a>`--remote-auth` |`REMOTE_AUTH`|Add basic authentication for API calls in the form of username:password  | string| ""|You can use a plain text or a hashed password|
-|<a name="remote-limit-api"></a>`--remote-limit-api` |`REMOTE_LIMIT_API`|Ignore requests to certain API endpoints |array of strings |[[addNeighbors](../references/api-reference.md#addNeighbors), [getNeighbors](../references/api-reference.md#getNeighbors), [removeNeighbors](../references/api-reference.md#removeNeighbors), [attachToTangle](../references/api-reference.md#attachToTangle), [interruptAttachToTangle](../references/api-reference.md#interruptAttachToTangle)] | This option allows you to protect your node against spammers that know the IRI node's URL or IP address.
-|<a name="remote-trusted-api-hosts"></a>`--remote-trusted-api-hosts` |`REMOTE_TRUSTED_API_HOSTS`|Hosts that may call any API endpoints, including those set in the `REMOTE_LIMIT_API` option |comma-separated list of strings |localhost | You must also set the `REMOTE` option to `true`
+| **CLフラグ** | **設定ファイルのパラメータ** | **説明** | **受け入れられる値** | **デフォルト値** | **メモ** |
+| :----------- | :--------------------------- | :------- | :------------------- | :--------------- |:---------- |
+| <a name="api-host"></a> `--api-host` | `API_HOST` | APIをリッスンするホストを設定します。 | string | localhost | 任意のホストを受け入れるには、このオプションを0.0.0.0に設定するか、`REMOTE`オプションを`true`に設定します。 |
+| <a name="port"></a> `--port, -p`（**必須**） | `API_PORT` | APIをリッスンするポートを設定します。 | string | 14265 |
+| <a name="max-body-length"></a> `--max-body-length` | `MAX_BODY_LENGTH` | API呼び出しのボディに含めることができる最大文字数を設定します。 | number | 1,000,000 | リクエストボディの長さがこの数を超えると、エラーが返されます。 |
+| <a name="max-find-transactions"></a> `--max-find-transactions` | `MAX_FIND_TRANSACTIONS` | [findTransactionsエンドポイント](../references/api-reference.md#findTransactions)から返される可能性があるトランザクションの最大数を設定します。 | number | 100,000 | トランザクション数がこの数を超えると、エラーが返されます。 |
+| <a name="max-requests-list"></a> `--max-requests-list` | `MAX_REQUESTS_LIST` | API呼び出しパラメーターの最大数を設定します。 | number | 1,000 | パラメータ数がこの数を超えると、エラーが返されます。 |
+| <a name="max-get-trytes"></a> `--max-get-trytes` | `MAX_GET_TRYTES` | [getTrytesエンドポイント](../references/api-reference.md#getTrytes)から返される可能性のあるトライトの最大数を設定します。 | number | 10,000 | トライト数がこの数を超えると、エラーが返されます。 |
+| <a name="remote"></a> ` --remote ` | `REMOTE` | 任意のホストへのAPIインターフェースを開きます。 | boolean | false | `true`に設定すると、このオプションは`API_HOST`オプションを0.0.0.0に設定するのと同等になります。 |
+| <a name="remote-auth"></a> `--remote-auth` | `REMOTE_AUTH` | `username:password`の形式でAPI呼び出しのBasic認証を追加します。 | string | "" | プレーンテキストまたはハッシュパスワードを使用できます。 |
+| <a name="remote-limit-api"></a> `--remote-limit-api` | `REMOTE_LIMIT_API` | 特定のAPIエンドポイントへのリクエストを無視します。 | 文字列の配列 | [[addNeighbors](../references/api-reference.md#addNeighbors)、[getNeighbors](../references/api-reference.md#getNeighbors)、[removeNeighbors](../references/api-reference.md#removeNeighbors)、[attachToTangle](../references/api-reference.md#attachToTangle)、[interruptAttachToTangle](../references/api-reference.md#interruptAttachToTangle)] | このオプションを使用すると、IRIノードのURLまたはIPアドレスを知っているスパム送信者からノードを保護できます。 |
+| <a name="remote-trusted-api-hosts"></a> `--remote-trusted-api-hosts` | `REMOTE_TRUSTED_API_HOSTS` | `REMOTE_LIMIT_API`オプションで設定されているものも含め、任意のAPIエンドポイントを呼び出す可能性があるホスト。 | コンマ区切りの文字列のリスト | localhost | `REMOTE`オプションを`true`に設定する必要があります。 |
 
 ## Network
 
