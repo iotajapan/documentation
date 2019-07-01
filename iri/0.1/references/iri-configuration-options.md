@@ -71,7 +71,7 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 | <a name="dns-refresher"></a> `--dns-refresher` | `DNS_REFRESHER` | 動的IPアドレスを持つ隣接ノードに再接続します。 | boolean | true |
 | <a name="dns-resolution"></a> `--dns-resolution` | `DNS_RESOLUTION` | 近隣ノードピアリングに対してDNSを有効にします。 | boolean | true |
 | <a name="max-peers"></a> `--max-peers` | `MAX_PEERS` | 相互に繋がっていないピアの最大数を設定します。 | number | 0 | このオプションはIOTA Devnetネットワークでのみ利用可能です。 |
-| <a name="neighbors"></a> `-n`, `--neighbors` | `NEIGHBORS` | [隣接ノード](../how-to-guides/find-neighbor-iri-nodes.md)のURLとIPアドレスを設定します。 | 文字列の配列 | [""] |
+| <a name="neighbors"></a> `-n`, `--neighbors` | `NEIGHBORS` | [隣接ノード](../how-to-guides/find-neighbor-iri-nodes.md)のURLとIPアドレスを設定します。 | 文字列の配列 | "" |
 | <a name="p-drop-cache"></a> `--p-drop-cache` | `P_DROP_CACHE_ENTRY` | ネットワークキャッシュで最近のシーントランザクションを失う確率を設定します。 | 0から1の間の数 | 0.02 |
 | <a name="p-remove-request"></a> `--p-remove-request` | `P_REMOVE_REQUEST` | IRIがトランザクションをリクエストするのを止める確率を設定します。 | 0から1の間の数 |0.01 | 存在しないトランザクションハッシュが最終的に削除されるように、この数は0に近いはずです。 |
 | <a name="queue-size"></a> `--queue-size` | `Q_SIZE_NODE` | REPLY、BROADCAST、およびRECEIVEネットワークキューの最大サイズを設定します。 | number | 1,000 |
