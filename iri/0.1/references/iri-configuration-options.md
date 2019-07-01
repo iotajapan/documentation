@@ -23,9 +23,9 @@
 <!-- * **Tip selection:** The length and randomness of the weighted random walk during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md) -->
 * **Tip solidification：** チップトランザクションが凝固になる方法
 <!-- * **Tip solidification:** How tip transactions become solid. -->
-* **プルーフオブワーク：** ノードが[プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)を行う方法
+* **Proof of work：** ノードが[プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)を行う方法
 <!-- * **Proof of work:** How your node does [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) -->
-* **ローカルスナップショット：** ノードが[ローカルスナップショット](../concepts/local-snapshot.md)を実行する方法とタイミング
+* **Local snapshots：** ノードが[ローカルスナップショット](../concepts/local-snapshot.md)を実行する方法とタイミング
 <!-- * **Local snapshots:** How and when your node does [local snapshots](../concepts/local-snapshot.md) -->
 
 :::info:
@@ -53,30 +53,31 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 | <a name="port"></a> `--port, -p`（**必須**） | `API_PORT` | APIをリッスンするポートを設定します。 | string | 14265 |
 | <a name="max-body-length"></a> `--max-body-length` | `MAX_BODY_LENGTH` | API呼び出しのボディに含めることができる最大文字数を設定します。 | number | 1,000,000 | リクエストボディの長さがこの数を超えると、エラーが返されます。 |
 | <a name="max-find-transactions"></a> `--max-find-transactions` | `MAX_FIND_TRANSACTIONS` | [findTransactionsエンドポイント](../references/api-reference.md#findTransactions)から返される可能性があるトランザクションの最大数を設定します。 | number | 100,000 | トランザクション数がこの数を超えると、エラーが返されます。 |
-| <a name="max-requests-list"></a> `--max-requests-list` | `MAX_REQUESTS_LIST` | API呼び出しパラメーターの最大数を設定します。 | number | 1,000 | パラメータ数がこの数を超えると、エラーが返されます。 |
-| <a name="max-get-trytes"></a> `--max-get-trytes` | `MAX_GET_TRYTES` | [getTrytesエンドポイント](../references/api-reference.md#getTrytes)から返される可能性のあるトライトの最大数を設定します。 | number | 10,000 | トライト数がこの数を超えると、エラーが返されます。 |
+| <a name="max-requests-list"></a> `--max-requests-list` | `MAX_REQUESTS_LIST` | API呼び出しパラメーター数の最大数を設定します。 | number | 1,000 | パラメータ数がこの数を超えると、エラーが返されます。 |
+| <a name="max-get-trytes"></a> `--max-get-trytes` | `MAX_GET_TRYTES` | [getTrytesエンドポイント](../references/api-reference.md#getTrytes)から返される可能性のあるトライト数の最大数を設定します。 | number | 10,000 | トライト数がこの数を超えると、エラーが返されます。 |
 | <a name="remote"></a> ` --remote ` | `REMOTE` | 任意のホストへのAPIインターフェースを開きます。 | boolean | false | `true`に設定すると、このオプションは`API_HOST`オプションを0.0.0.0に設定するのと同等になります。 |
 | <a name="remote-auth"></a> `--remote-auth` | `REMOTE_AUTH` | `username:password`の形式でAPI呼び出しのBasic認証を追加します。 | string | "" | プレーンテキストまたはハッシュパスワードを使用できます。 |
-| <a name="remote-limit-api"></a> `--remote-limit-api` | `REMOTE_LIMIT_API` | 特定のAPIエンドポイントへのリクエストを無視します。 | 文字列の配列 | [[addNeighbors](../references/api-reference.md#addNeighbors)、[getNeighbors](../references/api-reference.md#getNeighbors)、[removeNeighbors](../references/api-reference.md#removeNeighbors)、[attachToTangle](../references/api-reference.md#attachToTangle)、[interruptAttachToTangle](../references/api-reference.md#interruptAttachToTangle)] | このオプションを使用すると、IRIノードのURLまたはIPアドレスを知っているスパム送信者からノードを保護できます。 |
-| <a name="remote-trusted-api-hosts"></a> `--remote-trusted-api-hosts` | `REMOTE_TRUSTED_API_HOSTS` | `REMOTE_LIMIT_API`オプションで設定されているものも含め、任意のAPIエンドポイントを呼び出す可能性があるホスト。 | コンマ区切りの文字列のリスト | localhost | `REMOTE`オプションを`true`に設定する必要があります。 |
+| <a name="remote-limit-api"></a> `--remote-limit-api` | `REMOTE_LIMIT_API` | 特定のAPIエンドポイントへのリクエストを無視します。 | 文字列の配列 | [[addNeighbors](../references/api-reference.md#addNeighbors), [getNeighbors](../references/api-reference.md#getNeighbors), [removeNeighbors](../references/api-reference.md#removeNeighbors), [attachToTangle](../references/api-reference.md#attachToTangle), [interruptAttachToTangle](../references/api-reference.md#interruptAttachToTangle)] | このオプションを使用すると、IRIノードのURLまたはIPアドレスを知っているスパム送信者からノードを保護できます。 |
+| <a name="remote-trusted-api-hosts"></a> `--remote-trusted-api-hosts` | `REMOTE_TRUSTED_API_HOSTS` | `REMOTE_LIMIT_API`オプションで設定されているものも含め、任意のAPIエンドポイントを呼び出すことができるホスト。 | コンマ区切りの文字列のリスト | localhost | `REMOTE`オプションを`true`に設定する必要があります。 |
 
 ## Network
 
-Use these settings to customize how your node communicates with neighbors.
+これらの設定を使用して、ノードが近隣ノードと通信する方法をカスタマイズします。
+<!-- Use these settings to customize how your node communicates with neighbors. -->
 
-| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
-| :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
-|<a name="cache-size"></a>`--cache-size` |`CACHE_SIZE_BYTES`|Set the maximum size of the network cache in bytes |number |150,000 |
-|<a name="dns-refresher"></a>`--dns-refresher` |`DNS_REFRESHER`|Reconnect to neighbors that have dynamic IP addresses |boolean |true |
-|<a name="dns-resolution"></a>`--dns-resolution` |`DNS_RESOLUTION`|Enable DNS for neighbor peering |boolean |true|
-|<a name="max-peers"></a>`--max-peers` |`MAX_PEERS`|Set the maximum number of non-mutually-tethered connections |number |0 |This option is available only on the IOTA Devnet network|
-|<a name="neighbors"></a>`-n`, `--neighbors` |`NEIGHBORS`|Set the URLs and IP addresses of [neighbors](../how-to-guides/find-neighbor-iri-nodes.md) |array of strings |[""] |
-|<a name="p-drop-cache"></a>`--p-drop-cache` |`P_DROP_CACHE_ENTRY`|Set the probability of losing recently seen transactions in the network cache | number between 0 and 1|0.02 |
-|<a name="p-remove-request"></a>`--p-remove-request` |`P_REMOVE_REQUEST`|Set the probability of the IRI stopping to request a transaction |number between 0 and 1 |0.01 |This number should be close to 0 so that non-existing transaction hashes are eventually removed
-|<a name="queue-size"></a>`--queue-size `|`Q_SIZE_NODE`|Set the maximum size of the REPLY, BROADCAST, and RECEIVE network queues | number|1,000|
-|<a name="send-limit"></a> `--send-limit` |`SEND_LIMIT`|Set the data limit in Mbits per second that the node can send |number | -1 |If this number is below 0, no limit is set
-|<a name="udp-receiver-port"></a>`-u`, `--udp-receiver-port` |`UDP_RECEIVER_PORT`|Set the port from which the IRI receives UDP data packets from neighbor IRI nodes |string |14600 |
-|<a name="tcp-receiver-port"></a>`-t`, `--tcp-receiver-port` |`TCP_RECEIVER_PORT`|Set the port from which the IRI receives TCP data packets from neighbor IRI nodes |string | 15600|
+| **CLフラグ** | **設定ファイルのパラメータ** | **説明** | **受け入れられる値** | **デフォルト値** | **メモ** |
+| :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
+| <a name="cache-size"></a> `--cache-size` | `CACHE_SIZE_BYTES` | ネットワークキャッシュの最大サイズをバイト単位で設定します。 | number | 150,000 |
+| <a name="dns-refresher"></a> `--dns-refresher` | `DNS_REFRESHER` | 動的IPアドレスを持つ隣接ノードに再接続します。 | boolean | true |
+| <a name="dns-resolution"></a> `--dns-resolution` | `DNS_RESOLUTION` | 近隣ノードピアリングに対してDNSを有効にします。 | boolean | true |
+| <a name="max-peers"></a> `--max-peers` | `MAX_PEERS` | 相互に繋がっていないピアの最大数を設定します。 | number | 0 | このオプションはIOTA Devnetネットワークでのみ利用可能です。 |
+| <a name="neighbors"></a> `-n`, `--neighbors` | `NEIGHBORS` | [隣接ノード](../how-to-guides/find-neighbor-iri-nodes.md)のURLとIPアドレスを設定します。 | 文字列の配列 | [""] |
+| <a name="p-drop-cache"></a> `--p-drop-cache` | `P_DROP_CACHE_ENTRY` | ネットワークキャッシュで最近のシーントランザクションを失う確率を設定します。 | 0から1の間の数 | 0.02 |
+| <a name="p-remove-request"></a> `--p-remove-request` | `P_REMOVE_REQUEST` | IRIがトランザクションをリクエストするのを止める確率を設定します。 | 0から1の間の数 |0.01 | 存在しないトランザクションハッシュが最終的に削除されるように、この数は0に近いはずです。 |
+| <a name="queue-size"></a> `--queue-size` | `Q_SIZE_NODE` | REPLY、BROADCAST、およびRECEIVEネットワークキューの最大サイズを設定します。 | number | 1,000 |
+| <a name="send-limit"></a> `--send-limit` | `SEND_LIMIT` | ノードが送信できるデータ制限をMbpsで設定します。 | number | -1 | この数が0未満の場合、制限は設定されません。 |
+| <a name="udp-receiver-port"></a> `-u`, `--udp-receiver-port` | `UDP_RECEIVER_PORT` | IRIが隣接IRIノードからUDPデータパケットを受信するポートを設定します。 | string | 14600 |
+| <a name="tcp-receiver-port"></a> `-t`, `--tcp-receiver-port` | `TCP_RECEIVER_PORT` | IRIが隣接IRIノードからTCPデータパケットを受信するポートを設定します。 | string | 15600 |
 
 ## IXI
 
