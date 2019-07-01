@@ -112,7 +112,7 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 | <a name="p-drop-transaction"></a> `--p-drop-transaction` | `P_DROP_TRANSACTION` | 受け取ったトランザクションを失う確率を設定します。 | 0から1の間の数 | 0.0 | このオプションはテスト目的でのみ利用可能です。 |
 | <a name="p-propagate-request"></a> `--p-propagate-request` | `P_PROPAGATE_REQUEST` | IRIが隣接ノードからの紛失トランザクションをリクエストする確率を設定します。 | number | 0.01 | この数は、スパムトランザクションをIRIがリクエストするのを避けるために、低くする必要があります。 |
 | <a name="p-reply-random"></a> `--p-reply-random` | `P_REPLY_RANDOM_TIP` | 送信するトランザクションがない場合でも、IRIがランダムなトランザクションリクエストに応答する確率を設定します。 |  | 0.66 |
-| <a name="p-select-milestone"></a> `--p-select-milestone`| `P_SELECT_MILESTONE_CHILD` | IRIが隣接ノードからマイルストーントランザクションをリクエストする確率を設定します。 | 0から1の間の数 | 0.7 | トランザクションが確定されたと見なすには、IRIが順番にマイルストーンを見つけることが不可欠であるため、この数は大きくする必要があります。 |
+| <a name="p-select-milestone"></a> `--p-select-milestone`| `P_SELECT_MILESTONE_CHILD` | IRIが隣接ノードからマイルストーントランザクションをリクエストする確率を設定します。 | 0から1の間の数 | 0.7 | トランザクションが確定したと見なされるには、IRIが順番にマイルストーンを見つけることが不可欠であるため、この数は大きくする必要があります。 |
 | <a name="p-send-milestone"></a> `--p-send-milestone` | `P_SEND_MILESTONE` | IRIがマイルストーントランザクションを隣接ノードへのランダム返信として送信する確率を設定します。 | 0から1の間の数 | 0.02 |
 
 ## ZMQ
@@ -130,42 +130,46 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 
 ## Tip selection
 
-Use these settings to customize the length and randomness of the weighted random walk during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md).
+これらの設定を使用して、[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)中の重み付きランダムウォークの長さとランダムさをカスタマイズします。
+<!-- Use these settings to customize the length and randomness of the weighted random walk during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md). -->
 
-| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
-| :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
-|<a name="alpha"></a>`--alpha`| `ALPHA`|Set the randomness of the tip selection process             |   number between 0 and infinity  |  0.001     | The number 0 is the most random and infinity is the most deterministic. For an in-depth explanation of this option, [see our blog post](https://blog.iota.org/alpha-d176d7601f1c).|
-|<a name="max-analyzed-transactions"></a>`--max-analyzed-transactions` |`MAX_ANALYZED_TXS`|Set the maximum number of unconfirmed transactions that may be analyzed during tip selection to find the latest milestone that references a transaction |number |20,000 |
-|  <a name="max-depth"></a>`--max-depth` |`MAX_DEPTH`|Set the maximum number of previous milestones (depth) from where the IRI will start the tip selection |number |15 | This value should be both small enough to allow the weighted random walk to finish in a reasonable amount of time and large enough in include enough new transactions in the [subgraph](root://the-tangle/0.1/concepts/tip-selection.md#subgraph-selection)
-|<a name="tip-selection-timeout-sec"></a>`--tip-selection-timeout-sec` |`TIP_SELECTION_TIMEOUT_SEC`|Set the maximum number of seconds that the IRI can spend to complete tip selection |number | 60|This option stops your node from stalling if tip selection takes too long
+| **CLフラグ** | **設定ファイルのパラメータ** | **説明** | **受け入れられる値** | **デフォルト値** | **メモ** |
+| :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
+| <a name="alpha"></a> `--alpha` | `ALPHA` | チップ選択プロセスのランダムさを設定します。 | 0から無限大の間の数 | 0.001 | 数値0が最もランダムで、無限大が最も決定的です。このオプションの詳細な説明については、[ブログの投稿](https://blog.iota.org/alpha-d176d7601f1c)を参照してください。 |
+| <a name="max-analyzed-transactions"></a> `--max-analyzed-transactions` | `MAX_ANALYZED_TXS` | チップ選択中に分析される可能性のある未確定トランザクションの最大数を設定して、未確定トランザクションを参照する最新のマイルストーンを見つけます。 | number | 20,000 |
+| <a name="max-depth"></a> `--max-depth` | `MAX_DEPTH` | IRIがチップ選択を開始する場所からの過去のマイルストーン数（深さ）の最大数を設定します。 | number | 15 | この値は、重み付きランダムウォークが妥当な時間内に終了するのに十分なほど小さく、かつ[部分グラフ](root://the-tangle/0.1/concepts/tip-selection.md#subgraph-selection)に十分な新しいトランザクションが含まれるのに十分なほど大きい必要があります。 |
+| <a name="tip-selection-timeout-sec"></a> `--tip-selection-timeout-sec` | `TIP_SELECTION_TIMEOUT_SEC` | IRIがチップ選択を完了するために費やすことができる最大秒数を設定します。 | number | 60 | このオプションは、チップ選択に時間がかかりすぎる場合に、ノードが停止するのを防ぎます。 |
 
 ## Tip solidification
 
-Use these settings to customize how tip transactions become solid.
+これらの設定を使用して、チップトランザクションが凝固する方法をカスタマイズします。
+<!-- Use these settings to customize how tip transactions become solid. -->
 
-| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
-| :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
-|<a name="tip-selection-timeout-sec"></a>`--tip-solidfier-enabled` |`TIP_SOLIDIFIER_ENABLED`|Enable your node to solidify tip transactions that aren't milestones |boolean | false| By default, the IRI actively tries to solidify only milestones. Other tip transactions become solid through the gossip protocol. If you set this option to `true`, your node will use more resources.
+| **CLフラグ** | **設定ファイルのパラメータ** | **説明** | **受け入れられる値** | **デフォルト値** | **メモ** |
+| :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
+| <a name="tip-selection-timeout-sec"></a> `--tip-solidfier-enabled` | `TIP_SOLIDIFIER_ENABLED` | マイルストーンではないチップトランザクションをノードが凝固させることを有効にします。 | boolean | false | デフォルトでは、IRIは積極的にマイルストーンのみを凝固しようとします。他のチップトランザクションは、ゴシッププロトコルを通じて凝固になります。このオプションを`true`に設定すると、ノードはより多くのリソースを使用します。 |
 
 
 ## Proof of work
 
-Use these settings to customize how your node does [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md).
+これらの設定を使用して、ノードがどのように[プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)するかをカスタマイズします。
+<!-- Use these settings to customize how your node does [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md). -->
 
-| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
-| :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
-|<a name="pow-threads"></a>`--pow-threads`|`POW_THREADS`   | Number of threads to use for proof-of-work calculations |number  | 0  |
+| **CLフラグ** | **設定ファイルのパラメータ** | **説明** | **受け入れられる値** | **デフォルト値** | **メモ** |
+| :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
+| <a name="pow-threads"></a> `--pow-threads` | `POW_THREADS` | プルーフオブワークの計算に使用するスレッド数 | number | 0 |
 
 ## Local snapshot
 
-Use these settings to customize how and when your node does [local snapshots](../concepts/local-snapshot.md).
+これらの設定を使用して、ノードが[ローカルスナップショット](../concepts/local-snapshot.md)を実行する方法とタイミングをカスタマイズします。
+<!-- Use these settings to customize how and when your node does [local snapshots](../concepts/local-snapshot.md). -->
 
-| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
-| :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
-|<a name="local-snapshots-enabled"></a>`--local-snapshots-enabled`|`LOCAL_SNAPSHOTS_ENABLED`   | Enable local snapshots |boolean  | true  | This parameter must be set to `true` for the IRI to read any other `LOCAL_SNAPSHOTS` parameters|
-|<a name="local-snapshots-pruning-enabled"></a>`--local-snapshots-pruning-enabled`|`LOCAL_SNAPSHOTS_PRUNING_ENABLED`  |  Enable your node to delete old transactions from its database  | false | Transactions are deleted if they were confirmed by a milestone with an index that is older than the result of the following calculation: current milestone index - (`LOCAL_SNAPSHOTS_DEPTH` + `LOCAL_SNAPSHOTS_PRUNING_DELAY`).  |
-|<a name="local-snapshots-depth"></a>`--local-snapshots-depth`|`LOCAL_SNAPSHOTS_DEPTH`  | Amount of seen milestones to record in the snapshot.meta file | number starting from 100 | 100 |
-|<a name="local-snapshots-pruning-delay"></a>`--local-snapshots-pruning-delay`|`LOCAL_SNAPSHOTS_PRUNING_DELAY`  | Amount of milestone transactions to keep in the ledger   | number starting from 10,000  | 40,000 | We recommend that you use the default value for this option, which triggers a local snapshot every 28 days  |
-|<a name="local-snapshots-interval-synced"></a>`--local-snapshots-interval-synced`|`LOCAL_SNAPSHOTS_INTERVAL_SYNCED`  | Interval, in milestone transactions, at which snapshot files are created if the ledger is fully synchronized  |number| 10   |
-|<a name="local-snapshots-interval-unsynced"></a>`--local-snapshots-interval-unsynced`|`LOCAL_SNAPSHOTS_INTERVAL_UNSYNCED`   | Interval, in milestone transactions, at which snapshot files are created if the ledger is not fully synchronized  |number| 1,000  | This value is higher than the `LOCAL_SNAPSHOTS_INTERVAL_SYNCED` configuration option to allow the IRI to focus its resources on synchronizing with its neighbor IRI nodes|
-|<a name="local-snapshots-base-path"></a>`--local-snapshots-base-path`|`LOCAL_SNAPSHOTS_BASE_PATH`  |  Path to the snapshot file, without the file extension. |  string |  mainnet   | Prepends the `.snapshot.meta` and `.snapshot.state` files with the value of this parameter. For the default value, the files are named `mainnet.snapshot.meta` and `mainnet.snapshot.state`. You can specify a directory for the files to be added to by doing the following: `<directory name>/<file name>`, which results in `folderpath/filename.snapshot.meta`. |
+| **CLフラグ** | **設定ファイルのパラメータ** | **説明** | **受け入れられる値** | **デフォルト値** | **メモ** |
+| :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
+| <a name="local-snapshots-enabled"></a> `--local-snapshots-enabled` | `LOCAL_SNAPSHOTS_ENABLED` | ローカルスナップショットを有効にします。 | boolean  | true  | IRIが他の`LOCAL_SNAPSHOTS`パラメータを読み取るには、このパラメータを`true`に設定する必要があります。|
+| <a name="local-snapshots-pruning-enabled"></a> `--local-snapshots-pruning-enabled` | `LOCAL_SNAPSHOTS_PRUNING_ENABLED` | ノードが自身のデータベースから古いトランザクションを削除できるようにします。 | false | 次の計算の結果よりも古いインデックスを持つマイルストーンによって確定されたトランザクションは削除されます。`現在のマイルストーンインデックス` - (`LOCAL_SNAPSHOTS_DEPTH` + ` LOCAL_SNAPSHOTS_PRUNING_DELAY`) |
+| <a name="local-snapshots-depth"></a> `--local-snapshots-depth` | `LOCAL_SNAPSHOTS_DEPTH` | snapshot.metaファイルに記録するシーンマイルストーンの量 | 100から始まる数 | 100 |
+| <a name="local-snapshots-pruning-delay"></a> `--local-snapshots-pruning-delay` | `LOCAL_SNAPSHOTS_PRUNING_DELAY` | 台帳に保持するマイルストーントランザクションの量 | 10,000から始まる数 | 40,000 | このオプションにはデフォルト値を使用することをお勧めします。これにより、28日ごとにローカルスナップショットが行われます。 |
+| <a name="local-snapshots-interval-synced"></a> `--local-snapshots-interval-synced` | `LOCAL_SNAPSHOTS_INTERVAL_SYNCED` | 台帳が完全に同期している場合にスナップショットファイルが作成される間隔（マイルストーントランザクションの数） | number | 10 |
+| <a name="local-snapshots-interval-unsynced"></a> `--local-snapshots-interval-unsynced` | `LOCAL_SNAPSHOTS_INTERVAL_UNSYNCED` | 台帳が完全に同期していない場合にスナップショットファイルが作成される間隔（マイルストーントランザクションの数） | number | 1,000 | この値は、IRIが隣接IRIノードとの同期にリソースを集中できるようにするために`LOCAL_SNAPSHOTS_INTERVAL_SYNCED`設定オプションよりも大きいです。 |
+| <a name="local-snapshots-base-path"></a> `--local-snapshots-base-path` | `LOCAL_SNAPSHOTS_BASE_PATH` | ファイル拡張子を除いたスナップショットファイルへのパス。 | string | mainnet | このパラメーターの値を`.snapshot.meta`および`.snapshot.state`ファイルの先頭に追加します。デフォルト値の場合、ファイルの名前は`mainnet.snapshot.meta`および`mainnet.snapshot.state`です。追加するファイルのディレクトリを指定するには、次のようにします。`&lt;directory name&gt;/&lt;file name&gt;`が、`folderpath/filename.snapshot.meta`となります。 |
