@@ -1,46 +1,54 @@
-# ZMQ events
+# ZMQイベント
+<!-- # ZMQ events -->
 
-**This table contains the zero message queue (ZMQ) events that an IRI node can publish.**
+**この表には、IRIノードが発行できるゼロメッセージキュー（ZMQ）イベントが含まれています。**
+<!-- **This table contains the zero message queue (ZMQ) events that an IRI node can publish.** -->
 
-All events return at least one buffer object that contains space-separated data. The first item in the buffer is always the name of the event. The information in the Returned data column is displayed as though the buffer had been converted to a string and split on a space character into an array.
+すべてのイベントは、スペースで区切られたデータを含む少なくとも1つのバッファオブジェクトを返します。バッファの最初の項目は常にイベントの名前です。「返されたデータ」カラムの情報は、バッファが文字列に変換され、スペース文字で配列に分割されたかのように表示されます。
+<!-- All events return at least one buffer object that contains space-separated data. The first item in the buffer is always the name of the event. The information in the Returned data column is displayed as though the buffer had been converted to a string and split on a space character into an array. -->
 
 :::info:
-Index 0 of each array of returned data is not displayed because it is always the name of the event.
+返されるデータの各配列のインデックス0は、常にイベントの名前であるため表示されません。
 
-All events must be in lowercase letters except the trytes of the address event, which must be in uppercase letters.
+すべてのイベントは小文字でなければなりません。ただしアドレスイベントのトライトは大文字でなければなりません。
 :::
+<!-- :::info: -->
+<!-- Index 0 of each array of returned data is not displayed because it is always the name of the event. -->
+<!--  -->
+<!-- All events must be in lowercase letters except the trytes of the address event, which must be in uppercase letters. -->
+<!-- ::: -->
 
-|  **Event and description** | **Returned data**
-| :----------| :----------|
-|`mctn`|
-|Number of transactions traversed during tip selection| <ul><li>**Index 1:** Total number of transactions that were traversed during tip selection</li></ul>
-|`dnscv` |
-|Neighbor DNS validations| <ul><li>**Index 1:** Neighbor's hostname</li><li>**Index 2:** Neighbor's IP address</li></ul>
-|`dnscc`|
-|Neighbor DNS confirmations| <ul><li>**Index 1:** Neighbor's hostname</li></ul>
-|`dnscu` |
-|Update to a Neighbor's IP address| <ul><li>**Index 1:** Neighbor's hostname</li></ul>
-|`hmr`|
-|The ratio of received transactions that the IRI node stored in cache (hit) to received transaction that the IRI node randomly removed (miss)| <ul><li>**Index 1:** Hit count</li><li>**Index 2:** Miss count</li></ul>
-|`antn` |
-|Information about non-tethered neighbors that were added (available only on the testnet network)| <ul><li>**Index 1:** URL of a non-tethered neighbor</li></ul>
-|`rntn`|
-|Information about non-tethered neighbors that were refused (available only on the testnet network)| <ul><li>**Index 1:** URL of the neighbor</li><li>**Index 2:** The maximum number of peers that are specified in the IRI configuration options</li></ul>
-|`rstat` |
-|Information about the tip transaction requester|<ul><li>**Index 1:** Number of received tip transactions that the IRI node is yet to process </li><li>**Index 2:** Number of tip transactions that the IRI node is yet to broadcast to its neighbors</li><li>**Index 3:** Number of tip transactions that the IRI node is yet to request from its neighbors</li><li>**Index 4:** Number of requested tip transaction that the IRI node is yet to send as a reply to its neighbors</li><li>**Index 5:** Number of stored transactions in the ledger</li></ul>
-|`rtl` |
-|Transaction that the IRI node randomly removed from the request queue| <ul><li>**Index 1:** Transaction hash that was removed</li></ul>
-|`lmi` |
-|The latest milestone index|<ul><li>**Index 1:** Index of the previous solid subtangle milestone</li><li>**Index 2:** Index of the latest solid subtangle milestone</li></ul>
-|`lmsi` |
-|The latest solid subtangle milestone| <ul><li>**Index 1:** Index of the previous solid subtangle milestone</li><li>**Index 2:** Index of the latest solid subtangle milestone</li></ul>
-|`lmhs`|
-| The latest solid subtangle milestone transaction hash| <ul><li>**Index 1:** Milestone transaction hash</li></ul>
-|`sn`|
-| Transaction that has recently been confirmed| <ul><li>**Index 1:** Index of the milestone that confirmed the transaction</li><li>**Index 2:** Transaction hash</li><li>**Index 3:** Address</li><li>**Index 4:** Trunk transaction hash</li><li>**Index 5:** Branch transaction hash</li><li>**Index 6:** Bundle hash</li></ul>
-|`tx_trytes`|
-| Raw transaction trytes that the IRI node recently appended to its ledger| <ul><li>**Index 1:** [Raw transaction object](root://iota-basics/0.1/references/structure-of-a-transaction.md)</li><li>**Index 2:** Transaction hash</li></ul>
-|<a name="tx" /> `tx` |
-|Transaction that the IRI node has recently appended to the ledger| <ul><li>**Index 1:** Transaction hash</li><li>**Index 2:** Address</li><li>**Index 3:** Value</li><li>**Index 4:** Obsolete tag</li><li>**Index 5:** Value of the transaction's `timestamp` field</li><li>**Index 6:** Index of the transaction in the bundle</li><li>**Index 7:** Last transaction index of the bundle</li><li>**Index 8:** Bundle hash</li><li>**Index 9:** Trunk transaction hash</li><li>**Index 10:** Branch transaction hash</li><li>**Index 11:** Unix timestamp for when the IRI received the transaction</li><li>**Index 12:** Tag</li></ul>
-|81-tryte address (uppercase characters)| 
-|Monitor a given address for a confirmed transaction| <ul><li>**Index 1:** Address</li><li>**Index 2:** Transaction hash of a confirmed transaction that the address appeared in</li><li>**Index 3:** Index of the milestone that confirmed the transaction </li></ul>
+| **イベントと説明** | **返ってくるデータ** |
+| :----------------- | :------------------- |
+| `mctn` |
+| チップ選択中に通過したトランザクションの数 | <ul><li>**インデックス 1：** チップ選択中に辿ったトランザクションの総数</li></ul> |
+| `dnscv` |
+| 隣接ノードのDNS検証 | <ul><li>**インデックス 1：** 隣接ノードのホスト名</li><li>**インデックス 2：** 隣接ノードのIPアドレス</li></ul> |
+| `dnscc` |
+| 隣接ノードのDNS確認 | <ul><li>**インデックス 1：** 隣接ノードのホスト名</li></ul> |
+| `dnscu` |
+| 隣接ノードのIPアドレスに更新する | <ul><li>**インデックス 1：** 隣接ノードのホスト名</li></ul> |
+| `hmr` |
+| IRIノードがキャッシュに格納した（ヒット）受信トランザクションと、IRIノードがランダムに削除した（ミス）受信トランザクションの比率 | <ul><li>**インデックス 1：** ヒット数</li><li>**インデックス 2：** ミス数</li></ul> |
+| `antn` |
+| 追加された非連結隣接ノードに関する情報（testnetネットワーク上でのみ利用可能） | <ul><li>**インデックス 1：** 非連結隣接ノードのURL</li></ul> |
+| `rntn` |
+| 拒否された非連結隣接ノードに関する情報（testnetネットワークでのみ利用可能） | <ul><li>**インデックス 1：** 隣接ノードのURL</li><li>**インデックス 2：** IRI設定オプションで指定されているピアの最大数</li></ul> |
+| `rstat` |
+| チップトランザクションリクエスタに関する情報 |<ul><li>**インデックス 1：** IRIノードがまだ処理していない受信チップトランザクションの数</li><li>**インデックス 2：** IRIノードが隣接ノードにまだブロードキャストしていないチップトランザクションの数</li><li>**インデックス 3：** IRIノードが隣接ノードにまだリクエストしていないチップトランザクションの数</li><li>**インデックス 4：** IRIノードが隣接ノードへの応答としてまだ送信していないリクエストされたチップトランザクションの数</li><li>**インデックス 5：** 台帳に保存されているトランザクションの数</li></ul> |
+| `rtl` |
+| IRIノードがリクエストキューからランダムに削除したトランザクション| <ul><li>**インデックス 1：** 削除されたトランザクションハッシュ</li></ul> |
+| `lmi` |
+| 最新のマイルストーンインデックス |<ul><li>**インデックス 1：** 前の凝固サブタングルマイルストーンのインデックス</li><li>**インデックス 2：** 最新の凝固サブタングルマイルストーンのインデックス</li></ul> |
+| `lmsi` |
+| 最新の凝固サブタングルマイルストーン | <ul><li>**インデックス 1：** 前の凝固サブタングルマイルストーンのインデックス</li><li>**インデックス 2：** 最新の凝固サブタングルマイルストーンのインデックス</li></ul> |
+| `lmhs` |
+| 最新の凝固サブタングルマイルストーンのトランザクションハッシュ | <ul><li>**インデックス 1：** マイルストーントランザクションハッシュ</li></ul> |
+| `sn` |
+| 最近確定したトランザクション | <ul><li>**インデックス 1：** トランザクションを確定させたマイルストーンのインデックス</li><li>**インデックス 2：** トランザクションハッシュ</li><li>**インデックス 3：** アドレス</li><li>**インデックス 4：** トランクトランザクションハッシュ</li><li>**インデックス 5：** ブランチトランザクションハッシュ</li><li>**インデックス 6：** バンドルハッシュ</li></ul> |
+| `tx_trytes` |
+| IRIノードが最近台帳に追加した生のトランザクショントライト | <ul><li>**インデックス 1：** [生のトランザクションオブジェクト](root://iota-basics/0.1/references/structure-of-a-transaction.md)</li><li>**インデックス 2：** トランザクションハッシュ</li></ul> |
+| <a name="tx"/> `tx` |
+| IRIノードが最近台帳に追加したトランザクション| <ul><li>**インデックス 1：** トランザクションハッシュ</li><li>**インデックス 2：** アドレス</li><li>**インデックス 3：** IOTAトークンの量</li><li>**インデックス 4：** 廃止タグ</li><li>**インデックス 5：** トランザクションの`タイムスタンプ`フィールドの値</li><li>**インデックス 6：** バンドル内でのトランザクションのインデックス</li><li>**インデックス 7：** バンドル内の最後のトランザクションインデックス</li><li>**インデックス 8：** バンドルハッシュ</li><li>**インデックス 9：** トランクトランザクションハッシュ</li><li>**インデックス 10：** ブランチトランザクションハッシュ</li><li>**インデックス 11：** IRIがトランザクションを受信したときのUnixタイムスタンプ</li><li>**インデックス 12：** タグ</li></ul> |
+| 81トライトのアドレス（大文字）|
+| 確定済みトランザクションのために特定のアドレスを監視する | <ul><li>**インデックス 1：** アドレス</li><li>**インデックス 2：** 表示されたアドレスの確定済みトランザクションのトランザクションハッシュ</li><li>**インデックス 3：** トランザクションを確定させたマイルストーンのインデックス </li></ul> |
