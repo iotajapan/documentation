@@ -81,48 +81,52 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 
 ## IXI
 
-Use these settings to customize how your node uses IXI modules.
+これらの設定を使用して、ノードがIXIモジュールを使用する方法をカスタマイズします。
+<!-- Use these settings to customize how your node uses IXI modules. -->
 
-| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
-| :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
-|<a name="ixi-dir"></a>  `--ixi-dir` |`IXI_DIR`|Folder where IXI modules should be added for automatic discovery |string |ixi |
+| **CLフラグ** | **設定ファイルのパラメータ** | **説明** | **受け入れられる値** | **デフォルト値** | **メモ** |
+| :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
+| <a name="ixi-dir"></a> `--ixi-dir` | `IXI_DIR` | 自動検出用にIXIモジュールを追加するフォルダ | string | ixi |
 
 ## Ledger
 
-Use these settings to customize what your node does with its ledger.
+これらの設定を使用して、ノードが自身の台帳に対して実行する動作をカスタマイズします。
+<!-- Use these settings to customize what your node does with its ledger. -->
 
-| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
-| :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
-|<a name="db"></a>`--db` |`MAIN_DB`|Name the database that's used to store transactions  | string | rocksdb | Currently, the only supported database is RocksDB|
-|<a name="db-cache-size"></a>`--db-cache-size` |`DB_CACHE_SIZE`|Set the maximum size of the database cache in kilobytes | number|100,000 |
-|<a name="db-log-path"></a>`--db-log-path` |`DB_LOG_PATH`|Set the path to the file where the database logs are saved | string |mainnet.log|
-|<a name="db-path"></a> `--db-path`| `DB_PATH`|Set the path to the folder where the database is saved|string |mainnetdb |
-|<a name="rescan"></a> `--rescan`|`RESCAN_DB`|Rescan all transaction metadata (approvees, bundles, and tags) |boolean |false |
-|<a name="revalidate"></a>`--revalidate` |`REVALIDATE`|Reload data in the database about confirmed transactions, and transaction metadata | boolean| false|
+| **CLフラグ** | **設定ファイルのパラメータ** | **説明** | **受け入れられる値** | **デフォルト値** | **メモ** |
+| :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
+| <a name="db"></a> `--db` | `MAIN_DB` | トランザクションを保管するために使用されるデータベースの名前 | string | rocksdb | 現在、サポートしているデータベースはRocksDBだけです。 |
+| <a name="db-cache-size"></a> `--db-cache-size` | `DB_CACHE_SIZE` | データベースキャッシュの最大サイズをキロバイト単位で設定します。 | number | 100,000 |
+| <a name="db-log-path"></a> `--db-log-path` | `DB_LOG_PATH` | データベースログが保存されているファイルへのパスを設定します。 | string | mainnet.log |
+| <a name="db-path"></a> `--db-path` | `DB_PATH` | データベースが保存されているフォルダへのパスを設定します。 | string | mainnetdb |
+| <a name="rescan"></a> `--rescan` | `RESCAN_DB` | すべてのトランザクションメタデータ（承認トランザクション、バンドル、およびタグ）を再スキャンします。 | boolean | false |
+| <a name="revalidate"></a> `--revalidate` | `REVALIDATE` | データベース内の確定済みトランザクションに関するデータとトランザクションメタデータをリロードします。 | boolean | false |
 
 ## Protocol
 
-Use these settings to customize which transactions will be accepted by the network, and how they will be propagated to other nodes.
+これらの設定を使用して、どのトランザクションがネットワークによって受け入れられるか、およびそのトランザクションが他のノードにどのように伝搬されるかをカスタマイズします。
+<!-- Use these settings to customize which transactions will be accepted by the network, and how they will be propagated to other nodes. -->
 
-| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
-| :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
-|<a name="p-drop-transaction"></a>  `--p-drop-transaction`|`P_DROP_TRANSACTION`|Set the probability of losing a received transaction |number between 0 and 1 |0.0 | This option is available only for testing purposes
-|<a name="p-propagate-request"></a>`--p-propagate-request` |`P_PROPAGATE_REQUEST`|Set the probability of the IRI requesting a missing transaction from a neighbor | number|0.01 | This number should be low to avoid the IRI requesting non-existing transactions that spam the network
-|<a name="p-reply-random"></a>`--p-reply-random` |`P_REPLY_RANDOM_TIP`|Set the probability of the IRI replying to a random transaction request, even if it doesn't have anything to send|number between 0 and 1 | 0.66|
-|<a name="p-select-milestone"></a>`--p-select-milestone`| `P_SELECT_MILESTONE_CHILD`|Set the probability of the IRI requesting a milestone transaction from a neighbor|number between 0 and 1 | 0.7|This number should be large because it's essential that the IRI finds milestones in order to consider transactions confirmed
-|<a name="p-send-milestone"></a>`--p-send-milestone` |`P_SEND_MILESTONE`|Set the probability of the IRI sending a milestone transaction as a random reply to its neighbors | number between 0 and 1 | 0.02|
+| **CLフラグ** | **設定ファイルのパラメータ** | **説明** | **受け入れられる値** | **デフォルト値** | **メモ** |
+| :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
+| <a name="p-drop-transaction"></a> `--p-drop-transaction` | `P_DROP_TRANSACTION` | 受け取ったトランザクションを失う確率を設定します。 | 0から1の間の数 | 0.0 | このオプションはテスト目的でのみ利用可能です。 |
+| <a name="p-propagate-request"></a> `--p-propagate-request` | `P_PROPAGATE_REQUEST` | IRIが隣接ノードからの紛失トランザクションをリクエストする確率を設定します。 | number | 0.01 | この数は、スパムトランザクションをIRIがリクエストするのを避けるために、低くする必要があります。 |
+| <a name="p-reply-random"></a> `--p-reply-random` | `P_REPLY_RANDOM_TIP` | 送信するトランザクションがない場合でも、IRIがランダムなトランザクションリクエストに応答する確率を設定します。 |  | 0.66 |
+| <a name="p-select-milestone"></a> `--p-select-milestone`| `P_SELECT_MILESTONE_CHILD` | IRIが隣接ノードからマイルストーントランザクションをリクエストする確率を設定します。 | 0から1の間の数 | 0.7 | トランザクションが確定されたと見なすには、IRIが順番にマイルストーンを見つけることが不可欠であるため、この数は大きくする必要があります。 |
+| <a name="p-send-milestone"></a> `--p-send-milestone` | `P_SEND_MILESTONE` | IRIがマイルストーントランザクションを隣接ノードへのランダム返信として送信する確率を設定します。 | 0から1の間の数 | 0.02 |
 
 ## ZMQ
 
-Use these settings to customize how clients can [subscribe to your node's ZMQ events](../how-to-guides/subscribe-to-events-in-an-iri-node.md).
+これらの設定を使用して、クライアントが[ノードのZMQイベントを購読する](../how-to-guides/subscribe-to-events-in-an-iri-node.md)方法をカスタマイズします。
+<!-- Use these settings to customize how clients can [subscribe to your node's ZMQ events](../how-to-guides/subscribe-to-events-in-an-iri-node.md). -->
 
-| **CL flags** |**Configuration file parameters** |  **Description**| **Accepted values** | **Default value**|**Notes** |
-| :------------------------ | :--------------- | :--------- | :--------| :------------|:-----|
-|<a name="zmq-enabled"></a>  `--zmq-enable-ipc` | `ZMQ_ENABLE_IPC`|Enable [zero message queue](../concepts/zero-message-queue.md) subscriptions through IPC at the `ipc://iri` address| boolean|false |Set the `ZMQ_IPC` option to change the default address|
-|`--zmq-enable-tcp` | `ZMQ_ENABLE_TCP`|Enable [zero message queue](../concepts/zero-message-queue.md) subscriptions through TCP on port 5556|boolean|false |Set the `ZMQ_PORT` option to change the default port|
-|<a name="zmq-ipc"></a>`--zmq-ipc` |`ZMQ_IPC`|Set the address that is used to communicate with ZMQ through IPC| string|  ipc://iri|
-|<a name="zmq-port"></a> `--zmq-port`|`ZMQ_PORT`|Set the port that is used to connect to the ZMQ through TCP|string | 5556|
-|<a name="zmq-threads"></a> `--zmq-threads`|`ZMQ_THREADS`|Set the maximum number of threads that the ZMQ publisher can use|number | 1|
+| **CLフラグ** | **設定ファイルのパラメータ** | **説明** | **受け入れられる値** | **デフォルト値** | **メモ** |
+| :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
+| <a name="zmq-enabled"></a> `--zmq-enable-ipc` | `ZMQ_ENABLE_IPC`| `ipc://iri`アドレスのIPCを介した[ゼロメッセージキュー](../concepts/zero-message-queue.md)サブスクリプションを有効にします。 | boolean | false | デフォルトアドレスを変更するには、`ZMQ_IPC`オプションを設定します。 |
+| `--zmq-enable-tcp` | `ZMQ_ENABLE_TCP` | ポート5556でTCPを介した[ゼロメッセージキュー](../concepts/zero-message-queue.md)サブスクリプションを有効にします。 | boolean | false | デフォルトポートを変更するには`ZMQ_PORT`オプションを設定します。 |
+| <a name="zmq-ipc"></a>`--zmq-ipc` | `ZMQ_IPC` | IPCを介してZMQと通信するために使用されるアドレスを設定します。 | string| ipc://iri |
+| <a name="zmq-port"></a> `--zmq-port` | `ZMQ_PORT` | TCP経由でZMQに接続するために使用されるポートを設定します。 | string | 5556 |
+| <a name="zmq-threads"></a> `--zmq-threads` | `ZMQ_THREADS` | ZMQ発行者が使用できるスレッドの最大数を設定します。 | number | 1 |
 
 ## Tip selection
 
