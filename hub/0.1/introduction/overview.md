@@ -20,10 +20,10 @@
 取り出しと預け入れは、同じ[バンドル](root://getting-started/0.1/introduction/what-is-a-bundle.md)にまとめられたトランザクションです。このバンドルは[スイープ](../concepts/sweeps.md)と呼ばれます。
 <!-- Withdrawals and deposits are transactions that are grouped together in the same [bundle](root://getting-started/0.1/introduction/what-is-a-bundle.md). This bundle is called a [sweep](../concepts/sweeps.md). -->
 
-取り出しまたは預け入れがIOTAネットワークによって受け入れられる前に、スイープは確定されなければなりません。そのため、確定の遅れを避けるために、ハブは確定されるまでトランザクションを[再添付や促進](root://iota-basics/0.1/concepts/reattach-rebroadcast-promote.md)を行います。
+取り出しまたは預け入れがIOTAネットワークによって受け入れられる前に、スイープは確定されなければなりません。そのため、確定の遅れを避けるために、ハブは確定されるまでトランザクションの[再添付や促進](root://iota-basics/0.1/concepts/reattach-rebroadcast-promote.md)を行います。
 <!-- Before a withdrawal or a deposit is accepted by an IOTA network, the sweep must be confirmed. So, to avoid delays in confirmation, Hub [reattaches and promotes](root://iota-basics/0.1/concepts/reattach-rebroadcast-promote.md) transactions until they're confirmed. -->
 
-:::info:合意についてもっと知りたいですか？
+:::info:コンセンサスについてもっと知りたいですか？
 [タングル](root://the-tangle/0.1/introduction/overview.md)をお読みください。
 :::
 <!-- :::info:Want to learn more about consensus? -->
