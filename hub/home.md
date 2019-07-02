@@ -1,16 +1,16 @@
-# Hub is a multi-user wallet that offers you an easy way to manage deposits and withdrawals of IOTA tokens.
+# ハブは、IOTAトークンの取り出しと預け入れを管理するための簡単な方法を提供するマルチユーザーウォレットです。
 
-[Hub overview](/0.1/introduction/overview.md)
-## Learn what Hub can do and where to get started
+[ハブ概要](/0.1/introduction/overview.md)
+## Hubでできることと始め方を学ぶ
 
-[Sweeps](/0.1/concepts/sweeps.md)
-## Learn how sweeps add a layer of security to protect spent addresses
+[スウィープ](/0.1/concepts/sweeps.md)
+## スイープが使用済みアドレスを保護するためのセキュリティ層を追加する方法を学ぶ。
 
-[Install Hub](/0.1/how-to-guides/install-hub.md)
-## Create a multi-user wallet, connect it to an IRI node, and test it
+[ハブをインストールする](/0.1/how-to-guides/install-hub.md)
+## マルチユーザーウォレットを作成し、それをIRIノードに接続してテストする。
 
-[Install the signing server](/0.1/how-to-guides/install-the-signing-server.md)
-## Move sensitive Hub operations to a separate server for extra security
+[署名サーバーをインストールする](/0.1/how-to-guides/install-the-signing-server.md)
+## セキュリティを強化するために、重要なハブ操作を別のサーバーに移動する。
 
-[Security considerations](/0.1/references/security-considerations.md)
-## See what you can do to protect Hub from possible attack scenarios
+[セキュリティ上の考慮事項](/0.1/references/security-considerations.md)
+## 考えられる攻撃シナリオからハブを保護するためにできることを確認する。
