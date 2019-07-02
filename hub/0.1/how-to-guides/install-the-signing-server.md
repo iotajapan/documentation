@@ -92,7 +92,7 @@
     cd rpchub
     ```
 
-3. ソースコードからビルドをビルドします。
+3. ソースコードから署名サーバーをビルドします。
   <!-- 3. Build Hub from the source code: -->
 
     ```bash
@@ -233,7 +233,7 @@ SSL証明書は、ハブと署名サーバー間の安全な通信に使用さ�
     ```
 
     :::success:おめでとうございます:tada:
-    これで、署名サーバーがコンピューター上で稼働しています！<br>ハブがスイープを作成するたびに、ハブは署名サーバーがバンドルに署名して署名を返すように依頼します。
+    これで、署名サーバーがコンピューター上で稼働しています！ハブがスウィープを作成するたびに、ハブは署名サーバーがバンドルに署名して署名を返すように依頼します。
     :::
     <!-- :::success:Congratulations:tada: -->
     <!-- The signing server is now running on your computer! -->
@@ -275,7 +275,7 @@ SSL証明書は、ハブと署名サーバー間の安全な通信に使用さ�
     ```
 
 8. signing.confファイルを保存してスーパーバイザーをリロードします。
-<!-- 8. Save the signing.conf file and reload supervisor -->
+  <!-- 8. Save the signing.conf file and reload supervisor -->
 
     ```bash
     sudo supervisorctl reload
@@ -298,13 +298,13 @@ SSL証明書は、ハブと署名サーバー間の安全な通信に使用さ�
 signing RUNNING pid 11740, uptime 0:00:02
 ```
 
-これで、ハブを署名サーバーに接続する必要があります。
+次に、ハブを署名サーバーに接続する必要があります。
 <!-- Now, you need to connect Hub to the signing server. -->
 
-### 署名サーバーにHubを接続する
+### ハブを署名サーバーに接続する
 <!-- ### Connect Hub to the signing server -->
 
-ハブサーバーで、生成されたSSL証明書をインポートし、SSL証明書を使用するようにstart.shスクリプトを編集する必要があります。
+ハブサーバーに生成されたSSL証明書をインポートし、SSL証明書を使用するようにstart.shスクリプトを編集する必要があります。
 <!-- In the Hub server, you need to import the generated SSL certificates and edit the start.sh script to use them. -->
 
 1. 証明書ファイル（client.crt、client.key、およびca.crt）をハブサーバーにコピーします。この例では、`scp`コマンドを使用してSSH経由で送信します。192.168.2.212をハブサーバーのURLまたはIPアドレスに変更します。`/home/dave/rpchub/`ディレクトリをハブがインストールされているパスに変更します。
