@@ -12,7 +12,7 @@
 ## 前提条件
 <!-- ## Prerequisites -->
 
-Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server)サーバー。WindowsまたはMacオペレーティングシステムを使用している場合は、[仮想マシンにLinuxサーバーを作成](root://general/0.1/how-to-guides/set-up-virtual-machine.md)します。
+Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server)サーバー。WindowsまたはMacオペレーティングシステムを使用している場合は、[仮想マシンにLinuxサーバーを作成します](root://general/0.1/how-to-guides/set-up-virtual-machine.md)。
 <!-- A Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server) server. If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md). -->
 
 ## 依存関係をインストールする
@@ -150,7 +150,7 @@ Ubuntu 18.04 LTS用のデフォルトリポジトリはデータベースに使�
     ```
 
 出力は次のようになります。
-The output should display something like the following:
+<!-- The output should display something like the following: -->
 
 ```shell
 mysql  Ver 15.1 Distrib 10.3.10-MariaDB, for debian-linux-gnu (x86_64) using readline 5.2
@@ -228,21 +228,21 @@ INFO: Build completed successfully, 1811 total actions
   <!-- 1. Create a database called hub -->
 
     ```bash
-    echo "CREATE DATABASE hub" | mysql -uroot -pmyrootpassword
+    echo "CREATE DATABASE hub" | mysql -u root -p myrootpassword
     ```
 
 2. ハブのソースコードからデータベースにデータベーススキーマをロードします。
   <!-- 2. Load the database schema from the Hub source code into the database -->
 
     ```bash
-    mysql -h127.0.0.1 -uroot -pmyrootpassword hub < schema/schema.sql
+    mysql -h 127.0.0.1 -u root -p myrootpassword hub < schema/schema.sql
     ```
 
 3. データベーストリガをインポートします。
   <!-- 3. Import the database triggers -->
 
     ```bash
-    mysql -h127.0.0.1 -uroot -pmyrootpassword hub < schema/triggers.mariadb.sql
+    mysql -h 127.0.0.1 -u root -p myrootpassword hub < schema/triggers.mariadb.sql
     ```
 
 ## ハブを実行する
@@ -409,7 +409,7 @@ hub RUNNING pid 9983, uptime 0:01:22
 ## ハブをテストする
 <!-- ## Test Hub -->
 
-起動時に、ハブはあなたが対話するためのgRPCサーバーを提供します。ハブは、対話するために[使用できるgRPC呼び出しのセット](../references/api-reference.md)が限られています。
+起動時に、ハブはあなたが対話するためのgRPCサーバーを提供します。ハブは、対話するために使用できる[gRPC呼び出しのセット](../references/api-reference.md)が限られています。
 <!-- On startup, Hub provides a gRPC server for you to interact with. Hub has a [limited set of gRPC calls](../references/api-reference.md) that can be used to interact with it. -->
 
 [gRPC](https://grpc.io/)をサポートする任意のプログラミング言語を介してハブと通信できます。このガイドでは、Pythonをいくつかの事例とともに使用します。
@@ -498,7 +498,7 @@ events {
 }
 ```
 
-[thetangle.org](https://thetangle.org/)などのタングルエクスプローラで預け入れアドレスの履歴を見ると、ハブが預け入れアドレスから別のアドレス（ユーザーが取り出しを要求するまで資金が集計されるハブ所有者のアドレス）に資金を移動したことがわかります。このプロセスはスイープと呼ばれます。
+[thetangle.org](https://thetangle.org/)などのタングルエクスプローラで預け入れアドレスの履歴を見ると、ハブが預け入れアドレスから別のアドレス（ユーザーが取り出しを要求するまで資金が集計されるハブ所有者のアドレス）に資金を移動したことがわかります。このプロセスはスウィープと呼ばれます。
 <!-- If you look at the deposit address history in a Tangle explorer such as [thetangle.org](https://thetangle.org/), you will see that Hub moved the funds away from the deposit address and into a another address (Hub owner's address where funds are aggregated until a user requests a withdrawal). This process is called a sweep. -->
 
 ## 次のステップ
