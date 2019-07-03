@@ -1,71 +1,113 @@
-# Integrate Hub into a crytocurrency exchange
+# ハブを暗号資産取引所に統合する
+<!-- # Integrate Hub into a crytocurrency exchange -->
 
-**Hub can be integrated into an exchange in many ways, depending on how you want to manage your users' balances.**
+**ユーザーの残高の管理方法に応じて、ハブをさまざまな方法で取引所に統合できます。**
+<!-- **Hub can be integrated into an exchange in many ways, depending on how you want to manage your users' balances.** -->
 
-In this guide, we discuss two possible scenarios:
+このガイドでは、2つのシナリオについて説明します。
+<!-- In this guide, we discuss two possible scenarios: -->
 
-- **Scenario A:** Multiple user accounts where IOTA tokens are manually transferred to an external online wallet (also known as a hot wallet).
-- **Scenario B:** Multiple user accounts with individual balances.
+- **シナリオA：** IOTAトークンが外部のオンラインウォレット（別名：ホットウォレット）に手動で転送される複数のユーザーアカウント。
+<!-- - **Scenario A:** Multiple user accounts where IOTA tokens are manually transferred to an external online wallet (also known as a hot wallet). -->
+- **シナリオB：** 個々の残高を持つ複数のユーザーアカウント。
+<!-- - **Scenario B:** Multiple user accounts with individual balances. -->
 
-## Scenario A
+## シナリオA
+<!-- ## Scenario A -->
 
-You may not want to rely on Hub's internal accounting setup. One such reason might simply be that forwarding netted trades is too cumbersome.
-Therefore, after a successful deposit, all tokens might be transferred to a central hot wallet. This will also allow you to deal with cold storage of tokens easily by withdrawing from this hot wallet to an offline wallet (also known as a cold wallet) address and depositing back into the account as necessary. User withdrawals are then also processed from this hot wallet.
+あなたはハブの内部会計設定に頼りたくないかもしれません。その理由の1つは、単にネット取引を転送するのが面倒すぎることです。したがって、預け入れが成功すると、すべてのトークンが中央集権のホットウォレットに転送される可能性があります。これにより、このホットウォレットからオフラインウォレット（別名：コールドウォレット）アドレスに取り出し、必要に応じてアカウントに再度預け入れることで、トークンのコールドストレージを簡単に処理できます。その後、このホットウォレットからユーザーの取り出しも処理されます。
+<!-- You may not want to rely on Hub's internal accounting setup. One such reason might simply be that forwarding netted trades is too cumbersome. -->
+<!-- Therefore, after a successful deposit, all tokens might be transferred to a central hot wallet. This will also allow you to deal with cold storage of tokens easily by withdrawing from this hot wallet to an offline wallet (also known as a cold wallet) address and depositing back into the account as necessary. User withdrawals are then also processed from this hot wallet. -->
 
-:::warning:Warning
-In this scenario, Hub doesn't keep track of users' balances in the database.
+:::warning:警告
+このシナリオでは、ハブはデータベース内のユーザーの残高を追跡しません。
 :::
+<!-- :::warning:Warning -->
+<!-- In this scenario, Hub doesn't keep track of users' balances in the database. -->
+<!-- ::: -->
 
-### Initial setup
+### 初期設定
+<!-- ### Initial setup -->
 
-Exchange creates a hot wallet
+取引所がホットウォレットを作成します。
+<!-- Exchange creates a hot wallet -->
 
-#### User signup
+#### ユーザー登録
+<!-- #### User signup -->
 
-Exchange creates a new Hub user, passing in a userid.
+取引所は新しいハブユーザーを作成し、ユーザーIDを渡します。
+<!-- Exchange creates a new Hub user, passing in a userid. -->
 
-### User deposit
+### ユーザー預け入れ
+<!-- ### User deposit -->
 
-1. User requests deposit address (`GetDepositAddress`)
-2. User deposits tokens
-3. Exchange polls for new updates, using the `BalanceSubscription` endpoint
-4. Upon successful deposit (& sweep), exchange calls the `ProcessTransfers` endpoint, transferring all new user deposits to the hot wallet
+1. ユーザーが預け入れアドレスを要求します（`GetDepositAddress`）。
+<!-- 1. User requests deposit address (`GetDepositAddress`) -->
+2. ユーザーがトークンを預け入れます。
+<!-- 2. User deposits tokens -->
+3. 取引所は、`BalanceSubscription`エンドポイントを使用して、新しい更新をポーリングします。
+<!-- 3. Exchange polls for new updates, using the `BalanceSubscription` endpoint -->
+4. 預け入れ（＆スウィープ）が成功すると、取引所は`ProcessTransfers`エンドポイントを呼び出し、すべての新規ユーザーの預け入れをホットウォレットに転送します。
+<!-- 4. Upon successful deposit (& sweep), exchange calls the `ProcessTransfers` endpoint, transferring all new user deposits to the hot wallet -->
 
-### User withdrawal
+### ユーザー取り出し
+<!-- ### User withdrawal -->
 
-1. User requests withdrawal on the exchange's frontend
-2. Exchange issues withdrawal from hot to user address (`UserWithdraw`)
-3. Hub processes this withdrawal as part of a sweep
+1. ユーザーが取引所のフロントエンドで取り出しを要求します。
+<!-- 1. User requests withdrawal on the exchange's frontend -->
+2. 取引所はホットアドレスからユーザーアドレスへの取り出しを発行します（`UserWithdraw`）。
+<!-- 2. Exchange issues withdrawal from hot to user address (`UserWithdraw`) -->
+3. ハブはこの取り出しをスウィープの一部として処理します。
+<!-- 3. Hub processes this withdrawal as part of a sweep -->
 
-### Cold wallet topup
+### コールドウォレットにつぎ足す
+<!-- ### Cold wallet topup -->
 
-Exchange issues withdrawal from hot to cold wallet address that wasn't withdrawn from (`UserWithdraw`)
+取引所がホットからコールドウォレットアドレスへの取り出しを発行します（`UserWithdraw`）。
+<!-- Exchange issues withdrawal from hot to cold wallet address that wasn't withdrawn from (`UserWithdraw`) -->
 
-  :::warning:Warning
-  In this scenario, Hub doesn't check whether an address was already withdrawn from.
+  :::warning:警告
+  このシナリオでは、ハブはアドレスからすでに取り出されているかどうかを確認しません。
   :::
+  <!-- :::warning:Warning -->
+  <!-- In this scenario, Hub doesn't check whether an address was already withdrawn from. -->
+  <!-- ::: -->
 
-### Hot wallet topup
+### ホットウォレットにつぎ足す
+<!-- ### Hot wallet topup -->
 
-1. Exchange requests deposit address for hot user (`GetDepositAddress`)
+1. 取引所がホットユーザーの取り出しアドレスを要求します（`GetDepositAddress`）。
+<!-- 1. Exchange requests deposit address for hot user (`GetDepositAddress`) -->
 
-   :::warning:Warning
-   Addresses must never be withdrawn from more than once.
-   :::
+  :::warning:警告
+  アドレスから二度以上取り出してはいけません。
+  :::
+  <!-- :::warning:Warning -->
+  <!-- Addresses must never be withdrawn from more than once. -->
+  <!-- ::: -->
 
-2. Exchange sends tokens from cold wallet to this deposit address
-3. Hub receives deposit and moves to internal address as part of a sweep
+2. 取引所はコールドウォレットからこの取り出しアドレスにトークンを送信します。
+<!-- 2. Exchange sends tokens from cold wallet to this deposit address -->
+3. ハブは預け入れを受け取り、スウィープの一部として内部アドレスに移動させます。
+<!-- 3. Hub receives deposit and moves to internal address as part of a sweep -->
 
-### User B buys IOTA tokens from user A on the exchange
+### ユーザーBは取引所でユーザーAからIOTAトークンを購入する
+<!-- ### User B buys IOTA tokens from user A on the exchange -->
 
-No action happens on Hub, all accounting is done internally on the exchange side.
+ハブでは何も行われず、すべての会計は取引所側で内部的に行われます。
+<!-- No action happens on Hub, all accounting is done internally on the exchange side. -->
 
-### Discussion of the pros and cons
+### 長所と短所の議論
+<!-- ### Discussion of the pros and cons -->
 
-- (+) Easy management of cold / hot tokens
-- (+) Likely to be easier to integrate on exchange side.
-- (-) Reduced security guarantees because balances are not tracked on a per-user level inside Hub.
-- (-) Exchange needs to keep track of total amount of IOTA tokens independently of Hub.
+- (+) コールド/ホットトークンの管理が簡単です。
+<!-- - (+) Easy management of cold / hot tokens -->
+- (+) 取引所側で統合する方が簡単かもしれません。
+<!-- - (+) Likely to be easier to integrate on exchange side. -->
+- (-) 残高はハブ内でユーザーごとのレベルで追跡されないため、セキュリティ保証が低下します。
+<!-- - (-) Reduced security guarantees because balances are not tracked on a per-user level inside Hub. -->
+- (-) 取引所は、ハブとは無関係にIOTAトークンの合計量を追跡する必要があります。
+<!-- - (-) Exchange needs to keep track of total amount of IOTA tokens independently of Hub. -->
 
 ## Scenario B
 
