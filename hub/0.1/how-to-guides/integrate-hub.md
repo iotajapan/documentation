@@ -41,7 +41,7 @@
 ### ユーザー預け入れ
 <!-- ### User deposit -->
 
-1. ユーザーがハブの預け入れアドレスを要求します（`GetDepositAddress`）。
+1. ユーザーがハブの預け入れアドレスをリクエストします（`GetDepositAddress`）。
 <!-- 1. User requests deposit address (`GetDepositAddress`) -->
 2. ユーザーがハブの預け入れアドレスへトークンを預け入れます。
 <!-- 2. User deposits tokens -->
@@ -109,68 +109,109 @@
 - (-) 取引所は、ハブとは無関係にIOTAトークンの合計量を追跡する必要があります。
 <!-- - (-) Exchange needs to keep track of total amount of IOTA tokens independently of Hub. -->
 
-## Scenario B
+## シナリオB
+<!-- ## Scenario B -->
 
-As Hub supports independent user accounts with individual balances, it arguably makes sense to rely on this as an added security measure. Balances are tracked per user, and therefore a user can only use as many tokens as the user is tracking for them. However, this approach currently complicates the cold/hot wallet flow. 
+ハブは個々の残高を持つ独立したユーザーアカウントをサポートしているので、追加のセキュリティ対策としてこれに頼るのは理にかなっています。残高はユーザーごとに追跡されるため、ユーザーは自分が追跡している数のトークンしか使用できません。しかしながら、このアプローチは現在、コールド／ホットウォレットフローを複雑にしています。
+<!-- As Hub supports independent user accounts with individual balances, it arguably makes sense to rely on this as an added security measure. Balances are tracked per user, and therefore a user can only use as many tokens as the user is tracking for them. However, this approach currently complicates the cold/hot wallet flow. -->
 
-### Cold/hot wallets
+### コールド/ホットウォレット
+<!-- ### Cold/hot wallets -->
 
-As opposed to Scenario A, it is not so easy to move tokens from multiple users to a cold wallet. However, it is possible to have Hub ignore some of the Hub owner's addresses. For this, the [`is_cold_storage`](../references/database-tables.md#hub_address) field in the `hub_address` table row needs to be set to 1. This will cause the `SweepService` to ignore this address for any sweeps.
+シナリオAとは対照的に、トークンを複数のユーザーからコールドウォレットに移動するのはそれほど簡単ではありません。ただし、ハブにハブ所有者のアドレスの一部を無視させることは可能です。そのためには、`hub_address`テーブル行の[`is_cold_storage`](../references/database-tables.md#hub_address)フィールドを1に設定する必要があります。これにより、`SweepService`はすべてのスウィープに対してハブ所有者のアドレスを無視します。
+<!-- As opposed to Scenario A, it is not so easy to move tokens from multiple users to a cold wallet. However, it is possible to have Hub ignore some of the Hub owner's addresses. For this, the [`is_cold_storage`](../references/database-tables.md#hub_address) field in the `hub_address` table row needs to be set to 1. This will cause the `SweepService` to ignore this address for any sweeps. -->
 
-For increased security, the `seed_uuid` of this hub address should also be deleted from the database and stored externally.
+セキュリティを強化するために、このハブアドレスの`seed_uuid`もデータベースから削除して外部に保存する必要があります。
+<!-- For increased security, the `seed_uuid` of this hub address should also be deleted from the database and stored externally. -->
 
-At the moment, the only way that this can be achieved is through manual database updates. It is recommended to stop Hub while marking such hub addresses as cold storage. There is no negative effect on operations if Hub is stopped.
+現時点では、これを達成することができる唯一の方法は手動でデータベースを更新することです。このようなハブアドレスをコールドストレージとしてマークしている間は、ハブを停止することをお勧めします。ハブを停止しても運用に悪影響はありません。
+<!-- At the moment, the only way that this can be achieved is through manual database updates. It is recommended to stop Hub while marking such hub addresses as cold storage. There is no negative effect on operations if Hub is stopped. -->
 
-Using the `salt` that's passed at startup and the `seed_uuid` it is always possible to recompute Hub address's seed outside of Hub.
+起動時に渡された`salt`と`seed_uuid`を使用して、ハブアドレスのシードをハブの外部で再計算することは常に可能です。
+<!-- Using the `salt` that's passed at startup and the `seed_uuid` it is always possible to recompute Hub address's seed outside of Hub. -->
 
-Should sufficient interest exist for this integration scenario, it is possible to provide specialized endpoints for this.
+この統合シナリオに十分な関心がある場合は、これに特化したエンドポイントを提供することが可能です。
+<!-- Should sufficient interest exist for this integration scenario, it is possible to provide specialized endpoints for this. -->
 
-### Initial setup
+### 初期設定
+<!-- ### Initial setup -->
 
-None. Start Hub.
+特にありません。ハブを起動します。
+<!-- None. Start Hub. -->
 
-### User sign up
+### ユーザー登録
+<!-- ### User sign up -->
 
-Exchange creates new Hub user, passing in a per-user userid.
+取引所は新しいハブユーザーを作成し、ユーザーごとのユーザーIDを渡します。
+<!-- Exchange creates new Hub user, passing in a per-user userid. -->
 
-### User deposit
+### ユーザー預け入れ
+<!-- ### User deposit -->
 
-1. User requests deposit address (`GetDepositAddress`)
-2. User deposits tokens
-3. Hub moves the new deposit to an internal address
-3. Exchange polls for new updates via `BalanceSubscription` and notifies user on their frontend once the deposit has been registered or once it has been swept successfully
+1. ユーザーが預け入れアドレスをリクエストします（`GetDepositAddress`）。
+<!-- 1. User requests deposit address (`GetDepositAddress`) -->
+2. ユーザーがトークンを預け入れます。
+<!-- 2. User deposits tokens -->
+3. ハブは新しい預け入れを内部のアドレスに移動します。
+<!-- 3. Hub moves the new deposit to an internal address -->
+4. 取引所は`BalanceSubscription`を介して新しい更新をポーリングし、預け入れが登録されるか、または正常にスウィープされると、フロントエンドでユーザーに通知します。
+<!-- 4. Exchange polls for new updates via `BalanceSubscription` and notifies user on their frontend once the deposit has been registered or once it has been swept successfully -->
 
-### User withdrawal
+### ユーザー取り出し
+<!-- ### User withdrawal -->
 
-1. User requests withdrawal on exchange frontend.
-2. Exchange issues withdrawal from user's Hub account to payout address (`UserWithdraw`)
-3. Hub processes this withdrawal as part of a sweep.
+1. ユーザーは取引所のフロントエンドで取り出しをリクエストします。
+<!-- 1. User requests withdrawal on exchange frontend. -->
+2. 取引所は、ユーザーのハブアカウントから支払い先アドレスへの取り出しを発行します（`UserWithdraw`）。
+<!-- 2. Exchange issues withdrawal from user's Hub account to payout address (`UserWithdraw`) -->
+3. ハブはこの取り出しをスウィープの一部として処理します。
+<!-- 3. Hub processes this withdrawal as part of a sweep. -->
 
-### Cold wallet topup
+### コールドウォレットにつぎ足す
+<!-- ### Cold wallet topup -->
 
-1. Exchange stops Hub
-2. Exchange decides which Hub addresses it wants to mark as cold storage
-3. Exchange sets [`is_cold_storage`](../references/database-tables.md#hub_address) to `1` on these `hub_address` rows and stores the `seed_uuid` externally.
-   There are multiple scenarios for achieving this:
-   - Use a vault service
-   - Use paper backups
-   - Some RDBMS support partitioning the table into multiple storage locations.
-4. Exchange restarts Hub
-   
-### Hot wallet topup
+1. 取引所はハブを停止させます。
+<!-- 1. Exchange stops Hub -->
+2. 取引所はどのハブアドレスをコールドストレージとしてマークしたいかを決定します。
+<!-- 2. Exchange decides which Hub addresses it wants to mark as cold storage -->
+3. 取引所は、これらの`hub_address`行で[`is_cold_storage`](../references/database-tables.md#hub_address)を`1`に設定し、`seed_uuid`を外部に格納します。これを達成するためには複数の選択肢があります。
+    - 金庫サービスを使用する。
+    - 紙のバックアップを使用する。
+    - 一部のRDBMSでは、テーブルを複数の格納場所に分割することをサポートしています。
+<!-- 3. Exchange sets [`is_cold_storage`](../references/database-tables.md#hub_address) to `1` on these `hub_address` rows and stores the `seed_uuid` externally. -->
+<!--    There are multiple scenarios for achieving this: -->
+<!--    - Use a vault service -->
+<!--    - Use paper backups -->
+<!--    - Some RDBMS support partitioning the table into multiple storage locations. -->
+4. 取引所はハブを再スタートさせます。
+<!-- 4. Exchange restarts Hub -->
 
-1. Exchange decides which cold storage addresses it wants to reactivate
-2. Exchange stops Hub
-3. Exchange sets [`is_cold_storage`](../references/database-tables.md#hub_address) to `0` on these `hub_address` rows and restores the `seed_uuid` values
-4. Exchange restarts hub
+### ホットウォレットにつぎ足す
+<!-- ### Hot wallet topup -->
 
-### User B buys tokens from user A on the exchange
+1. 取引所は、どのコールドストレージアドレスを再アクティブ化するかを決定します。
+<!-- 1. Exchange decides which cold storage addresses it wants to reactivate -->
+2. 取引所はハブを停止させます。
+<!-- 2. Exchange stops Hub -->
+3. 取引所は、これらの`hub_address`行で`is_cold_storage`を`0`に設定し、`seed_uuid`値を復元します。
+<!-- 3. Exchange sets [`is_cold_storage`](../references/database-tables.md#hub_address) to `0` on these `hub_address` rows and restores the `seed_uuid` values -->
+4. 取引所はハブを再スタートさせます。
+<!-- 4. Exchange restarts hub -->
 
-1. If user B doesn't already exist, User B is created on Hub (`CreateUser`)
+### ユーザーBは取引所でユーザーAからトークンを購入する
+<!-- ### User B buys tokens from user A on the exchange -->
+
+1. ユーザーBがまだ存在していない場合は、ユーザーBがハブに作成されます（`CreateUser`）。
+<!-- 1. If user B doesn't already exist, User B is created on Hub (`CreateUser`) -->
+2. 次のバッチの一部として、取引所は2人のユーザー間で転送を発行します（`ProcessTransfers`）。
 2. As part of next batch, exchange issues a transfer between the two users (`ProcessTransfers`)
 
-### Discussion of the pros and cons
+### 長所と短所の議論
+<!-- ### Discussion of the pros and cons -->
 
-- (+) Balances are tracked on a per-user level and thus Hub can do a sanity check on the requests the exchange sends.
-- (+) Exchange can easily do a sanity check that its backend is tracking the same `(user, balance)` values as Hub.
-- (-) More complicated cold wallet setup
+- (+) 残高はユーザーごとのレベルで追跡されるため、ハブは取引所から送信されたリクエストに対してサニティチェックを実行できます。
+<!-- - (+) Balances are tracked on a per-user level and thus Hub can do a sanity check on the requests the exchange sends. -->
+- (+) 取引所は、バックエンドがハブと同じ`(user, balance)`値を追跡していることを簡単にサニティチェックできます。
+<!-- - (+) Exchange can easily do a sanity check that its backend is tracking the same `(user, balance)` values as Hub. -->
+- (-) より複雑なコールドウォレットの設定
+<!-- - (-) More complicated cold wallet setup -->
