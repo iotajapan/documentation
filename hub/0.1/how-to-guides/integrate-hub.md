@@ -15,7 +15,7 @@
 ## シナリオA
 <!-- ## Scenario A -->
 
-あなたはハブの内部アカウンティング設定に頼りたくないかもしれません。その理由の1つは、単にネット取引を転送するのが面倒すぎるからです。したがって、預け入れが成功すると、すべてのトークンが中央集権のホットウォレットに転送される可能性があります。これにより、このホットウォレットからオフラインウォレット（別名：コールドウォレット）アドレスに取り出し、必要に応じてホットウォレットアカウントに再度預け入れることで、トークンのコールドストレージを簡単に扱えます。その後、このホットウォレットからユーザーの取り出しも処理されます。
+あなたはハブの内部アカウンティング設定に頼りたくないかもしれません。その理由の1つは、単にネット取引を転送するのが面倒すぎるからです。したがって、預け入れが成功すると、すべてのトークンが中央集権のホットウォレットに転送される可能性があります。これにより、このホットウォレットからオフラインウォレット（別名：コールドウォレット）アドレスに取り出し、必要に応じてホットウォレットアカウントに再度預け入れることで、トークンのコールドストレージを簡単に扱えます。そして、このホットウォレットからユーザーの取り出しも処理されます。
 <!-- You may not want to rely on Hub's internal accounting setup. One such reason might simply be that forwarding netted trades is too cumbersome. -->
 <!-- Therefore, after a successful deposit, all tokens might be transferred to a central hot wallet. This will also allow you to deal with cold storage of tokens easily by withdrawing from this hot wallet to an offline wallet (also known as a cold wallet) address and depositing back into the account as necessary. User withdrawals are then also processed from this hot wallet. -->
 
@@ -86,9 +86,9 @@
   <!-- Addresses must never be withdrawn from more than once. -->
   <!-- ::: -->
 
-2. 取引所はコールドウォレットからこの取り出しアドレスにトークンを送信します。
+2. 取引所はコールドウォレットからこの預け入れアドレスにトークンを送信します。
 <!-- 2. Exchange sends tokens from cold wallet to this deposit address -->
-3. ハブは預け入れを受け取り、スウィープの一部として内部アドレスに移動させます。
+3. ハブは預け入れを受け取り、スウィープの一部として内部のアドレスに移動させます。
 <!-- 3. Hub receives deposit and moves to internal address as part of a sweep -->
 
 ### ユーザーBは取引所でユーザーAからIOTAトークンを購入する
