@@ -15,7 +15,7 @@
 ## シナリオA
 <!-- ## Scenario A -->
 
-あなたはハブの内部会計設定に頼りたくないかもしれません。その理由の1つは、単にネット取引を転送するのが面倒すぎることです。したがって、預け入れが成功すると、すべてのトークンが中央集権のホットウォレットに転送される可能性があります。これにより、このホットウォレットからオフラインウォレット（別名：コールドウォレット）アドレスに取り出し、必要に応じてアカウントに再度預け入れることで、トークンのコールドストレージを簡単に処理できます。その後、このホットウォレットからユーザーの取り出しも処理されます。
+あなたはハブの内部アカウンティング設定に頼りたくないかもしれません。その理由の1つは、単にネット取引を転送するのが面倒すぎるからです。したがって、預け入れが成功すると、すべてのトークンが中央集権のホットウォレットに転送される可能性があります。これにより、このホットウォレットからオフラインウォレット（別名：コールドウォレット）アドレスに取り出し、必要に応じてホットウォレットアカウントに再度預け入れることで、トークンのコールドストレージを簡単に処理できます。その後、このホットウォレットからユーザーの取り出しも処理されます。
 <!-- You may not want to rely on Hub's internal accounting setup. One such reason might simply be that forwarding netted trades is too cumbersome. -->
 <!-- Therefore, after a successful deposit, all tokens might be transferred to a central hot wallet. This will also allow you to deal with cold storage of tokens easily by withdrawing from this hot wallet to an offline wallet (also known as a cold wallet) address and depositing back into the account as necessary. User withdrawals are then also processed from this hot wallet. -->
 
@@ -41,13 +41,13 @@
 ### ユーザー預け入れ
 <!-- ### User deposit -->
 
-1. ユーザーが預け入れアドレスを要求します（`GetDepositAddress`）。
+1. ユーザーがハブの預け入れアドレスを要求します（`GetDepositAddress`）。
 <!-- 1. User requests deposit address (`GetDepositAddress`) -->
-2. ユーザーがトークンを預け入れます。
+2. ユーザーがハブの預け入れアドレスへトークンを預け入れます。
 <!-- 2. User deposits tokens -->
-3. 取引所は、`BalanceSubscription`エンドポイントを使用して、新しい更新をポーリングします。
+3. 取引所は、`BalanceSubscription`エンドポイントを使用して、ハブの新しい更新をポーリングします。
 <!-- 3. Exchange polls for new updates, using the `BalanceSubscription` endpoint -->
-4. 預け入れ（＆スウィープ）が成功すると、取引所は`ProcessTransfers`エンドポイントを呼び出し、すべての新規ユーザーの預け入れをホットウォレットに転送します。
+4. ハブへの預け入れ（＆スウィープ）が成功すると、取引所は`ProcessTransfers`エンドポイントを呼び出し、ハブのすべての新規ユーザーの預け入れを自身が管理するホットウォレットに転送します。
 <!-- 4. Upon successful deposit (& sweep), exchange calls the `ProcessTransfers` endpoint, transferring all new user deposits to the hot wallet -->
 
 ### ユーザー取り出し
@@ -63,7 +63,7 @@
 ### コールドウォレットにつぎ足す
 <!-- ### Cold wallet topup -->
 
-取引所がホットからコールドウォレットアドレスへの取り出しを発行します（`UserWithdraw`）。
+取引所がホットウォレットからコールドウォレットアドレスへの取り出しを発行します（`UserWithdraw`）。
 <!-- Exchange issues withdrawal from hot to cold wallet address that wasn't withdrawn from (`UserWithdraw`) -->
 
   :::warning:警告
