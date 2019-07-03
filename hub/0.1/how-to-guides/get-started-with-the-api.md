@@ -1,7 +1,7 @@
 # gRPC APIを使い始める
 <!-- # Get started with the gRPC API -->
 
-**ハブは、任意のgRPCクライアントを使用して呼び出すことができるいくつかのgRPCメソッドを公開しています。これらの方法では、データベースおよびIOTAネットワークとやり取りすることでユーザーのトークンを管理できます。このガイドでは、新しい預け入れアドレスを持つ新しいユーザーを作成するためのgRPC APIの基本について学習します。**
+**ハブは、任意のgRPCクライアントを使用して呼び出すことができるいくつかのgRPCメソッドを公開しています。これらの方法で、データベースおよびIOTAネットワークとやり取りすることでユーザーのトークンを管理できます。このガイドでは、新しい預け入れアドレスを持つ新しいユーザーを作成するためのgRPC APIの基本について学習します。**
 <!-- **Hub exposes some gRPC methods that you can call using any gRPC client. These methods allow you to manage users' tokens by interfacing with the database and an IOTA network. In this guide, you'll learn the basics of the gRPC API to create a new user with some new deposit addresses.** -->
 
 :::info:
@@ -142,9 +142,9 @@
 ## 次のステップ
 <!-- ## Next steps -->
 
-1. 預け入れアドレスのいずれかに送金します。
+1. 預け入れアドレスのいずれかにIOTAトークンを預け入れます。
 <!-- 1. Send funds to one of the deposit addresses -->
-2. [`sweepSubscription()`](../references/api-reference.md#hub.rpc.SweepSubscriptionRequest)メソッドを使用して、新しいスウィープイベントを購読します。このようにして、スウィープが行われるとハブから通知されます。
+2. [`sweepSubscription()`](../references/api-reference.md#hub.rpc.SweepSubscriptionRequest)メソッドを使用して、新しいスウィープイベントを購読します。こうすることで、スウィープが行われるとハブから通知されます。
 <!-- 2. Use the [`sweepSubscription()`](../references/api-reference.md#hub.rpc.SweepSubscriptionRequest) method to subscribe to new sweep events. This way, Hub will let you know when a sweep takes place. -->
 3. [データベースを照会して](../how-to-guides/query-the-database.md)、各預け入れアドレスのシードを作成するために使用されたシードUUIDを見つけます。
 <!-- 3. [Query the database to find out the seed UUID](../how-to-guides/query-the-database.md) that was used to create the seed for each deposit address. -->
