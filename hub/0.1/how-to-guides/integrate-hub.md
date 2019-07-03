@@ -15,7 +15,7 @@
 ## シナリオA
 <!-- ## Scenario A -->
 
-あなたはハブの内部アカウンティング設定に頼りたくないかもしれません。その理由の1つは、単にネット取引を転送するのが面倒すぎるからです。したがって、預け入れが成功すると、すべてのトークンが中央集権のホットウォレットに転送される可能性があります。これにより、このホットウォレットからオフラインウォレット（別名：コールドウォレット）アドレスに取り出し、必要に応じてホットウォレットアカウントに再度預け入れることで、トークンのコールドストレージを簡単に処理できます。その後、このホットウォレットからユーザーの取り出しも処理されます。
+あなたはハブの内部アカウンティング設定に頼りたくないかもしれません。その理由の1つは、単にネット取引を転送するのが面倒すぎるからです。したがって、預け入れが成功すると、すべてのトークンが中央集権のホットウォレットに転送される可能性があります。これにより、このホットウォレットからオフラインウォレット（別名：コールドウォレット）アドレスに取り出し、必要に応じてホットウォレットアカウントに再度預け入れることで、トークンのコールドストレージを簡単に扱えます。その後、このホットウォレットからユーザーの取り出しも処理されます。
 <!-- You may not want to rely on Hub's internal accounting setup. One such reason might simply be that forwarding netted trades is too cumbersome. -->
 <!-- Therefore, after a successful deposit, all tokens might be transferred to a central hot wallet. This will also allow you to deal with cold storage of tokens easily by withdrawing from this hot wallet to an offline wallet (also known as a cold wallet) address and depositing back into the account as necessary. User withdrawals are then also processed from this hot wallet. -->
 
@@ -55,7 +55,7 @@
 
 1. ユーザーが取引所のフロントエンドで取り出しを要求します。
 <!-- 1. User requests withdrawal on the exchange's frontend -->
-2. 取引所はホットアドレスからユーザーアドレスへの取り出しを発行します（`UserWithdraw`）。
+2. 取引所はホットウォレットアドレスからユーザーアドレスへの取り出しを発行します（`UserWithdraw`）。
 <!-- 2. Exchange issues withdrawal from hot to user address (`UserWithdraw`) -->
 3. ハブはこの取り出しをスウィープの一部として処理します。
 <!-- 3. Hub processes this withdrawal as part of a sweep -->
@@ -76,7 +76,7 @@
 ### ホットウォレットにつぎ足す
 <!-- ### Hot wallet topup -->
 
-1. 取引所がホットユーザーの取り出しアドレスを要求します（`GetDepositAddress`）。
+1. 取引所がホットユーザーの預け入れアドレスを要求します（`GetDepositAddress`）。
 <!-- 1. Exchange requests deposit address for hot user (`GetDepositAddress`) -->
 
   :::warning:警告
