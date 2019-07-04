@@ -1,6 +1,10 @@
 {
-    "headerTitle": "開発者用ドキュメント（[原サイト](https://docs.iota.org)）",
+    "headerTitle": "開発者用ドキュメント",
     "headerTopLinks": [
+        {
+            "href": "https://docs.iota.org",
+            "name": "DOCS(EN)"
+        },
         {
             "href": "https://iotajapan.com",
             "name": "IOTA JAPAN"
