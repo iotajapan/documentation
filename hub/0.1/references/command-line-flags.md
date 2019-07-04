@@ -4,7 +4,7 @@
 **ハブまたは署名サーバーを起動するとき、runコマンドに次のフラグを1つ以上渡すことで、ハブまたは署名サーバーの機能をカスタマイズできます。**
 <!-- **When you start Hub or the signing server, you can customize how they function by passing the run command one or more of the following flags.** -->
 
-## `common/flags/flags.h`からのフラグ（ハブ/署名サーバー両方のバイナリ用）
+## common/flags/flags.hからのフラグ（ハブ/署名サーバー両方のバイナリ用）
 <!-- ## Flags from `common/flags/flags.h` (for both hub/signing_server binaries) -->
 
 | **フラグ** | **説明** | **デフォルト値** |
@@ -16,13 +16,13 @@
 | `--sslCert` | SSL証明書へのパス | "/dev/null" |
 | `--sslCA` | 認証局（CA）ルートへのパス | "/dev/null" |
 | `--maxConcurrentArgon2Hash` | 並行Argon2ハッシュプロセスの最大数 | 4 |
-| `--argon2TCost` | アルゴン2の時間コスト。このフラグについては、[このStack Exchangeのトピック](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options)を参照してください。 | 4 |
-| `--argon2MCost` | Argon2のメモリコスト（バイト単位）。このフラグについては、[このStack Exchangeのトピック](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options)を参照してください。 | 1 << 17 |
-| `--argon2Parallelism` | Argon2で並列に使用するスレッド数。このフラグについては、[このStack Exchangeのトピック](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options)を参照してください。 | 1 |
+| `--argon2TCost` | Argon2の時間コスト。このフラグについては、[Stack Exchangeのこのトピック](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options)を参照してください。 | 4 |
+| `--argon2MCost` | Argon2のメモリコスト（バイト単位）。このフラグについては、[Stack Exchangeのこのトピック](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options)を参照してください。 | 1 << 17 |
+| `--argon2Parallelism` | Argon2で並列に使用するスレッド数。このフラグについては、[Stack Exchangeのこのトピック](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options)を参照してください。 | 1 |
 | `--argon2Mode` | 使用するArgon2モード：1=Argon2i、2=Argon2id | 2 |
 | `--keySecLevel` | IOTA[秘密鍵](root://iota-basics/0.1/concepts/addresses-and-signatures.md)に使用する[セキュリティレベル](root://iota-basics/0.1/references/security-levels.md) | 2 |
 
-## `hub/db/db.cc`からのフラグ
+## hub/db/db.ccからのフラグ
 <!-- ## Flags from hub/db/db.cc -->
 
 | **フラグ** | **説明** | **デフォルト値** |
@@ -36,17 +36,17 @@
 | `--dbType` | データベースのタイプ | "mariadb" |
 | `--dbUser` | データベースのユーザー名 | "user" |
 
-## `hub/server/server.cc`からのフラグ
+## hub/server/server.ccからのフラグ
 <!-- ## Flags from hub/server/server.cc -->
 
 | **フラグ** | **説明** | **デフォルト値** |
 | :--------- | :------- | :--------------- |
-| `--apiAddress` | Hubが接続するIRIノードのURLまたはIPアドレス。悪意のあるノードに接続しないようにするには、[自分のノードを実行](root://iri/0.1/introduction/overview.md)して接続することをお勧めします。ハブはHTTPSプロトコルを使用するノードに接続できません。 | "127.0.0.1:14265" |
+| `--apiAddress` | ハブが接続するIRIノードのURLまたはIPアドレス。悪意のあるノードに接続しないようにするには、[自分のノードを実行](root://iri/0.1/introduction/overview.md)して接続することをお勧めします。ハブはHTTPSプロトコルを使用するノードに接続できません。 | "127.0.0.1:14265" |
 | `--attachmentInterval` | [トランザクションの再添付と促進](root://iota-basics/0.1/concepts/reattach-rebroadcast-promote.md)の間にHubが待機する間隔（ミリ秒）。0=無効。 | 240000 |
 | `--authProvider` | [`signBundle`](../references/api-reference.md#hub.rpc.SignBundleRequest)メソッドを認証するために使用するプロバイダ。この値は "non"または"hmac"になります。 | "none" |
 | `--depth` | [`getTransactionsToApprove`（GTTA）](root://iri/0.1/references/api-reference.md#getTransactionsToApprove)エンドポイントの`depth`パラメーターに使用する値 | 3 |
 | `--hmacKeyPath` | [`signBundle`]メソッドの認証に使用されるHMACキーへのパス | "/dev/null" |
-| `--minWeightMagnitude` | プルーフオブワークに使用する[最小重量値（MWM）](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)。 Mainnetでハブを使用するには、MWM 14を使用する必要があります。 | 9 |
+| `--minWeightMagnitude` | プルーフオブワークに使用する[最小重量値（MWM）](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)。 Mainnetでハブを使用するには、MWMは14を使用する必要があります。 | 9 |
 | <a name="monitorInterval"></a> `--monitorInterval` | ハブが預け入れアドレスをチェックし、[`user_address`テーブルと`user_address_balance`テーブル](../references/database-tables.md)を更新する間隔（ミリ秒）。トークンを含むものは、次のスイープに含まれます。0=無効。 | 60000 |
 | `--signingMode` | バンドルに署名するために使用するメソッド。この値は"local"または"remote"です（署名サーバーを実行している場合）。 | "local" |
 | `--signingProviderAddress` | 署名サーバーのURLまたはIPアドレス。`--signingMode`に "remote"値がある場合は、このフラグも使用する必要があります。 | "0.0.0.0:50052" |
@@ -57,7 +57,7 @@
 | `--powMode` | [プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)のモード。`local`か`remote`か。 | local |
 | `-fetchTransactionMessages` | ハブが預け入れトランザクションのメッセージをデータベースに格納するかどうか | false |
 
-## `hub/service/sweep_service.cc`からのフラグ
+## hub/service/sweep_service.ccからのフラグ
 <!-- ## Flags from hub/service/sweep_service.cc -->
 
 | **フラグ** | **説明** | **デフォルト値** |
