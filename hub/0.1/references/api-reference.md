@@ -1,6 +1,8 @@
-# API reference
+# APIリファレンス
+<!-- # API reference -->
 
-**To simplify connections to the Tangle and the Hub database, Hub has a gRPC API. Use this API reference to find methods and learn what they do.**
+**タングルとハブデータベースへの接続を簡単にするために、ハブにはgRPC APIがあります。このAPIリファレンスを使用してメソッドを見つけ、メソッドが行うことを学んでください。**
+<!-- **To simplify connections to the Tangle and the Hub database, Hub has a gRPC API. Use this API reference to find methods and learn what they do.** -->
 
 <a name="hub.proto"></a>
 
@@ -10,22 +12,22 @@
 
 ### Hub
 
-| Method Name          | Request Type                                                 | Response Type                                                | Description                                                  |
-| -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| CreateUser           | [CreateUserRequest](#hub.rpc.CreateUserRequest)              | [CreateUserReply](#hub.rpc.CreateUserRequest)                | Creates a new user on the Hub                                |
-| GetBalance           | [GetBalanceRequest](#hub.rpc.GetBalanceRequest)              | [GetBalanceReply](#hub.rpc.GetBalanceRequest)                | Returns the available balance for a user                     |
-| GetDepositAddress    | [GetDepositAddressRequest](#hub.rpc.GetDepositAddressRequest) | [GetDepositAddressReply](#hub.rpc.GetDepositAddressRequest)  | Creates a new deposit address for a user                     |
-| UserWithdraw         | [UserWithdrawRequest](#hub.rpc.UserWithdrawRequest)          | [UserWithdrawReply](#hub.rpc.UserWithdrawRequest)            | Submits a withdrawal request for a user.                     |
-| UserWithdrawCancel   | [UserWithdrawCancelRequest](#hub.rpc.UserWithdrawCancelRequest) | [UserWithdrawCancelReply](#hub.rpc.UserWithdrawCancelRequest) | Attempts to cancel a user's withdrawal request. Only possible as long as sweep hasn't started yet. |
-| GetUserHistory       | [GetUserHistoryRequest](#hub.rpc.GetUserHistoryRequest)      | [GetUserHistoryReply](#hub.rpc.GetUserHistoryRequest)        | Returns a user's full balance change history as recorded by the Hub |
-| ProcessTransferBatch | [ProcessTransferBatchRequest](#hub.rpc.ProcessTransferBatchRequest) | [ProcessTransferBatchReply](#hub.rpc.ProcessTransferBatchRequest) | Processes a batch of buys/sells from the exchange Note that the amounts of this batch must sum to 0! |
-| BalanceSubscription  | [BalanceSubscriptionRequest](#hub.rpc.BalanceSubscriptionRequest) | [BalanceEvent](#hub.rpc.BalanceSubscriptionRequest)          | Produces a stream of all balance changes as they appear since the provided timestamp |
-| GetStats             | [StatsRequest](#hub.rpc.StatsRequest)                        | [StatsReply](#hub.rpc.StatsRequest)                          | Provides statistics about the Hub                            |
-| SweepSubscription    | [SweepSubscriptionRequest](#hub.rpc.SweepSubscriptionRequest) | [SweepEvent](#hub.rpc.SweepSubscriptionRequest)              | Produces a stream of all sweeps since the provided timestamp |
-| GetAddressInfo       | [GetAddressInfoRequest](#hub.rpc.GetAddressInfoRequest)      | [GetAddressInfoReply](#hub.rpc.GetAddressInfoRequest)        | Provides information on an address if it's owned by the Hub |
-| SweepInfo            | [SweepInfoRequest](#hub.rpc.SweepInfoRequest)                | [SweepEvent](#hub.rpc.SweepInfoRequest)                      | Provides information on the sweep for the given withdrawal or bundle hash |
-| SignBundle           | [SignBundleRequest](#hub.rpc.SignBundleRequest)              | [SignBundleReply](#hub.rpc.SignBundleRequest)                | Provides a signature for a bundle hash                       |
-| SweepDetail          | [SweepDetailRequest](#hub.rpc.SweepDetailRequest)            | [SweepDetailReply](#hub.rpc.SweepDetailRequest)              | Provides detailed information on the sweep for the bundle hash |
+| メソッド名 | リクエストタイプ | レスポンスタイプ | 説明 |
+| ---------- | ---------------- | ---------------- | ---- |
+| CreateUser | [CreateUserRequest](#hub.rpc.CreateUserRequest) | [CreateUserReply](#hub.rpc.CreateUserRequest) | ハブに新しいユーザーを作成します。 |
+| GetBalance | [GetBalanceRequest](#hub.rpc.GetBalanceRequest) | [GetBalanceReply](#hub.rpc.GetBalanceRequest) | ユーザーの利用可能残高を返します。 |
+| GetDepositAddress | [GetDepositAddressRequest](#hub.rpc.GetDepositAddressRequest) | [GetDepositAddressReply](#hub.rpc.GetDepositAddressRequest) | ユーザーの新しい預け入れアドレスを作成します。 |
+| UserWithdraw | [UserWithdrawRequest](#hub.rpc.UserWithdrawRequest) | [UserWithdrawReply](#hub.rpc.UserWithdrawRequest) | ユーザーに取り出しリクエストを送信します。 |
+| UserWithdrawCancel | [UserWithdrawCancelRequest](#hub.rpc.UserWithdrawCancelRequest) | [UserWithdrawCancelReply](#hub.rpc.UserWithdrawCancelRequest) | ユーザーの取り出しリクエストの取り消しを試みます。スウィープがまだ始まっていない限り可能です。 |
+| GetUserHistory | [GetUserHistoryRequest](#hub.rpc.GetUserHistoryRequest) | [GetUserHistoryReply](#hub.rpc.GetUserHistoryRequest) | ハブに記録されているユーザーの全残高の変更履歴を返します。 |
+| ProcessTransferBatch | [ProcessTransferBatchRequest](#hub.rpc.ProcessTransferBatchRequest) | [ProcessTransferBatchReply](#hub.rpc.ProcessTransferBatchRequest) | 取引所からの買い/売りのバッチを処理します。このバッチの金額の合計は0でなければならないことに注意してください！ |
+| BalanceSubscription | [BalanceSubscriptionRequest](#hub.rpc.BalanceSubscriptionRequest) | [BalanceEvent](#hub.rpc.BalanceSubscriptionRequest) | 提供されたタイムスタンプ以降に表示されるすべての残高変更のストリームを生成します。 |
+| GetStats | [StatsRequest](#hub.rpc.StatsRequest) | [StatsReply](#hub.rpc.StatsRequest) | ハブに関する統計を提供します。 |
+| SweepSubscription | [SweepSubscriptionRequest](#hub.rpc.SweepSubscriptionRequest) | [SweepEvent](#hub.rpc.SweepSubscriptionRequest) | 指定されたタイムスタンプ以降のすべてのスウィープのストリームを生成します。 |
+| GetAddressInfo | [GetAddressInfoRequest](#hub.rpc.GetAddressInfoRequest) | [GetAddressInfoReply](#hub.rpc.GetAddressInfoRequest) | ハブによって所有されている場合、そのアドレスに関する情報を提供します。 |
+| SweepInfo | [SweepInfoRequest](#hub.rpc.SweepInfoRequest) | [SweepEvent](#hub.rpc.SweepInfoRequest) | 特定の取り出しまたはバンドルハッシュのスウィープに関する情報を提供します。 |
+| SignBundle | [SignBundleRequest](#hub.rpc.SignBundleRequest) | [SignBundleReply](#hub.rpc.SignBundleRequest) | バンドルハッシュの署名を提供します。 |
+| SweepDetail | [SweepDetailRequest](#hub.rpc.SweepDetailRequest) | [SweepDetailReply](#hub.rpc.SweepDetailRequest) | バンドルハッシュのスウィープに関する詳細情報を提供します。 |
 
 <a name="messages.proto"></a>
 
@@ -35,48 +37,53 @@
 
 ### BalanceEvent
 
-| **Field**            | **Type**                                                        | **Label** | **Description** |
-| ---------------- | ----------------------------------------------------------- | ----- | ----------- |
-| userAccountEvent | [UserAccountBalanceEvent](#hub.rpc.UserAccountBalanceEvent) |       |             |
-| userAddressEvent | [UserAddressBalanceEvent](#hub.rpc.UserAddressBalanceEvent) |       |             |
-| hubAddressEvent  | [HubAddressBalanceEvent](#hub.rpc.HubAddressBalanceEvent)   |       |             |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| userAccountEvent | [UserAccountBalanceEvent](#hub.rpc.UserAccountBalanceEvent) |       |      |
+| userAddressEvent | [UserAddressBalanceEvent](#hub.rpc.UserAddressBalanceEvent) |       |      |
+| hubAddressEvent  | [HubAddressBalanceEvent](#hub.rpc.HubAddressBalanceEvent)   |       |      |
 
 <a name="hub.rpc.BalanceSubscriptionRequest"></a>
 
 ### BalanceSubscriptionRequest
 
-| Field     | Type              | Label | Description                                                  |
-| --------- | ----------------- | ----- | ------------------------------------------------------------ |
-| newerThan | [uint64](#uint64) |       | Balances newer than this time (MS since epoch) will be retrievd |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| newerThan | [uint64](#uint64) |       | 今回より新しい残高（エポック以降のMS）が取得されます。 |
 
 <a name="hub.rpc.CreateUserReply"></a>
 
 ### CreateUserReply
 
-Reply for creating a new user.
+新しいユーザーを作成するために返信します。
+<!-- Reply for creating a new user. -->
 
-Currently unused.
+現在は未使用です。
+<!-- Currently unused. -->
 
 <a name="hub.rpc.CreateUserRequest"></a>
 
 ### CreateUserRequest
 
-Request for creating a new user.
+新しいユーザーを作成するように要求します。
+<!-- Request for creating a new user. -->
 
-| Field  | Type              | Label | Description |
-| ------ | ----------------- | ----- | ----------- |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
 | userId | [string](#string) |       |             |
 
 <a name="hub.rpc.Error"></a>
 
 ### Error
 
-The generic Error that will be used to return an error code on, e.g. Status::CANCELLED. 	
+エラーコードを返すために使用される一般的なError。例：Status::CANCELLED
+<!-- Thr generic Error that will be used to return an error code on, e.g. Status::CANCELLED. -->
 
-The error will be serialized and stored in the Status' detail field.
+エラーはシリアル化され、ステータスの詳細フィールドに保存されます。
+<!-- The error will be serialized and stored in the Status' detail field. -->
 
-| Field | Type                            | Label | Description |
-| ----- | ------------------------------- | ----- | ----------- |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
 | code  | [ErrorCode](#hub.rpc.ErrorCode) |       |             |
 
 
@@ -84,56 +91,60 @@ The error will be serialized and stored in the Status' detail field.
 
 ### GetAddressInfoReply
 
-| Field  | Type              | Label | Description                             |
-| ------ | ----------------- | ----- | --------------------------------------- |
-| userId | [string](#string) |       | The user identifier who owns an address |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| userId | [string](#string) |       | アドレスを所有するユーザーID |
 
 <a name="hub.rpc.GetAddressInfoRequest"></a>
 
 ### GetAddressInfoRequest
 
-| Field   | Type              | Label | Description            |
-| ------- | ----------------- | ----- | ---------------------- |
-| address | [string](#string) |       | The address to look up |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| address | [string](#string) |       | 調べるアドレス |
 
 <a name="hub.rpc.GetBalanceReply"></a>
 
 ### GetBalanceReply
 
-Reply containing a user's currently available balance
+ユーザーの現在利用可能な残高を含む返信。
+<!-- Reply containing a user's currently available balance -->
 
-| Field     | Type            | Label | Description                                                  |
-| --------- | --------------- | ----- | ------------------------------------------------------------ |
-| available | [int64](#int64) |       | User balance that is currently available for withdrawal / trades |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| available | [int64](#int64) |       | 取り出し/トレードに現在利用可能なユーザー残高 |
 
 <a name="hub.rpc.GetBalanceRequest"></a>
 
 ### GetBalanceRequest
 
-Request for requesting a user's currently available balance.
+ユーザーの現在利用可能な残高をリクエストするためのリクエスト。
+<!-- Request for requesting a user's currently available balance. -->
 
-| Field  | Type              | Label | Description |
-| ------ | ----------------- | ----- | ----------- |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
 | userId | [string](#string) |       |             |
 
 <a name="hub.rpc.GetDepositAddressReply"></a>
 
 ### GetDepositAddressReply
 
-Reply containing the new deposit address.
+新しい預け入れアドレスを含む返信。
+<!-- Reply containing the new deposit address. -->
 
-| Field   | Type              | Label | Description                   |
-| ------- | ----------------- | ----- | ----------------------------- |
-| address | [string](#string) |       | Newly created deposit address |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| address | [string](#string) |       | 新しく作成された預け入れアドレス |
 
 <a name="hub.rpc.GetDepositAddressRequest"></a>
 
 ### GetDepositAddressRequest
 
-Request for creating a new deposit address for a user.
+ユーザーの新しい預け入れアドレスを作成するためのリクエスト。
+<!-- Request for creating a new deposit address for a user. -->
 
-| Field           | Type              | Label | Description |
-| --------------- | ----------------- | ----- | ----------- |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
 | userId          | [string](#string) |       |             |
 | includeChecksum | [bool](#bool)     |       |             |
 
@@ -141,25 +152,25 @@ Request for creating a new deposit address for a user.
 
 ### GetUserHistoryReply
 
-| Field  | Type                                                        | Label    | Description                                    |
-| ------ | ----------------------------------------------------------- | -------- | ---------------------------------------------- |
-| events | [UserAccountBalanceEvent](#hub.rpc.UserAccountBalanceEvent) | repeated | List of all user balance events for given user |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| events | [UserAccountBalanceEvent](#hub.rpc.UserAccountBalanceEvent) | repeated | 特定のユーザーのすべてのユーザー残高イベントの一覧 |
 
 <a name="hub.rpc.GetUserHistoryRequest"></a>
 
 ### GetUserHistoryRequest
 
-| Field     | Type              | Label | Description                                                  |
-| --------- | ----------------- | ----- | ------------------------------------------------------------ |
-| userId    | [string](#string) |       | UserId                                                       |
-| newerThan | [uint64](#uint64) |       | Records newer than this time (MS since epoch) will be retrieved |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| userId    | [string](#string) |       | ユーザーID |
+| newerThan | [uint64](#uint64) |       | 今回より新しいレコード（エポック以降のMS）が取得されます。 |
 
 <a name="hub.rpc.HubAddressBalanceEvent"></a>
 
 ### HubAddressBalanceEvent
 
-| Field           | Type                                                        | Label | Description |
-| --------------- | ----------------------------------------------------------- | ----- | ----------- |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
 | hubAddress      | [string](#string)                                           |       |             |
 | amount          | [int64](#int64)                                             |       |             |
 | reason          | [HubAddressBalanceReason](#hub.rpc.HubAddressBalanceReason) |       |             |
@@ -174,19 +185,20 @@ Request for creating a new deposit address for a user.
 
 ### ProcessTransferBatchRequest
 
-This request contains a netted transfer batch. 
-UserIds must be unique.
+このリクエストには、ネット転送バッチが含まれています。ユーザーIDは一意である必要があります。
+<!-- This request contains a netted transfer batch. -->
+<!-- UserIds must be unique. -->
 
-| Field     | Type                                                         | Label    | Description |
-| --------- | ------------------------------------------------------------ | -------- | ----------- |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
 | transfers | [ProcessTransferBatchRequest.Transfer](#hub.rpc.ProcessTransferBatchRequest.Transfer) | repeated |             |
 
 <a name="hub.rpc.ProcessTransferBatchRequest.Transfer"></a>
 
 ### ProcessTransferBatchRequest.Transfer
 
-| Field  | Type              | Label | Description |
-| ------ | ----------------- | ----- | ----------- |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
 | userId | [string](#string) |       |             |
 | amount | [int64](#int64)   |       |             |
 
@@ -194,28 +206,28 @@ UserIds must be unique.
 
 ### SignBundleReply
 
-| Field     | Type              | Label | Description             |
-| --------- | ----------------- | ----- | ----------------------- |
-| signature | [string](#string) |       | The resulting signature |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| signature | [string](#string) |       | 署名の結果 |
 
 <a name="hub.rpc.SignBundleRequest"></a>
 
 ### SignBundleRequest
 
-| Field            | Type              | Label | Description                                                  |
-| ---------------- | ----------------- | ----- | ------------------------------------------------------------ |
-| address          | [string](#string) |       | The Hub-owned IOTA address that should be signed. (without checksum) |
-| bundleHash       | [string](#string) |       | The bundle hash that should be signed.                       |
-| authentication   | [string](#string) |       | Authentication token (if used)                                       |
-| validateChecksum | [bool](#bool)     |       | Whether the signer should validate the address                              |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| address          | [string](#string) |       | 署名する必要があるハブ所有のIOTAアドレス（チェックサムなし）。 |
+| bundleHash       | [string](#string) |       | 署名する必要があるバンドルハッシュ。 |
+| authentication   | [string](#string) |       | 認証トークン（使用されている場合） |
+| validateChecksum | [bool](#bool)     |       | 署名者がアドレスを検証する必要があるかどうか |
 
 <a name="hub.rpc.StatsReply"></a>
 
 ### StatsReply
 
-| Field        | Type              | Label | Description                                 |
-| ------------ | ----------------- | ----- | ------------------------------------------- |
-| totalBalance | [uint64](#uint64) |       | Total balance currently managed by the hub. |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| totalBalance | [uint64](#uint64) |       | 現在ハブによって管理されている合計残高。 |
 
 <a name="hub.rpc.StatsRequest"></a>
 
@@ -225,27 +237,26 @@ UserIds must be unique.
 
 ### SweepDetailReply
 
-
-| Field     | Type              | Label    | Description                                                  |
-| --------- | ----------------- | -------- | ------------------------------------------------------------ |
-| confirmed | [bool](#bool)     |          | Sweep's confirmation status                              |
-| trytes    | [string](#string) | repeated | Sweep's transactions trytes                              |
-| tailHash  | [string](#string) | repeated | Sweep's tails hashes (multiple reattachment for each bundle) |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| confirmed | [bool](#bool)     |          | スウィープの確定ステータス |
+| trytes    | [string](#string) | repeated | スウィープのトランザクショントライト |
+| tailHash  | [string](#string) | repeated | スウィープの末尾ハッシュ（バンドルごとに複数の再添付） |
 
 <a name="hub.rpc.SweepDetailRequest"></a>
 
 ### SweepDetailRequest
 
-| Field      | Type              | Label | Description             |
-| ---------- | ----------------- | ----- | ----------------------- |
-| bundleHash | [string](#string) |       | Bundle hash of the sweep |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| bundleHash | [string](#string) |       | スウィープのバンドルハッシュ |
 
 <a name="hub.rpc.SweepEvent"></a>
 
 ### SweepEvent
 
-| Field          | Type              | Label    | Description |
-| -------------- | ----------------- | -------- | ----------- |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
 | bundleHash     | [string](#string) |          |             |
 | timestamp      | [uint64](#uint64) |          |             |
 | withdrawalUUID | [string](#string) | repeated |             |
@@ -254,164 +265,168 @@ UserIds must be unique.
 
 ### SweepInfoRequest
 
-| Field          | Type              | Label | Description                |
-| -------------- | ----------------- | ----- | -------------------------- |
-| withdrawalUUID | [string](#string) |       | Withdrawal UUID to look up |
-| bundleHash     | [string](#string) |       | Bundle hash of the sweep |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| withdrawalUUID | [string](#string) |       | 調べる取り出しUUID |
+| bundleHash     | [string](#string) |       | スウィープのバンドルハッシュ |
 
 <a name="hub.rpc.SweepSubscriptionRequest"></a>
 
 ### SweepSubscriptionRequest
 
-| Field     | Type              | Label | Description                                                  |
-| --------- | ----------------- | ----- | ------------------------------------------------------------ |
-| newerThan | [uint64](#uint64) |       | Sweeps newer than this time (MS since epoch) will be retrieved |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| newerThan | [uint64](#uint64) |       | 今回より新しいスウィープ（エポック以降のMS）が取得されます。 |
 
 <a name="hub.rpc.UserAccountBalanceEvent"></a>
 
 ### UserAccountBalanceEvent
 
-| Field           | Type                                                         | Label | Description                                                  |
-| --------------- | ------------------------------------------------------------ | ----- | ------------------------------------------------------------ |
-| userId          | [string](#string)                                            |       |                                                              |
-| timestamp       | [uint64](#uint64)                                            |       | Time since epoch in MS when the balance change occured       |
-| type            | [UserAccountBalanceEventType](#hub.rpc.UserAccountBalanceEventType) |       |                                                              |
-| amount          | [int64](#int64)                                              |       |                                                              |
-| sweepBundleHash | [string](#string)                                            |       | Will contain sweep bundle hash on deposit will contain withdrawal uuid on withdrawal or withdrawal cancel |
-| withdrawalUUID  | [string](#string)                                            |       |                                                              |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| userId          | [string](#string) |       |                                          |
+| timestamp       | [uint64](#uint64) |       | MSで残高変更が発生した時点からの経過時間 |
+| type            | [UserAccountBalanceEventType](#hub.rpc.UserAccountBalanceEventType) |       |                                                |
+| amount          | [int64](#int64)   |       |                                          |
+| sweepBundleHash | [string](#string) |       | 預け入れ時にはスウィープバンドルハッシュが含まれます。取り出しまたは取り出しキャンセル時には取り出しuuidが含まれます。 |
+| withdrawalUUID  | [string](#string) |       |                                          |
 
 <a name="hub.rpc.UserAddressBalanceEvent"></a>
 
 ### UserAddressBalanceEvent
 
-| Field       | Type                                                         | Label | Description                                                  |
-| ----------- | ------------------------------------------------------------ | ----- | ------------------------------------------------------------ |
-| userId      | [string](#string)                                            |       |                                                              |
-| userAddress | [string](#string)                                            |       |                                                              |
-| amount      | [int64](#int64)                                              |       |                                                              |
-| reason      | [UserAddressBalanceReason](#hub.rpc.UserAddressBalanceReason) |       |                                                              |
-| hash        | [string](#string)                                            |       | Depositing bundle's tail (if reason == DEPOSIT) Bundle hash of sweep (if reason == SWEEP) |
-| timestamp   | [uint64](#uint64)                                            |       |                                                              |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| userId      | [string](#string) |       |           |
+| userAddress | [string](#string) |       |           |
+| amount      | [int64](#int64)   |       |           |
+| reason      | [UserAddressBalanceReason](#hub.rpc.UserAddressBalanceReason) |       |   |
+| hash        | [string](#string) |       | 預け入れているバンドルの末尾（reason == DEPOSITの場合）スイープのバンドルハッシュ（reason == SWEEPの場合） |
+| timestamp   | [uint64](#uint64) |       |           |
 
 <a name="hub.rpc.UserWithdrawCancelReply"></a>
 
 ### UserWithdrawCancelReply
 
-Reply for withdrawal cancellation.
+取り出しキャンセルの返信。
+<!-- Reply for withdrawal cancellation. -->
 
-| Field   | Type          | Label | Description                          |
-| ------- | ------------- | ----- | ------------------------------------ |
-| success | [bool](#bool) |       | True if withdrawal could be canceled |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| success | [bool](#bool) |       | 取り出しを取り消すことができれば`true` |
 
 
 <a name="hub.rpc.UserWithdrawCancelRequest"></a>
 
 ### UserWithdrawCancelRequest
 
-Request to cancel an already submitted withdrawal.
+既に提出された取り出しをキャンセルするようにリクエストします。
+<!-- Request to cancel an already submitted withdrawal. -->
 
-| Field | Type              | Label | Description                            |
-| ----- | ----------------- | ----- | -------------------------------------- |
-| uuid  | [string](#string) |       | Withdrawal UUID that is to be canceled |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| uuid  | [string](#string) |       | キャンセルされる取り出しUUID |
 
 <a name="hub.rpc.UserWithdrawReply"></a>
 
 ### UserWithdrawReply
 
-| Field | Type              | Label | Description                |
-| ----- | ----------------- | ----- | -------------------------- |
-| uuid  | [string](#string) |       | This withdrawal's UUID |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| uuid  | [string](#string) |       | 取り出しのUUID |
 
 <a name="hub.rpc.UserWithdrawRequest"></a>
 
 ### UserWithdrawRequest
 
-Requests a user-submitted withdrawal.
+ユーザーが送信した取り出しをリクエストします。
+<!-- Requests a user-submitted withdrawal. -->
 
-This will fail if the user does not have sufficient balance available.
+利用可能な残高が十分にない場合、これは失敗します。
+<!-- This will fail if the user does not have sufficient balance available. -->
 
-| Field            | Type              | Label | Description                                                  |
-| ---------------- | ----------------- | ----- | ------------------------------------------------------------ |
+| **フィールド** | **タイプ** | **ラベル** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
 | userId           | [string](#string) |       |                                                              |
-| payoutAddress    | [string](#string) |       | Address the user requests payout to. Should be without checksum. |
-| amount           | [uint64](#uint64) |       | Requested withdrawal amount                                  |
-| tag              | [string](#string) |       | Tag for withdrawal                                           |
-| validateChecksum | [bool](#bool)     |       | should command validate address                              |
+| payoutAddress    | [string](#string) |       | ユーザーが支払いをリクエストしたアドレス。チェックサムなしであるべきです。 |
+| amount           | [uint64](#uint64) |       | リクエストした取り出し額 |
+| tag              | [string](#string) |       | 取り出し用のタグ |
+| validateChecksum | [bool](#bool)     |       | アドレス検証コマンドを実行する必要があります。 |
 
 <a name="hub.rpc.ErrorCode"></a>
 
 ### ErrorCode
 
-Error codes that can be returned by the hub.
+ハブから返される可能性があるエラーコード。
+<!-- Error codes that can be returned by the hub. -->
 
-| Name      | Number | Description         |
-| :------------------------------- | :------ | :------------------------------------------------------------ |
-| EC_UNKNOWN                      | 0      | Unused|                                              
-| USER_EXISTS                     | 1      | UserId already exists|                     
-| USER_DOES_NOT_EXIST             | 2      | UserId does not exist                                   |
-| INSUFFICIENT_BALANCE            | 3      | The user has insufficient balance for this operation        |
-| BATCH_INVALID                   | 4      | The batch is invalid (does not sum to 0 or user ids not unique) |
-| BATCH_INCONSISTENT              | 5      | The batch is inconsistent (attempt to remove funds from a user's account without sufficient balance) |
-| BATCH_AMOUNT_ZERO               | 6      | The amount associated with the transfer is invalid (should be greater or less than 0) |
-| UNKNOWN_ADDRESS                 | 7      | The address is not known to the hub                          |
-| WITHDRAWAL_CAN_NOT_BE_CANCELLED | 8      | Either the withdrawal has been swept or cancelled already    |
-| INELIGIBLE_ADDRESS              | 9      | Address was not eligible for the requested operation.        |
-| INVALID_AUTHENTICATION          | 10     | Provided authentication token was invalid.                   |
-| CHECKSUM_INVALID                | 11     | Provided address contained invalid checksum                  |
-| SIGNING_FAILED                  | 12     | Call to rpc signing_server failed (GetSignatureForUUID)      |
-| GET_ADDRESS_FAILED              | 13     | Call to rpc signing_server failed (GetAddressForUUID)        |
-| GET_SECURITY_LEVEL_FAILED       | 14     | Call to rpc signing_server failed (GetSecurityLevel)         |
+| 名前      | 番号 | 説明         |
+| :------------------------------ | :----- | :------------------------------------------------------------ |
+| EC_UNKNOWN                      | 0      | 未使用 |
+| USER_EXISTS                     | 1      | ユーザーIDは既に存在します。 |
+| USER_DOES_NOT_EXIST             | 2      | ユーザーIDは存在しません。 |
+| INSUFFICIENT_BALANCE            | 3      | この操作に対してユーザーの残高が不足しています。 |
+| BATCH_INVALID                   | 4      | バッチが無効です（合計が0になっていないか、ユーザーIDが一意ではありません）。 |
+| BATCH_INCONSISTENT              | 5      | バッチが矛盾しています（十分な残高がないままユーザーのアカウントから資金を削除しようとしています）。 |
+| BATCH_AMOUNT_ZERO               | 6      | 取引に関連する金額が無効です（0より大きくまたは小さくなければなりません）。 |
+| UNKNOWN_ADDRESS                 | 7      | アドレスがハブに認識されていません。 |
+| WITHDRAWAL_CAN_NOT_BE_CANCELLED | 8      | 取り出しはすでにスウィープされたか取り消されました。 |
+| INELIGIBLE_ADDRESS              | 9      | アドレスがリクエストされた操作に適格ではありません。 |
+| INVALID_AUTHENTICATION          | 10     | 提供された認証トークンが無効です。 |
+| CHECKSUM_INVALID                | 11     | 提供されたアドレスに無効なチェックサムが含まれています。 |
+| SIGNING_FAILED                  | 12     | rpc signing_serverの呼び出しに失敗しました（GetSignatureForUUID）。 |
+| GET_ADDRESS_FAILED              | 13     | rpc signing_serverの呼び出しに失敗しました（GetAddressForUUID）。 |
+| GET_SECURITY_LEVEL_FAILED       | 14     | rpc signing_serverの呼び出しに失敗しました（GetSecurityLevel）。 |
 
 <a name="hub.rpc.HubAddressBalanceReason"></a>
 
 ### HubAddressBalanceReason
 
-| Name        | Number | Description                               |
-| ----------- | ------ | ----------------------------------------- |
-| HUB_UNKNOWN | 0      |                                           |
-| INBOUND     | 1      | Sweep inbound (used as remainder address) |
-| OUTBOUND    | 2      | Sweep outbound (used as input)            |
+| 名前        | 番号 | 説明                               |
+| ----------- | ---- | ---------------------------------- |
+| HUB_UNKNOWN | 0    |                                           |
+| INBOUND     | 1    | スウィープインバウンド（残余アドレスとして使用） |
+| OUTBOUND    | 2    | スウィープアウトバウンド（入力として使用） |
 
 <a name="hub.rpc.UserAccountBalanceEventType"></a>
 
 ### UserAccountBalanceEventType
 
-| Name                | Number | Description       |
-| :------------------- | :------ | :------------------------------------------------------------ |
-| UAB_UNKNOWN         | 0      | Unused                                                       |
-| DEPOSIT             | 1      | Deposit into user account (positive amount)                  |
-| BUY                 | 2      | User received tokens as part of a transfer batch (positive amount) |
-| WITHDRAWAL          | 3      | User withdrawal request (negative amount)                    |
-| WITHDRAWAL_CANCELED | 4      | Cancelled user withdrawal request (positive amount)          |
-| SELL                | 5      | User lost tokens as part of a transfer batch (negative amount) |
+| 名前                | 番号 | 説明       |
+| :------------------ | :--- | :--------- |
+| UAB_UNKNOWN         | 0    | 未使用                                                       |
+| DEPOSIT             | 1    | ユーザーアカウントへの預け入れ（正の量） |
+| BUY                 | 2    | ユーザーが取引バッチの一部として購入したトークン（正の量） |
+| WITHDRAWAL          | 3    | ユーザーの取り出しリクエスト（負の量） |
+| WITHDRAWAL_CANCELED | 4    | キャンセルしたユーザーの取り出しリクエスト（負の量） |
+| SELL                | 5    | ユーザーが取引バッチの一部として売却したトークン（負の量） |
 
 <a name="hub.rpc.UserAddressBalanceReason"></a>
 
 ### UserAddressBalanceReason
 
-| Name         | Number | Description              |
-| ------------ | ------ | ------------------------ |
+| 名前                | 番号 | 説明       |
+| :------------------ | :--- | :--------- |
 | UADD_UNKNOWN | 0      |                          |
-| UA_DEPOSIT   | 1      | New user deposit tracked |
-| UA_SWEEP     | 2      | Hub-sweep.               |
+| UA_DEPOSIT   | 1      | 追跡された新規ユーザーの預け入れ |
+| UA_SWEEP     | 2      | ハブスウィープ |
 
 ## Scalar Value Types
 
-| .proto Type                    | Notes                                                        | C++ Type | Java Type  | Python Type |
+| .protoタイプ                    | メモ                                                        | C++での型 | Javaでの型 | Pythonでの型 |
 | ------------------------------ | ------------------------------------------------------------ | -------- | ---------- | ----------- |
 | <a name="double" /> double     |                                                              | double   | double     | float       |
 | <a name="float" /> float       |                                                              | float    | float      | float       |
-| <a name="int32" /> int32       | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint32 instead. | int32    | int        | int         |
-| <a name="int64" /> int64       | Uses variable-length encoding. Inefficient for encoding negative numbers – if your field is likely to have negative values, use sint64 instead. | int64    | long       | int/long    |
-| <a name="uint32" /> uint32     | Uses variable-length encoding.                               | uint32   | int        | int/long    |
-| <a name="uint64" /> uint64     | Uses variable-length encoding.                               | uint64   | long       | int/long    |
-| <a name="sint32" /> sint32     | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s. | int32    | int        | int         |
-| <a name="sint64" /> sint64     | Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s. | int64    | long       | int/long    |
-| <a name="fixed32" /> fixed32   | Always four bytes. More efficient than uint32 if values are often greater than 2<sup>28</sup>. | uint32   | int        | int         |
-| <a name="fixed64" /> fixed64   | Always eight bytes. More efficient than uint64 if values are often greater than 2<sup>56</sup>. | uint64   | long       | int/long    |
-| <a name="sfixed32" /> sfixed32 | Always four bytes.                                           | int32    | int        | int         |
-| <a name="sfixed64" /> sfixed64 | Always eight bytes.                                          | int64    | long       | int/long    |
+| <a name="int32" /> int32       | 可変長符号化を使用します。負の数をエンコードするのは非効率的です - あなたのフィールドが負の値を持つ可能性が高い場合は、代わりにsint32を使用してください。 | int32    | int        | int         |
+| <a name="int64" /> int64       | 可変長符号化を使用します。負の数をエンコードするのは非効率的です - あなたのフィールドが負の値を持つ可能性が高い場合は、代わりにsint64を使用してください。 | int64    | long       | int/long    |
+| <a name="uint32" /> uint32     | 可変長符号化を使用します。 | uint32   | int        | int/long    |
+| <a name="uint64" /> uint64     | 可変長符号化を使用します。 | uint64   | long       | int/long    |
+| <a name="sint32" /> sint32     | 可変長符号化を使用します。符号付きint値。これらは通常のint32よりも効率的に負の数をエンコードします。 | int32    | int        | int         |
+| <a name="sint64" /> sint64     | 可変長符号化を使用します。符号付きint値。これらは通常のint64よりも効率的に負の数をエンコードします。 | int64    | long       | int/long    |
+| <a name="fixed32" /> fixed32   | 常に4バイト。値がよく2<sup>28</sup>より大きい場合は、uint32より効率的です。 | uint32   | int        | int         |
+| <a name="fixed64" /> fixed64   | 常に4バイト。値がよく2<sup>56</sup>より大きい場合は、uint64より効率的です。 | uint64   | long       | int/long    |
+| <a name="sfixed32" /> sfixed32 | 常に4バイト。 | int32    | int        | int         |
+| <a name="sfixed64" /> sfixed64 | 常に8バイト。 | int64    | long       | int/long    |
 | <a name="bool" /> bool         |                                                              | bool     | boolean    | boolean     |
-| <a name="string" /> string     | A string must always contain UTF-8 encoded or 7-bit ASCII text. | string   | String     | str/Unicode |
-| <a name="bytes" /> bytes       | May contain any arbitrary sequence of bytes.                 | string   | ByteString | str         |
-
+| <a name="string" /> string     | 文字列には常にUTF-8エンコードまたは7ビットASCIIテキストを含める必要があります。 | string   | String     | str/Unicode |
+| <a name="bytes" /> bytes       | 任意のバイトシーケンスを含めることができます。 | string   | ByteString | str         |
