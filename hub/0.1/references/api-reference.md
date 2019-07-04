@@ -423,8 +423,8 @@
 | <a name="uint64" /> uint64     | 可変長符号化を使用します。 | uint64   | long       | int/long    |
 | <a name="sint32" /> sint32     | 可変長符号化を使用します。符号付きint値。これらは通常のint32よりも効率的に負の数をエンコードします。 | int32    | int        | int         |
 | <a name="sint64" /> sint64     | 可変長符号化を使用します。符号付きint値。これらは通常のint64よりも効率的に負の数をエンコードします。 | int64    | long       | int/long    |
-| <a name="fixed32" /> fixed32   | 常に4バイト。値がよく2<sup>28</sup>より大きい場合は、uint32より効率的です。 | uint32   | int        | int         |
-| <a name="fixed64" /> fixed64   | 常に4バイト。値がよく2<sup>56</sup>より大きい場合は、uint64より効率的です。 | uint64   | long       | int/long    |
+| <a name="fixed32" /> fixed32   | 常に4バイト。値がよく2<sup>28</sup>より大きくなる場合は、uint32より効率的です。 | uint32   | int        | int         |
+| <a name="fixed64" /> fixed64   | 常に8バイト。値がよく2<sup>56</sup>より大きくなる場合は、uint64より効率的です。 | uint64   | long       | int/long    |
 | <a name="sfixed32" /> sfixed32 | 常に4バイト。 | int32    | int        | int         |
 | <a name="sfixed64" /> sfixed64 | 常に8バイト。 | int64    | long       | int/long    |
 | <a name="bool" /> bool         |                                                              | bool     | boolean    | boolean     |
