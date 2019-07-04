@@ -273,5 +273,5 @@ npm test
 ## ディスカッションに参加する
 <!-- ## Join the discussion -->
 
-コミュニティに参加したい、セットアップの手助けを必要とする、ライブラリに関する問題がある、または単にIOTA、分散レジストリ技術（DRT）、およびIoTについて他の人々と議論したい場合は、気軽に[Discord](https://discordapp.com/invite/fNGZXvh)に参加してください。
-<!-- If you want to get involved in the community, need help with getting setup, have any issues related with the library or just want to discuss IOTA, Distributed Registry Technology (DRT) and IoT with other people, feel free to join our [Discord](https://discordapp.com/invite/fNGZXvh). -->
+コミュニティに参加したい、セットアップの手助けを必要とする、ライブラリに関する問題がある、または単にIOTA、分散レジストリ技術（DRT）、およびIoTについて他の人々と議論したい場合は、気軽に[Discord](https://discord.iota.org)に参加してください。
+<!-- If you want to get involved in the community, need help with getting setup, have any issues related with the library or just want to discuss IOTA, Distributed Registry Technology (DRT) and IoT with other people, feel free to join our [Discord](https://discord.iota.org). -->

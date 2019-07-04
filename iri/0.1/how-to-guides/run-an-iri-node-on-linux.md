@@ -403,8 +403,8 @@ IRIをダウンロードして設定したら、実行します。
 `latestMilestoneIndex`フィールドと`latestSolidSubtangleMilestoneIndex`フィールドは、IRIノードが同期済み隣接ノードに接続されている場合にのみ正確です。
 <!-- The `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are accurate only when the IRI node is connected to synchronized neighbors. -->
 
-1. 実際の`latestMilestoneIndex`フィールドを確認するには、[Discord](https://discordapp.com/invite/fNGZXvh)に移動し、いずれかのチャンネルに**!milestone**と入力してください。
-  <!-- 1. To check the actual `latestMilestoneIndex` field, go to our [Discord](https://discordapp.com/invite/fNGZXvh) and enter **!milestone** in one of the channels -->
+1. 実際の`latestMilestoneIndex`フィールドを確認するには、[Discord](https://discord.iota.org)に移動し、いずれかのチャンネルに**!milestone**と入力してください。
+<!-- 1. To check the actual `latestMilestoneIndex` field, go to our [Discord](https://discord.iota.org) and enter **!milestone** in one of the channels -->
 
     ![Entering !milestone on Discord](../images/discord-milestone-check.PNG)
 

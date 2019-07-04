@@ -65,8 +65,8 @@ C＃.NET 4.6クライアントライブラリ。このライブラリには、�
 
 - **[タングルエクスプローラ](https://www.thetangle.org)：** タングル内のトランザクションを見る。
 <!-- - **[Tangle explorer](https://www.thetangle.org):** View transactions on the Tangle -->
-- **[公式Discord](https://discord.gg/NaAy8k7)：** 言語固有のチャンネルでディスカッションに参加する。
-<!-- - **[Official Discord](https://discord.gg/NaAy8k7):** Join the discussion in language-specific channels. -->
+- **[公式Discord](https://discord.iota.org)：** 言語固有のチャンネルでディスカッションに参加する。
+<!-- - **[Official Discord](https://discord.iota.org):** Join the discussion in language-specific channels. -->
 
 ## IoTでの試み
 <!-- ## IoT experiments -->

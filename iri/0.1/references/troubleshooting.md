@@ -35,8 +35,8 @@ IRIが同期するまでには時間がかかることがあります。IRIが�
     curl http://localhost:14265 -X POST -H 'Content-Type: application/json' -H 'X-IOTA-API-Version: 1' -d '{"command": "getNeighbors"}'
     ```
 
-* [Discord](https://discordapp.com/invite/fNGZXvh)の#helpおよび#fullnodesチャンネルでサポートを求めてください。
-<!-- * Ask for more support on [Discord](https://discordapp.com/invite/fNGZXvh) in our #help and #fullnodes channels -->
+* [Discord](https://discord.iota.org)の#helpおよび#fullnodesチャンネルでサポートを求めてください。
+<!-- * Ask for more support on [Discord](https://discord.iota.org) in our #help and #fullnodes channels -->
 
 :::info:
 最新のデータベースファイルは[dbfiles.iota.org](https://dbfiles.iota.org/?prefix=)からダウンロードできます。最新のデータベースファイルをダウンロードして解凍することで、ノードは隣接ノードとより速く同期することができます。

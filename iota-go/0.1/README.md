@@ -379,5 +379,5 @@ godoc.orgはすでに十分なパッケージのドキュメンテーション�
 ## ディスカッションに参加する
 <!-- ## Join the discussion -->
 
-コミュニティに参加したい場合、セットアップの手助けが必要な場合、ライブラリに関する問題がある場合、あるいはブロックチェーン、分散型台帳、およびIoTについて他の人と話したい場合は、遠慮なく[Discord](https://discordapp.com/invite/fNGZXvh)に参加してください。
-<!-- If you want to get involved in the community, need help with getting setup, have any issues related with the library or just want to discuss blockchain, distributed ledgers, and IoT with other people, feel free to join our [Discord](https://discordapp.com/invite/fNGZXvh). -->
+コミュニティに参加したい場合、セットアップの手助けが必要な場合、ライブラリに関する問題がある場合、あるいはブロックチェーン、分散型台帳、およびIoTについて他の人と話したい場合は、遠慮なく[Discord](https://discord.iota.org)に参加してください。
+<!-- If you want to get involved in the community, need help with getting setup, have any issues related with the library or just want to discuss blockchain, distributed ledgers, and IoT with other people, feel free to join our [Discord](https://discord.iota.org). -->
