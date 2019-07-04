@@ -6,7 +6,7 @@
 [ハブ](/hub)
 [コンパス](/compass)
 [トリニティ](/trinity)
-[アプリの青写真](/blueprints)
+[アプリ設計図](/blueprints)
 [Goライブラリ](/iota-go)
 [Javaライブラリ](/iota-java)
 [JSライブラリ](/iota-js)

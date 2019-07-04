@@ -1,7 +1,7 @@
-# Compass is an open-source implementation of the Coordinator, which is a client application that allows nodes in an IOTA network to reach a consensus.
+# コンパスは、IOTAネットワーク内のノードが合意に達することを可能にするクライアントアプリケーションである、コーディネーターのオープンソース実装です。
 
-[Compass overview](/0.1/introduction/overview.md)
-## Learn what Compass is and how you can use it
+[コンパス概要](/0.1/introduction/overview.md)
+## コンパスとは何か、またその使用方法について学びます。
 
-[Create an IOTA network](/0.1/how-to-guides/create-an-iota-network.md)
-## Create your own IOTA network
+[IOTAネットワークを作成する](/0.1/how-to-guides/create-an-iota-network.md)
+## あなた自身のIOTAネットワークを作成します。
