@@ -16,7 +16,7 @@
 :::danger:重要
 使用済みアドレスを保護するためにスイープを頼るべきではありません。ハブがスウィープする前に、攻撃者は資金を盗むことができます。
 
-したがって、使用済みアドレスにトークンを預け入れないようにユーザーに通知することが重要です。
+したがって、使用済みアドレスに2度とトークンを預け入れないようにユーザーに通知することが重要です。
 :::
 <!-- :::danger:Important -->
 <!-- You shouldn't rely on sweeps to protect spent addresses. An attacker could steal the funds before Hub can do a sweep. -->
@@ -48,4 +48,4 @@
 <!-- ## History logs -->
 
 ハブはそのすべてのアクションのログを生成します。このログには、トランザクションレコード、サーバーの再起動、およびその他の詳細情報も含まれています。
-Hub generates a log of all its actions. This log also contains transaction records, server restarts, and other detailed information.
+<!-- Hub generates a log of all its actions. This log also contains transaction records, server restarts, and other detailed information. -->
