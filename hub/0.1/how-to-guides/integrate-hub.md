@@ -97,7 +97,7 @@
 ハブでは何も行われず、すべての会計は取引所側で内部的に行われます。
 <!-- No action happens on Hub, all accounting is done internally on the exchange side. -->
 
-### 長所と短所の議論
+### 長所と短所
 <!-- ### Discussion of the pros and cons -->
 
 - (+) コールド/ホットトークンの管理が簡単です。
@@ -112,13 +112,13 @@
 ## シナリオB
 <!-- ## Scenario B -->
 
-ハブは個々の残高を持つ独立したユーザーアカウントをサポートしているので、追加のセキュリティ対策としてこれに頼るのは理にかなっています。残高はユーザーごとに追跡されるため、ユーザーは自分が追跡している数のトークンしか使用できません。しかしながら、このアプローチは現在、コールド／ホットウォレットフローを複雑にしています。
+ハブは個々の残高を持つ独立したユーザーアカウントをサポートしているので、追加のセキュリティ対策としてこの機能を使うことは理にかなっています。残高はユーザーごとに追跡されるため、ユーザーは自分が追跡している数のトークンしか使用できません。しかしながら、このアプローチは現在、コールド／ホットウォレットフローを複雑にしています。
 <!-- As Hub supports independent user accounts with individual balances, it arguably makes sense to rely on this as an added security measure. Balances are tracked per user, and therefore a user can only use as many tokens as the user is tracking for them. However, this approach currently complicates the cold/hot wallet flow. -->
 
 ### コールド/ホットウォレット
 <!-- ### Cold/hot wallets -->
 
-シナリオAとは対照的に、トークンを複数のユーザーからコールドウォレットに移動するのはそれほど簡単ではありません。ただし、ハブにハブ所有者のアドレスの一部を無視させることは可能です。そのためには、`hub_address`テーブル行の[`is_cold_storage`](../references/database-tables.md#hub_address)フィールドを1に設定する必要があります。これにより、`SweepService`はすべてのスウィープに対してハブ所有者のアドレスを無視します。
+シナリオAとは対照的に、トークンを複数のユーザーからコールドウォレットに移動するのはそれほど簡単ではありません。ただし、ハブにハブ所有者のアドレスの一部を無視させることは可能です。そのためには、`hub_address`テーブル行の[`is_cold_storage`](../references/database-tables.md#hub_address)フィールドを`1`に設定する必要があります。これにより、`SweepService`はすべてのスウィープに対してハブ所有者のアドレスを無視します。
 <!-- As opposed to Scenario A, it is not so easy to move tokens from multiple users to a cold wallet. However, it is possible to have Hub ignore some of the Hub owner's addresses. For this, the [`is_cold_storage`](../references/database-tables.md#hub_address) field in the `hub_address` table row needs to be set to 1. This will cause the `SweepService` to ignore this address for any sweeps. -->
 
 セキュリティを強化するために、このハブアドレスの`seed_uuid`もデータベースから削除して外部に保存する必要があります。
@@ -148,9 +148,9 @@
 ### ユーザー預け入れ
 <!-- ### User deposit -->
 
-1. ユーザーが預け入れアドレスをリクエストします（`GetDepositAddress`）。
+1. ユーザーがハブの預け入れアドレスをリクエストします（`GetDepositAddress`）。
 <!-- 1. User requests deposit address (`GetDepositAddress`) -->
-2. ユーザーがトークンを預け入れます。
+2. ユーザーがハブの預け入れアドレスへトークンを預け入れます。
 <!-- 2. User deposits tokens -->
 3. ハブは新しい預け入れを内部のアドレスに移動します。
 <!-- 3. Hub moves the new deposit to an internal address -->
@@ -175,6 +175,7 @@
 2. 取引所はどのハブアドレスをコールドストレージとしてマークしたいかを決定します。
 <!-- 2. Exchange decides which Hub addresses it wants to mark as cold storage -->
 3. 取引所は、これらの`hub_address`行で[`is_cold_storage`](../references/database-tables.md#hub_address)を`1`に設定し、`seed_uuid`を外部に格納します。これを達成するためには複数の選択肢があります。
+
     - 金庫サービスを使用する。
     - 紙のバックアップを使用する。
     - 一部のRDBMSでは、テーブルを複数の格納場所に分割することをサポートしています。
@@ -204,14 +205,14 @@
 1. ユーザーBがまだ存在していない場合は、ユーザーBがハブに作成されます（`CreateUser`）。
 <!-- 1. If user B doesn't already exist, User B is created on Hub (`CreateUser`) -->
 2. 次のバッチの一部として、取引所は2人のユーザー間で転送を発行します（`ProcessTransfers`）。
-2. As part of next batch, exchange issues a transfer between the two users (`ProcessTransfers`)
+<!-- 2. As part of next batch, exchange issues a transfer between the two users (`ProcessTransfers`) -->
 
-### 長所と短所の議論
+### 長所と短所
 <!-- ### Discussion of the pros and cons -->
 
 - (+) 残高はユーザーごとのレベルで追跡されるため、ハブは取引所から送信されたリクエストに対してサニティチェックを実行できます。
 <!-- - (+) Balances are tracked on a per-user level and thus Hub can do a sanity check on the requests the exchange sends. -->
 - (+) 取引所は、バックエンドがハブと同じ`(user, balance)`値を追跡していることを簡単にサニティチェックできます。
 <!-- - (+) Exchange can easily do a sanity check that its backend is tracking the same `(user, balance)` values as Hub. -->
-- (-) より複雑なコールドウォレットの設定
+- (-) より複雑なコールドウォレットの設定が必要です。
 <!-- - (-) More complicated cold wallet setup -->
