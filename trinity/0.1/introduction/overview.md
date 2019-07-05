@@ -11,7 +11,7 @@
 <!-- * Create a password-protected account to store and access your seeds -->
 * 残高とトランザクション履歴を読み取ります。
 <!-- * Read your balance and transaction history -->
-* トランザクションの送受信します。
+* トランザクションを送受信します。
 <!-- * Send and receive transactions -->
 
 ![Trinity home](../images/trinity.png)
@@ -35,7 +35,7 @@
 ## 制限事項
 <!-- ## Limitations -->
 
-トリニティは、開発者が独自の機能を構築できるプラットフォームです。たとえば、取引所からIOTAトークンを購入するためにトリニティを使用することはできませんが、この機能は関心がある第三者によって開発される可能性があります。
+トリニティは、開発者が独自の機能を構築できるプラットフォームです。たとえば、現在は取引所からIOTAトークンを購入するためにトリニティを使用することはできませんが、その機能に関心がある第三者によって開発される可能性があります。
 <!-- Trinity is a platform on which developers can build their own features. Although you can't use Trinity to buy IOTA tokens from an exchange for example, this feature could be developed by an interested third party. -->
 
 トリニティのモバイル版はバックグラウンド・プロセスをサポートしていません。アクション（ログイン、トランザクションの送信、残高の更新など）が進行中に別のアプリに移動した場合、そのアクションは**完了しません**。
