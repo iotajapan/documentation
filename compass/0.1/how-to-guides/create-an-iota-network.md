@@ -256,12 +256,14 @@ IRIノードは、snapshot.txtファイルを使用して台帳の初期状態�
 <!-- The IRI node must use a snapshot.txt file to set the initial state of the ledger. -->
 
 `snapshot.example.txt`ファイルは、シード
+
     ```bash
     SEED99999999999999999999999999999999999999999999999999999999999999999999999999999
     ```
 から派生した最初のアドレスに2.7PiのIOTAトークン総供給量を入れます。
 <!-- The `snapshot.example.txt` file puts the total IOTA supply of 2.7Pi in the first address that's derived from the following seed: -->
 このシードの最初のアドレス（インデックス0）は
+
     ```bash
     FJHSSHBZTAKQNDTIKJYCZBOZDGSZANCZSWCNWUOCZXFADNOQSYAHEJPXRLOVPNOQFQXXGEGVDGICLMOXX
     ```
@@ -374,7 +376,7 @@ IRIノードは、snapshot.txtファイルを使用して台帳の初期状態�
     <!-- ::: -->
 
 :::success:コンパスはあなた自身のIOTAネットワークでマイルストーンを送っています！:tada:
-コンパスを再起動した場合、`-bootstrap`フラグを渡す必要はありません（起動してもコンパスは起動しません）。ただし、コンパスがマイルストーンをIRIノードにブロードキャストするように、セキュリティ対策として`-broadcast`フラグを渡す必要があります。
+コンパスを再起動した場合、`-bootstrap`フラグを渡す必要はありません（フラグを渡してもコンパスは起動しません）。ただし、コンパスがマイルストーンをIRIノードにブロードキャストするように、セキュリティ対策として`-broadcast`フラグを渡す必要があります。
 :::
 <!-- :::success:Compass is sending milestones in your own IOTA network! :tada: -->
 <!-- If you restart Compass, you don't need to pass it the `-bootstrap` flag (Compass won't start if you do). But, you should pass it the `-broadcast` flag as a security measure so that Compass broadcasts its milestones to the IRI node. -->
@@ -390,6 +392,7 @@ IRIノードは、snapshot.txtファイルを使用して台帳の初期状態�
   <!-- 1. Connect to your IRI node -->
 
 2. シードに
+
     ```bash
     SEED99999999999999999999999999999999999999999999999999999999999999999999999999999
     ```
