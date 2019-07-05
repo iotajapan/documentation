@@ -91,8 +91,8 @@ socket = context.socket(zmq.SUB)
 ```
 --------------------
 
-3\. ソケットをノードのアドレスに接続します。
-<!-- 3\. Connect the socket to the node's address -->
+3\. ソケットをノードのアドレスに接続します。別のノードに接続したい場合は、`tcp://zmq.devnet.iota.org:5556`を別のノードのURLに置き換えてください。
+<!-- 3\. Connect the socket to the node's address. If you want to connect do a different node, replace the `tcp://zmq.devnet.iota.org:5556` URL with the URL of your node. -->
 
 --------------------
 ### Node.js
@@ -195,3 +195,10 @@ ZMQがノードからデータを受信するのに数分かかることがあ�
 
 ZMQに関する知識を活用して、他の[イベント](../references/zmq-events.md)についてIRIを監視するアプリケーションを構築してみてください。
 <!-- Use your knowledge of the ZMQ to build an application that monitors the IRI for other [events](../references/zmq-events.md). -->
+
+:::info:
+トランザクションがなかなか確定しないとき、トランザクションが確定する可能性を高めるために[トランザクションを促進するか再添付する]（root：//iota-basics/0.1/how-to-guides/confirm-pending-bundle.md）ことができます。
+:::
+<!-- :::info: -->
+<!-- If your transactions aren't being confirmed, you can [promote or reattach them](root://iota-basics/0.1/how-to-guides/confirm-pending-bundle.md) to increase the likelihood of this happening. -->
+<!-- ::: -->

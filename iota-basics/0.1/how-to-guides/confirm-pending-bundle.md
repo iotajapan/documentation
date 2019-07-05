@@ -1,8 +1,8 @@
 # ペンディング中のバンドルを確定させる
 <!-- # Confirm a pending bundle -->
 
-**マイルストーンによって承認されるためには、チップ選択時にトランザクションが選択される必要があります。これは、古いトランザクションよりも新しいトランザクションを優先します。したがって、バンドルがペンディング状態に長く固執しているほど、確定される可能性は低くなります。バンドルが確定される可能性を高めるには、状況に応じてトランザクションを再添付したり、促進したりすることが必要です。**
-<!-- **To be approved by a milestone, a transaction must be selected during tip selection, which favors new transactions over old ones. Therefore, the longer a bundle is stuck in a pending state, the less likely it is to be confirmed. To increase the chances of a bundle being confirmed, you can reattach and promote it, depending on the circumstances.** -->
+**マイルストーンによって承認されるためには、チップ選択時にトランザクションが選択される必要があります。これは、古いトランザクションよりも新しいトランザクションを優先します。したがって、バンドルがペンディング状態に長く固執しているほど、確定される可能性は低くなります。バンドルが確定される可能性を高めるには、状況に応じて末尾トランザクションを再添付したり、促進したりすることが必要です。**
+<!-- **To be approved by a milestone, a transaction must be selected during tip selection, which favors new transactions over old ones. Therefore, the longer a bundle is stuck in a pending state, the less likely it is to be confirmed. To increase the chances of a bundle being confirmed, you can reattach and promote its tail transaction, depending on the circumstances.** -->
 
 :::info:クライアントライブラリを初めて使用されますか？
 公式クライアントライブラリを使い始めるための[クイックスタートガイド](root://getting-started/0.1/tutorials/get-started.md)をお試してください。
@@ -22,7 +22,7 @@
 <!-- ## Prerequisites -->
 
 このガイドを完成するには、次のものが必要です。
-<!-- To complete these guides, you need the following: -->
+<!-- To complete this guide, you need the following: -->
 
 * Node.js 8、またはNode.js 10以上。[最新のLTS](https://nodejs.org/en/download/)をお勧めします。
 <!-- * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
@@ -36,16 +36,16 @@
 ## ペンディング中のバンドルを確定させる
 <!-- ## Confirm a pending bundle -->
 
-バンドルがチップ選択中に選択されるには古すぎる場合や、二重支払い(矛盾したサブタングル)のような無効な状態にあるタングルの一部に添付されている場合など、さまざまな理由でバンドルがペンディング状態のままになることがあります。
-<!-- A bundle can be stuck in a pending state for many reasons, for example if it's too old to be selected during tip selection or if it's attached to a part of the Tangle that leads to an invalid state such as a double-spend (inconsistent subtangle). -->
+末尾トランザクションがチップ選択中に選択されるには古すぎる場合や、二重支払い(矛盾したサブタングル)のような無効な状態にあるタングルの一部に添付されている場合など、さまざまな理由でバンドルがペンディング状態のままになることがあります。
+<!-- A bundle can be stuck in a pending state for many reasons, for example if its tail transaction is too old to be selected during tip selection or if it's attached to a part of the Tangle that leads to an invalid state such as a double-spend (inconsistent subtangle). -->
 
 このガイドでは、30秒ごとに次のことを行うスクリプトを作成します。
 <!-- In this guide, you'll create a script that does the following every 30 seconds: -->
 
-* [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet)上の末尾トランザクションが確定されたかどうかを確認する
-<!-- * Check if the tail transaction of a bundle on the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet) has been confirmed -->
-* トランザクションがまだペンディング中の場合は、促進または再添付を行う
-<!-- * If the transaction is still pending, promote or reattach it -->
+* [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet)上の末尾トランザクションが確定されたかどうかを確認する。
+<!-- * Check if a tail transaction on the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet) has been confirmed -->
+* 末尾トランザクションがまだペンディング中の場合は、促進または再添付を行う。
+<!-- * If the tail transaction is still pending, promote or reattach it -->
 
 ### 手順 1. タイマー関数を作成する
 <!-- ### Step 1. Create a timer function -->
