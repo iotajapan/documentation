@@ -256,17 +256,15 @@ IRIノードは、snapshot.txtファイルを使用して台帳の初期状態�
 <!-- The IRI node must use a snapshot.txt file to set the initial state of the ledger. -->
 
 `snapshot.example.txt`ファイルは、シード
-
-    ```bash
-    SEED99999999999999999999999999999999999999999999999999999999999999999999999999999
-    ```
+  ```bash
+  SEED99999999999999999999999999999999999999999999999999999999999999999999999999999
+  ```
 から派生した最初のアドレスに2.7PiのIOTAトークン総供給量を入れます。
 <!-- The `snapshot.example.txt` file puts the total IOTA supply of 2.7Pi in the first address that's derived from the following seed: -->
 このシードの最初のアドレス（インデックス0）は
-
-    ```bash
-    FJHSSHBZTAKQNDTIKJYCZBOZDGSZANCZSWCNWUOCZXFADNOQSYAHEJPXRLOVPNOQFQXXGEGVDGICLMOXX
-    ```
+  ```bash
+  FJHSSHBZTAKQNDTIKJYCZBOZDGSZANCZSWCNWUOCZXFADNOQSYAHEJPXRLOVPNOQFQXXGEGVDGICLMOXX
+  ```
 です（チェックサムを除く）。
 <!-- `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999`. The first address (index 0) of this seed is  `FJHSSHBZTAKQNDTIKJYCZBOZDGSZANCZSWCNWUOCZXFADNOQSYAHEJPXRLOVPNOQFQXXGEGVDGICLMOXX` (excluding the checksum). -->
 
