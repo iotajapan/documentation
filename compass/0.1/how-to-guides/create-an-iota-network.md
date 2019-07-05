@@ -214,7 +214,7 @@
 [main] INFO org.iota.compass.LayersCalculator - Successfully wrote Merkle Tree with root: JMRTYHMGNZGNOLPSSBVLWRPMGIAMOXPLURNDIBKXIFTCJCLOYKH9FMVNKPBVFVMGSUFEYVUUIEARFQXAK
 ```
 
-マークル木はdataディレクトリに格納されているため、コンパスは実行開始時に秘密鍵を使用できます。
+マークル木は`data`ディレクトリに格納されているため、コンパスは実行開始時に秘密鍵を使用できます。
 <!-- The Merkle tree is stored in the data directory, so Compass can use the private keys when it starts running. -->
 
 ## 手順3. IRIノードを実行する
@@ -226,7 +226,7 @@
 IRIノードにコンパストランザクションを信頼できるマイルストーンとして認識させるために、デフォルトのIRI Dockerコンテナをいくつかの追加パラメータと共に使用するスクリプトを作成しています。
 <!-- To make the IRI node recognize Compass transactions as trusted milestones, we created a script that uses the default IRI Docker container with some additional parameters. -->
 
-IRIノードは、snapshot.txtファイルを使用して台帳の初期状態を設定する必要があります。
+IRIノードは、`snapshot.txt`ファイルを使用して台帳の初期状態を設定する必要があります。
 <!-- The IRI node must use a snapshot.txt file to set the initial state of the ledger. -->
 
 `snapshot.example.txt`ファイルは、次のシードから派生した最初のアドレスに2.7PiのIOTAトークン総供給量を入れます。
@@ -235,7 +235,7 @@ IRIノードは、snapshot.txtファイルを使用して台帳の初期状態�
 SEED99999999999999999999999999999999999999999999999999999999999999999999999999999
 ```
 
-このシードの最初のアドレス（インデックス0）は以下でチェックサムはありません。
+このシードの最初のアドレス（インデックス0）は以下で、チェックサムはありません。
 ```bash
 FJHSSHBZTAKQNDTIKJYCZBOZDGSZANCZSWCNWUOCZXFADNOQSYAHEJPXRLOVPNOQFQXXGEGVDGICLMOXX
 ```
@@ -271,7 +271,7 @@ FJHSSHBZTAKQNDTIKJYCZBOZDGSZANCZSWCNWUOCZXFADNOQSYAHEJPXRLOVPNOQFQXXGEGVDGICLMOX
     ```
 
     :::info:
-    `malformed snapshot state file`エラーが発生した場合は、snapshot.txtファイルを調べて、行の先頭に改行が含まれていないことを確認してください。
+    `malformed snapshot state file`エラーが発生した場合は、`snapshot.txt`ファイルを調べて、行の先頭に改行が含まれていないことを確認してください。
 
     `NumberFormatException`エラーまたは`IllegalArgumentException`エラーが発生した場合は、セミコロンの前後にスペース文字がないことを確認してください。
     :::
@@ -333,7 +333,7 @@ FJHSSHBZTAKQNDTIKJYCZBOZDGSZANCZSWCNWUOCZXFADNOQSYAHEJPXRLOVPNOQFQXXGEGVDGICLMOX
     その後、コンパスは次の手順でマイルストーンを送信します。
     - IRIノードにチップトランザクションを依頼します（[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)）。
     - マイルストーンをブロードキャストするようにIRIノードに依頼します。
-    - 次のティック間隔までスリープします。
+    - 次の`tick`間隔までスリープします。
     :::
     <!-- :::info: -->
     <!-- Compass enters an indefinite `while` loop and starts sending milestones. -->
@@ -429,7 +429,7 @@ APIエンドポイントの一覧については、[IRI APIリファレンス](r
 ## 手順6. ウォレットを介してネットワークに接続する
 <!-- ## Step 6. Connect to the network through a wallet -->
 
-ユーザーインターフェイスを介してネットワーク上でトランザクションを送受信する場合は、`http://localhost:14265`に接続して以下のシードでログインするように[IOTA Light Wallet](https://github.com/iotaledger/wallet/releases)を設定できます。
+ユーザーインターフェイスを介してネットワーク上でトランザクションを送受信する場合は、アドレス`http://localhost:14265`のノードに接続して以下のシードでログインするように[IOTA Light Wallet](https://github.com/iotaledger/wallet/releases)を設定できます。
 ```bash
 SEED99999999999999999999999999999999999999999999999999999999999999999999999999999
 ```
@@ -437,7 +437,7 @@ SEED9999999999999999999999999999999999999999999999999999999999999999999999999999
 
 ![IOTA Light Wallet](../images/light-wallet-test-tangle.png)
 
-ノードに接続するには、**ツール** > **ノード設定の編集**の順に選択して、ノードのURL（http://localhost:14265）を入力します。
+ノードに接続するには、**ツール** > **ノード設定の編集**の順に選択して、ノードのURL`http://localhost:14265`を入力します。
 <!-- To connect to your node, go to **Tools** > **Edit Node Configuration**, and enter the URL of your node (http://localhost:14265). -->
 
 ![Wallet configuration](../images/light-wallet-node-configuration.png)
