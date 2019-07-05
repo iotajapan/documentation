@@ -1,7 +1,7 @@
 # IOTAネットワークを作成する
 <!-- # Create an IOTA network -->
 
-**自分のIOTAネットワークでアプリケーションをテストしたい場合は、コンパスを実行してそれをIRIノードに接続することができます。**
+**自分のIOTAネットワークでアプリケーションをテストしたい場合は、コンパスを実行して、コンパスをIRIノードに接続することができます。**
 <!-- **If you want to test your application in your own IOTA network, you can run Compass and connect it to an IRI node.** -->
 
 この基本設定では、IRIノードとコンパスを同じサーバーまたは仮想マシンにインストールします。しかし、複数のIRIノードを実行し、それらを隣接ノードとして互いに接続することもできます。
@@ -10,7 +10,7 @@
 :::info:
 セキュリティを強化するために署名サーバーをインストールすることもできます。
 
-署名サーバーは、署名などの機密性の高い操作を外部サービスに移動することによって、コンパスへ攻撃を減らします。コンパスは、gRPC APIを介して署名サーバーと対話します。
+署名サーバーは、署名などの機密性の高い操作を外部サービスに移動することによって、コンパスの攻撃可能面を減らします。コンパスは、gRPC APIを介して署名サーバーと対話します。
 :::
 <!-- :::info: -->
 <!-- You could also install a signing server for increased security. -->
@@ -113,7 +113,7 @@
 ## マークル木を計算する
 <!-- ## Calculate the Merkle tree -->
 
-このガイドでは、深さ16の[マークル木](root://the-tangle/0.1/concepts/the-coordinator.md#milestones)を使用します。これにより、コンパスはマイルストーンの間隔に応じて、約45日間マイルストーンを送信できます。マイルストーンの間隔は2つの要因によって異なります。
+このガイドでは、深さ16の[マークル木](root://the-tangle/0.1/concepts/the-coordinator.md#milestones)を使用します。これにより、コンパスはマイルストーン送信の間隔に応じて、約45日間マイルストーンを送信できます。マイルストーン送信の間隔は2つの要因によって異なります。
 <!-- For this guide, we use a [Merkle tree](root://the-tangle/0.1/concepts/the-coordinator.md#milestones) with a depth of 16, which allows Compass to send milestones for around 45 days, depending on the interval between them. The interval between milestones depends on two factors: -->
 
 * コンパスがバンドルの作成、署名、および送信の間に待機する`tick`間隔
@@ -145,7 +145,7 @@
     ```
 
 2. マークル木を作成する`layers_calculator`ツールをビルドします。
-<!-- 2. Build the `layers_calculator` tool that will create the Merkle tree -->
+  <!-- 2. Build the `layers_calculator` tool that will create the Merkle tree -->
 
     ```bash
     bazel run //docker:layers_calculator
@@ -170,7 +170,7 @@
   <!-- 4. Create a backup of the seed -->
 
     :::danger:シードを安全に保管してください。
-    シードを持つ攻撃者が不正なマイルストーンを送信し、ネットワークの動作を妨害する可能性があります。
+    シードを盗んだ攻撃者が不正なマイルストーンを送信し、ネットワークの動作を妨害する可能性があります。
     :::
     <!-- :::danger:Keep your seed safe -->
     <!-- An attacker with the seed could send fraudulent milestones and disrupt the operation of the network. -->
@@ -198,7 +198,7 @@
     ```
 
 8. `depth`フィールドの値を`16`に変更します。
-<!-- 8. Change the value of the `depth` field to `16` -->
+  <!-- 8. Change the value of the `depth` field to `16` -->
 
     完成した`config.json`ファイルは次のようになります。
     <!-- The finished `config.json` file should look like this: -->
@@ -255,9 +255,17 @@ IRIノードにコンパストランザクションを信頼できるマイル�
 IRIノードは、snapshot.txtファイルを使用して台帳の初期状態を設定する必要があります。
 <!-- The IRI node must use a snapshot.txt file to set the initial state of the ledger. -->
 
-`snapshot.example.txt`ファイルは、シード`SEED99999999999999999999999999999999999999999999999999999999999999999999999999999`から派生した最初のアドレスに2.7PiのIOTA総供給量を入れます。
+`snapshot.example.txt`ファイルは、シード
+    ```bash
+    SEED99999999999999999999999999999999999999999999999999999999999999999999999999999
+    ```
+から派生した最初のアドレスに2.7PiのIOTAトークン総供給量を入れます。
 <!-- The `snapshot.example.txt` file puts the total IOTA supply of 2.7Pi in the first address that's derived from the following seed: -->
-このシードの最初のアドレス（インデックス0）は`FJHSSHBZTAKQNDTIKJYCZBOZDGSZANCZSWCNWUOCZXFADNOQSYAHEJPXRLOVPNOQFQXXGEGVDGICLMOXX`です（チェックサムを除く）。
+このシードの最初のアドレス（インデックス0）は
+    ```bash
+    FJHSSHBZTAKQNDTIKJYCZBOZDGSZANCZSWCNWUOCZXFADNOQSYAHEJPXRLOVPNOQFQXXGEGVDGICLMOXX
+    ```
+です（チェックサムを除く）。
 <!-- `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999`. The first address (index 0) of this seed is  `FJHSSHBZTAKQNDTIKJYCZBOZDGSZANCZSWCNWUOCZXFADNOQSYAHEJPXRLOVPNOQFQXXGEGVDGICLMOXX` (excluding the checksum). -->
 
 1. `snapshot.txt`ファイルを作成します。
@@ -276,7 +284,7 @@ IRIノードは、snapshot.txtファイルを使用して台帳の初期状態�
     ```
 
     :::warning:
-    2.7Piの総供給量を超えないでください。
+    2.7PiのIOTAトークン総供給量を超えないでください。
     :::
     <!-- :::warning: -->
     <!-- Do not exceed the maximum supply of 2.7Pi -->
@@ -304,7 +312,7 @@ IRIノードは、snapshot.txtファイルを使用して台帳の初期状態�
   <!-- 4. Press **Ctrl** + **C** in the command prompt. IRI will continue to run in the background. -->
 
 :::danger:重要
-コンパスが接続されているIRIノードが危険にさらされた場合、攻撃者はコンパスを操作して自身に有利な処置をさせる可能性があります。考えられるシナリオは次のとおりです。
+コンパスが接続しているIRIノードが危険にさらされた場合、攻撃者はコンパスを操作して自身に有利な処置をさせる可能性があります。考えられるシナリオは次のとおりです。
 - 通常のチップ選択アルゴリズムよりも攻撃者のトランザクションを優先するチップトランザクションを返します。
 - 台帳状態と競合するチップトランザクション（IOTAトークンの二重支出）を返すと、コンパスは矛盾するマイルストーンを送信します。 IRIノードはこのマイルストーンを受け入れず、これ以上トランザクションは確定されません。
 - マイルストーントランザクションの残りのネットワークへの伝達が停止し、それ以上トランザクションが確定されないようになります。
@@ -381,7 +389,11 @@ IRIノードは、snapshot.txtファイルを使用して台帳の初期状態�
 1. IRIノードに接続します。
   <!-- 1. Connect to your IRI node -->
 
-2. シードに`SEED99999999999999999999999999999999999999999999999999999999999999999999999999999`を入力します。
+2. シードに
+    ```bash
+    SEED99999999999999999999999999999999999999999999999999999999999999999999999999999
+    ```
+を入力します。
   <!-- 2. Enter the `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999` seed -->
 
 残高に2.7Pi（タングルに最初のアドレスを添付する必要があるかもしれません）が表示されるはずです。
