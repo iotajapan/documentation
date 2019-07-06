@@ -32,7 +32,7 @@
     ![Account name](../images/account-name.jpg)
 
 4. [シードをバックアップする](../how-to-guides/back-up-seed.md)オプションを選択してログインパスワードを入力します。トリニティにログインするたびにこのパスワードが必要になります。
-<!-- 4. Select an option to [back up your seed](../how-to-guides/back-up-seed.md) and enter a login password. You will need this password every time you log into Trinity. -->
+  <!-- 4. Select an option to [back up your seed](../how-to-guides/back-up-seed.md) and enter a login password. You will need this password every time you log into Trinity. -->
 
     :::info:
     [セキュリティ設定](../how-to-guides/manage-your-security-settings.md)で追加のアカウントセキュリティを追加することを選択できます。
