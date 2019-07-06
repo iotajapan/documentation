@@ -9,7 +9,7 @@
 
 * シードを保存して、シードにアクセスできる、パスワードで保護されたアカウントを作成します。
 <!-- * Create a password-protected account to store and access your seeds -->
-* 残高とトランザクション履歴を読み取ります。
+* 残高とトランザクション履歴を読み込みます。
 <!-- * Read your balance and transaction history -->
 * トランザクションを送受信します。
 <!-- * Send and receive transactions -->

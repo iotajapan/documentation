@@ -6,7 +6,7 @@
 [ハウツーガイド/アカウントを作成する](/how-to-guides/create-an-account.md)
 [ハウツーガイド/シードをバックアップする](/how-to-guides/back-up-seed.md)
 [ハウツーガイド/デスクトップ版のダウンロードを検証する](/how-to-guides/verify-trinity-desktop.md)
-[ハウツーガイド/残高を読む](/how-to-guides/read-your-balance.md)
+[ハウツーガイド/残高を読み込む](/how-to-guides/read-your-balance.md)
 [ハウツーガイド/トランザクションを送信する](/how-to-guides/send-a-transaction.md)
 [ハウツーガイド/トランザクションを受け取る](/how-to-guides/receive-a-transaction.md)
 [ハウツーガイド/QRコードを作成する](/how-to-guides/create-a-qr-code.md)
