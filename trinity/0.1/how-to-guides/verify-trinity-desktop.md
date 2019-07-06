@@ -4,7 +4,7 @@
 **トリニティデスクトップ版をダウンロードした時は、その信頼性を検証して、IOTA財団のGitHubリポジトリから正しいものをダウンロードしたことを確認することをお勧めします。**
 <!-- **When you download Trinity Desktop, you may want to verify its authenticity to make sure that you downloaded the correct one from the IOTA Foundation GitHub repository.** -->
 
-トリニティのデスクトップ版の信頼性を検証するために、SHA256ハッシュおよびコード署名を使用できます。これら2つの手順の説明は、オペレーティングシステムによって異なります。
+トリニティデスクトップ版の信頼性を検証するために、SHA256ハッシュおよびコード署名を使用できます。これら2つの手順の説明は、オペレーティングシステムによって異なります。
 <!-- To verify the authenticity of Trinity Desktop, you can use the SHA256 hash and code signature. Instructions for both of these steps differ, depending on your operating system. -->
 
 ## Windows
@@ -16,7 +16,7 @@
 1. コマンドプロンプトを開きます。
   <!-- 1. Open a command prompt -->
 
-2. トリニティデスクトップ版の`.exe`ファイルのSHA256ハッシュを作成します。パスをトリニティの`.exe`ファイルへのパスに置き換えます。
+2. トリニティデスクトップ版の`.exe`ファイルのSHA256ハッシュを計算します。パスをトリニティの`.exe`ファイルへのパスに置き換えます。
   <!-- 2. Create a SHA256 hash of the Trinity Desktop `.exe` file. Replace the path with the path to your Trinity `.exe` file. -->
 
     ```
@@ -45,9 +45,11 @@
 3. `Certification Path`タブで、次の情報がパスと一致することを確認します。
   <!-- 3. In the Certification Path tab, make sure that the the following information matches the path: -->
 
-    * DigiCert
-    * DigiCert SHA2 Assured Code Signing CA
-    * IOTA Stiftung
+    ```bash
+    DigiCert
+    DigiCert SHA2 Assured Code Signing CA
+    IOTA Stiftung
+    ```
 
 4. 証明書のステータスが「この証明書は問題ありません」となっていることを確認します。
   <!-- 4. Make sure that the Certificate status reads "This certificate is OK." -->
@@ -55,13 +57,13 @@
 ## MacOS
 <!-- ## MacOS operating system -->
 
-## SHA256ハッシュを検証する
+### SHA256ハッシュを検証する
 <!-- ### Verify the SHA256 hash -->
 
 1. ターミナルを開きます。（`/Applications/Utilities/Terminal`にあります）
   <!-- 1. Open Terminal (in `/Applications/Utilities/Terminal`) -->
 
-2. トリニティデスクトップ版の`.dmg`ファイルのSHA256ハッシュを作成します。パスをトリニティの`.dmg`ァイルへのパスに置き換えます。
+2. トリニティデスクトップ版の`.dmg`ファイルのSHA256ハッシュを計算します。パスをトリニティの`.dmg`ァイルへのパスに置き換えます。
   <!-- 2.  Create a SHA256 hash of the Trinity Desktop `.dmg` file. Replace the path with the path to your Trinity `.dmg` file. -->
 
   ```bash
@@ -128,12 +130,14 @@
     spctl -a -vv /Applications/Trinity.app
     ```
 
-5. 以下の情報がコマンドの出力と一致することを確認してください（トリニティが`/Applications`ディレクトリーにあると仮定して）。
+5. 以下の情報がコマンドの出力と一致することを確認してください（トリニティが`/Applications`ディレクトリーにあると仮定しています）。
   <!-- 5. Make sure that the following information matches the output of the command (assuming Trinity is in the `/Applications` directory): -->
 
-    * `/Applications/Trinity.app: accepted`
-    * `source=Developer ID`
-    * `origin=Developer ID Application: IOTA Stiftung (UG77RJKZHH)`
+    ```bash
+    /Applications/Trinity.app: accepted
+    source=Developer ID
+    origin=Developer ID Application: IOTA Stiftung (UG77RJKZHH)
+    ```
 
 
 ## Linux
@@ -151,7 +155,7 @@
 1. ターミナルを開きます。
   <!-- 1. Open Terminal -->
 
-2. トリニティのデスクトップ版の実行可能ファイルのSHA256ハッシュを作成します。パスをトリニティ実行可能ファイルへのパスに置き換えます。
+2. トリニティのデスクトップ版の実行可能ファイルのSHA256ハッシュを計算します。パスをトリニティ実行可能ファイルへのパスに置き換えます。
   <!-- 2. Create a SHA256 hash of the Trinity Desktop executable file. Replace the path with the path to your Trinity executable file. -->
 
   ```bash
