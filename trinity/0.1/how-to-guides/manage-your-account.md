@@ -44,7 +44,7 @@
 <!-- To view the addresses that you've generated, go to Account management, and click **View addresses**. -->
 
 :::info:
-アドレスの中心を通る赤い線は、そのアドレスからIOTAトークンが取り出されたことを意味します。トリニティは使用済みアドレスからIOTAトークンを取り出すことを止めさせます。そしてあなたは使用済みアドレスにIOTAトークンを絶対に預け入れてはいけません。その理由を知るために、[署名がどのように作成されるか](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)を学びましょう。
+アドレスの中心を通る赤い線は、そのアドレスからIOTAトークンが取り出されたことを意味します。トリニティは使用済みアドレスからIOTAトークンを取り出すことを止めさせます。そしてあなたは使用済みアドレスにIOTAトークンを**絶対に**預け入れてはいけません。その理由を知るために、[署名がどのように作成されるか](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)を学びましょう。
 :::
 <!-- :::info: -->
 <!-- A red line through the center of an address means that the address has been spent. Trinity stops you from withdrawing IOTA tokens from spent addresses, so you must never deposit IOTA tokens into them. To find out why, [learn how signatures are created](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). -->
@@ -56,7 +56,7 @@
 複数のアカウントを管理しやすくするために、それぞれに一意の名前を付けることができます。
 <!-- To make it easier to manage multiple accounts, you can give each of them a unique name. -->
 
-アカウントの名前を変更するには、**アカウント設定**に移動して**アカウント名**をクリックします。
+アカウント名を変更するには、**アカウント設定**に移動して**アカウント名**をクリックします。
 <!-- To change the name of an account, go to Account management, and click **Account name**. -->
 
 ## ログインパスワードを変更する
