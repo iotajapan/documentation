@@ -32,7 +32,7 @@
 バリュートランザクションを送信するときは、正しい秘密鍵を使用して作成された有効な署名が含まれている必要があります。
 <!-- When you send a value transaction, it must contain a valid signature that was created using the correct private key. -->
 
-バンドルはデバイス上で署名されています。秘密鍵がハードウェアウォレットを出ることは決してありません。故に攻撃者は秘密鍵がないのであなたのIOTAトークンを盗むことは不可能です。
+バンドルはデバイス上で署名されます。秘密鍵がハードウェアウォレットを出ることは決してありません。故に攻撃者は秘密鍵がないのであなたのIOTAトークンを盗むことは不可能です。
 <!-- Bundles are signed on the device. Private keys never leave a hardware wallet, so it's impossible for an attacker to steal your IOTA tokens without it. -->
 
 ## サポートしているハードウェアウォレット
