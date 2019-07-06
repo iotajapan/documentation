@@ -20,7 +20,7 @@
 モバイル端末のアカウント設定にアクセスするには、**設定** > **アカウント設定**に移動します。
 <!-- To access Account management on a mobile device, go to **Settings** > **Account management**. -->
 
-デスクトップでアカウント設定にアクセスするには、バーガーメニュー > **アカウント** > **アカウント設定**に移動します。
+デスクトップでアカウント設定にアクセスするには、**バーガーメニュー** > **アカウント** > **アカウント設定**に移動します。
 <!-- To access Account management on a desktop, go to the burger menu >  **Account** > **Account management**. -->
 
 ![Account management](../images/account-management-menu.png)

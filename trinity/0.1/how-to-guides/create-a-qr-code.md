@@ -4,7 +4,7 @@
 **送信者がアドレスなどの長いトランザクション情報を入力のを避けるために、トランザクションフィールドに自動入力できるQRコードを作成します。**
 <!-- **To avoid making senders enter lengthy transaction information such as your address, create a QR code that can auto-populate the transaction fields.** -->
 
-QRコードは、Address、Value、およびMessageの各フィールドに自動入力することで、トリニティでトランザクションを送信するプロセスをスピードアップします。送信者がQRコードをスキャンできるようにすることで、eコマースWebサイトなどの受信者は、顧客が購入を完了するのにかかる時間を短縮できます。
+QRコードは、アドレス、金額、およびメッセージの各フィールドに自動入力することで、トリニティでトランザクションを送信するプロセスをスピードアップします。送信者がQRコードをスキャンできるようにすることで、eコマースWebサイトなどの受信者は、顧客が購入を完了するのにかかる時間を短縮できます。
 <!-- QR codes speed up the process of sending a transaction in Trinity by auto-populating the Address, Value, and Message fields. By allowing senders to scan a QR code, recipients such as ecommerce websites can reduce the time it takes for customers to complete a purchase. -->
 
 :::info:
