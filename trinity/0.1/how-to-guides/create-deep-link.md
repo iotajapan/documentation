@@ -4,7 +4,7 @@
 **ディープリンクは、トリニティのトランザクションフィールドに自動入力されるカスタマイズ可能なリンクです。 Webサイトまたはeコマースプラットフォームにディープリンクを追加して、顧客にとってIOTA支払いをより迅速かつ容易にすることができます。**
 <!-- **Deep links are customizable links that auto-populate the transaction fields in Trinity. You can add deep links to your website or ecommerce platform to make IOTA payments quicker and easier for customers.** -->
 
-ディープリンクをクリックすると、トリニティが開き、リンクのパラメータを使用してトランザクションフィールドに自動入力されます。
+ディープリンクをクリックすると、トリニティが開き、リンクのパラメータを使用してトランザクションフィールドが自動入力されます。
 <!-- When you click a deep link, Trinity is opened and the parameters of the link are used to auto-populate the transaction fields. -->
 
 ディープリンクのパラメータを使用して、トランザクションのアドレス、金額、およびメッセージフィールドを指定できます。
