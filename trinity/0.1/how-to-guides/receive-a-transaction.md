@@ -16,7 +16,7 @@
 2. 新しいアドレスを生成するには、**アドレスを生成**をクリックします。
 <!-- 2. Click **Sync address** (**Generate address** on a mobile device) to generate a new address -->
 3. アドレスをコピーして送信者に渡すか、[QRコードを作成する](../how-to-guides/create-a-qr-code.md)か、または[ディープリンクを作成します](../how-to-guides/create-deep-link.md)。
-<!-- 3. Either copy the address and give it to the sender, [create a QR code](../how-to-guides/create-a-qr-code.md), or [create a deep link](../how-to-guides/create-deep-link.md). -->
+  <!-- 3. Either copy the address and give it to the sender, [create a QR code](../how-to-guides/create-a-qr-code.md), or [create a deep link](../how-to-guides/create-deep-link.md). -->
 
     :::danger:重要
     Androidデバイスでは、どのアプリケーションでもキーボードの押下の内容を読み取り、変更することができます。アドレスをトリニティに貼り付けるときは注意して、貼り付けたアドレスがコピーしたものと同じであることを確認してください。
