@@ -16,6 +16,6 @@
 [ハウツーガイド/セキュリティ設定を管理する](/how-to-guides/manage-your-security-settings.md)
 [ハウツーガイド/一般設定を変更する](/how-to-guides/change-the-general-settings.md)
 [ハウツーガイド/詳細設定を変更する](/how-to-guides/change-the-advanced-settings.md)
-[ハウツーガイド/スナップショットトランザクションを実行する](/how-to-guides/perform-a-snapshot-transition.md)
+[ハウツーガイド/スナップショット移行を実行する](/how-to-guides/perform-a-snapshot-transition.md)
 [ハウツーガイド/トリニティ上で機能を開発する](/how-to-guides/develop-features-on-trinity.md)
 [参考文献/トラブルシューティング](/references/troubleshooting.md)
