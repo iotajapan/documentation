@@ -8,7 +8,7 @@
 [ハウツーガイド/デスクトップ版のダウンロードを検証する](/how-to-guides/verify-trinity-desktop.md)
 [ハウツーガイド/残高を読み込む](/how-to-guides/read-your-balance.md)
 [ハウツーガイド/トランザクションを送信する](/how-to-guides/send-a-transaction.md)
-[ハウツーガイド/トランザクションを受け取る](/how-to-guides/receive-a-transaction.md)
+[ハウツーガイド/トランザクションを受取る](/how-to-guides/receive-a-transaction.md)
 [ハウツーガイド/QRコードを作成する](/how-to-guides/create-a-qr-code.md)
 [ハウツーガイド/ディープリンクを作成する](/how-to-guides/create-deep-link.md)
 [ハウツーガイド/カスタムノードに接続する](/how-to-guides/connect-to-a-custom-node.md)
