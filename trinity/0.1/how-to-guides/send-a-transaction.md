@@ -27,7 +27,7 @@
   <!-- On Android devices, any application can read the content of keyboard presses and modify it. Be careful when pasting an address into Trinity and make sure that the address you have pasted is the same one that you copied. -->
   <!-- ::: -->
 
-3. メッセージまたは一定量のIOTAトークン、あるいはその両方を入力してください。
+3. メッセージまたは一定量のIOTAトークン、あるいはその両方を入力します。
   <!-- 3. Enter either a message, or an amount of IOTA tokens, or both -->
 
     :::info:
@@ -40,7 +40,7 @@
     :::info:
     ハードウェアウォレットにリンクされているアカウントは、メッセージ付きのバリュートランザクションを送信できません。
 
-    ハードウェアウォレットを使用している場合は、IOTAトークンまたはメッセージを送信できますが、両方を送信することはできません。
+    ハードウェアウォレットを使用している場合は、IOTAトークンまたはメッセージの片方を送信できますが、両方を送信することはできません。
     :::
     <!-- :::info: -->
     <!-- Accounts that are linked to hardware wallets can't send value transactions with a message. -->
@@ -62,7 +62,7 @@
     <!-- If you minimize Trinity Mobile while sending a transaction, the sending process pauses until you reopen it. -->
     <!-- ::: -->
 
-トランザクションを受信または送信すると、それがホームページに表示されます。一覧からトランザクションをクリックして、トランザクションに関する情報を表示できます。
+トランザクションを受信または送信すると、トランザクションがホームページに表示されます。一覧からトランザクションをクリックして、トランザクションに関する情報を表示できます。
 <!-- When you either receive or send a transaction, it appears on the home page. Click a transaction from the list to view information about it. -->
 
 ![A received transaction](../images/trinity-receive-message.png)

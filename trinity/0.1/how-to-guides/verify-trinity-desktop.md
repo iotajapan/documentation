@@ -1,10 +1,10 @@
 # デスクトップ版のダウンロードを検証する
 <!-- # Verify your Trinity Desktop download -->
 
-**トリニティデスクトップ版をダウンロードした時は、その信頼性を検証して、IOTA財団のGitHubリポジトリから正しいものをダウンロードしたことを確認することをお勧めします。**
+**トリニティデスクトップをダウンロードした時は、その信頼性を検証して、IOTA財団のGitHubリポジトリから正しいものをダウンロードしたことを確認することをお勧めします。**
 <!-- **When you download Trinity Desktop, you may want to verify its authenticity to make sure that you downloaded the correct one from the IOTA Foundation GitHub repository.** -->
 
-トリニティデスクトップ版の信頼性を検証するために、SHA256ハッシュおよびコード署名を使用できます。これら2つの手順の説明は、オペレーティングシステムによって異なります。
+トリニティデスクトップの信頼性を検証するために、SHA256ハッシュおよびコード署名を使用できます。これら2つの手順の説明は、オペレーティングシステムによって異なります。
 <!-- To verify the authenticity of Trinity Desktop, you can use the SHA256 hash and code signature. Instructions for both of these steps differ, depending on your operating system. -->
 
 ## Windows
@@ -16,7 +16,7 @@
 1. コマンドプロンプトを開きます。
   <!-- 1. Open a command prompt -->
 
-2. トリニティデスクトップ版の`.exe`ファイルのSHA256ハッシュを計算します。パスをトリニティの`.exe`ファイルへのパスに置き換えます。
+2. トリニティデスクトップの`.exe`ファイルのSHA256ハッシュを計算します。パスをトリニティの`.exe`ファイルへのパスに置き換えます。
   <!-- 2. Create a SHA256 hash of the Trinity Desktop `.exe` file. Replace the path with the path to your Trinity `.exe` file. -->
 
     ```
@@ -63,7 +63,7 @@
 1. ターミナルを開きます。（`/Applications/Utilities/Terminal`にあります）
   <!-- 1. Open Terminal (in `/Applications/Utilities/Terminal`) -->
 
-2. トリニティデスクトップ版の`.dmg`ファイルのSHA256ハッシュを計算します。パスをトリニティの`.dmg`ァイルへのパスに置き換えます。
+2. トリニティデスクトップの`.dmg`ファイルのSHA256ハッシュを計算します。パスをトリニティの`.dmg`ァイルへのパスに置き換えます。
   <!-- 2.  Create a SHA256 hash of the Trinity Desktop `.dmg` file. Replace the path with the path to your Trinity `.dmg` file. -->
 
   ```bash
@@ -155,7 +155,7 @@
 1. ターミナルを開きます。
   <!-- 1. Open Terminal -->
 
-2. トリニティのデスクトップ版の実行可能ファイルのSHA256ハッシュを計算します。パスをトリニティ実行可能ファイルへのパスに置き換えます。
+2. トリニティデスクトップの実行可能ファイルのSHA256ハッシュを計算します。パスをトリニティ実行可能ファイルへのパスに置き換えます。
   <!-- 2. Create a SHA256 hash of the Trinity Desktop executable file. Replace the path with the path to your Trinity executable file. -->
 
   ```bash
