@@ -6,7 +6,7 @@
 
 :::info:
 トリニティのすべてのノードはHTTPSプロトコルを使用する必要があります。
-::
+:::
 <!-- :::info: -->
 <!-- All nodes in Trinity must use the HTTPS protocol. -->
 <!-- ::: -->
@@ -16,7 +16,7 @@
 ## カスタムノードに接続する
 <!-- ## Connect to custom nodes -->
 
-単一のカスタムノードに接続するだけでなく、複数のカスタムノードを追加してそれらをノード定足数として使用することもできます。このようにして、あなたはトリニティが使う内蔵のリモートノードリストを使うことに制限されません。
+単一のカスタムノードに接続するだけでなく、複数のカスタムノードを追加してそれらをノード定足数として使用することもできます。このようにして、内蔵のリモートノードリストを使うことに制限されません。
 <!-- As well as connecting to a single custom node, you can also add multiple custom nodes and use them as a node quorum. This way, you aren't restricted to using the built-in remote list of nodes that Trinity uses. -->
 
 1. **設定** > **ノード** > **カスタムノードの追加**に移動し、追加するノードのURLまたはIPアドレスを入力します
@@ -29,14 +29,14 @@
     <!-- To connect to a quorum of custom nodes, add more than one. -->
     <!-- ::: -->
 
-2. 自動ノード管理オプションを無効にします。
+2. **自動でノード管理を行う**オプションを無効にします。
   <!-- 2. Disable the **Automatic node management** option -->
 
 3. **主要ノードの自動切替え**オプションを無効にします。
   <!-- 3. Disable the **Primary node autoswitching** option -->
 
     :::warning:
-    このオプションを有効にすると、主要ノードがオフラインになった場合に、トリニティのデフォルトのリストとは異なるノードに切り替わります。
+    このオプションを有効にすると、主要ノードがオフラインになった場合に、トリニティのリストのデフォルトノードとは異なるノードに切り替わります。
 
     カスタムノードがオフラインになると、トリニティはどのノードにも接続できず、表示されている情報を更新することができなくなります。
     :::
@@ -46,10 +46,10 @@
     <!-- If your node goes offline, Trinity won't be able to connect to any nodes to update the information it displays. -->
     <!-- ::: -->
 
-4. ドロップダウンメニューから自分のノードを選択します。
+4. ドロップダウンメニューからカスタムノードを選択します。
   <!-- 4. Select your node from the dropdown menu -->
 
-    :::warinig:Devnetノード
+    :::warnig:Devnetノード
     カスタムノードがDevnetノードの場合は、**リモートノードリストを使う**および**主要ノードの自動切替え**オプションも無効にする必要があります。リモートノードリストのノードはMainnetノードなので、Devnetと互換性がありません。
     :::
     <!-- :::warning:Devnet nodes -->
