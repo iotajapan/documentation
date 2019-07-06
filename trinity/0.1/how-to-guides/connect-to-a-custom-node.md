@@ -49,7 +49,7 @@
 4. ドロップダウンメニューからカスタムノードを選択します。
   <!-- 4. Select your node from the dropdown menu -->
 
-    :::warnig:Devnetノード
+    :::warning:Devnetノード
     カスタムノードがDevnetノードの場合は、**リモートノードリストを使う**および**主要ノードの自動切替え**オプションも無効にする必要があります。リモートノードリストのノードはMainnetノードなので、Devnetと互換性がありません。
     :::
     <!-- :::warning:Devnet nodes -->
