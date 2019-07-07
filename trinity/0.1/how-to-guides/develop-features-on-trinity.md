@@ -1,7 +1,7 @@
 # トリニティ上で機能を開発する
 <!-- # Develop features on Trinity -->
 
-**アプリケーションと同様に、トリニティは新しい機能を開発できるオープンソースのプラットフォームです。**
+**他のアプリケーションと同様に、トリニティは新しい機能を開発できるオープンソースのプラットフォームです。**
 <!-- **As well as an application, Trinity is an open-source platform on which you can develop new features.** -->
 
 トリニティ開発を始めるには、次のようにします。
@@ -25,7 +25,7 @@
 ## 前提条件
 <!-- ## Prerequisites -->
 
-トリニティで開発するには、コンピューターに以下のものが必要です。
+トリニティで開発するには、コンピュータに以下のものが必要です。
 <!-- To develop on Trinity, your computer must have the following: -->
 * [Node.jsのLTS版](https://nodejs.org/en/)（バージョン10.15.3を推奨）
 <!-- * [An LTS version of Node.js](https://nodejs.org/en/) (we recommend version 10.15.3) -->
@@ -88,17 +88,14 @@ yum install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev libusbx-de
 ---
 ### Windows Vista and Windows 7
 1. [.NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=4077)をインストールします。
-  <!-- 1. [Install the .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=4077) -->
 
 2. Visual C++ ビルドツールとPython 2.7をインストールします。
-  <!-- 2. Install Visual C++ build tools and Python 2.7 -->
 
     ```bash
     npm install --global windows-build-tools
     ```
 
 3. OpenSSL VC++ 静的64ビットライブラリをインストールします。
-  <!-- 3. Install OpenSSL VC++ Static 64bit Library -->
 
     ```bash
     git clone https://github.com/Microsoft/vcpkg C:\src\vcpkg
@@ -109,14 +106,12 @@ yum install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev libusbx-de
 ---
 ### Other Windows versions
 1. Visual C++ ビルドツールとPython 2.7をインストールします。
-  <!-- 1. Install Visual C++ Build Tools and Python 2.7 -->
 
     ```bash
     npm install --global windows-build-tools
     ```
 
 2. OpenSSL VC++ 静的64ビットライブラリをインストールします。
-  <!-- 2. Install OpenSSL VC++ Static 64bit Library -->
 
     ```bash
     git clone https://github.com/Microsoft/vcpkg C:\src\vcpkg
@@ -180,7 +175,7 @@ yum install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev libusbx-de
 ## モバイル開発環境をインストールする
 <!-- ## Install the mobile development environment -->
 
-1. [React Nativeの依存関係をインストールする](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies-2)。
+1. [React Nativeの依存関係をインストールします](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies-2)。
   <!-- 1. [Install the React Native dependencies](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies-2) -->
 
     :::info:
@@ -213,21 +208,18 @@ yum install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev libusbx-de
 --------------------
 ### iOS
 1. CocoaPodsで追加の依存関係をインストールします。
-  <!-- 1. Install the additional dependencies with CocoaPods -->
 
     ```bash
     cd ios && pod install && cd ..
     ```
 
 2. トリニティを実行します。
-  <!-- 2. Run Trinity -->
 
     ```bash
     yarn ios:dev
     ```
 
 3. ロガーを実行します。
-  <!-- 3. Run the logger -->
 
     ```bash
     yarn log:ios
@@ -235,14 +227,12 @@ yum install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev libusbx-de
 ---
 ### Android
 1. アプリケーションを実行します。
-  <!-- 1. Run the application -->
 
     ```bash
     yarn android:dev
     ```
 
 2. ロガーを実行します。
-  <!-- 2. Run the logger -->
 
     ```bash
     yarn log:android
@@ -281,16 +271,16 @@ yum install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev libusbx-de
 2. 作成するテーマに合わせて色の値を変更してファイルを保存します。
 <!-- 2. Change the color values to suit your theme and save the file -->
 
-3. `themes.js`ファイルで、作成したテーマをインポートして`themes`定数に追加します。
+3. `themes.js`ファイル内で、作成したテーマをインポートして`themes`定数に追加します。
 <!-- 3. In the `themes.js` file, import your theme and add it to the `themes` constant -->
 
-4. `src/shared/locales/en/translation.json`に移動し、作成したテーマの名前を`themes`オブジェクトに追加します。このステップを見逃した場合、作成したテーマの名前はTrinityでは正しくありません。
+4. `src/shared/locales/en/translation.json`に移動し、作成したテーマの名前を`themes`オブジェクトに追加します。このステップを見逃した場合、作成したテーマの名前はトリニティでは正しくありません。
 <!-- 4. Go to `src/shared/locales/en/translation.json`, and add the name of your theme to the `themes` object. If you miss this step, the name of your theme will not be correct in Trinity. -->
 
 ### 新しい文字列をローカライズする
 <!-- ### Localize new strings -->
 
-テキストの追加または変更を含む貢献をしている場合は、これらのローカライズ指示に従ってください。
+テキストの追加または変更を含む貢献をする場合は、以下のローカライズ指示に従ってください。
 <!-- If you are making a contribution that includes adding or changing text, follow these localization instructions. -->
 
 1. `translate`高階コンポーネント（HOC）をインポートします。
