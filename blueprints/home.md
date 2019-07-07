@@ -1,16 +1,16 @@
-# Application blueprints are documents that explain how the IOTA technology can be used to solve real-world problems and to support well-defined business needs.
+# アプリケーション設計図は、実際の問題を解決し、明確に定義されたビジネスニーズをサポートするためにIOTAの技術をどのように使用できるかを説明したドキュメントです。
 
-[Data Marketplace](/0.1/data-marketplace/overview.md)
-## Learn how to buy and sell data through MAM channels on the Tangle
+[データマーケットプレイス](/0.1/data-marketplace/overview.md)
+## タングルのMAMチャンネルを通じてデータを売買する方法を学びます。
 
-[Document immutability](/0.1/doc-immutability/overview.md)
-## Learn how to use IOTA to verify that a document has not been modified
+[ドキュメントの不変性](/0.1/doc-immutability/overview.md)
+## IOTAを使用してドキュメントが変更されていないことを確認する方法を学びます。
 
-[Peer-to-peer energy grid](/0.1/p2p-energy/overview.md)
-## Learn how to buy and sell energy through MAM channels on the Tangle
+[P2Pエネルギーグリッド](/0.1/p2p-energy/overview.md)
+## タングルのMAMチャンネルを通してエネルギーを売買する方法を学びます。
 
-[Tangle data storage](/0.1/tangle-data-storage/overview.md)
-## Learn how to use IOTA to store an immutable record of events
+[タングルデータストレージ](/0.1/tangle-data-storage/overview.md)
+## IOTAを使用してイベントのイミュータブルな記録を保管する方法を学びます。
 
-[Track and trace](/0.1/track-and-trace/overview.md)
-## Learn how to use IOTA to track and trace assets in the supply chain
+[トラック&トレース](/0.1/track-and-trace/overview.md)
+## IOTAを使用してサプライチェーン内の資産をトラック&トレースする方法を学びます。
