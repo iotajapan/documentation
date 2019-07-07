@@ -7,7 +7,7 @@
 ## 不正確な残高
 <!-- ## Incorrect balance -->
 
-トリニティがノードに接続できない場合は、ネットワーク上の古いトランザクションのビューが表示されるかもしれません。このビューは、トリニティに誤った残高を表示させる可能性があります。
+トリニティがノードに接続できない場合は、ネットワーク上の古いトランザクションの情報が表示されるかもしれません。この情報は、トリニティに誤った残高を表示させる可能性があります。
 <!-- If Trinity can't connect to an node, it may have an outdated view of transactions on the network. This view can cause Trinity to display an incorrect balance. -->
 
 この問題を解決するために、トリニティは生成されたアドレスのリストを保持します。そのためこのリストを使って手動で再同期することができます。
@@ -42,12 +42,12 @@
 
 * セキュリティ上の理由から、IOTAアドレスからはIOTAトークンを一度だけしか取り出してはいけません。すでにIOTAトークンが取り出されたアドレスに資金がある場合、トリニティはあなたの資金を保護するためにそのアドレスからの取り出しを中止します。
 <!-- * For security reasons IOTA addresses should be withdrawn from only once. If you have funds on an address that has already been withdrawn from, Trinity stops you withdrawing from that address to protect your funds. -->
-* 送信先アドレスが以前に取り出されている場合、トリニティは資金を保護するためにそのアドレスに送信するのを防ぎます。この場合は、受信者に新しいアドレスを尋ねてください。
+* 送信先アドレスが以前に取り出された状態である場合、トリニティは資金を保護するためにそのアドレスに送信するのを防ぎます。この場合は、受信者に新しいアドレスを尋ねてください。
 <!-- * If the address you are sending to has been withdrawn from before, Trinity will prevent you sending to that address to protect the funds. In this case, ask your recipient for a new address. -->
-* 複数のトランザクションを作る場合は、最初のトランザクションが確定されるのを待ってから別のトランザクションを作る必要があります。
+* 複数のトランザクションを作る場合は、最初のトランザクションが確定されるのを待ってから、別のトランザクションを作る必要があります。
 <!-- * If you are making multiple transactions, you may need to wait for your first transaction to be confirmed before making another transaction -->
 
-さらなる支援が必要な場合は、公式のIOTA [Discord](https://discord.iota.org)の#helpチャンネルで私たちに連絡を取ってください。
+さらなる支援が必要な場合は、公式のIOTA [Discord](https://discord.iota.org)の#helpチャンネルでIOTA財団のメンバーに連絡を取ってください。
 <!-- Please get in touch with us on the #help channel in the official IOTA Discord for further help. -->
 
 ## デバイスを紛失した
