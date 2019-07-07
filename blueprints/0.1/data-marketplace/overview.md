@@ -1,7 +1,7 @@
 # データマーケットプレイス
 <!-- # Data Marketplace overview -->
 
-**データサイロでは、異なるデータポイント間でデータを売買することは困難です。この課題を克服するために、データマーケットプレイスはIOTA Masked Authenticated Messaging（MAM）チャネルを使用してデータサイロを開き、ユーザーがデータと引き換えにIOTAトークンのマイクロペイメントをデータ所有者に支払うことを許可します。**
+**データサイロでは、異なるデータポイント間でデータを売買することは困難です。この課題を克服するために、データマーケットプレイスはIOTAマスク認証メッセージング（Masked Authenticated Messaging（MAM））チャネルを使用してデータサイロを開き、ユーザーがデータと引き換えにIOTAトークンのマイクロペイメントをデータ所有者に支払うことを許可します。**
 <!-- **Data silos make it difficult to buy and sell data among different data points. To overcome this challenge, the Data Marketplace uses IOTA masked authenticated messaging (MAM) channels to open up the data silos and allow users to make micropayments of IOTA tokens to the data owners in exchange for data.** -->
 
 データは機械経済とコネクテッドワールドの最も基本的な要素の1つです。それはデータ - 情報 - 知識 - 知恵[（DIKW）ピラミッド](https://en.wikipedia.org/wiki/DIKW_pyramid)の基礎です。
@@ -62,7 +62,7 @@ IOTA財団は非営利団体としてオープンソース技術を生み出し�
 データマーケットプレイスの成長は、IoT（Internet of Things）革命の避けられない結果です。船舶、工場、自動車、農場、建物などの物理的資産がデジタル化するにつれて、それらのデジタルツインは徐々に安全なデータ交換として機能するようになります。
 <!-- The growth of data marketplaces is an inevitable result of the IoT (Internet of Things) revolution. As physical assets such as ships, factories, vehicles, farms or buildings become digital, their digital twins will gradually act as secure data exchanges. -->
 
-データストリームがサイロを超えて急増し、組織全体に価値をもたらすにつれて、従来のバリューチェーンは価値のあるウェブに移行します。このパラダイムは、管理がより複雑になり、ビジネスにこれらのエコシステムの一部としての競争力を再考させることを余儀なくさせます。データマーケットプレイスは、データを交換し、データストリームを収益化し、新しいスマートビジネスモデルの基盤を提供する手段として出現するでしょう。IOTA財団は、モノのインターネットのための、この新しい価値創造の波をモノの経済と呼びます。
+データストリームがサイロを超えて急増し、組織全体に価値をもたらすにつれて、従来のバリューチェーンは価値のあるウェブに移行します。このパラダイムは、管理がより複雑になり、ビジネスにこれらのエコシステムの一部としての競争力を再考することを余儀なくします。データマーケットプレイスは、データを交換し、データストリームを収益化し、新しいスマートビジネスモデルの基盤を提供する手段として出現するでしょう。IOTA財団は、モノのインターネットのための、この新しい価値創造の波をモノの経済と呼びます。
 <!-- As data streams surge across silos and carry value across organisations, traditional value chains will transition into a web of value. This paradigm will be more complex to administer, forcing business to rethink their competitive play as part of these ecosystems. Data marketplaces will emerge as a means to exchange data, monetise data streams and provide the basis of new smart business models. We refer to this new wave of value creation, for the Internet of Everything, as the Economy of Things. -->
 
 :::info:
@@ -121,7 +121,7 @@ iota.jsクライアントライブラリを使ってトランザクションを�
 #### MAMの説明 ####
 [Link](https://blog.iota.org/introducing-masked-authenticated-messaging-e55c1822d50e)
 
-Masked Authenticated Messagingは、タングルを介して暗号化されたデータストリームへのアクセスを公開および制御する機能を追加するセカンドレイヤーのデータ通信プロトコルです。MAMの機能の詳細についてはこちらをご覧ください。
+マスク認証メッセージングは、タングルを介して暗号化されたデータストリームへのアクセスを公開および制御する機能を追加するセカンドレイヤーのデータ通信プロトコルです。MAMの機能の詳細についてはこちらをご覧ください。
 ---
 #### MAMのGitHubリポジトリ ####
 [Link](https://github.com/iotaledger/mam.client.js)
