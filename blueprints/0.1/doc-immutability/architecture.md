@@ -30,7 +30,7 @@
 ### ファイルストレージ
 <!-- ### File storage -->
 
-ドキュメントを保存するためのデータベースです。ユーザーやサードパーティが保守することができます（Googleドライブ、D2ropboxなど）。通常は拡張性と開発のスピードが速いため、サービスとして提供するほうがよいでしょう。
+ドキュメントを保存するためのデータベースです。ユーザーやサードパーティが保守することができます（Googleドライブ、Dropboxなど）。通常は拡張性と開発のスピードが速いため、サービスとして提供するほうがよいでしょう。
 <!-- A database for storing documents, it can be either maintained by the user or a third party provided as a service like (Google drive, D2ropbox etc..), usually for scalability and faster development reasons, better to have it as a service. -->
 
 ### データーベース
@@ -50,9 +50,9 @@
 ### タングル
 <!-- ### The Tangle -->
 
-タングルはIOTAエコシステムの技術的実現の鍵です。このPoCの範囲では、タングルはすべてのドキュメント署名を保持して公開し、その不変性をチェックするための真の情報源として使用します。タングルを使用するには、IRIノードに接続する必要があります。IRIノードからデータが拡散され、他のノードに複製されます。
+タングルはIOTAエコシステムの技術的実現の鍵です。このPoCの範囲では、タングルはすべてのドキュメント署名を保持して公開し、ドキュメントの不変性をチェックするための真の情報源として使用します。タングルを使用するには、IRIノードに接続する必要があります。IRIノードからデータが拡散され、他のノードに複製されます。
 <!-- The Tangle is the technology enabler for IOTA ecosystem, in this PoC scope, we are going to use it as a source of truth to hold and expose all the document signatures to check their immutability. -->
-In order to use the Tangle you have to connect an IRI node, from there your data is spread and duplicated into other nodes.
+<!-- In order to use the Tangle you have to connect an IRI node, from there your data is spread and duplicated into other nodes. -->
 
 ## 前提条件
 <!-- ## Prerequisites -->
@@ -64,7 +64,7 @@ In order to use the Tangle you have to connect an IRI node, from there your data
 - ソフトウェア
   <!-- - Software -->
     - Node.js 8+
-    - サポートしているブラウザ（Chrome、Firefox）
+    - サポートされているブラウザ（Chrome、Firefox）
     <!-- - Any supported Browser (Chrome, Firefox) -->
     - IOTA.js
     - GoogleドライブやDropboxのようなストレージサービス
@@ -83,7 +83,7 @@ In order to use the Tangle you have to connect an IRI node, from there your data
   <!-- - IOTA knowledge -->
   - 中級程度のJavaScriptの知識
   <!-- - Intermediate Javascript knowledge -->
-  - IOTA.JSを使用してメタデータを含むトランザクションを送信方法を理解する
+  - IOTA.JSを使用してメタデータを含むトランザクションの送信方法を理解する
   <!-- - Understanding how to send Transaction with Metadata using IOTA.JS -->
 - パートナーの知識
   <!-- - Partner knowledge -->
@@ -124,19 +124,19 @@ In order to use the Tangle you have to connect an IRI node, from there your data
 ### 1 - ドキュメントハッシュ化
 <!-- ### 1 - Document hashing -->
 
-ドキュメントハッシュ化はドキュメントのハッシュ値を生成する重要なステップです。このハッシュ値は永続化メタデータステップで使用されます。
+ドキュメントハッシュ化はドキュメントのハッシュ値を生成する重要なステップです。このハッシュ値はメタデータの永続化ステップで使用されます。
 <!-- Document hashing is a crucial step where we generate document Hash, this Hash will be used in the persistence metadata step. -->
 
 ### 2 - ストレージ
 <!-- ### 2 - Storage -->
 
-選択したサービスの1つにドキュメントを保存し、後で検証を行うときにドキュメントを再度取得するためのURLを取得したことを確認します。
+選択したサービスの1つにドキュメントを保存し、後で検証を行うときにドキュメントを再度取得するためのURLを取得できたことを確認します。
 <!-- We store the document in one of the chosen services and make sure we got a URL for it to get the document back again later when doing verification. -->
 
 ### 3 - ドキュメントIDを取得する
 <!-- ### 3 - Get Document ID -->
 
-通常、外部ファイルストレージを使用している場合、アップロード後に、後でファイルを取得するために、別の場所に保存できるドキュメントIDを取得します。
+通常、外部ファイルストレージを使用している場合、アップロード後に、後でファイルを取得するための、別の場所に保存できるドキュメントIDを取得します。
 <!-- Usually when using an external file storage, after the upload we get a Document ID where we can save somewhere else to retrieve the file later. -->
 
 ### 4 - タングルにハッシュ値を公開する
@@ -163,7 +163,7 @@ In order to use the Tangle you have to connect an IRI node, from there your data
 ### 1 - ID/ルート（トランザクションハッシュ）を取得する
 <!-- ### 1 - Get ID/ROOT(TX Hash) -->
 
-最初のステップは署名されたドキュメントの保存されたメタデータを問い合わせることです。それは本質的にトランザクションハッシュとドキュメントIDを含みます、レスポンスリターンは少なくともこれらのプロパティを含むべきです：
+最初のステップは署名されたドキュメントの保存されたメタデータを問い合わせることです。メタデータは基本的にトランザクションハッシュとドキュメントIDを含みます。レスポンスリターンは少なくともこの2つのプロパティを含むべきです：
 <!-- The first step would be that we query the saved metadata of the signed document, it contains essentially the TX Hash and the document ID, the response return should at least contain these properties: -->
 
 <!-- The first step would be that we query the saved metadata of the signed document, it contains essentially the TX Hash and the document ID, the response return should at least contain these properties: -->
@@ -178,13 +178,13 @@ In order to use the Tangle you have to connect an IRI node, from there your data
 ### 2 - ドキュメントをダウンロードする
 <!-- ### 2 - Download the Document -->
 
-以前に問い合わせたURLから、ドキュメントストレージからファイルをダウンロードします。
+以前に問い合わせたURLのドキュメントストレージからファイルをダウンロードします。
 <!-- From the previous queried URL we download the file from the document storage -->
 
 ### 3 - タングルからフェッチする
 <!-- ### 3 - Fetch from Tangle -->
 
-それからタングルからハッシュ値を取得します。レスポンスは以下に類似したものになるでしょう：
+そしてタングルからハッシュ値を取得します。レスポンスは以下に類似したものになるでしょう：
 <!-- Then we fetch the Hash from the Tangle, the response will be something similar to this: -->
 
 ```json
@@ -193,13 +193,13 @@ In order to use the Tangle you have to connect an IRI node, from there your data
 }
 ```
 
-これは、最小限のデータをタングルに格納するように考慮した為です。必要に応じてさらに多くのデータを格納するのはユーザー次第です。
+これは、最小限のデータをタングルに格納するように考慮した結果です。必要に応じてさらに多くのデータを格納するのはユーザー次第です。
 <!-- This is can be considered as minimal data can be stored in the tangle, but it's up to the user to store even more data if needed. -->
 
-### 4 - 再びハッシュ値を計算する
+### 4 - 再度ハッシュ値を計算する
 <!-- ### 4 - Calculate the hash again -->
 
-ドキュメントをダウンロードしたら、確定的な結果を保証するために、最初に行ったのとまったく同じ方法で（同じハッシュアルゴリズムを使用して）ドキュメントのハッシュ値を計算します。同じハッシュ方法を使用して同じハッシュ値が生成されるはずであるため、最初の保存以降にドキュメントが変更されていないと判断できます。
+ドキュメントをダウンロードしたら、確定的な結果を保証するために、最初に行ったのとまったく同じ方法で（同じハッシュアルゴリズムを使用して）ドキュメントのハッシュ値を計算します。同じハッシュ方法を使用して同じハッシュ値が生成されると、最初の保存以降にドキュメントが変更されていないと判断できます。
 <!-- Once the document is downloaded we calculate the hash of it using the exact same way we did it the first time (using the same hashing algorithm) to ensure deterministic results. -->
 <!-- Let’s suppose that our document hasn’t changed since our first storage, using the same hash method should produce the same hash: -->
 
@@ -210,7 +210,7 @@ In order to use the Tangle you have to connect an IRI node, from there your data
 ### 5 - ハッシュ値を比較する
 <!-- ### 5 - Compare hashes -->
 
-両方のハッシュ（タングルから取得したハッシュ値と再度計算したハッシュ値）が一致するので、ドキュメントを有効なものとして安全にスタンプできます。
+両方のハッシュ値（タングルから取得したハッシュ値と再度計算したハッシュ値）が一致するので、ドキュメントを有効なものとして安全にスタンプできます。
 <!-- Since the both hashes (the one fetched from Tangle and the calculated one) matches we can safely stamp the document as valid. -->
 
 ## ハッシュアルゴリズム
@@ -275,7 +275,7 @@ In order to use the Tangle you have to connect an IRI node, from there your data
 <!-- 3. Fetch the saved hash in the tangle -->
 4. ドキュメントのハッシュ値をもう一度計算する。
 <!-- 4. Calculate the document hash again -->
-5. 保存したハッシュ値と新しく計算したハッシ値ュを比較する。
+5. 保存したハッシュ値と新しく計算したハッシュ値を比較する。
 <!-- 5. Compare the saved hash with the newly calculated one. -->
 
 ![Document hashing](../images/document-immutability-verification2.png)
