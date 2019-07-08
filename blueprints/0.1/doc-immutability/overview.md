@@ -56,7 +56,7 @@
 #### 存在証明のnpmライブラリ ####
 [Link](https://www.npmjs.com/package/@iota/poex-tool)
 
-存在の証明シナリオに使用できるライブラリ。存在証明アプリケーションに使用されます。
+存在証明のシナリオに使用できるライブラリ。存在証明アプリケーションに使用されます。
 <!-- A library that can be used for proof of existence scenarios. Used for the proof of existence application. -->
 ---
 ---------------
