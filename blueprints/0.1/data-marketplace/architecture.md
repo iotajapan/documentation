@@ -5,18 +5,18 @@
 <!-- **The Data Marketplace application uses sensors, a cloud backend, and the IOTA Tangle to publish data to MAM channels.** -->
 
 :::warning:免責事項
-人間の努力のように、オープンソースプロジェクトを実行することは、不確実性とトレードオフを伴います。以下に説明するアーキテクチャが、同様のシステムを展開するのに役立つことを願っていますが、間違いが含まれている可能性があり、すべての状況に対処することはできません。あなたのプロジェクトについて何か質問があれば、私たちはあなたがあなた自身の研究をし、専門家を探し、そしてIOTAコミュニティとそれらを話し合うことを奨励します。
+人間の努力のように、オープンソースプロジェクトを実行することは、不確実性とトレードオフを伴います。以下に説明するアーキテクチャが、同様のシステムを展開するのに役立つことを願っていますが、間違いが含まれている可能性があり、すべての状況に対処することはできません。あなたのプロジェクトについて何か質問があれば、IOTA財団はあなたがあなた自身の研究をし、専門家を探し、そしてIOTAコミュニティとそれらを話し合うことを奨励します。
 :::
 <!-- :::warning:Disclaimer -->
 <!-- Running an open source project, like any human endeavor, involves uncertainty and trade-offs. We hope the architecture described below helps you to deploy similar systems, but it may include mistakes, and can’t address every situation. If you have any questions about your project, we encourage you to do your own research, seek out experts, and discuss them with the IOTA community. -->
 <!-- ::: -->
 
-私たちのPoCのアーキテクチャー（下の画像）は、センサーまたはその他のデバイス、クラウドバックエンド、および分散型台帳（DLT）が相互接続されているというパターンに従います。
+PoCのアーキテクチャー（下の画像）は、センサーまたはその他のデバイス、クラウドバックエンド、および分散型台帳（DLT）が相互接続されているというパターンに従います。
 <!-- The architecture of our PoC (shown in the image below) follows a pattern, where the sensor or any other device, cloud backend, and distributed ledger (DLT) are interconnected. -->
 
 ![Data Marketplace architecture](../images/data-marketplace-architecture.png)
 
-データマーケットプレイスへのセンサーデータの送信は、組み込みデバイスで実行できる軽量の操作を目的としています。センサーデータを送信するには、デバイスはMAMチャネルの作成と使用、Web APIとの通信などのタングルオペレーションを実行する必要があります。アプリケーションのデータ消費部分はより複雑であり、デバイスのデータストリームへのアクセスと引き換えにIOTAトークンを転送する機能が必要です。そのため、アクセス権管理アドオンが実装されています。
+データマーケットプレイスへのセンサーデータの送信は、組み込みデバイスで実行できる軽量の操作を目的としています。センサーデータを送信するには、デバイスはMAMチャネルの作成と使用、Web APIとの通信などのタングル操作を実行する必要があります。アプリケーションのデータ消費部分はより複雑であり、デバイスのデータストリームへのアクセスと引き換えにIOTAトークンを転送する機能が必要です。そのため、アクセス権管理アドオンが実装されています。
 <!-- Submitting sensor data to the Data Marketplace is intended to be a lightweight operation that can be done by embedded devices. To submit sensor data, a device needs to perform Tangle operations, such as producing and consuming MAM channels, and communicating with web APIs. The data consuming part of the application is more complex and needs the ability to transfer IOTA tokens in exchange for access to the device's data streams. Therefore, an access-rights management add-on is implemented. -->
 
 この表には、アプリケーションのすべての主要コンポーネントの一覧が表示されています。
@@ -36,7 +36,7 @@
 アプリケーションのクラウド部分は集中管理されています。 Google Cloud Platform上で動作し、オプションでAmazon AWSまたはMicrosoft Azure上で実行できます。
 <!-- The cloud part of the application is centralized. It runs on Google Cloud Platform, and can optionally run on Amazon AWS or Microsoft Azure. -->
 
-中央集権型クラウドバックエンドは、次のコンポーネントで構成されています。
+集中管理型クラウドバックエンドは、次のコンポーネントで構成されています。
 <!-- The centralized cloud backend consists of the following components: -->
 
 - ユーザー認証（GoogleアカウントでのOAuth）
@@ -49,7 +49,7 @@
 <!-- - Device management (create/read/delete) -->
 - ウォレット管理（ウォレット資金、トークン転送）
 <!-- - Wallet management (wallet funding, tokens transfer) -->
-- デバイスストリーム購入追跡
+- デバイスストリームの購入追跡
 <!-- - Device stream purchase tracking -->
 - エラー追跡と報告
 <!-- - Error tracking and reporting -->
@@ -62,7 +62,7 @@
 
 * 通常、IOTA DevnetノードとMainnetノードでは異なる、`depth`フィールドと[`最小重量値`](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)フィールド。
 <!-- * `depth` and [`minWeightMagnitude`](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) fields, which are typically different for IOTA Devnet and Mainnet nodes -->
-* 事前定義された電子メールアドレスを持つ管理者ユーザーがデバイスを管理することを許可しているホワイトリストページ。
+* 事前定義された電子メールアドレスを持つ管理者ユーザーが、デバイスを管理することを許可しているホワイトリストページ。
 <!-- * Whitelist page, where administrator users with predefined email addresses are allowed to administer devices -->
 
 ## センサーとデータ
