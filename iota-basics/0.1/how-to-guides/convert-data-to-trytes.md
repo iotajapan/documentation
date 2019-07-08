@@ -1,5 +1,5 @@
-# データをトライトに変換する
-<!-- # Convert data to trytes -->
+# データをトライトへ/から変換する
+<!-- # Convert data to/from trytes -->
 
 **トランザクションフィールドの値は、トライトで表現する必要があります。データ変換を容易にするために、IOTAクライアントライブラリには、トライト、トリット、およびASCII文字との間でデータを変換するための組み込みコンバータがあります。**
 <!-- **The values of transaction fields must be represented in trytes. To facilitate data conversion, the IOTA client libraries have built-in functions to convert data to/from trytes, trits, and ASCII characters.** -->
@@ -24,11 +24,18 @@
 * インターネット接続
 <!-- * An Internet connection -->
 
-## メッセージをトライトへ変換する
-<!-- ## Convert a message to trytes -->
+## メッセージをASCIIからトライトへ変換する
+<!-- ## Convert a message from ASCII to trytes -->
 
 この例では、メッセージをトライトに変換してから、iota.jsライブラリの[`converter`パッケージ](https://github.com/iotaledger/iota.js/tree/next/packages/converter)を使用してASCII文字に変換し直します。
 <!-- In this example, we convert a message to trytes, then convert it back to ASCII characters using the [`converter` package](https://github.com/iotaledger/iota.js/tree/next/packages/converter) of the iota.js library. -->
+
+:::info:
+`asciiToTrytes()`メソッドは[基本的なASCII文字](https://en.wikipedia.org/wiki/ASCII#Printable_characters)のみをサポートします。その結果、アクセントやウムラウトなどの発音区別符号やひらがなや漢字などの日本語（2バイト文字）はサポートされておらず、`INVALID_ASCII_CHARS`エラーが発生します。
+:::
+<!-- :::info: -->
+<!-- The `asciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error. -->
+<!-- ::: -->
 
 1. IOTAクライアントライブラリが必要です。
   <!-- 1. Require the IOTA client library -->
@@ -53,8 +60,18 @@
     console.log(`${data} converted to trytes: ${trytes}`);
     ```
 
-4. 返されたトライトを`trytesToAscii()`メソッドに渡して、ASCII文字に変換します。
-  <!-- 4. Pass the returned trytes to the `trytesToAscii()` method to convert them to ASCII characters -->
+    ファイルを実行すると、変換された文字列が標準出力に表示されます。
+    <!-- When you execute the file, you should see the converted strings in the output: -->
+
+    ```console
+    Hello World! converted to trytes: RBTC9D9DCDEAFCCDFD9DSCFA
+    ```
+
+## メッセージをトライトからASCIIに変換する
+<!-- ## Convert a message from trytes to ASCII -->
+
+1. メッセージをASCII文字に変換するために、`trytesToAscii()`メソッドにトライトを渡します。
+  <!-- 1. Pass the trytes to the `trytesToAscii()` method to convert them to ASCII characters -->
 
     ```js
     var message = Converter.trytesToAscii(trytes);
@@ -70,14 +87,7 @@
     RBTC9D9DCDEAFCCDFD9DSCFA converted back to ASCII: Hello World!
     ```
 
-:::info:
-`asciiToTrytes()`メソッドは[基本的なASCII文字](https://en.wikipedia.org/wiki/ASCII#Printable_characters)のみをサポートします。その結果、アクセントやウムラウトなどの発音区別符号やひらがなや漢字などの日本語（2バイト文字）はサポートされておらず、`INVALID_ASCII_CHARS`エラーが発生します。
-:::
-<!-- :::info: -->
-<!-- The `asciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error. -->
-<!-- ::: -->
-
-## コードを走らせる
+## コードを実行する
 <!-- ## Run the code -->
 
 このガイドのサンプルコードを実行してWebブラウザに結果を表示するには、緑色のボタンをクリックしてください。
