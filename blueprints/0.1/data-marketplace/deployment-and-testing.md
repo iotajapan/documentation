@@ -64,7 +64,7 @@
 * クラウドサービス
 <!-- * Cloud service -->
 
-### IOTA知識
+### IOTAの知識
 <!-- ### IOTA knowledge -->
 
 MAMチャンネルについての理解
@@ -82,7 +82,7 @@ MAMチャンネルについての理解
 ## データマーケットプレイスアプリをテストする
 <!-- ## Test the Data Marketplace app -->
 
-自身のデータマーケットプレイスを展開する代わりに、自身のデバイスを追加して当社のデモアプリケーションをテストすることができます。
+自身のデータマーケットプレイスを展開する代わりに、自身のデバイスを追加して当社のデモアプリケーションをテストすることもできます。
 <!-- Instead of deploying your own data marketplace, you can test our demo app by adding your own device to it. -->
 
 1. [ダッシュボードページ](https://data.iota.org/#/dashboard)にアクセスしてログインします。Google OAuthログイン画面が表示されます。**Googleでサインイン**をクリックします。
@@ -99,7 +99,7 @@ MAMチャンネルについての理解
     <!-- ::: -->
 
 3. お使いのデバイスに関する基本情報を入力します。収集したいデータストリームに関連するフィールドを必ず入力してください。
-<!-- 3. Enter some basic information about your device. Make sure you complete the fields relating to the data streams you would like to collect. -->
+  <!-- 3. Enter some basic information about your device. Make sure you complete the fields relating to the data streams you would like to collect. -->
 
     * **デバイスID：** このIDは既存のすべてのセンサー間で一意である必要があり、データストリームを購入するときのアクセスキーとして機能します。IDは必ず英字（a-z）で始まり、その後に任意の数の英字、数字（0-9）、ハイフン（"-"）、および下線（"_"）を続けることができます。最大許容長は40文字に設定されています。
     <!-- * **Device ID**: This ID should be unique among all existing sensors and will serve as access key when purchasing a data stream. Please note that the ID must begin with a letter ([a-z]) and may be followed by any number of letters, digits ([0–9]), hyphens (“-”), and underscores (“_”). Max allowed length is set to 40 characters. -->
