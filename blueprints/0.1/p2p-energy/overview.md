@@ -1,7 +1,7 @@
 # P2Pエネルギーグリッド
 <!-- # Peer-to-peer energy grid -->
 
-**エネルギーの供給はしばしば自動化されているが、支払いシステムは統合するのに費用がかかり、そしてしばしば手動の介入を必要とします。IOTAを使用してピアツーピア（P2P）エネルギーグリッドを作成することで、電力の転送とその電力に対する支払いを自動化できます。この自動化により、インフラストラクチャはより動的になり、更新が容易になります。**
+**エネルギーの供給はしばしば自動化されていますが、支払いシステムは統合するのに費用がかかり、そしてしばしば手動の介入を必要とします。IOTAを使用してピアツーピア（P2P）エネルギーグリッドを作成することで、電力の転送とその電力に対する支払いを自動化できます。この自動化により、インフラストラクチャはより動的になり、更新が容易になります。**
 <!-- **Although the supply of energy is often automated, the payment system is expensive to integrate and often requires manual intervention. By creating a peer-to-peer (P2P) energy grid with IOTA, you can automate the transfer of power and the payment for that power. This automation makes your infrastructure more dynamic and easier to update.** -->
 
 この設計図は、P2Pエネルギーグリッド内のエンティティがどのようにエネルギーを交換できるかを示しています。P2Pエネルギーグリッドの分散型およびマシンベースの性質により、これはIOTAの理想的なユースケースになります。IOTAテクノロジを使用すると、低電力デバイスでも追跡可能で不変な方法でグリッドと通信できるインフラストラクチャを作成できます。
@@ -20,7 +20,7 @@ P2Pエネルギーグリッドでのエネルギー取引には、4つの上位�
 ![P2P Energy PoC - Use Case Picture](../images/p2p_use_case.png)
 
 :::info:
-この青写真は、支払いの見返りにリソースが消費者に配布されるシナリオ、たとえば水道で複製することができます。
+この設計図は、支払いの見返りにリソースが消費者に配布されるシナリオ、たとえば水道で複製することができます。
 :::
 <!-- :::info: -->
 <!-- This blueprint can be replicated in any scenario where a resource is distributed to consumers in return for payment, for example water supply. -->
