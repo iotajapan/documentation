@@ -103,7 +103,7 @@ MAMチャンネルについての理解
 
     * **デバイスID：** このIDは既存のすべてのセンサー間で一意である必要があり、データストリームを購入するときのアクセスキーとして機能します。IDは必ず英字（a-z）で始まり、その後に任意の数の英字、数字（0-9）、ハイフン（"-"）、および下線（"_"）を続けることができます。最大許容長は40文字に設定されています。
     <!-- * **Device ID**: This ID should be unique among all existing sensors and will serve as access key when purchasing a data stream. Please note that the ID must begin with a letter ([a-z]) and may be followed by any number of letters, digits ([0–9]), hyphens (“-”), and underscores (“_”). Max allowed length is set to 40 characters. -->
-    * **デバイスタイプ：** プレーンテキストタイプの説明。これは、他のデータマーケットプレイス参加者がセンサーのデータストリームの使用の可能性を識別するのに役立ちます。典型的な例：「気象ステーション」、追跡装置」、充電ステーション」。
+    * **デバイスタイプ：** プレーンテキストタイプの説明。これは、他のデータマーケットプレイス参加者がセンサーのデータストリームの使用の可能性を識別するのに役立ちます。典型的な例：「気象ステーション」、「トラッキングデバイス」、充電ステーション」。
     <!-- * **Device Type**: Plain text type description, that helps other Data Marketplace participants identify potential usage of the sensors’ data stream. Typical examples: “weather station”, “tracking device”, “charging station”. -->
     * **カンパニー：** センサーを所有および管理している会社の名前を入力します。この情報は、センサーの所有者とデータストリームの購入に関心のあるデータマーケットプレイスユーザーとの間の信頼関係を高めます。
     <!-- * **Company**: Provide the name of the company that owns and maintains the sensor. This information creates more trust between sensor owners and Data Marketplace users who are interested in purchasing the data stream. -->
@@ -111,13 +111,13 @@ MAMチャンネルについての理解
     <!-- * **Location (city / country)**: This information helps to identify if the sensor data is relevant for purchasing. For example, some users might be interested in purchasing data streams from weather or environmental sensors located in a specific region. -->
     * **GPS座標（経度/緯度）：** https://www.gps-coordinates.net/ などのサービスを使用して、センサーに適したGPSデータを取得できます。負の値の場合はハイフン（"-"）と小数点記号（"."）を先頭に付けることができます。文字や特殊文字を入力しないでください。
     <!-- * **GPS Coordinates (latitude / longitude)**: You can use a service like https://www.gps-coordinates.net/ to get the right GPS data for your sensor. We accept coordinates as a number of digits ([0–9]), that could be prepended by a hyphen (“-”) for negative value, and a decimal separator (“.”). Please do not enter any letters or special characters. -->
-    * **データストリームの値段：** ここでセンサーデータのコストを定義できます。価値の定義を制限するわけではありませんが、プレビューや払い戻しのオプションがなければ、ごく少数の顧客だけがデータストリームのためにお金を払う準備ができていることに注意してください。一方、非常に低い価格を設定すると、合計1000分の1セント未満の支払総額が発生する可能性があります。1Miの[現在の価格](https://coinmarketcap.com/currencies/iota/)である1,000,000（100万）IOTAトークンを確認することをお勧めします。センサーのコストと保守作業に応じて、1,000iから50,000iの範囲内で価格を設定することをお勧めします。
+    * **データストリームの値段：** ここでセンサーデータの価格を定義できます。価値の定義を制限するわけではありませんが、プレビューや払い戻しのオプションがなければ、ごく少数の顧客だけがデータストリームのためにお金を払う準備ができていることに注意してください。一方、非常に低い価格を設定すると、合計1000分の1セント未満の支払総額が発生する可能性があります。1Miの[現在の価格](https://coinmarketcap.com/currencies/iota/)である1,000,000（100万）IOTAトークンを確認することをお勧めします。センサーのコストと保守作業に応じて、1,000iから50,000iの範囲内で価格を設定することをお勧めします。
     <!-- * **Price of the data stream**: Here you can define the cost of the sensor data. We do not restrict you with defining the value, but please keep in mind that without a preview and refund options, only a few customers will be ready to pay a fortune for a data stream. On the other hand, setting a very low price might result in a total collected payment under 1/1000 of a cent. We encourage you to check the [current price](https://coinmarketcap.com/currencies/iota/) of 1Mi, which is 1000000 (one million) IOTA tokens. We suggest that you set the price within the range of 1000i to 50000i, depending on the cost and maintenance efforts of the sensor. -->
     * **データフィールド：** センサー構成の最も重要な部分。センサーによってキャプチャされ、タングルに保存されるすべてのパラメータに関する情報を入力してください。右側の**+**と**X**ボタンを押すと、フィールドを追加または削除できます。
     <!-- * **Data Fields**: The most essential part of the sensor configuration. Please provide information for every parameter that will be captured by the sensor and stored on the Tangle. You can add or remove fields by pressing the **+** and **X** buttons on the right. -->
 
-    パラメータ情報は3つのフィールドで構成されています。
-    <!-- Parameter information consist of 3 fields: -->
+パラメータ情報は3つのフィールドで構成されています。
+<!-- Parameter information consist of 3 fields: -->
 
     * **フィールドID：** このIDは特定のセンサーのために他のすべてのパラメータの中で一意であるべきです。IDは必ず英字（[a-z]）で始まり、その後に任意の数の英字、数字（[0-9]）、ハイフン（"-"）、および下線（"_"）を続けることができます。最大許容長は40文字に設定されています。
     <!-- * **Field ID**: This ID should be unique among all other parameters for the specific sensor. Please note that the ID must begin with a letter ([a-z]) and may be followed by any number of letters, digits ([0–9]), hyphens (“-”), and underscores (“_”). Max allowed length is set to 40 characters. -->
@@ -126,7 +126,7 @@ MAMチャンネルについての理解
     * **フィールド単位：** 主に[国際単位系](https://whatis.techtarget.com/reference/Table-of-Physical-Units)（SI）における[物理量](https://en.wikipedia.org/wiki/List_of_physical_quantities)および[単位](https://whatis.techtarget.com/reference/Table-of-Physical-Units)の略語。湿度、大気質、降水量、風速、風向などの[環境測定](https://www.fondriest.com/environmental-measurements/parameters/)単位でもあります。このフィールドの長さは20文字以内にしてください。
     <!-- * **Field Unit**: [Physical quantities](https://en.wikipedia.org/wiki/List_of_physical_quantities) and [units](https://whatis.techtarget.com/reference/Table-of-Physical-Units) abbreviation, primarily in the International [System of Units](https://whatis.techtarget.com/reference/Table-of-Physical-Units) (SI). It can also be a unit of [environmental measurements](https://www.fondriest.com/environmental-measurements/parameters/), like humidity, air quality, precipitation, wind speed or direction. Please keep the length of this field within 20 characters. -->
 
-4. **Download Publish Script**をクリックして、タングルにデバイスデータを保存する方法の例とドキュメントが含まれている事前設定された.zipアーカイブをダウンロードします。
+4. **Download Publish Script**をクリックして、事前設定された.zipアーカイブ（タングルにデバイスデータを保存する方法の例とドキュメントが含まれている）をダウンロードします。
   <!-- 4. Click **Download Publish Script** to download of a preconfigured .zip archive that contains examples and documentation on how to store data in the Tangle for your device -->
 
 5. アーカイブの内容を抽出し、[Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディタでフォルダを開いてスクリプトの操作を開始します。
@@ -154,7 +154,7 @@ MAMチャンネルについての理解
 6. IOTAタングルへのセンサーデータの公開についての詳細は、[ブログの投稿](https://blog.iota.org/the-iota-data-marketplace-a-tech-intro-part-3-eea5cbcd1eb7)を参照してください。
   <!-- 6. See the [blog post](https://blog.iota.org/the-iota-data-marketplace-a-tech-intro-part-3-eea5cbcd1eb7) to learn more about publishing sensor data to IOTA Tangle -->
 
-### 新しいウォレット作成して資金を供給する
+### 新しいウォレットを作成して資金を供給する
 <!-- ### Create and fund a new wallet -->
 
 無料のIOTAトークンをデバイスのウォレットに供給することができます。通常、100,000iから1,000,000iのDevnetトークンを無料で新しいデバイスのウォレットに転送します。
@@ -176,7 +176,7 @@ DevnetトークンをMainnetで使用したり、暗号通貨の取引所で交�
 ページを更新したり、アプリケーションの別のページに移動したりして、この操作を中断しないでください。IOTAトークンの転送が完了すると、ウォレットの残高は自動的に更新されます。
 <!-- Please do not interrupt this operation by refreshing the page or navigating to another page of the application. Once IOTA token transfer is completed, the balance of the wallet is automatically updated. -->
 
-あるいは、[ウォレットに資金を供給するためにAPIを使う](https://data.iota.org/static/docs#create-and-fund-wallet)ことができます。
+あるいは、[ウォレットに資金を供給するためにAPIを使う](https://data.iota.org/static/docs#create-and-fund-wallet)こともできます。
 <!-- Alternatively, you can [use the API to fund a wallet](https://data.iota.org/static/docs#create-and-fund-wallet). -->
 
 ### 既存のウォレットに資金を供給する
@@ -220,7 +220,7 @@ IOTA蛇口ページに移動し、ウォレットアドレスを入力します�
 <!-- You can buy a device's data stream using the balance of the wallet. When you buy a data stream, you're given access to the MAM channel's root so that you can find the data on the Tangle. -->
 
 1. センサーページに行きます。
-<!-- 1. Go to the Sensor page -->
+  <!-- 1. Go to the Sensor page -->
 
     ストリームを購入していない場合は、デバイスの所有者が設定した金額でデータストリームを購入するかどうかを尋ねるメッセージが表示されます。 Webポータルからデバイスデータストリームを購入すると、ウォレットの残高は自動的に更新されます。
     <!-- If you have not purchased the stream, a message appears asking whether you would like to purchase the data stream for an amount, that was set by the device owner. When you purchase device data stream from the web portal, your wallet balance is automatically updated. -->
@@ -234,13 +234,15 @@ IOTA蛇口ページに移動し、ウォレットアドレスを入力します�
 デバイスをデータマーケットプレイスに表示したくない場合は、削除できます。
 <!-- If you no longer want your device to be visible on the Data Marketplace, you can remove it. -->
 
-1. [ダッシュボード](https://data.iota.org/#/dashboard)ページに行きます。
+1. [ダッシュボードページ](https://data.iota.org/#/dashboard)に行きます。
   <!-- 1. Go to the [Dashboard](https://data.iota.org/#/dashboard) page -->
 
 2. デバイスカードの右上隅にある**X**を押します。
   <!-- 2. Press **X** in the top-right corner of the device card -->
 
+    :::warning:注意
     デバイスに関連付けられているシードも削除されることに注意してください。つまり、デバイスのシードに転送された資金を取り出すことができなくなります。
+    :::
     <!-- Be aware that the seed associated with the device is also removed. That means that you can no longer withdraw funds that were transferred to the device's seed. -->
 
 あるいは、[APIを使用してデバイスを削除する](https://data.iota.org/static/docs#query-stream)こともできます。
