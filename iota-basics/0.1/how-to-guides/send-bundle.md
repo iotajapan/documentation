@@ -50,7 +50,7 @@
 
     ```js
     const iota = Iota.composeAPI({
-        provider: 'https://nodes.thetangle.org:443'
+    provider: 'https://nodes.devnet.thetangle.org:443'
     });
     ```
 
