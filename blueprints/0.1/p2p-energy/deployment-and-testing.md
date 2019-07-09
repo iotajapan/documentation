@@ -1,7 +1,7 @@
 # P2Pエネルギーグリッドアプリをデプロイする
 <!-- # Deploy the P2P energy grid app -->
 
-**P2Pエネルギーグリッドアプリケーションの使用を開始するには、自身のアプリケーションをデプロイしてください。**
+**P2Pエネルギーグリッドアプリケーションの使用を開始するには、自身のアプリケーションをデプロイします。**
 <!-- **To start using the P2P energy grid app, deploy your own application.** -->
 
 ## 前提条件
@@ -13,7 +13,7 @@ P2Pエネルギーグリッドアプリケーションをデプロイするに�
 ### ハードウェア
 <!-- ### Hardware -->
 
-* 電力源、生産者、および消費者はRaspberry Pis（ラズパイ）で実行できます
+* 電力源、生産者、および消費者はRaspberry Pi（ラズパイ）で実行できます
 <!-- * The sources, producers, and consumers can run on Raspberry Pis (RPi) -->
 * グリッドは、Web API、データベースストレージ、およびバックグラウンドタスクが可能なサーバーで実行する必要があります。
 <!-- * The grid must be run on a server that's capable of web APIs, database storage and background tasks -->
@@ -40,7 +40,7 @@ P2Pエネルギーグリッドアプリケーションをデプロイするに�
     <!-- * [Background tasks](https://aws.amazon.com/lambda/) -->
 
 * ローカルサーバー
-<!-- * Local server -->
+  <!-- * Local server -->
     * ストレージ：ローカルファイルシステム
     <!-- * Storage: local file system -->
     * Webサーバー：Nginx
@@ -77,7 +77,7 @@ MAMチャネルの理解
 <!-- The deployment instructions are documented in the [GitHub repository](https://github.com/iotaledger/poc-p2p-energy). -->
 
 :::info:
-展開手順は5月に公開される予定です。
+デプロイの手順は5月に公開される予定です。
 :::
 <!-- :::info: -->
 <!-- The deployment instructions will be available in May. -->
