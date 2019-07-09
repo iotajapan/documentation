@@ -67,7 +67,7 @@ APIを使用してファイルを保存するために、クライアントは�
 <!-- * Generate SHA256 hash of the file content -->
 * 追加のファイルメタデータをキャプチャします。
 <!-- * Capture additional file meta data -->
-* メタデータ、SHA256ハッシュ、およびファイルの内容をIPFSノード（POST /ipfs）に送信します。
+* メタデータ、SHA256ハッシュ、およびファイルの内容をIPFSノードに送信します（POST /ipfs）。
 <!-- * Send the meta data, SHA256 hash, and file contents to the IPFS node (POST /ipfs) -->
 
 舞台裏では、APIは次のことを行います。
