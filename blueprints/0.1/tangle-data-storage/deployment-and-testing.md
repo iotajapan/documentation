@@ -16,7 +16,7 @@
 <!-- In order to reproduce this PoC there is no requirement to deploy dedicated hardware. -->
 - [フロントエンドのデプロイ方法](https://github.com/iotaledger/poc-ipfs/blob/master/client/DEPLOYMENT.md)
 <!-- - [Front-end deployment instructions](https://github.com/iotaledger/poc-ipfs/blob/master/client/DEPLOYMENT.md) -->
-- [Node.js APIデプロイ方法](https://github.com/iotaledger/poc-ipfs/blob/master/api/DEPLOYMENT.md)
+- [Node.js APIのデプロイ方法](https://github.com/iotaledger/poc-ipfs/blob/master/api/DEPLOYMENT.md)
 <!-- - [Node.js API deployment instructions](https://github.com/iotaledger/poc-ipfs/blob/master/api/DEPLOYMENT.md) -->
 
 ## タングルデータストレージアプリをテストする
@@ -49,7 +49,7 @@
 
     ![Retrieve File for IOTA IPFS Data Storage PoC](../images/data-storage-upload-retrieve.png)
 
-5. トランザクションハッシュを入力して**RETRIEVE**をクリックします。トランザクションハッシュはAPIに渡され、トランザクションのメッセージからIPFSハッシュが取得されます。これはファイルのダウンロードとトランザクションに格納されているハッシュに対するSHA256ハッシュの検証に使用されます。
+5. トランザクションハッシュを入力して**RETRIEVE**をクリックします。トランザクションハッシュはAPIに渡され、タングル上のトランザクションのメッセージからIPFSハッシュやSHA256ハッシュなどが取得されます。IPFSハッシュはファイルのダウンロードに使用され、SHA256ハッシュはダウンロードしたファイルのSHA256ハッシュの検証に使用されます。
   <!-- 5. Enter a transaction hash and click **RETRIEVE**. The transaction hash will be passed to the API, which will retrieve the IPFS hash from the transaction's message, which is used to download the file and validate its SHA256 hash against the one stored in the transaction. -->
 
     ![Retrieve File for IOTA IPFS Data Storage PoC](../images/data-storage-upload-validated.png)
