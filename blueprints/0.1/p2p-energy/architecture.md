@@ -1,7 +1,7 @@
 # アプリケーションアーキテクチャ
 <!-- # Application architecture -->
 
-** P2Pエネルギーグリッドアプリケーションは、IOTAネットワーク内のノードを通じて、電力源、生産者、消費者、およびグリッドからのデータをMAMチャネルにパブリッシュします。**
+** P2Pエネルギーグリッドアプリケーションは、IOTAネットワーク内のノードを通じて、電力源、生産者、消費者、およびグリッドからのデータをMAMチャネルに公開します。**
 <!-- **The P2P energy grid application publishes data from sources, producers, consumers, and the grid to MAM channels through a node in an IOTA network.** -->
 
 :::warning:免責事項
@@ -14,12 +14,12 @@
 このPoCのアーキテクチャは、電力源、生産者、消費者、およびグリッドがIOTAネットワークを介して相互接続されているというパターンに従います。
 <!-- The architecture of our PoC follows a pattern, where the source, producer, consumer, and grid are interconnected through an IOTA network. -->
 
-IOTAテクノロジーは、このようなアーキテクチャにおいて有利です。なぜなら、IOTAテクノロジーは、常にオンになっていたり、互いに接続している必要なしに、安全な方法でエンティティが互いに通信できるようにするためです。
+IOTAテクノロジーは、このようなアーキテクチャにおいて有利です。なぜなら、IOTAテクノロジーは、常にオンになっていたり、互いに接続している必要なしに、安全な方法でエンティティが互いに通信することを可能にするからです。
 <!-- IOTA technologies are advantageous in an architecture such as this because they allow entities to communicate with one another in a secure manner without needing to always be on or connected to each other. -->
 
 ![P2P Energy PoC - Architecture Diagram](../images/p2p_architecture.png)
 
-IOTAテクノロジーは、データをタングルにに格納するエンティティ間の通信と支払いの両方のメカニズムとして採用されています。
+IOTAテクノロジーは、データをタングルに格納するエンティティ間の通信と支払いの両方のメカニズムとして採用されています。
 <!-- IOTA technologies are employed as both the communication and payment mechanisms between entities that store the data on the Tangle. -->
 
 電力源と消費者の実装は、組み込みデバイスで実行できる軽量の操作を目的としています。これらのエンティティは、MAMチャネルの作成と使用、Web APIとの通信などの操作を実行する必要があります。
@@ -44,16 +44,16 @@ IOTAテクノロジーは、データをタングルにに格納するエンテ�
 グリッドは通常、大部分の作業を行います。これは、マシン上でローカルに実行することも、クラウド内のより広いインフラストラクチャに外部委託することもできます。
 <!-- The grid usually does the majority of the work, which could be performed locally on the machine or outsourced to a wider infrastructure in the cloud:: -->
 
-* データベースを整備する
+* データベースを整備します。
 <!-- * Maintaining a database -->
-* ポータルでWebサーバーを実行する
+* ポータルでWebサーバーを実行します。
 <!-- * Running a web server with a portal -->
-* APIを提供する
+* APIを提供します。
 <!-- * Provisioning APIs -->
-* バックグラウンドタスクを実行して情報を処理する
+* バックグラウンドタスクを実行して情報を処理します。
 <!-- * Running background tasks to process information -->
 
-グリッドは自身のIRIノードを維持しているため、タングルが動作しているP2Pネットワーク内の近隣ノードと通信できます。自身のIRIノードを実行することで、残りのエンティティはLANネットワーク内に存在でき、同期のためにグリッドのみが残りのタングルへのWANアクセスを必要とします。代替手段は、すべてのエンティティがタングル上のIRIノードに直接WANアクセスできるようにすることです。
+グリッドは自身のIRIノードを維持しているため、タングルが動作しているP2Pネットワーク内の近隣ノードと通信できます。グリッドが自身のIRIノードを実行することで、残りのエンティティはLANネットワーク内に存在でき、グリッドのみが同期のために残りのタングルへのWANアクセスを必要とします。代替手段は、すべてのエンティティがタングル上のIRIノードに直接WANアクセスできるようにすることです。
 <!-- The grid maintains its own IRI node, which enables it to communicate with neighbours in the peer-to-peer network on which the Tangle operates. By running your own IRI node, the rest of the entities can live in a LAN network, with only the grid requiring WAN access to the rest of the Tangle for syncing. The alternative is for all entities to have WAN access directly to an IRI node on Tangle. -->
 
 次の図は、通信チャネルとアーキテクチャで発生するイベントのシーケンスを示しています。
@@ -67,7 +67,7 @@ IOTAテクノロジーは、データをタングルにに格納するエンテ�
 以下のワークフローは、さまざまなエンティティが互いにどのように対話するかを示しています。
 <!-- The following workflows illustrate how the different entities interact with each other. -->
 
-### 電力源から生産者へ
+### 電力源と生産者
 <!-- ### Source to producer -->
 
 この画像は、電力源が生産者およびタングルと通信するときに発生する一連のイベントを示しています。
@@ -75,29 +75,29 @@ IOTAテクノロジーは、データをタングルにに格納するエンテ�
 
 ![P2P energy PoC - source workflow](../images/p2p_source.png)
 
-### 生産者からグリッドへ
+### 生産者とグリッド
 <!-- ### Producer to grid -->
 
-この画像は、生産者がグリッドとタングルと通信するときに発生する一連のイベントを示しています。
+この画像は、生産者がグリッドおよびタングルと通信するときに発生する一連のイベントを示しています。
 <!-- This image shows the sequence of events that occur when a producer communicates with the grid and the Tangle. -->
 
 ![P2P energy PoC - producer workflow](../images/p2p_producer.png)
 
-### 消費者からグリッドへ
+### 消費者とグリッド
 <!-- ### Consumer to grid -->
 
-この画像は、消費者がグリッドとタングルと通信するときに発生する一連のイベントを示しています。
+この画像は、消費者がグリッドおよびタングルと通信するときに発生する一連のイベントを示しています。
 <!-- This image shows the sequence of events that occur when a consumer communicates with the grid and the Tangle. -->
 
 ![P2P energy PoC - consumer workflow](../images/p2p_consumer.png)
 
 ## 通信
 
-異なるエンティティ間の通信は、MAMチャネルとWeb API呼び出しの組み合わせです。MAMは、エンティティのデータをタングルに公開することによって、システム内のエンティティが安全な方法で通信できるメカニズムを提供します。エンティティは常に直接の通信回線を必要としません。
+異なるエンティティ間の通信は、MAMチャネルとWeb API呼び出しの組み合わせで行われます。MAMは、エンティティのデータをタングルに公開することによって、システム内のエンティティが安全な方法で通信できるメカニズムを提供します。エンティティは常に直接の通信回線を必要としません。
 <!-- The communication between the different entities is a combination of MAM channels and web API calls. MAM provides a mechanism by which the entities within the system can communicate in a secure fashion, also by publishing their data to the Tangle, the entities do not require a direct line of communication at all times. -->
 
 消費者が請求書をグリッドに支払うとき、またはグリッドが生産者に支払うときはいつでも、タングルトランザクションが発行されます。
-A tangle transaction is issued whenever a consumer pays its bill to the grid or whenever the grid pays a producer.
+<!-- A tangle transaction is issued whenever a consumer pays its bill to the grid or whenever the grid pays a producer. -->
 
 ![P2P energy PoC - communication](../images/p2p_communication.png)
 
@@ -128,7 +128,7 @@ A tangle transaction is issued whenever a consumer pays its bill to the grid or 
 }
 ```
 
-登録解除のときに、電力源は、MAMチャネルがもう使用されていないことを知らせるために`goodbye`コマンドを送るべきです。
+登録解除のときには、電力源は、MAMチャネルがもう使用されていないことを知らせるために`goodbye`コマンドを送るべきです。
 <!-- On deregistration, the source should send a `goodbye` command to signal that the MAM channel is no longer used. -->
 
 ```json
@@ -175,7 +175,7 @@ https://producer/registration/:registrationId
 }
 ```
 
-電力源が生産者に登録すると、そのエネルギー測定値のMAMチャネル詳細を使用して電力源のMAMチャネルのモニタリングを開始できます。
+電力源が生産者に登録されると、電力源のエネルギー測定値のMAMチャネル詳細を使用して電力源のMAMチャネルのモニタリングを開始できます。
 <!-- When a source registers with a producer, it can start monitoring the source's MAM channel using the MAM channel details for its energy readings. -->
 
 #### 登録解除
@@ -195,16 +195,16 @@ DELETE https://producer/registration/:registrationId/:sideKey
 }
 ```
 
-`sideKey`は認証の基準として`DELETE`に渡されます。電力源が登録解除されると、生産者は電力源のMAMチャネルの視聴を停止する必要があります。
+`sideKey`は認証の証として`DELETE`に渡されます。電力源が登録解除されると、生産者は電力源のMAMチャネルの視聴を停止する必要があります。
 <!-- The `sideKey` is passed to the delete as a measure of authentication. When a source is deregistered, the producer should stop watching the source's MAM channel. -->
 
 ### 生産者のMAM出力チャネル
 <!-- ### Producer MAM output channel -->
 
-このMAMチャネルには、生産者の電力源からの総計出力に関する情報が期間として含まれています。さらに、供給された電力および支払い先アドレスについての提案された価格が提供されます。
+このMAMチャネルには、生産者の電力源からの総計出力に関する情報が期間として含まれています。さらに、供給された電力の提案価格と支払い先アドレスが記載されています。
 <!-- This MAM channel contains information on the aggregated output from the producer's sources as a time period. Additionally, a proposed price for the power supplied and payment address is provided. -->
 
-グリッドは、各生産者に支払う金額を計算するために、後で使用するすべての生産者のチャネルを監視および記録します。支払いアドレスおよび要求された価格は期間ごとに変化して、生産者に異なる時に変動価格の電力を提供する能力を与えることができます。
+グリッドは、各生産者に支払う金額を計算するために、後で使用するすべての生産者のチャネルを監視および記録します。支払先アドレスと要求される価格は期間ごとに変わる可能性があり、生産者は異なる時に電力の変動価格を提供することができます。
 <!-- The grid will monitor and record the channels for all producers to use later in order to calculate the amount to pay to each producer. The payment address and requested  price can change per time period to give the Producer the ability to provide variable price power at different times. -->
 
 `producerPrice`フィールドがグリッドによって支払われることが保証されているのではなく、すべての生産者間の合意価格が支払われます。合意価格は、すべての`producerPrice`フィールドの通常の平均、または生産者がグリッドにどれだけ貢献したかに基づく加重平均です。 `paymentIdOrAddress`は、グリッドが支払いを行うことができるIOTAアドレス、またはグリッドが別の支払い方法を持つようにするための参照IDです。
@@ -224,13 +224,13 @@ DELETE https://producer/registration/:registrationId/:sideKey
 }
 ```
 
-生産者の支払いアドレスは、グリッドが支払いを送信するアドレスです。生産者の出力チャネル内の各期間は、それに関連付けられた異なるアドレスを持つことができるため、生産者は複数のアドレスを持つことができます。
+生産者の支払いアドレスは、グリッドが支払いを送信するアドレスです。生産者の出力チャネル内の各期間は、各機関に関連付けられた異なるアドレスを持つことができるため、生産者は複数のアドレスを持つことができます。
 <!-- The producer payment addresses are where the grid sends payments. A producer can have more than one address as each time period in the producer's output channel can have a different address associated with it. -->
 
 ### グリッドの登録API
 <!-- ### Grid registration API -->
 
-グリッドの登録APIは、Webサーバー上でホストされる通常のWeb APIの形式を取ります。生産者と消費者の両方が自分自身をグリッドに登録するために使用します。エンティティが登録されると、グリッドはそれらのMAM出力チャネルの監視を開始します。登録が成功すると、IDが返されます。このIDは将来のリクエストで使用されます。
+グリッドの登録APIは、Webサーバー上でホストされる通常のWeb APIの形式を取ります。生産者と消費者の両方が自身をグリッドに登録するために使用します。エンティティが登録されると、グリッドはエンティティのMAM出力チャネルの監視を開始します。登録が成功すると、IDが返されます。このIDは将来のリクエストで使用されます。
 <!-- The grid registration API will take the form of a regular web API hosted on a web server. It is used by both the producers and consumers to register themselves with the grid. Once an entity is registered the grid will start monitoring their MAM output channels. On a successful registration an id is returned, this is then used in any future requests. -->
 
 登録エンティティとグリッドの両方が、それぞれのチャネルに初期`hello`コマンドを発行して、チャネルを読み取っているエンティティが正しいチャネルに加入していることを検証できるようにする必要があります。
@@ -254,7 +254,7 @@ DELETE https://producer/registration/:registrationId/:sideKey
 消費者の場合、レスポンスは、消費者がグリッドの所有量を監視する必要があるMAMチャネルハッシュも返します。
 <!-- For a consumer, the response will also return a MAM channel hash that the consumer should monitor for how much it owes the grid. -->
 
-APIの説明は以下にあります。
+APIの説明は以下になります。
 <!-- A description of the APIs is provided below. -->
 
 #### 登録セット
@@ -314,7 +314,7 @@ DELETE https://grid/registration/:registration-id/:sideKey
 }
 ```
 
-`sideKey`は認証の基準として`DELETE`に渡されます。
+`sideKey`は認証の証として`DELETE`に渡されます。
 <!-- The `sideKey` is passed to the delete as a measure of authentication. -->
 
 ### グリッドのストレージAPI
@@ -421,7 +421,7 @@ GET https://grid/storage/:registration-id/:context?page?&page-size?
 #### 例
 <!-- #### Example -->
 
-ABC123の登録IDを持つ生産者は、バックアップのためにローカルだけではなく安全な場所にその電力源の詳細を格納したいと思うかもしれません。
+ABC123の登録IDを持つ生産者は、バックアップのためにローカルだけではなく安全な場所に、生産者の電力源の詳細を保存したいと思うかもしれません。
 <!-- A producer with a registration ID of ABC123 might want to store the details of its sources in a safe place instead of just locally for backup. -->
 
 https://grid/storage/ABC123/sources/XXX123 にPUTを付けてアイテムを作成または更新します。
@@ -443,7 +443,7 @@ https://grid/storage/ABC123/sources/XXX123 へのDELETEでアイテムを削除�
 ### グリッドのMAM消費者チャネル
 <!-- ### Grid MAM consumer channels -->
 
-消費者がグリッドに登録すると、グリッドは支払い要求で更新されるMAMチャネルを作成します。グリッドはこの情報を中央のDBでも追跡しますが、MAMチャネルを提供することで、消費者はすぐに借りているものを見ることができます。未払い残高は、生産者の出力チャネルからの価格設定とともに消費者使用チャネルから読み取られた情報を元に計算されます。
+消費者がグリッドに登録すると、グリッドは支払いリクエストで更新されるMAMチャネルを作成します。グリッドはこの情報を中央のDBでも追跡しますが、MAMチャネルを提供することで、消費者はすぐに借りているものを見ることができます。未払い残高は、生産者の出力チャネルからの価格設定とともに消費者使用チャネルから読み取られた情報を元に計算されます。
 <!-- When a consumer registers with the grid the grid will create a MAM channel that is updated with the payment requests. The grid will also track this information in its central DB but by providing a MAM channel a consumer can immediately see what they owe. The outstanding balance is calculated from the information read from the consumers Usage Channel in conjunction with the pricing from the producer's output channels. -->
 
 #### 支払いペイロード
@@ -469,7 +469,7 @@ https://grid/storage/ABC123/sources/XXX123 へのDELETEでアイテムを削除�
 ### 消費者のMAM使用量チャネル
 <!-- ### Consumer MAM usage channel -->
 
-消費者のMAM使用状況チャネルは、期間に基づいて消費者の使用量で継続的に更新されます。グリッドはチャネルを監視して、消費者が負っている金額を計算します。
+消費者のMAM使用量チャネルは、期間に基づいて消費者の使用量で継続的に更新されます。グリッドはチャネルを監視して、消費者が借りている金額を計算します。
 <!-- The consumer's MAM Usage Channel will be continuously updated with the consumer's usage based on time periods. The grid monitors the channel to calculate how much the consumer owes. -->
 
 #### ペイロード
