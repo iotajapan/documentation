@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # アカウントを作成する
 <!-- # Create an account -->
 
