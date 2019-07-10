@@ -118,18 +118,18 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
         });
     ```
 
-:::info:
-アカウントモジュールは自動的にすべての発行済みトランザクションをタングルに添付します。
-:::
-<!-- :::info: -->
-<!-- The account module automatically attaches all issued transactions to tangle. -->
-<!-- ::: -->
+  :::info:
+  アカウントモジュールは自動的にすべての発行済みトランザクションをタングルに添付します。
+  :::
+  <!-- :::info: -->
+  <!-- The account module automatically attaches all issued transactions to tangle. -->
+  <!-- ::: -->
 
-未確定のトランザクションが確定するまで、添付ルーチンは未確定のトランザクションを添付し続けます。未確定のバンドルがなくなると、ルーチンは停止し、別のバンドルを送信するとまた再開します。`stopAttaching()`メソッドと`startAttaching()`メソッドを呼び出すことで、添付ルーチンを停止または開始できます。
-<!-- The attachment routine will keep on attaching uncomfirmed transactions until they are confirmed -->
-<!-- The routine stops when there are no uncomfirmed bundles anymore, and resumes when you send another one. -->
-<!-- You may stop or start attachment routine by calling `stopAttaching()` and -->
-<!-- `startAttaching()` methods. -->
+  未確定のトランザクションが確定するまで、添付ルーチンは未確定のトランザクションを添付し続けます。未確定のバンドルがなくなると、ルーチンは停止し、別のバンドルを送信するとまた再開します。`stopAttaching()`メソッドと`startAttaching()`メソッドを呼び出すことで、添付ルーチンを停止または開始できます。
+  <!-- The attachment routine will keep on attaching uncomfirmed transactions until they are confirmed -->
+  <!-- The routine stops when there are no uncomfirmed bundles anymore, and resumes when you send another one. -->
+  <!-- You may stop or start attachment routine by calling `stopAttaching()` and -->
+  <!-- `startAttaching()` methods. -->
 
     ```js
     account.stopAttaching()
