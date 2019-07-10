@@ -279,7 +279,7 @@ NUMBER_OF_KEYS_IN_A_MILESTONE = 20
 SNAPSHOT_TIME = 1535760000
 MILESTONE_START_INDEX = 2
 DONT_VALIDATE_TESTNET_MILESTONE_SIG = true
-NEIGHBORS = udp://p101.spamnet.iota.cafe:14600 udp://p102.spamnet.iota.cafe:14600
+NEIGHBORS = tcp://p101.spamnet.iota.cafe:15600 tcp://p102.spamnet.iota.cafe:15600
 ```
 
 Spamnet上のトークンの総供給量を含むアドレスを定義するためのスナップショットファイルも作成しなければなりません。このファイルの場所は、`SNAPSHOT_FILE`設定パラメータで設定する必要があります。
@@ -400,8 +400,8 @@ IRIをダウンロードして設定したら、実行します。
 `latestMilestoneIndex`フィールドと`latestSolidSubtangleMilestoneIndex`フィールドは、IRIノードが同期済み隣接ノードに接続されている場合にのみ正確です。
 <!-- The `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are accurate only when the IRI node is connected to synchronized neighbors. -->
 
-1. 実際の`latestMilestoneIndex`フィールドを確認するには、[Discord](https://discord.iota.org)に移動し、いずれかのチャンネルに**!milestone**と入力してください。
-<!-- 1. To check the actual `latestMilestoneIndex` field, go to our [Discord](https://discord.iota.org) and enter **!milestone** in one of the channels -->
+1. 現在の`latestMilestoneIndex`フィールドを確認するには、[Discord](https://discord.iota.org)に移動し、いずれかのチャンネルに**!milestone**と入力してください。
+  <!-- 1. To check the current `latestMilestoneIndex` field, go to our [Discord](https://discord.iota.org) and enter **!milestone** in one of the channels -->
 
     ![Entering !milestone on Discord](../images/discord-milestone-check.PNG)
 

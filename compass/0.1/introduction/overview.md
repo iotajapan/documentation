@@ -17,10 +17,10 @@ IOTA Mainnet上で、[コーディネーター](root://the-tangle/0.1/concepts/t
 <!-- To allow your nodes to reach a consensus, you must configure your nodes to recognize Compass milestones. Then, you can configure Compass to send milestones to one of your nodes at regular intervals. -->
 
 :::info:
-[独自のIOTAネットワークを作成する](../how-to-guides/create-an-iota-network.md)。
+[自分のIOTAネットワークを作成する](../how-to-guides/set-up-a-private-tangle.md).
 :::
 <!-- :::info: -->
-<!-- [Create your own IOTA network](../how-to-guides/create-an-iota-network.md). -->
+<!-- [Set up your own IOTA network](../how-to-guides/set-up-a-private-tangle.md). -->
 <!-- ::: -->
 
 ## リポジトリ

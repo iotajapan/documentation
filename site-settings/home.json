@@ -42,6 +42,10 @@
         {
             "query": "trinity",
             "name": "トリニティ"
+        },
+        {
+            "query": "set up a private tangle",
+            "name": "プライベートタングルを設定する"
         }
     ],
     "cards": [

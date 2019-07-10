@@ -3,5 +3,5 @@
 [コンパス概要](/0.1/introduction/overview.md)
 ## コンパスとは何か、またその使用方法について学びます。
 
-[IOTAネットワークを作成する](/0.1/how-to-guides/create-an-iota-network.md)
-## あなた自身のIOTAネットワークを作成します。
+[プライベートタングルを設定する](/0.1/how-to-guides/set-up-a-private-tangle.md)
+## 自分のプライベートタングルを使用して自分のIOTAネットワークを設定する方法を調べます。

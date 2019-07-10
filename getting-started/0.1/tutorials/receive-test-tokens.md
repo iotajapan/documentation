@@ -8,7 +8,7 @@
 <!-- ## Prerequisites -->
 
 このチュートリアルを完了する前に、[新しいアドレス](root://iota-basics/0.1/how-to-guides/create-an-address.md)が必要です。
-<!-- Before you complete this tutorial, you need to [a new address](root://iota-basics/0.1/how-to-guides/create-an-address.md). -->
+<!-- Before you complete this tutorial, you need [a new address](root://iota-basics/0.1/how-to-guides/create-an-address.md). -->
 
 :::danger:重要
 メインネット上にIOTAトークンを所有している場合は、Devnet上で使用する新しいテストシードを作成することを強くお勧めします。
@@ -42,21 +42,21 @@
 5. **Check balance**をクリックする。
 <!-- 5. Click **Check balance** -->
 
-このリンクをクリックすると、Devnetタングルエクスプローラにアクセスします。このWebサイトはDevnet上のノードに接続し、無料トークンをあなたのアドレスに転送したばかりのバンドルに関する情報をノードから取得します。
-<!-- This link takes you to a Devnet Tangle explorer. This website connects to nodes on the Devnet and requests information from them about the bundle that just transferred free tokens to your address. -->
+リンクをクリックすると、Devnetタングルエクスプローラにアクセスします。このWebサイトはDevnet上のノードに接続し、無料トークンをあなたのアドレスに転送したばかりのバンドルに関する情報をノードから取得します。
+<!-- The link takes you to a Devnet Tangle explorer. This website connects to nodes on the Devnet and requests information from them about the bundle that just transferred free tokens to your address. -->
 
 バンドルが確定されると、1Ki（1000i）のテストトークンがあなたのアドレスの残高に追加されます。
 <!-- When the bundle is confirmed, 1Ki (1000) tokens will be added to the balance of your address. -->
 
 :::info:このテストトークンはDevnetでのみ有効です
-他のIOTAネットワークは無料のテストトークンを先ほどのアドレスに転送したバンドルを受け取っても検証もしていません。それ故に、他のIOTAネットワークではアドレスの残高を更新してはいません。
+他のIOTAネットワークは無料のテストトークンを先ほどのアドレスに転送したバンドルを受け取っても検証もしていません。それ故に、他のIOTAネットワークではアドレスの残高を更新してはいません。これらのトークンを使用できるのは、Devnetノードに接続しているときだけです。
 :::
 <!-- :::info:These tokens are valid only on the Devnet -->
-<!-- Other IOTA networks have neither received nor validated the bundle that transferred the tokens to your address. As a result, they haven't updated the balance of your address. -->
+<!-- Other IOTA networks have neither received nor validated the bundle that transferred the tokens to your address. As a result, they haven't updated the balance of your address. You can use these tokens only when you're connected to a Devnet node. -->
 <!-- ::: -->
 
 ## 次のステップ
 <!-- ## Next steps -->
 
-[無料トークンを別のアドレスに転送](../tutorials/send-iota-tokens.md)してプロセスをテストする。
-<!-- [Transfer your free tokens to another address](../tutorials/send-iota-tokens.md) to test the process. -->
+[無料トークンを別のアドレスに転送](../tutorials/send-iota-tokens.md)してネットワークをテストする。
+<!-- Test the network by [transferring your free tokens to another address](../tutorials/send-iota-tokens.md). -->

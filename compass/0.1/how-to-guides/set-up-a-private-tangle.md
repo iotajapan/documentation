@@ -1,8 +1,8 @@
-# IOTAネットワークを作成する
-<!-- # Create an IOTA network -->
+# プライベートタングルを設定する
+<!-- # Set up a private Tangle -->
 
-**自分のIOTAネットワークでアプリケーションをテストしたい場合は、コンパスを実行してコンパスをIRIノードに接続することができます。**
-<!-- **If you want to test your application in your own IOTA network, you can run Compass and connect it to an IRI node.** -->
+**自分のIOTAネットワークでアプリケーションをテストしたい場合は、コンパスを実行してコンパスをIRIノードに接続することができます。そうすることで、自分のトランザクションを添付することができるプライベートタングルを持つことができます。**
+<!-- **If you want to test an application on a private IOTA network, you can run Compass and connect it to an IRI node. Doing so gives you a private Tangle to which you can attach your transactions.** -->
 
 この基本設定では、IRIノードとコンパスを同じサーバーまたは仮想マシンにインストールします。しかし、複数のIRIノードを実行し、それらを隣接ノードとして互いに接続することもできます。
 <!-- For this basic setup, you'll install an IRI node and Compass on the same server or virtual machine. But, you could run multiple IRI nodes and connect them to each other as neighbors. -->
