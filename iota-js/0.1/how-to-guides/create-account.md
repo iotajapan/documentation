@@ -72,35 +72,35 @@
 3. **オプション：** トランザクション添付に関連するデフォルトパラメータを変更する
   <!-- 3. **Optional:** Modify default parameters related to transaction attachment -->
 
-      ```js
-      const { createAccount }  = require('@iota/account')
+    ```js
+    const { createAccount }  = require('@iota/account')
 
-      const seed = 'ASFITGPSD9ASDFKRWE...';
+    const seed = 'ASFITGPSD9ASDFKRWE...';
 
-      // Local node to connect to;
-      const provider = 'http://<node-url>:14265';
+    // Local node to connect to;
+    const provider = 'http://<node-url>:14265';
 
-      const account = createAccount({
-            seed,
-            provider,
+    const account = createAccount({
+          seed,
+          provider,
 
-            // How far to go for the tip selection.
-            // Defaults to 3.
-            depth: 3,
+          // How far to go for the tip selection.
+          // Defaults to 3.
+          depth: 3,
 
-            // Default is 9 on devnet.
-            minWeightMagnitude: 9,
+          // Default is 9 on devnet.
+          minWeightMagnitude: 9,
 
-            // How long to wait before the next attachment round.
-            delay: 1000 * 30,
+          // How long to wait before the next attachment round.
+          delay: 1000 * 30,
 
-            // Specifies at which depth attached transactions are
-            // no longer promotable.
-            // Those transactions are automatically re-attached.
-            // Defaults to 6.
-            maxDepth: 6,
-      });
-      ```
+          // Specifies at which depth attached transactions are
+          // no longer promotable.
+          // Those transactions are automatically re-attached.
+          // Defaults to 6.
+          maxDepth: 6,
+    });
+    ```
 
 4. **オプション：** **`persistenceAdapter`**ファクトリをアカウントに渡す。このアダプタは、アカウントがシードステートを保存できるローカルデータベースオブジェクトを作成します。デフォルトでは、ローカルデータベースはプロジェクトのルートに保存されます。 `persistencePath`フィールドでローカルデータベースへのパスを変更できます。
   <!-- 4. **Optional:** Pass a **`persistenceAdapter`** factory to your account. This adapter creates a local database object to which the account can save the seed state. By default, the local database is saved in the root of the project. You can change the path to the local database in the `persistencePath` field. -->
