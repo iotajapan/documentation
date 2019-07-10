@@ -1,7 +1,7 @@
 # アカウント内のイベントをリッスンする
 <!-- # Listen to events in an account -->
 
-**アカウントオブジェクトは、発生したときにイベントを発行します。イベントの例としては、他のアドレスに資金を送ったり、預け入れを受け取ったりしたときです。あなたはこれらのイベントをリッスンして行動することができます。**
+**アカウントオブジェクトは、発生したときにイベントを発行します。イベントの例としては、他のアドレスに資金を送ったり、預け入れを受け取ったりしたときです。これらのイベントをリッスンして行動することができます。**
 <!-- **An account object emits events when they happen. An example of an event is when you send funds to other accounts or receive a deposit. You can listen for these events and act on them.** -->
 
 ## 前提条件
@@ -21,7 +21,7 @@
 <!-- withdrawing bundle is detected. Each of those bundles may trigger events in -->
 <!-- two steps, one for it's **pending** state, and one for it's **included** (confirmed) state. -->
 
-コールバックは引数としてオブジェクトを与えられます。オブジェクトは関連アドレスと完全な預け入れバンドルか取り出しバンドルが含まれます。
+コールバックは引数としてオブジェクトを与えられます。このオブジェクトには関連アドレスと完全な預け入れバンドルか取り出しバンドルが含まれます。
 <!-- Callbacks are given an object as argument, which contains the -->
 <!-- relevant address and the complete depositing or withdrawing bundle. -->
 
@@ -111,7 +111,7 @@
 | `error` | `Error` |
 
 :::success:おめでとうございます！:tada:
-あなたのアカウントはあなたがリッスンして行動することができるイベントを発信しています。
+アカウントはリッスンして行動することができるイベントを発信しています。
 :::
 <!-- :::success:Congratulations! :tada: -->
 <!-- You're account is now emitting events that you can listen to and act on. -->
