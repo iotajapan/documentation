@@ -117,7 +117,7 @@ Mainnetでは、コーディネーターの秘密鍵はセキュリティレベ�
 <!-- If the Merkle root is the same as the Coordinator's address, the bundle was signed with one of the private keys in the Coordinator's Merkle tree. -->
 
 :::info:独自のコーディネーターを走らせたいですか？
-[コンパス](root://compass/0.1/how-to-guides/create-an-iota-network.md)を使用して、独自のIOTAネットワークでマイルストーンを作成、署名、および送信できます。
+[コンパス](root://compass/0.1/how-to-guides/set-up-a-private-tangle.md)を使用して、独自のIOTAネットワークでマイルストーンを作成、署名、および送信できます。
 :::
 <!-- :::info:Want to run your own Coordinator? -->
 <!-- Use Compass to create, sign, and send milestones in your own IOTA network. -->
