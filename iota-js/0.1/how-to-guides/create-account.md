@@ -150,5 +150,5 @@ CDAのステートを管理し、かつ自動的にトランザクションを�
 ## 次のステップ
 <!-- ## Next steps -->
 
-[トランザクションを送受信できるCDAを作成する](../how-to-guides/create-and-manage-cda.md)。
-<!-- [Create a CDA so that you can send and receive transactions](../how-to-guides/create-and-manage-cda.md). -->
+[トランザクションを送受信できるCDAを作成する](root://iota-js/0.1/how-to-guides/create-and-manage-cda.md)。
+<!-- [Create a CDA so that you can send and receive transactions](root://iota-js/0.1/how-to-guides/create-and-manage-cda.md). -->

@@ -208,5 +208,5 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
 ## 次のステップ
 <!-- ## Next steps -->
 
-[イベントリスナーを作成する](../how-to-guides/listen-to-events.md)。
-<!-- [Create an event listener](../how-to-guides/listen-to-events.md). -->
+[イベントリスナーを作成する](root://iota-js/0.1/how-to-guides/listen-to-events.md)。
+<!-- [Create an event listener](root://iota-js/0.1/how-to-guides/listen-to-events.md). -->
