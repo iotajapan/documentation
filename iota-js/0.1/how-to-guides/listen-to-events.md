@@ -1,24 +1,32 @@
-# Listen to events in an account
+# アカウント内のイベントをリッスンする
+<!-- # Listen to events in an account -->
 
-**An account object emits events when they happen. An example of an event is when you send funds to other accounts or receive a deposit. You can listen for these events and act on them.**
+**アカウントオブジェクトは、発生したときにイベントを発行します。イベントの例としては、他のアドレスに資金を送ったり、預け入れを受け取ったりしたときです。あなたはこれらのイベントをリッスンして行動することができます。**
+<!-- **An account object emits events when they happen. An example of an event is when you send funds to other accounts or receive a deposit. You can listen for these events and act on them.** -->
 
-## Prerequisites
+## 前提条件
+<!-- ## Prerequisites -->
 
-This guide assumes that you understand the concept of events in Node.js (https://nodejs.org/api/events.html)
-Event listeners are used to assign callbacks to specific event types.
-Also listeners may be [removed](https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener), and they should be, once the subscription to a
-specific event is no longer required.
+このガイドでは、[Node.js](https://nodejs.org/api/events.html)のイベントの概念を理解していることを前提としています。イベントリスナーは、コールバックを特定のイベントタイプに割り当てるために使用されます。特定のイベントへのサブスクリプションが不要になったら、リスナーも[削除される](https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener)可能性があります。
+<!-- This guide assumes that you understand the concept of events in Node.js (https://nodejs.org/api/events.html) -->
+<!-- Event listeners are used to assign callbacks to specific event types. -->
+<!-- Also listeners may be [removed](https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener), and they should be, once the subscription to a -->
+<!-- specific event is no longer required. -->
 
-## Listening to deposit and withdrawal events
+## 預け入れイベントと取り出しイベントをリッスンする
+<!-- ## Listening to deposit and withdrawal events -->
 
-Deposit and withdrawal events are emitted as soon as a depositing or
-withdrawing bundle is detected. Each of those bundles may trigger events in
-two steps, one for it's **pending** state, and one for it's **included** (confirmed) state.
+預け入れバンドルと取り出しバンドルが検出されるとすぐに預け入れイベントと取り出しイベントが発生します。これらの各バンドルは2つのステップでイベントを発生させることができます。1つは**ペンディング**状態用、もう1つは**含まれる**（確定済み）状態用です。
+<!-- Deposit and withdrawal events are emitted as soon as a depositing or -->
+<!-- withdrawing bundle is detected. Each of those bundles may trigger events in -->
+<!-- two steps, one for it's **pending** state, and one for it's **included** (confirmed) state. -->
 
-Callbacks are given an object as argument, which contains the
-relevant address and the complete depositing or withdrawing bundle.
+コールバックは引数としてオブジェクトを与えられます。オブジェクトは関連アドレスと完全な預け入れバンドルか取り出しバンドルが含まれます。
+<!-- Callbacks are given an object as argument, which contains the -->
+<!-- relevant address and the complete depositing or withdrawing bundle. -->
 
-1. Attach listeners for deposit and withdrawal events:
+1. 預け入れバンドルと取り出しバンドルのリスナーを添付します。
+  <!-- 1. Attach listeners for deposit and withdrawal events: -->
     ```js
     account.on('pendingDeposit', ({ address, bundle }) => {
         console.log('Address:', address, 'Tail transaction hash:', bundle[0].hash);
@@ -39,8 +47,9 @@ relevant address and the complete depositing or withdrawing bundle.
     })
     ```
 
-    Do not forget to subscribe to `error` events which are usefull for dubugging
-    your application, and reacting to exceptions thrown in the background.
+    アプリケーションをダビングしたり、バックグラウンドでスローされた例外に対処するのに役立つ`error`イベントをサブスクライブすることを忘れないでください。
+    <!-- Do not forget to subscribe to `error` events which are usefull for dubugging -->
+    <!-- your application, and reacting to exceptions thrown in the background. -->
 
     ```js
     account.on('error', (error) => {
@@ -48,7 +57,8 @@ relevant address and the complete depositing or withdrawing bundle.
     })
     ```
 
-2. Generate a CDA
+2. CDAを生成する
+  <!-- 2. Generate a CDA -->
 
     ```js
     const cda = account
@@ -58,7 +68,8 @@ relevant address and the complete depositing or withdrawing bundle.
         })
     ```
 
-3. Send a deposit to the CDA above
+3. 上記のCDAに預け入れを送信する
+  <!-- 3. Send a deposit to the CDA above -->
     ```js
     cda
         .tap(cda => console.log('Sending to:', cda.address))
@@ -72,28 +83,36 @@ relevant address and the complete depositing or withdrawing bundle.
     ```
 
     :::info:
-    All relevant transactions that exist in database of connected node
-    trigger events uppon account startup.
+    接続ノードのデータベースに存在するすべての関連トランザクションは、アカウント起動時にイベントをトリガーします。
     :::
+    <!-- :::info: -->
+    <!-- All relevant transactions that exist in database of connected node -->
+    <!-- trigger events uppon account startup. -->
+    <!-- ::: -->
 
-You should be able to see a pair of an address and a tail transaction hash once
-transaction is detected and one once confirmed!
+トランザクションが検出されるとアドレスと末尾トランザクションハッシュのペアが表示されるはずです！
+<!-- You should be able to see a pair of an address and a tail transaction hash once -->
+<!-- transaction is detected and one once confirmed! -->
 
-## Full list of account events
+## アカウントイベントの全一覧
+<!-- ## Full list of account events -->
 
-|**Event name**|**Callback argument**|
-| :----------| :----------|
-|`pendingDeposit`|`{ address, bundle }`|
-|`includedDeposit`|`{ address, bundle }`|
-|`pendingWithdrawal`|`{ address, bundle }`|
-|`includedWithdrawal`|`{ address, bundle }`|
-|`selectInput`|`{ transfer, input }`|
-|`prepareTransfer`|`{ transfer, trytes }`|
-|`getTransactionsToApprove`|`{ trytes, { trunkTransaction, branchTransaction } }`|
-|`attachToTangle`|`transactionObjects`|
-|`broadcast`|`transactionObjects`|
-|`error`|`Error`|
+| **イベント名** | **コールバック引数** |
+| :------------- | :------------------- |
+| `pendingDeposit` | `{ address, bundle }` |
+| `includedDeposit` | `{ address, bundle }` |
+| `pendingWithdrawal` | `{ address, bundle }` |
+| `includedWithdrawal` | `{ address, bundle }` |
+| `selectInput` | `{ transfer, input }` |
+| `prepareTransfer` | `{ transfer, trytes }` |
+| `getTransactionsToApprove` | `{ trytes, { trunkTransaction, branchTransaction } }` |
+| `attachToTangle` | `transactionObjects` |
+| `broadcast` | `transactionObjects` |
+| `error` | `Error` |
 
-:::success:Congratulations! :tada:
-You're account is now emitting events that you can listen to and act on.
+:::success:おめでとうございます！:tada:
+あなたのアカウントはあなたがリッスンして行動することができるイベントを発信しています。
 :::
+<!-- :::success:Congratulations! :tada: -->
+<!-- You're account is now emitting events that you can listen to and act on. -->
+<!-- ::: -->
