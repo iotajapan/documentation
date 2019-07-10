@@ -141,7 +141,6 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
         minWeightMagnitude: 9,
         delay: 30 * 1000
 
-
         // How far to go for the tip selection.
         // Defaults to 3.
         depth: 3,
