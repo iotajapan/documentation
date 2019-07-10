@@ -5,7 +5,7 @@
 <!-- **To send and receive transactions in an account, you must use conditional deposit addresses (CDA). CDAs are special addresses that allow you to specify the conditions in which they may be used in account withdrawals and deposits.** -->
 
 アカウントはCDAを使用して、[署名済みアドレスの再利用](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)のリスクを軽減します。誰かにIOTAトークンを要求すると、一定期間アクティブなCDAを作成できます。このようにして、あなたは送信者にあなたがその時間の後にだけCDAからIOTAトークンを取り出すつもりであることを知らせます。その結果、送信者は、CDAの残り時間に応じて、IOTAトークンを預け入れるかどうかを決定できます。
-<!-- Accounts use CDAs to help reduce the [risks of withdrawing from spent addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). When you request IOTA tokens from a someone, you can create a CDA that's active for a certain period of time. This way, you let the sender know that you intend to withdraw from that address only after that time. As a result, the sender can decide whether to make a deposit, depending on how much time is left on a CDA. -->
+<!-- Accounts use CDAs to help reduce the [risk of withdrawing from spent addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). When you request IOTA tokens from a someone, you can create a CDA that's active for a certain period of time. This way, you let the sender know that you intend to withdraw from that address only after that time. As a result, the sender can decide whether to make a deposit, depending on how much time is left on a CDA. -->
 
 :::info:
 CDAはアカウント内でのみ使用でき、汎用[クライアントライブラリメソッド](root://client-libraries/0.1/introduction/overview.md)では使用できません。その結果、CDAを使用できるようにするには、あなたと送信者の両方にアカウントが必要です。
@@ -35,13 +35,13 @@ CDAを作成するには、CDAがアクティブか期限切れかを定義す�
 * **timeoutAt（必須）：** アドレスが期限切れになる時刻。
 <!-- * **timeoutAt (required):** The time at which the address expires -->
 
-と、以下の推奨フィールドのうちの1つを指定できます。
-<!-- And one of the following, recommended fields: -->
+次に、以下の推奨フィールドのいずれかを指定します。
+<!-- Then specify one of the following recommended fields: -->
 
-* **multiUse（推奨）：** アドレスに複数の預け入れを許可するかどうかを指定するブール値。
-<!-- * **multiUse (recommended):** A boolean that specifies if the address may be sent more than one deposit. -->
-* **expectedAmount（推奨）：** アドレスに含まれると予想されるIOTAトークンの量。アドレスにこの量のIOTAトークンが含まれている場合、期限切れと見なされます。この条件を使用することを強くお勧めします。
-<!-- * **expectedAmount (recommended):** The amount of IOTA tokens that the address is expected to contain. When the address contains this amount, it's considered expired. We highly recommend using this condition. -->
+* **multiUse（推奨）:** アドレスが複数の預け入れを受け取る可能性があるかどうかを指定するブール値。
+<!-- * **multiUse (recommended):** A boolean that specifies if the address may receive more than one deposit. -->
+* **expectedAmount（推奨）：** アドレスに含まれると予想されるIOTAトークンの量。アドレスにこの量のIOTAトークンが含まれている場合、期限切れと見なされます。この条件を指定することをお勧めします。
+<!-- * **expectedAmount (recommended):** The amount of IOTA tokens that the address is expected to contain. When the address contains this amount, it's considered expired. We recommend specifying this condition. -->
 
 :::info:
 CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に指定することはできません。詳細については[FAQ](../references/cda-faq.md)を参照してください。
@@ -118,53 +118,43 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
         });
     ```
 
-  :::info:
-  アカウントモジュールは自動的にすべての発行済みトランザクションをタングルに添付します。
-  :::
-  <!-- :::info: -->
-  <!-- The account module automatically attaches all issued transactions to tangle. -->
-  <!-- ::: -->
+添付ルーチンは、確定されるまで未確定のトランザクションを添付し続けます。
+<!-- The attachment routine will keep on attaching unconfirmed transactions until they are confirmed. -->
 
-  未確定のトランザクションが確定するまで、添付ルーチンは未確定のトランザクションを添付し続けます。未確定のバンドルがなくなると、ルーチンは停止し、別のバンドルを送信するとまた再開します。`stopAttaching()`メソッドと`startAttaching()`メソッドを呼び出すことで、添付ルーチンを停止または開始できます。
-  <!-- The attachment routine will keep on attaching uncomfirmed transactions until they are confirmed -->
-  <!-- The routine stops when there are no uncomfirmed bundles anymore, and resumes when you send another one. -->
-  <!-- You may stop or start attachment routine by calling `stopAttaching()` and -->
-  <!-- `startAttaching()` methods. -->
+`stopAttaching()`メソッドと`startAttaching()`メソッドを呼び出すことで、添付ルーチンを開始または停止できます。
+<!-- You may start or stop the attachment routine by calling the `startAttaching()` and -->
+<!-- `stopAttaching()` methods. -->
 
     ```js
-    account.stopAttaching()
-
-    // ...
 
     account.startAttaching({
         depth: 3,
         minWeightMagnitude: 9,
         delay: 30 * 1000
 
-        // How far to go for the tip selection.
-        // Defaults to 3.
+        // How far back in the Tangle to start the tip selection
         depth: 3,
 
-        // Default is 9 on devnet.
+        // The minimum weight magnitude is 9 on the Devnet
         minWeightMagnitude: 9,
 
-        // How long to wait before the next attachment round.
+        // How long to wait before the next attachment round
         delay: 1000 * 30,
 
-        // Specifies at which depth attached transactions are
-        // no longer promotable.
-        // Those transactions are automatically re-attached.
-        // Defaults to 6.
-        maxDepth: 6,
+        // The depth at which transactions are no longer promotable
+        // Those transactions are automatically re-attached
+        maxDepth: 6
+    });
 
-        })
+    account.stopAttaching();
+
     ```
 
 2. **オプション：** CDAをマグネットリンクとして使用するには、CDAを`parseCDAMagnet()`メソッドに渡してから、結果を`sendToCDA()`メソッドに渡します。
   <!-- 2. **Optional:** To use a CDA as a magnet link, pass it to the `parseCDAMagnet()` method, then and pass the result to the`sendToCDA()` method -->
 
     ```js
-     const magnetLink = 'iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1&expected_amount=0'
+     const magnetLink = 'iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1&expected_amount=0';
      const { address, timeoutAt, multiUse, expectedAmount } = parseCDAMagnet(
         magnetLink
     );
@@ -183,17 +173,11 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
             // Handle errors here...
         });
 
-    // Start attaching transactions to the Tangle
-    // The startAttaching routine will keep on attaching uncomfirmed transactions until they are confirmed
-    // The routine stops when there are no uncomfirmed bundles anymore, and resumes when you send another one
     account.startAttaching({
         depth: 3,
         minWeightMagnitude : 9,
         delay: 30 * 1000 // 30 second delay
     });
-
-    // Or stop attaching
-    account.stopAttaching();
     ```
 
 ## CDAを配布する
@@ -224,5 +208,5 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
 ## 次のステップ
 <!-- ## Next steps -->
 
-[イベントリスナープラグインを作成する](../how-to-guides/listen-to-events.md)。
-<!-- [Create an event-listener plugin](../how-to-guides/listen-to-events.md). -->
+[イベントリスナーを作成する](../how-to-guides/listen-to-events.md)。
+<!-- [Create an event listener](../how-to-guides/listen-to-events.md). -->

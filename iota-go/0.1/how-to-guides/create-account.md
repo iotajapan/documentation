@@ -1,8 +1,8 @@
 # アカウントを作成する
 <!-- # Create an account -->
 
-**アカウントは、トランザクションの送受信を簡単にするためのオブジェクトです。アカウントは、アドレスやペンディング中のバンドルハッシュなどのデータをローカルデータベースに格納します。このデータにより、署名済みアドレスの再利用やペンディング中のトランザクションの促進や再添付を心配することなく、IOTAネットワークとやり取りすることができます。**
-<!-- **An account is an object that makes it easier to send and receive transactions. Accounts store data such as addresses and pending bundle hashes in a local database. This data allows you to interact with an IOTA network without worrying about reusing spent addresses or promoting and reattaching pending transactions.** -->
+**アカウントは、トランザクションの送受信を簡単にするためのオブジェクトです。アカウントは、アドレスやペンディング中のバンドルハッシュなどのデータをローカルデータベースに格納します。このデータにより、署名済みアドレスからの取り出しやペンディング中のトランザクションの促進や再添付を心配することなく、IOTAネットワークとやり取りすることができます。**
+<!-- **An account is an object that makes it easier to send and receive transactions. Accounts store data such as addresses and pending bundle hashes in a local database. This data allows you to interact with an IOTA network without worrying about withdrawing from spent addresses or promoting and reattaching pending transactions.** -->
 
 アカウントでは、すべてのアドレスは単純なIOTAアドレス以上のものです。これらのアドレスは、[条件付預け入れアドレス（CDA）](../how-to-guides/create-and-manage-cda.md)と呼ばれます。 CDAは81トライトのアドレスだけでなく、そのアドレスが[転送バンドル](root://getting-started/0.1/introduction/what-is-a-bundle.md)内で使用される可能性のある条件も定義できます。
 <!-- In accounts, all addresses are more than simple IOTA addresses. These addresses are called [conditional deposit addresses (CDAs)](../how-to-guides/create-and-manage-cda.md). A CDA defines not only the 81-tryte address, but also the conditions in which that address may be used in a [transfer bundle](root://getting-started/0.1/introduction/what-is-a-bundle.md). -->

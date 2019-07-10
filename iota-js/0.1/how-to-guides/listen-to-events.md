@@ -7,95 +7,88 @@
 ## 前提条件
 <!-- ## Prerequisites -->
 
-このガイドでは、[Node.js](https://nodejs.org/api/events.html)のイベントの概念を理解していることを前提としています。イベントリスナーは、コールバックを特定のイベントタイプに割り当てるために使用されます。特定のイベントへのサブスクリプションが不要になったら、リスナーも[削除される](https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener)可能性があります。
-<!-- This guide assumes that you understand the concept of events in Node.js (https://nodejs.org/api/events.html) -->
-<!-- Event listeners are used to assign callbacks to specific event types. -->
-<!-- Also listeners may be [removed](https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener), and they should be, once the subscription to a -->
-<!-- specific event is no longer required. -->
+このガイドは、読者が[Node.jsのイベント](https://nodejs.org/api/events.html)の概念を理解していることを前提としています。イベントリスナーは、コールバックを特定のイベントタイプに割り当てるために使用されます。[イベントリスナを使い終えたら](https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener)、必ずイベントリスナを削除してください。
+<!-- This guide assumes that you understand the concept of events in Node.js (https://nodejs.org/api/events.html). Event listeners are used to assign callbacks to specific event types. You should always [remove event listeners](https://nodejs.org/api/events.html#events_emitter_removelistener_eventname_listener) when you're finished with them. -->
 
 ## 預け入れイベントと取り出しイベントをリッスンする
 <!-- ## Listening to deposit and withdrawal events -->
 
 預け入れバンドルと取り出しバンドルが検出されるとすぐに預け入れイベントと取り出しイベントが発生します。これらの各バンドルは2つのステップでイベントを発生させることができます。1つは**ペンディング**状態用、もう1つは**含まれる**（確定済み）状態用です。
-<!-- Deposit and withdrawal events are emitted as soon as a depositing or -->
-<!-- withdrawing bundle is detected. Each of those bundles may trigger events in -->
-<!-- two steps, one for it's **pending** state, and one for it's **included** (confirmed) state. -->
+<!-- Deposit and withdrawal events are emitted as soon as a deposit or withdrawal bundle is detected. Each of those bundles may trigger events in two steps: One for its **pending** state, and one for its **included** (confirmed) state. -->
 
 コールバックは引数としてオブジェクトを与えられます。このオブジェクトには関連アドレスと完全な預け入れバンドルか取り出しバンドルが含まれます。
-<!-- Callbacks are given an object as argument, which contains the -->
-<!-- relevant address and the complete depositing or withdrawing bundle. -->
+<!-- Callbacks are given an object as an argument, which contains the relevant address and the complete deposit or withdrawal bundle. -->
 
 1. 預け入れバンドルと取り出しバンドルのリスナーを添付します。
-  <!-- 1. Attach listeners for deposit and withdrawal events: -->
+  <!-- 1. Attach listeners for deposit and withdrawal events -->
+
     ```js
     account.on('pendingDeposit', ({ address, bundle }) => {
         console.log('Address:', address, 'Tail transaction hash:', bundle[0].hash);
         // ...
-    })
+    });
 
     account.on('includedDeposit', ({ addresses, bundle }) => {
         console.log('Address:', address, 'Tail transaction hash:', bundle[0].hash);
         // ...
-    })
+    });
 
     account.on('pendingWithdrawal', ({ address, bundle }) => {
         // ...
-    })
+    });
 
     account.on('includedWithdrawal', ({ addresses, bundle }) => {
         // ...
-    })
+    });
     ```
 
-    アプリケーションをダビングしたり、バックグラウンドでスローされた例外に対処するのに役立つ`error`イベントをサブスクライブすることを忘れないでください。
-    <!-- Do not forget to subscribe to `error` events which are usefull for dubugging -->
-    <!-- your application, and reacting to exceptions thrown in the background. -->
+2. アプリケーションのデバッグやバックグラウンドでスローされる可能性のある例外への対応に役立つ `error`イベントをサブスクライブします。
+  <!-- 2. Subscribe to `error` events, which are useful for debugging your application and reacting to exceptions that may be thrown in the background -->
 
     ```js
     account.on('error', (error) => {
         console.log(`Something went wrong: ${error}`);
-    })
+    });
     ```
 
-2. CDAを生成する
-  <!-- 2. Generate a CDA -->
+3. CDAを生成し、明日に期限切れになるように設定します。
+  <!-- 3. Generate a CDA and set it to expire tomorrow -->
 
     ```js
     const cda = account
         .generateCDA({
             timeoutAt: Date.now() + 24 * 60 * 60 * 1000,
-            expectedAmount: 100,
-        })
+            expectedAmount: 100
+        });
     ```
 
-3. 上記のCDAに預け入れを送信する
-  <!-- 3. Send a deposit to the CDA above -->
+4. CDAに預け入れを送信します。
+  <!-- 4. Send a deposit to the CDA -->
+
     ```js
     cda
         .tap(cda => console.log('Sending to:', cda.address))
         .then(cda =>
             account.sendToCDA({
                 ...cda,
-                value: 100,
+                value: 100
             })
         )
-        .catch(error => console.log(error))
+        .catch(error => console.log(error));
     ```
 
     :::info:
-    接続ノードのデータベースに存在するすべての関連トランザクションは、アカウント起動時にイベントをトリガーします。
+    接続されたノードの台帳のいずれかのCDAから取り出しまたはCDAへの預け入れが行われるトランザクションごとにイベントがトリガーされます。
     :::
     <!-- :::info: -->
-    <!-- All relevant transactions that exist in database of connected node -->
-    <!-- trigger events uppon account startup. -->
+    <!-- An event is triggered for each transaction in the connected node's ledger that withdraws from or deposits into one of your CDAs. -->
     <!-- ::: -->
 
-トランザクションが検出されるとアドレスと末尾トランザクションハッシュのペアが表示されるはずです！
-<!-- You should be able to see a pair of an address and a tail transaction hash once -->
-<!-- transaction is detected and one once confirmed! -->
+出力には、トランザクションがペンディング中の場合はアドレスと末尾トランザクションハッシュが表示され、トランザクションが確定されると同じアドレスと末尾トランザクションハッシュが表示されます。
+<!-- In the output, you should see an address and a tail transaction hash when the transaction is pending, and the same address and tail transaction hash when the transaction is confirmed. -->
 
-## アカウントイベントの全一覧
-<!-- ## Full list of account events -->
+## アカウントイベント
+<!-- ## Account events -->
 
 | **イベント名** | **コールバック引数** |
 | :------------- | :------------------- |

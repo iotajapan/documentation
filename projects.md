@@ -6,7 +6,7 @@
 [ハブ](/hub)
 [コンパス](/compass)
 [トリニティ](/trinity)
-[ツールとユーティリティ](/tools)
+[ユーティリティー](/utils)
 [アプリ設計図](/blueprints)
 [Goライブラリ](/iota-go)
 [Javaライブラリ](/iota-java)
