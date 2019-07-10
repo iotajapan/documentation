@@ -13,8 +13,12 @@
 | Content-Type | application/json | 任意 |
 | Authorization | Bearer {token} | 任意 |
 
-**重要：** このAPIはベータ版であり、変更される可能性があります。運用版アプリケーションではこのAPIを使用しないことをお勧めします。
-<!-- **Important:** This API is in beta, and is subject to change. We recommend that you don't use this API in production applications. -->
+:::warning:
+このAPIはベータ版であり、変更される可能性があります。運用版アプリケーションではこのAPIを使用しないことをお勧めします。
+:::
+<!-- :::warning: -->
+<!-- This API is in beta, and is subject to change. We recommend that you don't use this API in production applications. -->
+<!-- ::: -->
 
 ## addNeighbors
 
@@ -30,8 +34,8 @@
 
 ### パラメータ
 
-隣接ノードを追加するためのURI（unique resource identification）フォーマットは、`"udp://IPADDRESS:PORT"`です。
-<!--  The URI (unique resource identification) format for adding neighbors is `"udp://IPADDRESS:PORT"`. -->
+隣接ノードを追加するためのURIフォーマットは、`"tcp://IPADDRESS:PORT"`です。
+<!-- The URI format for adding neighbors is `"tcp://IPADDRESS:PORT"`. -->
 
 | パラメータ | 必須または任意 | 説明 | タイプ |
 |--|--|--|--|
@@ -47,8 +51,8 @@ import json
 command = {
   "command": "addNeighbors",
   "uris": [
-    "udp://8.8.8.8:14265",
-    "udp://8.8.8.8:14265"
+    "tcp://8.8.8.8:14265",
+    "tcp://8.8.8.8:14265"
   ]
 }
 
@@ -74,8 +78,8 @@ var request = require('request');
 var command = {
   "command": "addNeighbors",
   "uris": [
-    "udp://8.8.8.8:14265",
-    "udp://8.8.8.8:14265"
+    "tcp://8.8.8.8:14265",
+    "tcp://8.8.8.8:14265"
   ]
 }
 
@@ -106,8 +110,8 @@ curl http://localhost:14265 \
 -d '{
   "command": "addNeighbors",
   "uris": [
-    "udp://8.8.8.8:14265",
-    "udp://8.8.8.8:14265"
+    "tcp://8.8.8.8:14265",
+    "tcp://8.8.8.8:14265"
   ]
 }'
 ```
@@ -1511,8 +1515,8 @@ curl http://localhost:14265 \
 
 ### パラメータ
 
-隣接ノードを削除するためのURI（unique resource identification）フォーマットは`"udp://IPADDRESS:PORT"`です。
-<!-- The URI (unique resource identification) format for removing neighbors is `"udp://IPADDRESS:PORT"`. -->
+隣接ノードを削除するためのURIフォーマットは`"tcp://IPADDRESS:PORT"`です。
+<!-- The URI format for removing neighbors is `"tcp://IPADDRESS:PORT"`. -->
 
 | パラメータ | 必須または任意 | 説明 | タイプ |
 |--|--|--|--|
@@ -1525,7 +1529,7 @@ curl http://localhost:14265 \
 import urllib2
 import json
 
-command = {"command": "removeNeighbors", "uris": ["udp://8.8.8.8:14265", "udp://8.8.8.8:14265"]}
+command = {"command": "removeNeighbors", "uris": ["tcp://8.8.8.8:14265", "tcp://8.8.8.8:14265"]}
 
 stringified = json.dumps(command)
 
@@ -1546,7 +1550,7 @@ print jsonData
 ```js
 var request = require('request');
 
-var command = {"command": "removeNeighbors", "uris": ["udp://8.8.8.8:14265", "udp://8.8.8.8:14265"]}
+var command = {"command": "removeNeighbors", "uris": ["tcp://8.8.8.8:14265", "tcp://8.8.8.8:14265"]}
 
 var options = {
   url: 'http://localhost:14265',
@@ -1572,7 +1576,7 @@ curl http://localhost:14265 \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'X-IOTA-API-Version: 1' \
--d '{"command": "removeNeighbors", "uris": ["udp://8.8.8.8:14265", "udp://8.8.8.8:14265"]}'
+-d '{"command": "removeNeighbors", "uris": ["tcp://8.8.8.8:14265", "tcp://8.8.8.8:14265"]}'
 ```
 --------------------
 

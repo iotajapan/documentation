@@ -17,10 +17,8 @@
 * デフォルトでは、IRIは次のポートを使用します。ローカルネットワークでLinuxサーバーを実行している場合は、これらのポートをコンピュータの[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)に転送する必要があります。
   <!-- * By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must [forward these ports to your computer's public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md). -->
 
-    * **UDP隣接ノードのピアリングポート：** 14600
-    <!-- * **UDP neighbor peering port:** 14600 -->
-    * **TCP隣接ノードのピアリングポート：** 14600
-    <!-- * **TCP neighbor peering port:** 14600 -->
+    * **TCP隣接ノードのピアリングポート：** 15600
+    <!-- * **TCP neighbor peering port:** 15600 -->
     * **TCPのAPIポート：** 14265
     <!-- * **TCP API port:** 14265 -->
 

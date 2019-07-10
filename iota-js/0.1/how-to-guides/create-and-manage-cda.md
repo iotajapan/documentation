@@ -110,24 +110,51 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
         expectedAmount: 10000000,
         value: 10000000
     })
-         .then((trytes) => {
+        .then((trytes) => {
             console.log('Successfully prepared transaction trytes:', trytes)
         })
         .catch(err => {
             // Handle errors here...
         });
+    ```
 
-    // Start attaching transactions to the Tangle
-    // The startAttaching routine will keep on attaching uncomfirmed transactions until they are confirmed
-    // The routine stops when there are no uncomfirmed bundles anymore, and resumes when you send another one
-    account.startAttaching({
-        depth: 3,
-        minWeightMagnitude: 9,
-        delay: 30 * 1000 // 30 second delay
-    });
+:::info:
+The account module automatically attaches all issued transactions to tangle.
+:::
 
-    // Or stop attaching
-    account.stopAttaching();
+The attachment routine will keep on attaching uncomfirmed transactions until they are confirmed
+The routine stops when there are no uncomfirmed bundles anymore, and resumes when you send another one.
+You may stop or start attachment routine by calling `stopAttaching()` and
+`startAttaching()` methods.
+
+    ```js
+        account.stopAttaching()
+
+        // ...
+
+        account.startAttaching({
+            depth: 3,
+            minWeightMagnitude: 9,
+            delay: 30 * 1000
+
+
+            // How far to go for the tip selection.
+            // Defaults to 3.
+            depth: 3,
+
+            // Default is 9 on devnet.
+            minWeightMagnitude: 9,
+
+            // How long to wait before the next attachment round.
+            delay: 1000 * 30,
+
+            // Specifies at which depth attached transactions are
+            // no longer promotable.
+            // Those transactions are automatically re-attached.
+            // Defaults to 6.
+            maxDepth: 6,
+
+        })
     ```
 
 2. **オプション：** CDAをマグネットリンクとして使用するには、CDAを`parseCDAMagnet()`メソッドに渡してから、結果を`sendToCDA()`メソッドに渡します。
@@ -190,3 +217,9 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
     const magnetLink = CDA.serializeCDAMagnet(cda);
     // iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1
     ```
+
+## 次のステップ
+<!-- ## Next steps -->
+
+[イベントリスナープラグインを作成する](../how-to-guides/listen-to-events.md)。
+<!-- [Create an event-listener plugin](../how-to-guides/listen-to-events.md). -->

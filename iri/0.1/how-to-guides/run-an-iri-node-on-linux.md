@@ -18,13 +18,10 @@
 * デフォルトでは、IRIは次のポートを使用します。ローカルネットワークでLinuxサーバーを実行している場合は、これらのポートをコンピュータの[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)に転送する必要があります。
   <!-- * By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must [forward these ports to your computer's public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md). -->
 
-    * **UDP隣接ノードのピアリングポート：** 14600
-    <!-- * **UDP neighbor peering port:** 14600 -->
-    * **TCP隣接ノードのピアリングポート：** 14600
-    <!-- * **TCP neighbor peering port:** 14600 -->
+    * **TCP隣接ノードのピアリングポート：** 15600
+    <!-- * **TCP neighbor peering port:** 15600 -->
     * **TCPのAPIポート：** 14265
     <!-- * **TCP API port:** 14265 -->
-
 ---
 
 :::info:
@@ -86,7 +83,7 @@ IRIはJavaソフトウェアなので、Javaランタイム環境（JRE）で実
     Javaがインストールされていることを確認するには、`java -version`を実行します。標準出力にバージョン番号が表示されます。
     :::
     <!-- :::info: -->
-    <!-- To check that Java is installed, do `java -version`. You should see a version number in the output. -->
+    <!-- To check that Java is installed, enter `java -version`. You should see a version number in the output. -->
     <!-- ::: -->
 
 4. 最新のIRI Javaファイルを自分の`node`ディレクトリにダウンロードします。 `jake`をご自身のLinuxユーザー名に変更して、`${VERSION}`変数を[最新バージョン](https://github.com/iotaledger/iri/releases)のIRIに置き換えます。
@@ -179,8 +176,8 @@ HTTP request sent, awaiting response ... 200 OK
     sudo apt-get update && apt-get install -y --no-install-recommends git
     ```
 
-4. IRI GitHubリポジトリをクローンしてチェックアウトします。
-  <!-- 4. Clone and check out the IRI GitHub repository -->
+4. GitHubリポジトリをクローンしてチェックアウトします。
+  <!-- 4. Clone and check out the GitHub repository -->
 
     ```bash
     git clone https://github.com/iotaledger/iri.git
@@ -200,10 +197,10 @@ HTTP request sent, awaiting response ... 200 OK
     ```
 
     :::info:
-    IRI Javaファイルは、`target`というディレクトリにビルドされています。
+    IRI Javaファイルは、`target`というディレクトリにあります。
     :::
     <!-- :::info: -->
-    <!-- The IRI Java file is built in a directory called `target`. -->
+    <!-- The IRI Java file is in a directory called `target`. -->
     <!-- ::: -->
 
 ## IRIを設定する
@@ -237,8 +234,8 @@ IRIはJava仮想マシンで動作します。したがって、IRIを実行す�
     nano /home/jake/node/config.ini
     ```
 
-    今のところ設定ファイルを空のままにします。ここでのセットアップでは、デフォルトの[IRI設定オプション](../references/iri-configuration-options.md)が適しています。設定オプションを変更したい場合は、config.iniファイルを編集して、変更したい設定オプションを追加してください。
-    <!-- Leave the file empty for now. The default [IRI configuration options](../references/iri-configuration-options.md) are fine for this setup. If you want to change the configuration options, edit the config.ini file and add the configuration options that you want to change. -->
+    今のところ設定ファイルは空のままにします。ここでのセットアップでは、デフォルトの設定オプションが適しています。設定オプションを変更したい場合は、config.iniファイルを編集して、変更したい[設定オプション](../references/iri-configuration-options.md)を追加してください。
+    <!-- Leave the file empty for now. The default configuration options are fine for this setup. If you want to change the configuration options, edit the config.ini file and add the [configuration options](../references/iri-configuration-options.md) that you want to change. -->
 
 ### permanodeを設定する
 <!-- ### Configure a permanode -->
@@ -255,13 +252,13 @@ Devnetノードを実行する場合は、`TESTNET`設定オプションを`true
 次のDevnetノードは自動ピアリングを有効にしているので、自動的に隣接ノードとしてあなたのノードを追加します。
 <!-- The following Devnet nodes have auto-peering enabled, so they will automatically add you as neighbors: -->
 
-* udp://p101.testnet.iota.cafe:14666
+* tcp://p101.testnet.iota.cafe:14666
 
-* udp://p102.testnet.iota.cafe:14666
+* tcp://p102.testnet.iota.cafe:14666
 
-* udp://p103.testnet.iota.cafe:14666
+* tcp://p103.testnet.iota.cafe:14666
 
-* udp://p104.testnet.iota.cafe:14666
+* tcp://p104.testnet.iota.cafe:14666
 
 ### Spamnetノードを設定する
 <!-- ### Configure a Spamnet node -->
@@ -426,5 +423,5 @@ IRIが同期するまでに時間がかかることがあります。問題が�
 ## 次のステップ
 <!-- ## Next steps -->
 
-* [IRIノードのイベントを購読する](../how-to-guides/subscribe-to-events-in-an-iri-node.md)。
+[IRIノードのイベントを購読する](../how-to-guides/subscribe-to-events-in-an-iri-node.md)。
 <!-- * [Subscribe to events in an IRI node](../how-to-guides/subscribe-to-events-in-an-iri-node.md) -->

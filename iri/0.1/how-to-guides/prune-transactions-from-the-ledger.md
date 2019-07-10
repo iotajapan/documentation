@@ -18,8 +18,8 @@
 設定オプションを変更する前に、IRIを停止する必要があります。
 <!-- You must stop the IRI before making changes to the configuration options. -->
 
-1. `LOCAL_SNAPSHOTS_ENABLED`および`LOCAL_SNAPSHOTS_PRUNING_ENABLED`設定オプションが`true`に設定されていることを確認します。
-  <!-- 1. Make sure that the `LOCAL_SNAPSHOTS_ENABLED` and the `LOCAL_SNAPSHOTS_PRUNING_ENABLED` configuration options are set to `true` -->
+1. [`LOCAL_SNAPSHOTS_ENABLED`および`LOCAL_SNAPSHOTS_PRUNING_ENABLED`設定オプション](../references/iri-configuration-options.md#local-snapshots)が`true`に設定されていることを確認します。
+  <!-- 1. Make sure that the [`LOCAL_SNAPSHOTS_ENABLED` and the `LOCAL_SNAPSHOTS_PRUNING_ENABLED` configuration options](../references/iri-configuration-options.md#local-snapshots) are set to `true` -->
 
 2. `LOCAL_SNAPSHOTS_PRUNING_DELAY`および`LOCAL_SNAPSHOTS_DEPTH`設定オプションの値を変更します。
   <!-- 2. Change the value of the `LOCAL_SNAPSHOTS_PRUNING_DELAY` and the `LOCAL_SNAPSHOTS_DEPTH` configuration options -->

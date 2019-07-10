@@ -55,7 +55,7 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 | <a name="max-find-transactions"></a> `--max-find-transactions` | `MAX_FIND_TRANSACTIONS` | [findTransactionsエンドポイント](../references/api-reference.md#findTransactions)から返される可能性があるトランザクションの最大数を設定します。 | number | 100,000 | トランザクション数がこの数を超えると、エラーが返されます。 |
 | <a name="max-requests-list"></a> `--max-requests-list` | `MAX_REQUESTS_LIST` | API呼び出しパラメーター数の最大数を設定します。 | number | 1,000 | パラメータ数がこの数を超えると、エラーが返されます。 |
 | <a name="max-get-trytes"></a> `--max-get-trytes` | `MAX_GET_TRYTES` | [getTrytesエンドポイント](../references/api-reference.md#getTrytes)から返される可能性のあるトライト数の最大数を設定します。 | number | 10,000 | トライト数がこの数を超えると、エラーが返されます。 |
-| <a name="remote"></a> ` --remote ` | `REMOTE` | 任意のホストへのAPIインターフェースを開きます。 | boolean | false | `true`に設定すると、このオプションは`API_HOST`オプションを0.0.0.0に設定するのと同等になります。 |
+| <a name="remote"></a> ` --remote ` | - | 任意のホストへのAPIインターフェースを開きます。 | boolean | false | `true`に設定すると、このオプションは`API_HOST`オプションを0.0.0.0に設定するのと同等になります。このフラグの後に `true`または`false`の値を追加しなければなりません。 |
 | <a name="remote-auth"></a> `--remote-auth` | `REMOTE_AUTH` | `username:password`の形式でAPI呼び出しのBasic認証を追加します。 | string | "" | プレーンテキストまたはハッシュパスワードを使用できます。 |
 | <a name="remote-limit-api"></a> `--remote-limit-api` | `REMOTE_LIMIT_API` | 特定のAPIエンドポイントへのリクエストを無視します。 | 文字列の配列 | [[addNeighbors](../references/api-reference.md#addNeighbors), [getNeighbors](../references/api-reference.md#getNeighbors), [removeNeighbors](../references/api-reference.md#removeNeighbors), [attachToTangle](../references/api-reference.md#attachToTangle), [interruptAttachToTangle](../references/api-reference.md#interruptAttachToTangle)] | このオプションを使用すると、IRIノードのURLまたはIPアドレスを知っているスパム送信者からノードを保護できます。 |
 | <a name="remote-trusted-api-hosts"></a> `--remote-trusted-api-hosts` | `REMOTE_TRUSTED_API_HOSTS` | `REMOTE_LIMIT_API`オプションで設定されているものも含め、任意のAPIエンドポイントを呼び出すことができるホスト。 | コンマ区切りの文字列のリスト | localhost | `REMOTE`オプションを`true`に設定する必要があります。 |
@@ -67,17 +67,18 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 
 | **CLフラグ** | **設定ファイルのパラメータ** | **説明** | **受け入れられる値** | **デフォルト値** | **メモ** |
 | :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
+| <a name="auto-tethering-enabled"></a>`--auto-tethering-enabled` | `AUTO_TETHERING_ENABLED` | 未知の隣接ノードからの新しい接続を有効にします。 | boolean | false | 未知の隣接ノードとは、 `NEIGHBORS`オプションで定義されておらず、`addNeighbors`APIエンドポイントを通して追加されてもいないものです。あなたのノードに接続できる隣接ノードの最大数を制限するには `MAX_NEIGHBORS`オプションを使います。 |
 | <a name="cache-size"></a> `--cache-size` | `CACHE_SIZE_BYTES` | ネットワークキャッシュの最大サイズをバイト単位で設定します。 | number | 150,000 |
 | <a name="dns-refresher"></a> `--dns-refresher` | `DNS_REFRESHER` | 動的IPアドレスを持つ隣接ノードに再接続します。 | boolean | true |
 | <a name="dns-resolution"></a> `--dns-resolution` | `DNS_RESOLUTION` | 近隣ノードピアリングに対してDNSを有効にします。 | boolean | true |
-| <a name="max-peers"></a> `--max-peers` | `MAX_PEERS` | 相互に繋がっていないピアの最大数を設定します。 | number | 0 | このオプションはIOTA Devnetネットワークでのみ利用可能です。 |
+| <a name="max-neighbors"></a> `--max-neighbors` | `MAX_NEIGHBORS` | 最大隣接ノード数を設定します。 | number | 5 | このオプションは少なくとも `NEIGHBORS`オプションにあるのと同じ数のURLに設定されるべきです。 |
 | <a name="neighbors"></a> `-n`, `--neighbors` | `NEIGHBORS` | [隣接ノード](../how-to-guides/find-neighbor-iri-nodes.md)のURLとIPアドレスを設定します。 | 文字列の配列 | "" |
+| <a name="neighboring-socket-address"></a> `--neighboring-socket-address` | `NEIGHBORING_SOCKET_ADDRESS` | TCPサーバーソケットをポートにバインドします。 | string | 15600 | デフォルトアドレスは、TCPサーバソケットをすべてのネットワークインタフェースにバインドします。ノードに複数のIPアドレスがあり、特定のIPアドレスにのみバインドしたい場合は、このオプションを変更してください。 |
+| <a name="neighboring-socket-port"></a> `--neighboring-socket-port` | `NEIGHBORING_SOCKET_PORT` | TCPサーバーソケットをアドレスにバインドします。 | string | 0.0.0.0 |
 | <a name="p-drop-cache"></a> `--p-drop-cache` | `P_DROP_CACHE_ENTRY` | ネットワークキャッシュで最近のシーントランザクションを失う確率を設定します。 | 0から1の間の数 | 0.02 |
 | <a name="p-remove-request"></a> `--p-remove-request` | `P_REMOVE_REQUEST` | IRIがトランザクションをリクエストするのを止める確率を設定します。 | 0から1の間の数 |0.01 | 存在しないトランザクションハッシュが最終的に削除されるように、この数は0に近いはずです。 |
 | <a name="queue-size"></a> `--queue-size` | `Q_SIZE_NODE` | REPLY、BROADCAST、およびRECEIVEネットワークキューの最大サイズを設定します。 | number | 1,000 |
-| <a name="send-limit"></a> `--send-limit` | `SEND_LIMIT` | ノードが送信できるデータ制限をMbpsで設定します。 | number | -1 | この数が0未満の場合、制限は設定されません。 |
-| <a name="udp-receiver-port"></a> `-u`, `--udp-receiver-port` | `UDP_RECEIVER_PORT` | IRIが隣接IRIノードからUDPデータパケットを受信するポートを設定します。 | string | 14600 |
-| <a name="tcp-receiver-port"></a> `-t`, `--tcp-receiver-port` | `TCP_RECEIVER_PORT` | IRIが隣接IRIノードからTCPデータパケットを受信するポートを設定します。 | string | 15600 |
+| <a name="reconnect-attempt-interval-seconds"></a> `--reconnect-attempt-interval-seconds` | `RECONNECT_ATTEMPT_INTERVAL_SECONDS` | 切断された隣接ノードに再接続しようとする前に待機する秒数を設定します。 | number | 60 |
 
 ## IXI
 
