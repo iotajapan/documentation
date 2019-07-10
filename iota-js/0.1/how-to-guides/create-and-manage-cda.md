@@ -119,40 +119,44 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
     ```
 
 :::info:
-The account module automatically attaches all issued transactions to tangle.
+アカウントモジュールは自動的にすべての発行済みトランザクションをタングルに添付します。
 :::
+<!-- :::info: -->
+<!-- The account module automatically attaches all issued transactions to tangle. -->
+<!-- ::: -->
 
-The attachment routine will keep on attaching uncomfirmed transactions until they are confirmed
-The routine stops when there are no uncomfirmed bundles anymore, and resumes when you send another one.
-You may stop or start attachment routine by calling `stopAttaching()` and
-`startAttaching()` methods.
+未確定のトランザクションが確定するまで、添付ルーチンは未確定のトランザクションを添付し続けます。未確定のバンドルがなくなると、ルーチンは停止し、別のバンドルを送信するとまた再開します。`stopAttaching()`メソッドと`startAttaching()`メソッドを呼び出すことで、添付ルーチンを停止または開始できます。
+<!-- The attachment routine will keep on attaching uncomfirmed transactions until they are confirmed -->
+<!-- The routine stops when there are no uncomfirmed bundles anymore, and resumes when you send another one. -->
+<!-- You may stop or start attachment routine by calling `stopAttaching()` and -->
+<!-- `startAttaching()` methods. -->
 
     ```js
-        account.stopAttaching()
+    account.stopAttaching()
 
-        // ...
+    // ...
 
-        account.startAttaching({
-            depth: 3,
-            minWeightMagnitude: 9,
-            delay: 30 * 1000
+    account.startAttaching({
+        depth: 3,
+        minWeightMagnitude: 9,
+        delay: 30 * 1000
 
 
-            // How far to go for the tip selection.
-            // Defaults to 3.
-            depth: 3,
+        // How far to go for the tip selection.
+        // Defaults to 3.
+        depth: 3,
 
-            // Default is 9 on devnet.
-            minWeightMagnitude: 9,
+        // Default is 9 on devnet.
+        minWeightMagnitude: 9,
 
-            // How long to wait before the next attachment round.
-            delay: 1000 * 30,
+        // How long to wait before the next attachment round.
+        delay: 1000 * 30,
 
-            // Specifies at which depth attached transactions are
-            // no longer promotable.
-            // Those transactions are automatically re-attached.
-            // Defaults to 6.
-            maxDepth: 6,
+        // Specifies at which depth attached transactions are
+        // no longer promotable.
+        // Those transactions are automatically re-attached.
+        // Defaults to 6.
+        maxDepth: 6,
 
         })
     ```
