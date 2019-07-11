@@ -44,32 +44,32 @@
 <!-- - information about the `assetOwnerID` is either inserted through the app or fetched from an external source (e.g., a registration server for the use of the app; company VAT registration number is used in this case); -->
 - `assetCustodianID`は最初は`assetOwnerID`と一致します。
 <!-- - `assetCustodianID` initially match the `assetOwnerID`; -->
-- 位置は携帯電話のGPSで取得できます（オプション）。
+- `location`は携帯電話のGPSで取得できます（オプション）。
 <!-- - location can be acquired by the mobile phone GPS (optional); -->
-- トランザクションを開始したデバイス（携帯電話またはWebアプリケーション）によって取得された時間。
+- `time`はトランザクションを開始したデバイス（携帯電話またはWebアプリケーション）によって取得されます。
 <!-- - time it is acquired by the device initiating the transaction (mobile phone or webapp); -->
-- ステータスは使用中、返品または紛失のいずれかです。最初は使用中に設定されています。ただし、ステータスのさまざまなカスタムリストを定義できます。
+- `status`は使用中、返品または紛失のいずれかです。最初は使用中に設定されています。ただし、ステータスのさまざまなカスタムリストを定義できます。
 <!-- - status can be either in-use, returned or lost. Initially it is set to in-use. However, any different custom list of statuses can be defined. -->
 
-情報は、JavaScript MAMクライアントライブラリを使用してIOTAタングルに保存されます。これは、アプリに埋め込むことも、外部サーバー（MAMサーバー）を介して実装することもできます。外部サーバー（MAMサーバー）との間で、セキュアなHTTPS REST APIを使用して情報を交換できます。この設計図のためにMAMライブラリは開発されたアプリに直接統合されています。
+これらの情報は、JavaScript MAMクライアントライブラリを使用してIOTAタングルに保存されます。この機能は、アプリに埋め込むことも、外部サーバー（MAMサーバー）を介して実装することもできます。外部サーバー（MAMサーバー）との間で、セキュアなHTTPS REST APIを使用して情報を交換できます。この設計図のためにMAMライブラリは開発されたアプリに直接統合されています。
 <!-- The information is stored on the IOTA Tangle using the javascript MAM client library. This can either be embedded into the app or implemented through an external server (MAM Server), to which the app can exchange information using secure HTTPS REST APIs. For this blueprint MAM libraries are integrated directly into the developed app. -->
 
-**ヒント1：** 資産所有権は1回だけ作成および登録されます。資産の管理権は時間の経過とともに変化しますが、特定の資産の管理権の変化に関連する情報を集約するためにMAMチャネルを使用することは意味があります。これにより、実装の複雑さを制限することで、すべての異なる管理権の変更を適切な資産に簡単にリンクできます。さらに、MAMを使用することで、管理権の各変更に関連する関連情報へのアクセスも保護されます。
+**ヒント1：** 資産所有権は1回だけ作成および登録されます。資産の管理権は時間の経過とともに変化し、特定の資産の管理権の変化に関連する情報を集約するためにMAMチャネルを使用することは意味があります。MAMチャネルを使用することにより、実装の複雑さを制限でき、すべての異なる管理権の変更を適切な資産に簡単にリンクできます。さらに、MAMを使用することで、管理権の各変更に関連する関連情報へのアクセスも保護されます。
 <!-- **Tip 1:** An asset ownership is created and registered only once. While the asset custody changes over time, it is meaningful to use a MAM channel for aggregating the information related to the change of custody of a given asset. This allows to easily link all the different change of custody to the right asset by limiting complexity of the implementation. Moreover use of MAM also protects access to the relevant information related to each change of custody. -->
 
-各MAMチャネルの作成後、中央管理のバックエンドのオブジェクトリポジトリにデータが入力されます。オブジェクトリポジトリはFirebase NoSQLデータベースとして実装され、ポート3000を使用してデプロイされます。特定のアセットIDに関連付けられたMAMチャネルに関連する情報をFirebase DBに追加して更新するためのストレージREST APIが提供されます。オブジェクトリポジトリに保存される情報には、IOTAタングル上でアクセス可能なチャネルのルートアドレスや制限付きMAMチャネルが使用されている場合、MAMチャネルに保存されている情報を復号化するために必要な暗号化キー（サイドキーと呼ばれます）が含まれます。次のタプルが作成され、オブジェクトリポジトリに保存されます。`&lt;assetUniqueID, channelRoot, channelSideKey&gt;`
+各MAMチャネルの作成後、中央管理のバックエンドのオブジェクトリポジトリにデータが入力されます。オブジェクトリポジトリはFirebase NoSQLデータベースとして実装され、ポート3000を使用してデプロイされます。特定の資産IDに関連付けられたMAMチャネルに関連する情報をFirebase DBに追加して更新するためのストレージREST APIが提供されます。オブジェクトリポジトリに保存される情報には、IOTAタングル上でアクセス可能なチャネルのルートアドレスや制限付きMAMチャネルが使用されている場合、MAMチャネルに保存されている情報を復号化するために必要な暗号化キー（サイドキーと呼ばれます）が含まれます。次のタプルが作成され、オブジェクトリポジトリに保存されます。`&lt;assetUniqueID, channelRoot, channelSideKey&gt;`
 <!-- After creation of each MAM channel, a central back-end Object Repository is populated. The Object Repository is implemented as Firebase NoSQL database and deployed using port 3000. Storage REST APIs are provided to populate and update the Firebase DB with information related to the MAM channel associated to a given asset ID. Information stored in the Object Repository includes the root address of the channel, e.g., where this can be accessed on the IOTA Tangle and the cryptographic key needed for decrypting the information stored in the channel (named side keys), in case restricted MAM channels are created. The following tuple is created and stored in the Object Repository: `<assetUniqueID, channelRoot, channelSideKey>`. -->
 
-実装されているモデルに応じて、オブジェクトリポジトリには、アプリまたはMAMサーバーのいずれかによって実装されます。オブジェクトリポジトリへのアクセスは、指定された回収可能資産の所有者によって管理されるため、指定された回収可能資産に関連付けられている情報チェーンにアクセスして変更できるユーザーを確実に制御できます。
+実装するモデルに応じて、オブジェクトリポジトリは、アプリまたはMAMサーバーのいずれかに実装されます。オブジェクトリポジトリへのアクセスは、特定の回収可能資産の所有者によって管理されるため、特定の回収可能資産に関連付けられている情報チェーンにアクセスして変更できるユーザーを確実に制御できます。
 <!-- The Object repository is either populated by the app or the MAM Server, according to the implemented model. Access to the Object Repository is managed by the given returnable assets owner, thus guaranteeing control on who can access and modify the information chain associated to a given returnable asset. -->
 
-**ヒント2：** 理想的には、すべての資産所有者は、外部のオブジェクトリポジトリを作成するのではなく、IOTAタングルおよびMAMチャネルへのアクセスに必要な情報を保存する機能を備えて、既存の資産リポジトリを管理システムの一部として拡張します。IBCS Groupの場合、これは[IBCSトラッカーシステム](https://www.ibcstracker.com)に統合しました。
+**ヒント2：** 理想的には、すべての資産所有者は、外部のオブジェクトリポジトリを作成するのではなく、IOTAタングルおよびMAMチャネルへのアクセスに必要な情報を保存する機能を備えて、既存の資産リポジトリを管理システムの一部として拡張します。IBCSグループの場合、これは[IBCSトラッカーシステム](https://www.ibcstracker.com)に統合されています。
 <!-- **Tip 2:** Ideally every asset owner will extend the existing assets repository as part of their management system with capability to store the required information for access to the IOTA Tangle and MAM channel, instead of creating an external Object Repository. In the case of IBCS Group this was integrated into [IBCS Tracker system](https://www.ibcstracker.com) -->
 
 特定の回収可能資産の保管者が変更されると、新しい保管者に関する情報が既存のMAMチャネルに追加されます。そのために、新しいMAMメッセージが既存のチャネルに添付され、次の情報が更新されてタングルに保存されます。`&lt;assetCustodianID, location, time, status&gt;`
 <!-- When the given returnable asset changes custodian, information about the new custodian is appended to the existing MAM channel. For that, a new MAM message is attached to the existing channel and the following information updated and stored on the Tangle: `<assetCustodianID, location, time, status>`. -->
 
-これを実現するために、モバイルアプリまたは新しい保管者のMAMサーバーは、最初に、オブジェクトリポジトリから特定の資産に関連付けられているMAMチャネルのルートに関連する情報を取得する必要があります。これは、QRコードのスキャンから取得されるか、手動で挿入される`assetUniqueID`をプライマリーキーとして使用することによって行われます。情報はそれぞれのMAMチャンネルに添付され、IOTAタングルにイミュータブルに保存されます。このために、以下の2つの：
+これを実現するために、モバイルアプリまたは新しい保管者のMAMサーバーは、最初に、オブジェクトリポジトリから特定の資産に関連付けられているMAMチャネルのルートに関連する情報を取得する必要があります。これは、QRコードのスキャンから取得されるか、手動で挿入される`assetUniqueID`をプライマリーキーとして使用することによって行われます。これらの情報はそれぞれのMAMチャンネルに添付され、IOTAタングルにイミュータブルに保存されます。このために、以下の2つの：
 <!-- In order to achieve this, the mobile app or the MAM Server of the new custodian needs to first retrieve the information related to the root of the MAM channel associated to the given asset from the Object Repository. This is done by using the `assetUniqueID`, as the primary key, which is obtained from the QR-code scanning or manually inserted. Information is then attached to the respective MAM channel and stored immutably onto the IOTA Tangle. For this, the two functions: -->
 
 ```javascript
@@ -117,7 +117,7 @@ updateItem( eventBody, mam, newItemData, user);
 ## IOTA構成要素
 <!-- ## IOTA building blocks -->
 
-トラッカーアプリは追跡を可能にするためにMAMチャネルとメッセージとして資産デジタルツインを作成して更新する責任があります。
+トラッカーアプリは追跡を可能にするための資産デジタルツイン（MAMチャネルとメッセージ）の作成と更新を担当します。
 <!-- The tracker app will be responsible of creating and updating assets digital twins as MAM Channels and messages in order to allow tracking. -->
 
 ```javascript
@@ -130,7 +130,7 @@ import config from '../config.json';
 まず、`mam.client.js`ライブラリをインポートする必要があります。
 <!-- First, we need to import the `mam.client.js` library. -->
 
-次にMAMチャネルを作成する前に、トランザクションが保存される現在のIOTAネットワーク（プロバイダ）を選択する必要があります。これは、メインのIOTAネットワーク、または`https://nodes.devnet.thetangle.org:443`のような開発用ネットワークのいずれかです。
+次にMAMチャネルを作成する前に、トランザクションが保存されるIOTAネットワーク（プロバイダ）を選択する必要があります。これは、メインのIOTAネットワーク、または`https://nodes.devnet.thetangle.org:443`のような開発用ネットワークのいずれかです。
 <!-- Then before creating a MAM channels, we need to select the current IOTA network where transactions will be stored (provider). This could be the main IOTA Network or any dev network, such as: `https://nodes.devnet.thetangle.org:443` -->
 
 ```javascript
@@ -138,7 +138,7 @@ import config from '../config.json';
 let mamState = Mam.init(config.provider);
 ```
 
-取得した新しいアセットごとに、最初に回収可能資産のデジタルツイン（`createItemChannel`）を作成する必要があります。
+取得した新しい資産ごとに、最初に回収可能資産のデジタルツイン（`createItemChannel`）を作成する必要があります。
 <!-- For each new assets acquired, we need first to create the returnable asset digital twin `(createItemChannel)`. -->
 
 ```javascript
@@ -171,7 +171,7 @@ const createNewChannel = async (payload, secretKey) => {
 };
 ```
 
-その情報をIOTAタングル（`Mam.attach()`）に公開します。 IOTAはトライトを使用しているので、MAMペイロードをタングルに送信する前（`asciiToTrytes(JSON.stringify(data))`）に変換してMAMメッセージを作成する（`Mam.create()`）必要があります。
+これらの情報をIOTAタングルに公開します（`Mam.attach()`）。IOTAはトライトを使用しているので、MAMペイロードをタングルに送信する前にトライトに変換して（`asciiToTrytes(JSON.stringify(data))`）MAMメッセージを作成する（`Mam.create()`）必要があります。
 <!-- We can then publish the information to the IOTA Tangle `(Mam.attach())`. Remember that IOTA uses Trytes so our MAM payload needs to be converted before sending it to the Tangle `(asciiToTrytes(JSON.stringify(data)))` and to create a MAM message `(Mam.create())`. -->
 
 ```javascript
