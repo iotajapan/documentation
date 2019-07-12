@@ -29,5 +29,5 @@
 #### __ラズパイpub/sub__ ####
 [Link](../raspberry-pi-pub-sub/overview.md)
 
-Raspberry PiからDevnetタングルに毎分リアルタイムの温度データ（摂氏）を送信します。
+Raspberry PiからDevnetタングルに毎分リアルタイムの温度データ（現在の摂氏温度）を送信します。
 ---------------
