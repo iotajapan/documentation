@@ -287,7 +287,7 @@ func handleErr(err error) {
 <!-- ## Get involved -->
 
 次のことができる[Discordチャンネル](https://discord.iota.org)に参加してください。
-[Join our Discord channel](https://discord.iota.org) where you can:
+<!-- [Join our Discord channel](https://discord.iota.org) where you can: -->
 
 * IOTA開発者やコミュニティとの議論に参加する。
 * 助けを求める。
