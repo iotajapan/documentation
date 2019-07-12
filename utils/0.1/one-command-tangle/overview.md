@@ -1,7 +1,7 @@
 # ワンコマンドプライベートテストタングル
 <!-- # One-command private test Tangle -->
 
-**このアプリケーションを使用すると、単一の[Docker](https://www.docker.com/why-docker)コマンドを使用して独自のIOTAネットワークを設定できます。このコマンドを実行すると、独自のIOTAテストネットワークと[2.7Pi](root://iota-basics/0.1/references/units-of-iota-tokens.md)（最大量）のテストIOTAトークンを使用できます。どんな金銭的価値も危険にさらすことなく自分のアイデアやアプリケーションをテストするためにこのアプリケーションを使うことができます。**
+**このアプリケーションを使用すると、単一の[Docker](https://www.docker.com/why-docker)コマンドを使用して独自のIOTAネットワークを設定できます。このコマンドを実行すると、独自のIOTAテストネットワークと[2.7Pi](root://iota-basics/0.1/references/units-of-iota-tokens.md)（最大量）のテストIOTAトークンを使用できます。いかなる金銭的価値も危険にさらすことなく自分のアイデアやアプリケーションをテストするためにこのアプリケーションを使うことができます。**
 <!-- **This application allows you to set up your own IOTA network by using a single [Docker](https://www.docker.com/why-docker) command. When you run this command, you'll have your own IOTA test network and [2.7Pi](root://iota-basics/0.1/references/units-of-iota-tokens.md) (the maximum amount) of test IOTA tokens to use. You can use this application to test your ideas and applications without risking any monetary value.** -->
 
 :::info:GitHubにアクセスする
@@ -46,7 +46,7 @@ SEED9999999999999999999999999999999999999999999999999999999999999999999999999999
 <!-- The total supply of tokens are stored on the first address of this seed: `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999`. -->
 
 :::warning:このネットワークをインターネットに公開しないでください
-このアプリケーションの目的は、テストIOTAネットワークをすばやく設定できるようにすることです。そのために、このアプリケーションは事前計算されたマークル木を使用します。その結果、あなた自身のローカルネットワーク上でテストするためだけにこのアプリケーションを使うべきです。
+このアプリケーションの目的は、テストIOTAネットワークをすばやく設定できるようにすることです。そのために、このアプリケーションは事前に計算されたマークル木を使用します。その結果、あなた自身のローカルネットワーク上でテストするためだけにこのアプリケーションを使用してください。
 :::
 <!-- :::warning:Do not expose this network to the Internet -->
 <!-- The purpose of this application is to allow you to quickly set up a test IOTA network. To do so, this application uses a pre-calculated Merkle tree. As a result, you should use this application only for testing on your own local network. -->
@@ -58,7 +58,7 @@ SEED9999999999999999999999999999999999999999999999999999999999999999999999999999
 このアプリケーションを使用するには、以下が必要です。
 <!-- To use this application, you need the following: -->
 
-* [DockerとDocker Compose](https://docs.docker.com/compose/install/)
+* [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/)と[Docker Compose](https://docs.docker.com/compose/install/)
 <!-- * [Docker and Docker Compose](https://docs.docker.com/compose/install/) -->
 * 4GB以上の空きRAM
 <!-- * At least 4GB of free RAM -->
@@ -76,24 +76,24 @@ SEED9999999999999999999999999999999999999999999999999999999999999999999999999999
 2. `one-command-tangle`ディレクトリで、`docker-compose up`コマンドを実行します。
   <!-- 2. In the `one-command-tangle` directory, execute the `docker-compose up` command -->
 
-    :::info:
-    Linuxオペレーティングシステムを使用している場合は、このコマンドの前に`sudo`を追加する必要があります。
-    :::
-    <!-- :::info: -->
-    <!-- If you're using a Linux operating system, you may need to add `sudo` before this command. -->
-    <!-- ::: -->
+  :::info:
+  Linuxオペレーティングシステムを使用している場合は、このコマンドの前に`sudo`を追加する必要があります。
+  :::
+  <!-- :::info: -->
+  <!-- If you're using a Linux operating system, you may need to add `sudo` before this command. -->
+  <!-- ::: -->
 
-    コンソールで、IRIノードが実行されており、コンパスからマイルストーンを受信していることがわかります。
+  コンソールで、IRIノードが実行されており、コンパスからマイルストーンを受信していることがわかります。
 <!--  In the console, you should see that the IRI node is running and receiving milestones from Compass. -->
 
-    ![Compass and IRI node logs](../images/cli.gif)
+  ![Compass and IRI node logs](../images/cli.gif)
 
-    :::info:
-    コンパスは、深さ20の事前にビルドされた（`layer`ディレクトリ内の）[マークル木](root://the-tangle/0.1/concepts/the-coordinator.md#milestones)を使用します。このマークル木は、コンパスが1年以上30秒間隔でマイルストーンを送信するのに十分な大きさです。
-    :::
-    <!-- :::info: -->
-    <!-- Compass uses a pre-built [Merkle tree](root://the-tangle/0.1/concepts/the-coordinator.md#milestones) (in the `layers` directory) with a depth of 20. This Merkle tree is large enough for Compass to send milestones for over a year at 30-second intervals. -->
-    <!-- ::: -->
+  :::info:
+  コンパスは、深さ20の事前にビルドされた（`layer`ディレクトリ内の）[マークル木](root://the-tangle/0.1/concepts/the-coordinator.md#milestones)を使用します。このマークル木は、コンパスが1年以上30秒間隔でマイルストーンを送信するのに十分な大きさです。
+  :::
+  <!-- :::info: -->
+  <!-- Compass uses a pre-built [Merkle tree](root://the-tangle/0.1/concepts/the-coordinator.md#milestones) (in the `layers` directory) with a depth of 20. This Merkle tree is large enough for Compass to send milestones for over a year at 30-second intervals. -->
+  <!-- ::: -->
 
 ## 手順2. ネットワークと対話する
 <!-- ## Step 2. Interact with the network -->
@@ -107,10 +107,8 @@ SEED9999999999999999999999999999999999999999999999999999999999999999999999999999
 --------------------
 ### GetBalances
 Node.jsで[JavaScriptクライアントライブラリ](root://client-libraries/0.1/introduction/overview.md)を使用すると、[`getBalances`](root://iri/0.1/references/api-reference.md#getbalances)エンドポイントを呼び出してシードの合計残高を取得できます。
-<!-- Using the [JavaScript client library](root://client-libraries/0.1/introduction/overview.md) with Node.js, you can call the [`getBalances`](root://iri/0.1/references/api-reference.md#getbalances) endpoint to get the total balance of the seed. -->
 
 これまでにIOTAクライアントライブラリを使用したことがない場合は、[このチュートリアル](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を完了することをお勧めします。
-<!-- If you've never used the IOTA client libraries before, we recommend completing [this tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md). -->
 
  ```js
  var request = require('request');
