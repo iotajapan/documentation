@@ -21,7 +21,7 @@
 ## なぜこのアプリケーションを使うのか？
 <!-- ## Why use this application? -->
 
-モノのインターネット上のデバイスは、多くの場合、その環境を監視してデータを作成しています。このアプリケーションは、そのデータを暗号化し、チャネルを通してタングルに暗号化されたデータをストリームことを可能にします。このようにして、他のデバイスがチャネルを通してデータストリームを購読することを許可することができます。
+モノのインターネット上のデバイスは、多くの場合、自身の環境をモニタリングしてデータを作成しています。このアプリケーションは、そのデータを暗号化し、チャネルを通してタングルにデータをストリームすることができます。このようにして、他のデバイスがチャネルを通してデータストリームを購読することを許可することができます。
 <!-- Devices on the Internet of Things are often monitoring their environment and creating data. This application allows you to encrypt that data and stream it on the Tangle through a channel. This way, you can allow other devices to subscribe to your data stream through the channel. -->
 
 ## 前提条件
@@ -38,7 +38,7 @@
 ## アプリケーションを実行する
 <!-- ## Run the application -->
 
-1. リポジトリをクローンします。
+1. `mam-watcher`リポジトリをクローンします。
   <!-- 1. Clone this repository -->
 
     ```bash
@@ -91,7 +91,7 @@
 ## メッセージをよりプライベートにする
 <!-- ## Make your message more private -->
 
-今までは、タングルでトランザクションを見つけられた人は誰でも、アドレスをキーとして使ってメッセージを解読することができました。
+今までは、タングルでトランザクションを見つけられた人は誰でも、アドレスをキーとして使って、メッセージを解読することができました。
 <!-- Until now, anyone who was able to find your transactions on the Tangle could decrypt the message using the address as the key. -->
 
 メッセージをよりプライベートにし、誰がメッセージを解読できるのかをもっとコントロールするために、チャネルを制限することができます。
@@ -118,7 +118,7 @@
     <!-- This is only an example. For your own applications, create your own 81-tryte side key. -->
     <!-- ::: -->
 
-3. `public`（パブリック）メソッドの代わりに`restricted`（制限付き）メソッドを使用するように`mamState`変数を変更します。
+3. `public`メソッドの代わりに`restricted`メソッドを使用するように`mamState`変数を変更します。
   <!-- 3. Change the `mamState` variable to use the `restricted` method instead of the `public` one -->
 
     ```js
@@ -165,7 +165,7 @@
 ## 次のステップ
 <!-- ## Next steps -->
 
-あなた自身のプライベートタングルを実行し、プライベートタングルにMAMメッセージを送信してみてください。
+あなた自身の[プライベートタングルを実行し](../one-command-tangle/overview.md)、プライベートタングルにMAMメッセージを送信してみてください。
 <!-- Try [running your own private Tangle](../one-command-tangle/overview.md) and sending the sending the MAM messages to it. -->
 
 :::info:
