@@ -170,7 +170,7 @@ Node.jsで[JavaScriptクライアントライブラリ](root://client-libraries/
 ## 手順3. ウォレットからネットワークに接続する
 <!-- ## Step 3. Connect to the network through a wallet -->
 
-GUIを介してネットワーク上でトランザクションを送受信する場合は、`http://localhost:14265`で自分のノードに接続して以下のシードでログインするように[IOTAライトウォレット](https://github.com/iotaledger/wallet/releases)を設定できます。
+GUIを介してネットワーク上でトランザクションを送受信する場合は、`http://localhost:14265`で自分のノードに接続して、以下のシードでログインするように[IOTAライトウォレット](https://github.com/iotaledger/wallet/releases)を設定します。
 ```bash
 SEED99999999999999999999999999999999999999999999999999999999999999999999999999999
 ```
@@ -181,7 +181,7 @@ SEED9999999999999999999999999999999999999999999999999999999999999999999999999999
 
     ![IOTA wallet configuration](../images/light-wallet-node-configuration.png)
 
-2. 完全な残高を見るために**RECEIVE** > **ATTACH TO TANGLE**に行きます。
+2. 完全な残高を見るために**RECEIVE** > **ATTACH TO TANGLE**を行います。
   <!-- 2. Go to **RECEIVE** > **ATTACH TO TANGLE** to see your full balance -->
 
     <img src="../images/light-wallet-test-tangle.png" width="200">
@@ -189,13 +189,13 @@ SEED9999999999999999999999999999999999999999999999999999999999999999999999999999
 ## ネットワークを再起動する
 <!-- ## Restart the network -->
 
-ネットワークを再起動したい場合は、**Ctrl + C**キーを押し、`docker-compose.yml`ファイルから`-bootstrap`フラグを削除してからコマンドを再実行します。
+ネットワークを再起動したい場合は、**Ctrl + C**キーを押し、`docker-compose.yml`ファイルの`-bootstrap`フラグを削除してからコマンドを再実行します。
 <!-- If you want to restart the network, press **Ctrl + C**, and remove the `-bootstrap` flag from the `docker-compose.yml` file before running the command again. -->
 
 ## 次のステップ
 <!-- ## Next steps -->
 
-新しいネットワークで他のツールやユーティリティを使ってみてください。
+ご自身のネットワークで他のツールやユーティリティを使ってみてください。
 <!-- Use one of our other tools and utilities with your new network. -->
 
 あなたのネットワークを通して暗号化されたメッセージを送るために[MAMウォッチャー](../mam-watcher/overview.md)を試してみてください。
