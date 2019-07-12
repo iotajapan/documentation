@@ -4,7 +4,7 @@
 **このアプリケーションは、Raspberry PiからDevnetタングルに毎分リアルタイムの温度データ（現在の摂氏温度）を送信します。その後、別のDevnetノードでイベントストリーム（ZMQ）を購読し、データを受信したときに知らせるメッセージを表示します。**
 <!-- **This application sends real-time temperature data (the current temperature in Celsius) from a Raspberry Pi to the Devnet Tangle every minute. Then, it subscribes to the event stream (ZMQ) on another Devnet node and triggers a message to let you know when it receives the data.** -->
 
-:::GitHubにアクセスする
+:::info:GitHubにアクセスする
 クイックスタートの手順やソースコードを読むには、[GitHubリポジトリ](https://github.com/iota-community/raspberrypi-pubsub)にアクセスしてください。
 :::
 <!-- :::info:Go to GitHub -->
@@ -59,7 +59,7 @@
 
 * [Git](https://git-scm.com/download/linux)
 
-ラズベリーパイの設定をするには、[これら手順](https://medium.com/@lambtho/raspberry-setup-dcb23e8ba88)に従ってください。
+ラズベリーパイの設定をするには、[これらの手順](https://medium.com/@lambtho/raspberry-setup-dcb23e8ba88)に従ってください。
 <!-- For help setting up a Raspberry Pi, you can follow [these instructions](https://medium.com/@lambtho/raspberry-setup-dcb23e8ba88). -->
 
 Enviro Phatの設定をするには、[このはんだ付けガイド](https://learn.pimoroni.com/tutorial/sandyj/soldering-phats)と[この入門ガイド]に従ってください。
@@ -135,5 +135,5 @@ IOTAの最も重要な利点の1つは、タングルのトランザクション
 [データを暗号化し、MAM（マスク認証メッセージング）チャネルを介して送信します](../mam-watcher/overview.md)。
 <!-- [Start encrypting your data and sending it through a MAM (masked authenticated messaging) channel](../mam-watcher/overview.md). -->
 
-[IOTAクライアントライブラリを知り](root://client-libraries/0.1/introduction/overview.md)、他にできることを調べましょう。
+[IOTAクライアントライブラリを知り](root://client-libraries/0.1/introduction/overview.md)、他にできることを調べてみましょう。
 <!-- [Get to know the IOTA client libraries](root://client-libraries/0.1/introduction/overview.md) and find out what else you can do. -->
