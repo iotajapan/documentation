@@ -4,8 +4,8 @@
 **[MAM（マスク認証メッセージング）](https://blog.iota.org/introducing-masked-authenticated-messaging-e55c1822d50e)は、チャネルと呼ばれる暗号化されたデータストリームを発行および購読することを可能にする通信プロトコルです。MAMウォッチャーを使用すると、チャネル上で暗号化されたメッセージに署名して送信し、そのチャネルを購読してメッセージを検証、復号化、および読み取ることができます。**
 <!-- **[MAM](https://blog.iota.org/introducing-masked-authenticated-messaging-e55c1822d50e) (masked authenticated messaging) is a communication protocol that allows you to publish and subscribe to an encrypted data stream called a channel. The MAM watcher allows you to sign and send encrypted messages on a channel, then subscribe to that channel to validate, decrypt, and read the messages.** -->
 
-:::info:GitHubへ行く
-クイックスタートの手順やソースコードを読むには、[GitHubリポジトリ](https://github.com/iota-community/mam-watcher)にアクセスします。
+:::info:GitHubにアクセスする
+クイックスタートの手順やソースコードを読むには、[GitHubリポジトリ](https://github.com/iota-community/mam-watcher)にアクセスしてください。
 :::
 <!-- :::info:Go to GitHub -->
 <!-- For quickstart instructions or to read the source code, [go to the GitHub repository](https://github.com/iota-community/mam-watcher). -->
