@@ -1,9 +1,9 @@
 # Index
 
-[Introduction/Overview](/introduction/overview.md)
+[序説/概要](/introduction/overview.md)
 
-[MAM watcher/Get started](/mam-watcher/overview.md)
+[MAMウォッチャー/はじめに](/mam-watcher/overview.md)
 
-[One-command Tangle/Get started](/one-command-tangle/overview.md)
+[ワンコマンドタングル/はじめに](/one-command-tangle/overview.md)
 
-[Raspberry Pi pubsub/Get started](/raspberry-pi-pub-sub/overview.md)
+[ラズパイpubsub/はじめに](/raspberry-pi-pub-sub/overview.md)

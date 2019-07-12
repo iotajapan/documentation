@@ -1,16 +1,14 @@
-# Utilities are open-source applications or programs that you can either use as they are or use to fast track the development of your own applications.
+# ユーティリティは、そのまま使用することも、自身のアプリケーションの開発を迅速に追跡するために使用することもできる、オープンソースのアプリケーションまたはプログラムです。
+<!-- # Utilities are open-source applications or programs that you can either use as they are or use to fast track the development of your own applications. -->
 
-[Overview](/0.1/introduction/overview.md)
-## Find out which tools are available
+[概要](/0.1/introduction/overview.md)
+## 利用可能なツールを調べます。
 
-[MAM watcher](/0.1/mam-watcher/overview.md)
-## Send and receive secret messages by publishing and subscribing to an encrypted channel
+[MAMウォッチャー](/0.1/mam-watcher/overview.md)
+## 暗号化されたチャネルをパブリッシュおよびサブスクライブすることで、秘密のメッセージを送受信します。
 
-[One-command Tangle](/0.1/one-command-tangle/overview.md)
-## Set up your own IOTA network by using a single Docker command
+[ワンコマンドタングル](/0.1/one-command-tangle/overview.md)
+## 単一のDockerコマンドを使用して自身のIOTAネットワークを設定します。
 
-[Raspberry Pi pub/sub](/0.1/raspberry-pi-pub-sub/overview.md)
-## Send real-time temperature data (the current temperature in Celsius) from a Raspberry Pi to the Devnet Tangle every minute
-
-
-
+[ラズパイpub/sub](/0.1/raspberry-pi-pub-sub/overview.md)
+## Raspberry PiからDevnetタングルに毎分リアルタイムの温度データ（摂氏）を送信します。

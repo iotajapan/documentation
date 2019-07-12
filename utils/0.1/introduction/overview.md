@@ -1,28 +1,33 @@
-# Utilities
+# ユーティリティ
+<!-- # Utilities -->
 
-**Utilities are open-source applications or programs that you can either use or adapt and include in your own applications.**
+**ユーティリティは、オープンソースのアプリケーションまたはプログラムであり、使用することも、適応させることも、自分のアプリケーションに組み込むこともできます。**
+<!-- **Utilities are open-source applications or programs that you can either use or adapt and include in your own applications.** -->
 
 :::info:
-More utilities are available on the [iota-community GitHub repository](https://github.com/iota-community).
+[iota-community GitHubレポジトリ](https://github.com/iota-community)には他にもユーティリティがあります。
 :::
+<!-- :::info: -->
+<!-- More utilities are available on the [iota-community GitHub repository](https://github.com/iota-community). -->
+<!-- ::: -->
 
-### __Community support__ ###
+### __コミュニティサポート__ ###
 
 ---------------
-#### __MAM watcher__ ####
+#### __MAMウォッチャー__ ####
 [Link](../mam-watcher/overview.md)
 
-Sign and send encrypted messages on a channel that you can subscribe to and validate, decrypt, and read the messages.
+チャネルに暗号化されたメッセージを署名して送信し、購読してメッセージの検証、復号化、および読み取りを行うことができます。
 ---
 
-#### __One-command Tangle__ ####
+#### __ワンコマンドタングル__ ####
 [Link](../one-command-tangle/overview.md)
 
-Set up your own IOTA network by using a single [Docker](https://www.docker.com/why-docker) command.
+単一の[Docker](https://www.docker.com/why-docker)コマンドを使用して自身のIOTAネットワークを設定します。
 ---
 
-#### __Raspberry Pi pub/sub__ ####
+#### __ラズパイpub/sub__ ####
 [Link](../raspberry-pi-pub-sub/overview.md)
 
-Sends real-time temperature data (the current temperature in Celsius) from a Raspberry Pi to the Devnet Tangle every minute.
+Raspberry PiからDevnetタングルに毎分リアルタイムの温度データ（摂氏）を送信します。
 ---------------
