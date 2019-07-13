@@ -1,7 +1,7 @@
 # バンドルとは？
 <!-- # What is a bundle? -->
 
-バンドルは、データを送信したり、ノードにIOTAトークンを特定のアドレスから特定のアドレスに転送するように指示する1つ以上のトランザクショングループです。バンドル内の各トランザクションの運命は、残りの部分に依存します。つまりすべてのトランザクションが有効か、またはすべて無効かです。
+**バンドルは、データを送信したり、ノードにIOTAトークンを特定のアドレスから特定のアドレスに転送するように指示する1つ以上のトランザクショングループです。バンドル内の各トランザクションの運命は、残りの部分に依存します。つまりすべてのトランザクションが有効か、またはすべて無効かです。**
 <!-- **A bundle is a group of one or more transactions, which send data or instruct a node to transfer IOTA tokens from certain addresses to others. The fate of each transaction in a bundle depends on the rest. Either all transactions are valid or none of them are.** -->
 
 バンドルの構造は、先頭トランザクション、本体トランザクション、および末尾トランザクションから構成されます。末尾トランザクションはインデックス0、先頭トランザクションはバンドル内の最後のトランザクションです。
