@@ -13,7 +13,7 @@
 秘密鍵はバンドルに署名するために使用され、これによってアドレスの所有権が証明され、IOTAトークンを取り出すことができます。
 <!-- Private keys are used to sign bundles, which proves ownership of an address and allows IOTA tokens to be withdrawn from it. -->
 
-**シードの例：*
+**シードの例：**
 
 ```bash
 PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX
