@@ -62,7 +62,7 @@
 ラズベリーパイの設定をするには、[これらの手順](https://medium.com/@lambtho/raspberry-setup-dcb23e8ba88)に従ってください。
 <!-- For help setting up a Raspberry Pi, you can follow [these instructions](https://medium.com/@lambtho/raspberry-setup-dcb23e8ba88). -->
 
-Enviro Phatの設定をするには、[このはんだ付けガイド](https://learn.pimoroni.com/tutorial/sandyj/soldering-phats)と[この入門ガイド]に従ってください。
+Enviro Phatの設定をするには、[このはんだ付けガイド](https://learn.pimoroni.com/tutorial/sandyj/soldering-phats)と[この入門ガイド](https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-enviro-phat)に従ってください。
 <!-- For help setting up the Enviro Phat, you can follow [this soldering guide](https://learn.pimoroni.com/tutorial/sandyj/soldering-phats) and [this getting started guide](https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-enviro-phat). -->
 
 ## アプリケーションを実行する
