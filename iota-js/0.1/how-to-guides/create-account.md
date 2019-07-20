@@ -42,33 +42,33 @@
 2. 新しいシードで`account`オブジェクトを作成してノードに接続します。
   <!-- 2. Create an `account` object with a new seed and connect to a node -->
 
-      ```js
-      const { createAccount }  = require('@iota/account')
+    ```js
+    const { createAccount }  = require('@iota/account')
 
-      const seed = 'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
+    const seed = 'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
 
-      // Connect to a node;
-      const provider = 'https://nodes.devnet.iota.org:443';
+    // Connect to a node;
+    const provider = 'https://nodes.devnet.iota.org:443';
 
-      const account = createAccount({
-            seed,
-            provider
-      });
-      ```
+    const account = createAccount({
+          seed,
+          provider
+    });
+    ```
 
-      :::warning:シードを保護しくてください
-      ここで行っているようにシードをハードコーディングしないでください。代わりに、保護されたファイルからシードを読み込むことをお勧めします。
-      :::
-      <!-- :::warning:Protect your seed -->
-      <!-- Never hard code a seed as we do here. Instead, we recommend that you read the seed from a protected file. -->
-      <!-- ::: -->
+    :::warning:シードを保護しくてください
+    ここで行っているようにシードをハードコーディングしないでください。代わりに、保護されたファイルからシードを読み込むことをお勧めします。
+    :::
+    <!-- :::warning:Protect your seed -->
+    <!-- Never hard code a seed as we do here. Instead, we recommend that you read the seed from a protected file. -->
+    <!-- ::: -->
 
-      :::danger:シードごとにアカウントを1つ作成してください
-      同じシードで複数のアカウントを作成してはいけません。作成してしまうと、シードステートが上書きされるという競合状態が発生する可能性があります。
-      :::
-      <!-- :::danger:Create one account per seed -->
-      <!-- You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten. -->
-      <!-- ::: -->
+    :::danger:シードごとにアカウントを1つ作成してください
+    同じシードで複数のアカウントを作成してはいけません。作成してしまうと、シードステートが上書きされるという競合状態が発生する可能性があります。
+    :::
+    <!-- :::danger:Create one account per seed -->
+    <!-- You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten. -->
+    <!-- ::: -->
 
 :::success:おめでとうございます！:tada:
 アドレスのステートを管理し、かつ自動的にトランザクションを促進、再添付するアカウントを作成しました。
@@ -86,65 +86,65 @@
 1. アカウントが接続しているノードとどのように対話するかを変更するには、`depth`、`minWeightMagnitude`、`delay`、そして`maxDepth`フィールドの値をカスタマイズします。
   <!-- 1. To change how your account interacts with its connected nodes, customize the values of the `depth`, `minWeightMagnitude`, `delay`, and `maxDepth` fields -->
 
-      ```js
-      const account = createAccount({
-            seed,
-            provider,
+    ```js
+    const account = createAccount({
+          seed,
+          provider,
 
-            // How far back in the Tangle to start the tip selection
-            depth: 3,
+          // How far back in the Tangle to start the tip selection
+          depth: 3,
 
-            // The minimum weight magnitude is 9 on the Devnet
-            minWeightMagnitude: 9,
+          // The minimum weight magnitude is 9 on the Devnet
+          minWeightMagnitude: 9,
 
-            // How long to wait before the next attachment round
-            delay: 1000 * 30,
+          // How long to wait before the next attachment round
+          delay: 1000 * 30,
 
-            // The depth at which transactions are no longer promotable
-            // Those transactions are automatically re-attached
-            maxDepth: 6
-      });
-      ```
+          // The depth at which transactions are no longer promotable
+          // Those transactions are automatically re-attached
+          maxDepth: 6
+    });
+    ```
 
 2. シードステートを保存するデータベース設定をカスタマイズするには、`persistenceAdapter`ファクトリをアカウントに渡します。このアダプタは、アカウントがシードステートを保存できるローカルデータベースオブジェクトを作成します。デフォルトでは、ローカルデータベースはプロジェクトのルートに保存されます。`persistencePath`フィールドでローカルデータベースへのパスを変更できます。
   <!-- 2. To customize the database settings, which stores your seed state, pass a `persistenceAdapter` factory to your account. This adapter creates a local database object to which the account can save the seed state. By default, the local database is saved in the root of the project. You can change the path to the local database in the `persistencePath` field. -->
 
-      ```js
-      const { createPersistenceAdapter }  = require('@iota/persistence-adapter-level')
+    ```js
+    const { createPersistenceAdapter }  = require('@iota/persistence-adapter-level')
 
-      const account = createAccount({
-            seed,
-            provider,
-            persistencePath: './',
-            persistenceAdapter: createPersistenceAdapter
-      });
-      ```
+    const account = createAccount({
+          seed,
+          provider,
+          persistencePath: './',
+          persistenceAdapter: createPersistenceAdapter
+    });
+    ```
 
-      :::info:
-      [@iota/persistence-adapter-level](https://github.com/iotaledger/iota.js/tree/next/packages/persistence-adapter-level)アダプタがデフォルトです。このアダプタは、シードステートを[LevelDBデータベース](https://github.com/google/leveldb)の`leveldown`フレーバーに保存します。別のデータベースを使用するようにこのアダプタをカスタマイズすることもできます。
+    :::info:
+    [@iota/persistence-adapter-level](https://github.com/iotaledger/iota.js/tree/next/packages/persistence-adapter-level)アダプタがデフォルトです。このアダプタは、シードステートを[LevelDBデータベース](https://github.com/google/leveldb)の`leveldown`フレーバーに保存します。別のデータベースを使用するようにこのアダプタをカスタマイズすることもできます。
 
-      同時に複数のアカウントに1つのアダプタインスタンスを使用することはできません。新しいアカウントごとにプライベートアダプタが作成されます。
-      :::
-      <!-- :::info: -->
-      <!-- The [@iota/persistence-adapter-level](https://github.com/iotaledger/iota.js/tree/next/packages/persistence-adapter-level) adapter is the default. This adapter stores the seed state in the `leveldown` flavor of the [LevelDB database](http://leveldb.org/). You can customize this adapter to use a different database. -->
-      <!--  -->
-      <!-- You can't use one adapter instance for multiple accounts at the same time. A private adapter is created for each new account. -->
-      <!-- ::: -->
+    同時に複数のアカウントに1つのアダプタインスタンスを使用することはできません。新しいアカウントごとにプライベートアダプタが作成されます。
+    :::
+    <!-- :::info: -->
+    <!-- The [@iota/persistence-adapter-level](https://github.com/iotaledger/iota.js/tree/next/packages/persistence-adapter-level) adapter is the default. This adapter stores the seed state in the `leveldown` flavor of the [LevelDB database](http://leveldb.org/). You can customize this adapter to use a different database. -->
+    <!--  -->
+    <!-- You can't use one adapter instance for multiple accounts at the same time. A private adapter is created for each new account. -->
+    <!-- ::: -->
 
 3. カスタムの時間源を使用するには、現在の時刻をミリ秒単位で出力する`timeSource`メソッドを作成し、それを`account`オブジェクトに渡します。
   <!-- 3. To use a custom source of time, create a `timeSource` method that outputs the current time in milliseconds, and pass it to your `account` object -->
 
-      ```js
-      const account = createAccount({
-            seed,
-            provider,
-            timeSource: () => {
-                  // Get time with NTP
-                  // const time = ...
-                  return time
-            }
-      })
-      ```
+    ```js
+    const account = createAccount({
+          seed,
+          provider,
+          timeSource: () => {
+                // Get time with NTP
+                // const time = ...
+                return time
+          }
+    })
+    ```
 
 ## 次のステップ
 <!-- ## Next steps -->
