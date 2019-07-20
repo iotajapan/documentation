@@ -9,7 +9,7 @@
 <!-- - Send transactions -->
 - ペンディングトランザクションの促進と再添付を行う
 <!-- - Promote and reattach pending transactions -->
-- 条件付預け入れアドレス（CDA）への預け入れをリクエストする
+- 条件付き預け入れアドレス（CDA）への預け入れをリクエストする
 <!-- - Request deposits into conditional deposit addresses (CDA) -->
 - イベントをリッスンする
 <!-- - Listen to events -->

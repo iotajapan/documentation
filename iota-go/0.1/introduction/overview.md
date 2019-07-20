@@ -4,7 +4,7 @@
 **アカウントは、トランザクションの送受信を簡単にするためのオブジェクトです。アカウントは、アドレスやペンディング中のバンドルハッシュなどのデータをローカルデータベースに保存します。このデータにより、使用済みアドレスからの取り出しやペンディング中のトランザクションの促進や再添付を心配せずにIOTAネットワークと対話できます。**
 <!-- **An account is an object that makes it easier to send and receive transactions. Accounts store data such as addresses and pending bundle hashes in a local database. This data allows you to interact with an IOTA network without worrying about withdrawing from spent addresses or promoting and reattaching pending transactions.** -->
 
-アカウントはIOTAプロトコルの複雑さを抽象化し、支払いの実行に集中できるようにします。アカウントでは、2種類の支払いがあります。
+アカウントはIOTAプロトコルの複雑さを抽象化し、支払いの実行に集中できるようにします。アカウントには、2種類の支払いがあります。
 <!-- Accounts abstract the complexity of the IOTA protocol and allow you to focus on making payments. In accounts, we have two types of payment: -->
 
 * **入金：** アカウントにIOTAトークンを預け入れるバンドル
@@ -18,7 +18,7 @@
 IOTAプロトコルでは、IOTAトークンを[シード](root://getting-started/0.1/introduction/what-is-a-seed.md)から導出された[アドレス](root://iota-basics/0.1/concepts/addresses-and-signatures.md)に送信する必要があります。これらのアドレスからは一度だけIOTAトークンを取り出すことができます。故に、すべての人が一度もIOTAトークンを取り出していないアドレスへ預け入れることが重要です。ただし、IOTAトークンを取り出す前に、誰がいつIOTAトークンをアドレスに預け入れようとしているのかを知ることは困難です。
 <!-- In the IOTA protocol, IOTA tokens must be sent to [addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md), which are derived from your [seed](root://getting-started/0.1/introduction/what-is-a-seed.md). These addresses may be withdrawn from only once. As a result, it's important that no one deposits IOTA tokens into a withdrawn address. But, it's difficult to know when or if someone is going to deposit IOTA tokens into your address before you withdraw from it. -->
 
-アカウント内のアドレスには、支払いに使用される可能性がある条件を指定できるようにする追加機能が付属しています。これらのアドレスは、条件付き預け入れアドレス（CDA）と呼ばれます。
+アカウント内のアドレスには、支払いに使用される可能性がある条件を指定できる追加機能が付属しています。これらのアドレスは、条件付き預け入れアドレス（CDA）と呼ばれます。
 <!-- In accounts, addresses come with extra features that allow you to specify the conditions in which they may be used in payments. These addresses are called conditional deposit addresses (CDA). -->
 
 アカウントはCDAを使用して、[使用済みアドレスからの取り出しリスク](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)を軽減します。誰かにIOTAトークンを要求すると、一定期間アクティブなCDAを作成できます。このようにして、送信者にその期間の後にだけそのアドレスから取り出すつもりであることを知らせます。その結果、送信者は、CDAの残り時間に応じて、預け入れるかどうかを決定できます。

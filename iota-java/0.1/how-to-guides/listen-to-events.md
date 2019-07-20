@@ -1,7 +1,7 @@
 # アカウントのイベントをリッスンする
 <!-- # Listen to events in an account -->
 
-**アカウントオブジェクトは、イベントが発生したときにイベントを発行します。イベントの例としては、支払いをするときや受け取るときがあります。あなたはこれらのイベントをリッスンして行動することができます。**
+**アカウントオブジェクトは、イベントが発生したときにイベントを発行します。イベントの例としては、支払いをするときや受け取るときがあります。これらのイベントをリッスンして行動することができます。**
 <!-- **An account object emits events when they happen. An example of an event is when you make or receive a payment. You can listen for these events and act on them.** -->
 
 ## 前提条件
