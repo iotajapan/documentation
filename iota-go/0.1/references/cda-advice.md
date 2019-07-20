@@ -1,5 +1,8 @@
-# 条件付預け入れアドレスに関するFAQ
-<!-- # Conditional deposit address FAQ -->
+# CDAの条件に関するアドバイス
+<!-- # Advice about the conditions of a CDA -->
+
+**CDAを作成するとき、CDAがどのような条件を持つ必要があるのかを事前に知ることが難しい場合があります。この記事には、CDA条件を作成するために役立つアドバイスがあります。**
+<!-- **When you're creating a CDA, you may find it difficult to know in advance what conditions it should have. This article has some useful advice for creating CDA conditions.** -->
 
 ## CDAのタイムアウトにはどのくらいの期間を指定すべきか？
 <!-- ## How long should I specify in a CDA's timeout? -->
@@ -8,17 +11,17 @@
 <!-- The value that you specify in the `timeout_at` field depends on how fast you expect the depositor to make a deposit. If you are in direct contact with the depositor and you are both waiting to settle the transfer, you can specify a shorter timeout. -->
 
 :::danger:重要
-`timeout_at`フィールドのみを使用してCDAを作成した場合は、期限切れになっていなくてもゼロではない残高になるとすぐにIOTAトークンを取り出すことができます。そのため、署名済みアドレスの再利用を避けるために、可能な限り`multi_use`フィールドまたは`expected_amount`フィールドのいずれかを`timeout_at`フィールドと併用してCDAを作成することを強くお勧めします。
+`timeout_at`フィールドのみを使用してCDAを作成した場合は、期限切れになっていなくてもゼロではない残高になるとすぐにIOTAトークンを出金することができます。そのため、署名済みアドレスの再利用を避けるために、可能な限り`multi_use`フィールドまたは`expected_amount`フィールドのいずれかを`timeout_at`フィールドと併用してCDAを作成することを強くお勧めします。
 :::
 <!-- :::danger:Important -->
-<!-- If a CDA was created with only the `timeout_at` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. So, to avoid withdrawing from a spent address, we recommend creating CDAs with either the `multi_use` field or with the `expected_amount` field whenever possible. -->
+<!-- If a CDA was created with only the `timeout_at` field, it can be used in outgoing payments as soon as it has a non-zero balance even if it hasn't expired. So, to avoid withdrawing from a spent address, we recommend creating CDAs with either the `multi_use` field or with the `expected_amount` field whenever possible. -->
 <!-- ::: -->
 
 ## multi_useフィールドを持つCDAはいつ使えば良いか？
 <!-- ## When should I create a multi-use CDA? -->
 
-次のような場合には、`multi_use`フィールドを持つCDAを使用することをお勧めします。
-<!-- We recommend that you use multi-use CDAs in case when the following is true: -->
+以下の条件に該当する場合は、`multi_use`フィールドを持つCDAを使用することをお勧めします。
+<!-- We recommend that you use multi-use CDAs when the following conditions are true: -->
 
 - 複数の送信者からの任意の量の複数の預け入れを予想する場合。
 <!-- - You expect multiple payments of arbitrary value from multiple depositors. -->

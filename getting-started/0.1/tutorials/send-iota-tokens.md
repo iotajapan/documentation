@@ -189,12 +189,12 @@
 :::danger:重要
 メインネット上にIOTAトークンを所有している場合は、Devnet上で使用する新しいテストシードを作成することを強くお勧めします。
 
-テストトークンがない場合は、[ここ](../tutorials/receive-test-tokens.md)から取得してください。
+テストトークンがない場合は、[Devnet蛇口](../tutorials/receive-test-tokens.md)から取得してください。
 :::
 <!-- :::danger:Important -->
 <!-- If you own IOTA tokens on the Mainnet, we recommend creating a new test seed to use on the Devnet. -->
 <!--  -->
-<!-- If you don't have any test tokens, [request some](../tutorials/receive-test-tokens.md). -->
+<!-- If you don't have any test tokens, [request some from the Devnet faucet](../tutorials/receive-test-tokens.md). -->
 <!-- ::: -->
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/Send-IOTA-tokens-on-the-Devnet?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>

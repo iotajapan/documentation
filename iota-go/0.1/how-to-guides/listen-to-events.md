@@ -1,11 +1,11 @@
 # アカウントのイベントをリッスンする
 <!-- # Listen to events in an account -->
 
-**`EventMachine`オブジェクトでアカウントが開始されると、`EventMachine`オブジェクトは発生時にイベントを発行します。イベントの一例は、バンドルをノードに送信したときです。リスナーのインスタンスを作成することで、これらのイベントをリッスンしてイベントに対処することができます。**
-<!-- **When an account is started with an `EventMachine` object, that object emits events when they happen. An example of an event is when you send a bundle to a node. You can listen for these events and act on them by creating an instance of a listener.** -->
+**アカウントオブジェクトは、イベントが発生したときにイベントを発行します。イベントの例としては、支払いをするときや受け取るときがあります。あなたはこれらのイベントをリッスンして行動することができます。**
+<!-- **An account object emits events when they happen. An example of an event is when you make or receive a payment. You can listen for these events and act on them.** -->
 
-2種類のリスナーがあります。1つはチャネルを使用するもので、もう1つはコールバックを使用します。このガイドでは、コールバックリスナーを使います。チャネルの使い方に興味があるなら、[イベントリスナープラグインを作成する](../how-to-guides/create-plugin.md)をご覧ください。
-<!-- We have two types of listeners: One that uses channels and one that uses callbacks. In this guide, we use a callback listener. If you're interesting in using a channel listener, see our guide for [creating an event-listener plugin](../how-to-guides/create-plugin.md). -->
+アカウントには2種類のリスナがあります。1つはチャネルを使用するもので、もう1つはコールバックを使用するものです。このガイドでは、コールバックリスナを使います。チャネルの使い方は、[イベントリスナプラグインを作成する](../how-to-guides/create-plugin.md)をご覧ください。
+<!-- Accounts have two types of listeners: One that uses channels and one that uses callbacks. In this guide, we use callback listeners. If you're interested in using a channel listener, see our guide for [creating an event-listener plugin](../how-to-guides/create-plugin.md). -->
 
 :::info:
 利用可能性なすべてのコールバックイベントの一覧は[こちら](https://github.com/iotaledger/iota.go/blob/master/account/event/listener/callback_listener.go)をご参照ください。
@@ -17,14 +17,17 @@
 ## 前提条件
 <!-- ## Prerequisites -->
 
-このガイドは[概要の「はじめに」](../README.md)で紹介されている、プロジェクトの依存関係を管理するための[Goモジュール](https://github.com/golang/go/wiki/Modules)を使っていると仮定します。
-<!-- This guide assumes that you've followed our [Getting started guide](../README.md) and are using the [Go modules](https://github.com/golang/go/wiki/Modules) to manage dependencies in your project. -->
+[アカウントを作成します](../how-to-guides/create-account.md)。
+<!-- [Create an account](../how-to-guides/create-account.md). -->
 
-## イベントをリッスンする
-<!-- ## Listen to an event -->
+## 入金と出金についてアカウントを監視する
+<!-- ## Monitor your account for incoming and outgoing payments -->
 
-イベントをリッスンするには、`EventMachine`オブジェクトを使用してアカウントを作成し、どのイベントをリッスンするかを選択してからイベントをトリガーする必要があります。
-<!-- To listen to an event, you need to build your account with an `EventMachine` object, choose which event you want to listen to, then trigger the event. -->
+アカウントの接続ノードが残高に影響するバンドルを受け取ると、アカウントは2種類のイベントをトリガできます。1つはバンドルが**ペンディング**状態にあるとき、もう1つは**含まれた**（確定済み）状態にあるときです。
+<!-- When your account's connected nodes receive a bundle that affects your balance, your account can trigger two types of event: One when the bundle is in a **pending** state, and one when it's in an **included** (confirmed) state. -->
+
+アカウントへのすべての入金は預け入れと呼ばれ、出金は取り出しと呼ばれます。
+<!-- Any incoming payments to your account are called deposits, and outgoing payments are called withdrawals. -->
 
 1. `EventMachine`オブジェクトを持つアカウントを作成して開始します。
   <!-- 1. Build and start an account that has an `EventMachine` object -->
@@ -67,63 +70,50 @@
     handleErr(account.Start())
     ```
 
-2. `RegAttachingToTangle`イベントをリッスンする新しい`CallbackEventListener`オブジェクトを作成します。
-  <!-- 2. Create a new `CallbackEventListener` object that listens for the `RegAttachingToTangle` event -->
+2. 入金と出金を待機する新しい`CallbackEventListener`オブジェクトを作成します。
+  <!-- 2. Create a new `CallbackEventListener` object that listens for incoming and outgoing payments -->
 
     ```go
     lis := listener.NewCallbackEventListener(em)
-    lis.RegAttachingToTangle(func() {
-        fmt.Println("Doing proof of work")
-        // Do something here
+    lis.RegSentTransfers(func(bun bundle.Bundle) {
+    	fmt.Println("Outgoing payment is pending")
+    	fmt.Println("Bundle :", bun)
+    })
+    lis.RegPromotions(func(promoted *promoter.PromotionReattachmentEvent) {
+    	fmt.Println("Promoting a pending bundle")
+    	fmt.Printf("%+v\n", *promoted)
+    })
+    lis.RegReattachments(func(promoted *promoter.PromotionReattachmentEvent) {
+    	fmt.Println("Reattaching a pending bundle")
+    	fmt.Printf("%+v\n", *promoted)
+    })
+    lis.RegConfirmedTransfers(func(bun bundle.Bundle) {
+    	fmt.Println("Outgoing payment confirmed")
+    	fmt.Println("Bundle :", bun)
+    })
+    lis.RegReceivedMessages(func(bun bundle.Bundle) {
+    	fmt.Println("Received a new message")
+    	fmt.Println("Bundle :", bun)
+    })
+    lis.RegReceivingDeposits(func(bun bundle.Bundle) {
+    	fmt.Println("Receiving a new payment")
+    	fmt.Println("Bundle :", bun)
+    })
+    lis.RegReceivedDeposits(func(bun bundle.Bundle) {
+    	fmt.Println("Received a new payment")
+    	fmt.Println("Bundle :", bun)
     })
     ```
 
-3. 新しいCDAを作成します。
-  <!-- 3. Create a new CDA -->
-
-    ```go
-    // Get the current time
-    now, err := timesource.Time()
-    handleErr(err)
-
-    // Define the time after which the CDA expires
-    // (in this case after 72 hours)
-    now = now.Add(time.Duration(72) * time.Hour)
-
-    // Allocate a new deposit address with conditions
-    conditions := &deposit.Conditions{TimeoutAt: &now, MultiUse: true}
-
-    cda, err := account.AllocateDepositAddress(conditions)
-    handleErr(err)
-    ```
-
-4. `Send()`メソッドを使用してデータトランザクションをCDAに送信します。
-  <!-- 4. Use the `Send()` method to send a data transaction to the CDA -->
-
-    ```go
-    bundle, err := account.Send(cda.AsTransfer())
-    handleErr(err)
-
-    fmt.Printf("Made deposit into %s in the bundle with the following tail transaction hash %s\n", cda.Address, bundle[0].Hash)
-    ```
-
-    出力に次のようなものが表示されるはずです。
-    <!-- You should see something like the following in the output: -->
-
-    ```bash
-    Doing proof of work
-    Made deposit into DL9CSYICJVKQRUTWBFUCZJQZ9WNBSRJOA9MGOISQZGGHOCZTXVSKDIZN9HBORNGDWRBBAFTKXGEJIAHKDTMAUX9ILA in the bundle with the following tail transaction hash WZEATTRJYENRALJTWPVGDQZHETIDJXPUROUM9BBPS9RJEELDMU9YNZFBSDGPQHZHMXBVCKITSMDEEQ999
-    ```
-
 :::success:おめでとうございます！:tada:
-アカウントはリッスンして行動することができるイベントを発行しています。
+アカウントはリッスンして行動することができるイベントを発信しています。
 :::
 <!-- :::success:Congratulations! :tada: -->
-<!-- You're account is now emitting events that you can listen to and act on. -->
+<!-- You're account can now emit events that you can listen to and act on. -->
 <!-- ::: -->
 
 ## 次のステップ
 <!-- ## Next steps -->
 
-[イベントリスナープラグインを作成する](../how-to-guides/create-plugin.md)
-<!-- [Create an event-listener plugin](../how-to-guides/create-plugin.md). -->
+イベントリスナを作ったので、これをテストするために[アカウントとの間で支払いを行います](../how-to-guides/create-and-manage-cda.md)。
+<!-- Now that you have an event listener, start [making payments to/from your account](../how-to-guides/create-and-manage-cda.md) to test it. -->

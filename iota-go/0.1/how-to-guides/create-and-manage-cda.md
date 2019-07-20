@@ -1,71 +1,15 @@
-# トランザクションを送受信する
-<!-- # Send and receive transactions -->
+# アカウントへ/から支払いをする
+<!-- # Make payments to/from your account -->
 
-**アカウントでトランザクションを送受信するには、条件付預け入れアドレス（CDA）を使用する必要があります。CDAは、アカウント内のIOTAトークンの取り出しおよび預け入れに使用される可能性がある条件を指定できるようにした特別なアドレスです。**
-<!-- **To send and receive transactions with an account, you must use conditional deposit addresses (CDA). CDAs are special addresses that allow you to specify the conditions in which they may be used in account withdrawals and deposits.** -->
-
-アカウントはCDAを使用して、[署名済みアドレスの再利用](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)のリスクを軽減します。誰かにIOTAトークンを要求すると、一定期間アクティブなCDAを作成できます。このようにして、あなたは送信者にあなたがその時間の後にだけCDAからIOTAトークンを取り出すつもりであることを知らせます。その結果、送信者は、CDAの残り時間に応じて、IOTAトークンを預け入れるかどうかを決定できます。
-<!-- Accounts use CDAs to reduce the [risks associated with spent addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). When you request IOTA tokens from someone, you can create a CDA that's active for a certain period of time. This way, you let the sender know that you intend to withdraw from that address only after that time. As a result, the sender can decide whether to make a deposit, depending on how much time is left on a CDA. -->
+**支払いをするには、送信者と受信者の両方にCDAが必要です。送信者はIOTAトークンを含む期限切れのCDAを必要とし、受信者はアクティブなCDAを必要とします。**
+<!-- **To make payments, both the sender and the receiver need to have a CDA. The sender needs an expired CDA that contains IOTA tokens, and the receiver needs an active CDA.** -->
 
 :::info:
-CDAはアカウント内でのみ使用でき、汎用[クライアントライブラリメソッド](root://client-libraries/0.1/introduction/overview.md)では使用できません。その結果、CDAを使用できるようにするには、あなたと送信者の両方にアカウントが必要です。
+CDAはアカウント内でのみ使用でき、汎用クライアントライブラリメソッドでは使用できません。故に、CDAを使用するには、送信者と受信者の両方にアカウントが必要です。
 :::
 <!-- :::info: -->
-<!-- CDAs can be used only in an account and not in the generic [client library methods](root://client-libraries/0.1/introduction/overview.md). As a result, both you and the sender must have an account to be able to use CDAs. -->
+<!-- CDAs can be used only in an account and not in the generic client library methods. As a result, both you and the sender must have an account to be able to use CDAs. -->
 <!-- ::: -->
-
-## CDAを作成する
-<!-- ## Create a CDA -->
-
-CDAを作成するには、CDAがアクティブか期限切れかを定義する次の条件を指定します。
-<!-- To create a CDA, specify the following condition, which defines whether it's active or expired: -->
-
-* **timeoutAt（必須）：** アドレスが期限切れになる時刻。
-<!-- * **timeout_at (required):** The time at which the address expires -->
-
-と、以下の推奨フィールドのうちの1つを指定できます。
-<!-- And one of the following, recommended fields: -->
-
-* **multiUse（推奨）：** アドレスに複数の預け入れを許可するかどうかを指定するブール値。
-<!-- * **multi_use (recommended):** A boolean that specifies if the address may be sent more than one deposit. -->
-* **expectedAmount（推奨）：** アドレスに含まれると予想されるIOTAトークンの量。アドレスにこの量のIOTAトークンが含まれている場合、期限切れと見なされます。この条件を使用することを強くお勧めします。
-<!-- * **expected_amount (recommended):** The amount of IOTA tokens that the address is expected to contain. When the address contains this amount, it's considered expired. We highly recommend using this condition. -->
-
-:::info:
-CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に指定することはできません。詳細については[FAQ](../references/cda-faq.md)を参照してください。
-:::
-<!-- :::info: -->
-<!-- You can't specify the `expected_amount` and `multi_use` fields in the same CDA. Please refer to the [FAQ](../references/cda-faq.md) for more information. -->
-<!-- ::: -->
-
-| **フィールドの組合せ** | **IOTAトークンを取り出せる条件** |
-| :--------------------- | :----------------------------- |
-| `timeoutAt` | CDAは、IOTAトークンが含まれている限り、取り出しに使用できます。 |
-| `timeoutAt`と`multiUse`（推奨） | CDAは、預け入れられた量に関係なく、有効期限が切れるとすぐに取り出しに使用できます。 `multiUse`フィールドが設定されたアドレスをいつ使用するかについては、[CDA FAQ](../references/cda-faq.md)を参照してください。 |
-| `timeoutAt`と`expectedAmount`（推奨） | CDAは、予想された量が含まれるとすぐに取り出しに使用できます。 `expectedAmount`フィールドが設定されたアドレスをいつ使用するかについては、[CDA FAQ](../references/cda-faq.md)を参照してください。 |
-
-:::warning:注意
-`timeoutAt`フィールドのみを使用してCDAを作成した場合は、期限切れになっていなくてもゼロではない残高になるとすぐに取り出しに使用できます。
-
-署名済みアドレスの再利用を避けるために、可能であれば、`multiUse`フィールドまたは`expectedAmount`フィールドのいずれかを`timeoutAt`と併用してCDAを作成することをお勧めします。
-:::
-<!-- :::warning:Warning -->
-<!-- If a CDA was created with only the `timeout_at` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. -->
-<!--  -->
-<!-- To avoid withdrawing from a spent address, we recommend creating CDAs with either the `multi_use` field or with the `expected_amount` field whenever possible. -->
-<!-- ::: -->
-
-## 前提条件
-<!-- ## Prerequisites -->
-
-[新しいアカウントを作成](../how-to-guides/create-account.md)します。
-<!-- [Create a new account](../how-to-guides/create-account.md). -->
-
-このガイドは[概要の「はじめに」](../README.md)で紹介されている、プロジェクトの依存関係を管理するための[Goモジュール](https://github.com/golang/go/wiki/Modules)を使っていると仮定します。
-<!-- This guide assumes that you've followed our [Getting started guide](../README.md) and are using the [Go modules](https://github.com/golang/go/wiki/Modules) to manage dependencies in your project. -->
-
-## 新しいCDAを作成する
-<!-- ## Create a new CDA -->
 
 1. 必要なパッケージをインポートします。
   <!-- 1. Import the required packages -->
@@ -78,36 +22,60 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
     oracle_time "github.com/iotaledger/iota.go/account/oracle/time"
     ```
 
-2. アカウントのタイムソースオブジェクトから現在の時刻を保存します。
-  <!-- 2. Store the current time from your account's timesource object -->
+2. 明日有効期限が切れる新しいCDAを作成します。
+  <!-- 2. Create a new CDA that expires tomorrow -->
 
     ```go
-    // get current time
+    // Get the current time
     now, err := timesource.Time()
     handleErr(err)
-    ```
 
-3. CDAの有効期限を定義します。
-  <!-- 3. Define an expiration time for the CDA -->
+    now = now.Add(time.Duration(24) * time.Hour)
 
-    ```go
-    // define the time after which the CDA expires
-    // (in this case after 72 hours)
-    now = now.Add(time.Duration(72) * time.Hour)
-    ```
-
-4. 有効期限付きの新しいmulti-use CDAを作成します。
-  <!-- 4. Create a new multi-use CDA with an expiration time -->
-
-    ```go
-    // allocate a new deposit address with timeout conditions.
+    // Specify the conditions
     conditions := &deposit.Conditions{TimeoutAt: &now, MultiUse: true}
+
     cda, err := account.AllocateDepositAddress(conditions)
     handleErr(err)
     ```
 
-### オラクルを作成する
-<!-- ### Create an oracle -->
+3. CDAがまだアクティブであることを確認した後で、CDAに預け入れを送信します。
+  <!-- 3. After making sure that the CDA is still active, send a deposit to it -->
+
+    ```go
+    bundle, err := account.Send(cda.AsTransfer())
+    handleErr(err)
+
+    fmt.Printf("Made deposit into %s in the bundle with the following tail transaction hash %s\n", cda.Address, bundle[0].Hash)
+    ```
+
+    標準出力に次のようなものが表示されるはずです。
+    <!-- You should see something like the following in the output: -->
+
+    ```bash
+    Made deposit into DL9CSYICJVKQRUTWBFUCZJQZ9WNBSRJOA9MGOISQZGGHOCZTXVSKDIZN9HBORNGDWRBBAFTKXGEJIAHKDTMAUX9ILA in the bundle with the following tail transaction hash WZEATTRJYENRALJTWPVGDQZHETIDJXPUROUM9BBPS9RJEELDMU9YNZFBSDGPQHZHMXBVCKITSMDEEQ999
+    ```
+
+    :::info
+    このサンプルコードを無料のテストトークンでテストしたい場合は、[Devnet蛇口](root://getting-started/0.1/tutorials/receive-test-tokens.md)からテストトークンを取得してください。
+    :::
+    <!-- :::info -->
+    <!-- If you want to test this sample code with free test tokens, [request some from the Devnet faucet](root://getting-started/0.1/tutorials/receive-test-tokens.md). -->
+    <!-- ::: -->
+
+    :::info:
+    CDAの最後の9文字はチェックサムで、アドレスとそのアドレスのすべての条件のハッシュ値です。トリニティやDevent蛇口はCDAをまだサポートしていないため、このチェックサムは、トリニティやDeventの蛇口とは互換性がありません。
+
+    トリニティやDevent蛇口の入力フィールドに自分のアドレスを貼り付ける前に、チェックサムを削除してください。
+    :::
+    <!-- :::info: -->
+    <!-- The last 9 characters of a CDA are the checksum, which is a hash of the address and all of its conditions. This checksum is not compatible with Trinity or the Devent faucet because they don't yet support CDAs. -->
+    <!--  -->
+    <!-- Remove the checksum before pasting your address into the input field of either of these applications. -->
+    <!-- ::: -->
+
+## 意思決定プロセスを自動化する
+<!-- ## Automate the decision-making process -->
 
 CDAは、バンドルの作成、送信、および確定にかかる時間内に期限切れになる可能性があります。そのため、CDAの条件に応じて、CDAに預け入れるかどうかを決定する必要があります。この意思決定プロセスを自動化するために、CDAに預け入れるかどうかについての決定（trueまたはfalse）を返す[オラクル](https://github.com/iotaledger/iota.go/tree/master/account/oracle)を作成できます。
 <!-- A CDA may expire during the time it takes for a bundle to be created, sent, and confirmed. So, you need to make a decision about whether to deposit into a CDA, depending on its conditions. To automate this decision-making process, you can create an [oracle](https://github.com/iotaledger/iota.go/tree/master/account/oracle) that returns a decision (true or false) about whether to deposit into it. -->
@@ -146,11 +114,42 @@ CDAは、バンドルの作成、送信、および確定にかかる時間内�
     }
     ```
 
-## CDAへIOTAトークンを預け入れる
-<!-- ## Deposit IOTA tokens into a CDA -->
+## アカウント全体の残高を1つのCDAに転送する
+<!-- ## Transfer your entire account balance to one CDA -->
 
-1. CDAに予想量が含まれている場合は、CDAオブジェクトを`account.Send()`メソッドに渡すことで、予想量のIOTAトークンをCDAに預け入れることができます。
-  <!-- 1. When a CDA contains an expected amount, you can deposit that amount into it by passing the object to the `account.Send()` method. -->
+できるだけ少ない数のCDAで残高の大部分を維持することをお勧めします。こうすることで、支払いをより速く、そしてより少ないトランザクションですみます。そのためには、利用可能残高を新しいCDAに転送することができます。
+<!-- You may want to keep the majority of your balance on as few CDAs as possible. This way, making payments is faster and requires fewer transactions. To do so, you can transfer you available balance to a new CDA. -->
+
+:::info:
+利用可能残高は、すべての期限切れCDAの総残高です。この残高は取り出しても安全です。
+
+アカウントの合計残高には、まだアクティブで期限切れではないCDAが含まれています。この残高を取り出すのは危険です。
+:::
+<!-- :::info: -->
+<!-- Available balance is the total balance of all expired CDAs. This balance is safe to withdraw. -->
+<!--  -->
+<!-- Your account's total balance includes CDAs that are still active as well as expired. This balance is unsafe to withdraw. -->
+<!-- ::: -->
+
+1. アカウントの利用可能な残高の合計を予想量とするCDAを作成します。
+  <!-- 1. Create a CDA that has your account's total available balance as its expected amount -->
+
+    ```go
+    // Get the current time
+    now, err := timesource.Time()
+    handleErr(err)
+
+    now = now.Add(time.Duration(24) * time.Hour)
+
+    // Specify the conditions
+    conditions := &deposit.Conditions{TimeoutAt: &now, MultiUse: false, ExpectedAmount: account.AvailableBalance() }
+
+    cda, err := account.AllocateDepositAddress(conditions)
+    handleErr(err)
+    ```
+
+2. 使用可能な残高の合計をCDAに転送します。
+  <!-- 2. Transfer your total usable balance to the CDA -->
 
     ```go
     bundle, err := account.Send(cda.AsTransfer())
@@ -159,18 +158,32 @@ CDAは、バンドルの作成、送信、および確定にかかる時間内�
     fmt.Printf("Made deposit into %s in the bundle with the following tail transaction hash %s\n", cda.Address, bundle[0].Hash)
     ```
 
-:::info:
-Devnetでアカウントをテストしていて、十分な残高がない場合は、[Devnet蛇口](https://faucet.devnet.iota.org/)からDevnetトークンを取得できます。
-:::
-<!-- :::info: -->
-<!-- If you're testing your account on the Devnet and you don't have enough balance, use the [Devnet faucet](https://faucet.devnet.iota.org/) to request Devnet tokens. -->
-<!-- ::: -->
+## CDAを送信者に送信する
+<!-- ## Send someone your CDA -->
 
-## CDAを配布する
-<!-- ## Distribute a CDA -->
+送信者にあなたのアカウントにIOTAトークンを送って欲しい場合、送信者にあなたのCDAを送信する必要があります。
+<!-- If you want a depositer to send IOTA tokens to your account, you need to send them your CDA. -->
 
-CDAは記述的なオブジェクトなので、それらを任意の形式にシリアル化して配布することができます。たとえば、`timeout_at`、`multi_use`、および`expected_amount`の各パラメータを使用して、CDAのマグネットリンクを作成できます。
-<!-- Because CDAs are descriptive objects, you can serialize them into any format and distribute them. For example, you can create a magnet-link for a CDA, with the `timeout_at`, `multi_use`, and `expected_amount` parameters. -->
+CDAは記述的なオブジェクトなので、送信する前にCDAを任意の形式にシリアル化できます。`generateCDA()`メソッドは以下のフィールドを持つCDAオブジェクトを返します。CDAを送信者に配布する前に、任意の形式にシリアル化することができます。
+<!-- Because CDAs are descriptive objects, you can serialize them into any format before sending them. The `generateCDA()` method returns a CDA object with the following fields. You can serialize a CDA into any format before distributing it to senders. -->
+
+```js
+{
+   address, // The last 9 trytes are the checksum
+   timeout_at,
+   multi_use,
+   expected_amount
+}
+```
+
+例えば、これらのフィールドをシリアル化してマグネットリンクを作成できます。
+<!-- For example, you can serialize these fields to create a magnet link. -->
+
+### CDAをマグネットリンクにシリアル化する
+<!-- ### Serialize a CDA into a magnet link -->
+
+CDAをシリアル化するための組み込みメソッドを使って、マグネットリンクを作成できます。
+<!-- The built-in method for serializing a CDA is to create a magent link. -->
 
 1. CDAをマグネットリンクにシリアル化するには、CDAオブジェクトの`AsMagnetLink()`メソッドを使用します。
   <!-- 1. To serialize the CDA into a magent link, use the `AsMagnetLink()` method of the CDA object -->
@@ -180,8 +193,8 @@ CDAは記述的なオブジェクトなので、それらを任意の形式に�
     // iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=1&expected_amount=0
     ```
 
-2. マグネットリンクをCDAにパースするには、`deposit`オブジェクトの`ParseMagnetLink()`メソッドを使用します。
-  <!-- 2. To parse the magnet link into a CDA, use the `ParseMagnetLink()` method of the `deposit` object -->
+2. マグネットリンクにシリアル化されたCDAにトランザクションを送信するには、マグネットリンクをCDAに逆シリアル化します。
+  <!-- 2. To send a transaction to a CDA that's been serialized into a magnet link, deserialize the magent link into a CDA -->
 
     ```go
     cda, err := deposit.ParseMagnetLink(cda.AsMagnetLink())
@@ -191,5 +204,5 @@ CDAは記述的なオブジェクトなので、それらを任意の形式に�
 ## 次のステップ
 <!-- ## Next steps -->
 
-[アカウントのイベントをリッスンする](../how-to-guides/listen-to-events.md)。
-<!-- [Listen to events in your account](../how-to-guides/listen-to-events.md). -->
+[アカウントを別の端末にインポートできるように、アカウントをエクスポートしてみてください](../how-to-guides/import-seed-state.md)。
+<!-- [Try exporting your account so you can import it onto another device](../how-to-guides/import-seed-state.md). -->

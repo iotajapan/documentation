@@ -7,7 +7,7 @@
 ## 前提条件
 <!-- ## Prerequisites -->
 
-[新しいアカウントを作成](../how-to-guides/create-account.md)します。
+[新しいアカウントを作成します](../how-to-guides/create-account.md)。
 <!-- [Create a new account](../how-to-guides/create-account.md). -->
 
 このガイドは[概要の「はじめに」](../README.md)で紹介されている、プロジェクトの依存関係を管理するための[Goモジュール](https://github.com/golang/go/wiki/Modules)を使っていると仮定します。
