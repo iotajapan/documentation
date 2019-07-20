@@ -5,7 +5,7 @@
 <!-- **You may want to import an existing seed state into an account on another device. To do so, you first need to export the seed state so that it's in the correct format.** -->
 
 :::danger:重要
-複数のデバイスで同じシードステートを更新しないでください。複数のデバイスがシードステートを変更すると、そのステートは一貫性がなくなり、使用済みアドレスからの取り出しが発生する可能性があります。
+複数のデバイスで同じシードステートを更新しないでください。複数のデバイスがシードステートを変更すると、そのステートは一貫性がなくなり、署名済みアドレスからの取り出しが発生する可能性があります。
 :::
 <!-- :::danger:Important -->
 <!-- Never update the same seed state on multiple devices. If more than one device changes the seed state, the state is no longer consistent and may lead to withdrawals from spent addresses. -->

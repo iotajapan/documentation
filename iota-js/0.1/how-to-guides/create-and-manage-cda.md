@@ -56,17 +56,17 @@ CDAはアカウント内でのみ使用でき、汎用クライアントライ�
         });
     ```
 
-    :::info
-    このサンプルコードを無料のテストトークンでテストしたい場合は、[Devnet蛇口](root://getting-started/0.1/tutorials/receive-test-tokens.md)からテストトークンを取得してください。
+    :::info:
+    このサンプルコードを無料のテストトークンでテストしたい場合は、[Devnet蛇口](root://getting-started/0.1/tutorials/receive-test-tokens.md)からテストトークンを取得します。
     :::
     <!-- :::info: -->
     <!-- If you want to test this sample code with free test tokens, [request some from the Devnet faucet](root://getting-started/0.1/tutorials/receive-test-tokens.md). -->
     <!-- ::: -->
 
     :::info:
-    CDAの最後の9文字はチェックサムで、アドレスとそのアドレスのすべての条件のハッシュ値です。トリニティやDevent蛇口はCDAをまだサポートしていないため、このチェックサムは、トリニティやDeventの蛇口とは互換性がありません。
+    CDAの最後の9文字はチェックサムで、アドレスとそのアドレスのすべての条件のハッシュ値です。トリニティやDevent蛇口はまだCDAをサポートしていないため、このチェックサムは、トリニティやDeventの蛇口とは互換性がありません。
 
-    トリニティやDevent蛇口の入力フィールドに自分のアドレスを貼り付ける前に、チェックサムを削除してください。
+    トリニティやDevent蛇口の入力フィールドにアドレスを貼り付ける前に、チェックサムを削除します。
     :::
     <!-- :::info: -->
     <!-- The last 9 characters of a CDA are the checksum, which is a hash of the address and all of its conditions. This checksum is not compatible with Trinity or the Devent faucet because they don't yet support CDAs. -->
@@ -105,10 +105,10 @@ account.startAttaching({
 
 account.stopAttaching();
 ```
-## 利用可能な残高全体を1つのCDAに転送する
+## 利用可能残高の合計を1つのCDAに転送する
 <!-- ## Transfer your entire available balance to one CDA -->
 
-できるだけ少ない数のCDAで残高の大部分を維持することをお勧めします。こうすることで、支払いをより速く、そしてより少ないトランザクションですみます。そのためには、利用可能残高を新しいCDAに転送することができます。
+できるだけ少ない数のCDAで残高の大部分を維持することをお勧めします。こうすることで、支払いをより速く、そしてより少ないトランザクションですみます。そのために、利用可能残高を新しいCDAに転送することができます。
 <!-- You may want to keep the majority of your balance on as few CDAs as possible. This way, making payments is faster and requires fewer transactions. To do so, you can transfer you available balance to a new CDA. -->
 
 :::info:
@@ -122,7 +122,7 @@ account.stopAttaching();
 <!-- Your account's total balance includes CDAs that are still active as well as expired. This balance is unsafe to withdraw. -->
 <!-- ::: -->
 
-1. アカウントの利用可能な残高の合計を予想量とするCDAを作成し、利用可能な残高の合計をそのCDAに転送します。
+1. アカウントの利用可能残高の合計を予想量とするCDAを作成し、利用可能残高の合計をそのCDAに転送します。
   <!-- 1. Create a CDA that has your account's total available balance as its expected amount, then transfer your total available balance to that CDA -->
 
     ```js
@@ -171,7 +171,7 @@ CDAは記述的なオブジェクトなので、送信する前にCDAを任意�
 ### CDAをマグネットリンクにシリアル化する
 <!-- ### Serialize a CDA into a magnet link -->
 
-CDAをシリアル化するための組み込みメソッドを使って、マグネットリンクを作成できます。
+シリアル化するための組み込みメソッドを使って、CDAからマグネットリンクを作成できます。
 <!-- The built-in method for serializing a CDA is to create a magent link. -->
 
 1. CDAをマグネットリンクにシリアル化するには、[`@iota/cda`モジュール](https://github.com/iotaledger/iota.js/tree/next/packages/cda)の`serializeCDAMagnet()`メソッドを使います。

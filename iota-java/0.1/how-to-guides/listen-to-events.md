@@ -89,7 +89,7 @@
 <!-- ::: -->
 
 ## 次のステップ
-## Next steps
+<!-- ## Next steps -->
 
 イベントリスナを作ったので、これをテストするために[アカウントとの間で支払いを行います](../how-to-guides/create-and-manage-cda.md)。
-Now that you have an event listener, start [making payments to/from your account](../how-to-guides/create-and-manage-cda.md) to test it.
+<!-- Now that you have an event listener, start [making payments to/from your account](../how-to-guides/create-and-manage-cda.md) to test it. -->

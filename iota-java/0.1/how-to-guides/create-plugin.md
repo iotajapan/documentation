@@ -135,8 +135,8 @@ IotaAccount account = new IotaAccount.Builder(SEED)
         .build();
 ```
 
-:::success:
-アカウントがプラグインをロードすると、次のメッセージが表示されます：`Loaded plugin AwesomeTestPlugin`。
+:::success:おめでとうございます！:tada:
+アカウントがプラグインをロードすると、次のメッセージが表示されます：`Loaded plugin AwesomeTestPlugin`
 
 これで、アドレスへの預け入れまたは取り出しが確定または促進されるたびに、プラグインからメッセージが届きます。
 :::

@@ -21,9 +21,9 @@
 ライブラリの機能の詳細については、以下をご覧ください。
 <!-- To learn more about how the library works: -->
 
-- [アカウントを作成する方法](root://iota-go/0.1/how-to-guides/create-account.md)を確認する。
+- [アカウントを作成する方法](root://iota-go/0.1/how-to-guides/create-account.md)
 <!-- - See how you can [work with accounts](root://iota-go/0.1/how-to-guides/create-account.md). -->
-- [トランザクションの送受信方法](root://iota-go/0.1/how-to-guides/create-and-manage-cda.md)を確認する。
+- [トランザクションの送受信方法](root://iota-go/0.1/how-to-guides/create-and-manage-cda.md)
 <!-- - See how you can [send and receive](root://iota-go/0.1/how-to-guides/create-and-manage-cda.md) transactions. -->
 
 [IOTA Go GitHubレポジトリ](https://github.com/iotaledger/iota.go)でライブラリを入手してください。
@@ -115,7 +115,7 @@ IOTA Goクライアントライブラリとその依存関係をダウンロー�
     }
     ```
 
-# APIリファレンス
+## APIリファレンス
 <!-- ## API reference -->
 
 利用可能なすべてのAPIメソッドの詳細については、[APIフォルダ](https://github.com/iotaledger/iota.go/tree/master/api)を参照してください。

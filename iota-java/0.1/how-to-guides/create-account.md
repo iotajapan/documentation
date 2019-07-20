@@ -21,7 +21,7 @@
 * [クライアントライブラリ](root://iota-java/0.1/README.md#download-the-library)のダウンロード
 <!-- * [Download the client library](root://iota-java/0.1/README.md#download-the-library) -->
 
-:::warning: 新しいシードを作成してください
+:::warning: 新しいシードを作成する
 これまでにアカウントを作成したことがない場合は、既存のシードステートが不明であるため、[新しいシードを作成する](root://getting-started/0.1/tutorials/get-started.md)必要があります。
 :::
 <!-- :::warning: Create a new seed -->
@@ -35,7 +35,7 @@
 <!-- In this example, we connect to a [Devnet node](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
 
 :::danger:重要
-アカウントにはデフォルト設定がありますが、少なくともシードとMongoDBなどのストレージプロバイダーを指定することをお勧めします。そうでなければ、コードの実行が停止した後にシードステートは保存されません。
+アカウントにはデフォルト設定がありますが、少なくともシードとMongoDBなどのストレージプロバイダを指定することをお勧めします。そうでなければ、コードの実行が停止した後にシードステートは保存されません。
 :::
 <!-- :::danger:Important -->
 <!-- Although the account has default settings, we recommend that you provide at least a seed and a storage provider such as MongoDB. Otherwise, the seed state will not be saved after the code stops running. -->
@@ -157,7 +157,7 @@ CDAの状態を管理するだけでなく、自動的にトランザクショ�
 ## 次のステップ
 <!-- ## Next steps -->
 
-アカウントで特定のイベントが発生すると、それらのイベントを発行し、イベントをリッスンすることができます。たとえば、新しい支払いについて自分のアカウントを監視したい場合があります。そのためには、[イベントリスナを作成する](root://iota-js/0.1/how-to-guides/listen-to-events.md)必要があります。
+アカウントで特定のイベントが発生すると、それらのイベントを発行し、イベントをリッスンすることができます。たとえば、新しい支払いについて自分のアカウントを監視したい場合があります。そのためには、[イベントリスナを作成する](root://iota-java/0.1/how-to-guides/listen-to-events.md)必要があります。
 <!-- After certain events happen in your account, it emits them, and allows you to listen for them. For example, you may want to monitor your account for new payments. To do so, you need to [create an event listener](root://iota-js/0.1/how-to-guides/listen-to-events.md). -->
 
 またはイベントを発行する[プラグインを作成する](../how-to-guides/create-plugin.md)こともできます。

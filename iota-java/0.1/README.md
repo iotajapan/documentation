@@ -21,9 +21,9 @@
 ライブラリの機能の詳細については、以下をご覧ください。
 <!-- To learn more about how the library works: -->
 
-- [アカウントを作成する方法](root://iota-java/0.1/how-to-guides/create-account.md)を確認する。
+- [アカウントを作成する方法](root://iota-java/0.1/how-to-guides/create-account.md)
 <!-- - See how you can [work with accounts](root://iota-java/0.1/how-to-guides/create-account.md). -->
-- [トランザクションの送受信方法](root://iota-java/0.1/how-to-guides/create-and-manage-cda.md)を確認する。
+- [トランザクションの送受信方法](root://iota-java/0.1/how-to-guides/create-and-manage-cda.md)
 <!-- - See how you can [send and receive](root://iota-java/0.1/how-to-guides/create-and-manage-cda.md) transactions. -->
 
 [IOTA Java GitHubレポジトリ](https://github.com/iotaledger/iota-java)でライブラリを入手してください。
@@ -54,7 +54,7 @@
 IOTA Javaクライアントライブラリを使用するには、コンピュータに次の最低条件が必要です。
 <!-- To use the IOTA Java client library, your computer must have the following minimum requirement: -->
 
-* Java 6 (もしくは6以上)
+* Java 6以上
 <!-- * Java 6 (or higher) -->
 
 ## ライブラリをダウンロードする
@@ -90,7 +90,7 @@ IOTA Javaクライアントライブラリとその依存関係をダウンロ�
 ### Gradleでライブラリをダウンロードする
 <!-- ### Download the library with Gradle -->
 
-1. ルートの`build.gradle`ファイルにJitPackリポジトリを追加する。
+1. ルートの`build.gradle`ファイルにJitPackリポジトリを追加します。
   <!-- 1. Add the JitPack repository to your root `build.gradle` file -->
 
     ```gradle
@@ -101,7 +101,7 @@ IOTA Javaクライアントライブラリとその依存関係をダウンロ�
     }
     ```
 
-2. モジュールの`build.gradle`ファイルにiotaledger依存関係を追加する。
+2. モジュールの`build.gradle`ファイルにiotaledger依存関係を追加します。
   <!-- 2. Add the iotaledger dependency to your module `build.gradle` file -->
 
     ```gradle
@@ -113,7 +113,7 @@ IOTA Javaクライアントライブラリとその依存関係をダウンロ�
 ### Mavenでライブラリをダウンロードする
 <!-- ### Download the library with Maven -->
 
-1. ルートの`pom.xml`ファイルにJitPackリポジトリを追加する。
+1. ルートの`pom.xml`ファイルにJitPackリポジトリを追加します。
   <!-- 1. Add the JitPack repository to your root `pom.xml` file -->
     ```xml
     <repositories>
@@ -124,7 +124,7 @@ IOTA Javaクライアントライブラリとその依存関係をダウンロ�
     </repositories>
     ```
 
-2. モジュールの`pom.xml`ファイルにiotaledger依存関係を追加する。
+2. モジュールの`pom.xml`ファイルにiotaledger依存関係を追加します。
   <!-- 2. Add the iotaledger dependency to your module `pom.xml` file -->
     ```xml
     <dependency>
@@ -135,7 +135,7 @@ IOTA Javaクライアントライブラリとその依存関係をダウンロ�
     </dependency>
     ```
 
-3. `<version>タグ</version>`の値をリリース番号またはGitコミットハッシュの最初の10文字のいずれかに変更する。
+3. `<version>タグ</version>`の値をリリース番号またはGitコミットハッシュの最初の10文字のいずれかに変更します。
 <!-- 3. Change the value of the `<version>` tag to either a release number or the first 10 characters of a Git commit hash: -->
 `<version>a98de8ea50</version>`または`<version>1.0.0-beta3</version>`など。
 <!-- `<version>a98de8ea50</version>` or `<version>1.0.0-beta3</version>` -->
@@ -146,7 +146,7 @@ IOTA Javaクライアントライブラリとその依存関係をダウンロ�
 ### 手動でライブラリをダウンロードする
 <!-- ### Download the library manually -->
 
-1. [GitHubリポジトリ](https://github.com/iotaledger/iota-java)をクローンまたはダウンロードする。
+1. [GitHubリポジトリ](https://github.com/iotaledger/iota-java)をクローンまたはダウンロードします。
   <!-- 1. Clone or download the [GitHub repository](https://github.com/iotaledger/iota-java) -->
 
   プロジェクト内には、次のディレクトリがあります。
@@ -154,15 +154,15 @@ IOTA Javaクライアントライブラリとその依存関係をダウンロ�
   * jota
   * jota-parent
 
-2. プロジェクト内のjotaディレクトリを参照する。
+2. プロジェクト内のjotaディレクトリを参照します。
   <!-- 2. Reference the jota directory in your project -->
 
-3. jotaディレクトリで、次のコマンドを実行する。
+3. jotaディレクトリで、次のコマンドを実行します。
   <!-- 3. In the jota directory, run the following command: -->
 
     `mvn clean install`
 
-ライブラリのバージョンに応じて、`jota-[VERSION]-jar-with-dependencies.jar`という.jarファイルがあります。
+ライブラリのバージョンに応じて、`jota-[VERSION]-jar-with-dependencies.jar`という.jarファイルができます。
 <!-- You'll have a .jar file called `jota-[VERSION]-jar-with-dependencies.jar`, depending on your version of the library. -->
 
 ## はじめに

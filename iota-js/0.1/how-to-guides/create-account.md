@@ -19,7 +19,7 @@
 * Node.js 8、またはNode.js 10以上。[最新のLTS](https://nodejs.org/en/download/)をお勧めします。
 <!-- * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
 
-:::warning: 新しいシードを作成してください
+:::warning: 新しいシードを作成する
 これまでにアカウントを作成したことがない場合は、既存のシードステートが不明であるため、[新しいシードを作成する](root://getting-started/0.1/tutorials/get-started.md)必要があります。
 :::
 <!-- :::warning: Create a new seed -->

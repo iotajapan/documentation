@@ -23,9 +23,9 @@
 以下の条件に該当する場合は、`multi_use`フィールドを持つCDAを使用することをお勧めします。
 <!-- We recommend that you use multi-use CDAs when the following conditions are true: -->
 
-- 複数の送信者からの任意の量の複数の預け入れを予想する場合。
+- 複数の送信者からの任意の量の複数の預け入れが予想される場合。
 <!-- - You expect multiple payments of arbitrary value from multiple depositors. -->
-- Webサイトなどで、CDAの作成と共有を完全に管理する場合。
+- Webサイトなど、CDAの作成と共有を完全に管理したい場合。
 <!-- - You fully control the creation and sharing of the CDA, for example on your website. -->
 - 個別に設定された`expected_amount`フィールド値を持つCDAを各送信者と共有できない場合。
 <!-- - When you cannot share a CDA with the `expected_amount` field value set with each depositor individually. -->
@@ -33,7 +33,7 @@
 または、`timeout_at`フィールドの値が足りなくなったときに確実に新しいCDAを要求する送信者と通信するとき。
 <!-- Or when communicating with depositors who reliably request a new CDA when the `timeout_at` field value is running out. -->
 
-`multi_use` CDAアドレスの1つのシナリオは、Webサイトまたはスクリーンなどの他のデジタル媒体で寄付アドレスを共有する場合です。このシナリオでは、任意の量の複数の預け入れを受け取ることができ、CDAの共有を完全に管理できます。`timeout_at`値がなくなる前に、72時間経過するたびに、WebサイトまたはスクリーンでCDAを更新することができます。これにより、CDAを更新する前に、送信者が送った支払いを確定するのに十分な時間が送信者に与えられます。
+`multi_use` CDAアドレスの1つのシナリオは、Webサイトまたはスクリーンなどの他のデジタル媒体で寄付アドレスを共有する場合です。このシナリオでは、任意の量の複数の預け入れを受け取ることができ、CDAの共有を完全に管理できます。`timeout_at`値が切れる前に、72時間経過するたびに、WebサイトまたはスクリーンでCDAを更新することができます。これにより、CDAを更新する前に、送信者が送った支払いを確定するのに十分な時間が送信者に与えられます。
 <!-- One scenario for `multi_use` CDA addresses is sharing a donation address on a website or other digital medium, such as a screen. In this scenario, you can receive multiple deposits of arbitrary value and you fully control the sharing of the CDA. You can refresh the CDA on the website or screen each time the CDA is 72 hours before its `timeout_at` value runs out. This gives depositors enough time to finalize the payments they may have sent before you refreshed the CDA. -->
 
 ## expected_amountフィールドを持つCDAはいつ使えば良いか？

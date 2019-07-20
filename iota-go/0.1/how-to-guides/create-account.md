@@ -19,7 +19,7 @@
 * [入門ガイド](../README.md)に従っている
 <!-- * Follow our [Getting started guide](../README.md) -->
 
-:::warning: 新しいシードを作成してください
+:::warning: 新しいシードを作成する
 これまでにアカウントを作成したことがない場合は、既存のシードステートが不明であるため、[新しいシードを作成する](root://getting-started/0.1/tutorials/get-started.md)必要があります。
 :::
 <!-- :::warning: Create a new seed -->
@@ -84,9 +84,9 @@
     :::danger:重要
     与えられた`Store`オブジェクトをclose可能であれば、closeする必要があります。
     :::
-    :::danger:Important
-    If the given `Store` object is closeable, you must close it, otherwise the database may become locked.
-    :::
+    <!-- :::danger:Important -->
+    <!-- If the given `Store` object is closeable, you must close it, otherwise the database may become locked. -->
+    <!-- ::: -->
 
     :::info:
     ストレージ内で、各アカウントは一意のIDを持ちます。このIDは、インデックス0およびセキュリティレベル2のアカウントの最初のアドレスのハッシュ値です。
@@ -128,7 +128,7 @@
     handleErr(err)
     ```
 
-    :::danger:シードごとにアカウントを1つ作成してください
+    :::danger:シードごとにアカウントを1つ作成します
     同じシードで複数のアカウントを作成してはいけません。そうすると、シードステートが上書きされるという競合状態が発生する可能性があります。
     :::
     <!-- :::danger:Create one account per seed -->
@@ -172,7 +172,7 @@
 ## 次のステップ
 <!-- ## Next steps -->
 
-アカウントで特定のイベントが発生すると、それらのイベントを発行し、イベントをリッスンすることができます。たとえば、新しい支払いについて自分のアカウントを監視したい場合があります。そのためには、[イベントリスナを作成する](root://iota-js/0.1/how-to-guides/listen-to-events.md)必要があります。
+アカウントで特定のイベントが発生すると、それらのイベントを発行し、イベントをリッスンすることができます。たとえば、新しい支払いについて自分のアカウントを監視したい場合があります。そのためには、[イベントリスナを作成する](root://iota-go/0.1/how-to-guides/listen-to-events.md)必要があります。
 <!-- After certain events happen in your account, it emits them, and allows you to listen for them. For example, you may want to monitor your account for new payments. To do so, you need to [create an event listener](root://iota-js/0.1/how-to-guides/listen-to-events.md). -->
 
 またはイベントを発行する[プラグインを作成する](../how-to-guides/create-plugin.md)こともできます。
