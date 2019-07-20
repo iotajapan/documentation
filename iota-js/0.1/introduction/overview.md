@@ -53,6 +53,7 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
 | `timeoutAt` | CDAは、IOTAトークンが含まれている限り、取り出しに使用できます。 |
 | `timeoutAt`と`multiUse`（推奨） | CDAは、預け入れられた量に関係なく、有効期限が切れるとすぐに取り出しに使用できます。 `multiUse`フィールドが設定されたアドレスをいつ使用するかについては、[CDA FAQ](../references/cda-advice.md)を参照してください。 |
 | `timeoutAt`と`expectedAmount`（推奨） | CDAは、予想された量が含まれるとすぐに取り出しに使用できます。 `expectedAmount`フィールドが設定されたアドレスをいつ使用するかについては、[CDA FAQ](../references/cda-advice.md)を参照してください。 |
+
 <!-- |  **Combination of fields** | **Withdrawal conditions** -->
 <!-- | :----------| :----------| -->
 <!-- |`timeoutAt` |The CDA can used in withdrawals as long as it contains IOTA tokens| -->
@@ -84,6 +85,7 @@ CDAに`expected_amount`フィールドと`multi_use`フィールドを同時に�
 | CDAの作成に使用された最後のキーインデックス | これまで使用されたことのない新しいCDAを作成する |
 | すべてのアクティブなCDA | IOTAトークンの預け入れを受け取る可能性のあるCDAからのIOTAトークンの取り出しを停止する |
 | ペンディング中の転送バンドル | ペンディング中のトランザクションを監視して、必要に応じて再ブロードキャストするか再添付を行う |
+
 <!-- |**Data**| **Purpose**| -->
 <!-- |:-----------------|:----------| -->
 <!-- |The last key index that was used to create a CDA| Create a new CDA that has never been used before| -->
