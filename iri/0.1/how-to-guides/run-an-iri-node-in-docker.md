@@ -43,7 +43,7 @@ IRI Dockerコンテナをダウンロードする方法は2つあります。
 <!-- You have two options for downloading the IRI Docker container: -->
 * [ビルド済みのDockerコンテナをダウンロードする](#download-the-pre-built-iri-docker-container)（最速のオプション）。
 <!-- * [Download the pre-built Docker container](#download-the-pre-built-iri-docker-container)(quickest option) -->
-* [ソースコードからDockerコンテナをビルドする](#ソースコードからIRI Dockerコンテナをビルドする)。
+* [ソースコードからDockerコンテナをビルドする](#build-the-iri-docker-container-from-the-source-code)。
 <!-- * [Build the Docker container from the source code](#build-the-iri-docker-container-from-the-source-code) -->
 
 ## Dockerをインストールする
@@ -105,6 +105,7 @@ IRI Dockerコンテナをビルドするには、Docker 17.05以上（マルチ�
 docker pull iotaledger/iri:latest
 ```
 
+<a name="#build-the-iri-docker-container-from-the-source-code"></a>
 ## ソースコードからIRI Dockerコンテナをビルドする
 <!-- ## Build the IRI Docker container from the source code -->
 
