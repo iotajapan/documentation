@@ -9,7 +9,7 @@
 [トランザクション検証](/0.1/concepts/transaction-validation.md)
 ## IRIノードがトランザクションが有効かどうかを判断する方法といつ判断するかを学びます。
 
-[LinuxサーバーでIRIノードを実行する](/0.1/how-to-guides/run-an-iri-node-on-linux.md)
+[LinuxサーバでIRIノードを実行する](/0.1/how-to-guides/run-an-iri-node-on-linux.md)
 ## ネットワークに貢献し、IOTAネットワークに直接アクセスします。
 
 [IRIノードと対話する](/0.1/how-to-guides/interact-with-an-iri-node.md)

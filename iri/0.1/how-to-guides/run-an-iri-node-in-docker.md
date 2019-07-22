@@ -1,7 +1,7 @@
 # DockerコンテナでIRIノードを実行する
 <!-- # Run an IRI node in a Docker container -->
 
-**Dockerコンテナ内でIRIを実行すると、コンピュータはIRIノード用のLinuxサーバーになり、IOTAネットワークに直接アクセスできるようになります。 IRIノードを実行することで、台帳の数を増やし、隣接IRIノードのトランザクションを検証することで、IOTAネットワークをより分散させることができます。**
+**Dockerコンテナ内でIRIを実行すると、コンピュータはIRIノード用のLinuxサーバになり、IOTAネットワークに直接アクセスできるようになります。 IRIノードを実行することで、台帳の数を増やし、隣接IRIノードのトランザクションを検証することで、IOTAネットワークをより分散させることができます。**
 <!-- **When you run the IRI in a Docker container, your computer becomes a Linux server for an IRI node, which gives you direct access to an IOTA network. By running an IRI node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbor IRI node's transactions.** -->
 
 IRI Dockerコンテナは、以下のオペレーティングシステムに適しています。
@@ -24,7 +24,7 @@ Linuxオペレーティングシステムを使用している場合は、この
     * 静的[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)か、[duckdns.org](https://www.duckdns.org)などの動的DNSサービスに接続されている[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)
     <!-- * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org) -->
 
-* デフォルトでは、IRIは次のポートを使用します。ローカルネットワークでLinuxサーバーを実行している場合は、これらのポートをコンピュータの[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)に転送する必要があります。
+* デフォルトでは、IRIは次のポートを使用します。ローカルネットワークでLinuxサーバを実行している場合は、これらのポートをコンピュータの[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)に転送する必要があります。
   <!-- * By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must [forward these ports to your computer's public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md). -->
 
     * **TCP隣接ノードのピアリングポート：** 15600

@@ -1,13 +1,13 @@
-# LinuxサーバーでIRIノードを実行する
+# LinuxサーバでIRIノードを実行する
 <!-- # Run an IRI node on a Linux server -->
 
-**Linuxサーバー上でIRIを実行すると、LinuxサーバーがIOTAネットワークへ直接アクセスを可能にするノードになります。ノードを実行することで、台帳の数を増やし、隣接ノードのトランザクションを検証することで、IOTAネットワークがより分散されるようになります。**
+**Linuxサーバ上でIRIを実行すると、LinuxサーバがIOTAネットワークへ直接アクセスを可能にするノードになります。ノードを実行することで、台帳の数を増やし、隣接ノードのトランザクションを検証することで、IOTAネットワークがより分散されるようになります。**
 <!-- **When you run the IRI on a Linux server, it becomes a node that gives you direct access to an IOTA network. By running a node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbors' transactions.** -->
 
 ## 前提条件
 <!-- ## Prerequisites -->
 
-* IRIを実行するには、サーバーが以下の最小要件を満たしている必要があります。
+* IRIを実行するには、サーバが以下の最小要件を満たしている必要があります。
   <!-- * To run the IRI, your server must meet the following minimum requirements: -->
     * 4GB RAM
     * 64ビットプロセッサ
@@ -15,7 +15,7 @@
     * 静的[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)か、[duckdns.org](https://www.duckdns.org)などの動的DNSサービスに接続されている[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)
     <!-- * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org) -->
 
-* デフォルトでは、IRIは次のポートを使用します。ローカルネットワークでLinuxサーバーを実行している場合は、これらのポートをコンピュータの[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)に転送する必要があります。
+* デフォルトでは、IRIは次のポートを使用します。ローカルネットワークでLinuxサーバを実行している場合は、これらのポートをコンピュータの[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)に転送する必要があります。
   <!-- * By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must [forward these ports to your computer's public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md). -->
 
     * **TCP隣接ノードのピアリングポート：** 15600
@@ -25,7 +25,7 @@
 ---
 
 :::info:
-サーバーのRAMが4GB未満など、リソースが限られている場合は、IRIではなくcIRIを実行することをお勧めします。
+サーバのRAMが4GB未満など、リソースが限られている場合は、IRIではなくcIRIを実行することをお勧めします。
 :::
 <!-- :::info: -->
 <!-- If your server has limited resources such as less than 4 GB of RAM, we recommend running the cIRI instead of the IRI. -->
@@ -326,7 +326,7 @@ IRIをダウンロードして設定したら、実行します。
     <!-- You're now running an IRI node! -->
     <!-- ::: -->
 
-3. Linuxサーバーで新しいターミナルウィンドウを開き、CurlとJQをインストールします。CurlはREST APIリクエストをIRIノードに送信するために使用します。JQは、JSONデータを読みやすい形式で表示するコマンドラインプロセッサです。
+3. Linuxサーバで新しいターミナルウィンドウを開き、CurlとJQをインストールします。CurlはREST APIリクエストをIRIノードに送信するために使用します。JQは、JSONデータを読みやすい形式で表示するコマンドラインプロセッサです。
   <!-- 3. Open a new terminal window on your Linux server, and install Curl and JQ. Curl is used to send REST API requests to your IRI node. JQ is a command-line processor that displays JSON data in an easy-to-read format. -->
 
     ```bash

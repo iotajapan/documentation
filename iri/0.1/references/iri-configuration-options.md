@@ -73,8 +73,8 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 | <a name="dns-resolution"></a> `--dns-resolution` | `DNS_RESOLUTION` | 近隣ノードピアリングに対してDNSを有効にします。 | boolean | true |
 | <a name="max-neighbors"></a> `--max-neighbors` | `MAX_NEIGHBORS` | 最大隣接ノード数を設定します。 | number | 5 | このオプションは少なくとも `NEIGHBORS`オプションにあるのと同じ数のURLに設定されるべきです。 |
 | <a name="neighbors"></a> `-n`, `--neighbors` | `NEIGHBORS` | [隣接ノード](../how-to-guides/find-neighbor-iri-nodes.md)のURLとIPアドレスを設定します。 | 文字列の配列 | "" |
-| <a name="neighboring-socket-address"></a> `--neighboring-socket-address` | `NEIGHBORING_SOCKET_ADDRESS` | ゴシッププロトコル用のTCPサーバーソケットをアドレスにバインドします。 | string | 0.0.0.0 | デフォルトアドレスは、TCPサーバソケットをすべてのネットワークインタフェースにバインドします。ノードに複数のIPアドレスがあり、特定のIPアドレスにのみバインドしたい場合は、このオプションを変更してください。 |
-| <a name="neighboring-socket-port"></a> `--neighboring-socket-port` | `NEIGHBORING_SOCKET_PORT` | ゴシッププロトコル用のTCPサーバーソケットをポートにバインドします。 | string | 15600 |
+| <a name="neighboring-socket-address"></a> `--neighboring-socket-address` | `NEIGHBORING_SOCKET_ADDRESS` | ゴシッププロトコル用のTCPサーバソケットをアドレスにバインドします。 | string | 0.0.0.0 | デフォルトアドレスは、TCPサーバソケットをすべてのネットワークインタフェースにバインドします。ノードに複数のIPアドレスがあり、特定のIPアドレスにのみバインドしたい場合は、このオプションを変更してください。 |
+| <a name="neighboring-socket-port"></a> `--neighboring-socket-port` | `NEIGHBORING_SOCKET_PORT` | ゴシッププロトコル用のTCPサーバソケットをポートにバインドします。 | string | 15600 |
 | <a name="p-drop-cache"></a> `--p-drop-cache` | `P_DROP_CACHE_ENTRY` | ネットワークキャッシュで最近のシーントランザクションを失う確率を設定します。 | 0から1の間の数 | 0.02 |
 | <a name="p-remove-request"></a> `--p-remove-request` | `P_REMOVE_REQUEST` | IRIがトランザクションをリクエストするのを止める確率を設定します。 | 0から1の間の数 |0.01 | 存在しないトランザクションハッシュが最終的に削除されるように、この数は0に近いはずです。 |
 | <a name="queue-size"></a> `--queue-size` | `Q_SIZE_NODE` | REPLY、BROADCAST、およびRECEIVEネットワークキューの最大サイズを設定します。 | number | 1,000 |
