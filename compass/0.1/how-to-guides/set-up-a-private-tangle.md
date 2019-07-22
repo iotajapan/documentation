@@ -1,7 +1,7 @@
 # プライベートタングルを設定する
 <!-- # Set up a private Tangle -->
 
-**プライベートタングルは運用者がコントロールするもので、運用者が知っているノードだけを含みます。MainnetやDevnetなどのパブリックIOTAネットワークを使用せずにアプリケーションをテストしたい場合は、プライベートタングルを設定することをお勧めします。そのためには、コンパスを実行して、コンパスをIRIノードに接続します。**
+**プライベートタングルは運用者がコントロールするもので、運用者が知っているノードだけを含みます。MainnetやDevnetなどのパブリックIOTAネットワークを使用せずにアプリケーションをテストしたい場合は、プライベートタングルを設定することができます。そのためには、コンパスを実行して、コンパスをIRIノードに接続します。**
 <!-- **A private Tangle is one that you control and that contains only nodes that you know. You may want to set up a private Tangle if you want to test an application without using a public IOTA network such as the Mainnet or the Devnet. To do so, you can run Compass and connect it to an IRI node.** -->
 
 この基本設定では、[Devnet](root://getting-started/0.1/references/iota-networks.md)と同じ構成設定を使用して、IRIノードとコンパスを同じサーバーまたは仮想マシンにインストールします。
@@ -92,7 +92,7 @@
 <!-- For this guide, we use a [Merkle tree](root://the-tangle/0.1/concepts/the-coordinator.md#milestones) with a [depth](../references/compass-configuration-options.md) of 16, which allows Compass to send milestones for around 45 days, depending on the interval between them. -->
 
 :::info:
-`depth`パラメータがマークル木を計算するのにかかる時間と総ネットワーク稼働時間の両方にどのように影響するかを示す[サンプルのマークル木計算時間]をご覧ください。
+`depth`パラメータがマークル木を計算するのにかかる時間と総ネットワーク稼働時間の両方にどのように影響するかを示す[サンプルのマークル木計算時間](../references/merkle-tree-compute-times.md)をご覧ください。
 :::
 <!-- :::info: -->
 <!-- [See our example Merkle tree compute times](../references/merkle-tree-compute-times.md) that show how the `depth` parameter affects both the time it takes to compute the Merkle tree and the total network uptime. -->
@@ -128,15 +128,18 @@
   <!-- 3. Create a seed for Compass. Compass will use this seed to derive public/private keys for signing bundles. -->
 
     ```bash
-    cat /dev/urandom |LC_ALL=C tr -dc 'A-Z9' | fold -w 81 | head -n 1 
+    cat /dev/urandom |LC_ALL=C tr -dc 'A-Z9' | fold -w 81 | head -n 1
     ```
 
 4. シードのバックアップを作成します。
   <!-- 4. Create a backup of the seed -->
 
-    :::danger:Keep your seed safe
-    An attacker with the seed could send fraudulent milestones and disrupt the operation of the network.
+    :::danger:シードを安全に保管します
+    シードを持つ攻撃者が不正なマイルストーンを送信し、ネットワークの動作を妨害する可能性があります。
     :::
+    <!-- :::danger:Keep your seed safe -->
+    <!-- An attacker with the seed could send fraudulent milestones and disrupt the operation of the network. -->
+    <!-- ::: -->
 
 5. コンパスをセットアップして実行するためのスクリプトを含むディレクトリに移動します。
   <!-- 5. Change into the directory that contains the scripts for setting up and running Compass -->
@@ -364,7 +367,10 @@ APIエンドポイントの一覧については、[IRI APIリファレンス](r
 
 --------------------
 ### getBalances
-シード`SEED9999999999999999999999999999999999999999999999999999999999999999999999999999999`の合計残高を取得するには、[`getBalances`](root://iri/0.1/references/api-reference.md#getbalances)エンドポイントを呼び出します。これまでにIOTAクライアントライブラリを使用したことがない場合は、[このチュートリアル](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を完了することをお勧めします。
+```bash
+EED9999999999999999999999999999999999999999999999999999999999999999999999999999999
+```
+上記のシードの合計残高を取得するには、[`getBalances`](root://iri/0.1/references/api-reference.md#getbalances)エンドポイントを呼び出します。これまでにIOTAクライアントライブラリを使用したことがない場合は、[このチュートリアル](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を完了することをお勧めします。
 
  ```js
  var request = require('request');
@@ -437,7 +443,9 @@ APIエンドポイントの一覧については、[IRI APIリファレンス](r
 1. ウォレットを開き、以下のシードでログインします
   <!-- 1. Open the wallet and log in with your seed -->
 
-    `SEED99999999999999999999999999999999999999999999999999999999999999999999999999999`
+    ```bash
+    SEED99999999999999999999999999999999999999999999999999999999999999999999999999999
+    ```
 
 2. ノードに接続するには、**ツール** > **ノード設定の編集**の順に選択して、ノードのURL`http://localhost:14265`を入力します。
   <!-- 1. To connect to your node, go to **Tools** > **Edit Node Configuration**, and enter the URL of your node (http://localhost:14265). -->
