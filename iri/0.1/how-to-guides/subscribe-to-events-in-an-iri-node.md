@@ -197,7 +197,7 @@ ZMQに関する知識を活用して、他の[イベント](../references/zmq-ev
 <!-- Use your knowledge of the ZMQ to build an application that monitors the IRI for other [events](../references/zmq-events.md). -->
 
 :::info:
-トランザクションがなかなか確定しないとき、トランザクションが確定する可能性を高めるために[トランザクションを促進するか再添付する]（root://iota-basics/0.1/how-to-guides/confirm-pending-bundle.md）ことができます。
+トランザクションがなかなか確定しないとき、トランザクションが確定する可能性を高めるために[トランザクションを促進するか再添付する](root://iota-basics/0.1/how-to-guides/confirm-pending-bundle.md)ことができます。
 :::
 <!-- :::info: -->
 <!-- If your transactions aren't being confirmed, you can [promote or reattach them](root://iota-basics/0.1/how-to-guides/confirm-pending-bundle.md) to increase the likelihood of this happening. -->
