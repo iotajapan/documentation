@@ -4,7 +4,7 @@
 **マークル木の計算にかかる時間を把握するために、Amazon Web Services上の仮想プライベートサーバのインスタンス（[T2.Xlarge](https://aws.amazon.com/ec2/instance-types/)）でテストを行いました。**
 <!-- **To give you an idea of how long it takes to compute a Merkle tree, we tested it on an instance of a virtual private server on Amazon Web Services with the following specifications: [T2.Xlarge](https://aws.amazon.com/ec2/instance-types/)** -->
 
-| **マークル木の`depth`** | **秘密鍵/アドレスペアの数** | **計算時間（分）** | **ネットワーク稼働時間\*** |
+| **マークル木の`depth`** | **秘密鍵/アドレスペアの数** | **計算時間（分）** | **ネットワーク稼働時間** |
 | :---------------------- | :-------------------------- | :----------------- | :------------------------- |
 | 14 | 16,384 | 3.75 | 11 days 9 hours |
 | 15 | 32,768 | 7.5 | 22 days 18 hours |
