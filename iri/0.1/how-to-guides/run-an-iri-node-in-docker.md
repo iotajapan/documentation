@@ -105,7 +105,7 @@ IRI Dockerコンテナをビルドするには、Docker 17.05以上（マルチ�
 docker pull iotaledger/iri:latest
 ```
 
-<a name="#build-the-iri-docker-container-from-the-source-code"></a>
+<a name="build-the-iri-docker-container-from-the-source-code"></a>
 ## ソースコードからIRI Dockerコンテナをビルドする
 <!-- ## Build the IRI Docker container from the source code -->
 
