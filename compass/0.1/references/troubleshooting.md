@@ -16,7 +16,7 @@
     sudo usermod -a -G docker $USER
     ```
 
-2. Linuxサーバーを再起動してもう一度やり直してください。
+2. Linuxサーバを再起動してもう一度やり直してください。
   <!-- 2. Restart your Linux server and try again -->
 
 ## Malformed snapshot state file

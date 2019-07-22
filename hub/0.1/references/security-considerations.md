@@ -30,22 +30,22 @@
 セキュリティをさらに強化するには、[`salt`](../references/command-line-flags.md)フラグを設定してシード暗号化アルゴリズムの強度を高めます。ソルトは攻撃者がデータベース内のシードUUIDを事前に計算された辞書攻撃に対してチェックする能力を削除します。
 <!-- To add an extra layer of security, improve the strength of your seed encryption algortithm by setting the [`salt`](../references/command-line-flags.md) flag. A salt removes the ability for an attacker to check the seed UUIDs in the database against a pre-computed dictionary attack. -->
 
-## 署名サーバー
+## 署名サーバ
 <!-- ## Signing server -->
 
-盗難防止のために、ハブには2つのサーバーがあります。
+盗難防止のために、ハブには2つのサーバがあります。
 <!-- To help prevent theft, Hub offers two servers: -->
 
 * **ハブ：** アカウントとアドレスを管理します。
 <!-- * **Hub:** Manages accounts and addresses -->
-* **署名サーバー：** ソルトを保管し、スウィープ用のバンドルに署名します。
+* **署名サーバ：** ソルトを保管し、スウィープ用のバンドルに署名します。
 <!-- * **Signing server:** Stores the salt and signs bundles for sweeps. -->
 
-最大限のセキュリティを確保するために、ハブが危険にさらされた場合に攻撃者が署名サーバーにアクセスせずにIOTAトークンを盗むことができないように、署名サーバーをハブから遠く離れた場所で実行します。
+最大限のセキュリティを確保するために、ハブが危険にさらされた場合に攻撃者が署名サーバにアクセスせずにIOTAトークンを盗むことができないように、署名サーバをハブから遠く離れた場所で実行します。
 <!-- For maximum security, run the signing server in a remote location so that, if Hub is compromised, attackers can't steal IOTA tokens without access to the signing server. -->
 
 ## 履歴ログ
 <!-- ## History logs -->
 
-ハブはそのすべてのアクションのログを生成します。このログには、トランザクションレコード、サーバーの再起動、およびその他の詳細情報も含まれています。
+ハブはそのすべてのアクションのログを生成します。このログには、トランザクションレコード、サーバの再起動、およびその他の詳細情報も含まれています。
 <!-- Hub generates a log of all its actions. This log also contains transaction records, server restarts, and other detailed information. -->

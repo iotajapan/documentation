@@ -13,7 +13,7 @@
 
 ## 前提条件
 <!-- ## Prerequisites -->
-[ハブをインストール](../how-to-guides/install-hub.md)し、そのガイドで使用しているサーバーと同じサーバーで実行する必要があります。
+[ハブをインストール](../how-to-guides/install-hub.md)し、そのガイドで使用しているサーバと同じサーバで実行する必要があります。
 <!-- You must have [installed Hub](../how-to-guides/install-hub.md) and it must be running on the same server as the one you'll use in this guide. -->
 
 ---

@@ -1,10 +1,10 @@
 # コマンドラインフラグ
 <!-- # Command line flags -->
 
-**ハブまたは署名サーバーを起動するとき、runコマンドに次のフラグを1つ以上渡すことで、ハブまたは署名サーバーの機能をカスタマイズできます。**
+**ハブまたは署名サーバを起動するとき、runコマンドに次のフラグを1つ以上渡すことで、ハブまたは署名サーバの機能をカスタマイズできます。**
 <!-- **When you start Hub or the signing server, you can customize how they function by passing the run command one or more of the following flags.** -->
 
-## common/flags/flags.hからのフラグ（ハブ/署名サーバー両方のバイナリ用）
+## common/flags/flags.hからのフラグ（ハブ/署名サーバ両方のバイナリ用）
 <!-- ## Flags from `common/flags/flags.h` (for both hub/signing_server binaries) -->
 
 | **フラグ** | **説明** | **デフォルト値** |
@@ -48,11 +48,11 @@
 | `--hmacKeyPath` | [`signBundle`]メソッドの認証に使用されるHMACキーへのパス | "/dev/null" |
 | `--minWeightMagnitude` | プルーフオブワークに使用する[最小重量値（MWM）](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)。 Mainnetでハブを使用するには、MWMは14を使用する必要があります。 | 9 |
 | <a name="monitorInterval"></a> `--monitorInterval` | ハブが預け入れアドレスをチェックし、[`user_address`テーブルと`user_address_balance`テーブル](../references/database-tables.md)を更新する間隔（ミリ秒）。トークンを含むものは、次のスイープに含まれます。0=無効。 | 60000 |
-| `--signingMode` | バンドルに署名するために使用するメソッド。この値は"local"または"remote"です（署名サーバーを実行している場合）。 | "local" |
-| `--signingProviderAddress` | 署名サーバーのURLまたはIPアドレス。`--signingMode`に "remote"値がある場合は、このフラグも使用する必要があります。 | "0.0.0.0:50052" |
-| `--signingServerChainCert` | SSL暗号化を使用するようにハブを設定し（`--authMode="ssl"`）、[署名サーバー](../how-to-guides/install-the-signing-server.md)がある場合は、SSL証明書チェーンへのパスをこのフラグに渡す必要があります。 | "/dev/null" |
-| `--signingServerKeyCert` | SSL暗号化を使用するようにハブを設定し（`--authMode="ssl"`）、[署名サーバー](../how-to-guides/install-the-signing-server.md)がある場合は、SSL証明書キーへのパスをこのフラグに渡す必要があります。| "/dev/null" |
-| `--signingServerSslCert` | SSL暗号化を使用するようにハブを設定し（`--authMode="ssl"`）、[署名サーバー](../how-to-guides/install-the-signing-server.md)がある場合は、SSL証明書へのパスをこのフラグに渡す必要があります。 | "/dev/null" |
+| `--signingMode` | バンドルに署名するために使用するメソッド。この値は"local"または"remote"です（署名サーバを実行している場合）。 | "local" |
+| `--signingProviderAddress` | 署名サーバのURLまたはIPアドレス。`--signingMode`に "remote"値がある場合は、このフラグも使用する必要があります。 | "0.0.0.0:50052" |
+| `--signingServerChainCert` | SSL暗号化を使用するようにハブを設定し（`--authMode="ssl"`）、[署名サーバ](../how-to-guides/install-the-signing-server.md)がある場合は、SSL証明書チェーンへのパスをこのフラグに渡す必要があります。 | "/dev/null" |
+| `--signingServerKeyCert` | SSL暗号化を使用するようにハブを設定し（`--authMode="ssl"`）、[署名サーバ](../how-to-guides/install-the-signing-server.md)がある場合は、SSL証明書キーへのパスをこのフラグに渡す必要があります。| "/dev/null" |
+| `--signingServerSslCert` | SSL暗号化を使用するようにハブを設定し（`--authMode="ssl"`）、[署名サーバ](../how-to-guides/install-the-signing-server.md)がある場合は、SSL証明書へのパスをこのフラグに渡す必要があります。 | "/dev/null" |
 | `--sweepInterval` | ハブがスウィープ間で待機する間隔（ミリ秒）。0=無効。 | 600000 |
 | `--powMode` | [プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)のモード。`local`か`remote`か。 | local |
 | `-fetchTransactionMessages` | ハブが預け入れトランザクションのメッセージをデータベースに格納するかどうか | false |

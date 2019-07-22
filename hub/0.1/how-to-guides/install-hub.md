@@ -12,7 +12,7 @@
 ## 前提条件
 <!-- ## Prerequisites -->
 
-Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server)サーバー。WindowsまたはMacオペレーティングシステムを使用している場合は、[仮想マシンにLinuxサーバーを作成します](root://general/0.1/how-to-guides/set-up-virtual-machine.md)。
+Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server)サーバ。WindowsまたはMacオペレーティングシステムを使用している場合は、[仮想マシンにLinuxサーバを作成します](root://general/0.1/how-to-guides/set-up-virtual-machine.md)。
 <!-- A Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server) server. If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md). -->
 
 ## 依存関係をインストールする
@@ -130,7 +130,7 @@ Ubuntu 18.04 LTS用のデフォルトリポジトリはデータベースに使�
     sudo apt update
     ```
 
-4. MariaDBサーバーをインストールします。
+4. MariaDBサーバをインストールします。
   <!-- 4. Install the MariaDB server -->
 
     ```bash
@@ -280,7 +280,7 @@ INFO: Build completed successfully, 1811 total actions
     :::warning:警告
     `salt`フラグの値を少なくとも20文字の文字列に変更してください。この値はハブによってシードを作成するために使用されるので、秘密にしてください。
 
-    ソルトを保護するために、[署名サーバーをインストールする](../how-to-guides/install-the-signing-server.md)ことをお勧めします。
+    ソルトを保護するために、[署名サーバをインストールする](../how-to-guides/install-the-signing-server.md)ことをお勧めします。
     :::
     <!-- :::warning:Warning -->
     <!-- Change the value of the `salt` flag to a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret. -->
@@ -381,7 +381,7 @@ INFO: Build completed successfully, 1811 total actions
     sudo supervisorctl reload
     ```
 
-    ハブはバックグラウンドで実行され、サーバーの再起動後またはクラッシュ後に自動的に再起動します。
+    ハブはバックグラウンドで実行され、サーバの再起動後またはクラッシュ後に自動的に再起動します。
     <!-- Hub should now be running in the background and should automatically start again after a server reboot or a crash. -->
 
 9. スーパーバイザーの状況を確認します。
@@ -409,7 +409,7 @@ hub RUNNING pid 9983, uptime 0:01:22
 ## ハブをテストする
 <!-- ## Test Hub -->
 
-起動時に、ハブはあなたが対話するためのgRPCサーバーを提供します。ハブは、対話するために使用できる[gRPC呼び出しのセット](../references/api-reference.md)が限られています。
+起動時に、ハブはあなたが対話するためのgRPCサーバを提供します。ハブは、対話するために使用できる[gRPC呼び出しのセット](../references/api-reference.md)が限られています。
 <!-- On startup, Hub provides a gRPC server for you to interact with. Hub has a [limited set of gRPC calls](../references/api-reference.md) that can be used to interact with it. -->
 
 [gRPC](https://grpc.io/)をサポートする任意のプログラミング言語を介してハブと通信できます。このガイドでは、Pythonをいくつかの事例とともに使用します。
@@ -504,5 +504,5 @@ events {
 ## 次のステップ
 <!-- ## Next steps -->
 
-ハブのセキュリティを向上させるには、ハブを[署名サーバー](../how-to-guides/install-the-signing-server.md)に接続します。
+ハブのセキュリティを向上させるには、ハブを[署名サーバ](../how-to-guides/install-the-signing-server.md)に接続します。
 <!-- To improve the security of your Hub, connect it to a [signing server](../how-to-guides/install-the-signing-server.md). -->

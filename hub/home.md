@@ -9,8 +9,8 @@
 [ハブをインストールする](/0.1/how-to-guides/install-hub.md)
 ## マルチユーザーウォレットを作成し、それをIRIノードに接続してテストします。
 
-[署名サーバーをインストールする](/0.1/how-to-guides/install-the-signing-server.md)
-## セキュリティを強化するために、重要なハブ操作を別のサーバーに移動させます。
+[署名サーバをインストールする](/0.1/how-to-guides/install-the-signing-server.md)
+## セキュリティを強化するために、重要なハブ操作を別のサーバに移動させます。
 
 [セキュリティ上の考慮事項](/0.1/references/security-considerations.md)
 ## 考えられる攻撃シナリオからハブを保護するためにできることを確認します。

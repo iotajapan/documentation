@@ -47,7 +47,7 @@ IOTAネットワークの各クライアントには、[シード](root://gettin
 :::info:
 シードはデータベースに保存されません。
 ソルトは任意ですが、推奨します。
-セキュリティを強化するためには、ソルトを保存してバンドルの署名を処理する[署名サーバーをインストールする](../how-to-guides/install-the-signing-server.md)必要があります。
+セキュリティを強化するためには、ソルトを保存してバンドルの署名を処理する[署名サーバをインストールする](../how-to-guides/install-the-signing-server.md)必要があります。
 :::
 <!-- :::info: -->
 <!-- Seeds are never stored in the database. -->

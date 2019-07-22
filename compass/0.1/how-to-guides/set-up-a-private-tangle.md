@@ -4,7 +4,7 @@
 **プライベートタングルは運用者がコントロールするもので、運用者が知っているノードだけを含みます。MainnetやDevnetなどのパブリックIOTAネットワークを使用せずにアプリケーションをテストしたい場合は、プライベートタングルを設定することができます。そのためには、コンパスを実行して、コンパスをIRIノードに接続します。**
 <!-- **A private Tangle is one that you control and that contains only nodes that you know. You may want to set up a private Tangle if you want to test an application without using a public IOTA network such as the Mainnet or the Devnet. To do so, you can run Compass and connect it to an IRI node.** -->
 
-この基本設定では、[Devnet](root://getting-started/0.1/references/iota-networks.md)と同じ構成設定を使用して、IRIノードとコンパスを同じサーバーまたは仮想マシンにインストールします。
+この基本設定では、[Devnet](root://getting-started/0.1/references/iota-networks.md)と同じ構成設定を使用して、IRIノードとコンパスを同じサーバまたは仮想マシンにインストールします。
 <!-- For this basic setup, you'll install an IRI node and Compass on the same server or virtual machine with the same configuration settings as the [Devnet](root://getting-started/0.1/references/iota-networks.md). -->
 
 ![Single-node private Tangle](../images/single-node-tangle.svg)
@@ -12,10 +12,10 @@
 ## 前提条件
 <!-- ## Prerequisites -->
 
-以下の最小要件を満たすLinuxサーバー。WindowsまたはmacOSオペレーティングシステムを使用している場合は、[仮想マシンにLinuxサーバーを作成](root://general/0.1/how-to-guides/set-up-virtual-machine.md)できます。
+以下の最小要件を満たすLinuxサーバ。WindowsまたはmacOSオペレーティングシステムを使用している場合は、[仮想マシンにLinuxサーバを作成](root://general/0.1/how-to-guides/set-up-virtual-machine.md)できます。
 <!-- A Linux server with the following minimum requirements. If you are on a Windows or macOS operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md). -->
 
-* Ubuntu 18.04サーバー/仮想マシンの新規インストール
+* Ubuntu 18.04サーバ/仮想マシンの新規インストール
 <!-- * A new installation of an Ubuntu 18.04 Server / Virtual Machine -->
 * 最低8GBのRAM
 <!-- * At least 8GB RAM -->
