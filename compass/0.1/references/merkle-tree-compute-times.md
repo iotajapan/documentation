@@ -1,4 +1,5 @@
-# Merkle tree computation times
+# マークル木計算時間
+<!-- # Merkle tree computation times -->
 
 **To give you an idea of how long it takes to compute a Merkle tree, we tested it on an instance of a virtual private server on Amazon Web Services with the following specifications: [T2.Xlarge](https://aws.amazon.com/ec2/instance-types/)**
 
