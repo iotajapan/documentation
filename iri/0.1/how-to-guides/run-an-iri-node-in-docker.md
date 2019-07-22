@@ -41,8 +41,7 @@ IRI Dockerコンテナには、IRIを実行するために必要なソフトウ�
 
 IRI Dockerコンテナをダウンロードする方法は2つあります。
 <!-- You have two options for downloading the IRI Docker container: -->
-* [ビルド済みのDockerコンテナをダウンロードする](#ビルド済みのIRI Dockerコンテナをダウンロードする)（最速のオプション）。
-* [Download the pre-built Docker container](#download-the-pre-built-iri-docker-container)(quickest option)
+* [ビルド済みのDockerコンテナをダウンロードする](#download-the-pre-built-iri-docker-container)（最速のオプション）。
 <!-- * [Download the pre-built Docker container](#download-the-pre-built-iri-docker-container)(quickest option) -->
 * [ソースコードからDockerコンテナをビルドする](#ソースコードからIRI Dockerコンテナをビルドする)。
 <!-- * [Build the Docker container from the source code](#build-the-iri-docker-container-from-the-source-code) -->
@@ -97,6 +96,7 @@ IRI Dockerコンテナをビルドするには、Docker 17.05以上（マルチ�
 
 ## ビルド済みのIRI Dockerコンテナをダウンロードする
 <!-- ## Download the pre-built IRI Docker container -->
+<a name="download-the-pre-built-iri-docker-container"></a>
 
 ビルド済みのIRI Javaファイル用のDockerコンテナは、IOTA GitHubリポジトリにあります。
 <!-- The Docker container for the pre-built IRI Java file is available on the IOTA GitHub repository. -->
