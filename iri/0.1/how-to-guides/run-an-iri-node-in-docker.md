@@ -4,8 +4,18 @@
 **Dockerコンテナ内でIRIを実行すると、コンピュータはIRIノード用のLinuxサーバーになり、IOTAネットワークに直接アクセスできるようになります。 IRIノードを実行することで、台帳の数を増やし、隣接IRIノードのトランザクションを検証することで、IOTAネットワークをより分散させることができます。**
 <!-- **When you run the IRI in a Docker container, your computer becomes a Linux server for an IRI node, which gives you direct access to an IOTA network. By running an IRI node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbor IRI node's transactions.** -->
 
+IRI Dockerコンテナは、以下のオペレーティングシステムに適しています。
+<!-- The IRI Docker container is suitable for the following operating systems: -->
+* Linux
+* Mac
+* Windows
+
+Linuxオペレーティングシステムを使用している場合は、このガイドのコマンドの前に`sudo`を追加します。
+<!-- If you're using a Linux operating system, add `sudo` before the commands in this guide. -->
+
 ## 前提条件
 <!-- ## Prerequisites -->
+
 * IRIを実行するには、コンピュータが次の最小要件を満たしている必要があります。
   <!-- * To run the IRI, your computer must meet the following minimum requirements: -->
     * 4GB RAM
@@ -23,15 +33,6 @@
     <!-- * **TCP API port:** 14265 -->
 
 ---
-
-IRI Dockerコンテナは、以下のオペレーティングシステムに適しています。
-<!-- The IRI Docker container is suitable for the following operating systems: -->
-* Linux
-* Mac
-* Windows
-
-Linuxオペレーティングシステムを使用している場合は、以下のタスクのすべてのコマンドの前に`sudo`を追加してください。
-<!-- If you're using a Linux operating system, add `sudo` before all the commands in the following tasks. -->
 
 IRIはJavaソフトウェアなので、Javaランタイム環境（JRE）で実行する必要があります。
 <!-- The IRI is Java software, so it must be run in a Java runtime environment (JRE). -->
