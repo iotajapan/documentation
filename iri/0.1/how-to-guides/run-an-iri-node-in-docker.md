@@ -42,6 +42,7 @@ IRI Dockerコンテナには、IRIを実行するために必要なソフトウ�
 IRI Dockerコンテナをダウンロードする方法は2つあります。
 <!-- You have two options for downloading the IRI Docker container: -->
 * [ビルド済みのDockerコンテナをダウンロードする](#ビルド済みのIRI Dockerコンテナをダウンロードする)（最速のオプション）。
+* [Download the pre-built Docker container](#download-the-pre-built-iri-docker-container)(quickest option)
 <!-- * [Download the pre-built Docker container](#download-the-pre-built-iri-docker-container)(quickest option) -->
 * [ソースコードからDockerコンテナをビルドする](#ソースコードからIRI Dockerコンテナをビルドする)。
 <!-- * [Build the Docker container from the source code](#build-the-iri-docker-container-from-the-source-code) -->
