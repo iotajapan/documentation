@@ -40,6 +40,7 @@ IRIはJavaソフトウェアなので、Javaランタイム環境（JRE）で実
 * GitHub上のソースコードからJavaファイルをビルドする。
 <!-- * Build the Java file from the source code on GitHub -->
 
+<a name="download-the-pre-built-iri-java-file"></a>
 ### ビルド済みのIRI Javaファイルをダウンロードする
 <!-- ### Download the pre-built IRI Java file -->
 
@@ -288,6 +289,7 @@ Spamnet上のトークンの総供給量を含むアドレスを定義するた�
 WYF9OOFCQJRTLTRMREDWPOBQ9KNDMFVZSROZVXACAWKUMXAIYTFQCPAYZHNGKIWZZGKCSHSSTRDHDAJCW;2779530283277761
 ```
 
+<a name="run-the-iri"></a>
 ## 手順3. IRIを実行する
 <!-- ## Step 3. Run the IRI -->
 
