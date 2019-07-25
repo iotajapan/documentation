@@ -15,7 +15,7 @@
 [IRI/ハウツーガイド/IRIノードと対話する](/iri/how-to-guides/interact-with-an-iri-node.md)
 [IRI/ハウツーガイド/IRIノードのイベントを購読する](/iri/how-to-guides/subscribe-to-events-in-an-iri-node.md)
 [IRI/ハウツーガイド/ビッグデータトランザクションストリームをほぼリアルタイムで処理する](/iri/how-to-guides/flink-tangle-stream-processing.md)
-[IRI/ハウツーガイド/プルーフオブワークプロキシをインストールする](/iri/how-to-guides/install-a-pow-proxy.md)
+[IRI/ハウツーガイド/プルーフオブワーク用プロキシをインストールする](/iri/how-to-guides/install-a-pow-proxy.md)
 [IRI/ハウツーガイド/IRIを更新する](/iri/how-to-guides/update-the-iri.md)
 [IRI/参考文献/トラブルシューティング](/iri/references/troubleshooting.md)
 [IRI/参考文献/APIリファレンス](/iri/references/api-reference.md)

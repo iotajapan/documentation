@@ -1,14 +1,14 @@
-# プルーフオブワーク用プロキシサーバーをインストールする
+# プルーフオブワーク用プロキシサーバをインストールする
 <!-- # Install a proof-of-work proxy server -->
 
-**`attachToTangle`エンドポイントはリソースを大量に消費します。結果として、`attachToTangle`エンドポイントへの多くの呼び出しは時々ノードをクラッシュさせることがあります。この問題を解決するには、ノードにプルーフオブワークをさせるのではなく、専用のプロキシサーバーをインストールしてプルーフオブワーク（PoW）を行うことができます。**
+**`attachToTangle`エンドポイントはリソースを大量に消費します。結果として、`attachToTangle`エンドポイントへの多くの呼び出しは時々ノードをクラッシュさせることがあります。この問題を解決するには、ノードにプルーフオブワークをさせるのではなく、専用のプロキシサーバをインストールしてプルーフオブワーク（PoW）を行うことができます。**
 <!-- **The `attachToTangle` endpoint is resource intensive. As a result, many calls to this endpoint can sometimes cause a node to crash. To resolve this problem, you can install a dedicated proxy server to do proof of work (PoW) instead of making the node do it.** -->
 
-PoWプロキシサーバーは、IOTAミドルウェアを使用する[Caddy](https://caddyserver.com/)の実装です。このミドルウェアにより、サーバはIRIノードの`attachToTangle`エンドポイントへの呼び出しを傍受してPoWを実行できます。
+PoWプロキシサーバは、IOTAミドルウェアを使用する[Caddy](https://caddyserver.com/)の実装です。このミドルウェアにより、サーバはIRIノードの`attachToTangle`エンドポイントへの呼び出しを傍受してPoWを実行できます。
 <!-- The PoW proxy server is an implementation of [Caddy](https://caddyserver.com/) that uses IOTA middleware. This middleware allows the server to intercept calls to an IRI node's `attachToTangle` endpoint and do the PoW. -->
 
 :::info:
-他のIRI APIエンドポイントへのすべての要求はIRIノードに転送されます。
+他のIRI APIエンドポイントへのすべてのリクエストはIRIノードに転送されます。
 :::
 <!-- :::info: -->
 <!-- All requests to the other IRI API endpoints are forwarded to the IRI node. -->
@@ -24,11 +24,11 @@ PoWプロキシサーバーは、IOTAミドルウェアを使用する[Caddy](ht
 <!-- * An Internet connection -->
 * Goプログラミング言語の少なくともバージョン1.12（最新バージョンをお勧めします）
 <!-- * At least version 1.12 of the Go programming language (we recommend the latest version) -->
-* GCC：macOSの場合、[Homebrew](https://brew.sh/)（`brew install gcc`）を使ってGCCをインストールすることができます。Windowsの場合は、[TDM-GCCでインストールできます](http://tdm-gcc.tdragon.net/download)。Linux（Ubuntu 18.04）の場合は、[`build-essential`パッケージ](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/)からGCCをインストールできます。
+* GCC：macOSの場合は、[Homebrew](https://brew.sh/)（`brew install gcc`）を使ってGCCをインストールすることができます。Windowsの場合は、[TDM-GCCでインストールできます](http://tdm-gcc.tdragon.net/download)。Linux（Ubuntu 18.04）の場合は、[`build-essential`パッケージ](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/)からGCCをインストールできます。
 <!-- * GCC: For macOS, you can install GCC using [Homebrew](https://brew.sh/) (`brew install gcc`). For Windows, you can [install TDM-GCC](http://tdm-gcc.tdragon.net/download). For Linux (Ubuntu 18.04), you can [install GCC from the `build-essential` package](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/). -->
 * [Git](https://git-scm.com/downloads)
 
-## プロキシサーバーをダウンロード、ビルド、実行する
+## プロキシサーバをダウンロード、ビルド、実行する
 <!-- ## Download, build, and run the proxy server -->
 
 1. コマンドプロンプトで、`GOPATH`環境変数を確認します。
@@ -186,7 +186,7 @@ PoWプロキシサーバーは、IOTAミドルウェアを使用する[Caddy](ht
     ```
 
     PoWプロキシサーバが`attachToTangle`エンドポイントを処理してそれをコンソールにログ出力することがわかります：
-    You should see that the PoW proxy server handles the `attachToTangle` endpoint and logs it to the console:
+    <!-- You should see that the PoW proxy server handles the `attachToTangle` endpoint and logs it to the console: -->
 
     ```
     [iota interceptor] 2019/07/17 11:16:15 new attachToTangle request from 127.0.0.1:63167
