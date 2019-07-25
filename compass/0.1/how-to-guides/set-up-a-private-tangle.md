@@ -462,7 +462,7 @@ SEED9999999999999999999999999999999999999999999999999999999999999999999999999999
 <!-- ## Next steps -->
 
 * [ノードのイベントを購読し](root://node-software/0.1/iri/how-to-guides/subscribe-to-events-in-an-iri-node.md)、確定されたトランザクションに関する情報を受け取ります。
-<!-- * [Subscribe to events on your node](root://iri/0.1/how-to-guides/subscribe-to-events-in-an-iri-node.md) and receive information about confirmed transactions. -->
+<!-- * [Subscribe to events on your node](root://node-software/0.1/iri/how-to-guides/subscribe-to-events-in-an-iri-node.md) and receive information about confirmed transactions. -->
 
 * [Devnet](root://getting-started/0.1/references/iota-networks.md)に似たアーキテクチャを作るために独自のネットワークに複数のノードを追加してみてください。
 <!-- * Try adding multiple nodes to your network to make a similar architecture to the [Devnet](root://getting-started/0.1/references/iota-networks.md) -->
