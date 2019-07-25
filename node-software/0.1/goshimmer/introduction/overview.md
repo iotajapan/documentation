@@ -12,7 +12,7 @@
 <!-- * **Node identities:** Each node creates a unique public/private key pair. The public key is used to identify nodes during auto-peering. In the future, these identities will allow nodes to receive mana. -->
 
 :::info:
-[完全なCoordicideソリューション中のマナと他のモジュールについてもっと知る](https://coordicide.iota.org)。
+[Coordicideソリューション中のマナと他のモジュールについてもっと知る](https://coordicide.iota.org)。
 :::
 <!-- :::info: -->
 <!-- [Find out more about mana and the other modules in the full Coordicide solution](https://coordicide.iota.org). -->
