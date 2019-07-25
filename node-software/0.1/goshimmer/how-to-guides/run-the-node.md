@@ -14,7 +14,7 @@ To complete this guide, you need the following:
 
 * [Git](https://git-scm.com/downloads)
 * An Internet connection
-* [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626 and 14666 to the device that's running the node
+* [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node
 * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
 * [A system architecture that Docker supports](https://docs.docker.com/install/#supported-platforms)
 
@@ -95,7 +95,7 @@ When you run the node, it joins the network by autopeering with the entry node t
 4. Run the Docker image
 
     ```bash
-    docker run --rm -it -v target/mainnetdb:/root/mainnetdb goshimmer
+    docker run --rm -it -v mainnetdb:/root/mainnetdb goshimmer
     ```
 
     :::info:
@@ -105,7 +105,7 @@ When you run the node, it joins the network by autopeering with the entry node t
    :::
 
 :::success:Congratulations :tada:
-You're now running a GoShimmer.
+You're now running a GoShimmer node.
 :::
 
 ![GoShimmer user interface](../images/goshimmer.png)
@@ -117,6 +117,10 @@ The user interface displays the following statistics in the top-right corner:
 * **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accepts incoming connections from 4 other neighbors that chose it.
 * **Known peers:** The total number of nodes in the network. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard.
 * **Uptime:** The total amount of time during which the node has been running
+
+:::info:
+If you don't have any accepted neighbors, make sure that you've forwarded your `autopeering` TCP/UDP port (14626) to your device.
+:::
 
 ## Run the node on your local device
 
@@ -130,7 +134,7 @@ To complete this guide, you need the following:
 * GCC: For macOS, you can install GCC using [Homebrew](https://brew.sh/) (`brew install gcc`). For Windows, you can [install TDM-GCC](http://tdm-gcc.tdragon.net/download). For Linux (Ubuntu 18.04), you can [install GCC from the `build-essential` package](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/).
 * [Git](https://git-scm.com/downloads)
 * An Internet connection
-* [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626 and 14666 to the device that's running the node
+* [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node
 * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org)
 
 ### Step 1. Download the code
@@ -145,29 +149,23 @@ To complete this guide, you need the following:
     This directory is called `$GOPATH`.
     :::
 
-2. Clone the `goshimmer` repository. Replace the `$GOPATH` placeholder with your own `$GOPATH` directory.
+2. Clone the `goshimmer` repository anywhere outside of `$GOPATH`
     
     ```bash
-    git clone https://github.com/iotaledger/goshimmer.git $GOPATH/src/github.com/iotaledger/goshimmer
-    ```
-
-3. Change into the `goshimmer` directory. Replace the `$GOPATH` placeholder with your own `$GOPATH` directory.
-
-    ```bash
-    cd $GOPATH/src/github.com/iotaledger/goshimmer
-    ```
-
-4. Install the dependencies
-
-    ```bash
-    go get
+    git clone https://github.com/iotaledger/goshimmer.git
     ```
 
 ### Step 2. Run the node
 
 When you run the node, it joins the network by autopeering with the entry node that's run by us at the IOTA Foundation. To autopeer with this entry node, you must make sure that the autopeering and gossip ports are forwarded to your node. By default, these ports are 14666 and 14626. If you don't forward these ports, you can still send transaction to your node, but it won't be able to connect to any neighbors.
 
-1. Build the executable file
+1. Change into the `goshimmer` directory
+
+    ```bash
+    cd goshimmer
+    ```
+
+2. Build the executable file
 
     ```bash
     go build -o shimmer
@@ -175,7 +173,7 @@ When you run the node, it joins the network by autopeering with the entry node t
     
     Now, you have a file called `shimmer` that you need to execute.
 
-2. To execute the `shimmer` file on Linux or macOS, do `./shimmer`. To execute the file on Windows, rename it to `shimmer.exe`, then execute it by double clicking the file, or by doing `.\shimmer` in the command prompt.
+3. To execute the `shimmer` file on Linux or macOS, do `./shimmer`. To execute the file on Windows, rename it to `shimmer.exe`, then execute it by double clicking the file, or by doing `.\shimmer` in the command prompt.
 
     :::info:
     You can customize some features of your node by adding [command-line flags](../references/command-line-flags.md) after the command to execute the file.
@@ -198,6 +196,10 @@ The user interface displays the following statistics in the top-right corner:
 * **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accepts incoming connections from 4 other neighbors that chose it.
 * **Known peers:** The total number of nodes in the network. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard.
 * **Uptime:** The total amount of time during which the node has been running
+
+:::info:
+If you don't have any accepted neighbors, make sure that you've forwarded your `autopeering` TCP/UDP port (14626) to your device.
+:::
 
 ## Next steps
 
