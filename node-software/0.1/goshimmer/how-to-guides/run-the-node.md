@@ -93,7 +93,7 @@ Dockerコンテナをビルドするには、Docker 17.05（マルチステー�
 ### 手順2. ノードを実行する
 <!-- ### Step 2. Run the node -->
 
-ノードを実行すると、IOTA財団が実行しているエントリノードとの自動ピアリングによってネットワークに参加します。IOTA財団のエントリノードと自動ピアするには、自動ピアリングポートとゴシップポートがノードに転送されていることを確認する必要があります。デフォルトでは、これらのポートは14666と14626です。これらのポートを転送しなくても、ノードにトランザクションを送信することはできますが、どの近隣ノードとも接続できません。
+ノードを実行すると、IOTA財団が実行しているエントリノードとの自動ピアリングによってネットワークに参加します。IOTA財団のエントリノードと自動ピアするには、自動ピアリングポートとゴシップポートがノードに転送されていることを確認する必要があります。デフォルトでは、これらのポートは14666と14626です。これらのポートを転送しなくても、ノードにトランザクションを送信することはできますが、どの隣接ノードとも接続できません。
 <!-- When you run the node, it joins the network by autopeering with the entry node that's run by us at the IOTA Foundation. To autopeer with this entry node, you must make sure that the autopeering and gossip ports are forwarded to your node. By default, these ports are 14666 and 14626. If you don't forward these ports, you can still send transaction to your node, but it won't be able to connect to any neighbors. -->
 
 1. `goshimmer`リポジトリをクローンします。
@@ -153,13 +153,13 @@ GoShimmerノードを実行しています。
 <!-- * **Node ID:** The node's public key that gives it a unique identity -->
 * **Neighbors：** ノードが接続している隣接ノードの数。すべてのノードは最大8つの隣接ノードを持つことができます。各ノードは接続する4つの隣接ノードを選択し、自分を選択した他の4つの隣接ノードからの着信接続を受け入れます。
 <!-- * **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accepts incoming connections from 4 other neighbors that chose it. -->
-* **Known peers：** ネットワーク内のノードの総数。現時点では、**neighbor**ノードの数は**total**ノードの数と同じです。ネットワークが分割を許可すると、**neighbor**ノードはノードのシャード内にあるものになります。
+* **Known peers：** ネットワーク内のノードの総数。現時点では、**neighbor**ノードの数は**total**ノードの数と同じです。ネットワークがsハーディングを許可すると、**neighbor**ノードはシャード内にあるノードになります。
 <!-- * **Known peers:** The total number of nodes in the network. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard. -->
 * **Uptime：** ノードが稼働していた合計時間。
 <!-- * **Uptime:** The total amount of time during which the node has been running -->
 
 :::info:
-受け入れた隣接ノードがない場合は、`autopeering`TCP/UDPポート（14626）をデバイスに転送していることを確認してください。
+受け入れた隣接ノードがない場合は、`autopeering`TCP/UDPポート（14626）をデバイスに転送していることを確認します。
 :::
 <!-- :::info: -->
 <!-- If you don't have any accepted neighbors, make sure that you've forwarded your `autopeering` TCP/UDP port (14626) to your device. -->
@@ -216,7 +216,7 @@ GoShimmerノードを実行しています。
 ### 手順2. ノードを実行する
 <!-- ### Step 2. Run the node -->
 
-ノードを実行すると、IOTA財団が実行しているエントリノードとの自動ピアリングによってネットワークに参加します。IOTA財団のエントリノードと自動ピアするには、自動ピアリングポートとゴシップポートがノードに転送されていることを確認する必要があります。デフォルトでは、これらのポートは14666と14626です。これらのポートを転送しなくても、ノードにトランザクションを送信することはできますが、どの近隣ノードとも接続できません。
+ノードを実行すると、IOTA財団が実行しているエントリノードとの自動ピアリングによってネットワークに参加します。IOTA財団のエントリノードと自動ピアするには、自動ピアリングポートとゴシップポートがノードに転送されていることを確認する必要があります。デフォルトでは、これらのポートは14666と14626です。これらのポートを転送しなくても、ノードにトランザクションを送信することはできますが、どの隣接ノードとも接続できません。
 <!-- When you run the node, it joins the network by autopeering with the entry node that's run by us at the IOTA Foundation. To autopeer with this entry node, you must make sure that the autopeering and gossip ports are forwarded to your node. By default, these ports are 14666 and 14626. If you don't forward these ports, you can still send transaction to your node, but it won't be able to connect to any neighbors. -->
 
 1. `goshimmer`ディレクトリに移動します。
@@ -271,13 +271,13 @@ GoShimmerノードを実行しています。
 <!-- * **Node ID:** The node's public key that gives it a unique identity -->
 * **Neighbors：** ノードが接続している隣接ノードの数。すべてのノードは最大8つの隣接ノードを持つことができます。各ノードは接続する4つの隣接ノードを選択し、自分を選択した他の4つの隣接ノードからの着信接続を受け入れます。
 <!-- * **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accepts incoming connections from 4 other neighbors that chose it. -->
-* **Known peers：** ネットワーク内のノードの総数。現時点では、**neighbor**ノードの数は**total**ノードの数と同じです。ネットワークが分割を許可すると、**neighbor**ノードはノードのシャード内にあるものになります。
+* **Known peers：** ネットワーク内のノードの総数。現時点では、**neighbor**ノードの数は**total**ノードの数と同じです。ネットワークがsハーディングを許可すると、**neighbor**ノードはシャード内にあるノードになります。
 <!-- * **Known peers:** The total number of nodes in the network. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard. -->
 * **Uptime：** ノードが稼働していた合計時間。
 <!-- * **Uptime:** The total amount of time during which the node has been running -->
 
 :::info:
-受け入れた隣接ノードがない場合は、`autopeering`TCP/UDPポート（14626）をデバイスに転送していることを確認してください。
+受け入れた隣接ノードがない場合は、`autopeering`TCP/UDPポート（14626）をデバイスに転送していることを確認します。
 :::
 <!-- :::info: -->
 <!-- If you don't have any accepted neighbors, make sure that you've forwarded your `autopeering` TCP/UDP port (14626) to your device. -->
@@ -287,4 +287,4 @@ GoShimmerノードを実行しています。
 <!-- ## Next steps -->
 
 ノードが稼働しているので、[ノードにスパムトランザクションを送信し](../how-to-guides/send-spam.md)、ノードが毎秒何トランザクションを処理できるかテストすることができます。
-Now that your node is running, you can [send it spam transactions](../how-to-guides/send-spam.md) to test how many transactions per second your node can process.
+<!-- Now that your node is running, you can [send it spam transactions](../how-to-guides/send-spam.md) to test how many transactions per second your node can process. -->
