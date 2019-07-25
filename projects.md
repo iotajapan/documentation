@@ -2,7 +2,7 @@
 [IOTAの基本](/iota-basics)
 [タングル](/the-tangle)
 [クライアントライブラリ](/client-libraries)
-[IRI](/iri)
+[ノードソフトウェア](/node-software)
 [ハブ](/hub)
 [コンパス](/compass)
 [トリニティ](/trinity)

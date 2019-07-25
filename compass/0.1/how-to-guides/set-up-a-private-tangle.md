@@ -264,13 +264,13 @@ FJHSSHBZTAKQNDTIKJYCZBOZDGSZANCZSWCNWUOCZXFADNOQSYAHEJPXRLOVPNOQFQXXGEGVDGICLMOX
     :::info:
     隣接ノードがあなたのノードに自動的に接続することを許可する場合は、`02_run_iri.sh`ファイルを編集して`--auto-tethering-enabled true`フラグを他のフラグのリストに追加します。
 
-    独自のプライベートタングルに合わせてIRIをカスタマイズするために変更できる[他のフラグ](root://iri/0.1/references/iri-configuration-options.md)を調べる。
+    独自のプライベートタングルに合わせてIRIをカスタマイズするために変更できる[他のフラグ](root://node-software/0.1/iri/references/iri-configuration-options.md)を調べる。
     :::
 
     <!-- :::info: -->
     <!-- If you want to allow neighbors to automatically connect to your node, edit the `02_run_iri.sh` file and add the `--auto-tethering-enabled true` flag to the list of other flags. -->
     <!--  -->
-    <!-- Find out which [other flags](root://iri/0.1/references/iri-configuration-options.md) you can change to customize the IRI for your own private Tangle. -->
+    <!-- Find out which [other flags](root://node-software/0.1/iri/references/iri-configuration-options.md) you can change to customize the IRI for your own private Tangle. -->
     <!-- ::: -->
 
     :::info:
@@ -362,15 +362,15 @@ FJHSSHBZTAKQNDTIKJYCZBOZDGSZANCZSWCNWUOCZXFADNOQSYAHEJPXRLOVPNOQFQXXGEGVDGICLMOX
 アプリケーションが実行されているときは、アドレス`http://localhost:14265`にあるIRIノードのAPIポートを介してネットワークと対話できます。
 <!-- When the application is running, you can interact with the network through the IRI node's API port at the following address http://localhost:14265. -->
 
-APIエンドポイントの一覧については、[IRI APIリファレンス](root://iri/0.1/references/api-reference.md)を参照してください。
-<!-- For a list of API endpoints see the [IRI API reference](root://iri/0.1/references/api-reference.md). -->
+APIエンドポイントの一覧については、[IRI APIリファレンス](root://node-software/0.1/iri/references/api-reference.md)を参照してください。
+<!-- For a list of API endpoints see the [IRI API reference](root://node-software/0.1/iri/references/api-reference.md). -->
 
 --------------------
 ### getBalances
 ```bash
 SEED9999999999999999999999999999999999999999999999999999999999999999999999999999999
 ```
-上記のシードの合計残高を取得するには、[`getBalances`](root://iri/0.1/references/api-reference.md#getbalances)エンドポイントを呼び出します。これまでにIOTAクライアントライブラリを使用したことがない場合は、[このチュートリアル](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を完了することをお勧めします。
+上記のシードの合計残高を取得するには、[`getBalances`](root://node-software/0.1/iri/references/api-reference.md#getbalances)エンドポイントを呼び出します。これまでにIOTAクライアントライブラリを使用したことがない場合は、[このチュートリアル](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を完了することをお勧めします。
 
  ```js
  var request = require('request');
@@ -461,7 +461,7 @@ SEED9999999999999999999999999999999999999999999999999999999999999999999999999999
 ## 次のステップ
 <!-- ## Next steps -->
 
-* [ノードのイベントを購読し](root://iri/0.1/how-to-guides/subscribe-to-events-in-an-iri-node.md)、確定されたトランザクションに関する情報を受け取ります。
+* [ノードのイベントを購読し](root://node-software/0.1/iri/how-to-guides/subscribe-to-events-in-an-iri-node.md)、確定されたトランザクションに関する情報を受け取ります。
 <!-- * [Subscribe to events on your node](root://iri/0.1/how-to-guides/subscribe-to-events-in-an-iri-node.md) and receive information about confirmed transactions. -->
 
 * [Devnet](root://getting-started/0.1/references/iota-networks.md)に似たアーキテクチャを作るために独自のネットワークに複数のノードを追加してみてください。

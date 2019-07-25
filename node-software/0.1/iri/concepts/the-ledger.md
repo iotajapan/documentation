@@ -10,8 +10,8 @@
 ## 台帳凝固
 <!-- ## Ledger solidification -->
 
-台帳凝固は、ノードが[タングル](root://the-tangle/0.1/introduction/overview.md)のすべての[マイルストーン](root://the-tangle/0.1/concepts/the-coordinator.md)の履歴を受け取るプロセスです。
-<!-- Ledger solidification is the process by which a node receives the history of all [milestones](root://the-tangle/0.1/concepts/the-coordinator.md) in the [Tangle](root://the-tangle/0.1/introduction/overview.md). -->
+台帳凝固は、ノードが[タングル](root://the-tangle/0.1/introduction/overview.md)のすべての[マイルストーン](root://the-tangle/0.1/concepts/the-coordinator.md)の履歴を隣接ノードに求めるプロセスです。
+<!-- Ledger solidification is the process by which a node asks its neighbors for the history of all [milestones](root://the-tangle/0.1/concepts/the-coordinator.md) in the [Tangle](root://the-tangle/0.1/introduction/overview.md). -->
 
 ノードが実行を開始すると、**エントリポイントのマイルストーン**から始めて最新のマイルストーンまでの各マイルストーンが参照するトランザクション（マイルストーンの履歴）のリクエストを開始します。
 <!-- When a node starts running, it starts to request the transactions that each milestone references (its history), starting from an **entry point milestone** and ending at the latest one. -->

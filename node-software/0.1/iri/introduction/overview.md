@@ -1,8 +1,8 @@
 # IOTAリファレンス実装概要
 <!-- # IOTA reference implementation overview -->
 
-**IRI（IOTAリファレンス実装）は、IOTAプロトコルを定義するオープンソースのJavaソフトウェアです。 IRIを実行するコンピューターはIRIノードと呼ばれます。**
-<!-- **The IRI (IOTA reference implementation) is open-source Java software that defines the IOTA protocol. Computers that run the IRI are called IRI nodes.** -->
+**IRI（IOTAリファレンス実装）は、IOTAプロトコルを定義するオープンソースのJavaソフトウェアです。現在IRIはクライアントがIOTAトークンを相互に転送できるIOTA Mainnet上で実行されているソフトウェアです。**
+<!-- **The IRI (IOTA reference implementation) is open-source Java software that defines the IOTA protocol. The IRI is the software that currently runs on the IOTA Mainnet, where clients can transfer the IOTA token among each other.** -->
 
 IRIノードはIOTAネットワークの中核であり、以下の主要機能を担います。
 <!-- IRI nodes are the core of an IOTA network, and are responsible for the following key functions: -->
@@ -14,8 +14,8 @@ IRIノードはIOTAネットワークの中核であり、以下の主要機能�
 - [クライアントがIRIと対話できるようにし](../how-to-guides/interact-with-an-iri-node.md)、トランザクションを台帳に追加にする。
 <!-- - [Allow clients to interact with the IRI](../how-to-guides/interact-with-an-iri-node.md) and have their transactions appended to the ledger -->
 
-IRIノードがなければ、IOTAネットワークは存在しません。誰が誰に何を送信したかを記録する方法がないため、トランザクションを送信することはできません。
-<!-- Without IRI nodes, IOTA networks wouldn't exist. No one would be able to send transactions because there would be no way of recording who sent what to whom. -->
+IRIノードがないと、誰が誰に何を送信したかを記録する方法がないため、トランザクションを送信できません。
+Without IRI nodes, no one would be able to send transactions because there would be no way of recording who sent what to whom.
 
 自身のIRIノードを実行することで、次のような利点があります。
 <!-- By running your own IRI node you have the following benefits: -->

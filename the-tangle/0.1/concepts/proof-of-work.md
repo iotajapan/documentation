@@ -16,8 +16,8 @@
 hashcashと同様に、各トランザクションはそれが検証されることができる前にPoWを含まなければなりません。このPoWは、有効なトランザクションを作成するのにかかる時間および計算能力を増大させることによって、IOTAネットワークにスパム防止を提供します。さらに、スパムトランザクションがネットワークに及ぼす影響を減らすために、ノードは有効なPoWを含まないトランザクションを無視します。
 <!-- Similar to hashcash, each transaction must include a PoW before it can be validated. This PoW provides spam protection for an IOTA network by increasing the time and computational power it takes to create a valid transaction. Furthermore, to reduce the effect that spam transactions have on the network, nodes ignore transactions that don't contain a valid PoW. -->
 
-PoWは、クライアントによって行われてもよく、または[`attachToTangle`](root://iri/0.1/references/api-reference.md#attachToTangle)エンドポイントを呼び出すことによってノードに委託（リモートプルーフオブワーク）することもできます。
-<!-- PoW can be done by clients or it can be outsourced to a node (known as remote proof of work) by calling the [`attachToTangle` endpoint](root://iri/0.1/references/api-reference.md#attachToTangle). -->
+PoWは、クライアントによって行われてもよく、または[`attachToTangle`](root://node-software/0.1/iri/references/api-reference.md#attachToTangle)エンドポイントを呼び出すことによってノードに委託（リモートプルーフオブワーク）することもできます。
+<!-- PoW can be done by clients or it can be outsourced to a node (known as remote proof of work) by calling the [`attachToTangle` endpoint](root://node-software/0.1/iri/references/api-reference.md#attachToTangle). -->
 
 トランザクションを作成するのに使用しているデバイスが合理的な時間内にPoWを完了する計算能力を有していない場合、クライアントはリモートプルーフオブワークを使用したいと思うかもしれない。
 <!-- Clients may want to use remote PoW if the device they're using to create transactions doesn't have the necessary computational power to calculate PoW in a reasonable amount of time. -->

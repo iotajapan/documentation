@@ -1,35 +1,34 @@
 # LinuxサーバでIRIノードを実行する
 <!-- # Run an IRI node on a Linux server -->
 
-**Linuxサーバ上でIRIを実行すると、LinuxサーバがIOTAネットワークへ直接アクセスを可能にするノードになります。ノードを実行することで、台帳の数を増やし、隣接ノードのトランザクションを検証することで、IOTAネットワークがより分散されるようになります。**
-<!-- **When you run the IRI on a Linux server, it becomes a node that gives you direct access to an IOTA network. By running a node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbors' transactions.** -->
+**IRIソフトウェアを実行すると、お使いのデバイスがIOTAネットワークに直接アクセス可能なノードになります。ノードを実行することで、台帳の数を増やし、隣接ノードのトランザクションを検証することで、IOTAネットワークがより分散されるようになります。**
+<!-- **When you run the IRI software, your device becomes a node that gives you direct access to an IOTA network. By running a node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbors' transactions.** -->
 
 ## 前提条件
 <!-- ## Prerequisites -->
 
-* IRIを実行するには、サーバが以下の最小要件を満たしている必要があります。
-  <!-- * To run the IRI, your server must meet the following minimum requirements: -->
-    * 4GB RAM
-    * 64ビットプロセッサ
-    <!-- * 64-bit processor -->
-    * 静的[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)か、[duckdns.org](https://www.duckdns.org)などの動的DNSサービスに接続されている[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)
-    <!-- * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org) -->
+このガイドを完成するには、次のものが必要です。
+<!-- To complete this guide, you need the following: -->
 
-* デフォルトでは、IRIは次のポートを使用します。ローカルネットワークでLinuxサーバを実行している場合は、これらのポートをコンピュータの[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)に転送する必要があります。
-  <!-- * By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must [forward these ports to your computer's public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md). -->
+* 4GB RAM
+* 64ビットプロセッサ
+<!-- * 64-bit processor -->
+* インターネット接続
+<!-- * An Internet connection -->
+* Linuxサーバ（このガイドでは[Ubuntu 18.04](http://releases.ubuntu.com/18.04)でテストされています）
+<!-- * A Linux server (this guide has been tested on [Ubuntu 18.04](http://releases.ubuntu.com/18.04)) -->
+* 静的[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)か、[duckdns.org](https://www.duckdns.org)などの動的DNSサービスに接続されている[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)
+<!-- * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org) -->
+* ノードを実行しているデバイスに[次のポートを転送します](root://general/0.1/how-to-guides/expose-your-local-device.md)。
+<!-- * [Forward the following ports](root://general/0.1/how-to-guides/expose-your-local-device.md) to the device that's running the node: -->
 
     * **TCP隣接ノードのピアリングポート：** 15600
     <!-- * **TCP neighbor peering port:** 15600 -->
     * **TCPのAPIポート：** 14265
     <!-- * **TCP API port:** 14265 -->
----
 
-:::info:
-サーバのRAMが4GB未満など、リソースが限られている場合は、IRIではなくcIRIを実行することをお勧めします。
-:::
-<!-- :::info: -->
-<!-- If your server has limited resources such as less than 4 GB of RAM, we recommend running the cIRI instead of the IRI. -->
-<!-- ::: -->
+## 手順.1 IRI Javaファイルをダウンロードする
+<!-- ## Step 1. Download the IRI Java file -->
 
 IRIはJavaソフトウェアなので、Javaランタイム環境（JRE）で実行する必要があります。
 <!-- The IRI is Java software, so it must be run in a Java runtime environment (JRE). -->
@@ -109,12 +108,12 @@ HTTP request sent, awaiting response ... 200 OK
 ```
 
 :::info:初めてのノードですか？
-スクラッチからノードを起動する場合は、[IOTA財団のWebサイト](https://dbfiles.iota.org/?prefix=mainnet/spent-addresses/)、[IOTA Partners Webサイト](https://iota.partners/#database)、または[IOTA Playbook](https://iri-playbook.readthedocs.io/en/master/faq.html#where-can-i-get-a-fully-synced-database-to-help-kick-start-my-node)から`spent-addresses-db`ディレクトリをダウンロードする必要があります。
+[IOTA財団のWebサイト](https://dbfiles.iota.org/?prefix=mainnet/spent-addresses/)、[IOTA Partners Webサイト](https://iota.partners/#database)、または[IOTA Playbook](https://iri-playbook.readthedocs.io/en/master/faq.html#where-can-i-get-a-fully-synced-database-to-help-kick-start-my-node)から`spent-addresses-db`ディレクトリをダウンロードする必要があります。
 
 ディレクトリをダウンロードしたら、手順4のIRI Javaファイルと同じディレクトリに解凍します。この例では、ファイルは`/home/jake/node/`ディレクトリにあります。
 :::
 <!-- :::info:Is this your first node? -->
-<!-- If you are starting a node from scratch, you need to download the `spent-addresses-db` directory from [our website](https://dbfiles.iota.org/?prefix=mainnet/spent-addresses/), [the IOTA Partners website](https://iota.partners/#database), or the [IOTA Playbook](https://iri-playbook.readthedocs.io/en/master/faq.html#where-can-i-get-a-fully-synced-database-to-help-kick-start-my-node). -->
+<!-- You need to download the `spent-addresses-db` directory from [our website](https://dbfiles.iota.org/?prefix=mainnet/spent-addresses/), [the IOTA Partners website](https://iota.partners/#database), or the [IOTA Playbook](https://iri-playbook.readthedocs.io/en/master/faq.html#where-can-i-get-a-fully-synced-database-to-help-kick-start-my-node). -->
 <!--  -->
 <!-- After you've downloaded the directory, extract it into the same directory as your IRI Java file from step 4. For this example, the file is in the `/home/jake/node/` directory. -->
 <!-- ::: -->
@@ -203,8 +202,8 @@ HTTP request sent, awaiting response ... 200 OK
     <!-- The IRI Java file is in a directory called `target`. -->
     <!-- ::: -->
 
-## IRIを設定する
-<!-- ## Configure the IRI -->
+## 手順2. IRIを設定する
+<!-- ## Step 2. Configure the IRI -->
 
 IRIはJava仮想マシンで動作します。したがって、IRIを実行する前に、いくつかのJava変数を設定する必要があります。
 <!-- The IRI runs in a Java virtual machine. Therefore, before you run the IRI, you need to set up some Java variables. -->
@@ -289,8 +288,8 @@ Spamnet上のトークンの総供給量を含むアドレスを定義するた�
 WYF9OOFCQJRTLTRMREDWPOBQ9KNDMFVZSROZVXACAWKUMXAIYTFQCPAYZHNGKIWZZGKCSHSSTRDHDAJCW;2779530283277761
 ```
 
-## IRIを実行する
-<!-- ## Run the IRI -->
+## 手順3. IRIを実行する
+<!-- ## Step 3. Run the IRI -->
 
 IRIをダウンロードして設定したら、実行します。
 <!-- When you've downloaded, and configured the IRI, it's time to run it. -->
@@ -302,6 +301,13 @@ IRIをダウンロードして設定したら、実行します。
     mkdir -p /home/jake/node/data
     cd /home/jake/node/data
     ```
+
+    :::info:
+    データベースの定期的なバックアップを作成することをお勧めします。これにより、データベースが破損した場合や、他の種類のノードが誤動作した場合に、ノードを復元できます。そのためには、毎日データベースを別のボリュームにコピーするcronジョブを作成します。
+    :::
+    <!-- :::info: -->
+    <!-- We recommend making regular backups of your database. This way, you can restore your node in case of a corrupted database or another type of node malfunction. To do so, you create a cron job that copies the database to a different volume every day. -->
+    <!-- ::: -->
 
 2. IRIを実行します。`jake`をご自身のLinuxユーザー名に変更し、`$VERSION`をダウンロードしたIRIのバージョンに変更します。
   <!-- 2. Run the IRI. Change `jake` to your Linux username and `$VERSION` to the version of the IRI that you downloaded. -->
@@ -385,8 +391,9 @@ IRIをダウンロードして設定したら、実行します。
 ノードが起動して実行されているので、[IOTAネットワークを使い台帳の同期](../concepts/the-ledger.md#ledger-synchronization)を開始します。ノードに同期をとる時間を与えます。IRIノードが同期していない場合は、[トラブルシューティングガイド](../references/troubleshooting.md)をお読みください。
 <!-- Now that your node is up and running, it'll start to [synchronize its ledger with the network](../concepts/the-ledger.md#ledger-synchronization). Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing. -->
 
-## IRIが同期していることを確認する
-<!-- ## Check that the IRI is synchronized -->
+<a name="check-that-the-iri-is-synchronized"></a>
+## 手順4. IRIが同期していることを確認する
+<!-- ## Step 4. Check that the IRI is synchronized -->
 
 `latestMilestoneIndex`フィールドが`latestSolidSubtangleMilestoneIndex`フィールドと等しい場合、IRIは同期していると見なされます。
 <!-- The IRI is considered synchronized when the `latestMilestoneIndex` field is equal to the `latestSolidSubtangleMilestoneIndex` field. -->

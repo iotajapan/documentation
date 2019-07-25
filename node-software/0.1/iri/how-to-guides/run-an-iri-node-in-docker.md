@@ -1,8 +1,8 @@
 # DockerコンテナでIRIノードを実行する
 <!-- # Run an IRI node in a Docker container -->
 
-**Dockerコンテナ内でIRIを実行すると、コンピュータはIRIノード用のLinuxサーバになり、IOTAネットワークに直接アクセスできるようになります。 IRIノードを実行することで、台帳の数を増やし、隣接IRIノードのトランザクションを検証することで、IOTAネットワークをより分散させることができます。**
-<!-- **When you run the IRI in a Docker container, your computer becomes a Linux server for an IRI node, which gives you direct access to an IOTA network. By running an IRI node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbor IRI node's transactions.** -->
+**Dockerコンテナ内でIRIを実行すると、デバイスはIRIノード用のLinuxサーバになり、IOTAネットワークに直接アクセスできるようになります。 IRIノードを実行することで、台帳の数を増やし、隣接IRIノードのトランザクションを検証することで、IOTAネットワークをより分散させることができます。**
+<!-- **When you run the IRI in a Docker container, your device becomes a Linux server for an IRI node, which gives you direct access to an IOTA network. By running an IRI node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbor IRI node's transactions.** -->
 
 IRI Dockerコンテナは、以下のオペレーティングシステムに適しています。
 <!-- The IRI Docker container is suitable for the following operating systems: -->
@@ -16,44 +16,46 @@ Linuxオペレーティングシステムを使用している場合は、この
 ## 前提条件
 <!-- ## Prerequisites -->
 
-* IRIを実行するには、コンピュータが次の最小要件を満たしている必要があります。
-  <!-- * To run the IRI, your computer must meet the following minimum requirements: -->
-    * 4GB RAM
-    * 64ビットプロセッサ
-    <!-- * 64-bit processor -->
-    * 静的[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)か、[duckdns.org](https://www.duckdns.org)などの動的DNSサービスに接続されている[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)
-    <!-- * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org) -->
+このガイドを完成するには、次のものが必要です。
+<!-- To complete this guide, you need the following: -->
 
-* デフォルトでは、IRIは次のポートを使用します。ローカルネットワークでLinuxサーバを実行している場合は、これらのポートをコンピュータの[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)に転送する必要があります。
-  <!-- * By default, the IRI uses the following ports. If you're running a Linux server on your local network, you must [forward these ports to your computer's public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md). -->
+* 4GB RAM
+* 64ビットプロセッサ
+<!-- * 64-bit processor -->
+* インターネット接続
+<!-- * An Internet connection -->
+* [静的][パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)か、[duckdns.org](https://www.duckdns.org)などの動的DNSサービスに接続されている[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)
+<!-- * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org) -->
+* ノードを実行しているデバイスに[次のポートを転送します](root://general/0.1/how-to-guides/expose-your-local-device.md)。
+<!-- * [Forward the following ports](root://general/0.1/how-to-guides/expose-your-local-device.md) to the device that's running the node: -->
 
     * **TCP隣接ノードのピアリングポート：** 15600
     <!-- * **TCP neighbor peering port:** 15600 -->
     * **TCPのAPIポート：** 14265
     <!-- * **TCP API port:** 14265 -->
 
----
+Dockerコンテナは、以下のオペレーティングシステムに適しています。
+<!-- The Docker container is suitable for the following operating systems: -->
+* Linux
+* macOS
+* Windows
 
-IRIはJavaソフトウェアなので、Javaランタイム環境（JRE）で実行する必要があります。
-<!-- The IRI is Java software, so it must be run in a Java runtime environment (JRE). -->
-IRI Dockerコンテナには、IRIを実行するために必要なソフトウェアが含まれています。
-<!-- The IRI Docker container contains the necessary software to run the IRI. -->
+:::info:
+Linuxオペレーティングシステムを使用している場合は、以下のタスクのすべてのコマンドの前に`sudo`を追加します。
+:::
+<!-- :::info: -->
+<!-- If you're using a Linux operating system, add `sudo` before all the commands in the following tasks. -->
+<!-- ::: -->
 
-IRI Dockerコンテナをダウンロードする方法は2つあります。
-<!-- You have two options for downloading the IRI Docker container: -->
-* [ビルド済みのDockerコンテナをダウンロードする](#download-the-pre-built-iri-docker-container)（最速のオプション）。
-<!-- * [Download the pre-built Docker container](#download-the-pre-built-iri-docker-container)(quickest option) -->
-* [ソースコードからDockerコンテナをビルドする](#build-the-iri-docker-container-from-the-source-code)。
-<!-- * [Build the Docker container from the source code](#build-the-iri-docker-container-from-the-source-code) -->
+## 手順1. Dockerをインストールする
+<!-- ## Step 1. Install Docker -->
 
-## Dockerをインストールする
-<!-- ## Install Docker -->
+Dockerコンテナーをビルドするには、Docker 17.05（マルチステージビルドサポート用）をデバイスにインストールする必要があります。
+<!-- To build the Docker container, you must install Docker 17.05+ (for multi-stage build support) on your device. -->
 
-IRI Dockerコンテナをビルドするには、Docker 17.05以上（マルチステージビルドサポート用）をコンピュータにインストールする必要があります。
-<!-- To build the IRI Docker container, Docker 17.05+ (for multi-stage build support) must be installed on your computer. -->
-
-1. [Dockerをインストールします](https://docs.docker.com/install/#supported-platforms)。システム要件よりも古いバージョンのMacまたはWindowsを実行している場合は、代わりに[Dockerツールボックス](https://docs.docker.com/toolbox/overview/)をインストールしてください。
-  <!-- 1. [Install Docker](https://docs.docker.com/install/#supported-platforms). If you're running a version of Mac or Windows that's older than the system requirements, install the [Docker toolbox](https://docs.docker.com/toolbox/overview/) instead. -->
+1. [Dockerをインストールします](https://docs.docker.com/install/#supported-platforms)。システム要件よりも古いバージョンのmacOSまたはWindowsを実行している場合は、代わりに[Dockerツールボックス](https://docs.docker.com/toolbox/overview/)をインストールしてください。
+  <!-- 1. [Install Docker](https://docs.docker.com/install/#supported-platforms). If you're running a version of macOS or Windows that's older than the system requirements, install the [Docker toolbox](https://docs.docker.com/toolbox/overview/) instead. -->
+>>>>>>> upstream/develop:node-software/0.1/iri/how-to-guides/run-an-iri-node-in-docker.md
 
 2. Dockerがインストールされていることを確認します。
   <!-- 2. Make sure that Docker is installed -->
@@ -94,9 +96,24 @@ IRI Dockerコンテナをビルドするには、Docker 17.05以上（マルチ�
     https://docs.docker.com/get-started/
     ```
 
+## 手順.2 IRI Dockerコンテナをダウンロードする
+<!-- ## Step 2. Download the IRI Docker container -->
+
+IRIはJavaソフトウェアなので、Javaランタイム環境（JRE）で実行する必要があります。
+<!-- The IRI is Java software, so it must be run in a Java runtime environment (JRE). -->
+IRI Dockerコンテナには、IRIを実行するために必要なソフトウェアが含まれています。
+<!-- The IRI Docker container contains the necessary software to run the IRI. -->
+
+IRI Dockerコンテナをダウンロードする方法は2つあります。
+<!-- You have two options for downloading the IRI Docker container: -->
+* [ビルド済みのDockerコンテナをダウンロードする](#download-the-pre-built-iri-docker-container)（最速のオプション）。
+<!-- * [Download the pre-built Docker container](#download-the-pre-built-iri-docker-container)(quickest option) -->
+* [ソースコードからDockerコンテナをビルドする](#build-the-iri-docker-container-from-the-source-code)。
+<!-- * [Build the Docker container from the source code](#build-the-iri-docker-container-from-the-source-code) -->
+
 <a name="download-the-pre-built-iri-docker-container"></a>
 ## ビルド済みのIRI Dockerコンテナをダウンロードする
-<!-- ## Download the pre-built IRI Docker container -->
+<!-- ### Download the pre-built IRI Docker container -->
 
 ビルド済みのIRI Javaファイル用のDockerコンテナは、IOTA GitHubリポジトリにあります。
 <!-- The Docker container for the pre-built IRI Java file is available on the IOTA GitHub repository. -->
@@ -107,7 +124,7 @@ docker pull iotaledger/iri:latest
 
 <a name="build-the-iri-docker-container-from-the-source-code"></a>
 ## ソースコードからIRI Dockerコンテナをビルドする
-<!-- ## Build the IRI Docker container from the source code -->
+<!-- ### Build the IRI Docker container from the source code -->
 
 ビルド済みのDockerコンテナをダウンロードする代わりに、次のいずれかの理由でソースコードからファイルをビルドすることをお勧めします。
 <!-- Instead of downloading the pre-built Docker container, you may want to build the file from the source code for any of the following reasons: -->
@@ -140,11 +157,11 @@ docker pull iotaledger/iri:latest
     docker build -t iri .
     ```
 
-## IRIを実行する
-<!-- ## Run the IRI -->
+## 手順2. IRIを実行する
+<!-- ## Step 2. Run the IRI -->
 
-[IRI設定オプション](../references/iri-configuration-options.md)をフラグとして渡すことで、IRIを設定できます。
-<!-- You can configure the IRI by passing in [IRI configuration options](../references/iri-configuration-options.md) as flags. -->
+`run`コマンドに[設定オプション](../references/iri-configuration-options.md)をフラグとして渡すことでノードの設定ができます。
+<!-- You can configure the node by passing [configuration options](../references/iri-configuration-options.md) to the `run` command as flags. -->
 
 1. APIポートを指定するために`-p`フラグを指定してIRIを実行します。
   <!-- 1. Run the IRI with the `-p` flag to specify the API port -->
@@ -213,8 +230,8 @@ docker pull iotaledger/iri:latest
 
   <!-- Now that your node is up and running, it'll start to [synchronize its ledger with the network](../concepts/the-ledger.md#ledger-synchronization). Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing. -->
 
-## IRIが同期していることを確認する
-<!-- ## Check that the IRI is synchronized -->
+## 手順3. IRIが同期していることを確認する
+<!-- ## Step 3. Check that the IRI is synchronized -->
 
 `latestMilestoneIndex`フィールドが`latestSolidSubtangleMilestoneIndex`フィールドと等しい場合、IRIは同期していると見なされます。
 <!-- The IRI is considered synchronized when the `latestMilestoneIndex` field is equal to the `latestSolidSubtangleMilestoneIndex` field. -->

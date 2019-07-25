@@ -30,8 +30,8 @@ Mainnet上でアプリケーションを使用する準備が整ったら、ア�
 ## 使い方
 <!-- ## How it works -->
 
-テストネットワークは、（インターネットに接続されていない）ローカルホスト上で1つの[IRIノード](root://iri/0.1/introduction/overview.md)と1つの[コンパス](root://compass/0.1/introduction/overview.md)インスタンスを実行します。
-<!-- The test network runs one [IRI node](root://iri/0.1/introduction/overview.md) and an instance of [Compass](root://compass/0.1/introduction/overview.md) on your localhost (not connected to the Internet). -->
+テストネットワークは、（インターネットに接続されていない）ローカルホスト上で1つの[IRIノード](root://node-software/0.1/iri/introduction/overview.md)と1つの[コンパス](root://compass/0.1/introduction/overview.md)インスタンスを実行します。
+<!-- The test network runs one [IRI node](root://node-software/0.1/iri/introduction/overview.md) and an instance of [Compass](root://compass/0.1/introduction/overview.md) on your localhost (not connected to the Internet). -->
 
 IRIノードはトランザクションを受け取り、トランザクションを検証し、そしてユーザーの残高の最新の記録を保持します。
 <!-- The IRI node receives transactions, validates them, and keeps an up-to-date record of users' balances. -->
@@ -98,15 +98,15 @@ SEED9999999999999999999999999999999999999999999999999999999999999999999999999999
 ## 手順2. ネットワークと対話する
 <!-- ## Step 2. Interact with the network -->
 
-アプリケーションが実行されているときは、アドレス`http://localhost:14265`にあるIRIノードのAPIポートを介してネットワークと対話できます。
+アプリケーションを実行しているときは、アドレス`http://localhost:14265`にあるIRIノードのAPIポートを介してネットワークと対話できます。
 <!-- When the application is running, you can interact with the network through the IRI node's API port at the following address http://localhost:14265. -->
 
-[APIエンドポイント](root://iri/0.1/references/api-reference.md)の一覧を参照してください。
-<!-- See a list of [API endpoints](root://iri/0.1/references/api-reference.md). -->
+[APIエンドポイント](root://node-software/0.1/iri/references/api-reference.md)の一覧を参照してください。
+<!-- See a list of [API endpoints](root://node-software/0.1/iri/references/api-reference.md). -->
 
 --------------------
 ### GetBalances
-Node.jsで[JavaScriptクライアントライブラリ](root://client-libraries/0.1/introduction/overview.md)を使用すると、[`getBalances`](root://iri/0.1/references/api-reference.md#getbalances)エンドポイントを呼び出してシードの合計残高を取得できます。
+Node.jsで[JavaScriptクライアントライブラリ](root://client-libraries/0.1/introduction/overview.md)を使用すると、[`getBalances`](root://node-software/0.1/iri/references/api-reference.md#getbalances)エンドポイントを呼び出してシードの合計残高を取得できます。
 
 これまでにIOTAクライアントライブラリを使用したことがない場合は、[このチュートリアル](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を完了することをお勧めします。
 

@@ -39,8 +39,8 @@
 <!-- * `temp.py`: Uses the [`envirophat` library](https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-enviro-phat) to read the current temperature from the sensor. -->
 * `fetchTemp.js`： 現在の温度を取得するために`tempy.py`ファイルを実行します。
 <!-- * `fetchTemp.js`: Executes the `tempy.py` file to get the current temperature. -->
-* `zmqWatcher.js`： アドレスの確定を監視するために、Devnetノードの[ZMQ`address`イベント](root://iri/0.1/references/zmq-events.md#address)を購読します。
-<!-- * `zmqWatcher.js`: Subscribes to a Devnet node's [ZMQ `address` event](root://iri/0.1/references/zmq-events.md#address) to monitor the address for confirmation. -->
+* `zmqWatcher.js`： アドレスの確定を監視するために、Devnetノードの[ZMQ`address`イベント](root://node-software/0.1/iri/references/zmq-events.md#address)を購読します。
+<!-- * `zmqWatcher.js`: Subscribes to a Devnet node's [ZMQ `address` event](root://node-software/0.1/iri/references/zmq-events.md#address) to monitor the address for confirmation. -->
 
 `fetchTemp.js`ファイルと`zmqWatcher.js`ファイルはモジュールとしてエクスポートされ、`index.js`ファイルから呼び出されます。
 <!-- The `fetchTemp.js` and `zmqWatcher.js` files are exported as modules and called from the `index.js` file. -->

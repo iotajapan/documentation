@@ -19,5 +19,5 @@ IOTAは無許可型のDLTです。したがって、ノードを個人や企業�
 自分のノードを実行できない場合は、トリニティの公開ノードを使用するか、[IOTA Dance](https://iota.dance)などのWebサイトを使用して公開ノードの一覧を見つけることができます。
 <!-- If you can't run your own node, you can use the public ones in Trinity or use websites such as [IOTA Dance](https://iota.dance) to find a list them. -->
 
-[ノードソフトウェアの詳細を学んでみましょう](root://iri/0.1/introduction/overview.md)。
-<!-- [Learn more about node software](root://iri/0.1/introduction/overview.md). -->
+[ノードソフトウェアの詳細を学んでみましょう](root://node-software/0.1/iri/introduction/overview.md)。
+<!-- [Learn more about node software](root://node-software/0.1/iri/introduction/overview.md). -->

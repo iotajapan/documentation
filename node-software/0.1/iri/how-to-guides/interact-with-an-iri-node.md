@@ -141,10 +141,10 @@ print(json.dumps(results, indent=1, sort_keys=True))
 ```
 
 :::info:これらのフィールドが何を意味するのか知りたいですか？
-[`getNodeInfo()` APIリファレンス](root://iri/0.1/references/api-reference.md#getnodeinfo)をご覧ください。
+[`getNodeInfo()` APIリファレンス](root://node-software/0.1/iri/references/api-reference.md#getnodeinfo)をご覧ください。
 :::
 <!-- :::info:Want to know what these fields mean? -->
-<!-- [Take a look at the `getNodeInfo()` API reference](root://iri/0.1/references/api-reference.md#getnodeinfo). -->
+<!-- [Take a look at the `getNodeInfo()` API reference](root://node-software/0.1/iri/references/api-reference.md#getnodeinfo). -->
 <!-- ::: -->
 
 ## コードを実行する

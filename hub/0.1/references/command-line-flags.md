@@ -41,10 +41,10 @@
 
 | **フラグ** | **説明** | **デフォルト値** |
 | :--------- | :------- | :--------------- |
-| `--apiAddress` | ハブが接続するIRIノードのURLまたはIPアドレス。悪意のあるノードに接続しないようにするには、[自分のノードを実行](root://iri/0.1/introduction/overview.md)して接続することをお勧めします。ハブはHTTPSプロトコルを使用するノードに接続できません。 | "127.0.0.1:14265" |
+| `--apiAddress` | ハブが接続するIRIノードのURLまたはIPアドレス。悪意のあるノードに接続しないようにするには、[自分のノードを実行](root://node-software/0.1/iri/introduction/overview.md)して接続することをお勧めします。ハブはHTTPSプロトコルを使用するノードに接続できません。 | "127.0.0.1:14265" |
 | `--attachmentInterval` | [トランザクションの再添付と促進](root://iota-basics/0.1/concepts/reattach-rebroadcast-promote.md)の間にHubが待機する間隔（ミリ秒）。0=無効。 | 240000 |
 | `--authProvider` | [`signBundle`](../references/api-reference.md#hub.rpc.SignBundleRequest)メソッドを認証するために使用するプロバイダ。この値は "non"または"hmac"になります。 | "none" |
-| `--depth` | [`getTransactionsToApprove`（GTTA）](root://iri/0.1/references/api-reference.md#getTransactionsToApprove)エンドポイントの`depth`パラメーターに使用する値 | 3 |
+| `--depth` | [`getTransactionsToApprove`（GTTA）](root://node-software/0.1/iri/references/api-reference.md#getTransactionsToApprove)エンドポイントの`depth`パラメーターに使用する値 | 3 |
 | `--hmacKeyPath` | [`signBundle`]メソッドの認証に使用されるHMACキーへのパス | "/dev/null" |
 | `--minWeightMagnitude` | プルーフオブワークに使用する[最小重量値（MWM）](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)。 Mainnetでハブを使用するには、MWMは14を使用する必要があります。 | 9 |
 | <a name="monitorInterval"></a> `--monitorInterval` | ハブが預け入れアドレスをチェックし、[`user_address`テーブルと`user_address_balance`テーブル](../references/database-tables.md)を更新する間隔（ミリ秒）。トークンを含むものは、次のスイープに含まれます。0=無効。 | 60000 |

@@ -162,6 +162,17 @@
     <!-- If you want to have more control over the behavior of the plugins, you can customize them in the `WithPlugin()` method. -->
     <!-- ::: -->
 
+8. [同期しているノード](root://node-software/0.1/iri/how-to-guides/run-an-iri-node-on-linux.md#check-that-the-iri-is-synchronized)に接続していることを確認します。
+  <!-- 8. Check that you're connected to a [synchronized node](root://node-software/0.1/iri/how-to-guides/run-an-iri-node-on-linux.md#check-that-the-iri-is-synchronized) -->
+
+    ```go
+    nodeInfo, err := iotaAPI.GetNodeInfo()
+    handleErr(err)
+
+    fmt.Println("latest milestone index:", nodeInfo.LatestMilestoneIndex)
+    fmt.Println("latest milestone index:", nodeInfo.LatestSolidSubtangleMilestone)
+    ```
+
 :::success:おめでとうございます！:tada:
 シードステートを管理し、かつ自動的にトランザクションを促進、再添付するアカウントを作成しました。
 :::

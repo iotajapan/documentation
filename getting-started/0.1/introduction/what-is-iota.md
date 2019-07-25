@@ -36,8 +36,8 @@ IOTAトークンを送受信するために、クライアントは[バンドル
 上記の文字列は不可解に見えるかもしれませんが、分解してみましょう。セミコロンの左側にアドレスがあります。これはネットワーク内の各クライアントに固有のものです。セミコロンの右側には、そのアドレスに属するIOTAトークンの量があります。この場合は1,000個のIOTAトークンです。
 <!-- These characters might look cryptic, but let's break it down. On the left of the semicolon is an address. These are unique to each client in the network. On the right of the semicolon is an amount of IOTA tokens that belong to that address, in this case 1,000 tokens. -->
 
-IOTAトークンの送信が完了には、すべてのノードがトークンを送信する[トランザクションを検証したとき](root://iri/0.1/concepts/transaction-validation.md)、およびマイルストーンによって参照されたときだけです。
-<!-- You own IOTA tokens only when all nodes [validate the transaction](root://iri/0.1/concepts/transaction-validation.md) that sent the tokens to you, and when it's referenced by a milestone. -->
+IOTAトークンの送信が完了には、すべてのノードがトークンを送信する[トランザクションを検証したとき](root://node-software/0.1/iri/concepts/transaction-validation.md)、およびマイルストーンによって参照されたときだけです。
+<!-- You own IOTA tokens only when all nodes [validate the transaction](root://node-software/0.1/iri/concepts/transaction-validation.md) that sent the tokens to you, and when it's referenced by a milestone. -->
 
 ## IOTAトークンの価値の源泉とは？
 <!-- ## What makes the IOTA token valuable? -->

@@ -12,7 +12,7 @@
 
 [概念/3進法](/concepts/trinary.md)
 
-[ハウツーガイド/データをトライトへ/から変換する](/how-to-guides/convert-data-to-trytes.md)
+[ハウツーガイド/データをトライトへ変換する](/how-to-guides/convert-data-to-trytes.md)
 
 [ハウツーガイド/アドレスを作成する](/how-to-guides/create-an-address.md)
 

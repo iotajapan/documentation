@@ -1,8 +1,8 @@
 # タングルとは？
 <!-- # What is the Tangle? -->
 
-**バンドルを送信する前に、トランザクションをネットワーク内の2つの既存のトランザクションに添付する必要があります。これを行うと、ノードは接続をたどって各トランザクションを見つけて検証できます。これらの接続は、タングルと呼ばれるデータ構造を形成します。 タングル内のトランザクションは、ペンディングまたは確定済みの2つの状態のいずれかになります。**
-<!-- **Before you send a bundle, you must attach your transactions to two existing ones in the network. You do this so that the node can walk on the connections to find and validate each transaction. These connections form a data structure that's called the Tangle. Transactions in the Tangle can be in one of two states: Pending or confirmed.** -->
+**バンドルを作成するときは、ネットワーク内の2つの既存のトランザクションを参照する必要があります。ノードがトランザクションを受け取ると、ノードは受け取ったトランザクションを既存のトランザクションに添付します。すべてのトランザクション間の添付関係は、タングルと呼ばれるデータ構造を形成します。**
+<!-- **When you create a bundle, you must reference it to two existing transactions in the network. When a node receives your transactions, it attach them to these existing ones. The attachments among all the transactions form a data structure that's called the Tangle.** -->
 
 タングルは、各トランザクションが1つの頂点を表す一種の[有向非巡回グラフ](https://en.wikipedia.org/wiki/Directed_acyclic_graph)（DAG）を形成します。
 <!-- This model forms a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), in which each transaction represents a vertex. -->
@@ -38,4 +38,4 @@
 <!-- ::: -->
 
 [コーディネータ](root://the-tangle/0.1/concepts/the-coordinator.md)と[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)について学ぶ。
-<!-- Learn more about [the Coordinator](root://the-tangle/0.1/concepts/the-coordinator.md), [tip selection](root://the-tangle/0.1/concepts/tip-selection.md). -->
+<!-- Learn more about [the Coordinator](root://the-tangle/0.1/concepts/the-coordinator.md) and [tip selection](root://the-tangle/0.1/concepts/tip-selection.md). -->

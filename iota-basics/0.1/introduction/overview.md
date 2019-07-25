@@ -40,17 +40,17 @@ IOTA[クライアントライブラリ](root://client-libraries/0.1/introduction
 ノードは郵便局と銀行を合わせたようなものです。ノードはノードが受け取るすべてのトランザクションとネットワーク内のすべてのアドレスのゼロではない残高の台帳を保持します。
 <!-- Nodes are like a cross between a post office and a bank. They keep a ledger of every transaction that they receive and the non-zero balances of all addresses in the network. -->
 
-ノードには[API](root://iri/0.1/references/api-reference.md)があります。APIにより、クライアントは台帳からバンドルを読み取り、バンドルを送信できます。
-<!-- Nodes have an [API](root://iri/0.1/references/api-reference.md), which allows clients to read from the ledger and send bundles. -->
+ノードには[API](root://node-software/0.1/iri/references/api-reference.md)があります。APIにより、クライアントは台帳からバンドルを読み取り、バンドルを送信できます。
+<!-- Nodes have an [API](root://node-software/0.1/iri/references/api-reference.md), which allows clients to read from the ledger and send bundles. -->
 
-ノードは一連の規則に従って[トランザクションを検証](root://iri/0.1/concepts/transaction-validation.md)します。そのうちの1つは、IOTAトークンを取り出すトランザクションに有効な[署名](../concepts/addresses-and-signatures.md)が含まれているかを検証することです。トランザクションが有効であると見なされると、ノードはトランザクションを台帳に追加し、影響を受けるアドレスの残高を更新します。
-<!-- Nodes [validate transactions](root://iri/0.1/concepts/transaction-validation.md) according to a set of rules, one of which states that withdrawals must contain a valid [signature](../concepts/addresses-and-signatures.md). When a transaction is considered valid, the node adds it to its ledger and updates the balances of the affected addresses. -->
+ノードは一連の規則に従って[トランザクションを検証](root://node-software/0.1/iri/concepts/transaction-validation.md)します。そのうちの1つは、IOTAトークンを取り出すトランザクションに有効な[署名](../concepts/addresses-and-signatures.md)が含まれているかを検証することです。トランザクションが有効であると見なされると、ノードはトランザクションを台帳に追加し、影響を受けるアドレスの残高を更新します。
+<!-- Nodes [validate transactions](root://node-software/0.1/iri/concepts/transaction-validation.md) according to a set of rules, one of which states that withdrawals must contain a valid [signature](../concepts/addresses-and-signatures.md). When a transaction is considered valid, the node adds it to its ledger and updates the balances of the affected addresses. -->
 
 ### 信頼性
 <!-- ### Trust -->
 
-ノードを本当に信頼して良いかどうか疑問に思うかもしれません。結局のところ、ノードに接続することがタングルから読み書きする唯一の方法です。ノードが[`getBalances`](root://iri/0.1/references/api-reference.md#getBalances)などのAPIエンドポイントへの応答を改ざんするとどうなるのでしょうか？自分の本当の残高がどのようなものであるかをどのようにして知るのでしょうか？
-<!-- You might be wondering how you can trust a node. After all, connecting to a node is the only way to read from and write to the Tangle. What if a node were to change the response to an API endpoint such as [`getBalances`](root://iri/0.1/references/api-reference.md#getBalances)? How would you know what your real balance is? -->
+ノードを本当に信頼して良いかどうか疑問に思うかもしれません。結局のところ、ノードに接続することがタングルから読み書きする唯一の方法です。ノードが[`getBalances`](root://node-software/0.1/iri/references/api-reference.md#getBalances)などのAPIエンドポイントへの応答を改ざんするとどうなるのでしょうか？自分の本当の残高がどのようなものであるかをどのようにして知るのでしょうか？
+<!-- You might be wondering how you can trust a node. After all, connecting to a node is the only way to read from and write to the Tangle. What if a node were to change the response to an API endpoint such as [`getBalances`](root://node-software/0.1/iri/references/api-reference.md#getBalances)? How would you know what your real balance is? -->
 
 IOTAは[分散型台帳技術](root://getting-started/0.1/introduction/what-is-dlt.md)です。分散という言葉が重要です。ノードがトランザクションを受け取り、検証し、台帳に追加しても、そこで停止することはありません。 IOTAプロトコルは、すべてのノードが隣接ノードと呼ばれる他のノードにトランザクションを転送しなければなりません。このようにして、すべてのノードが一貫したトランザクションの分散型台帳を受信、検証、および保存することで、個々を信頼する必要性がなくなります。その結果、あるノードが怪しい場合は、複数のノードにリクエストを送信し、返されたデータから整合性を確認することができます。
 <!-- Well, IOTA is a [distributed ledger technology](root://getting-started/0.1/introduction/what-is-dlt.md). The word _distributed_ is the key. When a node receives a transaction, validates it, and appends it to its ledger, it doesn't stop there. The IOTA protocol states that all nodes must forward transactions onto other nodes, called their neighbors. This way, all nodes receive, validate, and store a consistent, distributed ledger of transactions, removing the need to trust any individual. As a result, you can send requests to multiple nodes and check the consistency of the returned data. -->
@@ -85,8 +85,8 @@ IOTAは[分散型台帳技術](root://getting-started/0.1/introduction/what-is-d
 これらのフィールドの親は、[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)中にノードによって選択されます。これはノードがある古いトランザクションから開始し、親を持たないトランザクション（チップトランザクション）が見つかるまで、その子、孫などを辿るプロセスです。
 <!-- The parents in these fields are chosen by a node during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md). A process where a node starts from an old transaction and traverses its children, grandchildren, and so on, until it finds one without any parents (the selected tip). -->
 
-トランザクションを辿っている間、ノードは[辿っている最中のバンドル全体を検証する](root://iri/0.1/concepts/transaction-validation.md#bundle-validator)必要があります。結果として、ノードはチップトラザクションの履歴を検証し、それらのトランザクションハッシュ値を参照することで、**子はその親のバンドルと子に関連したすべての履歴を承認します**。
-<!-- While traversing transactions, the node must [validate their entire bundle](root://iri/0.1/concepts/transaction-validation.md#bundle-validator). As a result, by having the node validate the history of the tip transactions and by referencing their transaction hashes, **a child approves its parents' bundles and their entire history**. -->
+トランザクションを辿っている間、ノードは[辿っている最中のバンドル全体を検証する](root://node-software/0.1/iri/concepts/transaction-validation.md#bundle-validator)必要があります。結果として、ノードはチップトラザクションの履歴を検証し、それらのトランザクションハッシュ値を参照することで、**子はその親のバンドルと子に関連したすべての履歴を承認します**。
+<!-- While traversing transactions, the node must [validate their entire bundle](root://node-software/0.1/iri/concepts/transaction-validation.md#bundle-validator). As a result, by having the node validate the history of the tip transactions and by referencing their transaction hashes, **a child approves its parents' bundles and their entire history**. -->
 
 すべてのバンドルが2つの新しいバンドルを承認するため、ネットワーク内のバンドルが多いほど、新しいバンドルが早く承認されます。
 <!-- Because every bundle approves two new bundles, the more bundles in the network, the faster new ones are approved. -->

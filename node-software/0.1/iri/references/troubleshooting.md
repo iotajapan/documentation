@@ -1,8 +1,11 @@
 # トラブルシューティング
 <!-- # Troubleshooting -->
 
-**IRIのインストール、設定、または実行中に、これらの一般的な問題のいくつかを見かけることがあります。**
-<!-- **You may find some of these common issues while installing, configuring, or running the IRI.** -->
+**このリファレンスガイドを使用して、IRIのインストール、設定、または実行に関連する問題を解決してください。**
+<!-- **Use this reference guide to resolve issues related to installing, configuring, or running the IRI.** -->
+
+問題の解決策が見つからない場合は、[IOTA StackExchange](https://iota.stackexchange.com/)で検索してください。
+<!-- If you can't find the solution to your issue, search the [IOTA StackExchange](https://iota.stackexchange.com/). -->
 
 ## エラー - trustAnchorsパラメータは空でない必要があります
 <!-- ## Error - trustAnchors parameter must be non-empty -->

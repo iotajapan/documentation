@@ -90,8 +90,8 @@ IOTA財団はDevnet上で以下のパブリックIRIノードをホストして�
 #### ZMQノード
 <!-- #### ZMQ node -->
 
-このエンドポイントを使用すると、Devnet上のIRIノードの[ZMQ](root://iri/0.1/concepts/zero-message-queue.md)にアクセスできます。
-<!-- This endpoint gives you access to the [zero message queue](root://iri/0.1/concepts/zero-message-queue.md) of an IRI node on the Devnet. -->
+このエンドポイントを使用すると、Devnet上のIRIノードの[ZMQ](root://node-software/0.1/iri/concepts/zero-message-queue.md)にアクセスできます。
+<!-- This endpoint gives you access to the [zero message queue](root://node-software/0.1/iri/concepts/zero-message-queue.md) of an IRI node on the Devnet. -->
 
 ZMQノードを使用して、IRIノード内のイベントをサブスクライブします。
 <!-- Use the ZMQ node to subscribe to events in an IRI node. -->
@@ -151,8 +151,8 @@ IOTA財団はSpamnet上で以下のパブリックIRIノードをホストして
 #### ZMQノード
 <!-- #### ZMQ node -->
 
-このエンドポイントを使用すると、Spamnet上のIRIノードの[ZMQ](root://iri/0.1/concepts/zero-message-queue.md)にアクセスできます。
-<!-- This endpoint gives you access to the [zero message queue](root://iri/0.1/concepts/zero-message-queue.md) of an IRI node on the Spamnet. -->
+このエンドポイントを使用すると、Spamnet上のIRIノードの[ZMQ](root://node-software/0.1/iri/concepts/zero-message-queue.md)にアクセスできます。
+<!-- This endpoint gives you access to the [zero message queue](root://node-software/0.1/iri/concepts/zero-message-queue.md) of an IRI node on the Spamnet. -->
 
 ZMQノードを使用して、IRIノード内のイベントをサブスクライブします。
 <!-- Use the ZMQ node to subscribe to events in an IRI node. -->

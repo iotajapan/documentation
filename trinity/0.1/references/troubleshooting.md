@@ -1,8 +1,11 @@
 # トラブルシューティング
 <!-- # Troubleshooting -->
 
-**トリニティを使用している間、これらの一般的な問題のいくつかを見つけるかもしれません。**
-<!-- **You may find some of these common issues while using Trinity.** -->
+**このリファレンスガイドを使用して、トリニティに関連する問題を解決してください。**
+<!-- **Use this reference guide to resolve issues related to Trinity.** -->
+
+問題の解決策が見つからない場合は、[IOTA StackExchange](https://iota.stackexchange.com/)で検索してください。
+<!-- If you can't find the solution to your issue, search the [IOTA StackExchange](https://iota.stackexchange.com/). -->
 
 ## 不正確な残高
 <!-- ## Incorrect balance -->

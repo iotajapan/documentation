@@ -1,7 +1,7 @@
 # IRI設定オプション
 <!-- # IRI configuration options -->
 
-**IRI設定オプションを使用すると、ノードをカスタマイズできます。これらのオプションは、コマンドライン（CLフラグ）または.ini設定ファイル（設定ファイルパラメータ）のどちらでも設定できます。**
+**IRI設定オプションを使用すると、ノードの動作をカスタマイズできます。これらのオプションは、コマンドライン（CLフラグ）または.ini設定ファイル（設定ファイルパラメータ）のどちらでも設定できます。**
 <!-- **The IRI configuration options allow you to customize your node. You can choose to set these options either in the command line (CL flags) or in a .ini configuration file (config file parameters).** -->
 
 変更したいオプションを見つけやすくするために、次のカテゴリに分類しました。

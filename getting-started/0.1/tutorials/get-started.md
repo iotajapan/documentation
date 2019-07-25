@@ -272,10 +272,10 @@ func handleErr(err error) {
 <!-- ::: -->
 
 :::info:
-返答オブジェクトの各フィールドの意味については、[APIリファレンス](root://iri/0.1/references/api-reference.md#getNodeInfo)を参照してください。
+返答オブジェクトの各フィールドの意味については、[APIリファレンス](root://node-software/0.1/iri/references/api-reference.md#getNodeInfo)を参照してください。
 :::
 <!-- :::info: -->
-<!-- To learn what these fields mean, [see the API reference](root://iri/0.1/references/api-reference.md#getNodeInfo). -->
+<!-- To learn what these fields mean, [see the API reference](root://node-software/0.1/iri/references/api-reference.md#getNodeInfo). -->
 <!-- ::: -->
 
 ## コードを実行する（Node.js）

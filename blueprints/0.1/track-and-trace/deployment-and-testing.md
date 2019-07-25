@@ -13,8 +13,8 @@
 * [Firebaseサーバーをデプロイする方法](https://firebase.google.com/)
 <!-- * [Deploy a Firebase server](https://firebase.google.com/) -->
 
-* [IOTAノードに接続する方法](root://iri/0.1/how-to-guides/interact-with-an-iri-node.md)
-<!-- * [Connect to an IOTA node](root://iri/0.1/how-to-guides/interact-with-an-iri-node.md) -->
+* [IRIノードに接続する方法](root://node-software/0.1/iri/how-to-guides/interact-with-an-iri-node.md)
+<!-- * [Connect to an IRI node](root://node-software/0.1/iri/how-to-guides/interact-with-an-iri-node.md) -->
 
 * MAMチャネルを作成し、[JavaScriptクライアントライブラリ](https://github.com/iotaledger/mam.client.js )を使用してMAMチャネルを通してメッセージを送信する方法
 <!-- * Create a MAM channel and send messages through it using the [JavaScript client library](https://github.com/iotaledger/mam.client.js ) -->

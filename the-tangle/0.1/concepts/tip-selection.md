@@ -7,8 +7,8 @@
 一般的に、チップ選択アルゴリズムは、親を持たないチップトランザクションを選択します。
 <!-- In general, the tip selection algorithm selects tip transactions that have no parents. -->
 
-チップ選択アルゴリズムは[IOTAノードソフトウェア](root://iri/0.1/introduction/overview.md)に組み込まれていますが、ネットワークによって強制されているわけではありません。代わりに、ノードに[チップ選択アルゴリズムを使用するインセンティブ](../concepts/incentives-in-the-tangle.md)が与えられています。
-<!-- Although the tip selection algorithm is embedded in the [IOTA node software](root://iri/0.1/introduction/overview.md), it isn't enforced by the network. Instead, nodes are given an [incentive to use the tip selection algorithm](../concepts/incentives-in-the-tangle.md). -->
+チップ選択アルゴリズムは[IOTAノードソフトウェア](root://node-software/0.1/iri/introduction/overview.md)に組み込まれていますが、ネットワークによって強制されているわけではありません。代わりに、ノードに[チップ選択アルゴリズムを使用するインセンティブ](../concepts/incentives-in-the-tangle.md)が与えられています。
+<!-- Although the tip selection algorithm is embedded in the [IOTA node software](root://node-software/0.1/iri/introduction/overview.md), it isn't enforced by the network. Instead, nodes are given an [incentive to use the tip selection algorithm](../concepts/incentives-in-the-tangle.md). -->
 
 ## チップ選択プロセス
 <!-- ## The tip selection process -->
@@ -34,10 +34,10 @@
 <!-- The result of this calculation is equal to the index of the milestone transaction that is used to form the subgraph. -->
 
 :::info:
-`depth`パラメータの値が大きいほど、ノードが実行しなければならない計算が増えます。 `depth`パラメータの値を制限するために、ノードは [`MAX-DEPTH`](root://iri/0.1/references/iri-configuration-options.md#max-depth)設定オプションを変更することができます。
+`depth`パラメータの値が大きいほど、ノードが実行しなければならない計算が増えます。 `depth`パラメータの値を制限するために、ノードは [`MAX-DEPTH`](root://node-software/0.1/iri/references/iri-configuration-options.md#max-depth)設定オプションを変更することができます。
 :::
 <!-- :::info: -->
-<!-- The greater the value of the `depth` parameter, the more computations the node must do. To restrict the value of the `depth` parameter, nodes can change the [`MAX-DEPTH`](root://iri/0.1/references/iri-configuration-options.md#max-depth) configuration option. -->
+<!-- The greater the value of the `depth` parameter, the more computations the node must do. To restrict the value of the `depth` parameter, nodes can change the [`MAX-DEPTH`](root://node-software/0.1/iri/references/iri-configuration-options.md#max-depth) configuration option. -->
 <!-- ::: -->
 
 ### 重み付きランダムウォーク
@@ -53,8 +53,8 @@
 <!-- The cumulative weight of a transaction is calculated using the following variables: -->
 * **未来集合：** トランザクションを直接・間接的に承認するトランザクション
 <!-- * **Future set:** Transactions that approves the transaction -->
-* **[`ALPHA`設定パラメータ](root://iri/0.1/references/iri-configuration-options.md#alpha)：**チップ選択プロセスのランダムさに影響する数値
-<!-- * **[`ALPHA` configuration parameter](root://iri/0.1/references/iri-configuration-options.md#alpha):** A number that affects the randomness of the tip selection process -->
+* **[`ALPHA`設定パラメータ](root://node-software/0.1/iri/references/iri-configuration-options.md#alpha)：**チップ選択プロセスのランダムさに影響する数値
+<!-- * **[`ALPHA` configuration parameter](root://node-software/0.1/iri/references/iri-configuration-options.md#alpha):** A number that affects the randomness of the tip selection process -->
 
 未来集合が小さいトランザクションよりも未来集合が大きいトランザクションの方が確定する可能性が高いため、ノードは未来集合が大きいトランザクションに高い評価を与えます。
 ただし、ノードが未来集合の大きさだけでトランザクションを評価すると、台帳の形状が、多くのトランザクションで少数のトランザクションだけを参照する長く狭いチェーンになってしまいます。
@@ -71,8 +71,8 @@
 ## チップ選択アルゴリズムの詳細な説明
 <!-- ## In-depth explanation of the tip selection algorithm -->
 
-以下の情報は、クライアントが[getTransactionsToApprove](root://iri/0.1/references/api-reference.md#getTransactionsToApprove)エンドポイントを呼び出したときにノードが何をしているかを説明しています。
-<!-- The following information describes what nodes do when a client calls the [getTransactionsToApprove](root://iri/0.1/references/api-reference.md#getTransactionsToApprove) endpoint. -->
+以下の情報は、クライアントが[getTransactionsToApprove](root://node-software/0.1/iri/references/api-reference.md#getTransactionsToApprove)エンドポイントを呼び出したときにノードが何をしているかを説明しています。
+<!-- The following information describes what nodes do when a client calls the [getTransactionsToApprove](root://node-software/0.1/iri/references/api-reference.md#getTransactionsToApprove) endpoint. -->
 
 クライアントは、トランザクションを送信したいときにこのエンドポイントを呼び出します。エンドポイントによって、2つのチップトランザクションハッシュが生成され、それらが新しいトランザクションの`trunkTransaction`フィールドと`branchTransaction`フィールドで使用されます。
 <!-- Clients call this endpoint when they want to send a transaction. The endpoint results in two tip transaction hashes, which are used in the `trunkTransaction` and `branchTransaction` fields of the new transaction. -->

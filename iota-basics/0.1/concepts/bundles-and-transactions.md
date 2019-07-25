@@ -76,11 +76,11 @@ IOTAトークンを預け入れるトランザクションは、IOTAトークン
 ## バンドルの検証方法
 <!-- ## How bundles are validated -->
 
-バンドルを[ノード](root://iri/0.1/introduction/overview.md)に送信すると、各トランザクションは検証され、台帳に追加されます。
-<!-- After you send a bundle to a [node](root://iri/0.1/introduction/overview.md), it validates each transaction and appends each one to its ledger. -->
+バンドルを[ノード](root://node-software/0.1/iri/introduction/overview.md)に送信すると、各トランザクションは検証され、台帳に追加されます。
+<!-- After you send a bundle to a [node](root://node-software/0.1/iri/introduction/overview.md), it validates each transaction and appends each one to its ledger. -->
 
-[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)の間、ノードはその`trunkTransaction`フィールドを辿ることによって、[バンドル内の各トランザクションを見つけて検証します](root://iri/0.1/concepts/transaction-validation.md#bundle-validator)。ノードが先頭トランザクション（または[`lastIndex`フィールド](../references/structure-of-a-transaction.md)）までのすべてのトランザクションを検証したら、バンドルは有効と見なされます。
-<!-- During [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), a node finds and [validates each transaction in your bundle](root://iri/0.1/concepts/transaction-validation.md#bundle-validator) by traversing its `trunkTransaction` field. When the node has validated all transactions up to the head (or [`lastIndex` field](../references/structure-of-a-transaction.md)), your bundle is considered valid. -->
+[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)の間、ノードはその`trunkTransaction`フィールドを辿ることによって、[バンドル内の各トランザクションを見つけて検証します](root://node-software/0.1/iri/concepts/transaction-validation.md#bundle-validator)。ノードが先頭トランザクション（または[`lastIndex`フィールド](../references/structure-of-a-transaction.md)）までのすべてのトランザクションを検証したら、バンドルは有効と見なされます。
+<!-- During [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), a node finds and [validates each transaction in your bundle](root://node-software/0.1/iri/concepts/transaction-validation.md#bundle-validator) by traversing its `trunkTransaction` field. When the node has validated all transactions up to the head (or [`lastIndex` field](../references/structure-of-a-transaction.md)), your bundle is considered valid. -->
 
 ![Example of a bundle of 4 transactions](../images/bundle.png)
 
