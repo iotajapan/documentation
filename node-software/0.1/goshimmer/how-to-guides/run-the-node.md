@@ -153,7 +153,7 @@ GoShimmerノードを実行しています。
 <!-- * **Node ID:** The node's public key that gives it a unique identity -->
 * **Neighbors：** ノードが接続している隣接ノードの数。すべてのノードは最大8つの隣接ノードを持つことができます。各ノードは接続する4つの隣接ノードを選択し、自分を選択した他の4つの隣接ノードからの着信接続を受け入れます。
 <!-- * **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accepts incoming connections from 4 other neighbors that chose it. -->
-* **Known peers：** ネットワーク内のノードの総数。現時点では、**neighbor**ノードの数は**total**ノードの数と同じです。ネットワークがsハーディングを許可すると、**neighbor**ノードはシャード内にあるノードになります。
+* **Known peers：** ネットワーク内のノードの総数。現時点では、**neighbor**ノードの数は**total**ノードの数と同じです。ネットワークがシャーディングを許可すると、**neighbor**ノードはシャード内にあるノードになります。
 <!-- * **Known peers:** The total number of nodes in the network. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard. -->
 * **Uptime：** ノードが稼働していた合計時間。
 <!-- * **Uptime:** The total amount of time during which the node has been running -->
@@ -271,7 +271,7 @@ GoShimmerノードを実行しています。
 <!-- * **Node ID:** The node's public key that gives it a unique identity -->
 * **Neighbors：** ノードが接続している隣接ノードの数。すべてのノードは最大8つの隣接ノードを持つことができます。各ノードは接続する4つの隣接ノードを選択し、自分を選択した他の4つの隣接ノードからの着信接続を受け入れます。
 <!-- * **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accepts incoming connections from 4 other neighbors that chose it. -->
-* **Known peers：** ネットワーク内のノードの総数。現時点では、**neighbor**ノードの数は**total**ノードの数と同じです。ネットワークがsハーディングを許可すると、**neighbor**ノードはシャード内にあるノードになります。
+* **Known peers：** ネットワーク内のノードの総数。現時点では、**neighbor**ノードの数は**total**ノードの数と同じです。ネットワークがシャーディングを許可すると、**neighbor**ノードはシャード内にあるノードになります。
 <!-- * **Known peers:** The total number of nodes in the network. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard. -->
 * **Uptime：** ノードが稼働していた合計時間。
 <!-- * **Uptime:** The total amount of time during which the node has been running -->
