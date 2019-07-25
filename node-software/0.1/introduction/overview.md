@@ -1,15 +1,17 @@
-# Node software
+# ノードソフトウェア
+<!-- # Node software -->
 
-**IOTA networks consist of interconnected nodes, which are computers that run the same node software. This software gives nodes read/write access to the Tangle and allows them to validate transactions and store them in their ledgers.**
+**IOTAネットワークは、相互に接続されたノードから構成されています。これらのノードは、同じノードソフトウェアを実行するコンピュータです。このソフトウェアは、ノードにタングルへの読み取り/書き込みアクセス権を付与し、ノードがトランザクションを検証してトランザクションを台帳に保存できるようにします。**
+<!-- **IOTA networks consist of interconnected nodes, which are computers that run the same node software. This software gives nodes read/write access to the Tangle and allows them to validate transactions and store them in their ledgers.** -->
 
 -------------------------
 ![IRI](../images/IRI.png)
 ## [IRI](../iri/introduction/overview.md)
-The IRI (IOTA reference implementation) is open-source Java software that runs on the IOTA Mainnet. This software defines the current IOTA protocol, which allows clients to transfer the IOTA token among each other.
+IRI（IOTAリファレンス実装）は、IOTA Mainnet上で動作するオープンソースのJavaソフトウェアです。このソフトウェアは現在のIOTAプロトコルを定義しています。IRIはクライアントがお互いの間でIOTAトークンを転送することを可能にします。
 -------------------------
 
 -------------------------
 ![GoShimmer](../images/GoShimmer.png)
 ## [GoShimmer](../goshimmer/introduction/overview.md)
-GoShimmer is open-source Go software that implements a prototype of an IOTA network without the Coordinator. This network is still in development, so not all modules exist, but new ones will be added when they are ready.
+GoShimmerは、コーディネーターなしでIOTAネットワークのプロトタイプを実装しているオープンソースのGoソフトウェアです。このネットワークはまだ開発中なので、すべてのモジュールが存在するわけではありませんが、準備ができたら新しいモジュールが追加されます。
 -------------------------

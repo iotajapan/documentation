@@ -15,7 +15,7 @@ IRIノードはIOTAネットワークの中核であり、以下の主要機能�
 <!-- - [Allow clients to interact with the IRI](../how-to-guides/interact-with-an-iri-node.md) and have their transactions appended to the ledger -->
 
 IRIノードがないと、誰が誰に何を送信したかを記録する方法がないため、トランザクションを送信できません。
-Without IRI nodes, no one would be able to send transactions because there would be no way of recording who sent what to whom.
+<!-- Without IRI nodes, no one would be able to send transactions because there would be no way of recording who sent what to whom. -->
 
 自身のIRIノードを実行することで、次のような利点があります。
 <!-- By running your own IRI node you have the following benefits: -->
