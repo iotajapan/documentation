@@ -55,7 +55,6 @@ Dockerコンテナーをビルドするには、Docker 17.05（マルチステ�
 
 1. [Dockerをインストールします](https://docs.docker.com/install/#supported-platforms)。システム要件よりも古いバージョンのmacOSまたはWindowsを実行している場合は、代わりに[Dockerツールボックス](https://docs.docker.com/toolbox/overview/)をインストールしてください。
   <!-- 1. [Install Docker](https://docs.docker.com/install/#supported-platforms). If you're running a version of macOS or Windows that's older than the system requirements, install the [Docker toolbox](https://docs.docker.com/toolbox/overview/) instead. -->
->>>>>>> upstream/develop:node-software/0.1/iri/how-to-guides/run-an-iri-node-in-docker.md
 
 2. Dockerがインストールされていることを確認します。
   <!-- 2. Make sure that Docker is installed -->
@@ -246,7 +245,7 @@ docker pull iotaledger/iri:latest
 <!-- The `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are accurate only when the IRI node is connected to synchronized neighbors. -->
 
 1. 実際の`latestMilestoneIndex`フィールドを確認するには、[Discord](https://discord.iota.org)に移動し、いずれかのチャンネルに**!milestone**と入力してください。
-<!-- 1. To check the actual `latestMilestoneIndex` field, go to our [Discord](https://discord.iota.org) and enter **!milestone** in one of the channels -->
+  <!-- 1. To check the actual `latestMilestoneIndex` field, go to our [Discord](https://discord.iota.org) and enter **!milestone** in one of the channels -->
 
     ![Entering !milestone on Discord](../images/discord-milestone-check.PNG)
 
