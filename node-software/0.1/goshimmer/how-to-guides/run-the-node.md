@@ -286,5 +286,5 @@ GoShimmerノードを実行しています。
 ## 次のステップ
 <!-- ## Next steps -->
 
-ノードが稼働しているので、[ノードにスパムトランザクションを送信し](../how-to-guide/send-spam.md)、ノードが毎秒何トランザクションを処理できるかテストすることができます。
+ノードが稼働しているので、[ノードにスパムトランザクションを送信し](../how-to-guides/send-spam.md)、ノードが毎秒何トランザクションを処理できるかテストすることができます。
 Now that your node is running, you can [send it spam transactions](../how-to-guides/send-spam.md) to test how many transactions per second your node can process.
