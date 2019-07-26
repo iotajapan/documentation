@@ -1,9 +1,13 @@
-# Troubleshooting
+# トラブルシューティング
+<!-- # Troubleshooting -->
 
 ## This kernel requires an x86-64 CPU
 
-Make sure that you selected a 64-bit version of Ubuntu in VirtualBox.
+VirtualBoxで64ビットバージョンのUbuntuを選択したことを確認します。
+<!-- Make sure that you selected a 64-bit version of Ubuntu in VirtualBox. -->
 
-## When in doubt
+## 疑問があるとき
+<!-- ## When in doubt -->
 
-Try rebooting your computer to see if that resolves any issues.
+コンピュータを再起動して問題が解決するかどうかを確認します。
+<!-- Try rebooting your computer to see if that resolves any issues. -->

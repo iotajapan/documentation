@@ -1,13 +1,13 @@
 # Index
 
-[Introduction/Overview](/introduction/overview.md)
+[序説/概要](/introduction/overview.md)
 
-[How-to Guides/Expose your local device to the Internet](/how-to-guides/expose-your-local-device.md)
+[ハウツーガイド/ローカルデバイスをインターネットに公開する](/how-to-guides/expose-your-local-device.md)
 
-[How-to Guides/Set up a Linux server on a virtual machine](/how-to-guides/set-up-virtual-machine.md)
+[ハウツーガイド/仮想マシン上にLinuxサーバをセットアップする](/how-to-guides/set-up-virtual-machine.md)
 
-[How-to Guides/Set up a single-board computer](/how-to-guides/setup-sbc.md)
+[ハウツーガイド/シングルボードコンピュータを設定する](/how-to-guides/setup-sbc.md)
 
-[How-to Guides/Install Go on a single-board computer](/how-to-guides/install-go-on-sbc.md)
+[ハウツーガイド/シングルボードコンピュータにGoをインストールする](/how-to-guides/install-go-on-sbc.md)
 
-[References/Troubleshooting](/references/troubleshooting.md)
+[参考文献/トラブルシューティング](/references/troubleshooting.md)
