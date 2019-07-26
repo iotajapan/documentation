@@ -1,4 +1,4 @@
-# 仮想マシン上にLinuxサーバーをセットアップする
+# 仮想マシン上にLinuxサーバをセットアップする
 <!-- # Set up a Linux server on a virtual machine -->
 
 **IOTAのチュートリアルやガイドの多くはLinuxオペレーティングシステムを必要とします。コンピュータが別のオペレーティングシステムを実行している場合は、仮想マシン内でLinuxを使用できます。**
@@ -7,14 +7,14 @@
 Linuxはオープンソースのオペレーティングシステムで、ディストリビューションと呼ばれるパッケージで提供されています。各Linuxディストリビューションには、さまざまな目的のためにさまざまな組み込みソフトウェアが含まれています。
 <!-- Linux is an open-source operating system, which can come in packages called distributions. Each Linux distribution includes different built-in software for different goals. -->
 
-最も人気のあるLinuxディストリビューションの1つがUbuntuです。これは、この例で使用しているディストリビューションです。
+最も人気のあるLinuxディストリビューションの1つがUbuntuです。Ubuntuは、この例で使用しているディストリビューションです。
 <!-- One of the most popular Linux distributions is Ubuntu, which is the distribution that we use in our examples. -->
 
 Linuxは以下の理由で有益です。
 <!-- Linux is beneficial for the following reasons: -->
 * Linuxは多くのハードウェアプラットフォームで動作します
 <!-- * Linux runs on many hardware platforms -->
-* Linuxディストリビューションはオープンソースであり、それらのほとんどすべては無料で使用できます。
+* Linuxディストリビューションはオープンソースであり、Linuxディストリビューションのほとんどすべては無料で使用できます。
 <!-- * Linux distributions are open-source and almost all of them are free to use -->
 * Linuxは安全で信頼性があり、軽量です。
 <!-- * Linux is secure, reliable, and lightweight -->
@@ -22,10 +22,10 @@ Linuxは以下の理由で有益です。
 **メモ：** 自分のコンピュータでLinux仮想マシンを実行したくない場合は、Amazonなどの会社からクラウドコンピュータの使用を借りることができます。この方法を使うことで、ポート転送やメモリ不足を心配する必要はありません。Amazon AWSには、[クラウド上でLinux仮想マシンを起動する](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/)ためのセットアップガイドがあります。
 <!-- **Note:** If you don't want to run a Linux virtual machine on your own computer, you can rent the use of a cloud computer from a company such as Amazon. By using this approach, you don't need to worry about port forwarding or running out of memory. Amazon AWS has a setup guide for [launching a Linux virtual machine on their cloud](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/). -->
 
-## Linuxサーバーをセットアップする
+## Linuxサーバをセットアップする
 <!-- ## Set up a Linux server -->
 
-WindowsまたはMacオペレーティングシステムでLinuxサーバを実行するには、仮想マシンをインストールしてそこでLinuxを実行する必要があります。
+WindowsまたはMacオペレーティングシステムでLinuxサーバを実行するには、仮想マシンをインストールして、仮想マシンでLinuxを実行する必要があります。
 <!-- To run a Linux server on a Windows or Mac operating system, you must install a virtual machine and run Linux on it. -->
 
 1. [WindowsまたはMac用のVirtualBoxをダウンロードしてインストールします](https://www.virtualbox.org/wiki/Downloads)。
@@ -68,7 +68,7 @@ WindowsまたはMacオペレーティングシステムでLinuxサーバを実�
 ## Linuxサーバに接続する
 <!-- ## Connect to your Linux server -->
 
-Linuxが仮想マシンで実行されている場合、仮想マシンはホストオペレーティングシステムの他の部分から切り離されています。その結果、仮想マシンの外部からコマンドをコピーして貼り付けることはできません。
+Linuxが仮想マシンで実行されている場合、仮想マシンはホストオペレーティングシステムの仮想マシンではない部分から切り離されています。その結果、仮想マシンの外部からコマンドをコピーして貼り付けることはできません。
 <!-- When Linux is running in a virtual machine, it's separated from the rest of your host operating system. As a result, you can't copy commands from outside the virtual machine and paste them into it. -->
 
 同じネットワーク上で稼働しているLinuxサーバに接続するには、[セキュアシェル](https://www.ssh.com/ssh/)（SSH）クライアントを使用できます。
@@ -101,7 +101,7 @@ LinuxサーバがSSHプロトコルを使用したメッセージを理解する
     sudo apt-get install openssh-server
     ```
 
-4. Linuxサーバを閉じ、リストからサーバを選択して、**設定** > **ネットワーク**に進みます。
+4. Linuxサーバを閉じ、リストからLinuxサーバを選択して、**設定** > **ネットワーク**に進みます。
   <!-- 4. Close your Linux server, select your server from the list, and go to **Settings** > **Network** -->
 
 5. アダプタ1タブで、**接続先**フィールドを**ブリッジアダプタ**に変更します。
@@ -131,7 +131,7 @@ LinuxサーバがSSHサーバとして構成されている場合は、ホスト
 1. ターミナルアプリケーションを開きます。ターミナルアプリケーションに到達するための最速の方法は、`CMD+スペースバー`を押して、検索バーに`terminal`を入力することです。
   <!-- 1. Open the Terminal application. The fastest way to get there is by pressing `CMD+spacebar` and entering `terminal` in the search bar. -->
 
-2. SSH接続を確立します。IP_ADDRESS_FROM_STEP_7プレースホルダーをLinuxサーバのIPアドレスに変更します。
+2. SSH接続を確立します。`IP_ADDRESS_FROM_STEP_7`プレースホルダーをLinuxサーバのIPアドレスに変更します。
   <!-- 2. Establish an ssh connection. Change the IP_ADDRESS_FROM_STEP_7 placeholder with the IP address of your Linux server. -->
 
     ```bash
