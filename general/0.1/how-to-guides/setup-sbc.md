@@ -1,26 +1,33 @@
-# Set up a single-board computer
+# シングルボードコンピュータを設定する
+<!-- # Set up a single-board computer -->
 
-**A single board computer (SBC) is a small computer in which a single circuit board includes memory, input/output ports, a microprocessor and any other necessary features. SBCs are lighter, more compact, more reliable and much more power efficient then multi-board computers such as desktops. You can set up an SBC for a purpose-built embedded application that uses IOTA technology.**
+**シングルボードコンピュータ（SBC）は、単一の回路基板がメモリ、入力/出力ポート、マイクロプロセッサおよび他の必要な機能を含む小型のコンピュータです。SBCは、デスクトップなどのマルチボードコンピュータよりも軽量、コンパクト、信頼性が高く、電力効率もはるかに優れています。IOTAテクノロジを使用する専用の組み込みアプリケーション用にSBCを設定できます。**
+<!-- **A single board computer (SBC) is a small computer in which a single circuit board includes memory, input/output ports, a microprocessor and any other necessary features. SBCs are lighter, more compact, more reliable and much more power efficient then multi-board computers such as desktops. You can set up an SBC for a purpose-built embedded application that uses IOTA technology.** -->
 
-## Prerequisites
+## 前提条件
+<!-- ## Prerequisites -->
 
-To complete this guide, you need the following:
+このガイドを完成するには、次のものが必要です。
+<!-- To complete this guide, you need the following: -->
 
-- A Linux-based operating system (OS) with installed SSH client and a configured network. 
-In this guide, we use Ubuntu, however other Linux distributions as well as MacOS should work.
+- SSHクライアントと構成済みネットワークがインストールされたLinuxベースのオペレーティングシステム（OS）。このガイドでは、Ubuntuを使用しますが、MacOSと同様に他のLinuxディストリビューションでも動作するはずです。
+  <!-- - A Linux-based operating system (OS) with installed SSH client and a configured network. In this guide, we use Ubuntu, however other Linux distributions as well as MacOS should work. -->
 
-    :::info:Windows users
-    You can use [a virtual machine (VM)](../how-to-guides/set-up-virtual-machine.md) 
-    or the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10). 
-    With the subsystem, you can run Linux without the overhead of a VM. 
-    If you are an advanced user, you can also replace the Linux tools with the Windows equivalents.
+    :::info:Windowsユーザー
+    [仮想マシン（VM）](../how-to-guides/set-up-virtual-machine.md)または[Linuxサブシステム](https://docs.microsoft.com/en-us/windows/wsl/install-win10)を使用できます。サブシステムを使用すると、VMのオーバーヘッドなしにLinuxを実行できます。あなたが上級ユーザーであれば、LinuxツールをWindowsの同等のものと置き換えることもできます。
     :::
+    <!-- :::info:Windows users -->
+    <!-- You can use [a virtual machine (VM)](../how-to-guides/set-up-virtual-machine.md) or the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10).  With the subsystem, you can run Linux without the overhead of a VM.  If you are an advanced user, you can also replace the Linux tools with the Windows equivalents. -->
+    <!-- ::: -->
 
-- An SBC. Our recommendation: Rasperry Pi Zero W
+- SBC。おすすめは`Rasperry Pi Zero W`。
+  <!-- - An SBC. Our recommendation: Rasperry Pi Zero W -->
 
-- If possible, you should use a display and a keyboard to set up your device.
+- 可能であれば、ディスプレイとキーボードを使ってデバイスを設定します。
+  <!-- - If possible, you should use a display and a keyboard to set up your device. -->
 
-- If your SBC doesn't have an Ethernet port, use a USB-to-UART adapter. The [CP2102](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) is a well-known and inexpensive adapter, but your SBC might have an integrated one. To find out, look at the documentation for your SBC.
+- SBCにイーサネットポートがない場合は、USB-UARTアダプタを使用します。[CP2102](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)はよく知られている安価なアダプタですが、SBCには一体型のアダプタがあるかもしれません。調べるには、使用しているSBCのドキュメントを参照します。
+  <!-- - If your SBC doesn't have an Ethernet port, use a USB-to-UART adapter. The [CP2102](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) is a well-known and inexpensive adapter, but your SBC might have an integrated one. To find out, look at the documentation for your SBC. -->
 
 ## Prepare your SD card
 
