@@ -108,6 +108,7 @@
 ルーターに静的IPアドレスが割り当てられたので、接続をデバイスに転送するためのポート転送ルールを作成できます。
 <!-- Now that your router has a static IP address, you can create port forwarding rules to forward connections to your device. -->
 
+<a name="create-a-port-forwarding-rule"></a>
 ## ポート転送ルールを作成する
 <!-- ## Create a port forwarding rule -->
 
