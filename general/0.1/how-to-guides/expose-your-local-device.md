@@ -10,6 +10,7 @@
 ポート転送ルールを作成する前に、ローカルネットワークとインターネットの両方に静的IPアドレスが必要です。静的IPアドレスがすでにある場合は、[ポート転送に直接進みます](#create-a-port-forwarding-rule)。
 <!-- Before you can create port forwarding rules, you need a static IP address both on your local network and the Internet. If you already have these, [go straight to port forwarding](#create-a-port-forwarding-rule). -->
 
+<a name="get-a-static-ip-address-on-your-local-network"></a>
 ## ローカルネットワークの静的IPアドレスを取得する
 <!-- ## Get a static IP address on your local network -->
 
@@ -73,7 +74,7 @@
             addresses: [1.1.1.1,8.8.8.8]
     ```
 
-    **メモ：** `gateway4`フィールドの値をあなたのゲートウェイのIPアドレスに置き換えます。`addresses`フィールドで、スラッシュ（/）の左側の値をあなたのLinuxサーバの内部IPアドレスに置き換え、右側の値をネットマスク長に置き換えます。
+    **メモ：** `gateway4`フィールドの値をあなたのゲートウェイのIPアドレスに置き換えます。`addresses`フィールドで、スラッシュ（/）の左側の値をあなたのLinuxサーバの内部IPアドレスに置き換え、スラッシュ（/）の右側の値をネットマスク長に置き換えます。
     <!-- **Note:** Replace the value of the `gateway4` field to your gateway IP address. In the `addresses` field, replace the value on the left of the forward slash (/) with the internal IP address of your Linux server and replace the value on the right with the netmask length. -->
 
 5. 変更を適用します。
@@ -86,6 +87,7 @@
 **重要：** ルーターを変更するなど、ネットワーク設定が変わると、デバイスへの接続が失われる可能性があります。この場合、デバイスに物理的に接続して、`01-netcfg.yaml`ファイルを新しい静的IPアドレスで更新する必要があります。
 <!-- **Important:** If your network configuration changes, for example you change your router, you may lose connection to your device. In this case, you should physically connect to your device and update the 01-netcfg.yaml file with a new static IP address. -->
 
+<a name="get-a-domain-name-for-your-router"></a>
 ## ルーターのドメイン名を入手する
 <!-- ## Get a domain name for your router -->
 
@@ -130,22 +132,22 @@
 
 ---
 
-すべてのルータは異なります。このガイドでは、ルータはBT Hub 6です。その結果、このガイドの手順はルータによって異なる場合がありますが、概念は同じです。
+すべてのルーターは異なります。このガイドでは、ルーターはBT Hub 6です。その結果、このガイドの手順はルーターによって異なる場合がありますが、概念は同じです。
 <!-- All routers are different. In this guide, the router is a BT Hub 6, as a result the steps in this guide may be different for your router, but the concepts are the same. -->
 
-1. Webブラウザで、ルーターのIPアドレスを入力します。このIPアドレスはルーターに表示されているはずです。表示されない場合は、コマンドプロンプトで見つけます。あなたのルーターのIPアドレスを`Gateway`カラムの下に現れます。
+1. Webブラウザで、ルーターのIPアドレスを入力します。このIPアドレスはルーターに表示されているはずです。表示されない場合は、コマンドプロンプトで見つけます。あなたのルーターのIPアドレスは`Gateway`カラムの下に現れます。
   <!-- 1. In a web browser, enter the IP address of your router. This IP address should be displayed on your router. If you can't see it, find it in the command prompt. You'll see your router's IP address under the `Gateway` column. -->
 
     ```bash
     route -n
     ```
 
-2. **詳細設定**に進みます。
+2. **Advanced settings**に進みます。
   <!-- 2. Go to **Advanced settings** -->
 
     ![Advanced settings for a BT Hub 6 router](../router-bt-hub.png)
 
-3. **ファイアウォール**をクリックします。
+3. **Firewall**をクリックします。
   <!-- 3. Click **Firewall** -->
 
     ![Firewall settings for a BT Hub 6 router](../router-advanced-settings.png)
