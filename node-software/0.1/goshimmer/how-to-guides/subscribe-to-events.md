@@ -1,31 +1,47 @@
-# Subscribe to the transaction event
+# トランザクションイベントを購読する
+<!-- # Subscribe to the transaction event -->
 
-**When your node receives transactions, it publishes them as a transaction event to a service called zero message queue (ZMQ). As a client, you can subscribe to this event and receive details of every transaction that your node receives.**
+**ノードがトランザクションを受信すると、それらをトランザクションイベントとしてゼロメッセージキュー（ZMQ）と呼ばれるサービスに発行します。クライアントとして、このイベントを購読し、ノードが受け取るすべてのトランザクションの詳細を受け取ることができます。**
+<!-- **When your node receives transactions, it publishes them as a transaction event to a service called zero message queue (ZMQ). As a client, you can subscribe to this event and receive details of every transaction that your node receives.** -->
 
-You can receive this transaction data from a node by doing the following:
+次のようにして、このトランザクションデータをノードから受け取ることができます。
+<!-- You can receive this transaction data from a node by doing the following: -->
 
-1. Install an open-source ZMQ library
+1. オープンソースのZMQライブラリをインストールします。
+<!-- 1. Install an open-source ZMQ library -->
 
-2. Create a ZMQ socket and connect it to a node
+2. ZMQソケットを作成してノードに接続します。
+<!-- 2. Create a ZMQ socket and connect it to a node -->
 
-3. Subscribe to events from the ZMQ
+3. ZMQからのイベントを購読します。
+<!-- 3. Subscribe to events from the ZMQ -->
 
-In the following how-to guide we use Node.js and Python, but you could use any [programming language that the ZMQ library supports](http://zguide.zeromq.org/page:all).
+以下のハウツーガイドではNode.jsとPythonを使用していますが、任意の[ZMQライブラリがサポートしているプログラミング言語](http://zguide.zeromq.org/page:all)を使用できます。
+<!-- In the following how-to guide we use Node.js and Python, but you could use any [programming language that the ZMQ library supports](http://zguide.zeromq.org/page:all). -->
 
-## Prerequisites
+## 前提条件
+<!-- ## Prerequisites -->
 
-To use the sample code in this guide, you must have the following:
+このガイドのサンプルコードを使用するには、次のものが必要です。
+<!-- To use the sample code in this guide, you must have the following: -->
 
-* [Node.js (8+)](https://nodejs.org/en/) or [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/)
-* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* Access to a command prompt
-* An Internet connection
+* [Node.js 8以上](https://nodejs.org/en/)か[Python（3以上）](https://www.python.org/downloads/)と[PIP](https://pip.pypa.io/en/stable/installing/)
+<!-- * [Node.js (8+)](https://nodejs.org/en/) or [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/) -->
+* [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディタ
+<!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
+* コマンドプロンプトへのアクセス
+<!-- * Access to a command prompt -->
+* インターネット接続
+<!-- * An Internet connection -->
 
-## Subscribe to the received transaction event
+## 受信したトランザクションイベントを購読する
+<!-- ## Subscribe to the received transaction event -->
 
-You can subscribe to the `tx` event on the ZMQ of a node to listen for recently received transactions.
+最近受信したトランザクションをリッスンするために、ノードのZMQで`tx`イベントを購読することができます。
+<!-- You can subscribe to the `tx` event on the ZMQ of a node to listen for recently received transactions. -->
 
-1\. Install the zeromq library
+1\. zeromqライブラリをインストールします。
+  <!-- 1\. Install the zeromq library -->
 
 --------------------
 ### Node.js
@@ -41,7 +57,8 @@ pip install pyzmq
 ```
 --------------------
 
-2\. Import the libraries and create a ZMQ subscribe socket
+2\. ライブラリをインポートしてZMQサブスクライブソケットを作成します。
+  <!-- 2\. Import the libraries and create a ZMQ subscribe socket -->
 
 --------------------
 ### Node.js
@@ -61,7 +78,8 @@ socket = context.socket(zmq.SUB)
 ```
 --------------------
 
-3\. Connect the socket to your node's address
+3\. ソケットをノードのアドレスに接続します。
+  <!-- 3\. Connect the socket to your node's address -->
 
 --------------------
 ### Node.js
@@ -77,7 +95,8 @@ socket.connect('tcp://localhost:5556')
 ```
 --------------------
 
-4\. Subscribe to the `tx` event. This event is for received transactions.
+4\. `tx`イベントを購読します。このイベントは受信トランザクション用です。
+  <!-- 4\. Subscribe to the `tx` event. This event is for received transactions. -->
 
 --------------------
 ### Node.js
@@ -94,7 +113,8 @@ print ("Socket connected")
 ```
 --------------------
 
-5\. Process the event data that the node returns
+5\. ノードが返すイベントデータを処理します。
+  <!-- 5\. Process the event data that the node returns -->
 
 --------------------
 ### Node.js
@@ -119,7 +139,8 @@ while True:
 ```
 --------------------
 
-The output should display something like the following:
+出力は次のようになります。
+<!-- The output should display something like the following: -->
 ```shell
 tx
 YMTMRYBLFPTYCLHAWJVDEZNXITKOW9YMOICXPZVHNHMVLPWLDFYLVAO9XFWICBJCUZAHVQPHINBDXD9NE
@@ -136,24 +157,41 @@ FXTZC9KKRBWSBYKCOGUDZOZUWHTQWDNMZPZ9SCVYTWVBQNYIXHREHCTP9DEJCR9LHUEHMBIXXGSDQJUU
 999999999999999999999999999
 ```
 
-If we take this data as a random example, it corresponds to the following:
+このデータをランダムな例とすると、以下に対応します。
+<!-- If we take this data as a random example, it corresponds to the following: -->
 
-| **Data**| **Description**|
-|:--------|:---------------|
-|tx|Name of the ZMQ event|
-|YMTMRYBLFPTYCLHAWJVDE...|Transaction hash|
-|125204|Value|
-|999999999999999999999...|Obsolete tag|
-|0|Index of this transaction in the bundle|
-|0|Index of the last transaction in the bundle|
-|YMTMRYBLFPTYCLHAWJVDE...|Bundle hash|
-|BLFZJUOBAPWCXTGOCSBVJ...|Trunk transaction hash|
-|FXTZC9KKRBWSBYKCOGUDZ...|Branch transaction hash|
-|1562247720|Unix timestamp of when the node received the transaction|
-|99999999999999999999...|Empty tag|
+| **データ** | **説明** |
+| :--------- | :------- |
+| YMTMRYBLFPTYCLHAWJVDE... | トランザクションハッシュ |
+| 125204 | トークン量 |
+| 999999999999999999999... | 痕跡タグ |
+| 0 | バンドル内のこのトランザクションのインデックス |
+| 0 | バンドル内の最後のトランザクションのインデックス |
+| YMTMRYBLFPTYCLHAWJVDE... | バンドルハッシュ |
+| BLFZJUOBAPWCXTGOCSBVJ... | トランクトランザクションハッシュ |
+| FXTZC9KKRBWSBYKCOGUDZ... | ブランチトランザクションハッシュ |
+| 1562247720 | ノードがトランザクションを受信したときのUnixタイムスタンプ |
+| 99999999999999999999... | 空のタグ |
+
+
+<!-- | **Data**| **Description**| -->
+<!-- |:--------|:---------------| -->
+<!-- |tx|Name of the ZMQ event| -->
+<!-- |YMTMRYBLFPTYCLHAWJVDE...|Transaction hash| -->
+<!-- |125204|Value| -->
+<!-- |999999999999999999999...|Obsolete tag| -->
+<!-- |0|Index of this transaction in the bundle| -->
+<!-- |0|Index of the last transaction in the bundle| -->
+<!-- |YMTMRYBLFPTYCLHAWJVDE...|Bundle hash| -->
+<!-- |BLFZJUOBAPWCXTGOCSBVJ...|Trunk transaction hash| -->
+<!-- |FXTZC9KKRBWSBYKCOGUDZ...|Branch transaction hash| -->
+<!-- |1562247720|Unix timestamp of when the node received the transaction| -->
+<!-- |99999999999999999999...|Empty tag| -->
 
 :::info:
-The `value` field has a non-zero value so that the transaction hash is unique for each transaction. No IOTA tokens are transferred.
-At the moment, the ZMQ endpoint only supports the `tx` event.
-::: 
-
+`トークン量`フィールドは、トランザクションハッシュが各トランザクションに対して一意であるようにゼロではない値を有します。IOTAトークンは転送されません。現時点では、ZMQエンドポイントは`tx`イベントのみをサポートしています。
+:::
+<!-- :::info: -->
+<!-- The `value` field has a non-zero value so that the transaction hash is unique for each transaction. No IOTA tokens are transferred. -->
+<!-- At the moment, the ZMQ endpoint only supports the `tx` event. -->
+<!-- ::: -->
