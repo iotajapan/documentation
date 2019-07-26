@@ -1,10 +1,10 @@
 # トランザクションイベントを購読する
 <!-- # Subscribe to the transaction event -->
 
-**ノードがトランザクションを受信すると、それらをトランザクションイベントとしてゼロメッセージキュー（ZMQ）と呼ばれるサービスに発行します。クライアントとして、このイベントを購読し、ノードが受け取るすべてのトランザクションの詳細を受け取ることができます。**
+**ノードがトランザクションを受信すると、ノードは受信したトランザクションをトランザクションイベントとしてゼロメッセージキュー（ZMQ）と呼ばれるサービスに発行します。クライアントとして、このイベントを購読し、ノードが受信するすべてのトランザクションの詳細を受信することができます。**
 <!-- **When your node receives transactions, it publishes them as a transaction event to a service called zero message queue (ZMQ). As a client, you can subscribe to this event and receive details of every transaction that your node receives.** -->
 
-次のようにして、このトランザクションデータをノードから受け取ることができます。
+次のようにして、トランザクションデータをノードから受信することができます。
 <!-- You can receive this transaction data from a node by doing the following: -->
 
 1. オープンソースのZMQライブラリをインストールします。
@@ -189,7 +189,7 @@ FXTZC9KKRBWSBYKCOGUDZOZUWHTQWDNMZPZ9SCVYTWVBQNYIXHREHCTP9DEJCR9LHUEHMBIXXGSDQJUU
 <!-- |99999999999999999999...|Empty tag| -->
 
 :::info:
-`トークン量`フィールドは、トランザクションハッシュが各トランザクションに対して一意であるようにゼロではない値を有します。IOTAトークンは転送されません。現時点では、ZMQエンドポイントは`tx`イベントのみをサポートしています。
+`トークン量`フィールドは、トランザクションハッシュが各トランザクションに対して一意であるようにゼロではない値を有し、IOTAトークンは転送されません。現時点では、ZMQエンドポイントは`tx`イベントのみをサポートしています。
 :::
 <!-- :::info: -->
 <!-- The `value` field has a non-zero value so that the transaction hash is unique for each transaction. No IOTA tokens are transferred. -->
