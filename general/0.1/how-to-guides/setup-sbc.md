@@ -14,7 +14,7 @@
   <!-- - A Linux-based operating system (OS) with installed SSH client and a configured network. In this guide, we use Ubuntu, however other Linux distributions as well as MacOS should work. -->
 
     :::info:Windowsユーザー
-    [仮想マシン（VM）](../how-to-guides/set-up-virtual-machine.md)または[Linuxサブシステム](https://docs.microsoft.com/en-us/windows/wsl/install-win10)を使用できます。サブシステムを使用すると、VMのオーバーヘッドなしにLinuxを実行できます。あなたが上級ユーザーであれば、LinuxツールをWindowsの同等のものと置き換えることもできます。
+    [仮想マシン（VM）](../how-to-guides/set-up-virtual-machine.md)または[Linuxサブシステム](https://docs.microsoft.com/en-us/windows/wsl/install-win10)を使用できます。サブシステムを使用すると、VMのオーバーヘッドなしにLinuxを実行できます。あなたが上級ユーザーであれば、LinuxツールをWindowsと同等のものとして置き換えることもできます。
     :::
     <!-- :::info:Windows users -->
     <!-- You can use [a virtual machine (VM)](../how-to-guides/set-up-virtual-machine.md) or the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10).  With the subsystem, you can run Linux without the overhead of a VM.  If you are an advanced user, you can also replace the Linux tools with the Windows equivalents. -->
@@ -54,9 +54,9 @@
 
 - デバイスでディスプレイとキーボードを使用できる場合は、["キーボードとディスプレイを使ってデバイスを設定する"](#set-up-devices-with-keyboard-and-display)ガイドに従います。
 <!-- - If you can use a display and keyboard at your device, follow the ["Set up devices with keyboard and display"](#set-up-devices-with-keyboard-and-display) guide -->
-- ディスプレイとキーボードがなく、USB-to-UART-Adapterがある場合は、["USB-to-UARTアダプタを介してデバイスを設定する"](#set-up-your-device-through-a-usb-to-uart-adapter)ガイドに従います。
+- ディスプレイとキーボードがなく、USB-to-UARTアダプタがある場合は、["USB-to-UARTアダプタを介してデバイスを設定する"](#set-up-your-device-through-a-usb-to-uart-adapter)ガイドに従います。
 <!-- - If you do not have display and keyboard, but an USB-to-UART-Adapter, follow the ["Set up your device through a USB-to-UART adapter"](#set-up-your-device-through-a-usb-to-uart-adapter) guide -->
-- Ethernetしかない場合は、["Ethernetデバイスを設定する"](#set-up-ethernet-devices)ガイドに従います。
+- イーサネットしかない場合は、["イーサネットデバイスを設定する"](#set-up-ethernet-devices)ガイドに従います。
 <!-- - If you only have Ethernet, follow the ["Set up Ethernet devices"](#set-up-ethernet-devices) guide -->
 
 <a name="set-up-devices-with-keyboard-and-display"></a>
@@ -79,7 +79,7 @@
 3. ネットワークインターフェースを設定します。
   <!-- 3. Configure your network interface -->
 
-    イーサネットがある場合は、SBCをルーターに接続するだけです。WiFiを使用したいか、またはデバイスがWiFiしか持っていない場合は、WiFiを通してルーターに接続する必要があります。以下の手順を実行して、`MY_SSID`をネットワークの名前に、`MY_PASSWORD`をネットワークのパスワードに置き換えます。
+    イーサネットがある場合は、SBCをルーターに接続するだけです。WiFiを使用したいか、またはデバイスがWiFiしか持っていない場合は、WiFiを通してルーターに接続する必要があります。以下の手順で、`MY_SSID`をネットワークの名前に、`MY_PASSWORD`をネットワークのパスワードに置き換え、実行します。
     <!-- If you have Ethernet, just connect your SBC to your router. -->
     <!-- If you want to use WiFi or your device only has WiFi, you need to connect to your router through WiFi. -->
     <!-- Do the following and replace `MY_SSID` with the name of your network and `MY_PASSWORD` with the password -->
@@ -116,7 +116,7 @@
 
     この例では、ホストシステムとSBCの両方がWiFi経由でルーターに接続されています。正しいルーターに接続されているインターフェースを使用する必要があります。
 
-    結果として、以下は上記の例のために実行するべきコマンドです。
+    故に、以下が上記の例のために実行するべきコマンドです。
     ```bash
     ssh -6 USERNAME@fe80::c0a2:76c6:4ed5:a442%wlp3s0
     ```
@@ -139,7 +139,7 @@
     <!-- ``` -->
     <!-- ::: -->
 
-    IPアドレスを見つけた場合は、SSHを通してSBCに接続します。ホストシステムで次のコマンドを使用します。
+    IPアドレスを見つけたら、SSHを通してSBCに接続します。ホストシステムで次のコマンドを使用します。
     <!-- If you found your IP address, you should connect to your SBC through SSH. -->
     <!-- Use the following command on your host-system: -->
     ```bash
@@ -174,12 +174,12 @@ SSHを通してSBCに接続しています。これでSBCでコマンドを実�
 3. 正しいUSBポートを探します。
   <!-- 3. Find the right USB port -->
 
-    USBポートは`/dev/ttyUSBX`にあります。`X`がUSBポートの番号です。正しいUSBポートを見つける最も簡単な方法は、USBアダプタを接続し、`ls /dev/ttyUSB*`を使用してUSB SBCを確認し、USBアダプタを接続して再確認することです。新しく追加されたUSBポートが探しているUSBポートです。
+    USBポートは`/dev/ttyUSBX`にあります。`X`がUSBポートの番号です。正しいUSBポートを見つける最も簡単な方法は、USBアダプタを接続することです。まず、`ls /dev/ttyUSB*`を使用してUSB SBCを確認し、USBアダプタを接続してUSB SBCを再確認します。新しく追加されたUSBポートが探しているUSBポートです。
     <!-- USB ports are available at /dev/ttyUSBX. X is the number of the USB port. -->
     <!-- The simplest way to find the right USB port is to plug out the USB-Adapter, check for the USB SBCs with -->
     <!-- ```ls /dev/ttyUSB*```, plug in the USB-Adapter and check again. The new added USB-port is the one you are looking for. -->
 
-4. 一部のアダプターは、アクセス許可に関して予期しない動作をします。念のため、権限を変更します。
+4. 一部のアダプタは、アクセス権限に関して予期しない動作をします。念のため、権限を変更します。
   <!-- 4. Some adapters have an unexpected behavior with their access permissions. Just in case, change the permissions -->
 
     ```bash
@@ -220,7 +220,7 @@ SSHを通してSBCに接続しています。これでSBCでコマンドを実�
 9. 利用可能かつ必要な場合は、WiFiネットワークインターフェースを設定します。
   <!-- 9. If available and needed, configure the WiFi network interface -->
 
-    WiFi経由でインターネットに接続する場合は、次の手順を実行して`MY_SSID`をネットワークの名前に置き換え、`MY_PASSWORD`をWiFiパスワードに置き換えます。
+    WiFi経由でインターネットに接続する場合は、次の手順で、`MY_SSID`をネットワークの名前に置き換え、`MY_PASSWORD`をWiFiパスワードに置き換え、実行します。
     <!-- If you want to connect to the Internet through WiFi, -->
     <!-- do the following and replace `MY_SSID` with the name of your network and replace `MY_PASSWORD` -->
     <!-- with your WiFi password: -->
@@ -239,7 +239,7 @@ SSHを通してSBCに接続しています。これでSBCでコマンドを実�
 10. IPアドレスを取得します。
   <!-- 10. Get your IP address -->
 
-    `ifconfig`コマンドでIPアドレスを見つけることができます。`eth`で始まるインターフェースはEthernetワークインターフェースで、`wl`で始まるインターフェースはWiFiネットワークインターフェースです。
+    `ifconfig`コマンドでIPアドレスを見つけることができます。`eth`で始まるインターフェースはイーサネットネットワークインターフェースで、`wl`で始まるインターフェースはWiFiネットワークインターフェースです。
     <!-- You can now find your IP address with the  `ifconfig` command. -->
     <!-- The interfaces starting with `eth` are Ethernet network interfaces, -->
     <!-- and the ones starting with `wl` are the WiFi network interfaces. -->
@@ -247,7 +247,7 @@ SSHを通してSBCに接続しています。これでSBCでコマンドを実�
 11. SSH経由でSBCに接続します。
   <!-- 11. Connect to your SBC through SSH -->
 
-    IPアドレスを見つけた場合は、SSHを通してSBCに接続します。ホストシステムで次のコマンドを使用します。
+    IPアドレスを見つけたら、SSHを通してSBCに接続します。ホストシステムで次のコマンドを使用します。
     <!-- If you found your IP address, you should connect to your SBC through SSH. -->
     <!-- Use the following command on your host-system: -->
 
@@ -263,7 +263,7 @@ SSHを通してSBCに接続しています。これでSBCでコマンドを実�
 <!-- ::: -->
 
 <a name="set-up-ethernet-devices"></a>
-## Ethernetデバイスを設定する
+## イーサネットデバイスを設定する
 <!-- ## Set up Ethernet devices -->
 
 :::warning:
@@ -313,7 +313,7 @@ SSHを通してSBCに接続しています。これでSBCでコマンドを実�
     nmap -sn 10.197.0.0/16
     ```
 
-    サブネットによっては、nmapがネットワーク内のすべてのIPアドレスをスキャンする必要があるため、このプロセスにはしばらく時間がかかります。小さなサブネット（netmask=24）の場合、nmapは256個のアドレスをスキャンするだけでよいので、数秒かかります。大規模なネットワークでは時間がかかる可能性があります。たとえばnetmask=16の場合、nmapは256*256アドレスをスキャンする必要があります。私のテストケースでは、これは2944.17秒かかりました。あなたが巨大なローカルネットワークにいるならば、あなたは別の変種を使うことを考えるべきです。
+    サブネットによっては、nmapがネットワーク内のすべてのIPアドレスをスキャンする必要があるため、このプロセスにはしばらく時間がかかります。小さなサブネット（netmask=24）の場合、nmapは256個のアドレスをスキャンするだけでよいので、数秒かかります。大規模なネットワークでは時間がかかる可能性があります。たとえばnetmask=16の場合、nmapは256*256アドレスをスキャンする必要があります。私のテストケースでは、これは2944.17秒かかりました。あなたが巨大なローカルネットワークにいるならば、あなたは別の変種を使うことを考える必要があります。
     <!-- Depending on the subnet, this process can take some time, since nmap needs to scan all IP addresses within the network. -->
     <!-- For a small subnet (netmask=24) is just takes some seconds, since nmap just need to scan 256 addresses. -->
     <!-- In a bigger network that can take more time. For example netmask=16: nmap needs to scan 256*256 addresses. -->
