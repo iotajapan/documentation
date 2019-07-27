@@ -165,7 +165,6 @@ for i in {0..20}; do (curl  http://localhost:5000 -X POST -H 'X-IOTA-API-Version
 2. 制限したいIPアドレスを`server`ブロックディレクティブに追加します。`ipaddress`を制限したいIPアドレスに変更します。
   <!-- 2. Add the IP addresses to the `server` block directive. Change `ipaddress` to the IP address that you want to restrict. -->
 
-
     ```shell
     # Denies access from an IP address
     deny ipaddress;
