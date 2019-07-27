@@ -1,7 +1,7 @@
 # IOTAとは？
 <!-- # What is IOTA? -->
 
-**IOTAは、IOTAネットワーク内のコンピュータがイミュータブルなデータと価値を相互に転送できるようにする分散型台帳技術です。**
+**IOTAは、IOTAネットワーク内のコンピュータがイミュータブルなデータと価値（IOTAトークン）を相互に転送できるようにする分散型台帳技術です。**
 <!-- **IOTA is a distributed ledger technology that allows computers in an IOTA network to transfer immutable data and value among each other.** -->
 
 IOTAは、M2M経済圏における、効率性の向上、生産量の増加、データの信頼性を保証することを目的としています。

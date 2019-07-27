@@ -47,7 +47,7 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 これらの設定を使用して、APIの動作方法とアクセスできるホストをカスタマイズします。
 <!-- Use these settings to customize how the API behaves and which hosts can access it. -->
 
-| **CLフラグ** | **設定ファイルのパラメータ** | **説明** | **受け入れられる値** | **デフォルト値** | **メモ** |
+| **コマンドラインフラグ** | **設定ファイルのパラメータ** | **説明** | **有効な値** | **デフォルト値** | **メモ** |
 | :----------- | :--------------------------- | :------- | :------------------- | :--------------- |:---------- |
 | <a name="api-host"></a> `--api-host` | `API_HOST` | APIをリッスンするホストを設定します。 | string | localhost | 任意のホストを受け入れるには、このオプションを0.0.0.0に設定するか、`REMOTE`オプションを`true`に設定します。 |
 | <a name="port"></a> `--port, -p`（**必須**） | `API_PORT` | APIをリッスンするポートを設定します。 | string | 14265 |
@@ -65,7 +65,7 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 これらの設定を使用して、ノードが近隣ノードと通信する方法をカスタマイズします。
 <!-- Use these settings to customize how your node communicates with neighbors. -->
 
-| **CLフラグ** | **設定ファイルのパラメータ** | **説明** | **受け入れられる値** | **デフォルト値** | **メモ** |
+| **コマンドラインフラグ** | **設定ファイルのパラメータ** | **説明** | **有効な値** | **デフォルト値** | **メモ** |
 | :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
 | <a name="auto-tethering-enabled"></a>`--auto-tethering-enabled` | `AUTO_TETHERING_ENABLED` | 未知の隣接ノードからの新しい接続を有効にします。 | boolean | false | 未知の隣接ノードとは、 `NEIGHBORS`オプションで定義されておらず、`addNeighbors`APIエンドポイントを通して追加されてもいないものです。あなたのノードに接続できる隣接ノードの最大数を制限するには `MAX_NEIGHBORS`オプションを使います。 |
 | <a name="cache-size"></a> `--cache-size` | `CACHE_SIZE_BYTES` | ネットワークキャッシュの最大サイズをバイト単位で設定します。 | number | 150,000 |
@@ -85,7 +85,7 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 これらの設定を使用して、ノードがIXIモジュールを使用する方法をカスタマイズします。
 <!-- Use these settings to customize how your node uses IXI modules. -->
 
-| **CLフラグ** | **設定ファイルのパラメータ** | **説明** | **受け入れられる値** | **デフォルト値** | **メモ** |
+| **コマンドラインフラグ** | **設定ファイルのパラメータ** | **説明** | **有効な値** | **デフォルト値** | **メモ** |
 | :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
 | <a name="ixi-dir"></a> `--ixi-dir` | `IXI_DIR` | 自動検出用にIXIモジュールを追加するフォルダ | string | ixi |
 
@@ -94,7 +94,7 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 これらの設定を使用して、ノードが自身の台帳に対して実行する動作をカスタマイズします。
 <!-- Use these settings to customize what your node does with its ledger. -->
 
-| **CLフラグ** | **設定ファイルのパラメータ** | **説明** | **受け入れられる値** | **デフォルト値** | **メモ** |
+| **コマンドラインフラグ** | **設定ファイルのパラメータ** | **説明** | **有効な値** | **デフォルト値** | **メモ** |
 | :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
 | <a name="db"></a> `--db` | `MAIN_DB` | トランザクションを保管するために使用されるデータベースの名前 | string | rocksdb | 現在、サポートしているデータベースはRocksDBだけです。 |
 | <a name="db-cache-size"></a> `--db-cache-size` | `DB_CACHE_SIZE` | データベースキャッシュの最大サイズをキロバイト単位で設定します。 | number | 100,000 |
@@ -108,7 +108,7 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 これらの設定を使用して、どのトランザクションがネットワークによって受け入れられるか、およびそのトランザクションが他のノードにどのように伝搬されるかをカスタマイズします。
 <!-- Use these settings to customize which transactions will be accepted by the network, and how they will be propagated to other nodes. -->
 
-| **CLフラグ** | **設定ファイルのパラメータ** | **説明** | **受け入れられる値** | **デフォルト値** | **メモ** |
+| **コマンドラインフラグ** | **設定ファイルのパラメータ** | **説明** | **有効な値** | **デフォルト値** | **メモ** |
 | :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
 | <a name="p-drop-transaction"></a> `--p-drop-transaction` | `P_DROP_TRANSACTION` | 受け取ったトランザクションを失う確率を設定します。 | 0から1の間の数 | 0.0 | このオプションはテスト目的でのみ利用可能です。 |
 | <a name="p-propagate-request"></a> `--p-propagate-request` | `P_PROPAGATE_REQUEST` | IRIが隣接ノードからの紛失トランザクションをリクエストする確率を設定します。 | number | 0.01 | この数は、スパムトランザクションをIRIがリクエストするのを避けるために、低くする必要があります。 |
@@ -121,7 +121,7 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 これらの設定を使用して、クライアントが[ノードのZMQイベントを購読する](../how-to-guides/subscribe-to-events-in-an-iri-node.md)方法をカスタマイズします。
 <!-- Use these settings to customize how clients can [subscribe to your node's ZMQ events](../how-to-guides/subscribe-to-events-in-an-iri-node.md). -->
 
-| **CLフラグ** | **設定ファイルのパラメータ** | **説明** | **受け入れられる値** | **デフォルト値** | **メモ** |
+| **コマンドラインフラグ** | **設定ファイルのパラメータ** | **説明** | **有効な値** | **デフォルト値** | **メモ** |
 | :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
 | <a name="zmq-enabled"></a> `--zmq-enable-ipc` | `ZMQ_ENABLE_IPC`| `ipc://iri`アドレスのIPCを介した[ゼロメッセージキュー](../concepts/zero-message-queue.md)サブスクリプションを有効にします。 | boolean | false | デフォルトアドレスを変更するには、`ZMQ_IPC`オプションを設定します。 |
 | `--zmq-enable-tcp` | `ZMQ_ENABLE_TCP` | ポート5556でTCPを介した[ゼロメッセージキュー](../concepts/zero-message-queue.md)サブスクリプションを有効にします。 | boolean | false | デフォルトポートを変更するには`ZMQ_PORT`オプションを設定します。 |
@@ -134,7 +134,7 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 これらの設定を使用して、[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)中の重み付きランダムウォークの長さとランダムさをカスタマイズします。
 <!-- Use these settings to customize the length and randomness of the weighted random walk during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md). -->
 
-| **CLフラグ** | **設定ファイルのパラメータ** | **説明** | **受け入れられる値** | **デフォルト値** | **メモ** |
+| **コマンドラインフラグ** | **設定ファイルのパラメータ** | **説明** | **有効な値** | **デフォルト値** | **メモ** |
 | :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
 | <a name="alpha"></a> `--alpha` | `ALPHA` | チップ選択プロセスのランダムさを設定します。 | 0から無限大の間の数 | 0.001 | 数値0が最もランダムで、無限大が最も決定的です。このオプションの詳細な説明については、[ブログの投稿](https://blog.iota.org/alpha-d176d7601f1c)を参照してください。 |
 | <a name="max-analyzed-transactions"></a> `--max-analyzed-transactions` | `MAX_ANALYZED_TXS` | チップ選択中に分析される可能性のある未確定トランザクションの最大数を設定して、未確定トランザクションを参照する最新のマイルストーンを見つけます。 | number | 20,000 |
@@ -146,7 +146,7 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 これらの設定を使用して、チップトランザクションが凝固する方法をカスタマイズします。
 <!-- Use these settings to customize how tip transactions become solid. -->
 
-| **CLフラグ** | **設定ファイルのパラメータ** | **説明** | **受け入れられる値** | **デフォルト値** | **メモ** |
+| **コマンドラインフラグ** | **設定ファイルのパラメータ** | **説明** | **有効な値** | **デフォルト値** | **メモ** |
 | :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
 | <a name="tip-selection-timeout-sec"></a> `--tip-solidfier-enabled` | `TIP_SOLIDIFIER_ENABLED` | マイルストーンではないチップトランザクションをノードが凝固させることを有効にします。 | boolean | false | デフォルトでは、IRIは積極的にマイルストーンのみを凝固しようとします。他のチップトランザクションは、ゴシッププロトコルを通じて凝固になります。このオプションを`true`に設定すると、ノードはより多くのリソースを使用します。 |
 
@@ -156,7 +156,7 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 これらの設定を使用して、ノードがどのように[プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)するかをカスタマイズします。
 <!-- Use these settings to customize how your node does [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md). -->
 
-| **CLフラグ** | **設定ファイルのパラメータ** | **説明** | **受け入れられる値** | **デフォルト値** | **メモ** |
+| **コマンドラインフラグ** | **設定ファイルのパラメータ** | **説明** | **有効な値** | **デフォルト値** | **メモ** |
 | :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
 | <a name="pow-threads"></a> `--pow-threads` | `POW_THREADS` | プルーフオブワークの計算に使用するスレッド数 | number | 0 |
 
@@ -165,7 +165,7 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 これらの設定を使用して、ノードが[ローカルスナップショット](../concepts/local-snapshot.md)を実行する方法とタイミングをカスタマイズします。
 <!-- Use these settings to customize how and when your node does [local snapshots](../concepts/local-snapshot.md). -->
 
-| **CLフラグ** | **設定ファイルのパラメータ** | **説明** | **受け入れられる値** | **デフォルト値** | **メモ** |
+| **コマンドラインフラグ** | **設定ファイルのパラメータ** | **説明** | **有効な値** | **デフォルト値** | **メモ** |
 | :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
 | <a name="local-snapshots-enabled"></a> `--local-snapshots-enabled` | `LOCAL_SNAPSHOTS_ENABLED` | ローカルスナップショットを有効にします。 | boolean  | true  | IRIが他の`LOCAL_SNAPSHOTS`パラメータを読み取るには、このパラメータを`true`に設定する必要があります。|
 | <a name="local-snapshots-pruning-enabled"></a> `--local-snapshots-pruning-enabled` | `LOCAL_SNAPSHOTS_PRUNING_ENABLED` | ノードが自身のデータベースから古いトランザクションを削除できるようにします。 | false | 次の計算の結果よりも古いインデックスを持つマイルストーンによって確定されたトランザクションは削除されます。`現在のマイルストーンインデックス` - (`LOCAL_SNAPSHOTS_DEPTH` + ` LOCAL_SNAPSHOTS_PRUNING_DELAY`) |
