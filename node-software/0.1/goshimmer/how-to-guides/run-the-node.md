@@ -159,7 +159,7 @@ GoShimmerノードを実行しています。
 <!-- * **Uptime:** The total amount of time during which the node has been running -->
 
 :::info:
-受け入れた隣接ノードがない場合は、`autopeering`TCP/UDPポート（14626）をデバイスに転送していることを確認します。
+`accepted`隣接ノードがない場合は、`autopeering`TCP/UDPポート（14626）をデバイスに転送していることを確認します。
 :::
 <!-- :::info: -->
 <!-- If you don't have any accepted neighbors, make sure that you've forwarded your `autopeering` TCP/UDP port (14626) to your device. -->
