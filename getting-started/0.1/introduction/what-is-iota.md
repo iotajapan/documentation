@@ -53,7 +53,7 @@ IOTAトークンは、以下の理由で価値があります。
 ## IOTAの利点とは？
 <!-- ## What are the benefits of IOTA? -->
 
-IOTAは、さまざまなデバイス間でデータを送信したり、価値を転送したりするプロセスを合理化、保護、および自動化できるオープンソース技術です。
+IOTAは、さまざまなデバイス間でデータや価値（IOTAトークン）の転送プロセスを合理化、保護、および自動化できるオープンソーステクノロジーです。
 <!-- IOTA is an open-source technology that can streamline, secure, and automate any process that sends data or transfers value among different devices. -->
 
 ### 信頼性

@@ -43,8 +43,8 @@ IOTAでは、ノードはアドレスの残高を更新する前に、トラン�
 IOTA財団はタングルとそれに関連するプロトコルの開発に焦点を当てている活発な研究部を持っています。
 <!-- We have an active research department that focuses on developing the Tangle and its related protocols. -->
 
-:::info:コーディサイド
-現時点で、IOTA財団は[コーディサイド](https://coordicide.iota.org/)と呼ばれるプロジェクトに焦点を当てています。これが起こるとき、ノードはマイルストーンなしで合意に達することができるでしょう。
+:::info:Coordicide
+現時点で、IOTA財団は[Coordicide](https://coordicide.iota.org/)と呼ばれるプロジェクトに焦点を当てています。これが起こるとき、ノードはマイルストーンなしで合意に達することができるでしょう。
 :::
 <!-- :::info:Coordicide -->
 <!-- At the moment, we are focused on a project called [Coordicide](https://coordicide.iota.org/), which is our proposal for the removal of the Coordinator. When this happens, nodes will be able to reach a consensus without milestones. -->
