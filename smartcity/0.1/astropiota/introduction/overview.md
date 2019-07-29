@@ -1,12 +1,12 @@
 # AstroPiOTA
 
-**AstroPiOTAは[AstroPi](https://www.nasa.gov/mission_pages/station/research/experiments/2429.html)のクローンです。AstroPiは、ISS（国際宇宙ステーション）でRaspberry Piを使用して、宇宙飛行士が自分の環境について最新の情報を入手できるようにしたプロジェクトです。 AstroPiは、温度、湿度、その他のデータを検知するためのRaspberry PiコンピュータとSense HATセンサーを使って作られています。**
+**AstroPiOTAは[AstroPi](https://www.nasa.gov/mission_pages/station/research/experiments/explorer/Investigation.html?#id=7534)のクローンです。AstroPiは、ISS（国際宇宙ステーション）でRaspberry Piを使用して、宇宙飛行士が自分の環境について最新の情報を入手できるようにしたプロジェクトです。 AstroPiは、温度、湿度、その他のデータを検知するためにRaspberry PiコンピュータとSense HATセンサーを使って作られています。**
 <!-- **AstroPiOTA is a clone of [AstroPi](https://www.nasa.gov/mission_pages/station/research/experiments/2429.html), which is a project that used Raspberry Pis on the International Space Station (ISS) to keep astronauts up to date about their environment.  AstroPi was made with a Raspberry Pi computer and a Sense HAT sensor for sensing temperature, humidity, and other data.** -->
 
 AstroPiOTAはタングル上のローカル環境データを追跡するためにマスク認証メッセージング（MAM）を使用します。地球上で、AstroPiOTAはローカルの天気予報を理解し報告するのを助け、地震予知に役立つかもしれません。
 <!--  AstroPiOTA uses masked authenticated messaging (MAM) for keeping track of local environment data on the Tangle. Here on earth, AstroPiOTA helps us understand and report local weather and may aid in earthquake prediction. -->
 
-MAMは購読サービスです。最新のデータを受信するためにAstroPiOTAチャンネルを購読します。
+MAMは購読サービスです。最新のデータを受信するためにAstroPiOTAチャネルを購読します。
 <!-- MAM is a subscription service. Subscribe to the AstroPiOTA channel to receive the latest data. -->
 
 ビデオをご覧ください。（Coming soon）
@@ -29,7 +29,7 @@ Sense Hatには慣性計測装置（IMU）があり、以下が含まれてい�
 - 地球の磁場を測定する磁力計（コンパスのようなもの）
 <!-- - Magnetometer that measures the Earth’s own magnetic field (a bit like a compass) -->
 
-一部のIMUデータは、[直交座標](https://en.wikipedia.org/wiki/Cartesian_coordinate_system)を使用して測定されます。
+一部のIMUデータは、[直交座標系](https://en.wikipedia.org/wiki/Cartesian_coordinate_system)を使用して測定されます。
   <!-- Some IMU data is measured using [Cartesian coordinates](https://en.wikipedia.org/wiki/Cartesian_coordinate_system) where: -->
 
   ```bash
