@@ -22,8 +22,8 @@
 * インターネット接続
 <!-- * An Internet connection -->
 
-## イミュータブルなメッセージをタングルに添付する
-<!-- ## Attach an immutable message to the Tangle -->
+## 手順1. イミュータブルなメッセージをタングルに添付する
+<!-- ## Step 1. Attach an immutable message to the Tangle -->
 
 この例では、[Devnetノード](../references/iota-networks.md#devnet)に接続します。 Devnetは、トークンが無料であること以外はMainnetとほぼ同じです。Devnetに送信したトランザクションは、Mainnetのような他のネットワークには存在しません。
 <!-- In this example, we connect to a [Devnet node](../references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
@@ -191,8 +191,8 @@
 バンドル内のトランザクションは、すべてのノードが各々の台帳にトランザクションを書き込むまで、ネットワーク内を伝搬します。
 <!-- The transaction in your bundle will propagate through the network until all the nodes have it in their ledgers. -->
 
-## トランザクションがネットワーク上にあることを確認する
-<!-- ## Confirm that your transaction is on the network -->
+## 手順2. トランザクションがネットワーク上にあることを確認する
+<!-- ## Step 2. Confirm that your transaction is on the network -->
 
 トランザクションが（タングルに接続された）ネットワーク上にあることを確認するには、コンソールから`bundle`フィールドの値をコピーし、[Devnetタングルエクスプローラ](https://devnet.thetangle.org/)を開き、`bundle`フィールドの値を検索バーに貼り付けます。
 <!-- To confirm that your transaction is on the network (attached to the Tangle), copy the value of the `bundle` field from the console, open a [Devnet Tangle explorer](https://devnet.thetangle.org/), and paste the value into the search bar. -->

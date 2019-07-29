@@ -2,8 +2,12 @@
 
 [序説/概要](/introduction/overview.md)
 
-[MAMウォッチャー/はじめに](/mam-watcher/overview.md)
+[コミュニティサポート/MAMウォッチャー/はじめに](/community/mam-watcher/overview.md)
 
-[ワンコマンドタングル/はじめに](/one-command-tangle/overview.md)
+[コミュニティサポート/ワンコマンドタングル/はじめに](/community/one-command-tangle/overview.md)
 
-[ラズパイpubsub/はじめに](/raspberry-pi-pub-sub/overview.md)
+[コミュニティサポート/Raspberry Piパブサブ/はじめに](/community/raspberry-pi-pub-sub/overview.md)
+
+[公式サポート/IOTAエリアコード/概要](/official/iota-area-codes/overview.md)
+
+[公式サポート/IOTAエリアコード/はじめに](/official/iota-area-codes/get-started.md)

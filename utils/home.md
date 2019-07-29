@@ -2,7 +2,13 @@
 <!-- # Utilities are open-source applications or programs that you can either use as they are or use to fast track the development of your own applications. -->
 
 [概要](/0.1/introduction/overview.md)
-## 利用可能なツールを調べます。
+## どのユーティリティが利用可能か調べます。
+
+[公式ユーティリティ](/0.1/official/iota-area-codes/overview.md)
+## IOTA財団によって維持されているユーティリティを閲覧します。
+
+[コミュニティユーティリティ](/0.1/community/one-command-tangle/overview.md)
+## IOTAコミュニティによって維持されているユーティリティを閲覧します。
 
 [MAMウォッチャー](/0.1/mam-watcher/overview.md)
 ## 暗号化されたチャネルをパブリッシュおよびサブスクライブすることで、秘密のメッセージを送受信します。
