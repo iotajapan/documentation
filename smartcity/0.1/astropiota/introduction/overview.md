@@ -1,32 +1,53 @@
 # AstroPiOTA
 
-**AstroPiOTA is a clone of [AstroPi](https://www.nasa.gov/mission_pages/station/research/experiments/2429.html), which is a project that used Raspberry Pis on the International Space Station (ISS) to keep astronauts up to date about their environment.  AstroPi was made with a Raspberry Pi computer and a Sense HAT sensor for sensing temperature, humidity, and other data.**
+**AstroPiOTAは[AstroPi](https://www.nasa.gov/mission_pages/station/research/experiments/2429.html)のクローンです。AstroPiは、ISS（国際宇宙ステーション）でRaspberry Piを使用して、宇宙飛行士が自分の環境について最新の情報を入手できるようにしたプロジェクトです。 AstroPiは、温度、湿度、その他のデータを検知するためのRaspberry PiコンピュータとSense HATセンサーを使って作られています。**
+<!-- **AstroPiOTA is a clone of [AstroPi](https://www.nasa.gov/mission_pages/station/research/experiments/2429.html), which is a project that used Raspberry Pis on the International Space Station (ISS) to keep astronauts up to date about their environment.  AstroPi was made with a Raspberry Pi computer and a Sense HAT sensor for sensing temperature, humidity, and other data.** -->
 
- AstroPiOTA uses masked authenticated messaging (MAM) for keeping track of local environment data on the Tangle. Here on earth, AstroPiOTA helps us understand and report local weather and may aid in earthquake prediction.
+AstroPiOTAはタングル上のローカル環境データを追跡するためにマスク認証メッセージング（MAM）を使用します。地球上で、AstroPiOTAはローカルの天気予報を理解し報告するのを助け、地震予知に役立つかもしれません。
+<!--  AstroPiOTA uses masked authenticated messaging (MAM) for keeping track of local environment data on the Tangle. Here on earth, AstroPiOTA helps us understand and report local weather and may aid in earthquake prediction. -->
 
- MAM is a subscription service. Subscribe to the AstroPiOTA channel to receive the latest data.
+MAMは購読サービスです。最新のデータを受信するためにAstroPiOTAチャンネルを購読します。
+<!-- MAM is a subscription service. Subscribe to the AstroPiOTA channel to receive the latest data. -->
 
-Watch the video:  (Coming soon)
+ビデオをご覧ください。（Coming soon）
+<!-- Watch the video:  (Coming soon) -->
 
-## Environment Data
+## 環境データ
+<!-- ## Environment Data -->
 
-Sense Hat has an inertial measurement unit (IMU) and includes the following:
+Sense Hatには慣性計測装置（IMU）があり、以下が含まれています。
+<!-- Sense Hat has an inertial measurement unit (IMU) and includes the following: -->
 
-- Temperature and humidity sensors
-- Barometric pressure sensor
-- Accelerometer that measures acceleration forces
-- Gyroscope that measures momentum and rotation
-- Magnetometer that measures the Earth’s own magnetic field (a bit like a compass)
+- 温度および湿度センサー
+<!-- - Temperature and humidity sensors -->
+- 気圧センサー
+<!-- - Barometric pressure sensor -->
+- 加速力を測定する加速度計
+<!-- - Accelerometer that measures acceleration forces -->
+- 運動量と回転を測定するジャイロスコープ
+<!-- - Gyroscope that measures momentum and rotation -->
+- 地球の磁場を測定する磁力計（コンパスのようなもの）
+<!-- - Magnetometer that measures the Earth’s own magnetic field (a bit like a compass) -->
 
-Some IMU data is measured using [Cartesian coordinates](https://en.wikipedia.org/wiki/Cartesian_coordinate_system) where:
+一部のIMUデータは、[直交座標](https://en.wikipedia.org/wiki/Cartesian_coordinate_system)を使用して測定されます。
+<!-- Some IMU data is measured using [Cartesian coordinates](https://en.wikipedia.org/wiki/Cartesian_coordinate_system) where: -->
 
-        x is roll or rotation about the x-axis
-        y is pitch or rotation about the y-axis
-        z is yaw or rotation about the z-axis
+    ```bash
+    xはx軸を中心としたロールまたは回転
+    yはy軸を中心としたピッチまたは回転
+    zはヨーまたはz軸を中心とした回転
+    ```
+    <!-- ```bash -->
+    <!-- x is roll or rotation about the x-axis -->
+    <!-- y is pitch or rotation about the y-axis -->
+    <!-- z is yaw or rotation about the z-axis -->
+    <!-- ``` -->
 
-## Programming Language
+## プログラミング言語
+<!-- ## Programming Language -->
 
-AstroPiOTA is written in JavaScript and sends Sense HAT data to the Tangle in this json format:
+AstroPiOTAはJavaScriptで書かれており、Sense HATデータを以下のjsonフォーマットでタングルに送信します。
+<!-- AstroPiOTA is written in JavaScript and sends Sense HAT data to the Tangle in this json format: -->
 
 ```json
 {"AstroPiData":
@@ -42,14 +63,20 @@ AstroPiOTA is written in JavaScript and sends Sense HAT data to the Tangle in th
 "location":"Los Angeles,CA,USA"}
 ```
 
-## Build Your Own AstroPiOTA
+## 自分のAstroPiOTAをビルドする
+<!-- ## Build Your Own AstroPiOTA -->
 
-[Build AstroPiOTA](../how-to-guides/build.md)
+[AstroPiOTAをビルドする](../how-to-guides/build.md)
+<!-- [Build AstroPiOTA](../how-to-guides/build.md) -->
 
-[Install the software and run it](../how-to-guides/run.md)
+[ソフトウェアをインストールして実行する](../how-to-guides/run.md)
+<!-- [Install the software and run it](../how-to-guides/run.md) -->
 
-[Run using Headless mode](../how-to-guides/connect.md)
+[ヘッドレスモードを使用して実行する](../how-to-guides/connect.md)
+<!-- [Run using Headless mode](../how-to-guides/connect.md) -->
 
-[Customize AstroPiOTA](../how-to-guides/customize.md) - AstroPiOTA sample code was inspired by [Dave de Fijter's High Mobility MAM example](https://github.com/iotaledger/high-mobility-blueprints/tree/master/mam).
+[AstroPiOTAをカスタマイズする](../how-to-guides/customize.md) - AstroPiOTAサンプルコードは、[Dave de FijterのHigh Mobility MAMの例](https://github.com/iotaledger/high-mobility-blueprints/tree/master/mam)からインスピレーションを受けています。
+<!-- [Customize AstroPiOTA](../how-to-guides/customize.md) - AstroPiOTA sample code was inspired by [Dave de Fijter's High Mobility MAM example](https://github.com/iotaledger/high-mobility-blueprints/tree/master/mam). -->
 
-[Sense Hat specifications](../references/sensehat-specs.md)
+[Sense HAT仕様](../references/sensehat-specs.md)
+<!-- [Sense Hat specifications](../references/sensehat-specs.md) -->
