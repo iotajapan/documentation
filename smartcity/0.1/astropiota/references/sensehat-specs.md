@@ -19,7 +19,7 @@
 ## 出力
 <!-- ## Outputs -->
 
-**最大60fpsのリフレッシュレートと15ビットの色解像度（RGB 5 5 5）を備えた8×8 RGB LEDマトリックス：** Cree CLU6AFKW/CLX6AFKB[データシート](http://www.cree.com/sitecore%20modules/web/~/media/Files/Cree/LED%20Components%20and%20Modules/HB/Data%20Sheets/CLX6AFKB.pdf)
+**最大60fpsのリフレッシュレートと15ビットの色解像度（RGB 5 5 5）を備えた8×8 RGB LEDマトリックス：** Cree CLU6AFKW/CLX6AFKB[データシート](http://www.cree.com/sitecore%20modules/web/~/media/Files/Cree/LED%20Components%20and%20Modules/HB/Data%20Sheets/CLX6AFKB.pdf)。
 <!-- 8×8 RGB LED matrix with ~60fps refresh rate and 15-bit colour resolution (RGB 5 5 5): Cree CLU6AFKW/CLX6AFKB [data sheet](http://www.cree.com/sitecore%20modules/web/~/media/Files/Cree/LED%20Components%20and%20Modules/HB/Data%20Sheets/CLX6AFKB.pdf) -->
 
 各ピクセルが16ビット（RGB 5 6 5）の場合、フレームバッファドライバ`/dev/fb1`からアクセスできます。これは、Sense HATがHDMIモニターに接続していない限り、本物の視覚的出力形式です。
@@ -28,7 +28,7 @@
 ## マイクロコントローラ
 <!-- ## Micro controller -->
 
-**小型MCUがLEDマトリックスを駆動し、ジョイスティック入力をスキャンします：** Atmel ATTINY88[データシート](http://www.atmel.com/Images/doc8008.pdf)
+**小型MCUがLEDマトリックスを駆動し、ジョイスティック入力をスキャンします。：** Atmel ATTINY88[データシート](http://www.atmel.com/Images/doc8008.pdf)。
 <!-- A small MCU drives the LED matrix and scans for joystick input: Atmel ATTINY88 [data sheet](http://www.atmel.com/Images/doc8008.pdf) -->
 
 
