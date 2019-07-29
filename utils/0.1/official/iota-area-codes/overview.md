@@ -26,7 +26,7 @@ IACは[Open Location Code](https://en.wikipedia.org/wiki/Open_Location_Code)（O
 ## IACを読む
 <!-- ## Reading IACs -->
 
-IACは、通常の緯度と経度の形式の座標よりも短くて使いやすい形式に場所をエンコードする方法です。
+IACは、通常の緯度と経度の形式の座標よりも短くて使いやすい形式で場所をエンコードする方法です。
 <!-- IACs are a way of encoding locations into a form that is shorter and easier to use than coordinates in the usual form of latitude and longitude. -->
 
 たとえば、IOTA財団の住所の緯度と経度の座標は`52.529510`、`13.413018`です。これらの座標のIACは、`NPHTQORL9XK`です。
@@ -35,7 +35,7 @@ IACは、通常の緯度と経度の形式の座標よりも短くて使いや�
 IACはトライトで構成されているため、IACをトランザクションの`tag`フィールドに簡単に追加して場所をタグ付けすることができます。
 <!-- Because an IAC consists of trytes, you can easily add them to the `tag` field of a transaction to tag it with a location. -->
 
-IACは以下の3つの部分で構成されています（`9`つの区切り文字を除く）。
+IACは以下の3つの部分で構成されています（区切り文字`9`を除く）。
 <!-- An IAC consists of three parts (excluding the `9` separator): -->
 
 - 最初の4つのトライトはエリアコードで、およそ`100 km x 100 km`の地域を表しています。たとえば、`NPHT`はベルリンとポツダムの一部を含む地域を表します。
