@@ -32,17 +32,17 @@ Sense Hatには慣性計測装置（IMU）があり、以下が含まれてい�
 一部のIMUデータは、[直交座標](https://en.wikipedia.org/wiki/Cartesian_coordinate_system)を使用して測定されます。
   <!-- Some IMU data is measured using [Cartesian coordinates](https://en.wikipedia.org/wiki/Cartesian_coordinate_system) where: -->
 
-    ```bash
-    xはx軸を中心としたロールまたは回転
-    yはy軸を中心としたピッチまたは回転
-    zはヨーまたはz軸を中心とした回転
-    ```
+  ```bash
+  xはx軸を中心としたロールまたは回転
+  yはy軸を中心としたピッチまたは回転
+  zはヨーまたはz軸を中心とした回転
+  ```
 
-    <!-- ```bash -->
-    <!-- x is roll or rotation about the x-axis -->
-    <!-- y is pitch or rotation about the y-axis -->
-    <!-- z is yaw or rotation about the z-axis -->
-    <!-- ``` -->
+  <!-- ```bash -->
+  <!-- x is roll or rotation about the x-axis -->
+  <!-- y is pitch or rotation about the y-axis -->
+  <!-- z is yaw or rotation about the z-axis -->
+  <!-- ``` -->
 
 ## プログラミング言語
 <!-- ## Programming Language -->
