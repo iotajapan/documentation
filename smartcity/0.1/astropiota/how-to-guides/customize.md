@@ -1,12 +1,17 @@
-# Customize AstroPiOTA
+# AstroPiOTAをカスタマイズする
+<!-- # Customize AstroPiOTA -->
 
-**The AstroPiOTA sender gathers sensor data from Sense HAT, publishes it to the scrolling marquee, and sends it in JSON format to a MAM channel on the Tangle. The ASTROPiOTA receiver listens to the MAM channel and reports the sensor data. You can customize both of these files to change how ASTROPiOTA publishes and reports data.**
+**AstroPiOTA送信者はSense HATからセンサーデータを収集し、センサーデータをスクロールマーキーに公開し、センサーデータをJSON形式でタングルのMAMチャネルに送信します。ASTROPiOTA受信者はMAMチャネルを監視してセンサーデータを報告します。これらのファイルの両方をカスタマイズして、ASTROPiOTAによるデータの公開方法とレポート方法を変更できます。**
+<!-- **The AstroPiOTA sender gathers sensor data from Sense HAT, publishes it to the scrolling marquee, and sends it in JSON format to a MAM channel on the Tangle. The ASTROPiOTA receiver listens to the MAM channel and reports the sensor data. You can customize both of these files to change how ASTROPiOTA publishes and reports data.** -->
 
-This sample code was inspired by [Dave de Fijter's High Mobility MAM example](https://github.com/iotaledger/high-mobility-blueprints/tree/master/mam).
+このサンプルコードは、[Dave de FijterのHigh Mobility MAMの例](https://github.com/iotaledger/high-mobility-blueprints/tree/master/mam)にインスパイアされています。
+<!-- This sample code was inspired by [Dave de Fijter's High Mobility MAM example](https://github.com/iotaledger/high-mobility-blueprints/tree/master/mam). -->
 
-## AstroPiOTA sender
+## AstroPiOTA送信者
+<!-- ## AstroPiOTA sender -->
 
-First, the sender.js file imports the MAM client and the IOTA trytes converter.  Next, it imports the sense-hat-led package to enable the scrolling marquee.  Finally, it imports the IMU package used to sense IMU data.
+まず、`sender.js`ファイルにMAMクライアントとIOTA trytesコンバータをインポートします。次に、スクロールマーキーを有効にするためにsense-hat-ledパッケージをインポートします。最後に、IMUデータを検出するためにIMUパッケージをインポートします。
+<!-- First, the sender.js file imports the MAM client and the IOTA trytes converter.  Next, it imports the sense-hat-led package to enable the scrolling marquee.  Finally, it imports the IMU package used to sense IMU data. -->
 
 ```javascript
 const Mam = require('../external/mam.client.js');
@@ -16,13 +21,15 @@ const imu = require("node-sense-hat").Imu;
 const IMU = new imu.IMU();
 ```
 
-Sender.js initializes the MAM message stream.  During initialization, seeds and addresses are generated to be used for securely posting messages.  In this example, messages are stored on the Devnet network rather than the Mainnet network.  
+`sender.js`はMAMメッセージストリームを初期化します。初期化中に、メッセージを安全に送信するために使用されるシードとアドレスが生成されます。この例では、メッセージはMainnetネットワークではなくDevnetネットワークに保存されています。
+<!-- Sender.js initializes the MAM message stream.  During initialization, seeds and addresses are generated to be used for securely posting messages.  In this example, messages are stored on the Devnet network rather than the Mainnet network. -->
 
 ```javascript
 let mamState = Mam.init('https://nodes.devnet.iota.org:443');
 ```
 
-Mode is set to "public".  Public mode allows anyone to view environment data published by AstroPiOTA.   A placeholder, mamSecret, is available for use with a "private" or "restricted" message type.
+モードは`public`に設定されています。パブリックモードでは、誰でもAstroPiOTAによって公開された環境データを見ることができます。プレースホルダ、mamSecretは、`private`または`restricted`メッセージタイプで使用できます。
+<!-- Mode is set to "public".  Public mode allows anyone to view environment data published by AstroPiOTA. A placeholder, mamSecret, is available for use with a "private" or "restricted" message type. -->
 
 ```javascript
 const mamType = 'public';
@@ -30,29 +37,33 @@ const mamSecret = 'DONTSHARETHIS';
 mamState = Mam.changeMode(mamState, mamType, mamSecret);
 ```
 
-Sender.js configures the Sense Hat scrolling marquee to post humidity and temperature data in centigrade or Celsius and Fahrenheit.  To speed up the marquee, this data was rounded.  
+`sender.js`は、湿度と温度のデータを摂氏または摂氏と華氏で表示するようにSense Hatのスクロールマーキーを設定します。マーキーをスピードアップするために、データは丸められています。
+<!-- Sender.js configures the Sense Hat scrolling marquee to post humidity and temperature data in centigrade or Celsius and Fahrenheit. To speed up the marquee, this data was rounded. -->
 
-> Raw temperature data is shown.  However, the Sense Hat temperature sensor is near Raspberry Pi which heats up during use.  Calibration tests indicate that the Sense Hat temperature is about 13 degrees above local temperature.  You can calibrate to your location by comparing Sense Hat temperature to local temperature.  You may want to change the data being reported in your MAM message.
+> 生の温度データが表示されます。ただし、Sense Hatの温度センサーはRaspberry Piの近くにあり、使用中は加熱されます。キャリブレーションテストによると、Sense Hatの温度はローカルの気温より約13度高くなっています。Sense Hatの気温と現地の気温を比較して、自分の位置に合わせて調整できます。MAMメッセージで報告されているデータを変更したい場合があります。
+<!-- > Raw temperature data is shown.  However, the Sense Hat temperature sensor is near Raspberry Pi which heats up during use. Calibration tests indicate that the Sense Hat temperature is about 13 degrees above local temperature. You can calibrate to your location by comparing Sense Hat temperature to local temperature. You may want to change the data being reported in your MAM message. -->
 
-Scroll speed is 0.2, making the scrolling text slow enough to read, but not too slow.  The `backColour` and `textColour` are set using RGB values between 0 and 255.  In this example, the background color is orange and the text is blue.
+スクロール速度は0.2で、スクロールテキストは読むのに十分遅くなりますが、遅くなりすぎません。`backColour`と`textColour`は、0から255までのRGB値を使用して設定されます。この例では、背景色はオレンジ、テキストは青です。
+<!-- Scroll speed is 0.2, making the scrolling text slow enough to read, but not too slow.  The `backColour` and `textColour` are set using RGB values between 0 and 255.  In this example, the background color is orange and the text is blue. -->
 
 ```javascript
 async function publish (data) {
-
   sense.showMessage("AstroPi Temp " + String(Math.round(data.temperature)) +
-        "C " + String(Math.round(data.temperature*1.8 + 32.00)) + "F  Humidity "                                                                                         +
-        String(Math.round(data.humidity)) + " IOTA     " ,
-        scrollSpeed=0.2, backColour=[100,100,0], textColour=[0,0,100]);
+      "C " + String(Math.round(data.temperature*1.8 + 32.00)) + "F  Humidity " +
+      String(Math.round(data.humidity)) + " IOTA     " ,
+      scrollSpeed=0.2, backColour=[100,100,0], textColour=[0,0,100]);
 ```
 
-The MAM message is formatted into json.  Location is hard-coded.
+MAMメッセージはjsonにフォーマットされています。ロケーションはハードコーディングされています。
+<!-- The MAM message is formatted into json.  Location is hard-coded. -->
 
 ```javascript
-  let toSend = JSON.stringify({ 'AstroPiData': data, 'location': 'Los Angeles,CA                                                                                        ,USA' });
+  let toSend = JSON.stringify({ 'AstroPiData': data, 'location': 'Los Angeles,CA ,USA' });
   console.log('Data to send to tangle:', toSend);
 ```
 
-The MAM message is converted to trytes, the format required by the IOTA Tangle
+MAMメッセージは、IOTAタングルで要求されている形式であるトライトに変換されます。
+<!-- The MAM message is converted to trytes, the format required by the IOTA Tangle -->
 
 ```javascript
   const trytes = asciiToTrytes(toSend);
@@ -61,7 +72,8 @@ The MAM message is converted to trytes, the format required by the IOTA Tangle
   mamState = message.state;
 ```
 
-Sensor data is sent to the MAM message address created during initialization of the MAM channel
+センサーデータは、MAMチャネルの初期化中に作成されたMAMメッセージアドレスに送信されます。
+<!-- Sensor data is sent to the MAM message address created during initialization of the MAM channel -->
 
 ```javascript
   try {
@@ -71,61 +83,67 @@ Sensor data is sent to the MAM message address created during initialization of 
     console.log(e);
   }
 ```
-In order for Receiver.js to find AstroPiOTA's current MAM channel, it must have the message root.  Thus, sender.js prints instructions on the console in this format:  
 
-```
+`receiver.js`がAstroPiOTAの現在のMAMチャンネルを見つけるためには、メッセージルートが必要です。したがって、`sender.js`はコンソールにメッセージルートを次の形式で出力します。
+<!-- In order for Receiver.js to find AstroPiOTA's current MAM channel, it must have the message root.  Thus, sender.js prints instructions on the console in this format: -->
+
+```bash
 ADDRESSXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-Copy the command from your console and paste it into another terminal window to view the AstroPiOTA messages.
+AstroPiOTAメッセージを表示するには、コンソールからコマンドをコピーして別のターミナルウィンドウにペーストします。
+<!-- Copy the command from your console and paste it into another terminal window to view the AstroPiOTA messages. -->
 
 ```javascript
   if (mamState.channel.start === 1) {
-    console.log('\r\nListen to this stream with\n\r\n\r   >  npm run receiver',                                                                                         message.root, '\r\n\r\n');
+    console.log('\r\nListen to this stream with\n\r\n\r   >  npm run receiver', message.root, '\r\n\r\n');
   } else {
     console.log('\r\nUpdated root: ', message.root, '\r\n');
   }
 }
 ```
 
-Any errors from Sense Hat IMU are reported.  Sensor data is published.
+Sense Hat IMUからのエラーはすべて報告されます。センサーデータが公開されています。
+<!-- Any errors from Sense Hat IMU are reported. Sensor data is published. -->
 
 ```javascript
 async function updateLocation () {
-
-        IMU.getValue((err, data) => {
-                if (err !== null) {
-                        console.error("Hmmm...Sensehat data: ", err);
-                        return;
-                }
-                try {
-                    publish(data);
-                } catch (e) {
-                console.log('IMU Error', e);
-                }
-        });
+  IMU.getValue((err, data) => {
+    if (err !== null) {
+      console.error("Hmmm...Sensehat data: ", err);
+      return;
+    }
+    try {
+      publish(data);
+    } catch (e) {
+      console.log('IMU Error', e);
+    }
+  });
 }
 
 console.log('\r\n\r\nUpdating MAM stream with SenseHat data\r\n');
 ```
 
-The updater service checks for new sensor data about every 30 seconds
+アップデータサービスは約30秒ごとに新しいセンサーデータをチェックします。
+<!-- The updater service checks for new sensor data about every 30 seconds -->
 
 ```javascript
 updateLocation();
 setInterval(updateLocation, 30000);
 ```
 
-The scrolling marquee is reset
+以下でスクロールマーキーがリセットされます。
+<!-- The scrolling marquee is reset -->
 
-```
+```bash
 sense.clear(0,100,0)
 ```
 
+## AstroPiOTA受信者
+<!-- ## AstroPiOTA receiver -->
 
-## AstroPiOTA receiver
-
-Like the sender, receiver.js imports the MAM client and the trytes convertor.  Mode is set to "public".  A placeholder, mamSecret, is available for use with a "private" or "restricted" message type.
+送信側と同様に、`receiver.js`はMAMクライアントとtrytesコンバータをインポートします。モードは `public`に設定されています。プレースホルダ、mamSecretは、`private`または`restricted`メッセージタイプで使用できます。
+<!-- Like the sender, receiver.js imports the MAM client and the trytes convertor.  Mode is set to "public".  A placeholder, mamSecret, is available for use with a "private" or "restricted" message type. -->
 
 ```javascript
 const Mam = require('../external/mam.client.js');
@@ -134,7 +152,8 @@ const mamType = 'public';
 const mamSecret = 'DONTSHARETHIS';
 ```
 
-Receiver.js keeps track of the current and next root so it knows what to listen to and when to output data to the screen.  Receiver.js never publishes data on the Sense Hat scrolling marquee.
+`receiver.js`は現在のルートと次のルートを追跡するため、何をリッスンし、いつデータを画面に出力するかがわかります。`receiver.js`がSense Hatのスクロールマーキーにデータを公開することはありません。
+<!-- Receiver.js keeps track of the current and next root so it knows what to listen to and when to output data to the screen.  Receiver.js never publishes data on the Sense Hat scrolling marquee. -->
 
 ```javascript
 let root = null;
@@ -147,7 +166,8 @@ function showData (raw) {
 }
 ```
 
-The address of the Tangle must be identical to one used in sender.js or the receiver cannot find the messages
+タングルのアドレスは、`sender.js`で使用されているアドレスと同一である必要があります。そうしないと、受信者はメッセージを見つけることができません。
+<!-- The address of the Tangle must be identical to one used in sender.js or the receiver cannot find the messages -->
 
 ``` javascript
 async function initMam () {
@@ -158,7 +178,8 @@ async function initMam () {
 }
 ```
 
-Receiver.js checks the MAM stream every 5 seconds for new data on the current root.  If a new root is found, then it monitors the new root.
+`receiver.js`は、現在のルート上の新しいデータについて5秒ごとにMAMストリームをチェックします。新しいルートが見つかった場合は、新しいルートを監視します。
+<!-- Receiver.js checks the MAM stream every 5 seconds for new data on the current root.  If a new root is found, then it monitors the new root. -->
 
 ```javascript
 async function checkMam () {
@@ -167,7 +188,8 @@ async function checkMam () {
   }
 ```
 
-The showData callback will be called, in order, for each message found.  Thus, the messages are shown in chronological order based on the date and time posted to the Tangle.
+`showData`コールバックは、見つかったメッセージごとに順番に呼び出されます。したがって、メッセージはタングルに投稿された日時に基づいて時系列に表示されます。
+<!-- The showData callback will be called, in order, for each message found.  Thus, the messages are shown in chronological order based on the date and time posted to the Tangle. -->
 
 ```javascript
   const data = await Mam.fetch(root, mamType, mamSecret, showData)
@@ -178,7 +200,8 @@ The showData callback will be called, in order, for each message found.  Thus, t
 }
 ```
 
-Receiver.js initializes and starts monitoring the Tangle for MAM messages from AstroPiOTA
+`receiver.js`が初期化され、AstroPiOTAからのMAMメッセージのためにタングルの監視を開始します。
+<!-- Receiver.js initializes and starts monitoring the Tangle for MAM messages from AstroPiOTA -->
 
 ```javascript
 initMam();
