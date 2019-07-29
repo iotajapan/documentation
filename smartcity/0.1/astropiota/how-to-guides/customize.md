@@ -1,7 +1,7 @@
 # AstroPiOTAをカスタマイズする
 <!-- # Customize AstroPiOTA -->
 
-**AstroPiOTA送信者はSense HATからセンサーデータを収集し、センサーデータをスクロールマーキーに公開し、センサーデータをJSON形式でタングルのMAMチャネルに送信します。ASTROPiOTA受信者はMAMチャネルを監視してセンサーデータを報告します。これらのファイルの両方をカスタマイズして、ASTROPiOTAによるデータの公開方法とレポート方法を変更できます。**
+**AstroPiOTA送信者はSense HATからセンサーデータを収集し、センサーデータをスクロールマーキーに公開し、センサーデータをJSON形式でタングルのMAMチャネルに送信します。AstroPiOTA受信者はMAMチャネルを監視してセンサーデータをリッスンします。これらのファイルの両方をカスタマイズして、AstroPiOTAによるデータの公開方法とレポート方法を変更できます。**
 <!-- **The AstroPiOTA sender gathers sensor data from Sense HAT, publishes it to the scrolling marquee, and sends it in JSON format to a MAM channel on the Tangle. The ASTROPiOTA receiver listens to the MAM channel and reports the sensor data. You can customize both of these files to change how ASTROPiOTA publishes and reports data.** -->
 
 このサンプルコードは、[Dave de FijterのHigh Mobility MAMの例](https://github.com/iotaledger/high-mobility-blueprints/tree/master/mam)にインスパイアされています。
@@ -28,7 +28,7 @@ const IMU = new imu.IMU();
 let mamState = Mam.init('https://nodes.devnet.iota.org:443');
 ```
 
-モードは`public`に設定されています。パブリックモードでは、誰でもAstroPiOTAによって公開された環境データを見ることができます。プレースホルダ、mamSecretは、`private`または`restricted`メッセージタイプで使用できます。
+モードは`public`に設定されています。パブリックモードでは、誰でもAstroPiOTAによって公開された環境データを見ることができます。プレースホルダ、mamSecretは、`private`または`restricted`メッセージタイプでも使用できます。
 <!-- Mode is set to "public".  Public mode allows anyone to view environment data published by AstroPiOTA. A placeholder, mamSecret, is available for use with a "private" or "restricted" message type. -->
 
 ```javascript
@@ -37,10 +37,10 @@ const mamSecret = 'DONTSHARETHIS';
 mamState = Mam.changeMode(mamState, mamType, mamSecret);
 ```
 
-`sender.js`は、湿度と温度のデータを摂氏または摂氏と華氏で表示するようにSense Hatのスクロールマーキーを設定します。マーキーをスピードアップするために、データは丸められています。
+`sender.js`は、湿度と温度のデータを摂氏または摂氏と華氏で表示するようにSense Hatのスクロールマーキーを設定しています。マーキーをスピードアップするために、データは丸められています。
 <!-- Sender.js configures the Sense Hat scrolling marquee to post humidity and temperature data in centigrade or Celsius and Fahrenheit. To speed up the marquee, this data was rounded. -->
 
-> 生の温度データが表示されます。ただし、Sense Hatの温度センサーはRaspberry Piの近くにあり、使用中は加熱されます。キャリブレーションテストによると、Sense Hatの温度はローカルの気温より約13度高くなっています。Sense Hatの気温と現地の気温を比較して、自分の位置に合わせて調整できます。MAMメッセージで報告されているデータを変更したい場合があります。
+> 生の温度データが表示されます。ただし、Sense Hatの温度センサーはRaspberry Piの近くにあり、使用中は加熱されます。キャリブレーションテストによると、Sense Hatの温度は現地の気温より約13度高くなっています。Sense Hatの気温と現地の気温を比較して、自分の位置に合わせて調整できます。MAMメッセージで報告されているデータを変更したい場合があります。
 <!-- > Raw temperature data is shown.  However, the Sense Hat temperature sensor is near Raspberry Pi which heats up during use. Calibration tests indicate that the Sense Hat temperature is about 13 degrees above local temperature. You can calibrate to your location by comparing Sense Hat temperature to local temperature. You may want to change the data being reported in your MAM message. -->
 
 スクロール速度は0.2で、スクロールテキストは読むのに十分遅くなりますが、遅くなりすぎません。`backColour`と`textColour`は、0から255までのRGB値を使用して設定されます。この例では、背景色はオレンジ、テキストは青です。
@@ -142,7 +142,7 @@ sense.clear(0,100,0)
 ## AstroPiOTA受信者
 <!-- ## AstroPiOTA receiver -->
 
-送信側と同様に、`receiver.js`はMAMクライアントとtrytesコンバータをインポートします。モードは `public`に設定されています。プレースホルダ、mamSecretは、`private`または`restricted`メッセージタイプで使用できます。
+送信側と同様に、`receiver.js`はMAMクライアントとtrytesコンバータをインポートします。モードは `public`に設定されています。プレースホルダ、mamSecretは、`private`または`restricted`メッセージタイプでも使用できます。
 <!-- Like the sender, receiver.js imports the MAM client and the trytes convertor.  Mode is set to "public".  A placeholder, mamSecret, is available for use with a "private" or "restricted" message type. -->
 
 ```javascript
