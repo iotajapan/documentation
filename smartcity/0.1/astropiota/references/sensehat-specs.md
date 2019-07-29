@@ -1,4 +1,4 @@
-## Sense HAT Specifications
+# Sense HAT Specifications
 
 **This list contains the specifications for the Sense HAT hardware that's used in the AstroPiOTA project.**
 
