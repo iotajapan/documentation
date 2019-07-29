@@ -20,4 +20,3 @@ AstroPiOTAは、タングルを使用してローカル環境データを追跡�
 - [SenseHat](https://thepihut.com/products/raspberry-pi-sense-hat-astro-pi)
 - IOTA.jsのソースコードとドキュメント：https://github.com/iotaledger/iota.js
 <!-- - IOTA.js source code and documentation: https://github.com/iotaledger/iota.js -->
-
