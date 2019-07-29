@@ -1,8 +1,8 @@
 # Index
 
-[Introduction/Overview](/introduction/overview.md)
-[AstroPiOTA/Overview](/astropiota/introduction/overview.md)
-[AstroPiOTA/Build AstroPiOTA](/astropiota/how-to-guides/build.md)
-[Install and run the software](/astropiota/how-to-guides/run.md)
-[Connect to AstroPiOTA over an SHH connection](/astropiota/how-to-guides/connect.md)
-[Customize AstroPiOTA](/astropiota/how-to-guides/customize.md)
+[序説/概要](/introduction/overview.md)
+[AstroPiOTA/概要](/astropiota/introduction/overview.md)
+[AstroPiOTA/AstroPiOTAをビルドする](/astropiota/how-to-guides/build.md)
+[AstroPiOTA/ソフトウェアをインストールして実行する](/astropiota/how-to-guides/run.md)
+[AstroPiOTA/SHH接続を介してAstroPiOTAに接続する](/astropiota/how-to-guides/connect.md)
+[AstroPiOTA/AstroPiOTAをカスタマイズする](/astropiota/how-to-guides/customize.md)
