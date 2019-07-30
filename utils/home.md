@@ -9,12 +9,3 @@
 
 [コミュニティユーティリティ](/0.1/community/one-command-tangle/overview.md)
 ## IOTAコミュニティによって維持されているユーティリティを閲覧します。
-
-[MAMウォッチャー](/0.1/mam-watcher/overview.md)
-## 暗号化されたチャネルをパブリッシュおよびサブスクライブすることで、秘密のメッセージを送受信します。
-
-[ワンコマンドタングル](/0.1/one-command-tangle/overview.md)
-## 単一のDockerコマンドを使用して自身のIOTAネットワークを設定します。
-
-[ラズパイpub/sub](/0.1/raspberry-pi-pub-sub/overview.md)
-## Raspberry PiからDevnetタングルに毎分リアルタイムの温度データ（摂氏）を送信します。

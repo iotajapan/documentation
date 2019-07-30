@@ -94,7 +94,7 @@ IOTA財団はDevnet上で以下のパブリックIRIノードをホストして�
 このエンドポイントを使用すると、Devnet上のIRIノードの[ZMQ](root://node-software/0.1/iri/concepts/zero-message-queue.md)にアクセスできます。
 <!-- This endpoint gives you access to the [zero message queue](root://node-software/0.1/iri/concepts/zero-message-queue.md) of an IRI node on the Devnet. -->
 
-ZMQノードを使用して、IRIノード内のイベントをサブスクライブします。
+ZMQノードを使用して、IRIノード内のイベントを購読します。
 <!-- Use the ZMQ node to subscribe to events in an IRI node. -->
 
 **URL:** tcp://zmq.testnet.iota.org:5556
@@ -155,7 +155,7 @@ IOTA財団はSpamnet上で以下のパブリックIRIノードをホストして
 このエンドポイントを使用すると、Spamnet上のIRIノードの[ZMQ](root://node-software/0.1/iri/concepts/zero-message-queue.md)にアクセスできます。
 <!-- This endpoint gives you access to the [zero message queue](root://node-software/0.1/iri/concepts/zero-message-queue.md) of an IRI node on the Spamnet. -->
 
-ZMQノードを使用して、IRIノード内のイベントをサブスクライブします。
+ZMQノードを使用して、IRIノード内のイベントを購読します。
 <!-- Use the ZMQ node to subscribe to events in an IRI node. -->
 
 **URL:** tcp://zmq.spamnet.iota.org:5556
