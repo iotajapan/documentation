@@ -2,32 +2,28 @@
     "headerTitle": "開発者用ドキュメント",
     "headerTopLinks": [
         {
-            "href": "https://docs.iota.org",
-            "name": "DOCS(EN)"
+            "href": "https://github.com/iotaledger/documentation/commit/d6c550ab813fbcf8449fbad0211fbccbbf2746c8",
+            "name": "d6c550aまで済"
+        },
+        {
+            "href": "https://github.com/iotajapan/documentation-platform",
+            "name": "github(ja)"
         },
         {
             "href": "https://iotajapan.com",
             "name": "IOTA JAPAN"
         },
         {
+            "href": "https://docs.iota.org",
+            "name": "DOCS(EN)"
+        },
+        {
+            "href": "https://github.com/iotaledger/documentation-platform",
+            "name": "github(en)"
+        },
+        {
             "href": "https://iota.org",
             "name": "iota.org"
-        },
-        {
-            "href": "https://blog.iota.org/",
-            "name": "ニュース"
-        },
-        {
-            "href": "https://trinity.iota.org/",
-            "name": "トリニティ"
-        },
-        {
-            "href": "https://qubic.iota.org/",
-            "name": "キュービック"
-        },
-        {
-            "href": "https://ecosystem.iota.org/",
-            "name": "エコシステム"
         }
     ],
     "popularTopics": [
