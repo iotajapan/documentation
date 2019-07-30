@@ -165,11 +165,11 @@
 ## 次のステップ
 <!-- ## Next steps -->
 
-あなた自身の[プライベートタングルを実行し](../one-command-tangle/overview.md)、プライベートタングルにMAMメッセージを送信してみてください。
+自身の[プライベートタングルを実行し](../one-command-tangle/overview.md)、プライベートタングルにMAMメッセージを送信します。
 <!-- Try [running your own private Tangle](../one-command-tangle/overview.md) and sending the sending the MAM messages to it. -->
 
 :::info:
-`sender.js`ファイルと`fetcher.js`ファイルの両方で、ノードのURL`https://nodes.devnet.thetangle.org:443`を必ず自分のノードのURL（`http:127.0.0.1:14265`）に変更してください。
+`sender.js`ファイルと`fetcher.js`ファイルの両方で、ノードのURL`https://nodes.devnet.thetangle.org:443`を必ず自分のノードのURL（`http:127.0.0.1:14265`）に変更します。
 :::
 <!-- :::info: -->
 <!-- Make sure to change the node URL `https://nodes.devnet.thetangle.org:443` to the URL of your node (`http:127.0.0.1:14265`) in both the `sender.js` file and the `fetcher.js` file. -->

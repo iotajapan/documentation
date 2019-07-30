@@ -195,14 +195,14 @@ SEED9999999999999999999999999999999999999999999999999999999999999999999999999999
 ## 次のステップ
 <!-- ## Next steps -->
 
-ご自身のネットワークで他のツールやユーティリティを使ってみてください。
+自身のネットワークで他のツールやユーティリティを使います。
 <!-- Use one of our other tools and utilities with your new network. -->
 
-あなたのネットワークを通して暗号化されたメッセージを送るために[MAMウォッチャー](../mam-watcher/overview.md)を試してみてください。
+ネットワークを通して暗号化されたメッセージを送るために[MAMウォッチャー](../mam-watcher/overview.md)を試します。
 <!-- Try out the [MAM watcher](../mam-watcher/overview.md) to send encrypted messages through your network. -->
 
 :::info:
-`sender.js`ファイルと`fetcher.js`ファイルの両方で、ノードのURL`https://nodes.devnet.thetangle.org:443`を必ず自分のノードのURL（`http:127.0.0.1:14265`）に変更してください。
+`sender.js`ファイルと`fetcher.js`ファイルの両方で、ノードのURL`https://nodes.devnet.thetangle.org:443`を必ず自分のノードのURL（`http:127.0.0.1:14265`）に変更します。
 :::
 <!-- :::info: -->
 <!-- Make sure to change the node URL `https://nodes.devnet.thetangle.org:443` to the URL of your node (`http:127.0.0.1:14265`) in both the `sender.js` file and the `fetcher.js` file. -->

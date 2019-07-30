@@ -135,5 +135,5 @@ IOTAの最も重要な利点の1つは、タングルのトランザクション
 [データを暗号化し、MAM（マスク認証メッセージング）チャネルを介して送信します](../mam-watcher/overview.md)。
 <!-- [Start encrypting your data and sending it through a MAM (masked authenticated messaging) channel](../mam-watcher/overview.md). -->
 
-[IOTAクライアントライブラリを知り](root://client-libraries/0.1/introduction/overview.md)、他にできることを調べてみましょう。
+[IOTAクライアントライブラリを知り](root://client-libraries/0.1/introduction/overview.md)、他にできることを調べます。
 <!-- [Get to know the IOTA client libraries](root://client-libraries/0.1/introduction/overview.md) and find out what else you can do. -->
