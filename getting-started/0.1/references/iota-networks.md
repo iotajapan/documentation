@@ -46,6 +46,7 @@ IOTAには、以下の[無許可制（パブリック）ネットワーク](../i
 Mainnet上のトランザクションが有効であるためには、14の[最小重量値](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)（MWM）を使用しなければなりません。
 <!-- Transactions on the Mainnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 14 to be valid. -->
 
+<a name="devnet"></a>
 ## Devnet
 
 Devnetは、トークンが無料であること以外はMainnetとほぼ同じです。

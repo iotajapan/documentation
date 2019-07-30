@@ -43,7 +43,7 @@
 2. ロケーションピンの近くを右クリックし、**この場所について**をクリックします。
   <!-- 2. Right click near the location pin and click **What's here?** -->
 
-3. 作業をコピーします。
+3. 座標をコピーします。
   <!-- 3. Copy the coordinates -->
 
     ![Coordinates](../images/coordinates.png)
@@ -76,7 +76,7 @@
 
     ```js
     const iota = Iota.composeAPI({
-    provider: 'https://nodes.devnet.iota.org:443'
+        provider: 'https://nodes.devnet.iota.org:443'
     });
     ```
 
@@ -115,22 +115,22 @@
     ```js
     const transfers = [
     {
-    value: 0,
-    address: "HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD",
-    tag: iac
+        value: 0,
+        address: "HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD",
+        tag: iac
     }
     ];
 
     iota.prepareTransfers(seed, transfers)
     .then(trytes => {
-    return iota.sendTrytes(trytes, 3/*depth*/, 9/*MWM*/)
+        return iota.sendTrytes(trytes, 3/*depth*/, 9/*MWM*/)
     })
     .then(bundle => {
-    console.log("Bundle sent with the tagged transaction");
+        console.log("Bundle sent with the tagged transaction");
     })
     .catch(err => {
-    // Catch any errors
-    console.log(err);
+        // Catch any errors
+        console.log(err);
     });
     ```
 
@@ -141,22 +141,20 @@
     var locations =[];
 
     iota.findTransactions({tags:[iac]})
-        .then(trytes => {
-    iota.getTransactionObjects(trytes)
-        .then(
-            array => {
-                for(i=0;i<array.length;i++){
-                    let areaCode = iotaAreaCodes.extract(array[i].tag);
-                    let data = iotaAreaCodes.decode(areaCode);
-                    locations.push({"lat": data.latitude, "lng":data.longitude});
-                }
-                    console.log(`${locations[i]} transactions found with the ${iac} tag`)
+    .then(trytes => {
+        iota.getTransactionObjects(trytes)
+        .then(array => {
+            for(i=0; i<array.length; i++){
+                let areaCode = iotaAreaCodes.extract(array[i].tag);
+                let data = iotaAreaCodes.decode(areaCode);
+                locations.push({"lat": data.latitude, "lng":data.longitude});
             }
-        )
+            console.log(`${locations[i]} transactions found with the ${iac} tag`)
+        })
     })
     .catch(err => {
-    // Catch any errors
-    console.log(err);
+        // Catch any errors
+        console.log(err);
     });
     ```
 
