@@ -122,7 +122,7 @@ SEED9999999999999999999999999999999999999999999999999999999999999999999999999999
 
 ---
 
-1. `/config/tools/`ディレクトリ内のファイルに設定情報を追加します。Amazon Dynamo DBの認証情報、Fixer APIキー、およびCoinMarketCap APIキーは `/config/tools/tools-api-config.json`ファイルに設定されています。Google Maps APIキーは `/config/tools/tools-config.json`ファイルに設定されています。
+1. `/config/tools/`ディレクトリ内のファイルに設定情報を追加します。`Amazon Dynamo DBの認証情報`、`Fixer APIキー`、および`CoinMarketCap APIキー`は `/config/tools/tools-api-config.json`ファイルに設定されています。`Google Maps APIキー`は`/config/tools/tools-config.json`ファイルに設定されています。
   <!-- 1. Add any configuration credentials to the files in the `/config/tools/` directory. The Amazon Dynamo DB credentials, the Fixer API key, and the CoinMarketCap API key are set in the `/config/tools/tools-api-config.json` file. The Google Maps API key is set in the `/config/tools/tools-config.json` file. -->
 
 2. 設定情報を使って`docker-compose up`コマンドを実行します。
@@ -141,7 +141,7 @@ SEED9999999999999999999999999999999999999999999999999999999999999999999999999999
 アプリケーションを実行しているときは、アドレス`http://localhost:14265`にあるIRIノードのAPIポートを介してネットワークと対話できます。
 <!-- When the application is running, you can interact with the network through the IRI node's API port at the following address `http://localhost:14265`. -->
 
-[APIエンドポイント](root://node-software/0.1/iri/references/api-reference.md)の一覧を参照してください。
+[APIエンドポイント](root://node-software/0.1/iri/references/api-reference.md)の一覧を参照します。
 <!-- See a list of [API endpoints](root://node-software/0.1/iri/references/api-reference.md). -->
 
 --------------------
@@ -207,11 +207,10 @@ Node.jsで[JavaScriptクライアントライブラリ](root://client-libraries/
 ```
 --------------------
 
-<<<<<<< HEAD
 ## 手順3. ウォレットを通してプライベートタングルに接続する
 <!-- ## Step 3. Connect to your private Tangle through a wallet -->
 
-ユーザーインターフェースを介してトランザクションを送受信したい場合は、いずれかのIOTAウォレットを介してプライベートタングルに接続できます。
+ユーザーインターフェースを介してトランザクションを送受信したい場合は、以下のいずれかのIOTAウォレットを介してプライベートタングルに接続できます。
 <!-- If you want to send and receive transactions through a user interface, you can connect to your private Tangle through one of the IOTA wallets. -->
 
 使用できるウォレットは2つあります。
@@ -247,7 +246,7 @@ Node.jsで[JavaScriptクライアントライブラリ](root://client-libraries/
 ### トリニティに接続する
 <!-- ### Connect to Trinity -->
 
-[トリニティ](root://trinity/0.1/introduction/overview.md)は、macOS、Windows、Linux、iOS、およびAndroid用の公式IOTAウォレットです。このWalletを使用すると、HTTPSプロトコルをサポートしているノードにのみ接続できます。
+[トリニティ](root://trinity/0.1/introduction/overview.md)は、macOS、Windows、Linux、iOS、およびAndroid用の公式IOTAウォレットです。このウォレットを使用すると、HTTPSプロトコルをサポートしているノードにのみ接続できます。
 <!-- [Trinity](root://trinity/0.1/introduction/overview.md) is the official IOTA  wallet for macOS, Windows, Linux, iOS, and Android. This wallet allows you to connect only to nodes that support the HTTPS protocol. -->
 
 トリニティに接続するには、Let's Encrypt SSL証明書を使用する安全なCaddyプロキシサーバを起動するようにワンコマンドタングルのDockerコンテナを構築します。
@@ -269,12 +268,12 @@ Node.jsで[JavaScriptクライアントライブラリ](root://client-libraries/
 * [A-record](https://support.dnsimple.com/articles/a-record/)がパブリックIPアドレスを指しているドメイン名。
 <!-- * A domain name whose [A-record](https://support.dnsimple.com/articles/a-record/) points to your public IP address -->
 
-* ポート80と443がインターネットに公開されているワンコマンドタングルを実行しているデバイス（ポートを転送する必要があるかもしれません）。
+* ポート80と443をインターネットに公開しているワンコマンドタングルを実行しているデバイス（ポートを転送する必要があるかもしれません）。
 <!-- * A device that's running the one-command Tangle, which is exposed to the Internet on ports 80 and 443 (you may need to forward ports) -->
 
 ---
 
-1. `/config/tools/ssl/Caddyfile`ファイルで、`your-domain.com`と`your@email.com`のプレースホルダーをあなたが選んだドメイン名とEメールアドレスに変更します。
+1. `/config/tools/ssl/Caddyfile`ファイルの、`your-domain.com`と`your@email.com`のプレースホルダーをあなたが選んだドメイン名とEメールアドレスに変更します。
   <!-- 1. In the `/config/tools/ssl/Caddyfile` file, change the `your-domain.com` and `your@email.com` placeholders to your chosen domain name and email address -->
 
 2. Caddyの設定オプションで`docker-compose up`コマンドを実行します。
@@ -342,7 +341,7 @@ Node.jsで[JavaScriptクライアントライブラリ](root://client-libraries/
 ## ネットワークを再起動する
 <!-- ## Restart the network -->
 
-ネットワークを再起動したい場合は、**Ctrl + C**を押します。それから、`.env`ファイルで、コマンドを再実行する前に`EXTRA_COMPASS_FLAGS`変数から`-bootstrap`フラグを削除します。
+ネットワークを再起動したい場合は、**Ctrl + C**を押します。それから、コマンドを再実行する前に、`.env`ファイルの`EXTRA_COMPASS_FLAGS`変数から`-bootstrap`フラグを削除します。
 <!-- If you want to restart the network, press **Ctrl + C**. Then, in the `.env` file, remove the `-bootstrap` flag from the `EXTRA_COMPASS_FLAGS` variable before running the command again. -->
 
 ## 次のステップ
