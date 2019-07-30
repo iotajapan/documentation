@@ -27,8 +27,8 @@
 このアプリケーションは、温度センサーのデータをタングルに送信する、すぐに使えるテンプレートです。
 <!-- This application is a ready-to-use template that sends temperature sensor data to the Tangle. -->
 
-## 使い方
-<!-- ## How it works -->
+## パブリッシャーの仕組み
+<!-- ## How the publisher works -->
 
 `raspberrypi-pubsub`ディレクトリには、次のファイルがあります。
 <!-- In the `raspberrypi-pubsub` directory, you have the following files: -->

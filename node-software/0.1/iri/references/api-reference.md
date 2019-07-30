@@ -7,7 +7,7 @@
 以下のすべてのコマンドにHTTPヘッダーを含める必要があります。
 <!-- All the following commands must include an HTTP header. -->
 
-| ヘッダー | 値 | 必須または任意 |
+| **ヘッダー** | **値** | **必須または任意** |
 |:---------------|:--------|:--------|
 | X-IOTA-API-Version | 1 | 必須 |
 | Content-Type | application/json | 任意 |
@@ -37,7 +37,7 @@
 隣接ノードを追加するためのURIフォーマットは、`"tcp://IPADDRESS:PORT"`です。
 <!-- The URI format for adding neighbors is `"tcp://IPADDRESS:PORT"`. -->
 
-| パラメータ | 必須または任意 | 説明 | タイプ |
+| **パラメータ** | **必須または任意** | **説明** | **タイプ** |
 |--|--|--|--|
 | `uris` | 必須 | 追加する隣接ノードのURIの文字列 | stringの配列 |
 
@@ -138,7 +138,7 @@ curl http://localhost:14265 \
 ### 結果
 <!-- ### Results -->
 
-| リターンフィールド | 説明 |
+| **リターンフィールド** | **説明** |
 |--|--|
 | `addedNeighbors` | 追加した隣接ノードの総数 |
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
@@ -153,7 +153,7 @@ curl http://localhost:14265 \
  `branchTransaction`および`trunkTransaction`パラメーターは、[`getTransactionsToApprove`](#getTransactionsToApprove)エンドポイントから返されます。
 <!--  The `branchTransaction` and  `trunkTransaction` parameters are returned from the [`getTransactionsToApprove`](#getTransactionsToApprove) endpoint. -->
 
-| パラメータ | 必須または任意 | 説明 | タイプ |
+| **パラメータ** | **必須または任意** | **説明** | **タイプ** |
 |--|--|--|--|
 | `trunkTransaction` | 必須 | [トランクトランザクション](root://iota-basics/0.1/references/structure-of-a-transaction.md)ハッシュ | string |
 | `branchTransaction` | 必須 | [ブランチトランザクション](root://iota-basics/0.1/references/structure-of-a-transaction.md)ハッシュ | string |
@@ -270,7 +270,7 @@ curl http://localhost:14265 \
 
 `trunkTransaction` + `branchTransaction` + `nonce`.
 
-| リターンフィールド | 説明 |
+| **リターンフィールド** | **説明** |
 |--|--|
 | `trytes` | 有効な`nance`フィールドを含むトランザクショントライト |
 
@@ -284,7 +284,7 @@ curl http://localhost:14265 \
 このエンドポイントの`trytes`パラメータには、[`attachToTangle`](#attachToTangle)エンドポイントによって行われるプルーフオブワークを含める必要があります。
 <!-- The `trytes` parameter for this endpoint must include proof of work, which is done by the [`attachToTangle`](#attachToTangle) endpoint. -->
 
-| パラメータ | 必須または任意 | 説明 | タイプ |
+| **パラメータ** | **必須または任意** | **説明** | **タイプ** |
 |--|--|--|--|
 | `trytes` | 必須 | 有効なトランザクショントライト | stringの配列 |
 
@@ -374,7 +374,7 @@ curl http://localhost:14265 \
 
 ### 結果
 
-| リターンフィールド | 説明 |
+| **リターンフィールド** | **説明** |
 |--|--|
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
 
@@ -382,16 +382,16 @@ curl http://localhost:14265 \
 
 トランザクションの整合性を確認します。整合性のあるトランザクションとは、次のことが当てはまるトランザクションです。
 <!-- Check the consistency of transactions. A consistent transaction is one where the following statements are true: -->
-* トランザクションの参照トランザクションが欠落していない。
-<!-- * The transaction isn't missing a reference transaction -->
+* ノードにトランザクションのブランチまたはトランクトランザクションが欠落していない。
+<!-- * The node isn't missing the transaction's branch or trunk transactions -->
 * トランザクションのバンドルが有効。
 <!-- * The transaction's bundle is valid -->
-* トランザクションの参照トランザクションが有効。
-<!-- * The transaction's reference transactions are valid -->
+* トランザクションのブランチおよびトランクトランザクションが有効。
+<!-- * The transaction's branch and trunk transactions are valid -->
 
 ### パラメータ
 
-| パラメータ | 必須または任意 | 説明 | タイプ |
+| **パラメータ** | **必須または任意** | **説明** | **タイプ** |
 |--|--|--|--|
 | `tails` | 必須 | 確認するトランザクションハッシュ | stringの配列 |
 
@@ -492,7 +492,7 @@ curl http://localhost:14265 \
 
 ### 結果
 
-| リターンフィールド | 説明 |
+| **リターンフィールド** | **説明** |
 |--|--|
 | `state` | `tails`パラメータ内で与えられたトランザクションの状態。`true`は、与えられたすべてのトランザクションに整合性があることを意味します。`false`は、与えられたトランザクションの一つ以上に整合性がないことを意味します。 |
 | `info` | `state`フィールドが`false`の場合、このフィールドにはトランザクションに整合性がない理由に関する情報が含まれます。 |
@@ -509,7 +509,7 @@ curl http://localhost:14265 \
 
 ### パラメータ
 
-| パラメータ | 説明 | タイプ |
+| **パラメータ** | **説明** | **タイプ** |
 |--|--|--|
 | `bundles` | 検索するバンドルハッシュ | stringの配列 |
 | `addresses` | 検索するアドレス（チェックサムを含まない） | stringの配列 |
@@ -615,7 +615,7 @@ curl http://localhost:14265 \
 トランザクションハッシュの配列は、すべての個々の要素に対して同じ順序で返されます。
 <!-- An array of transaction hashes, is returned in the same order for all individual elements. -->
 
-| リターンフィールド | 説明 |
+| **リターンフィールド** | **説明** |
 |--|--|
 | `hashes` | 返されるトランザクションハッシュは入力によって異なります。`bundles`：与えられたバンドルハッシュを含むトランザクションハッシュの配列を返します。`addresses`：`address`フィールドに与えられたアドレスを含むトランザクションハッシュの配列を返します。`tags`：`tag`フィールドに与えられた値を含むトランザクションハッシュの配列を返します。`approvees`：`branchTransaction`フィールドまたは`trunkTransaction`フィールドに与えられたトランザクションを含むトランザクションハッシュの配列を返します。 |
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
@@ -630,7 +630,7 @@ curl http://localhost:14265 \
 
  ### パラメータ
 
-| パラメータ | 必須または任意 | 説明 | タイプ |
+| **パラメータ** | **必須または任意** | **説明** | **タイプ** |
 |--|--|--|--|
 | `addresses` | 必須 | 残高を取得するアドレス（チェックサムを含まない） | stringの配列 |
 | `threshold` | 必須 | 0から100までの確認しきい値 | integer |
@@ -736,7 +736,7 @@ curl http://localhost:14265 \
 
 ### 結果
 
-| リターンフィールド | 説明 |
+| **リターンフィールド** | **説明** |
 |--|--|
 | `balances` | `addresses`パラメーターがエンドポイントに渡されたのと同じ順序での残高の配列 |
 | `references` | 参照しているチップ。`tips`パラメータがエンドポイントに渡されなかった場合、このフィールドには残高を確定した最新のマイルストーンのハッシュが含まれます。 |
@@ -745,17 +745,21 @@ curl http://localhost:14265 \
 
 ## getInclusionStates
 
-一連のトランザクションの包含状態を取得します。このエンドポイントは、トランザクションがネットワークによって確定されたかどうか（有効なマイルストーンによって参照されたかどうか）を判別します。過去のトランザクションの包含状態を取得するために複数のチップやマイルストーンを検索できます。
+一連のトランザクションの包含状態を取得します。
 <!-- Get the inclusion states of a set of transactions. -->
+
+このエンドポイントは、トランザクションがネットワークによって確定された（有効なマイルストーンによって参照された）かどうかを判別します。
 <!-- This endpoint determines if a transaction is confirmed by the network (referenced by a valid milestone). -->
+
+過去の包含状態のトランザクションを取得するために、複数のチップ（つまりマイルストーン）を検索できます。
 <!-- You can search for multiple tips (and thus, milestones) to get past inclusion states of transactions. -->
 
 ### パラメータ
 
-| パラメータ | 必須または任意 | 説明 | タイプ |
+| **パラメータ** | **必須または任意** | **説明** | **タイプ** |
 |--|--|--|--|
 | `transactions` | 必須 | 包含状態を取得したいトランザクションハッシュのリスト | stringの配列 |
-| `tips` | 任意 | 検索したいチップトランザクションハッシュ（マイルストーンを含む）のリスト | stringの配列 |
+| `tips` | 必須(空も可) | 検索したいチップトランザクションハッシュ（マイルストーンを含む）のリスト | stringの配列 |
 
 ### 例
 --------------------
@@ -865,7 +869,7 @@ curl http://localhost:14265 \
 
 ### 結果
 
-| リターンフィールド | 説明 |
+| **リターンフィールド** | **説明** |
 |--|--|
 | `states` | `transactions`パラメータと同じ順序のブール値のリスト。`true`はトランザクションが確定されたことを意味します。 |
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
@@ -966,7 +970,7 @@ curl http://localhost:14265 \
 ノードが再起動するまで活動状況は蓄積されます。
 :::
 
-| リターンフィールド | 説明 |
+| **リターンフィールド** | **説明** |
 |--|--|
 | `neighbors` | 次のフィールドを含むオブジェクトの配列。address、connectionType、numberOfAllTransactions、numberOfRandomTransactionRequests、numberOfNewTransactions、numberOfInvalidTransactions、numberOfStaleTransactions、numberOfSentTransactions、およびconnectiontype。 |
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
@@ -1187,7 +1191,7 @@ curl http://localhost:14265 \
 
 ### 結果
 
-| リターンフィールド | 説明 |
+| **リターンフィールド** | **説明** |
 |--|--|
 | `hashes` | チップトランザクションハッシュの配列 |
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
@@ -1199,7 +1203,7 @@ curl http://localhost:14265 \
 
 ### パラメータ
 
-| パラメータ | 必須または任意 | 説明 | タイプ |
+| **パラメータ** | **必須または任意** | **説明** | **タイプ** |
 |--|--|--|--|
 | `depth` | 必須 | 承認のためのトランザクションを決定するために戻るバンドルの数。 | integer |
 | `reference` | 任意 | 重み付きランダムウォークを開始するトランザクションハッシュ。このパラメータを使用して、返されたチップトランザクションハッシュが与えられた参照トランザクションを確実に承認するようにします。 | string |
@@ -1293,7 +1297,7 @@ curl http://localhost:14265 \
 
 ### 結果
 
-| リターンフィールド | 説明 |
+| **リターンフィールド** | **説明** |
 |--|--|
 | `trunkTransaction` | 有効なトランクトランザクションハッシュ |
 | `branchTransaction` | 有効なブランチトランザクションハッシュ |
@@ -1306,7 +1310,7 @@ curl http://localhost:14265 \
 
 ### パラメータ
 
-| パラメータ | 必須または任意 | 説明 | タイプ |
+| **パラメータ** | **必須または任意** | **説明** | **タイプ** |
 |--|--|--|--|
 | `hashes` | 必須 | トランザクションハッシュ | stringの配列 |
 
@@ -1409,7 +1413,7 @@ curl http://localhost:14265 \
 クライアントライブラリを使用して、返されたトライトをASCII文字に変換できます。
 <!-- You can convert the returned trytes to ASCII characters by using the client libraries. -->
 
-| リターンフィールド | 説明 |
+| **リターンフィールド** | **説明** |
 |--|--|
 | `trytes` | 与えられたトランザクションハッシュに対するトランザクショントライトの配列（パラメータと同じ順序で） |
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
@@ -1500,7 +1504,7 @@ curl http://localhost:14265 \
 
 ### 結果
 
-| リターンフィールド | 説明 |
+| **リターンフィールド** | **説明** |
 |--|--|
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
 
@@ -1518,7 +1522,7 @@ curl http://localhost:14265 \
 隣接ノードを削除するためのURIフォーマットは`"tcp://IPADDRESS:PORT"`です。
 <!-- The URI format for removing neighbors is `"tcp://IPADDRESS:PORT"`. -->
 
-| パラメータ | 必須または任意 | 説明 | タイプ |
+| **パラメータ** | **必須または任意** | **説明** | **タイプ** |
 |--|--|--|--|
 | `uris` | 必須 | 削除する隣接ノードのURIの文字列 | stringの配列 |
 
@@ -1598,7 +1602,7 @@ curl http://localhost:14265 \
 
 ### 結果
 
-| リターンフィールド | 説明 |
+| **リターンフィールド** | **説明** |
 |--|--|
 | `removedNeighbors` | 削除された隣接ノードの総数 |
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
@@ -1613,7 +1617,7 @@ curl http://localhost:14265 \
 `trytes`パラメータの値は有効でなければなりません。有効なトライトは[`attachToTangle`](#attachToTangle)エンドポイントによって返されます。
 <!-- The value of the `trytes` parameter must be valid. Valid trytes are returned by the [`attachToTangle`](#attachToTangle) endpoint. -->
 
-| パラメータ | 必須または任意 | 説明 | タイプ |
+| **パラメータ** | **必須または任意** | **説明** | **タイプ** |
 |--|--|--|--|
 | `trytes` | 必須 | トランザクショントライト | stringの配列 |
 
@@ -1704,7 +1708,7 @@ curl http://localhost:14265 \
 
 ### 結果
 
-| リターンフィールド | 説明 |
+| **リターンフィールド** | **説明** |
 |--|--|
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
 
@@ -1718,7 +1722,7 @@ curl http://localhost:14265 \
 
 ### パラメータ
 
-| パラメータ | 必須または任意 | 説明 | タイプ |
+| **パラメータ** | **必須または任意** | **説明** | **タイプ** |
 |--|--|--|--|
 | `addresses` | 必須 | チェックするアドレス（チェックサムを含まない） | stringの配列 |
 
@@ -1818,7 +1822,7 @@ curl http://localhost:14265 \
 
 ### 結果
 
-| リターンフィールド | 説明 |
+| **リターンフィールド** | **説明** |
 |--|--|
 | `states` | `addresses`パラメータの値と同じ順序で指定されたアドレスの状態。`true`は、アドレスからIOTAトークンが取り出されたことがあることを意味します。 |
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
