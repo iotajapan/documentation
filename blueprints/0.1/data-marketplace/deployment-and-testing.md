@@ -112,7 +112,7 @@ MAMチャンネルについての理解
     * **GPS座標（経度/緯度）：** https://www.gps-coordinates.net/ などのサービスを使用して、センサーに適したGPSデータを取得できます。負の値の場合はハイフン（"-"）と小数点記号（"."）を先頭に付けることができます。文字や特殊文字を入力しないでください。
     <!-- * **GPS Coordinates (latitude / longitude)**: You can use a service like https://www.gps-coordinates.net/ to get the right GPS data for your sensor. We accept coordinates as a number of digits ([0–9]), that could be prepended by a hyphen (“-”) for negative value, and a decimal separator (“.”). Please do not enter any letters or special characters. -->
     * **データストリームの値段：** ここでセンサーデータの価格を定義できます。価値の定義を制限するわけではありませんが、プレビューや払い戻しのオプションがなければ、ごく少数の顧客だけがデータストリームのためにお金を払う準備ができていることに注意してください。一方、非常に低い価格を設定すると、合計1000分の1セント未満の支払総額が発生する可能性があります。1Miの[現在の価格](https://coinmarketcap.com/currencies/iota/)である1,000,000（100万）IOTAトークンを確認することをお勧めします。センサーのコストと保守作業に応じて、1,000iから50,000iの範囲内で価格を設定することをお勧めします。
-    <!-- * **Price of the data stream**: Here you can define the cost of the sensor data. We do not restrict you with defining the value, but please keep in mind that without a preview and refund options, only a few customers will be ready to pay a fortune for a data stream. On the other hand, setting a very low price might result in a total collected payment under 1/1000 of a cent. We encourage you to check the [current price](https://coinmarketcap.com/currencies/iota/) of 1Mi, which is 1000000 (one million) IOTA tokens. We suggest that you set the price within the range of 1000i to 50000i, depending on the cost and maintenance efforts of the sensor. -->
+    <!-- * **Price of the data stream**: Here you can define the cost of the sensor data. We do not restrict you with defining the value, but please keep in mind that without a preview and refund options, only a few customers will be ready to pay a fortune for a data stream. On the other hand, setting a very low price might result in a total collected payment under 1/1000 of a cent. We encourage you to check the [current price](https://coinmarketcap.com/currencies/iota/) of 1 Mi, which is 1000000 (one million) IOTA tokens. We suggest that you set the price within the range of 1000 i to 50000 i, depending on the cost and maintenance efforts of the sensor. -->
     * **データフィールド：** センサー構成の最も重要な部分。センサーによってキャプチャされ、タングルに保存されるすべてのパラメータに関する情報を入力してください。右側の**+**と**X**ボタンを押すと、フィールドを追加または削除できます。
     <!-- * **Data Fields**: The most essential part of the sensor configuration. Please provide information for every parameter that will be captured by the sensor and stored on the Tangle. You can add or remove fields by pressing the **+** and **X** buttons on the right. -->
 
@@ -158,7 +158,7 @@ MAMチャンネルについての理解
 <!-- ### Create and fund a new wallet -->
 
 無料のIOTAトークンをデバイスのウォレットに供給することができます。通常、100,000iから1,000,000iのDevnetトークンを無料で新しいデバイスのウォレットに転送します。
-<!-- You can fund a device's wallet with free IOTA tokens. We usually transfer between 100000i and 1000000i of Devnet tokens for free to your new device's wallet. -->
+<!-- You can fund a device's wallet with free IOTA tokens. We usually transfer between 100000 i and 1000000 i of Devnet tokens for free to your new device's wallet. -->
 
 :::info:
 DevnetトークンをMainnetで使用したり、暗号通貨の取引所で交換したりすることはできません。

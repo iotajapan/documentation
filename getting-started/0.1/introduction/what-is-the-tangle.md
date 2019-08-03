@@ -34,5 +34,5 @@
 <!-- If transaction 6 were a milestone, then transaction 5, 3, 2, and 1 would all be confirmed. -->
 <!-- ::: -->
 
-[タングル](root://iota-basics/0.1/concepts/the-tangle.md)についてさらに学びます。
-<!-- Learn more about [the Tangle](root://iota-basics/0.1/concepts/the-tangle.md) -->
+[タングル](root://dev-essentialsiota-basics/0.1/concepts/the-tangle.md)についてさらに学びます。
+<!-- Learn more about [the Tangle](root://dev-essentials/0.1/concepts/the-tangle.md). -->

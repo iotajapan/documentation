@@ -7,8 +7,8 @@
 ## 預け入れアドレス
 <!-- ## Deposit addresses -->
 
-[セキュリティ上の理由](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)から、預け入れアドレスから一度だけIOTAトークンを取り出すことができます。
-<!-- For [security purposes](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse), deposit addresses may only be withdrawn from once. -->
+[セキュリティ上の理由](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse)から、預け入れアドレスから一度だけIOTAトークンを取り出すことができます。
+<!-- For [security purposes](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse), deposit addresses may only be withdrawn from once. -->
 
 ハブは、IOTAトークンを定期的にユーザーの預け入れアドレスからハブ所有者のアドレスに転送することで、このリスクを軽減します。このプロセスは[スウィープ](../concepts/sweeps.md)内で行われます。
 <!-- Hub reduces this risk by transferring IOTA tokens from users' deposit addresses to a Hub owner's address at regular intervals. This process happens in a [sweep](../concepts/sweeps.md). -->

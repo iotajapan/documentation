@@ -38,8 +38,8 @@
 ## 対象読者
 <!-- ## Audience -->
 
-このドキュメントは、JavaScriptプログラミング言語とオブジェクト指向プログラミングの概念に精通している人を対象にしています。[アドレスの再利用](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)や[バンドルとトランザクション](root://iota-basics/0.1/concepts/bundles-and-transactions.md)などのIOTAの基本概念にも精通している必要があります。
-<!-- This documentation is designed for people who are familiar with the JavaScript programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [address reuse](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse),  [bundles, and transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md). -->
+このドキュメントは、JavaScriptプログラミング言語とオブジェクト指向プログラミングの概念に精通している人を対象にしています。[アドレスの再利用](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse)や[バンドルとトランザクション](root://dev-essentials/0.1/concepts/bundles-and-transactions.md)などのIOTAの基本概念にも精通している必要があります。
+<!-- This documentation is designed for people who are familiar with the JavaScript programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [address reuse](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse),  [bundles, and transactions](root://dev-essentials/0.1/concepts/bundles-and-transactions.md). -->
 
 このガイドは、IOTAを使用したアプリケーションの探求と開発を迅速に開始できるようにすることを目的としています。
 <!-- This guide is designed to let you quickly start exploring and developing applications with IOTA. -->

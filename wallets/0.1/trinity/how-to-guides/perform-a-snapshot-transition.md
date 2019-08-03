@@ -2,7 +2,7 @@
 <!-- # Perform a snapshot transition -->
 
 **グローバルスナップショット中に、ノードは自身の台帳から古いトランザクションデータを削除してメモリを解放します。グローバルスナップショットの後、ノードは少なくとも1iの残高を持つアドレスのみを保持します。グローバルスナップショットの後に正しい残高が表示されない場合は、トリニティが最新の残高をリクエストできるように、スナップショット移行を実行する必要があります。**
-<!-- **During a global snapshot, nodes remove old transaction data from their ledgers to free memory. After a global snapshot, nodes have only the addresses with a balance of at least 1i. If you don't see your correct balance after a global snapshot, you must perform a snapshot transition to allow Trinity to request the latest balance of your addresses.** -->
+<!-- **During a global snapshot, nodes remove old transaction data from their ledgers to free memory. After a global snapshot, nodes have only the addresses with a balance of at least 1 i. If you don't see your correct balance after a global snapshot, you must perform a snapshot transition to allow Trinity to request the latest balance of your addresses.** -->
 
 :::info:
 トリニティはステートフルです。つまり、トランザクション履歴のローカルコピーをデバイスに保存するということです。その結果、グローバルスナップショット後もトランザクション履歴を見ることができます。

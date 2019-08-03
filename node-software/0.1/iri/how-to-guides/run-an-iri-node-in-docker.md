@@ -1,8 +1,8 @@
 # DockerコンテナでIRIノードを実行する
 <!-- # Run an IRI node in a Docker container -->
 
-**Dockerコンテナ内でIRIを実行すると、デバイスはIRIノード用のLinuxサーバになり、IOTAネットワークに直接アクセスできるようになります。 IRIノードを実行することで、台帳の数を増やし、隣接IRIノードのトランザクションを検証することで、IOTAネットワークをより分散させることができます。**
-<!-- **When you run the IRI in a Docker container, your device becomes a Linux server for an IRI node, which gives you direct access to an IOTA network. By running an IRI node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbor IRI node's transactions.** -->
+**Dockerコンテナ内でIRIを実行すると、デバイスはIRIノード用のLinuxサーバになり、タングルに直接アクセスできるようになります。 IRIノードを実行することで、台帳の数を増やし、隣接IRIノードのトランザクションを検証することで、IOTAネットワークをより分散させることができます。**
+<!-- **When you run the IRI in a Docker container, your device becomes a Linux server for an IRI node, which gives you direct access to the Tangle. By running an IRI node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbor IRI node's transactions.** -->
 
 IRI Dockerコンテナは、以下のオペレーティングシステムに適しています。
 <!-- The IRI Docker container is suitable for the following operating systems: -->

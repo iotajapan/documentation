@@ -15,14 +15,14 @@
 ## 条件付き預け入れアドレス
 <!-- ## Conditional deposit addresses -->
 
-IOTAプロトコルでは、IOTAトークンを[シード](root://getting-started/0.1/introduction/what-is-a-seed.md)から導出された[アドレス](root://iota-basics/0.1/concepts/addresses-and-signatures.md)に送信する必要があります。これらのアドレスからは一度だけIOTAトークンを取り出すことができます。故に、すべての人が一度もIOTAトークンを取り出していないアドレスへ預け入れることが重要です。ただし、IOTAトークンを取り出す前に、誰がいつIOTAトークンをアドレスに預け入れようとしているのかを知ることは困難です。
-<!-- In the IOTA protocol, IOTA tokens must be sent to [addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md), which are derived from your [seed](root://getting-started/0.1/introduction/what-is-a-seed.md). These addresses may be withdrawn from only once. As a result, it's important that no one deposits IOTA tokens into a withdrawn address. But, it's difficult to know when or if someone is going to deposit IOTA tokens into your address before you withdraw from it. -->
+IOTAプロトコルでは、IOTAトークンを[シード](root://getting-started/0.1/introduction/what-is-a-seed.md)から導出された[アドレス](root://dev-essentials/0.1/concepts/addresses-and-signatures.md)に送信する必要があります。これらのアドレスからは一度だけIOTAトークンを取り出すことができます。故に、すべての人が一度もIOTAトークンを取り出していないアドレスへ預け入れることが重要です。ただし、IOTAトークンを取り出す前に、誰がいつIOTAトークンをアドレスに預け入れようとしているのかを知ることは困難です。
+<!-- In the IOTA protocol, IOTA tokens must be sent to [addresses](root://dev-essentials/0.1/concepts/addresses-and-signatures.md), which are derived from your [seed](root://getting-started/0.1/introduction/what-is-a-seed.md). These addresses may be withdrawn from only once. As a result, it's important that no one deposits IOTA tokens into a withdrawn address. But, it's difficult to know when or if someone is going to deposit IOTA tokens into your address before you withdraw from it. -->
 
 アカウント内のアドレスには、支払いに使用される可能性がある条件を指定できる追加機能が付属しています。これらのアドレスは、条件付き預け入れアドレス（CDA）と呼ばれます。
 <!-- In accounts, addresses come with extra features that allow you to specify the conditions in which they may be used in payments. These addresses are called conditional deposit addresses (CDA). -->
 
-アカウントはCDAを使用して、[署名済みアドレスからの取り出しリスク](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)を軽減します。送信者にIOTAトークンを要求すると、一定期間アクティブなCDAを作成できます。このようにして、送信者にその期間の後にだけそのアドレスから取り出すつもりであることを知らせます。その結果、送信者は、CDAの残り時間に応じて、預け入れるかどうかを決定できます。
-<!-- Accounts use CDAs to help reduce the [risk of withdrawing from spent addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). When you request IOTA tokens from someone, you can create a CDA that's active for a certain period of time. This way, you let the sender know that you intend to withdraw from that address only after that time. As a result, the sender can decide whether to make a deposit, depending on how much time is left on a CDA. -->
+アカウントはCDAを使用して、[署名済みアドレスからの取り出しリスク](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse)を軽減します。送信者にIOTAトークンを要求すると、一定期間アクティブなCDAを作成できます。このようにして、送信者にその期間の後にだけそのアドレスから取り出すつもりであることを知らせます。その結果、送信者は、CDAの残り時間に応じて、預け入れるかどうかを決定できます。
+<!-- Accounts use CDAs to help reduce the [risk of withdrawing from spent addresses](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse). When you request IOTA tokens from someone, you can create a CDA that's active for a certain period of time. This way, you let the sender know that you intend to withdraw from that address only after that time. As a result, the sender can decide whether to make a deposit, depending on how much time is left on a CDA. -->
 
 ### CDAの条件
 <!-- ### Conditions of a CDA -->

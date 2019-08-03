@@ -38,10 +38,10 @@
 <!-- In this example, we create and send a bundle to a [Devnet node](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
 
 :::info:
-バンドルは任意の数のトランザクションで構成できます。しかし、[プルーフオブワーク](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)には時間とリソースが関係するため、バンドル内で最大30のトランザクションをお勧めします。
+バンドルは任意の数のトランザクションで構成できます。しかし、[プルーフオブワーク](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)には時間とリソースが関係するため、バンドル内で最大30のトランザクションをお勧めします。
 :::
 <!-- :::info: -->
-<!-- A bundle can consist of any number of transactions. But, because of the time and resources that are involved during [proof of work](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md), we recommend a maximum of 30 transactions in a bundle. -->
+<!-- A bundle can consist of any number of transactions. But, because of the time and resources that are involved during [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md), we recommend a maximum of 30 transactions in a bundle. -->
 <!-- ::: -->
 
 1. IOTAライブラリが必要です。
@@ -106,8 +106,8 @@
     <!-- The `asciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error. -->
     <!-- ::: -->
 
-5. バンドルを作成し、返されたバンドルのトライトを`sendTrytes()`ソッドに渡して、[チップ選択](root://node-software/0.1/iri/concepts/tip-selection.md)、[プルーフオブワーク](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)、およびバンドルのノードへの送信を行います。
-  <!-- 5. Create a bundle and pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [proof of work](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md), and send the bundle to the node. -->
+5. バンドルを作成し、返されたバンドルのトライトを`sendTrytes()`ソッドに渡して、[チップ選択](root://node-software/0.1/iri/concepts/tip-selection.md)、[プルーフオブワーク](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)、およびバンドルのノードへの送信を行います。
+  <!-- 5. Create a bundle and pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md), and send the bundle to the node. -->
 
     ```js
     iota.prepareTransfers(seed, [transfer1, transfer2])

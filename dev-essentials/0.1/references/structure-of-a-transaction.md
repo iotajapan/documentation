@@ -23,4 +23,4 @@
 | `attachmentTimestamp` | integer | UNIX時間：POW後の協定世界時（UTC）での1970年1月1日からのミリ秒 | 9 |
 | `attachmentTimestampLowerBound` | integer | `attachmentTimestamp`フィールドの下限（現在使用されていません） | 9 |
 | `attachmentTimestampUpperBound` | integer | `attachmentTimestamp`フィールドの上限（現在使用されていません） | 9 |
-| `nonce` | string | [プルーフオブワーク](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)を確認するためにトランザクションをハッシュする必要がある回数を表すトライト | 27 |
+| `nonce` | string | [プルーフオブワーク](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)を確認するためにトランザクションをハッシュする必要がある回数を表すトライト | 27 |

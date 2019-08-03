@@ -151,7 +151,7 @@
 | `user_id`        | `user_account`テーブル内のユーザーアカウントのID | NULL |
 | `amount`         | 取り出しの総数 | NULL |
 | `payout_address` | トークンの送信先の出力アドレス | NULL |
-| `tag`            | 出力トランザクションの[`tag`フィールド](root://iota-basics/0.1/references/structure-of-a-transaction.md)の値 | NULL |
+| `tag`            | 出力トランザクションの[`tag`フィールド](root://dev-essentials/0.1/references/structure-of-a-transaction.md)の値 | NULL |
 | `sweep`          | 取り出しを実行したスウィープのID。このIDは`sweep`テーブルにあります。 | NULL |
 | `requested_at`   | ユーザーが`YYYY-MM-DD HH:MM:SS`の形式で取り出しをリクエストした日時。 | 現在の日時 |
 | `cancelled_at`   | `YYYY-MM-DD HH:MM:SS`の形式で取り出しがキャンセルされた日時。 | NULL |

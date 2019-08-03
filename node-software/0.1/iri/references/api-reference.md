@@ -145,8 +145,8 @@ curl http://localhost:14265 \
 
 ## attachToTangle
 
-与えられたトランザクショントライトについてノード上で[プルーフオブワーク](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)を行います。
-<!-- Do [proof of work](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) on a node for the given transaction trytes. -->
+与えられたトランザクショントライトについてノード上で[プルーフオブワーク](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)を行います。
+<!-- Do [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) on a node for the given transaction trytes. -->
 
  ### パラメータ
 
@@ -155,9 +155,9 @@ curl http://localhost:14265 \
 
 | **パラメータ** | **必須または任意** | **説明** | **タイプ** |
 |--|--|--|--|
-| `trunkTransaction` | 必須 | [トランクトランザクション](root://iota-basics/0.1/references/structure-of-a-transaction.md)ハッシュ | string |
-| `branchTransaction` | 必須 | [ブランチトランザクション](root://iota-basics/0.1/references/structure-of-a-transaction.md)ハッシュ | string |
-| `minWeightMagnitude` | 必須 | [最小重量値](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) | integer |
+| `trunkTransaction` | 必須 | [トランクトランザクション](root://dev-essentials/0.1/references/structure-of-a-transaction.md)ハッシュ | string |
+| `branchTransaction` | 必須 | [ブランチトランザクション](root://dev-essentials/0.1/references/structure-of-a-transaction.md)ハッシュ | string |
+| `minWeightMagnitude` | 必須 | [最小重量値](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) | integer |
 | `trytes` | 必須 | トランザクショントライトの文字列 | stringの配列 |
 
 ### 例

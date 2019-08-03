@@ -12,10 +12,10 @@
 <!-- ::: -->
 
 :::info:
-コーディネーター、マイルストーン、または確定という用語に慣れていない場合は、[タングル](root://iota-basics/0.1/concepts/the-tangle.md)を読むことをお勧めします。
+コーディネーター、マイルストーン、または確定という用語に慣れていない場合は、[タングル](root://dev-essentials/0.1/concepts/the-tangle.md)を読むことをお勧めします。
 :::
 <!-- :::info: -->
-<!-- If you're unfamiliar with the terms Coordinator, milestone, or confirmation, we recommend that you [read about the Tangle](root://iota-basics/0.1/concepts/the-tangle.md). -->
+<!-- If you're unfamiliar with the terms Coordinator, milestone, or confirmation, we recommend that you [read about the Tangle](root://dev-essentials/0.1/concepts/the-tangle.md). -->
 <!-- ::: -->
 
 ## 前提条件

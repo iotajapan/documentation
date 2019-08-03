@@ -32,16 +32,23 @@ IOTAネットワーク内のすべてのノードは、すべてのアドレス�
 シードはIOTAプロトコル内の[Keccak-384](https://keccak.team/keccak.html)を使用したKerl [ハッシュ関数](https://www.techopedia.com/definition/19744/hash-function)へのマスターキーです。このハッシュ関数は、シード、インデックス、およびセキュリティレベルを取得して、アドレスと秘密鍵のペアを作成します。
 <!-- Seeds are the master keys to the Kerl [hash function](https://www.techopedia.com/definition/19744/hash-function) in the IOTA protocol, which uses [Keccak-384](https://keccak.team/keccak.html). This hash function takes a seed, an index, and a security level to create an address and private key pair: -->
 
+<<<<<<< HEAD:iota-basics/0.1/concepts/addresses-and-signatures.md
 * **シード：** クライアントによって選択された一意な81[トライト](../references/tryte-alphabet.md)
 <!-- * **Seed:** Unique 81 [trytes](../references/tryte-alphabet.md) chosen by the client -->
 * **インデックス：** どのアドレスと秘密鍵のペアを作成するかを変更する番号
 <!-- * **Index*:** Number that changes which address and private key pair is created -->
 * **セキュリティレベル：** 秘密鍵の長さに影響を与える1から3の間の数
 <!-- * **Security level:** Number between 1 and 3 that affects the length of a private key -->
+=======
+* **Seed:** Unique 81 [trytes](../references/tryte-alphabet.md) chosen by the client
+* **Index:** Number that changes which address and private key pair is created
+* **Security level:** Number between 1 and 3 that affects the length of a private key
+>>>>>>> upstream/develop:dev-essentials/0.1/concepts/addresses-and-signatures.md
 
 秘密鍵は、アドレスの所有権を証明するために、アドレスからIOTAトークンを取り出すバンドルに署名するために使用されます。各アドレスには対応する秘密鍵があります。そのため、アドレスからIOTAトークンを取り出すには、アドレスと同じシード、インデックス、およびセキュリティレベルから秘密鍵を作成して、所有していることを証明する必要があります。
 <!-- A private key is used to sign bundles that withdraw IOTA tokens from an address to prove you own it. Each address has a corresponding private key. So, to withdraw IOTA tokens from an address, you need to prove you own it by creating a private key from the same seed, index, and security level as the address. -->
 
+<<<<<<< HEAD:iota-basics/0.1/concepts/addresses-and-signatures.md
 同じシード、インデックス、およびセキュリティレベルを使用すると、ハッシュ関数は常に同じアドレスと秘密鍵のペアを返します。
 <!-- If you use the same seed, index, and security level, the hash function will always return the same address and private key pair. -->
 
@@ -49,6 +56,12 @@ IOTAネットワーク内のすべてのノードは、すべてのアドレス�
 これを試すには、JavaScriptクライアントライブラリを使って[新しいアドレスを作成します](../how-to-guides/create-an-address.md)。
 
 シードを使用して、ほぼ無制限の数のアドレスと秘密鍵のペア（9<sup>57</sup>）を作成することができます。
+=======
+If you use the same seed, index, and security level, the hash function will always return the same address and private key pair. Seeds can be used to create an almost unlimited number of addresses and private key pairs (9<sup>57</sup>) by incrementing the index and using all three security levels.
+
+:::info:
+You can try this by using our JavaScript client library to [create a new address](../how-to-guides/create-an-address.md).
+>>>>>>> upstream/develop:dev-essentials/0.1/concepts/addresses-and-signatures.md
 :::
 <!-- :::info: -->
 <!-- You can try this by using our JavaScript client library to [create a new address](../how-to-guides/create-an-address.md). -->
@@ -94,7 +107,11 @@ IOTAネットワーク内のすべてのノードは、すべてのアドレス�
 <!-- Then, the key digests are combined and hashed once to derive an 81-tryte address. -->
 
 :::info:
+<<<<<<< HEAD:iota-basics/0.1/concepts/addresses-and-signatures.md
 トリニティなどの一部のアプリケーションでは、アドレスを使用する必要があります。これには、最後に9トライトのチェックサムが含まれます。
+=======
+Some application such as Trinity require you to use addresses that include a 9-tryte checksum on the end.
+>>>>>>> upstream/develop:dev-essentials/0.1/concepts/addresses-and-signatures.md
 :::
 <!-- :::info: -->
 <!-- Some application such as Trinity require you to use addresses, which include a 9-tryte checksum on the end. -->

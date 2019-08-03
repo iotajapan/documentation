@@ -23,8 +23,8 @@
 <!-- * **Tip selection:** The length and randomness of the weighted random walk during [tip selection](../concepts/tip-selection.md) -->
 * **Tip solidification：** チップトランザクションが凝固になる方法
 <!-- * **Tip solidification:** How tip transactions become solid. -->
-* **Proof of work：** ノードが[プルーフオブワーク](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)を行う方法
-<!-- * **Proof of work:** How your node does [proof of work](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) -->
+* **Proof of work：** ノードが[プルーフオブワーク](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)を行う方法
+<!-- * **Proof of work:** How your node does [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) -->
 * **Local snapshots：** ノードが[ローカルスナップショット](../concepts/local-snapshot.md)を実行する方法とタイミング
 <!-- * **Local snapshots:** How and when your node does [local snapshots](../concepts/local-snapshot.md) -->
 
@@ -152,8 +152,8 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 
 ## Proof of work
 
-これらの設定を使用して、ノードがどのように[プルーフオブワーク](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)するかをカスタマイズします。
-<!-- Use these settings to customize how your node does [proof of work](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md). -->
+これらの設定を使用して、ノードがどのように[プルーフオブワーク](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)するかをカスタマイズします。
+<!-- Use these settings to customize how your node does [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md). -->
 
 | **コマンドラインフラグ** | **設定ファイルのパラメータ** | **説明** | **有効な値** | **デフォルト値** | **メモ** |
 | :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |

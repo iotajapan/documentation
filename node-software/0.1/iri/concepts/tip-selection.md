@@ -78,10 +78,10 @@
 <!-- Clients call this endpoint when they want to send a transaction. The endpoint results in two tip transaction hashes, which are used in the `trunkTransaction` and `branchTransaction` fields of the new transaction. -->
 
 :::info:
-[トランザクションの構造](root://iota-basics/0.1/references/structure-of-a-transaction.md)について詳しく調べる。
+[トランザクションの構造](root://dev-essentials/0.1/references/structure-of-a-transaction.md)について詳しく調べる。
 :::
 <!-- :::info: -->
-<!-- Find out more about the [structure of a transaction](root://iota-basics/0.1/references/structure-of-a-transaction.md). -->
+<!-- Find out more about the [structure of a transaction](root://dev-essentials/0.1/references/structure-of-a-transaction.md). -->
 <!-- ::: -->
 
 このエンドポイントが呼び出されると、ノードはチップ選択アルゴリズムを開始します。これは次のステージに分かれています。

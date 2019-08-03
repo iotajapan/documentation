@@ -489,7 +489,7 @@ hub RUNNING pid 9983, uptime 0:01:22
 <!-- If you sent IOTA tokens to the deposit address in step 6, the output should display something like the following: -->
 
 ```shell
-10i available for test 'user-1'
+10 i available for test 'user-1'
 History:
 events {
     timestamp: 1540856214000

@@ -16,12 +16,18 @@ Dockerコンテナでノードを実行すると、軽量の仮想マシンで�
 Dockerコンテナ内でノードを実行することには、次のような利点があります。
 <!-- Some of the advantages of running a node in a Docker container include the following: -->
 
+<<<<<<< HEAD
 * コンパイラやGoプログラミング言語など、ノードに必要なすべてのツールや依存関係をインストールする必要がありません。
 <!-- * You don't need to install all the tools and dependencies that the node needs such as a compiler and the Go programming language -->
 * ノードは、サポートされているシステムアーキテクチャ上で同じように動作します。
 <!-- * The node runs in the same way on any supported system architecture -->
 * ノードをバックグラウンドで実行して停止し、ログを確認する方が簡単です。
 <!-- * It's easier to run the node in the background, stop it, and see the logs -->
+=======
+* You don't need to install all the tools and dependencies that the node needs such as a compiler and the Go programming language
+* The node runs in the same way on any supported system architecture
+* It's easier to run the node in the background, to stop it, and to see the logs
+>>>>>>> upstream/develop
 
 ### 前提条件
 <!-- ### Prerequisites -->
@@ -127,23 +133,33 @@ Dockerコンテナをビルドするには、Docker 17.05（マルチステー�
     docker build -t goshimmer .
     ```
 
+<<<<<<< HEAD
 4. Dockerイメージをバックグラウンドで実行し、ホストデバイスからDockerコンテナにポートを転送します。
   <!-- 4. Run the Docker image in the background, and forward the ports from your host device to the Docker container -->
 
     :::info:
     [Docker Compose](https://docs.docker.com/compose/)があれば、`docker-compose up -d`を実行することもできます。
+=======
+4. Run the Docker image
+
+    Here, we run the Docker image in the background, forward the ports from your host device to the Docker container, and and use the [command-line flags](../references/command-line-flags.md) to enable the spammer, ZMQ, and dashboard plugins. These plugins allow you to send spam transactions to your node, monitor it for incoming transactions, and view the total number of transactions that it's processing in a web dashboard.
+
+    :::info:
+    If you have [Docker Compose](https://docs.docker.com/compose/), you can also use the `docker-compose up -d` command.
+>>>>>>> upstream/develop
     :::
     <!-- :::info: -->
     <!-- If you have [Docker Compose](https://docs.docker.com/compose/), you can also run `docker-compose up -d`. -->
     <!-- ::: -->
 
     ```bash
-    sudo docker run -d --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -it -v mainnetdb:/root/mainnetdb goshimmer
+    sudo docker run -d --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -p 8081:8081 -it -v mainnetdb:/root/mainnetdb goshimmer --node-enable-plugins "spammer zeromq dashboard"
     ```
 
     The container ID is displayed in the console.
 
     :::info:
+<<<<<<< HEAD
     `run`コマンドの後に[command-line flags](../references/command-line-flags.md)を追加することでノードの機能をカスタマイズすることができます。
 
     再起動のたびにDockerコンテナを再起動するには、`run`コマンドに`--restart=always`フラグを追加します。
@@ -153,6 +169,10 @@ Dockerコンテナをビルドするには、Docker 17.05（マルチステー�
    <!--  -->
    <!--  To have the Docker container restart on every reboot, add the `--restart=always` flag to the `run` command. -->
    <!-- ::: -->
+=======
+    To have the Docker container restart on every reboot, add the `--restart=always` flag to the `run` command.
+   :::
+>>>>>>> upstream/develop
 
 5. コンテナIDをコピーし、それを使ってノードのログを読み取ります。`$ContainerID`プレースホルダをあなたのコンテナIDに置き換えます。
   <!-- 5. Copy the container ID, and use it to read the node's logs. Replace the `$ContainerID` placeholder with your container ID. -->
@@ -266,6 +286,7 @@ GoShimmerノードを実行しています。
     go build -o shimmer
     ```
 
+<<<<<<< HEAD
     これで実行する必要がある`shimmer`と呼ばれるファイルができました。
     <!-- Now, you have a file called `shimmer` that you need to execute. -->
 
@@ -278,6 +299,14 @@ GoShimmerノードを実行しています。
     <!-- :::info: -->
     <!-- You can customize some features of your node by adding [command-line flags](../references/command-line-flags.md) after the command to execute the file. -->
     <!-- ::: -->
+=======
+3. Execute the `shimmer` file, according to your operating system:
+
+    * **Linux and macOS:** `./shimmer --enable-node-plugins "spammer zeromq dashboard"`
+    * **Windows:** Rename the file to `shimmer.exe`, then execute it by doing `.\shimmer --node-enable-plugins "spammer zeromq dashboard"` in the command prompt
+
+    Here, we run the run the node in the background, and use the [command-line flags](../references/command-line-flags.md) to enable the spammer, ZMQ, and dashboard plugins. These plugins allow you to send spam transactions to your node, monitor it for incoming transactions, and view the total number of transactions that it's processing in a web dashboard.
+>>>>>>> upstream/develop
 
     :::info:
     `permission denied`というエラーが表示された場合は、管理者としてファイルを実行します。

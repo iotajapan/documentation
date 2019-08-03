@@ -7,8 +7,8 @@
 ## 前提条件
 <!-- ## Prerequisites -->
 
-このチュートリアルを完了する前に、[新しいアドレス](root://iota-basics/0.1/how-to-guides/create-an-address.md)が必要です。
-<!-- Before you complete this tutorial, you need [a new address](root://iota-basics/0.1/how-to-guides/create-an-address.md). -->
+このチュートリアルを完了する前に、[新しいアドレス](root://dev-essentials/0.1/how-to-guides/create-an-address.md)が必要です。
+<!-- Before you complete this tutorial, you need [a new address](root://dev-essentials/0.1/how-to-guides/create-an-address.md). -->
 
 :::danger:重要
 メインネット上にIOTAトークンを所有している場合は、Devnet上で使用する新しいテストシードを作成することを強くお勧めします。
@@ -33,10 +33,10 @@
   <!-- 4. Click **Request** -->
 
     :::info:
-    Requestボタンはアドレスが有効な場合のみ表示されます。有効なアドレスは、81または90[トライト](root://iota-basics/0.1/concepts/trinary.md)（有効なチェックサムを含む場合は90トライト）で構成されています。
+    Requestボタンはアドレスが有効な場合のみ表示されます。有効なアドレスは、81または90[トライト](root://dev-essentials/0.1/concepts/trinary.md)（有効なチェックサムを含む場合は90トライト）で構成されています。
     :::
     <!-- :::info: -->
-    <!-- The Request button appears only if your address is valid. A valid address consists of 81 or 90 [trytes](root://iota-basics/0.1/concepts/trinary.md)(including a valid checksum). -->
+    <!-- The Request button appears only if your address is valid. A valid address consists of 81 or 90 [trytes](root://dev-essentials/0.1/concepts/trinary.md)(including a valid checksum). -->
     <!-- ::: -->
 
 5. **Check balance**をクリックする。

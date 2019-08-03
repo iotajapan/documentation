@@ -1,8 +1,8 @@
 # ワンコマンドプライベートタングル
 <!-- # One-command private Tangle -->
 
-**このアプリケーションを使用すると、単一の[Docker](https://www.docker.com/why-docker)コマンドを使用して独自のIOTAネットワークを設定できます。このコマンドを実行すると、独自のIOTAテストネットワークと[2.7Pi](root://iota-basics/0.1/references/units-of-iota-tokens.md)（最大量）のテストIOTAトークンを使用できます。いかなる金銭的価値も危険にさらすことなく自分のアイデアやアプリケーションをテストするためにこのアプリケーションを使うことができます。**
-<!-- **This application allows you to set up your own IOTA network by using a single [Docker](https://www.docker.com/why-docker) command. When you run this command, you'll have your own IOTA test network and [2.7Pi](root://iota-basics/0.1/references/units-of-iota-tokens.md) (the maximum amount) of test IOTA tokens to use. You can use this application to test your ideas and applications without risking any monetary value.** -->
+**このアプリケーションを使用すると、単一の[Docker](https://www.docker.com/why-docker)コマンドを使用して独自のIOTAネットワークを設定できます。このコマンドを実行すると、独自のIOTAテストネットワークと[2.7Pi](root://dev-essentials/0.1/references/units-of-iota-tokens.md)（最大量）のテストIOTAトークンを使用できます。いかなる金銭的価値も危険にさらすことなく自分のアイデアやアプリケーションをテストするためにこのアプリケーションを使うことができます。**
+<!-- **This application allows you to set up your own IOTA network by using a single [Docker](https://www.docker.com/why-docker) command. When you run this command, you'll have your own IOTA test network and [2.7Pi](root://dev-essentials/0.1/references/units-of-iota-tokens.md) (the maximum amount) of test IOTA tokens to use. You can use this application to test your ideas and applications without risking any monetary value.** -->
 
 :::info:GitHubにアクセスする
 クイックスタートの手順やソースコードを読むには、[GitHubリポジトリ](https://github.com/iota-community/one-command-tangle)にアクセスしてください。
@@ -36,8 +36,8 @@ Mainnet上でアプリケーションを使用する準備が整ったら、ア�
 IRIノードはトランザクションを受け取り、トランザクションを検証し、そしてユーザーの残高の最新の記録を保持します。
 <!-- The IRI node receives transactions, validates them, and keeps an up-to-date record of users' balances. -->
 
-一定の間隔で、コンパスはIRIノードへ他のトランザクションを参照する[マイルストーン](root://iota-basics/0.1/concepts/the-tangle.md#milestones)と呼ばれるゼロトークントランザクションを送信します。マイルストーンによって参照されるトランザクションはすべて確定済みと見なされます。この時点で、ノードは確定済みトランザクションの影響を受けた残高をすべて更新します。
-<!-- At regular intervals, Compass sends the IRI node zero-value transactions called [milestones](root://iota-basics/0.1/concepts/the-tangle.md#milestones) that reference other transactions. Any transaction that's referenced by a milestone is considered confirmed. At this point, the node updates any balances that were affected by the confirmed transaction. -->
+一定の間隔で、コンパスはIRIノードへ他のトランザクションを参照する[マイルストーン](root://dev-essentials/0.1/concepts/the-tangle.md#milestones)と呼ばれるゼロトークントランザクションを送信します。マイルストーンによって参照されるトランザクションはすべて確定済みと見なされます。この時点で、ノードは確定済みトランザクションの影響を受けた残高をすべて更新します。
+<!-- At regular intervals, Compass sends the IRI node zero-value transactions called [milestones](root://dev-essentials/0.1/concepts/the-tangle.md#milestones) that reference other transactions. Any transaction that's referenced by a milestone is considered confirmed. At this point, the node updates any balances that were affected by the confirmed transaction. -->
 
 トークンの総供給量は、次のシードの最初のアドレスに格納されています。
 ```bash
@@ -90,10 +90,10 @@ SEED9999999999999999999999999999999999999999999999999999999999999999999999999999
   ![Compass and IRI node logs](../images/cli.gif)
 
   :::info:
-  コンパスは、深さ20の事前にビルドされた（`layer`ディレクトリ内の）[マークル木](root://iota-basics/0.1/concepts/the-tangle.md#milestones)を使用します。このマークル木は、コンパスが1年以上30秒間隔でマイルストーンを送信するのに十分な大きさです。
+  コンパスは、深さ20の事前にビルドされた（`layer`ディレクトリ内の）[マークル木](root://dev-essentials/0.1/concepts/the-tangle.md#milestones)を使用します。このマークル木は、コンパスが1年以上30秒間隔でマイルストーンを送信するのに十分な大きさです。
   :::
   <!-- :::info: -->
-  <!-- Compass uses a pre-built [Merkle tree](root://iota-basics/0.1/concepts/the-tangle.md#milestones) (in the `layers` directory) with a depth of 20. This Merkle tree is large enough for Compass to send milestones for over a year at 30-second intervals. -->
+  <!-- Compass uses a pre-built [Merkle tree](root://dev-essentials/0.1/concepts/the-tangle.md#milestones) (in the `layers` directory) with a depth of 20. This Merkle tree is large enough for Compass to send milestones for over a year at 30-second intervals. -->
   <!-- ::: -->
 
 ### プライベートタングル用のオプションのユーティリティWebサイトをホストする

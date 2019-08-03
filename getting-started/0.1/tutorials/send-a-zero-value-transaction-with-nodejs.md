@@ -88,10 +88,10 @@
     ```
 
     :::info:
-    今回はIOTAトークンを送信しないので、このアドレスは誰にも属している必要はありません。アドレスが有効であるためには、ただ81[トライト](root://iota-basics/0.1/concepts/trinary.md)で構成されている必要があるだけです。
+    今回はIOTAトークンを送信しないので、このアドレスは誰にも属している必要はありません。アドレスが有効であるためには、ただ81[トライト](root://dev-essentials/0.1/concepts/trinary.md)で構成されている必要があるだけです。
     :::
     <!-- :::info: -->
-    <!-- You aren't sending any IOTA tokens, so this address does not have to belong to anyone. To be valid, the address just needs to consist of 81 [trytes](root://iota-basics/0.1/concepts/trinary.md). -->
+    <!-- You aren't sending any IOTA tokens, so this address does not have to belong to anyone. To be valid, the address just needs to consist of 81 [trytes](root://dev-essentials/0.1/concepts/trinary.md). -->
     <!-- ::: -->
 
 7. シードを保存するための変数を作成します。
@@ -117,10 +117,10 @@
     ```
 
     :::info:
-    IOTAネットワークは、[トライトにエンコード](root://iota-basics/0.1/concepts/trinary.md)されたメッセージのみを受け入れます。
+    IOTAネットワークは、[トライトにエンコード](root://dev-essentials/0.1/concepts/trinary.md)されたメッセージのみを受け入れます。
     :::
     <!-- :::info: -->
-    <!-- IOTA networks accept only [tryte-encoded](root://iota-basics/0.1/concepts/trinary.md) messages. -->
+    <!-- IOTA networks accept only [tryte-encoded](root://dev-essentials/0.1/concepts/trinary.md) messages. -->
     <!-- ::: -->
 
     :::info:
@@ -143,8 +143,8 @@
     ];
     ```
 
-10. `転送`オブジェクトから[バンドル](../introduction/what-is-a-bundle.md)を作成するには、それを[`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers)メソッドに渡します。次に、返されたバンドルのトライトを`sendTrytes()`メソッドに渡して、[チップ選択](root://node-software/0.1/iri/concepts/tip-selection.md)、[プルーフオブワーク](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)、および[ノード](../introduction/what-is-a-node.md)へのバンドル送信を行います。
-  <!-- 10. To construct a [bundle](../introduction/what-is-a-bundle.md) from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method. Then, pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [proof of work](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md), and send the bundle to the [node](../introduction/what-is-a-node.md) -->
+10. `転送`オブジェクトから[バンドル](../introduction/what-is-a-bundle.md)を作成するには、それを[`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers)メソッドに渡します。次に、返されたバンドルのトライトを`sendTrytes()`メソッドに渡して、[チップ選択](root://node-software/0.1/iri/concepts/tip-selection.md)、[プルーフオブワーク](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)、および[ノード](../introduction/what-is-a-node.md)へのバンドル送信を行います。
+  <!-- 10. To construct a [bundle](../introduction/what-is-a-bundle.md) from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method. Then, pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md), and send the bundle to the [node](../introduction/what-is-a-node.md) -->
 
     ```js
     iota.prepareTransfers(seed, transfers)
@@ -168,12 +168,12 @@
     <!-- ::: -->
 
     :::info:最小重量値
-    [`最小重量値`](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)（minimum weight magnitude、MWM）は、フルーフオブワーク（PoW）の困難さに影響を与えます。 MWMが大きいほど、PoWはより困難になります。
+    [`最小重量値`](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)（minimum weight magnitude、MWM）は、フルーフオブワーク（PoW）の困難さに影響を与えます。MWMが大きいほど、PoWはより困難になります。
 
-    すべてのIOTAネットワークはそれぞれのMWMを強制します。 Devnetでは、MWMは9です。一方、Mainnetでは、MWMは14です。小さすぎるMWMを使用すると、トランザクションは有効にならず、確定もされません。
+    すべてのIOTAネットワークはそれぞれのMWMを強制します。Devnetでは、MWMは9です。一方、Mainnetでは、MWMは14です。小さすぎるMWMを使用すると、トランザクションは有効にならず、確定もされません。
     :::
     <!-- :::info:Minimum weight magnitude -->
-    <!-- The [`minimum weight magnitude`](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) argument affects the difficulty of proof of work (PoW). The greater the MWM, the more difficult the PoW. -->
+    <!-- The [`minimum weight magnitude`](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) (MWM) argument affects the difficulty of proof of work (PoW). The greater the MWM, the more difficult the PoW. -->
     <!--  -->
     <!-- Every IOTA network enforces its own MWM. On the Devnet, the MWM is 9. But, on the Mainnet the MWM is 14. If you use a MWM that's too small, your transactions won't be valid and will never be confirmed. -->
     <!-- ::: -->
@@ -205,12 +205,12 @@
 :::info:
 親トランザクションフィールドを表示して、自分のトランザクションがどのトランザクションに添付されているかを確認することもできます。
 
-親トランザクションはチップ選択中に選択され、トランザクションの [`branchTransaction`と`trunkTransaction`フィールド](root://iota-basics/0.1/references/structure-of-a-transaction.md)に追加されます。
+親トランザクションはチップ選択中に選択され、トランザクションの [`branchTransaction`と`trunkTransaction`フィールド](root://dev-essentials/0.1/references/structure-of-a-transaction.md)に追加されます。
 :::
 <!-- :::info: -->
 <!-- You can also see the Parent transactions field to check which transactions your transaction is attached to in the Tangle. -->
 <!--  -->
-<!-- These transactions were chosen during tip selection and added to the [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md) of your transaction. -->
+<!-- These transactions were chosen during tip selection and added to the [`branchTransaction` and `trunkTransaction` fields](root://dev-essentials/0.1/references/structure-of-a-transaction.md) of your transaction. -->
 <!-- ::: -->
 
 ## コードを走らせる
@@ -221,12 +221,12 @@
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/51-Send-ASCII-Data?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 :::info:
-[トランザクションフィールドが何を意味するのかを学んでみましょう](root://iota-basics/0.1/references/structure-of-a-transaction.md)。
+[トランザクションフィールドが何を意味するのかを学んでみましょう](root://dev-essentials/0.1/references/structure-of-a-transaction.md)。
 
 メッセージは`signatureMessageFragment`フィールドに格納されます。
 :::
 <!-- :::info: -->
-<!-- [Learn what these transaction fields mean](root://iota-basics/0.1/references/structure-of-a-transaction.md). -->
+<!-- [Learn what these transaction fields mean](root://dev-essentials/0.1/references/structure-of-a-transaction.md). -->
 <!--  -->
 <!-- Messages are stored in the `signatureMessageFragment` field. -->
 <!-- ::: -->
@@ -237,8 +237,8 @@
 [テスト用のIOTAトークンを送信する](../tutorials/send-iota-tokens.md)。
 <!-- [Send some test IOTA tokens](../tutorials/send-iota-tokens.md) -->
 
-バンドルがどのように構成されているかを知るために、[2つのゼロトークントランザクションのバンドルを送信する](root://iota-basics/0.1/how-to-guides/send-bundle.md)。
-<!-- [Send a bundle of two zero-value transactions](root://iota-basics/0.1/how-to-guides/send-bundle.md) to learn how bundles are structured. -->
+バンドルがどのように構成されているかを知るために、[2つのゼロトークントランザクションのバンドルを送信する](root://dev-essentials/0.1/how-to-guides/send-bundle.md)。
+<!-- [Send a bundle of two zero-value transactions](root://dev-essentials/0.1/how-to-guides/send-bundle.md) to learn how bundles are structured. -->
 
 第三者に頼らずにタングルに直接アクセスするために、[Dockerコンテナ内で自分のノードを実行する](../tutorials/run-your-own-iri-node.md)。
 <!-- [Run your own node in a Docker container](../tutorials/run-your-own-iri-node.md) for direct access to the Tangle without relying on third parties. -->

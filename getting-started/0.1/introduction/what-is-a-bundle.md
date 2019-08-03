@@ -20,31 +20,31 @@ IOTAトークンを転送するには、バンドルに少なくとも1つの入
 <!-- To transfer IOTA tokens, a bundle must contain at least one input and one output transaction. These bundles are called transfer bundles. -->
 
 今回の例では、受取人Aに100Miを送信したいとし、トークンが3つのアドレス0、1、2に別れているとします。
-<!-- In this example, you want to send 100Mi to recipient A, and your balance is distributed among three addresses: -->
+<!-- In this example, you want to send 100 Mi to recipient A, and your balance is distributed among three addresses: -->
 
-* **アドレス0:** 20Mi
-* **アドレス1:** 30Mi
-* **アドレス2:** 55Mi
-<!-- * **Address 0:** 20Mi -->
-<!-- * **Address 1:** 30Mi -->
-<!-- * **Address 2:** 55Mi -->
+* **アドレス0:** 20 Mi
+* **アドレス1:** 30 Mi
+* **アドレス2:** 55 Mi
+<!-- * **Address 0:** 20 Mi -->
+<!-- * **Address 1:** 30 Mi -->
+<!-- * **Address 2:** 55 Mi -->
 
 受信者Aに100Miを送信すると、以下のトランザクションが作成され、転送バンドルとしてノードに送信されます。
-<!-- When you send 100Mi to recipient A, the following transactions are created and sent to a node as a transfer bundle: -->
+<!-- When you send 100 Mi to recipient A, the following transactions are created and sent to a node as a transfer bundle: -->
 
 * **入力トランザクション：**送信者のアドレス0、1、2から100Miを取り出し、送信者がその3つのアドレスの所有権を有していることを検証するために署名をチェックするトランザクション
 * **出力トランザクション：**受取人Aのアドレスへ100Miを送金するトランザクション
 * **出力トランザクション：**アドレス2から残りの5Miをアドレス3に送金するトランザクション
-<!-- * **Input transaction:** Withdraw 100Mi from my address and check the signature to verify that I own it -->
-<!-- * **Output transaction:** Deposit 100Mi to the recipient's address -->
-<!-- * **Output transaction:** Deposit the remaining 5Mi from address 2 into address 3 -->
+<!-- * **Input transaction:** Withdraw 100 Mi from my address and check the signature to verify that I own it -->
+<!-- * **Output transaction:** Deposit 100 Mi to the recipient's address -->
+<!-- * **Output transaction:** Deposit the remaining 5 Mi from address 2 into address 3 -->
 
-:::danger:
-[1度IOTAトークンを取り出したアドレスからは2度とIOTAトークンを取り出してはいけません](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)。したがって、転送バンドルでは、IOTAトークンを取り出したアドレスの残りのIOTAトークンを新しいアドレスに送金するために、追加の出力トランザクションが必要になります。
+:::danger:アドレスの全残高を常に取り出します
+IOTAはバンドルに署名するために[Winternitzワンタイム署名方式](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse)を使用します。この署名方式は、アドレスから一度だけ安全にIOTAトークンを取り出せることを意味しています。よって、常にアドレスから全残高を取り出す必要があります。残高の一部だけを他の人に転送したい場合は、残りの残高を自分の未使用のアドレスの1つなどに転送する必要があります。
 :::
-<!-- :::danger: -->
-<!-- [You must not withdraw from an address more than once](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). So, a transfer bundle may require an extra output transaction to deposit the remaining balance of a withdrawn address into a new address. -->
+<!-- :::danger:Always withdraw the total balance of an address -->
+<!-- IOTA uses the [Winternitz one-time signature scheme](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse) to sign bundles. This signature scheme means that addresses can be safely withdrawn from only once, so you must always withdraw the total balance from an address. If you want to transfer only some of that balance to another person, you can transfer the remaining balance to one of your own unspent addresses. -->
 <!-- ::: -->
 
-[バンドルとトランザクションの詳細を学びます](root://iota-basics/0.1/concepts/bundles-and-transactions.md)。
-<!-- [Learn more about bundles and transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md). -->
+[バンドルとトランザクションの詳細を学びます](root://dev-essentials/0.1/concepts/bundles-and-transactions.md)。
+<!-- [Learn more about bundles and transactions](root://dev-essentials/0.1/concepts/bundles-and-transactions.md). -->

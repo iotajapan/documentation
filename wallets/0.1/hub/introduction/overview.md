@@ -4,8 +4,8 @@
 **ハブは暗号通貨交換所のためのヘッドレスマルチユーザーウォレットです。ハブは、ユーザーのIOTAトークンの預け入れと取り出しを管理するための安全な方法を提供します。ユーザーがIOTAトークンを自分のハブアドレスの1つに預け入れると、スイープと呼ばれるプロセスでユーザーのトークンがハブ所有者のアドレスに転送されます。このようにして、ハブの所有者は、ユーザーが取り出しをリクエストするまでユーザーのトークンが安全であることを確認できます。**
 <!-- **Hub is a headless multi-user wallet for cryptocurrency exchanges. Hub offers you a secure way to manage deposits and withdrawals of users' IOTA tokens. When a user deposits IOTA tokens into one of their Hub addresses, Hub transfers those tokens to the Hub owners address in a process called a sweep. This way, the Hub owner can make sure that users' tokens are secure until they request a withdrawal.** -->
 
-ハブは、[gRPC API](../how-to-guides/get-started-with-the-api.md)を通じて以下のプロセスを自動化することにより、IOTAをそれぞれのアプリケーションに統合するのを助けます。
-<!-- Hub helps you to integrate IOTA into your own applications by automating the following processes through a [gRPC API](../how-to-guides/get-started-with-the-api.md): -->
+ハブを使用すると、以下のプロセスを通じてIOTAを独自のアプリケーションに統合できます。
+<!-- Hub helps you to integrate IOTA into your own applications through the following processes: -->
 
 * [トランザクション監視](#トランザクション監視)
 <!-- * [Transaction monitoring](#transaction-monitoring) -->
@@ -14,27 +14,26 @@
 * [トークン保護](#トークン保護)
 <!-- * [Token protection](#token-protection) -->
 
+ハブを使用して、ユーザーがIOTAトークンをハブに預け入れられるようにするアプリケーションを構築できます。ユーザーがIOTAトークンを預け入れると、ハブは残高をデータベースに記録します。次に、ハブはそれらのIOTAトークンをハブ所有者のIOTAアドレスに転送します。このようにして、ハブ所有者はIOTAトークンを管理し、IOTAトークンをユーザーに対して安全に保つことができます。後でユーザーが取り出しを要求した場合、ハブ所有者はユーザーの残高を確認し、一連のトランザクションをノードに送信することでその取り出しを発行できます。
+<!-- You can use Hub to build applications that allow users to deposit IOTA tokens into it. When users deposit IOTA tokens, Hub keeps a record of their balances in a database. Then, Hub transfers those tokens to the Hub owner's IOTA address. This way the Hub owner has control over the tokens and can keep them safe for the users. If a user later requests a withdrawal, the Hub owner can issue that withdrawal by checking the user's balance and sending a bundle of transactions to a node. -->
+
+預け入れや取り出しなどのすべてのハブ機能は、[gRPC APIエンドポイント](../how-to-guides/get-started-with-the-api.md)を呼び出すことによって行われます。
+<!-- All Hub functions such as deposits and withdrawals are done by calling [gRPC API endpoints](../how-to-guides/get-started-with-the-api.md). -->
+
 ## トランザクション監視
 <!-- ## Transaction monitoring -->
 
-トランザクションがIOTAネットワークによって受け入れられる前に、トランザクションは確定されなければなりません。そのため、確定の遅れを避けるために、ハブは確定されるまでトランザクションの[再添付と促進](root://iota-basics/0.1/concepts/reattach-rebroadcast-promote.md)を行います。
-<!-- Before any transaction is accepted by an IOTA network, it must be confirmed. So, to avoid delays in confirmation, Hub [reattaches and promotes](root://iota-basics/0.1/concepts/reattach-rebroadcast-promote.md) transactions until they are confirmed. -->
-
-:::info:コンセンサスについてより詳しく知る
-[タングル](root://iota-basics/0.1/concepts/the-tangle.md)を参照します。
-:::
-<!-- :::info:Want to learn more about consensus? -->
-<!-- Read about [the Tangle](root://iota-basics/0.1/concepts/the-tangle.md). -->
-<!-- ::: -->
+トランザクションがIOTAネットワークによって受け入れられる前に、トランザクションは確定されなければなりません。ユーザーが自分のアドレスの1つにIOTAトークンを預け入れたとき、またはハブ所有者が取り出しを発行したときに、トランザクションはペンティぐ状態のままになります。そのため、確認の遅れを避けるために、Hubは保留中のトランザクションのデータベースを自動的に[再接続して促進]できるように保持します。そのため、確定の遅れを避けるために、ハブは、ペンディング中のトランザクションを自動的に[再添付と促進]をできるように、ペンディング中のトランザクションのデータベースを保持します。
+<!-- Before any transaction is accepted by an IOTA network, it must be confirmed. When a user deposits IOTA tokens into one of their addresses, or when the Hub owner issues a withdrawal, the transactions may become stuck in a pending state. So, to avoid delays in confirmation, Hub keeps a database of pending transactions so that it can automatically [reattach and promote](root://dev-essentials/0.1/concepts/reattach-rebroadcast-promote.md) them. -->
 
 ## シード作成
 <!-- ## Seed creation -->
 
-IOTAネットワークの各クライアントには、[シード](root://getting-started/0.1/introduction/what-is-a-seed.md)と呼ばれる秘密のパスワードがあります。これは、[アドレスの作成とバンドルの署名](root://iota-basics/0.1/concepts/addresses-and-signatures.md)に使用されます。アドレスはトランザクションの送受信元のアカウントであり、署名はアドレスの所有権を証明するものです。
-<!-- Each client in an IOTA network has a secret password called a [seed](root://getting-started/0.1/introduction/what-is-a-seed.md), which is used to create [addresses and to sign bundles](root://iota-basics/0.1/concepts/addresses-and-signatures.md). Addresses are the accounts from which transactions are sent and received, and signatures prove ownership of an address. -->
+IOTAネットワークの各クライアントには、[シード](root://getting-started/0.1/introduction/what-is-a-seed.md)と呼ばれる秘密のパスワードがあります。これは、[アドレスの作成とバンドルの署名](root://dev-essentials/0.1/concepts/addresses-and-signatures.md)に使用されます。アドレスはトランザクションの送受信元のアカウントであり、署名はアドレスの所有権を証明するものです。
+<!-- Each client in an IOTA network has a secret password called a [seed](root://getting-started/0.1/introduction/what-is-a-seed.md), which is used to create [addresses and to sign bundles](root://dev-essentials/0.1/concepts/addresses-and-signatures.md). Addresses are the accounts from which transactions are sent and received, and signatures prove ownership of an address. -->
 
-ハブは、[Argon2](https://www.argon2.com/)ハッシュ関数を使用して、各ユーザーの預け入れアドレスの新しいシードを作成します。次の値はシードを作成するために使用されます。
-<!-- Hub creates a new seed for each user's deposit address, using the [Argon2](https://www.argon2.com/) hashing function. The following values are used to create a seed: -->
+各ユーザーのデポジットアドレスは、[Argon2](https://www.argon2.com/)ハッシュ関数を使用して新しいシードから導出します。次の値はシードを作成するために使用されます。
+<!-- Each user's deposit addresses is derived from a new seed, using the [Argon2](https://www.argon2.com/) hashing function. The following values are used to create a seed: -->
 
 * シードUUID：[`seeduuid`フィールド](../references/database-tables.md#user_account)に格納されている、ランダムに生成された普遍的に一意な識別子
 <!-- * Seed UUID: A randomly generated universally unique identifier that is stored in a [`seeduuid` field](../references/database-tables.md#user_account) -->
@@ -45,20 +44,20 @@ IOTAネットワークの各クライアントには、[シード](root://gettin
 データベースには、ユーザーが所有しているIOTAトークン量の記録が含まれています。IOTAトークンはユーザーのアドレスには保存されません。代わりに、ユーザーのIOTAトークンは[スイープ](../concepts/sweeps.md)中にハブ所有者のアドレスに転送されます。ユーザーが後で[`userWithdrawRequest`コマンド](../references/api-reference.md#hub.rpc.UserWithdrawRequest)をトリガーした時に、ハブはユーザーのIOTAトークンを選択されたアドレスに送信するための新しいスイープを作成します。
 :::
 <!-- :::info: -->
-<!-- The database contains a record of how many IOTA tokens a user has. The IOTA tokens are not kept in the user's addresses. Instead, they are transferred to the Hub owners address during a [sweep](../concepts/sweeps.md). If a user later triggers a [`userWithdrawRequest` command](../references/api-reference.md#hub.rpc.UserWithdrawRequest), Hub creates a new sweep to send the user's tokens to the chosen addresses. -->
+<!-- The database contains a record of how many IOTA tokens a user has. The IOTA tokens are not kept on the user's addresses. Instead, they are transferred to the Hub owners address during a [sweep](../concepts/sweeps.md). If a user later triggers a [`userWithdrawRequest` command](../references/api-reference.md#hub.rpc.UserWithdrawRequest), Hub creates a new sweep to send the user's tokens to the chosen addresses. -->
 <!-- ::: -->
 
 ## トークン保護
 <!-- ## Token protection -->
 
-IOTAは、Winternitzワンタイム署名方式を使用して署名を作成します。その結果、各署名は秘密鍵の約半分を公開してしまいます。秘密鍵でバンドルに一度署名することは安全です。したがって、ユーザーがアドレスからIOTAトークンを取り出すと、そのアドレスは「使用済み」と見なされ、そのアドレスからは二度とIOTAトークンを取り出すことはできません。
-<!-- IOTA uses the Winternitz one-time signature scheme to create signatures. As a result, each signature exposes around half of the private key. Signing a bundle once with the a private key is safe. So, when a user withdraws from an address, that address is considered 'spent' and must never be withdrawn from again. -->
+IOTAは、バンドルに署名するためにWinternitzワンタイム署名方式を使用します。その結果、各署名は秘密鍵の約半分を公開します。秘密鍵でバンドルに一度署名するのは安全です。したがって、ユーザーがアドレスからIOTAトークンを取り出すと、そのアドレスは「使用済み」と見なされ、そのアドレスからは二度とIOTAトークンを取り出すことはできません。
+<!-- IOTA uses the Winternitz one-time signature scheme to sign bundles. As a result, each signature exposes around half of the private key. Signing a bundle once with a private key is safe. So, when a user withdraws from an address, that address is considered 'spent' and must never be withdrawn from again. -->
 
 :::info:
-[使用済みアドレスの詳細と、使用済みアドレスからは2度とIOTAトークンを取り出してはいけない理由](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)を知る。
+[IOTAの署名について、そしてなぜ一度取り出したアドレスから再度取り出してはいけないのかを学びます](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse)。
 :::
 <!-- :::info: -->
-<!-- [Discover the details about spent addresses and why you must never withdraw from an address more than once](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). -->
+<!-- [learn about signatures in IOTA and why you must never withdraw from an address more than once](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse). -->
 <!-- ::: -->
 
 ユーザーが使用済みアドレスからIOTAトークンを取り出せないようにするために、ハブには次の機能があります。

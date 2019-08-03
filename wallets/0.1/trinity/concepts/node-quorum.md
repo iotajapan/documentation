@@ -13,4 +13,9 @@
 | **ノード定足数へのリクエスト** | **安全な代替結果（失敗した場合）** | **安全な代替結果の理由** |
 | :--- | :--- | :--- |
 | アドレスが使用済みかどうか | アドレスは使用済み | ユーザーが所有していないトークンを使用するのを防ぎぐため。 |
-| トランザクションの送信前、送信中、送信後のアドレスの残高 | 残高は0 | ユーザーが自分の残高が最新のものであると誤解して誤用するのを防ぎ、ユーザーが署名済みアドレスからトークンを取り出すリスクを回避するため。[これがなぜ重要なのか](root://iota-basics/0.1/concepts/addresses-and-signatures.md#addressreuse)を知る。 |
+| トランザクションの送信前、送信中、送信後のアドレスの残高 | 残高は0 | ユーザーが自分の残高が最新のものであると誤解して誤用するのを防ぎ、ユーザーが署名済みアドレスからトークンを取り出すリスクを回避するため。[これがなぜ重要なのか](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#addressreuse)を知る。 |
+
+<!-- | **Request to a node quorum**|**Safe fallback result (in case of failure)** |**Reason for safe fallback result**| -->
+<!-- |:--|:--|:---| -->
+<!-- |Whether an address is spent| The address is spent| To stop users from trying to spend tokens that they don't have| -->
+<!-- |The balances of an address before, during, and after sending a transaction| Zero balance| To stop users from being misled into believing that their balance is up to date, thus avoiding the risk of a user withdrawing from a spent address. [Find out why this is important](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#addressreuse). -->

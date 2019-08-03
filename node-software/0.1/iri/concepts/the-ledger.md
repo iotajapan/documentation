@@ -10,17 +10,17 @@
 ## 凝固
 <!-- ## Solidification -->
 
-凝固は、ノードが[タングル](root://iota-basics/0.1/concepts/the-tangle.md#milestones)内のすべての[マイルストーン](root://iota-basics/0.1/concepts/the-tangle.md)の履歴を受信するプロセスです。
-<!-- Solidification is the process by which a node receives the history of all [milestones](root://iota-basics/0.1/concepts/the-tangle.md#milestones) in the [Tangle](root://iota-basics/0.1/concepts/the-tangle.md). -->
+凝固は、ノードが[タングル](root://dev-essentials/0.1/concepts/the-tangle.md#milestones)内のすべての[マイルストーン](root://dev-essentials/0.1/concepts/the-tangle.md)の履歴を受信するプロセスです。
+<!-- Solidification is the process by which a node receives the history of all [milestones](root://dev-essentials/0.1/concepts/the-tangle.md#milestones) in the [Tangle](root://dev-essentials/0.1/concepts/the-tangle.md). -->
 
 ノードが実行を開始すると、**エントリポイントのマイルストーン**から始めて最新のマイルストーンまでの各マイルストーンが参照するトランザクション（マイルストーンの履歴）のリクエストを開始します。
 <!-- When a node starts running, it starts to request the transactions that each milestone references (its history), starting from an **entry point milestone** and ending at the latest one. -->
 
 :::info:
-参照はトランザクションの[`branchTransaction`と`trunkTransaction`フィールド](root://iota-basics/0.1/references/structure-of-a-transaction.md)で定義されています。
+参照はトランザクションの[`branchTransaction`と`trunkTransaction`フィールド](root://dev-essentials/0.1/references/structure-of-a-transaction.md)で定義されています。
 :::
 <!-- :::info: -->
-<!-- References are defined in a transaction's [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md). -->
+<!-- References are defined in a transaction's [`branchTransaction` and `trunkTransaction` fields](root://dev-essentials/0.1/references/structure-of-a-transaction.md). -->
 <!-- ::: -->
 
 ノードにマイルストーンのブランチトランザクションとトランクトランザクションがある場合、ノードはマイルストーンのブランチトランザクションとトランクトランザクションが参照するすべてのトランザクションをリクエストし始めます。このプロセスは、ノードがエントリポイントのマイルストーンに達するまで各トランザクションに対して継続します。この時点で、ノードはそのマイルストーンを**凝固**したとしてマークし、次のマイルストーンからプロセスを再開します。
@@ -36,7 +36,7 @@ IRIノードは、最新のマイルストーンまですべてのマイルス�
 <!-- An IRI node is considered synchronized when it has solidified all the milestones up to the latest one. -->
 
 `latestMilestoneIndex`フィールドが`latestSolidSubtangleMilestoneIndex`フィールドと等しいことを確認することで、ノードが同期しているかどうかを調べることができます。
-<!-- You can find out if a node is synchronzed by checking that its `latestMilestoneIndex` field is equal to the `latestSolidSubtangleMilestoneIndex` field. -->
+<!-- You can find out if a node is synchronized by checking that its `latestMilestoneIndex` field is equal to the `latestSolidSubtangleMilestoneIndex` field. -->
 
 `latestMilestoneIndex`フィールドは、IRIが近隣IRIノードから受け取った最新のマイルストーンのインデックスです。
 <!-- The `latestMilestoneIndex` field is the index of the latest milestone that the IRI has received from its neighbors. -->

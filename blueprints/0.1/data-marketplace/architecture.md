@@ -60,8 +60,8 @@ PoCのアーキテクチャー（下の画像）は、センサーまたはそ�
 クラウドファンクションは、以下のデフォルト値を変更するように構成できます。
 <!-- Cloud functions can be configured to change the default values of the following: -->
 
-* 通常、IOTA DevnetノードとMainnetノードでは異なる、`depth`フィールドと[`最小重量値`](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)フィールド。
-<!-- * `depth` and [`minWeightMagnitude`](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) fields, which are typically different for IOTA Devnet and Mainnet nodes -->
+* 通常、IOTA DevnetノードとMainnetノードでは異なる、`depth`フィールドと[`最小重量値`](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)フィールド。
+<!-- * `depth` and [`minWeightMagnitude`](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) fields, which are typically different for IOTA Devnet and Mainnet nodes -->
 * 事前定義された電子メールアドレスを持つ管理者ユーザーが、デバイスを管理することを許可しているホワイトリストページ。
 <!-- * Whitelist page, where administrator users with predefined email addresses are allowed to administer devices -->
 

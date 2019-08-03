@@ -1,5 +1,5 @@
-# ハブを暗号資産取引所に統合する
-<!-- # Integrate Hub into a crytocurrency exchange -->
+# ハブを暗号通貨取引所に統合する
+<!-- # Integrate Hub into a cryptocurrency exchange -->
 
 **ユーザーの残高の管理方法に応じて、ハブをさまざまな方法で取引所に統合できます。**
 <!-- **Hub can be integrated into an exchange in many ways, depending on how you want to manage your users' balances.** -->

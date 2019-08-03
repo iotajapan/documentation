@@ -13,8 +13,8 @@ IACを使用することで、トランザクションにエリアをタグ付�
 ## IACについて
 <!-- ## About IACs -->
 
-IACは[Open Location Code](https://en.wikipedia.org/wiki/Open_Location_Code)（OLC）のクローンです。IACには、[トライエンコーディング](root://iota-basics/0.1/concepts/trinary.md)との互換性を持たせるためのいくつかの小さな変更が含まれています。
-<!-- IACs are a clone of [Open Location Codes](https://en.wikipedia.org/wiki/Open_Location_Code) (OLC), which includes some minor changes to make them compatible with [tryte encoding](root://iota-basics/0.1/concepts/trinary.md): -->
+IACは[Open Location Code](https://en.wikipedia.org/wiki/Open_Location_Code)（OLC）のクローンです。IACには、[トライエンコーディング](root://dev-essentials/0.1/concepts/trinary.md)との互換性を持たせるためのいくつかの小さな変更が含まれています。
+<!-- IACs are a clone of [Open Location Codes](https://en.wikipedia.org/wiki/Open_Location_Code) (OLC), which includes some minor changes to make them compatible with [tryte encoding](root://dev-essentials/0.1/concepts/trinary.md): -->
 
 * コードを構成する数字と文字は_トライト_と呼ばれ、`FGHJKLMNOPQRSTUVXWYZ`が含まれます。
 <!-- * The numbers and letters that make up a code are called _trytes_, which include the following: `FGHJKLMNOPQRSTUVXWYZ` -->
@@ -45,8 +45,8 @@ IACは以下の3つの部分で構成されています（区切り文字`9`を�
 - 最後の2つのトライトは特別な精度のためのものです。
 <!-- - The final two trytes are for extra precision -->
 
-| **IACの長さ（トライト）** | **おおよその面積** |
-| :---------------------- | :----------------- |
+| **IACの長さ（トライト）** | **おおよそのエリア** |
+| :------------------------ | :------------------- |
 | 2 | 2200 km |
 | 4 | 110 km |
 | 6 | 5.5 km |
@@ -54,7 +54,6 @@ IACは以下の3つの部分で構成されています（区切り文字`9`を�
 | 10 | 14 m |
 | 11 | 3.5 m |
 | 12 | 3 m未満 |
-
 
 <!-- | **IAC length (trytes)**   | **Approximate area**| -->
 <!-- |:--------------|:---------------------| -->

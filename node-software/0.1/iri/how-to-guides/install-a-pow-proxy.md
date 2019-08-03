@@ -1,8 +1,8 @@
 # プルーフオブワーク用プロキシサーバをインストールする
 <!-- # Install a proof-of-work proxy server -->
 
-**`attachToTangle`エンドポイントはリソースを大量に消費します。結果として、`attachToTangle`エンドポイントへの多くの呼び出しは時々ノードをクラッシュさせることがあります。この問題を解決するには、ノードにプルーフオブワークをさせるのではなく、専用のプロキシサーバをインストールしてプルーフオブワーク（PoW）を行うことができます。**
-<!-- **The `attachToTangle` endpoint is resource intensive. As a result, many calls to this endpoint can sometimes cause a node to crash. To resolve this problem, you can install a dedicated proxy server to do proof of work (PoW) instead of making the node do it.** -->
+**`attachToTangle`エンドポイントはリソースを大量に消費します。結果として、`attachToTangle`エンドポイントへの多くの呼び出しは時々ノードをクラッシュさせることがあります。この問題を解決するには、専用のプロキシサーバーをインストールして、ノードのプルーフオブワーク（PoW）を行います。**
+<!-- **The `attachToTangle` endpoint is resource intensive. As a result, many calls to this endpoint can sometimes cause a node to crash. To resolve this problem, you can install a dedicated proxy server to do proof of work (PoW) for your node.** -->
 
 PoWプロキシサーバは、IOTAミドルウェアを使用する[Caddy](https://caddyserver.com/)の実装です。このミドルウェアにより、サーバはIRIノードの`attachToTangle`エンドポイントへの呼び出しを傍受してPoWを実行できます。
 <!-- The PoW proxy server is an implementation of [Caddy](https://caddyserver.com/) that uses IOTA middleware. This middleware allows the server to intercept calls to an IRI node's `attachToTangle` endpoint and do the PoW. -->

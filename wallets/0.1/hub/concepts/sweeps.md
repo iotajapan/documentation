@@ -25,10 +25,10 @@ IOTAは、Winternitzワンタイム署名方式を使用して署名を作成し
 <!-- ::: -->
 
 :::info:
-[使用済みアドレスの詳細と、使用済みアドレスからは2度とIOTAトークンを取り出してはいけない理由](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)を知る。
+[使用済みアドレスの詳細と、使用済みアドレスからは2度とIOTAトークンを取り出してはいけない理由](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse)を知る。
 :::
 <!-- :::info: -->
-<!-- [Discover the details about spent addresses and why you must never withdraw from an address more than once](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). -->
+<!-- [Discover the details about spent addresses and why you must never withdraw from an address more than once](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse). -->
 <!-- ::: -->
 
 スウィープを実行するために、Hubは[`--monitorInterval`フラグと`--sweepInterval`フラグ](../references/command-line-flags.md#monitorInterval)で定義されている定期的な間隔で以下を実行します。
@@ -49,15 +49,15 @@ IOTAは、Winternitzワンタイム署名方式を使用して署名を作成し
 - 取り出しリクエストを処理し、残りの残高をハブ所有者のアドレスに送信するバンドルを作成します。1つのバンドル内で実行できる取り出しと預け入れの数は[`--sweep_max_deposit`フラグと`--sweep_max_withdrawal`](../references/command-line-flags.md#sweepLimits)フラグによって制限されます。
 <!-- - Create a bundle that actions withdrawal requests and sends the remaining balance to the Hub owner's addresses. The number of deposits and withdrawals that can be actioned in a single bundle is limited by the [`--sweep_max_deposit` and `--sweep_max_withdrawal`](../references/command-line-flags.md#sweepLimits) flags. -->
 
-- スウィープの末尾トランザクションの包含状態を確認して、それが確定しているかどうかを確認する。スウィープのトランザクションが確定されるまで、ハブは末尾トランザクションの[再添付や促進](root://iota-basics/0.1/concepts/reattach-rebroadcast-promote.md)を行います。
-<!-- - Check the inclusion state of the tail transaction in the sweep to determine if it's been confirmed. Hub will [reattach and promote](root://iota-basics/0.1/concepts/reattach-rebroadcast-promote.md) the tail transaction until the transactions in the sweep are confirmed. -->
+- スウィープの末尾トランザクションの包含状態を確認して、それが確定しているかどうかを確認する。スウィープのトランザクションが確定されるまで、ハブは末尾トランザクションの[再添付や促進](root://dev-essentials/0.1/concepts/reattach-rebroadcast-promote.md)を行います。
+<!-- - Check the inclusion state of the tail transaction in the sweep to determine if it's been confirmed. Hub will [reattach and promote](root://dev-essentials/0.1/concepts/reattach-rebroadcast-promote.md) the tail transaction until the transactions in the sweep are confirmed. -->
 
 - スウィープのトランザクションが確定されるとデータベーステーブル内のユーザの残高を更新する。
 <!-- - Update the users' balances in the database tables when the transactions in the sweep are confirmed -->
 
 :::info:包含状態についてもっと知りたいですか？
-[トランザクションが確認されたかどうかを確認する方法](root://iota-basics/0.1/how-to-guides/check-transaction-confirmation.md)をご覧ください。
+[トランザクションが確認されたかどうかを確認する方法](root://dev-essentials/0.1/how-to-guides/check-transaction-confirmation.md)をご覧ください。
 :::
 <!-- :::info:Want to learn more about inclusion states? -->
-<!-- Find out how to [check if a transaction is confirmed](root://iota-basics/0.1/how-to-guides/check-transaction-confirmation.md). -->
+<!-- Find out how to [check if a transaction is confirmed](root://dev-essentials/0.1/how-to-guides/check-transaction-confirmation.md). -->
 <!-- ::: -->

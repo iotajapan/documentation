@@ -1,8 +1,8 @@
 # 台帳からトランザクションを刈り取る
 <!-- # Prune transactions from the ledger -->
 
-**時間が経つにつれて、IRIノードの台帳には多くの有効なトランザクションが蓄積され、多くの場合、IRIノードの使用可能メモリよりも大きくなります。台帳が大きくなり過ぎないようにするために、定期的に台帳から古いトランザクションを削除することを選択できます。**
-<!-- **Over time, the ledger of an IRI node accumulates many valid transactions, which often cause it to become larger than the IRI node's available memory. To stop the ledger from becoming too large, you can choose to delete old transactions from the ledger at regular intervals.** -->
+**時間が経つにつれて、IRIノードの台帳には多くのトランザクションが蓄積され、多くの場合、IRIノードの使用可能メモリよりも大きくなります。台帳が大きくなり過ぎないようにするために、定期的に台帳から古いトランザクションを削除することを選択できます。**
+<!-- **Over time, the ledger of an IRI node accumulates many transactions, which often cause it to become larger than the IRI node's available memory. To stop the ledger from becoming too large, you can choose to delete old transactions from the ledger at regular intervals.** -->
 
 次の計算の結果よりも古いマイルストーントランザクションによってトランザクションが確定された場合にのみ、トランザクションは刈り取られます。
 <!-- Transactions are pruned only if they were confirmed by a milestone transaction that is older than the result of the following calculation: -->

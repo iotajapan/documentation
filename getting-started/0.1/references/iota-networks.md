@@ -34,20 +34,20 @@ IOTAには、以下の[無許可制（パブリック）ネットワーク](../i
 :::info:
 暗号資産取引所では、IOTAトークンをメガIOTA（1,000,000）単位で販売しています。これはMIOTAまたはMiとも呼ばれます。
 
-[IOTAトークンの単位](root://iota-basics/0.1/references/units-of-iota-tokens.md)について詳しく学んでみましょう。
+[IOTAトークンの単位](root://dev-essentials/0.1/references/units-of-iota-tokens.md)について詳しく学んでみましょう。
 :::
 <!-- :::info: -->
 <!-- Cryptocurrency exchanges sell IOTA tokens in denominations of Mega IOTA (1,000,000), which is also written as MIOTA or Mi. -->
 <!--  -->
-<!-- Learn more about [units of IOTA tokens](root://iota-basics/0.1/references/units-of-iota-tokens.md). -->
+<!-- Learn more about [units of IOTA tokens](root://dev-essentials/0.1/references/units-of-iota-tokens.md). -->
 <!-- ::: -->
 
 ![Mainnet configuration](../images/mainnet-configuration.png)
 
 ### 最小重量値
 
-Mainnet上のトランザクションが有効であるためには、14の[最小重量値](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)（MWM）を使用しなければなりません。
-<!-- Transactions on the Mainnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 14 to be valid. -->
+Mainnet上のトランザクションが有効であるためには、14の[最小重量値](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)（MWM）を使用しなければなりません。
+<!-- Transactions on the Mainnet must use a [minimum weight magnitude](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 14 to be valid. -->
 
 <a name="devnet"></a>
 ## Devnet
@@ -69,8 +69,8 @@ Devnetネットワークでは、アプリケーションをテストして、�
 
 ### 最小重量値
 
-Devnet上のトランザクションが有効になるには、9の[最小重量値](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)（MWM）を使用する必要があります。
-<!-- Transactions on the Devnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 9 to be valid. -->
+Devnet上のトランザクションが有効になるには、9の[最小重量値](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)（MWM）を使用する必要があります。
+<!-- Transactions on the Devnet must use a [minimum weight magnitude](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 9 to be valid. -->
 
 Mainnetと比較して、9のMWMはプルーフオブワーク（PoW）が完了するのにかかる時間を短縮します。そのため、トランザクションを作成して送信するのにかかる時間と計算能力が少なく済みます。
 <!-- Compared to the Mainnet, this MWM reduces the time it takes for proof of work (PoW) to be completed. So, it takes less time and computational power to create and send a transaction. -->
@@ -132,8 +132,8 @@ PoWノードを使用して小型デバイスの電力を節約します。
 
 ### 最小重量値
 
-Spamnet上のトランザクションが有効になるには、7の[最小重量値](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)（MWM）を使用する必要があります。
-<!-- Transactions on the Spamnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 7 to be valid. -->
+Spamnet上のトランザクションが有効になるには、7の[最小重量値](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)（MWM）を使用する必要があります。
+<!-- Transactions on the Spamnet must use a [minimum weight magnitude](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 7 to be valid. -->
 
 Mainnetと比較して、このMWMはプルーフオブワーク（PoW）が完了するのにかかる時間を短縮します。そのため、トランザクションを作成して送信するのにかかる時間と計算能力が少なく済みます。
 <!-- Compared to the Mainnet, this MWM reduces the time it takes for proof of work (PoW) to be completed. So, it takes less time and computational power to create and send a transaction. -->

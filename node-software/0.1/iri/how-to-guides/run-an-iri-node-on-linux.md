@@ -1,8 +1,8 @@
 # LinuxサーバでIRIノードを実行する
 <!-- # Run an IRI node on a Linux server -->
 
-**IRIソフトウェアを実行すると、お使いのデバイスがIOTAネットワークに直接アクセス可能なノードになります。ノードを実行することで、台帳の数を増やし、隣接ノードのトランザクションを検証することで、IOTAネットワークがより分散されるようになります。**
-<!-- **When you run the IRI software, your device becomes a node that gives you direct access to an IOTA network. By running a node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbors' transactions.** -->
+**IRIソフトウェアを実行すると、お使いのデバイスがタングルに直接アクセス可能なノードになります。ノードを実行することで、台帳の数を増やし、隣接ノードのトランザクションを検証することで、IOTAネットワークがより分散されるようになります。**
+<!-- **When you run the IRI software, your device becomes a node that gives you direct access to the Tangle. By running a node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbors' transactions.** -->
 
 ## 前提条件
 <!-- ## Prerequisites -->
