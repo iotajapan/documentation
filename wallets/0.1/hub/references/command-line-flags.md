@@ -54,7 +54,7 @@
 | `--signingServerKeyCert` | SSL暗号化を使用するようにハブを設定し（`--authMode="ssl"`）、[署名サーバ](../how-to-guides/install-the-signing-server.md)がある場合は、SSL証明書キーへのパスをこのフラグに渡す必要があります。| "/dev/null" |
 | `--signingServerSslCert` | SSL暗号化を使用するようにハブを設定し（`--authMode="ssl"`）、[署名サーバ](../how-to-guides/install-the-signing-server.md)がある場合は、SSL証明書へのパスをこのフラグに渡す必要があります。 | "/dev/null" |
 | `--sweepInterval` | ハブがスウィープ間で待機する間隔（ミリ秒）。0=無効。 | 600000 |
-| `--powMode` | [プルーフオブワーク](root://iota-basics/0.1/minimum-weight-magnitude.md)のモード。`local`か`remote`か。 | local |
+| `--powMode` | [プルーフオブワーク](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)のモード。`local`か`remote`か。 | local |
 | `-fetchTransactionMessages` | ハブが預け入れトランザクションのメッセージをデータベースに格納するかどうか | false |
 
 ## hub/service/sweep_service.ccからのフラグ

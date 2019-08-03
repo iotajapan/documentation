@@ -20,11 +20,11 @@
 * **ZMQ：** クライアントが[ノードのZMQイベントを購読する](../how-to-guides/subscribe-to-events-in-an-iri-node.md)方法
 <!-- * **ZMQ:** How clients can [subscribe to your node's ZMQ events](../how-to-guides/subscribe-to-events-in-an-iri-node.md) -->
 * **Tip selection：** [チップ選択](../concepts/tip-selection.md)中の重み付きランダムウォークの長さとランダムさ
-<!-- * **Tip selection:** The length and randomness of the weighted random walk during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md) -->
+<!-- * **Tip selection:** The length and randomness of the weighted random walk during [tip selection](../concepts/tip-selection.md) -->
 * **Tip solidification：** チップトランザクションが凝固になる方法
 <!-- * **Tip solidification:** How tip transactions become solid. -->
 * **Proof of work：** ノードが[プルーフオブワーク](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)を行う方法
-<!-- * **Proof of work:** How your node does [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) -->
+<!-- * **Proof of work:** How your node does [proof of work](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) -->
 * **Local snapshots：** ノードが[ローカルスナップショット](../concepts/local-snapshot.md)を実行する方法とタイミング
 <!-- * **Local snapshots:** How and when your node does [local snapshots](../concepts/local-snapshot.md) -->
 
@@ -44,7 +44,6 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 
 ## API
 
-<<<<<<< HEAD
 これらの設定を使用して、APIの動作方法とアクセスできるホストをカスタマイズします。
 <!-- Use these settings to customize how the API behaves and which hosts can access it. -->
 
