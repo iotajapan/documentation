@@ -9,9 +9,6 @@ AstroPiOTAはタングル上のローカル環境データを追跡するため�
 MAMは購読サービスです。最新のデータを受信するためにAstroPiOTAチャネルを購読します。
 <!-- MAM is a subscription service. Subscribe to the AstroPiOTA channel to receive the latest data. -->
 
-ビデオをご覧ください。（Coming soon）
-<!-- Watch the video:  (Coming soon) -->
-
 ## 環境データ
 <!-- ## Environment Data -->
 

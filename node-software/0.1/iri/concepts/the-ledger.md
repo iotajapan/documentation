@@ -1,17 +1,17 @@
 # 台帳
 <!-- # The ledger -->
 
-**ノードは、自分が受け取った有効なすべてのトランザクションを、組み込みの追加専用のRocksDBデータベースである台帳に格納することによって記録します。 IOTAネットワーク内の全ノードの集合データベースがタングルを構成します。**
-<!-- **Nodes keep a record of all valid transactions that they receive by storing them in a ledger, which is an embedded, append-only RocksDB database. The collective database of all nodes in an IOTA network makes up the Tangle.** -->
+**ノードは、トランザクションを台帳と呼ばれるローカルの追加専用のRocksDBデータベースに追加することで、トランザクションをタングルに添付します。**
+<!-- **Nodes attach transactions to the Tangle by appending them to their local append-only RocksDB database called the ledger.** -->
 
-台帳はノードの主なデータソースです。台帳のデータは、ノードが受信したすべての有効なトランザクションの完全な履歴です。
-<!-- The ledger is the primary data source for a node. The data in the ledger is a complete history of all the valid transactions that a node has received. -->
+ノードが新しいトランザクションを受信すると、その新しいトランザクションの子トランザクション（履歴）を持っているかどうかを確認します。ノードが子トランザクションを持っていない場合は、ノードは凝固と呼ばれるプロセスを通して、新しく受け取ったトランザクションのために隣接ノードに尋ね始めます。
+<!-- When a node receives a new transaction, it checks that it has the history its children. If the node is missing any transactions, it starts to ask its neighbors for them in a process called solidification. -->
 
-## 台帳凝固
-<!-- ## Ledger solidification -->
+## 凝固
+<!-- ## Solidification -->
 
-台帳凝固は、ノードが[タングル](root://the-tangle/0.1/introduction/overview.md)のすべての[マイルストーン](root://the-tangle/0.1/concepts/the-coordinator.md)の履歴を隣接ノードに求めるプロセスです。
-<!-- Ledger solidification is the process by which a node asks its neighbors for the history of all [milestones](root://the-tangle/0.1/concepts/the-coordinator.md) in the [Tangle](root://the-tangle/0.1/introduction/overview.md). -->
+凝固は、ノードが[タングル](root://iota-basics/0.1/concepts/the-tangle.md#milestones)内のすべての[マイルストーン](root://iota-basics/0.1/concepts/the-tangle.md)の履歴を受信するプロセスです。
+<!-- Solidification is the process by which a node receives the history of all [milestones](root://iota-basics/0.1/concepts/the-tangle.md#milestones) in the [Tangle](root://iota-basics/0.1/concepts/the-tangle.md). -->
 
 ノードが実行を開始すると、**エントリポイントのマイルストーン**から始めて最新のマイルストーンまでの各マイルストーンが参照するトランザクション（マイルストーンの履歴）のリクエストを開始します。
 <!-- When a node starts running, it starts to request the transactions that each milestone references (its history), starting from an **entry point milestone** and ending at the latest one. -->
@@ -23,16 +23,16 @@
 <!-- References are defined in a transaction's [`branchTransaction` and `trunkTransaction` fields](root://iota-basics/0.1/references/structure-of-a-transaction.md). -->
 <!-- ::: -->
 
-ノードにマイルストーンのブランチトランザクションとトランクトランザクションがある場合、ノードはマイルストーンのブランチトランザクションとトランクトランザクションが参照するすべてのトランザクションをリクエストし始めます。このプロセスは、ノードがエントリポイントのマイルストーンに達するまで各トランザクションに対して継続します。この時点で、ノードはそのマイルストーンを**凝固**なものとしてマークし、次のマイルストーンからプロセスを再開します。
+ノードにマイルストーンのブランチトランザクションとトランクトランザクションがある場合、ノードはマイルストーンのブランチトランザクションとトランクトランザクションが参照するすべてのトランザクションをリクエストし始めます。このプロセスは、ノードがエントリポイントのマイルストーンに達するまで各トランザクションに対して継続します。この時点で、ノードはそのマイルストーンを**凝固**したとしてマークし、次のマイルストーンからプロセスを再開します。
 <!-- When a node has the milestone's branch and trunk, it starts to request all the transactions that those transactions reference. This process continues for each transaction until the node reaches the entry point milestone. At this point, the node marks that milestone as **solid**, and starts the process again from the next one. -->
 
 エントリポイントのマイルストーンが古いほど、凝固にかかる時間が長くなります。
 <!-- The older the entry point milestone, the longer solidification takes. -->
 
-## 台帳はいつ同期するか？
-<!-- ## When is a ledger synchronized? -->
+## ノードはいつ同期するか？
+<!-- ## When is a node synchronized? -->
 
-IRIノードは、最新のものまですべてのマイルストーンを凝固なものにした時点で同期したと見なされます。
+IRIノードは、最新のマイルストーンまですべてのマイルストーンを凝固にした時点で同期したと見なされます。
 <!-- An IRI node is considered synchronized when it has solidified all the milestones up to the latest one. -->
 
 `latestMilestoneIndex`フィールドが`latestSolidSubtangleMilestoneIndex`フィールドと等しいことを確認することで、ノードが同期しているかどうかを調べることができます。

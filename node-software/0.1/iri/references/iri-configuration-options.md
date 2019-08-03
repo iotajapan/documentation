@@ -19,11 +19,11 @@
 <!-- * **Protocol:** What transactions will be accepted by the network, and how they will be propagated to other nodes -->
 * **ZMQ：** クライアントが[ノードのZMQイベントを購読する](../how-to-guides/subscribe-to-events-in-an-iri-node.md)方法
 <!-- * **ZMQ:** How clients can [subscribe to your node's ZMQ events](../how-to-guides/subscribe-to-events-in-an-iri-node.md) -->
-* **Tip selection：** [チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)中の重み付きランダムウォークの長さとランダムさ
+* **Tip selection：** [チップ選択](../concepts/tip-selection.md)中の重み付きランダムウォークの長さとランダムさ
 <!-- * **Tip selection:** The length and randomness of the weighted random walk during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md) -->
 * **Tip solidification：** チップトランザクションが凝固になる方法
 <!-- * **Tip solidification:** How tip transactions become solid. -->
-* **Proof of work：** ノードが[プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)を行う方法
+* **Proof of work：** ノードが[プルーフオブワーク](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)を行う方法
 <!-- * **Proof of work:** How your node does [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) -->
 * **Local snapshots：** ノードが[ローカルスナップショット](../concepts/local-snapshot.md)を実行する方法とタイミング
 <!-- * **Local snapshots:** How and when your node does [local snapshots](../concepts/local-snapshot.md) -->
@@ -44,6 +44,7 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 
 ## API
 
+<<<<<<< HEAD
 これらの設定を使用して、APIの動作方法とアクセスできるホストをカスタマイズします。
 <!-- Use these settings to customize how the API behaves and which hosts can access it. -->
 
@@ -52,7 +53,7 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 | <a name="api-host"></a> `--api-host` | `API_HOST` | APIをリッスンするホストを設定します。 | string | localhost | 任意のホストを受け入れるには、このオプションを0.0.0.0に設定するか、`REMOTE`オプションを`true`に設定します。 |
 | <a name="port"></a> `--port, -p`（**必須**） | `API_PORT` | APIをリッスンするポートを設定します。 | string | 14265 |
 | <a name="max-body-length"></a> `--max-body-length` | `MAX_BODY_LENGTH` | API呼び出しのボディに含めることができる最大文字数を設定します。 | number | 1,000,000 | リクエストボディの長さがこの数を超えると、エラーが返されます。 |
-| <a name="max-find-transactions"></a> `--max-find-transactions` | `MAX_FIND_TRANSACTIONS` | [findTransactionsエンドポイント](../references/api-reference.md#findTransactions)から返される可能性があるトランザクションの最大数を設定します。 | number | 100,000 | トランザクション数がこの数を超えると、エラーが返されます。 |
+| <a name="max-find-transactions"></a> `--max-find-transactions` | `MAX_FIND_TRANSACTIONS` | [`findTransactions`エンドポイント](../references/api-reference.md#findTransactions)から返される可能性があるトランザクションの最大数を設定します。 | number | 100,000 | トランザクション数がこの数を超えると、エラーが返されます。 |
 | <a name="max-requests-list"></a> `--max-requests-list` | `MAX_REQUESTS_LIST` | API呼び出しパラメーター数の最大数を設定します。 | number | 1,000 | パラメータ数がこの数を超えると、エラーが返されます。 |
 | <a name="max-get-trytes"></a> `--max-get-trytes` | `MAX_GET_TRYTES` | [getTrytesエンドポイント](../references/api-reference.md#getTrytes)から返される可能性のあるトライト数の最大数を設定します。 | number | 10,000 | トライト数がこの数を超えると、エラーが返されます。 |
 | <a name="remote"></a> ` --remote ` | - | 任意のホストへのAPIインターフェースを開きます。 | boolean | false | `true`に設定すると、このオプションは`API_HOST`オプションを0.0.0.0に設定するのと同等になります。このフラグの後に `true`または`false`の値を追加しなければなりません。 |
@@ -67,7 +68,7 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 
 | **コマンドラインフラグ** | **設定ファイルのパラメータ** | **説明** | **有効な値** | **デフォルト値** | **メモ** |
 | :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
-| <a name="auto-tethering-enabled"></a>`--auto-tethering-enabled` | `AUTO_TETHERING_ENABLED` | 未知の隣接ノードからの新しい接続を有効にします。 | boolean | false | 未知の隣接ノードとは、 `NEIGHBORS`オプションで定義されておらず、`addNeighbors`APIエンドポイントを通して追加されてもいないものです。あなたのノードに接続できる隣接ノードの最大数を制限するには `MAX_NEIGHBORS`オプションを使います。 |
+| <a name="auto-tethering-enabled"></a>`--auto-tethering` | `AUTO_TETHERING` | 未知の隣接ノードからの新しい接続を有効にします。 | boolean | false | 未知の隣接ノードとは、 `NEIGHBORS`オプションで定義されておらず、`addNeighbors`APIエンドポイントを通して追加されてもいないものです。あなたのノードに接続できる隣接ノードの最大数を制限するには `MAX_NEIGHBORS`オプションを使います。 |
 | <a name="cache-size"></a> `--cache-size` | `CACHE_SIZE_BYTES` | ネットワークキャッシュの最大サイズをバイト単位で設定します。 | number | 150,000 |
 | <a name="dns-refresher"></a> `--dns-refresher` | `DNS_REFRESHER` | 動的IPアドレスを持つ隣接ノードに再接続します。 | boolean | true |
 | <a name="dns-resolution"></a> `--dns-resolution` | `DNS_RESOLUTION` | 近隣ノードピアリングに対してDNSを有効にします。 | boolean | true |
@@ -131,14 +132,14 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 
 ## Tip selection
 
-これらの設定を使用して、[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)中の重み付きランダムウォークの長さとランダムさをカスタマイズします。
-<!-- Use these settings to customize the length and randomness of the weighted random walk during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md). -->
+これらの設定を使用して、[チップ選択](../concepts/tip-selection.md)中の重み付きランダムウォークの長さとランダムさをカスタマイズします。
+<!-- Use these settings to customize the length and randomness of the weighted random walk during [tip selection](../concepts/tip-selection.md). -->
 
 | **コマンドラインフラグ** | **設定ファイルのパラメータ** | **説明** | **有効な値** | **デフォルト値** | **メモ** |
 | :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
 | <a name="alpha"></a> `--alpha` | `ALPHA` | チップ選択プロセスのランダムさを設定します。 | 0から無限大の間の数 | 0.001 | 数値0が最もランダムで、無限大が最も決定的です。このオプションの詳細な説明については、[ブログの投稿](https://blog.iota.org/alpha-d176d7601f1c)を参照してください。 |
 | <a name="max-analyzed-transactions"></a> `--max-analyzed-transactions` | `MAX_ANALYZED_TXS` | チップ選択中に分析される可能性のある未確定トランザクションの最大数を設定して、未確定トランザクションを参照する最新のマイルストーンを見つけます。 | number | 20,000 |
-| <a name="max-depth"></a> `--max-depth` | `MAX_DEPTH` | IRIがチップ選択を開始する場所からの過去のマイルストーン数（深さ）の最大数を設定します。 | number | 15 | この値は、重み付きランダムウォークが妥当な時間内に終了するのに十分なほど小さく、かつ[部分グラフ](root://the-tangle/0.1/concepts/tip-selection.md#subgraph-selection)に十分な新しいトランザクションが含まれるのに十分なほど大きい必要があります。 |
+| <a name="max-depth"></a> `--max-depth` | `MAX_DEPTH` | IRIがチップ選択を開始する場所からの過去のマイルストーン数（深さ）の最大数を設定します。 | number | 15 | この値は、重み付きランダムウォークが妥当な時間内に終了するのに十分なほど小さく、かつ[部分グラフ](../concepts/tip-selection.md#subgraph-selection)に十分な新しいトランザクションが含まれるのに十分なほど大きい必要があります。 |
 | <a name="tip-selection-timeout-sec"></a> `--tip-selection-timeout-sec` | `TIP_SELECTION_TIMEOUT_SEC` | IRIがチップ選択を完了するために費やすことができる最大秒数を設定します。 | number | 60 | このオプションは、チップ選択に時間がかかりすぎる場合に、ノードが停止するのを防ぎます。 |
 
 ## Tip solidification
@@ -148,13 +149,12 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 
 | **コマンドラインフラグ** | **設定ファイルのパラメータ** | **説明** | **有効な値** | **デフォルト値** | **メモ** |
 | :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
-| <a name="tip-selection-timeout-sec"></a> `--tip-solidfier-enabled` | `TIP_SOLIDIFIER_ENABLED` | マイルストーンではないチップトランザクションをノードが凝固させることを有効にします。 | boolean | false | デフォルトでは、IRIは積極的にマイルストーンのみを凝固しようとします。他のチップトランザクションは、ゴシッププロトコルを通じて凝固になります。このオプションを`true`に設定すると、ノードはより多くのリソースを使用します。 |
-
+| <a name="tip-selection-timeout-sec"></a> `--tip-solidfier-enabled` | `TIP_SOLIDIFIER_ENABLED` | マイルストーンではないチップトランザクションをノードが凝固させることを有効にします。 | boolean | false | デフォルトでは、IRIは積極的にマイルストーンのみを凝固しようとします。他のチップトランザクションは、ゴシッププロトコルを通じて凝固になります。このオプションを `true`に設定すると、ノードは非マイルストーンを凝固するためにより多くのリソースを使います。 |
 
 ## Proof of work
 
-これらの設定を使用して、ノードがどのように[プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)するかをカスタマイズします。
-<!-- Use these settings to customize how your node does [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md). -->
+これらの設定を使用して、ノードがどのように[プルーフオブワーク](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)するかをカスタマイズします。
+<!-- Use these settings to customize how your node does [proof of work](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md). -->
 
 | **コマンドラインフラグ** | **設定ファイルのパラメータ** | **説明** | **有効な値** | **デフォルト値** | **メモ** |
 | :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |

@@ -28,5 +28,5 @@ IRIノードがないと、誰が誰に何を送信したかを記録する方�
 ## 制限事項
 <!-- ## Limitations -->
 
-IRIはトランザクションを受け取り、トランザクションを台帳に記録します。トランザクションを作成または署名することはありません。トランザクションを作成または署名するには、[トリニティ](root://trinity/0.1/introduction/overview.md)または[クライアントライブラリ](root://client-libraries/0.1/introduction/overview.md)などのクライアントソフトウェアを使用して、トランザクションをIRIノードに送信する必要があります。
-<!-- The IRI receives transactions and records them in its ledger, it doesn't create or sign transactions. To create or sign transactions, you must use client software such as [Trinity](root://trinity/0.1/introduction/overview.md) or a [client library](root://client-libraries/0.1/introduction/overview.md) and send the transactions to an IRI node. -->
+IRIはトランザクションを受け取り、トランザクションを台帳に記録します。トランザクションを作成または署名することはありません。トランザクションを作成または署名するには、[トリニティ](root://wallets/0.1/trinity/introduction/overview.md)または[クライアントライブラリ](root://client-libraries/0.1/introduction/overview.md)などのクライアントソフトウェアを使用して、トランザクションをIRIノードに送信する必要があります。
+<!-- The IRI receives transactions and records them in its ledger, it doesn't create or sign transactions. To create or sign transactions, you must use client software such as [Trinity](root://wallets/0.1/trinity/introduction/overview.md) or a [client library](root://client-libraries/0.1/introduction/overview.md) and send the transactions to an IRI node. -->

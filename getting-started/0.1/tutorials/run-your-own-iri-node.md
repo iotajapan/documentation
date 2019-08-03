@@ -1,11 +1,8 @@
 # 自分のIRIノードを走らせる（Docker）
 <!-- # Run your own IRI node -->
 
-**ノードはIOTAネットワークの中核です。クライアントは、トランザクションをノードに送信して検証し、台帳に記録する必要があります。**
-<!-- **Nodes are the core of an IOTA network. Clients must send their transactions to nodes to have them validated and recorded in the ledger.** -->
-
-ノードがなければ、IOTAネットワークは存在しません。誰が誰に何を送信したかを記録する方法がないため、トランザクションを送信することはできません。
-<!-- Without nodes, IOTA networks wouldn't exist. No one would be able to send transactions because there would be no way of recording who sent what to whom. -->
+**ノードはIOTAネットワークの中核です。クライアントは、トランザクションをノードに送信して検証し、台帳に記録する必要があります。ノードがなければ、IOTAネットワークは存在しません。誰が誰に何を送信したかを記録する方法がないため、トランザクションを送信することはできません。**
+<!-- **Nodes are the core of an IOTA network. Clients must send their transactions to nodes to have them validated and attached to the Tangle. Without nodes, IOTA networks wouldn't exist. No one would be able to send transactions because there would be no way of recording who sent what to whom.** -->
 
 自分のIRIノードを実行することで、次のような利点があります。
 <!-- By running your own IRI node, you have the following benefits: -->

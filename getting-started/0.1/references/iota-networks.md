@@ -1,26 +1,29 @@
-# IOTAネットワーク
-<!-- # IOTA networks -->
+# パブリックIOTAネットワーク
+<!-- # Public IOTA networks -->
 
-**IOTAでは、トランザクションのバンドルを[ノード](../introduction/what-is-a-node.md)に送信する必要があります。IOTAには、3つの[パブリックネットワーク](../references/iota-networks.md)があります。各ネットワークには、ノードがトランザクションを追加できるそれぞれ独自の分散台帳（タングル）があります。どのパブリックネットワーク上のノードにバンドルを接続して送信するかを選べます。**
-<!-- **In IOTA, bundles of transactions must be sent to [nodes](../introduction/what-is-a-node.md). IOTA has three [public networks](../references/iota-networks.md) of nodes. Each network has its own unique distributed ledger (the Tangle) that the nodes can append transactions to. You can choose to connect and send bundles to nodes on any public network.** -->
+**IOTAには、3つのパブリックノードネットワークがあります。各ネットワークには、ノードがトランザクションを添付できる独自の分散台帳（タングル）があります。パブリックネットワーク上のノードにバンドルを接続して送信することができます。**
+<!-- **IOTA has three public networks of nodes. Each network has its own unique distributed ledger (the Tangle) that the nodes can attach transactions to. You can choose to connect and send bundles to nodes on any public network.** -->
+
+パブリックIOTAネットワークは、誰でも参加してトランザクションを送信できるネットワークです。パブリックIOTAネットワーク内のすべてのトランザクションは透過的です。誰でもすべてのアドレスのトランザクションと残高を見ることができます。[タングルエクスプローラ](https://thetangle.org/)と呼ばれるアプリケーションでこれらを見ることができます。これらのアプリケーションは、タングルからデータを取得して、誰でも閲覧できるようにパブリックWebサイトに公開します。
+<!-- A public IOTA network is one that anyone can join and send transactions to. All transactions in a public IOTA network are transparent. Anyone can see the transactions and balances of all addresses. You can see this for yourself in an application called a [Tangle explorer](https://thetangle.org/). These applications take data from the Tangle and publish them on a public website for everyone to see. -->
 
 IOTAには、以下の[無許可制（パブリック）ネットワーク](../introduction/what-is-dlt.md)があります。
-<!-- IOTA has the following [permissionless (public) networks](../introduction/what-is-dlt.md): -->
+<!-- IOTA has the following [public networks](../introduction/what-is-dlt.md): -->
 * **Mainnet:** IOTAトークン
-* **Devnet:** Devnetトークン（無料）
-* **Spamnet:** Spamnetトークン（無料）
 <!-- * **Mainnet:** IOTA token -->
+* **Devnet:** Devnetトークン（無料）
 <!-- * **Devnet:** Devnet token (free) -->
+* **Spamnet:** Spamnetトークン（無料）
 <!-- * **Spamnet:** Spamnet token (free) -->
 
 すべての無許可制ネットワークは、ノード、クライアント、およびコーディネーターで構成されています。
 <!-- All permissionless networks consist of nodes, clients, and the Coordinator. -->
 
 :::info:
-許可制（プライベート）ネットワーク上でアプリケーションを作成してテストしたい場合は、[コンパス](root://compass/0.1/introduction/overview.md)と呼ばれるオープンソースのコーディネーターコードのインスタンスを実行することで行うことができます。
+プライベートネットワーク上でアプリケーションを作成してテストしたい場合は、[コンパス](root://compass/0.1/introduction/overview.md)と呼ばれるオープンソースのコーディネーターコードのインスタンスを実行することで行うことができます。このようにして、トランザクションと残高は秘密にされ、そしてトークンは現実的な価値を持ちません。
 :::
 <!-- :::info: -->
-<!-- If you want to create and test an application on a permissioned (private) network, you can do so by running an instance of the open-source Coordinator code called [Compass](root://compass/0.1/introduction/overview.md). -->
+<!-- If you want to create and test an application on a private network, you can do so by running an instance of the open-source Coordinator code called [Compass](root://compass/0.1/introduction/overview.md). This way, your transactions and balances are kept private, and the tokens have no real-world value. -->
 <!-- ::: -->
 
 ## Mainnet
@@ -69,8 +72,8 @@ Devnetネットワークでは、アプリケーションをテストして、�
 Devnet上のトランザクションが有効になるには、9の[最小重量値](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)（MWM）を使用する必要があります。
 <!-- Transactions on the Devnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 9 to be valid. -->
 
-Mainnetと比較して、9のMWMは[プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)（PoW）が完了するのにかかる時間を短縮します。そのため、トランザクションを作成して送信するのにかかる時間と計算能力が少なく済みます。
-<!-- Compared to the Mainnet, this MWM reduces the time it takes for [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) (PoW) to be completed. So, it takes less time and computational power to create and send a transaction. -->
+Mainnetと比較して、9のMWMはプルーフオブワーク（PoW）が完了するのにかかる時間を短縮します。そのため、トランザクションを作成して送信するのにかかる時間と計算能力が少なく済みます。
+<!-- Compared to the Mainnet, this MWM reduces the time it takes for proof of work (PoW) to be completed. So, it takes less time and computational power to create and send a transaction. -->
 
 ### IRIノード
 
@@ -129,8 +132,11 @@ PoWノードを使用して小型デバイスの電力を節約します。
 
 ### 最小重量値
 
-Spamnet上のトランザクションが有効になるには、7の[最小重量値](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)（MWM）を使用する必要があります。 Mainnetと比較して、このMWMは[プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)（PoW）が完了するのにかかる時間を短縮します。そのため、トランザクションを作成して送信するのにかかる時間と計算能力が少なく済みます。
-<!-- Transactions on the Spamnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 7 to be valid. Compared to the Mainnet, this MWM reduces the time it takes for [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) (PoW) to be completed. So, it takes less time and computational power to create and send a transaction. -->
+Spamnet上のトランザクションが有効になるには、7の[最小重量値](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)（MWM）を使用する必要があります。
+<!-- Transactions on the Spamnet must use a [minimum weight magnitude](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) (MWM) of 7 to be valid. -->
+
+Mainnetと比較して、このMWMはプルーフオブワーク（PoW）が完了するのにかかる時間を短縮します。そのため、トランザクションを作成して送信するのにかかる時間と計算能力が少なく済みます。
+<!-- Compared to the Mainnet, this MWM reduces the time it takes for proof of work (PoW) to be completed. So, it takes less time and computational power to create and send a transaction. -->
 
 ### IRIノード
 <!-- ### IRI nodes -->

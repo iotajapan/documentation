@@ -69,10 +69,10 @@
 :::success:おめでとうございます :tada:
 公開されているIOTAネットワークでメッセージを自分に送信しました。友達にメッセージを送信できるように、友達のアドレスの1つを尋ねてみませんか。
 
-[トリニティの他の機能](root://trinity/0.1/introduction/overview.md)について調べて、エキスパートになりましょう。
+[トリニティの他の機能](root://wallets/0.1/trinity/introduction/overview.md)について調べて、エキスパートになりましょう。
 :::
 <!-- :::success:Congratulations :tada: -->
 <!-- You've just sent yourself a message that's now public on the IOTA network. Why not ask your friends for one of their addresses so you can send them messages. -->
 <!--  -->
-<!-- [Find out about the other features of Trinity](root://trinity/0.1/introduction/overview.md) and become an expert. -->
+<!-- [Find out about the other features of Trinity](root://wallets/0.1/trinity/introduction/overview.md) and become an expert. -->
 <!-- ::: -->

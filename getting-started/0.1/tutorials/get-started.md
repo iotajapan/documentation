@@ -26,8 +26,8 @@ IOTAをアプリやWebサイトに統合するには、次の3つの手順を完
 ## 手順1. シードを作成する
 <!-- ## Step 1. Create a seed -->
 
-[シード](../introduction/what-is-a-seed.md)はそのシードから派生したすべてのアドレスにアクセスするための唯一のパスワードです。これらのアドレスはIOTAトークンを保持しているので残高を持っています。IOTAトークンを使うには、シードを使って、アドレスの所有権を証明する必要があります。シードには数字9と大文字のA〜Zのみを使うことができます。
-<!-- A [seed](../introduction/what-is-a-seed.md) is your unique password that gives you access to all your addresses. These addresses hold your IOTA tokens and as such have a balance. To spend IOTA tokens, you must use your seed to prove that you own the address that holds them. Seeds can include only the number 9 and the uppercase letters A-Z. -->
+[シード](../introduction/what-is-a-seed.md)はそのシードから派生したすべてのアドレスにアクセスするための一意のパスワードです。これらのアドレスはIOTAトークンを保持しているので残高を持っています。IOTAトークンを転送するには、シードを使って、アドレスの所有権を証明する必要があります。シードには数字9と大文字のA〜Zのみを使うことができます。
+<!-- A [seed](../introduction/what-is-a-seed.md) is a unique password that gives you access to all your addresses. These addresses hold your IOTA tokens and as such have a balance. To transfer IOTA tokens, you must use your seed to prove that you own the address that holds them. Seeds can include only the number 9 and the uppercase letters A-Z. -->
 
 :::warning:
 シードは安全に保ちバックアップしなければなりません。シードを失うとIOTAトークンを回復することはできません。

@@ -21,8 +21,10 @@
     <!-- By default, this endpoint sends 1,000 transactions per second (TPS). If you want to change the TPS, you can add the `tps` query parameter. For example, to send 10,000 TPS, send a request to the following endpoint `http://localhost:8080/spammer?cmd=start&tps=10000` -->
     <!-- ::: -->
 
-2. ノードがトランザクションを受信していることを確認するには、ユーザーインターフェイスの右上にある統計を参照します。
-  <!-- 2. To check that your node is receiving transactions, see the statistics in the top-right of the user interface -->
+2. ノードがトランザクションを受信していることを確認するには、ウェブブラウザで`http://localhost:8081/dashboard`に行き、ユーザーインターフェースを開きます。
+  <!-- 2. To check that your node is receiving transactions, open the user interface by going to `http://localhost:8081/dashboard` in a web browser -->
+
+    ![GoShimmer web user interface](../images/goshimmer-web-ui.png)
 
     :::info:
     表示されたTPSは設定した`tps`パラメータの値より低いかもしれません。この違いの理由は使用しているコンピュータハードウェアの限界によるものかもしれません。

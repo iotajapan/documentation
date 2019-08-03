@@ -163,8 +163,10 @@ FXTZC9KKRBWSBYKCOGUDZOZUWHTQWDNMZPZ9SCVYTWVBQNYIXHREHCTP9DEJCR9LHUEHMBIXXGSDQJUU
 | **データ** | **説明** |
 | :--------- | :------- |
 | YMTMRYBLFPTYCLHAWJVDE... | トランザクションハッシュ |
+| 999999999999999999999... | アドレス |
 | 125204 | トークン量 |
 | 999999999999999999999... | 痕跡タグ |
+| 0 | タイムスタンプ |
 | 0 | バンドル内のこのトランザクションのインデックス |
 | 0 | バンドル内の最後のトランザクションのインデックス |
 | YMTMRYBLFPTYCLHAWJVDE... | バンドルハッシュ |
@@ -173,15 +175,16 @@ FXTZC9KKRBWSBYKCOGUDZOZUWHTQWDNMZPZ9SCVYTWVBQNYIXHREHCTP9DEJCR9LHUEHMBIXXGSDQJUU
 | 1562247720 | ノードがトランザクションを受信したときのUnixタイムスタンプ |
 | 99999999999999999999... | 空のタグ |
 
-
 <!-- | **Data**| **Description**| -->
 <!-- |:--------|:---------------| -->
 <!-- |tx|Name of the ZMQ event| -->
 <!-- |YMTMRYBLFPTYCLHAWJVDE...|Transaction hash| -->
+<!-- |999999999999999999999...|Address| -->
 <!-- |125204|Value| -->
 <!-- |999999999999999999999...|Obsolete tag| -->
-<!-- |0|Index of this transaction in the bundle| -->
-<!-- |0|Index of the last transaction in the bundle| -->
+<!-- |0|Timestamp| -->
+<!-- |0|Current index of this transaction in the bundle| -->
+<!-- |0|Index of the head transaction in the bundle| -->
 <!-- |YMTMRYBLFPTYCLHAWJVDE...|Bundle hash| -->
 <!-- |BLFZJUOBAPWCXTGOCSBVJ...|Trunk transaction hash| -->
 <!-- |FXTZC9KKRBWSBYKCOGUDZ...|Branch transaction hash| -->

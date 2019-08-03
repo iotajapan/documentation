@@ -1,8 +1,8 @@
 # IOTAの基本概要
 <!-- # IOTA basics overview -->
 
-**IOTAネットワークは、ノードとクライアントで構成されています。ノードは、トランザクションの台帳への読み取り/書き込みのアクセス権を持つデバイスです。クライアントはシードを持つデバイスです。シードにより、クライアントは[アドレス](../concepts/addresses-and-signatures.md)にアクセスできます。アドレスには残高があり、残高がアドレスの中のIOTAトークンの量を定義します。 IOTAトークンを自分のアドレスから取り出すには、クライアントがトランザクションのバンドルをノードに送信して、ノードがトランザクションを検証して台帳を更新できるようにする必要があります。**
-<!-- **An IOTA network consists of nodes and clients. A node is a device that has read/write access to a ledger of transactions. A client is a device that has a seed. A seed gives a client access to [addresses](../concepts/addresses-and-signatures.md). Addresses have a balance, which defines the amount of IOTA tokens in them. To withdraw IOTA tokens from their addresses, clients must send bundles of transactions to a node so that the nodes can validate the transactions and update their ledgers.** -->
+**IOTAネットワークは、ノードとクライアントで構成されています。ノードは、トランザクションのタングルと呼ばれる台帳への読み取り/書き込みのアクセス権を持つデバイスです。クライアントは、データまたはIOTAトークンのいずれかを転送するトランザクションを作成し、トランザクションを検証のためにノードに送信するデバイスです。シードはクライアントに[addresses]へのアクセス権を与えます。アドレスには残高があり、残高がアドレス中のIOTAトークンの量を定義します。IOTAトークンを自分のアドレスから取り出すには、クライアントがトランザクションのバンドルをノードに送信して、ノードがトランザクションを検証して台帳を更新できるようにする必要があります。
+<!-- **An IOTA network consists of a network of nodes. A node is a device that has read/write access to a ledger of transactions called the Tangle. A client is a device that creates transactions that transfer either data or IOTA tokens and sends them to nodes for validation. A seed gives a client access to [addresses](../concepts/addresses-and-signatures.md). Addresses have a balance, which defines the amount of IOTA tokens in them. To withdraw IOTA tokens from their addresses, clients must send bundles of transactions to a node so that the nodes can validate the transactions and update their ledgers.** -->
 
 ## クライアント
 <!-- ## Clients -->
@@ -11,10 +11,10 @@
 <!-- Like an account number and sort code, an address in IOTA is a unique string of 81 characters ([trytes](../concepts/trinary.md)) that are unique to each seed. -->
 
 :::info:
-時にアドレスは90文字です。余分な9文字はチェックサムと呼ばれ、アドレスが正しいことを確認するのに役立ちます。
+時にアドレスは90トライトです。余分な9トライトはチェックサムと呼ばれ、アドレスが正しいことを確認するのに役立ちます。
 :::
 <!-- :::info: -->
-<!-- Sometimes addresses have 90 characters. The extra 9 characters are called the checksum, which helps you make sure your address is correct. -->
+<!-- Sometimes addresses have 90 trytes. The extra 9 trytes are called the checksum, which helps you make sure your address is correct. -->
 <!-- ::: -->
 
 ネットワーク上のクライアントは、[トランザクションを含むバンドル](../concepts/bundles-and-transactions.md)内の互いのアドレスに、互いのデータまたはIOTAトークンを送信します。
@@ -67,8 +67,8 @@ IOTAは[分散型台帳技術](root://getting-started/0.1/introduction/what-is-d
 次のステップは、`branchTransaction`フィールドと`trunkTransaction`フィールドのトランザクションハッシュ値を参照して、トランザクション（子）を他の2つ（子の親）に接続することです。その時、子トランザクションの運命はその親にバインドされます。どちらかの親の内容が変更されると、その親のトランザクションのハッシュ値は無効になり、子も無効になります。
 <!-- The next step is to connect the transaction (called a child) to two others (called its parents) by referencing their transaction hashes in the `branchTransaction` and `trunkTransaction` fields. Now, the fate of the child transaction is bound to its parent. If the contents of either parents change, their transaction hashes will be invalid, making the child invalid. -->
 
-台帳のこのつながった構造は、[タングル](root://the-tangle/0.1/introduction/overview.md)と呼ばれるもので、チップトランザクションと呼ばれる新しい孤児（親を持たないトランザクション）が、2人の親を参照する必要があるトランザクションハッシュ値のタングル集合です。その結果、トランザクションの子の数が多いほど、関連付けられているトランザクションのハッシュ値が多くなり、不変のものと見なされます。
-<!-- This connected structure in the ledger is what's called [the Tangle](root://the-tangle/0.1/introduction/overview.md), a tangled family of transaction hashes where any new orphaned child (with no parents), called a tip transaction, must reference two parents. As a result, the more children a transaction has, the more transaction hashes that are connected to it, and the more immutable it is considered. -->
+台帳のこのつながった構造は、[タングル](root://iota-basics/0.1/concepts/the-tangle.md)と呼ばれるもので、チップトランザクションと呼ばれる新しい孤児トランザクション（親トランザクションを持たないトランザクション）が、2つの親トランザクションを参照する必要があるトランザクションハッシュのタングル集合です。その結果、子トランザクションの数が多いほど、関連付けられているトランザクションのハッシュ値が多くなり、イミュータブルなものと見なされます。
+<!-- This connected structure in the ledger is what's called [the Tangle](root://iota-basics/0.1/concepts/the-tangle.md), a tangled family of transaction hashes where any new orphaned child (with no parents), called a tip transaction, must reference two parents. As a result, the more children a transaction has, the more transaction hashes that are connected to it, and the more immutable it is considered. -->
 
 ### スケーラビリティ
 <!-- ### Scalability -->
@@ -82,8 +82,8 @@ IOTAは[分散型台帳技術](root://getting-started/0.1/introduction/what-is-d
 クライアントがトランザクションをノードに送信する前に、そのトランザクションは2つの親を参照する必要があります。トランザクションは、バンドル内の最後のトランザクションまで、常に`trunkTransaction`フィールドで互いを参照します。それでは、`branchTransaction`フィールドやバンドル内の最後のトランザクションの`branchTransaction`フィールドと`trunkTransaction`フィールドについてはどうでしょうか。
 <!-- Before a client can send a transaction to a node, that transaction must reference two parents. Transactions, up to the last one in a bundle, will always reference each other in their `trunkTransaction` fields. So, what about the `branchTransaction` field and the `trunkTransaction` and `branchTransaction` fields of the last transaction in the bundle? -->
 
-これらのフィールドの親は、[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)中にノードによって選択されます。これはノードがある古いトランザクションから開始し、親を持たないトランザクション（チップトランザクション）が見つかるまで、その子、孫などを辿るプロセスです。
-<!-- The parents in these fields are chosen by a node during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md). A process where a node starts from an old transaction and traverses its children, grandchildren, and so on, until it finds one without any parents (the selected tip). -->
+これらのフィールドの親は、[チップ選択](root://node-software/0.1/iri/concepts/tip-selection.md)中にノードによって選択されます。これはノードがある古いトランザクションから開始し、親を持たないトランザクション（チップトランザクション）が見つかるまで、その子、孫などを辿るプロセスです。
+<!-- The parents in these fields are chosen by a node during [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md). A process where a node starts from an old transaction and traverses its children, grandchildren, and so on, until it finds one without any parents (the selected tip). -->
 
 トランザクションを辿っている間、ノードは[辿っている最中のバンドル全体を検証する](root://node-software/0.1/iri/concepts/transaction-validation.md#bundle-validator)必要があります。結果として、ノードはチップトラザクションの履歴を検証し、それらのトランザクションハッシュ値を参照することで、**子はその親のバンドルと子に関連したすべての履歴を承認します**。
 <!-- While traversing transactions, the node must [validate their entire bundle](root://node-software/0.1/iri/concepts/transaction-validation.md#bundle-validator). As a result, by having the node validate the history of the tip transactions and by referencing their transaction hashes, **a child approves its parents' bundles and their entire history**. -->

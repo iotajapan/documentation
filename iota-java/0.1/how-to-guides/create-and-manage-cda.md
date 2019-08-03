@@ -95,8 +95,8 @@ CDAはアカウント内でのみ使用でき、汎用クライアントライ�
 ## CDAを送信者に送信する
 <!-- ## Send someone your CDA -->
 
-送信者にあなたのアカウントにIOTAトークンを送って欲しい場合、送信者にあなたのCDAを送信する必要があります。
-<!-- If you want a depositer to send IOTA tokens to your account, you need to send them your CDA. -->
+送信者にあなたのアカウントにIOTAトークンを転送して欲しい場合、送信者にあなたのCDAを送信する必要があります。
+<!-- If you want a depositer to transfer IOTA tokens to your account, you need to send them your CDA. -->
 
 CDAは記述的なオブジェクトなので、送信する前にCDAを任意の形式にシリアル化できます。`generateCDA()`メソッドは以下のフィールドを持つCDAオブジェクトを返します。CDAを送信者に配布する前に、任意の形式にシリアル化することができます。
 <!-- Because CDAs are descriptive objects, you can serialize them into any format before sending them. The `generateCDA()` method returns a CDA object with the following fields. You can serialize a CDA into any format before distributing it to senders. -->

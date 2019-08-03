@@ -3,6 +3,8 @@
 
 [序説/IOTAとは？](/introduction/what-is-iota.md)
 
+[序説/ノードとは？](/introduction/what-is-a-node.md)
+
 [序説/タングルとは？](/introduction/what-is-the-tangle.md)
 
 [序説/シードとは？](/introduction/what-is-a-seed.md)
@@ -10,8 +12,6 @@
 [序説/トランザクションとは？](/introduction/what-is-a-transaction.md)
 
 [序説/バンドルとは？](/introduction/what-is-a-bundle.md)
-
-[序説/ノードとは？](/introduction/what-is-a-node.md)
 
 [チュートリアル/はじめに](/tutorials/get-started.md)
 

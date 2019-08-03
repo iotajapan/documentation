@@ -1,24 +1,24 @@
 # シードとは？
 <!-- # What is a seed? -->
 
-**シードは、アドレスと秘密鍵のペアを導出し、IOTAトークンを取り出すバンドルに署名するために使用される秘密のパスワードです。**
-<!-- **A seed is a secret password that's used to derive address/private key pairs and to sign bundles whose transactions withdraw IOTA tokens.** -->
+**シードはシードから導出されたすべてのアドレスにアクセスできるようにする一意なパスワードです。これらのアドレスはIOTAトークンを保持しているので残高があります。IOTAトークンを使うには、シードを使って、IOTAトークンを保持しているアドレスを所有していることを証明する必要があります。シードには数字9と大文字のA〜Zのみを含めることができます。**
+<!-- **A seed is your unique password that gives you access to all your addresses. These addresses hold your IOTA tokens and as such have a balance. To spend IOTA tokens, you must use your seed to prove that you own the address that holds them. Seeds can include only the number 9 and the uppercase letters A-Z.** -->
 
-シードを使用して、ほぼ無制限の量のアドレスを導き出すことができます。足りなくなると言う心配は要りません。
-<!-- A seed can be used to derive an almost unlimited amount of addresses: Enough that you don't need to worry about ever running out! -->
+[アドレス](root://iota-basics/0.1/concepts/addresses-and-signatures.md)は、[バンドル](../introduction/what-is-a-bundle.md)内の[トランザクション](../introduction/what-is-a-transaction.md)の送受信に使用できるアカウントのようなものです。
+<!-- [Addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md) are like  accounts that you can use to send and receive [transactions](../introduction/what-is-a-transaction.md) in a [bundle](../introduction/what-is-a-bundle.md). -->
 
-[アドレス](root://iota-basics/0.1/concepts/addresses-and-signatures.md)は、[トランザクション](../introduction/what-is-a-transaction.md)の送受信用のアカウントです。
-<!-- [Addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md) are the accounts from which [transactions](../introduction/what-is-a-transaction.md) are sent and received. -->
+IOTAプロトコルでは暗号化を使用して、シードからほぼ無制限のアドレスを導出することができます。アドレスは一般公開されているので、データやIOTAトークンを送信したい人と共有できます。
+<!-- The IOTA protocol uses cryptography to allow you to derive an almost unlimited amount of addresses from your seed. Addresses are public, and you can share them with anyone who wants to send you data and/or IOTA tokens. -->
 
-秘密鍵はバンドルに署名するために使用され、これによってアドレスの所有権が証明され、IOTAトークンを取り出すことができます。
-<!-- Private keys are used to sign bundles, which proves ownership of an address and allows IOTA tokens to be withdrawn from it. -->
+各アドレスには対応する秘密鍵もあります。秘密鍵は秘密であり、決して他人と共有してはいけません。IOTAトークンを他の人のアドレスに転送する場合は、秘密鍵を使用してバンドルに署名し、署名を入力トランザクションに含めることで、トークンを保持しているアドレスの秘密鍵を所有していることを証明する必要があります。
+<!-- Each address also has a corresponding private key. Private keys are secret, and you should never share your them with anyone. If you want to transfer IOTA tokens to someone else's address, you need to prove that you own the private key to the address that holds the tokens by signing the bundle with your private key and including it in the input transaction. -->
 
-**シードの例：**
+このドキュメントでは、次の**example seed**を使用しています。
+<!-- In our documentation, we use the following **example seed**: -->
 
 ```bash
 PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX
 ```
-<!-- **Example seed:** PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX -->
 
-[自分のシードを使ってチュートリアルを始めてみましょう](../tutorials/get-started.md)！
-<!-- [Get started with your own seed](../tutorials/get-started.md)! -->
+シードは自分で作成しバックアップする責任があります。シードを失うと、シードを回復することはできません。そしてシードを持っている人は誰でもIOTAトークンへのアクセス権も持っています。
+<!-- You are responsible for creating and backing up your own seed. If you lose your seed, you can't recover it, and anyone who has your seed also has access to your IOTA tokens. -->

@@ -1,14 +1,14 @@
 # IOTAとは？
 <!-- # What is IOTA? -->
 
-**IOTAは、IOTAネットワーク内のコンピュータがイミュータブルなデータと価値（IOTAトークン）を相互に転送できるようにする分散型台帳技術です。**
-<!-- **IOTA is a distributed ledger technology that allows computers in an IOTA network to transfer immutable data and value among each other.** -->
+**IOTAは、IOTAネットワーク内のデバイスがイミュータブルなデータと価値（IOTAトークン）を無料で相互に転送できるようにする分散型台帳技術です。**
+<!-- **IOTA is a distributed ledger technology that allows devices in an IOTA network to transfer immutable data and value among each other for free.** -->
 
 IOTAは、M2M経済圏における、効率性の向上、生産量の増加、データの信頼性を保証することを目的としています。
 <!-- IOTA aims to improve efficiency, increase production, and ensure data integrity in a machine-to-machine economy. -->
 
-<dl><dt>M2M経済圏</dt><dd>人間の介入なしに、任意のコンピュータがデータと価値を他のコンピュータに転送できる経済圏。</dd></dl>
-<!-- <dl><dt>machine-to-machine economy</dt><dd>Economy in which any computer can transfer data and value to other computers without human intervention.</dd></dl> -->
+<dl><dt>M2M経済圏</dt><dd>人間の介入なしに、任意のデバイスがデータと価値を他のデバイスに転送できる経済圏。</dd></dl>
+<!-- <dl><dt>machine-to-machine economy</dt><dd>Economy in which any device can transfer data and value to other devices without human intervention.</dd></dl> -->
 
 IOTAが実際に、サプライチェーンをどのように改善できるかについては[このビデオ](https://www.youtube.com/embed/Gr-LstcDcAw)をご覧ください。
 <!-- To see IOTA in action, watch [this video](https://www.youtube.com/embed/Gr-LstcDcAw) about how it can improve supply chains. -->
@@ -16,14 +16,14 @@ IOTAが実際に、サプライチェーンをどのように改善できるか�
 ## IOTAはどのように機能するのか？
 <!-- ## How does IOTA work? -->
 
-クライアントは[ノード](../introduction/what-is-a-node.md)を介して互いにデータとIOTAトークンを送信します。
-<!-- Clients send data and IOTA tokens to each other through [nodes](../introduction/what-is-a-node.md). -->
+クライアントは[バンドル](../introduction/what-is-a-bundle.md)と呼ばれる関連する[トランザクション](../introduction/what-is-a-transaction.md)のグループを[ノード](../introduction/what-is-a-node.md)に送信します。バンドル内のトランザクションは、あるアドレスから別のアドレスにIOTAトークンを転送するようにノードに指示することも、単にデータを含めることもできます。これらのアドレスは、[シード](../introduction/what-is-a-seed.md)と呼ばれるクライアントの一意の秘密パスワードを使用して作成されています。
+<!-- Clients send groups of related [transactions](../introduction/what-is-a-transaction.md) called [bundles](../introduction/what-is-a-bundle.md) to [nodes](../introduction/what-is-a-node.md). The transactions in a bundle can instruct the node to transfer IOTA tokens from one address to another, or they can simply contain data. These addresses are creating, using a client's unique secret password called a [seed](../introduction/what-is-a-seed.md). -->
 
-IOTAトークンを送受信するために、クライアントは[バンドル](../introduction/what-is-a-bundle.md)と呼ばれる[トランザクション](../introduction/what-is-a-transaction.md)のパッケージをノードに送信します。バンドル内のトランザクションは、あるアドレスから別のアドレスにIOTAトークンを転送するようにノードに指示します。これらのアドレスは、[シード](../introduction/what-is-a-seed.md)と呼ばれるクライアント固有の秘密のパスワードから派生しています。
-<!-- To send and receive IOTA tokens, clients send packages of [transactions](../introduction/what-is-a-transaction.md) called [bundles](../introduction/what-is-a-bundle.md) to nodes. The transactions in a bundle instruct the node to transfer IOTA tokens from one address to another. These addresses are derived from a client's unique secret password called a [seed](../introduction/what-is-a-seed.md). -->
+ノードは[トランザクションの検証](root://node-software/0.1/iri/concepts/transaction-validation.md)とトランザクションを[タングル](../introduction/what-is-the-tangle.md)へ添付する責任があります。
+<!-- Nodes are responsible for [validating transactions](root://node-software/0.1/iri/concepts/transaction-validation.md) and attaching them to [the Tangle](../introduction/what-is-the-tangle.md). -->
 
-バンドルが[タングル](../introduction/what-is-the-tangle.md)内で確定されると、IOTAトークンの転送完了です。
-<!-- When the bundle is confirmed in [the Tangle](../introduction/what-is-the-tangle.md), the IOTA tokens are transferred. -->
+バンドルが確定されると、ノードはそのバンドルのトランザクションに現れるアドレスの残高を更新します。
+<!-- When a bundle is confirmed, the nodes update the balances of any addresses that appear in that bundle's transactions. -->
 
 ## IOTAトークンとは？
 <!-- ## What is the IOTA token? -->
@@ -31,13 +31,12 @@ IOTAトークンを送受信するために、クライアントは[バンドル
 最も基本的なレベルでは、IOTAトークンはIOTAネットワーク内のノードによって保持されている所有権の記録です。
 <!-- At its most basic level, the IOTA token is a record of ownership that's held by the nodes in an IOTA network. -->
 
+    ```bash
     ADDRESS....ENDOFADDRESS;1000
+    ```
 
-上記の文字列は不可解に見えるかもしれませんが、分解してみましょう。セミコロンの左側にアドレスがあります。これはネットワーク内の各クライアントに固有のものです。セミコロンの右側には、そのアドレスに属するIOTAトークンの量があります。この場合は1,000個のIOTAトークンです。
-<!-- These characters might look cryptic, but let's break it down. On the left of the semicolon is an address. These are unique to each client in the network. On the right of the semicolon is an amount of IOTA tokens that belong to that address, in this case 1,000 tokens. -->
-
-IOTAトークンの送信が完了には、すべてのノードがトークンを送信する[トランザクションを検証したとき](root://node-software/0.1/iri/concepts/transaction-validation.md)、およびマイルストーンによって参照されたときだけです。
-<!-- You own IOTA tokens only when all nodes [validate the transaction](root://node-software/0.1/iri/concepts/transaction-validation.md) that sent the tokens to you, and when it's referenced by a milestone. -->
+セミコロンの左側にアドレスがあります。これらはネットワーク内の各クライアントに一意のものです。セミコロンの右側には、そのアドレスに属するIOTAトークンの量があります。この場合は1,000トークンです。
+<!-- On the left of the semicolon is an address. These are unique to each client in the network. On the right of the semicolon is an amount of IOTA tokens that belong to that address, in this case 1,000 tokens. -->
 
 ## IOTAトークンの価値の源泉とは？
 <!-- ## What makes the IOTA token valuable? -->
@@ -74,14 +73,14 @@ IOTAネットワーク内の各ノードはトランザクションを検証し�
 IOTAは、ネットワークを保護し、攻撃者がIOTAトークンを盗むのを防ぐために、量子耐性暗号を使用しています。
 <!-- IOTA uses quantum-resistant cryptography to secure the network and prevent attackers from stealing IOTA tokens. -->
 
-IOTAネットワークは、P2Pネットワークです。中央機関がトランザクションの台帳を管理するのではなく、すべてのノードが台帳のコピーを保持し、IOTAプロトコルを含むソフトウェアを実行して、台帳の内容に関する合意を自動化します。
-<!-- IOTA networks are peer-to-peer networks. No central authority controls the ledger of transactions, instead all nodes hold a copy and run the software that contains the IOTA protocol to automate the agreement on its contents. -->
+IOTAネットワークは、P2Pネットワークです。中央機関がトランザクションの台帳を管理するのではなく、すべてのノードがコピーを保持し、IOTAプロトコルを介してその内容に関する合意を自動化します。
+<!-- IOTA networks are peer-to-peer networks. No central authority controls the ledger of transactions, instead all nodes hold a copy and automate the agreement on its contents through the IOTA protocol. -->
 
 ### コスト削減
 <!-- ### Cost saving -->
 
-IOTAは無料で利用でき、購読料を支払う必要も、契約にサインする必要もありません。トランザクションも自由に送れます。
-<!-- IOTA is free to use. You don't need to pay a subscription, or sign a contract. Even transactions are free to send. -->
+IOTAは無料で利用でき、購読料を支払う必要も、契約にサインする必要もありません。トランザクション手数料も無料です。
+<!-- IOTA is free to use. You don't need to pay a subscription, or sign a contract. Even transactions are feeless. -->
 
 ### スケーラビリティ
 <!-- ### Scalability -->

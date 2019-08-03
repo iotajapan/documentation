@@ -4,14 +4,24 @@
 **GoShimmerソフトウェアを実行すると、デバイスはネットワーク内のノードになります。ノードを実行することで、ネットワークをテストし、定期的な変更で最新の状態に保つことができます。すべてのモジュールが利用可能になると、このネットワークはCoordicide testnetになります。これは、次のIOTAプロトコルのリリース候補です。**
 <!-- **When you run the GoShimmer software, your device becomes a node in the network. By running a node, you can test the network and keep up to date with regular changes. When all the modules become available, this network will become the Coordicide testnet, which is a release candidate for the next IOTA protocol.** -->
 
-ノードを実行する方法は2つあります。Dockerコンテナ内でサービスとしてノードを実行することも、ローカルデバイスのファイルシステムでノードを実行することもできます。
-<!-- You have two options for running a node. You either can run the node as a service in a Docker container, or you can run the node on the file system of your local device. -->
+ノードを実行する方法は2つあります。Dockerコンテナ内でサービスとしてノードを実行することも、ソースからノードをビルドすることもできます。
+<!-- You have two options for running a node. You either can run the node as a service in a Docker container, or you can build the node from source. -->
 
 ## Dockerコンテナ内でノードを実行する
-<!-- ## Run the node in a Docker container -->
+<!-- ## Run a node in a Docker container -->
 
-Dockerコンテナ内でノードを実行すると、ノードを実行するために必要なすべての依存関係が含まれます。たとえば、GCCやGoプログラミング言語です。
-<!-- When you run a node in a Docker container, it includes all the necessary dependencies that you need to run a node. For example, GCC and the Go programming language. -->
+Dockerコンテナでノードを実行すると、軽量の仮想マシンでノードを実行するのと同じようになります。
+<!-- When you run a node in a Docker container, it's similar to running it in a lightweight virtual machine. -->
+
+Dockerコンテナ内でノードを実行することには、次のような利点があります。
+<!-- Some of the advantages of running a node in a Docker container include the following: -->
+
+* コンパイラやGoプログラミング言語など、ノードに必要なすべてのツールや依存関係をインストールする必要がありません。
+<!-- * You don't need to install all the tools and dependencies that the node needs such as a compiler and the Go programming language -->
+* ノードは、サポートされているシステムアーキテクチャ上で同じように動作します。
+<!-- * The node runs in the same way on any supported system architecture -->
+* ノードをバックグラウンドで実行して停止し、ログを確認する方が簡単です。
+<!-- * It's easier to run the node in the background, stop it, and see the logs -->
 
 ### 前提条件
 <!-- ### Prerequisites -->
@@ -24,8 +34,8 @@ Dockerコンテナ内でノードを実行すると、ノードを実行する�
 <!-- * An Internet connection -->
 * ノードを実行しているデバイスに[ポート14626（TCP/UDP）と14666（TCP）を転送します](root://general/0.1/how-to-guides/expose-your-local-device.md)。
 <!-- * [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node -->
-* 静的な、または[duckdns.org](https://www.duckdns.org)などの動的DNSサービスに接続されている[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)
-<!-- * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org) -->
+* パブリックIPアドレス
+<!-- * A public IP address -->
 * [Dockerがサポートするシステムアーキテクチャ](https://docs.docker.com/install/#supported-platforms)
 <!-- * [A system architecture that Docker supports](https://docs.docker.com/install/#supported-platforms) -->
 
@@ -117,12 +127,21 @@ Dockerコンテナをビルドするには、Docker 17.05（マルチステー�
     docker build -t goshimmer .
     ```
 
-4. Dockerイメージを実行します。
-  <!-- 4. Run the Docker image -->
+4. Dockerイメージをバックグラウンドで実行し、ホストデバイスからDockerコンテナにポートを転送します。
+  <!-- 4. Run the Docker image in the background, and forward the ports from your host device to the Docker container -->
+
+    :::info:
+    [Docker Compose](https://docs.docker.com/compose/)があれば、`docker-compose up -d`を実行することもできます。
+    :::
+    <!-- :::info: -->
+    <!-- If you have [Docker Compose](https://docs.docker.com/compose/), you can also run `docker-compose up -d`. -->
+    <!-- ::: -->
 
     ```bash
-    docker run --rm -it -v mainnetdb:/root/mainnetdb goshimmer
+    sudo docker run -d --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -it -v mainnetdb:/root/mainnetdb goshimmer
     ```
+
+    The container ID is displayed in the console.
 
     :::info:
     `run`コマンドの後に[command-line flags](../references/command-line-flags.md)を追加することでノードの機能をカスタマイズすることができます。
@@ -135,6 +154,20 @@ Dockerコンテナをビルドするには、Docker 17.05（マルチステー�
    <!--  To have the Docker container restart on every reboot, add the `--restart=always` flag to the `run` command. -->
    <!-- ::: -->
 
+5. コンテナIDをコピーし、それを使ってノードのログを読み取ります。`$ContainerID`プレースホルダをあなたのコンテナIDに置き換えます。
+  <!-- 5. Copy the container ID, and use it to read the node's logs. Replace the `$ContainerID` placeholder with your container ID. -->
+
+    ```bash
+    docker logs -f $ContainerID
+    ```
+
+6. ステータス画面を表示するには、以下の操作を行ってDockerコンテナに接続します。`$ContainerID`プレースホルダをあなたのコンテナIDに置き換えます。
+  <!-- 6. To see the status screen, attach the Docker container by doing the following. Replace the `$ContainerID` placeholder with your container ID. -->
+
+    ```bash
+    docker attack $ContainerID
+    ```
+
 :::success:おめでとうございます:tada:
 GoShimmerノードを実行しています。
 :::
@@ -142,10 +175,10 @@ GoShimmerノードを実行しています。
 <!-- You're now running a GoShimmer node. -->
 <!-- ::: -->
 
-![GoShimmer user interface](../images/goshimmer.png)
+![GoShimmer status screen](../images/goshimmer.png)
 
-ユーザーインターフェイスの右上隅に次の統計情報が表示されます。
-<!-- The user interface displays the following statistics in the top-right corner: -->
+ステータススクリーンの右上隅に次の統計情報が表示されます。
+<!-- The status screen displays the following statistics in the top-right corner: -->
 
 * **TPS：** 1秒あたりのトランザクション数。2つのカテゴリに分けられます。**received**トランザクションは、ノードがその台帳に追加したばかりのトランザクションです。 **new**トランザクションは凝固トランザクションです。
 <!-- * **TPS:** The number of transactions per second, which are separated into two categories. The **received** transactions are those that the node has just appended to its ledger. The **new** transactions are solid transactions. -->
@@ -165,11 +198,11 @@ GoShimmerノードを実行しています。
 <!-- If you don't have any accepted neighbors, make sure that you've forwarded your `autopeering` TCP/UDP port (14626) to your device. -->
 <!-- ::: -->
 
-## ローカルデバイスでノードを実行する
-<!-- ## Run the node on your local device -->
+## ソースからノードをビルドする
+<!-- ## Build a node from source -->
 
-ローカルデバイスでノードを実行するときは、GCCやGoプログラミング言語などの依存関係があることを確認する必要があります。
-<!-- When you run a node on your local device, you need to make sure that it has the dependencies such as GCC, and the Go programming language. -->
+ソースコードからノードをビルドするときは、GCCやGoプログラミング言語などの依存関係が前提条件にあることを確認する必要があります。
+<!-- When you build the node from the source code, you need to make sure that you have the dependencies in the prerequisites such as GCC, and the Go programming language. -->
 
 ### 前提条件
 <!-- ### Prerequisites -->
@@ -186,8 +219,8 @@ GoShimmerノードを実行しています。
 <!-- * An Internet connection -->
 * ノードを実行しているデバイスに[ポート14626（TCP/UDP）と14666（TCP）を転送します](root://general/0.1/how-to-guides/expose-your-local-device.md)。
 <!-- * [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node -->
-* 静的な、または[duckdns.org](https://www.duckdns.org)などの動的DNSサービスに接続されている[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)
-<!-- * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org) -->
+# パブリックIPアドレス
+<!-- * A public IP address -->
 
 ### 手順1. コードをダウンロードする
 <!-- ### Step 1. Download the code -->
@@ -260,10 +293,10 @@ GoShimmerノードを実行しています。
 <!-- You're now running a GoShimmer node. -->
 <!-- ::: -->
 
-![GoShimmer user interface](../images/goshimmer.png)
+![GoShimmer status screen](../images/goshimmer.png)
 
-ユーザーインターフェイスの右上隅に次の統計情報が表示されます。
-<!-- The user interface displays the following statistics in the top-right corner: -->
+ステータススクリーンの右上隅に次の統計情報が表示されます。
+<!-- The status screen displays the following statistics in the top-right corner: -->
 
 * **TPS：** 1秒あたりのトランザクション数。2つのカテゴリに分けられます。**received**トランザクションは、ノードがその台帳に追加したばかりのトランザクションです。 **new**トランザクションは凝固トランザクションです。
 <!-- * **TPS:** The number of transactions per second, which are separated into two categories. The **received** transactions are those that the node has just appended to its ledger. The **new** transactions are solid transactions. -->

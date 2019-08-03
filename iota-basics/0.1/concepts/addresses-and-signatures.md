@@ -1,61 +1,85 @@
 # アドレスと署名
 <!-- # Addresses and signatures -->
 
-**IOTAネットワーク内の各クライアントには、シードと呼ばれる秘密のパスワードがあります。シードは、アドレスの導出とバンドルの署名に使用されます。アドレスはIOTAトークンを保持するアカウントで、署名はアドレスの所有権を証明します。**
-<!-- **Each client in an IOTA network has a secret password called a seed, which is used to derive addresses and to sign bundles. Addresses are the accounts that hold IOTA tokens and signatures prove ownership of an address.** -->
+**IOTAネットワークでトランザクションを送信するには、シードと呼ばれる秘密のパスワードが必要です。シードにより、シードから導出されたすべてのアドレスにアクセスできます。これらのアドレスはIOTAトークンを保持しているので、IOTAネットワーク内のすべてのノードに保存され、最新の状態に保たれる残高を持っています。IOTAトークンを使用するには、トランザクションを作成し、そのトランザクションが入っているバンドルに署名して、IOTAトークンを保持しているアドレスを所有していることをノードに証明する必要があります。**
+<!-- **To send transactions in an IOTA network, you need a secret password called a seed, which gives you access to all your addresses. These addresses hold your IOTA tokens and as such have a balance that's stored and kept up to date on all nodes in an IOTA network. To spend IOTA tokens, you must create a transaction and sign the bundle it's in to prove to a node that you own the address that holds them.** -->
 
-IOTAネットワークを使用するには、クライアントは[シードを作成して秘密にする](root://getting-started/0.1/tutorials/get-started.md)必要があります。シードとは、クライアントにアドレスへのアクセスを許可する81[トライト](../references/tryte-alphabet.md)の文字列です。
-<!-- To use an IOTA network, clients must [create a seed and keep it private](root://getting-started/0.1/tutorials/get-started.md). A seed is a string of 81 [trytes](../references/tryte-alphabet.md) that gives a client access to addresses. -->
+IOTAネットワーク内のすべてのノードは、すべてのアドレスのプラスの残高を記録します。
+<!-- All nodes in an IOTA network keep a record of the positive balances of all addresses. -->
 
-シードは、IOTAプロトコルの暗号学的ハッシュ関数のマスターキーです。各シードは、ほぼ無制限の固有の秘密鍵とアドレス（9<sup>57</sup>個）を導出することができます。
-<!-- Seeds are the master keys to the cryptographic hashing function in the IOTA protocol. Each seed can derive an almost unlimited number of unique private keys and addresses (9<sup>57</sup>). -->
+この記録は以下のようになります。アドレスはセミコロンの左側にあり、残高は右側にあります。
+  <!-- This record looks something like this, where the address is on the left of the semicolon and the balance is on the right: -->
 
-各秘密鍵は、シード、インデックス、およびセキュリティレベルによって固有のものであり、対応する1つのアドレスを導出するために使用されます。秘密鍵とアドレスは1対1のペアと考えることができます。アドレスは公開されており、クライアントはトランザクションの[`アドレス`フィールド]を使用してIOTAトークンとメッセージを送信できます。秘密鍵は秘密であり、アドレスからIOTAトークンを引き出すバンドルに署名するために使用されます。
-<!-- Each private key is unique to a seed, index, and security level, and can be used to derive one corresponding address. A private key and an address can be thought of as a pair. Addresses are public and clients can send IOTA tokens and messages to them using the [`address` field] of a transaction. A private key is private and is used to sign bundles that withdraw IOTA tokens from the address. -->
+    ```bash
+    ADDRESS....ENDOFADDRESS;1000
+    ```
 
-秘密鍵とアドレスの各ペアには、独自のインデックスと[セキュリティレベル](../references/security-levels.md)があります。セキュリティレベルは秘密鍵の長さに影響します。セキュリティレベルが高いほど、秘密鍵が長くなり、トランザクションの署名がより安全になります。
-<!-- Each pair of private keys and addresses has its own index and [security level](../references/security-levels.md). The security level affects the length of the private key. The greater the security level, the longer the private key, and the more secure a transaction's signature. -->
+ノードは、どのクライアントがアドレスを所有しているのかを知りません。なぜならノードはクライアントのシードを持っていないからです。そのため、ノードは暗号化を使用してトランザクションを検証します。
+<!-- Nodes don't know which client owns an address because they don't have the clients' seeds. So, nodes use cryptography to validate a transaction. -->
 
-IOTAでは、署名方法の性質上、[各アドレスから1度だけしかIOTAトークンを取り出さない方が良い](#address-reuse)ため、秘密鍵とアドレスのペアが複数個必要となります。そのため、アドレスからIOTAトークンを取り出すたびに、インデックスをインクリメントするかセキュリティレベルを変更して、[新しいアドレスを作成する](../how-to-guides/create-an-address.md)必要があります。
-<!-- In IOTA, multiple pairs of private keys and addresses are needed because [each address can be withdrawn from (spent) only once](#address-reuse). So, each time you withdraw from an address, you must [create a new address](../how-to-guides/create-an-address.md) by either incrementing the index or changing the security level. -->
+ノードがトランザクションを検証するとき、トランザクションがIOTAトークンを取り出す場合、そのトランザクションはアドレスを所有するシードの所有者によって作成されたことを確認します。ノードはトランザクションの署名を確認して、アドレスの所有権の確認を行います。
+<!-- When a node validates a transaction, it makes sure that, if it withdraws IOTA tokens, it was created by the owner of the seed that owns the address. The node does this by checking the transaction signature. -->
+
+有効な署名を作成するには、IOTAトークンを取り出す元のアドレスに対応する秘密鍵が必要です。
+<!-- To create a valid signature, you need the private key that corresponds to the address from which IOTA tokens are being withdrawn. -->
+
+この秘密鍵を作成する唯一の方法は、アドレスの作成に使用されたシードを所有することです。このように、署名は、秘密鍵の所有権、つまりシードの所有権を証明することによって、アドレスの所有権を証明します。
+<!-- The only way to create this private key is by owning the seed that was used to create the address. This way, signatures prove ownership of an address by proving ownership of the private key and thus the seed. -->
+
+## IOTAでのシードの使い方
+<!-- ## How seeds are used in IOTA -->
+
+シードはIOTAプロトコル内の[Keccak-384](https://keccak.team/keccak.html)を使用したKerl [ハッシュ関数](https://www.techopedia.com/definition/19744/hash-function)へのマスターキーです。このハッシュ関数は、シード、インデックス、およびセキュリティレベルを取得して、アドレスと秘密鍵のペアを作成します。
+<!-- Seeds are the master keys to the Kerl [hash function](https://www.techopedia.com/definition/19744/hash-function) in the IOTA protocol, which uses [Keccak-384](https://keccak.team/keccak.html). This hash function takes a seed, an index, and a security level to create an address and private key pair: -->
+
+* **シード：** クライアントによって選択された一意な81[トライト](../references/tryte-alphabet.md)
+<!-- * **Seed:** Unique 81 [trytes](../references/tryte-alphabet.md) chosen by the client -->
+* **インデックス：** どのアドレスと秘密鍵のペアを作成するかを変更する番号
+<!-- * **Index*:** Number that changes which address and private key pair is created -->
+* **セキュリティレベル：** 秘密鍵の長さに影響を与える1から3の間の数
+<!-- * **Security level:** Number between 1 and 3 that affects the length of a private key -->
+
+秘密鍵は、アドレスの所有権を証明するために、アドレスからIOTAトークンを取り出すバンドルに署名するために使用されます。各アドレスには対応する秘密鍵があります。そのため、アドレスからIOTAトークンを取り出すには、アドレスと同じシード、インデックス、およびセキュリティレベルから秘密鍵を作成して、所有していることを証明する必要があります。
+<!-- A private key is used to sign bundles that withdraw IOTA tokens from an address to prove you own it. Each address has a corresponding private key. So, to withdraw IOTA tokens from an address, you need to prove you own it by creating a private key from the same seed, index, and security level as the address. -->
+
+同じシード、インデックス、およびセキュリティレベルを使用すると、ハッシュ関数は常に同じアドレスと秘密鍵のペアを返します。
+<!-- If you use the same seed, index, and security level, the hash function will always return the same address and private key pair. -->
 
 :::info:
-秘密鍵とアドレスのペアのセキュリティレベルが高いほど、攻撃者が署名済みアドレスの署名に対し総当たり攻撃を成功させることはより困難になります。
+これを試すには、JavaScriptクライアントライブラリを使って[新しいアドレスを作成します](../how-to-guides/create-an-address.md)。
+
+シードを使用して、ほぼ無制限の数のアドレスと秘密鍵のペア（9<sup>57</sup>）を作成することができます。
 :::
 <!-- :::info: -->
-<!-- The greater the security level of a private key and address pair, the more difficult it is for an attacker to brute force the signature of a spent address. -->
-<!-- ::: -->
-
-:::warning:シードと秘密鍵を安全に保管してください。
-シードはすべての秘密鍵とアドレスへの鍵です。そして、秘密鍵は1つのアドレスへの鍵です。
-
-シードと秘密鍵は絶対に他人にバレないように安全に保管しなければなりません。
-:::
-<!-- :::warning:Keep seeds and private keys secure -->
-<!-- A seed is the key to all your private keys and addresses. And, a private key is the key to one address. -->
+<!-- You can try this by using our JavaScript client library to [create a new address](../how-to-guides/create-an-address.md). -->
 <!--  -->
-<!-- You must keep your seeds and private keys secure. -->
+<!-- Seeds can be used to create an almost unlimited number of addresses and private key pairs (9<sup>57</sup>). -->
 <!-- ::: -->
 
-### 秘密鍵の導出方法
-<!-- ### How private keys are derived -->
+アドレスを生成する最初の手順は、シード、インデックス、およびセキュリティレベルから秘密鍵を取得することです。
+<!-- The first step to generate an address is to derive a private key from the seed, index, and security level. -->
 
-各秘密鍵は、シード、インデックス、およびセキュリティレベルを使い暗号学的ハッシュ関数から導出されます。
-<!-- Each private key is derived from a cryptographic hashing function that takes a seed, an index, and a security level. -->
+## 秘密鍵の導出方法
+<!-- ## How private keys are derived -->
 
-[Keccak-384ハッシュ関数](https://keccak.team/keccak.html)を使用してシードとインデックスを足し合わせたものをハッシュ化し、81トライトの**サブシード**を導出します。
-<!-- The seed and index are combined and hashed, using the [Keccak-384 hashing function](https://keccak.team/keccak.html) to derive an 81-tryte **subseed**: -->
+各秘密鍵は、シード、インデックス、およびセキュリティレベルをKerlでハッシュ化することによって導出されます。
+<!-- Each private key is derived by hashing a seed, an index, and a security level with Kerl. -->
 
-    hash(seed + index)
+まず、シードとインデックスを組み合わせてハッシュ化し、81トライトの**subseed **を導出します。
+<!-- First, the seed and index are combined and hashed to derive an 81-tryte **subseed**: -->
 
-秘密鍵を導出するために、サブシードは[スポンジ関数](https://en.wikipedia.org/wiki/Sponge_function)に渡されます。スポンジ関数はサブシードを1度吸収し、セキュリティレベルごとに27回圧搾します（セキュリティレベル1だと27回、セキュリティレベル2だと54回、セキュリティレベル3だと81回圧搾します）。
-<!-- To derive a private key, the subseed is passed to a [cryptographic sponge function](https://en.wikipedia.org/wiki/Sponge_function), which absorbs it and squeezes it 27 times per security level. -->
+    ```bash
+    Kerl(seed + index)
+    ```
 
-スポンジ関数の結果が、秘密鍵であり、[セキュリティレベル](../references/security-levels.md)に応じて、2,187、4,374、または6,561トライトとなります。
-<!-- The result of the sponge function is a private key that consists of 2,187, 4,374, or 6,561 trytes, depending on the [security level](../references/security-levels.md). -->
+秘密鍵を導出するために、セキュリティレベルごとに27回[スポンジ関数](https://keccak.team/sponge_duplex.html)で**subseed**を吸収して圧搾します。
+<!-- To derive a private key, the subseed is absorbed and squeezed in a [sponge function](https://keccak.team/sponge_duplex.html) 27 times per security level. -->
 
-### アドレスの導出方法
-<!-- ### How addresses are derived -->
+スポンジ関数の結果は、[セキュリティレベル](../references/security-levels.md)に応じて長さが異なる秘密鍵です。セキュリティレベルが高いほど、秘密鍵はより長くより安全になります。
+<!-- The result of the sponge function is a private key with a length that varies, depending on the [security level](../references/security-levels.md). The greater the security level, the longer and more secure the private key. -->
+
+## アドレスの導出方法
+<!-- ## How addresses are derived -->
 
 アドレスを導出するために、秘密鍵は**1つが81トライトのセグメント**に分割されます。その後、各セグメントは26回ハッシュ関数に通されます。 27個のハッシュ化されたセグメントのグループは**キーフラグメント**と呼ばれます。
 <!-- To derive an address, the private key is split into **81-tryte segments**. Then, each segment is hashed 26 times. A group of 27 hashed segments is called a **key fragment**. -->
@@ -69,32 +93,40 @@ IOTAでは、署名方法の性質上、[各アドレスから1度だけしかIO
 そして、キーダイジェストが結合されて1回ハッシュ化され、81トライトのアドレスが導出されます。
 <!-- Then, the key digests are combined and hashed once to derive an 81-tryte address. -->
 
-:::info:アドレスを生成してみますか？
-[秘密鍵からアドレスを導出する](../how-to-guides/derive-addresses-from-private-keys.md)では、JavaScriptクライアントライブラリを用いてアドレスを導出しています。
+:::info:
+トリニティなどの一部のアプリケーションでは、アドレスを使用する必要があります。これには、最後に9トライトのチェックサムが含まれます。
+:::
+<!-- :::info: -->
+<!-- Some application such as Trinity require you to use addresses, which include a 9-tryte checksum on the end. -->
+<!-- ::: -->
+
+![Address generation](../images/address-generation.png)
+
+:::info:アドレスを導出する
+JavaScriptクライアントライブラリを使用して[秘密鍵からアドレスを導出します](../how-to-guides/derive-addresses-from-private-keys.md)。
 :::
 <!-- :::info:Want to try this out? -->
 <!-- Use the JavaScript client library to [derive addresses from private keys](../how-to-guides/derive-addresses-from-private-keys.md). -->
 <!-- ::: -->
 
-![Address generation](../images/address-generation.png)
+## 秘密鍵を使用してバンドルに署名する方法
+<!-- ## How private keys are used to sign bundles -->
 
-### 秘密鍵でバンドルに署名する方法
-<!-- ### How private keys sign bundles -->
+秘密鍵はアドレスからIOTAトークンを取り出すトランザクションのバンドルハッシュに署名し、その署名はトランザクションの[`signatureMessageFragment`フィールド](../references/structure-of-a-transaction.md)に置かれます。
+<!-- Private keys sign the bundle hash of the transaction that withdraws IOTA tokens from the address, then the signature is put in the [`signatureMessageFragment` field](../references/structure-of-a-transaction.md) of the transaction. -->
 
-秘密鍵は、アドレスからIOTAトークンを取り出すトランザクションのバンドルハッシュに署名し、その署名をトランザクションの[`signatureMessageFragment`フィールド](../references/structure-of-a-transaction.md)に入れます。
-<!-- Private keys sign the bundle hash of the transaction that withdraws from the address and put that signature in the [`signatureMessageFragment` field](../references/structure-of-a-transaction.md) of the transaction. -->
-
-バンドルハッシュに署名することで、攻撃者がバンドルハッシュを変更して署名が無効になることなく、バンドルを傍受してトランザクションを変更することは不可能です。
+バンドルハッシュに署名することで、攻撃者がバンドルハッシュを変更して署名を無効にすることなくバンドルを傍受してトランザクションを変更することは不可能です。
 <!-- By signing the bundle hash, it's impossible for attackers to intercept a bundle and change any transaction without changing the bundle hash and invalidating the signature. -->
 
-署名は、Winternitzワンタイム署名方式（W-OTS）を使用して作成されます。この署名スキームは量子耐性があり、署名は[量子コンピュータ](https://en.wikipedia.org/wiki/Quantum_computing)からの攻撃に対して耐性があることを意味します。
-<!-- Signatures are created using the Winternitz one-time signature scheme (W-OTS). This signature scheme is quantum resistant, meaning that signatures are resistant to attacks from [quantum computers](https://en.wikipedia.org/wiki/Quantum_computing). -->
+:::info:
+バンドルハッシュは、各トランザクションの`address`、`value`、`obsoleteTag`、`currentIndex`、`lastIndex`、そして`timestamp`フィールドの値のハッシュ値から導出されます。このバンドルハッシュは、パッケージを保証するために各トランザクションの`bundle`フィールドに含まれています。これらのフィールドのいずれかの値が変更されると、ノードはバンドルハッシュを無効にします。
+:::
+<!-- :::info: -->
+<!-- The bundle hash is derived from a hash of the values of each transaction's `address`, `value`, `obsoleteTag`, `currentIndex`, `lastIndex` and `timestamp` fields. This bundle hash is included in each transaction's `bundle` field to seal the package. If the values of any of these fields were to change, the nodes would invalidate the bundle hash. -->
+<!-- ::: -->
 
-バンドルハッシュに署名するには、まず秘密鍵の半分だけが署名に表示されるように正規化します。
-<!-- To sign a bundle hash, first it's normalized to make sure that only half of the private key is revealed in the signature. -->
-
-バンドルハッシュが正規化されていない場合、W-OTSは未知数の秘密鍵を明らかにしてしまいます。秘密鍵の半分が明らかになるように正規化することで、アドレスから1度だけは安全にIOTAトークンを取り出すことができるようになります。
-<!-- If the bundle hash weren't normalized, the W-OTS would reveal an unknown amount of the private key. By revealing half of the private key, an address can safely be withdrawn from once. -->
+署名は、Winternitzワンタイム署名方式（W-OTS）を使用して作成されます。この署名スキームは量子耐性があります。つまり、署名は[量子コンピュータ](https://en.wikipedia.org/wiki/Quantum_computing)からの攻撃に対して耐性があります。しかし、この署名方式は未知数の秘密鍵の一部も明らかにします。
+<!-- Signatures are created using the Winternitz one-time signature scheme (W-OTS). This signature scheme is quantum resistant, meaning that signatures are resistant to attacks from [quantum computers](https://en.wikipedia.org/wiki/Quantum_computing). But, this signature scheme also reveals an unknown amount of the private key. -->
 <a id="address-reuse"></a>
 
 :::danger:署名済みアドレス
@@ -104,14 +136,19 @@ IOTAでは、署名方法の性質上、[各アドレスから1度だけしかIO
 <!-- If an address is withdrawn from (spent) more than once, more of the private key is revealed, so an attacker could brute force its signature and steal the IOTA tokens. -->
 <!-- ::: -->
 
+アドレスから一度だけ取り出すのが常に安全であることを保証するために、最初にバンドルハッシュを正規化して、秘密鍵の半分だけが署名で明らかになるようにします。
+<!-- To make sure that it's always safe to withdraw from an address once, first the bundle hash is normalized to make sure that only half of the private key is revealed in the signature. -->
+
 秘密鍵が持つキーフラグメントの数に応じて、27、54、または81トライトの正規化バンドルハッシュが選択されます。これらのトライトはキーフラグメント内のセグメントの個数に対応しています。
 <!-- Depending on the number of key fragments that a private key has, 27, 54, or 81 trytes of the normalized bundle hash are selected. These trytes correspond to the number of segments in a key fragment. -->
 
 正規化バンドルハッシュの各トライトは、[10進数に変換](../references/tryte-alphabet.md)されます。そして、それぞれについて次の計算が実行されます。
 <!-- The selected trytes of the normalized bundle hash are [converted to their decimal values](../references/tryte-alphabet.md). Then, the following calculation is performed on each of them: -->
 
+    ```bash
     13 - 10進数の値
     <!-- 13 - decimal value -->
+    ```
 
 この計算結果は、署名フラグメントを導出するためにキーフラグメント内の27個のセグメントそれぞれがハッシュ化される回数です。各署名フラグメントには2,187トライトが含まれています。
 <!-- The result of this calculation is the number of times that each of the 27 segments in the key fragment must be hashed to derive the signature fragment. Each signature fragment contains 2,187 trytes. -->
@@ -119,8 +156,8 @@ IOTAでは、署名方法の性質上、[各アドレスから1度だけしかIO
 トランザクションの[`signatureMessageFragment`フィールド](../references/structure-of-a-transaction.md)に含めることができるのは2187トライトだけなので、1より大きいセキュリティレベルを持つインプットアドレスは、ゼロトークンのアウトプットトランザクションの`signatureMessageFragment`フィールドに残りの署名を分けて入れる必要があります。
 <!-- Because a transaction's [`signatureMessageFragment` field](../references/structure-of-a-transaction.md) can contain only 2187 trytes, any input address with a security level greater than 1 must fragment the rest of the signature over zero-value output transactions. -->
 
-### ノードによる署名の検証方法
-<!-- ### How nodes verify signatures -->
+## ノードが署名を検証する方法
+<!-- ## How nodes verify signatures -->
 
 ノードは、署名とバンドルハッシュを使用して入力トランザクションのアドレスを導出することによって、トランザクション内の署名を検証します。
 <!-- Nodes verify a signature in a transaction by using the signature and the bundle hash to find the address of the input transaction. -->
@@ -134,8 +171,10 @@ IOTAでは、署名方法の性質上、[各アドレスから1度だけしかIO
 正規化バンドルハッシュの各トライトは[10進数に変換](../references/tryte-alphabet.md)されます。そして、それぞれについて次の計算が実行されます。
 <!-- The selected trytes of the normalized bundle hash are [converted to decimal values](../references/tryte-alphabet.md). Then, the following calculation is performed on each of them: -->
 
+    ```bash
     13 + 10進数の値
     <!-- 13 + decimal value -->
+    ```
 
 この計算の結果は、署名フラグメント内の27個のセグメントからキーフラグメントを導出するために、各セグメントをハッシュ化する回数です。
 <!-- The result of this calculation is the number of times that each of the 27 segments in the signature fragments must be hashed to derive the key fragments. -->

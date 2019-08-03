@@ -1,13 +1,24 @@
 # プライベートタングルを設定する
 <!-- # Set up a private Tangle -->
 
-**プライベートタングルは運用者がコントロールするもので、運用者が知っているノードだけを含みます。MainnetやDevnetなどのパブリックIOTAネットワークを使用せずにアプリケーションをテストしたい場合は、プライベートタングルを設定することができます。そのためには、コンパスを実行して、コンパスをIRIノードに接続します。**
-<!-- **A private Tangle is one that you control and that contains only nodes that you know. You may want to set up a private Tangle if you want to test an application without using a public IOTA network such as the Mainnet or the Devnet. To do so, you can run Compass and connect it to an IRI node.** -->
+**プライベートタングルは運用者がコントロールするもので、運用者が知っているノードだけを含みます。パブリックタングル内のトランザクションを見ることができるMainnetやDevnetなどのパブリックIOTAネットワークを使用せずにアプリケーションをテストしたい場合は、プライベートタングルを設定します。
+<!-- **A private Tangle is one that you control and that contains only nodes that you know. You may want to set up a private Tangle if you want to test an application without using a public IOTA network such as the Mainnet or the Devnet where everyone can see your transactions in the public Tangle.** -->
 
 この基本設定では、[Devnet](root://getting-started/0.1/references/iota-networks.md)と同じ構成設定を使用して、IRIノードとコンパスを同じサーバまたは仮想マシンにインストールします。
 <!-- For this basic setup, you'll install an IRI node and Compass on the same server or virtual machine with the same configuration settings as the [Devnet](root://getting-started/0.1/references/iota-networks.md). -->
 
 ![Single-node private Tangle](../images/single-node-tangle.svg)
+
+:::info:
+専用のプライベートタングルをセットアップする前にテスト用のプライベートタングルを試してみたいのなら、[ワンコマンドタングルを試す](root://utils/0.1/community/one-command-tangle/overview.md)ことができます。このユーティリティは、Dockerコンテナにプライベートタングルを設定し、1つのコマンドで実行し始めることを可能にします。
+
+専用のプライベートタングルをセットアップすることとワンコマンドタングルを使用することの違いは、ワンコマンドタングルは予め作られたシードを使用するということです。その結果、専用のプライベートタングルをインターネットに公開したい場合は、専用のプライベートタングルを設定するのが良いでしょう。
+:::
+<!-- :::info: -->
+<!-- If you want try a test private Tangle before setting up your own, you can [try the one-command Tangle](root://utils/0.1/community/one-command-tangle/overview.md). This utility sets up a private Tangle in a Docker container, allowing you to start running it in one command. -->
+<!--  -->
+<!-- The difference between setting up your own private Tangle and using the one-command Tangle is that the one-command Tangle uses a pre-made seed that you didn't create. As a result, if you want to expose your private Tangle to the Internet, it's better to set up your own private Tangle. -->
+<!-- ::: -->
 
 ## 前提条件
 <!-- ## Prerequisites -->
@@ -88,8 +99,8 @@
 ## 手順2. マークル木を計算する
 <!-- ## Step 2. Compute the Merkle tree -->
 
-このガイドでは、[depth](../references/compass-configuration-options.md)16の[マークル木](root://the-tangle/0.1/concepts/the-coordinator.md#milestones)を使用します。これにより、コンパスはマイルストーン送信の間隔に応じて、約45日間マイルストーンを送信できます。
-<!-- For this guide, we use a [Merkle tree](root://the-tangle/0.1/concepts/the-coordinator.md#milestones) with a [depth](../references/compass-configuration-options.md) of 16, which allows Compass to send milestones for around 45 days, depending on the interval between them. -->
+このガイドでは、[depth](../references/compass-configuration-options.md)16の[マークル木](root://iota-basics/0.1/concepts/the-tangle.md#milestones)を使用します。これにより、コンパスはマイルストーン送信の間隔に応じて、約45日間マイルストーンを送信できます。
+<!-- For this guide, we use a [Merkle tree](root://iota-basics/0.1/concepts/the-tangle.md#milestones) with a [depth](../references/compass-configuration-options.md) of 16, which allows Compass to send milestones for around 45 days, depending on the interval between them. -->
 
 :::info:
 `depth`パラメータがマークル木を計算するのにかかる時間と総ネットワーク稼働時間の両方にどのように影響するかを示す[サンプルのマークル木計算時間](../references/merkle-tree-compute-times.md)をご覧ください。
@@ -334,7 +345,7 @@ FJHSSHBZTAKQNDTIKJYCZBOZDGSZANCZSWCNWUOCZXFADNOQSYAHEJPXRLOVPNOQFQXXGEGVDGICLMOX
     セットアップ中に`-bootstrap`フラグが渡されると、コンパスは前のマイルストーンを順番に参照する一連の4つのマイルストーンを作成します。
 
     その後、コンパスは次の手順でマイルストーンを送信します。
-    - IRIノードにチップトランザクションを依頼します（[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)）。
+    - IRIノードにチップトランザクションを依頼します（[チップ選択](root://node-software/0.1/iri/concepts/tip-selection.md)）。
     - マイルストーンをブロードキャストするようにIRIノードに依頼します。
     - 次の`tick`間隔までスリープします。
     :::
@@ -344,7 +355,7 @@ FJHSSHBZTAKQNDTIKJYCZBOZDGSZANCZSWCNWUOCZXFADNOQSYAHEJPXRLOVPNOQFQXXGEGVDGICLMOX
     <!-- When the `-bootstrap` flag is passed during setup, Compass creates a chain of four milestones that sequentially reference the previous milestone. -->
     <!--  -->
     <!-- Then, Compass sends milestones by doing the following: -->
-    <!-- * Ask the IRI node for tip transactions ([tip selection](root://the-tangle/0.1/concepts/tip-selection.md)) -->
+    <!-- * Ask the IRI node for tip transactions ([tip selection](root://node-software/0.1/iri/concepts/tip-selection.md)) -->
     <!-- * Ask the IRI node to broadcast the milestone -->
     <!-- * Sleep until the next tick interval -->
     <!-- ::: -->

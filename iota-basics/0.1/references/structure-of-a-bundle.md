@@ -9,9 +9,16 @@
 
 ![Connections in a bundle](../images/bundle-structure.png)
 
+:::info:
+バンドルは任意の数のトランザクションで構成できます。この例は4つのトランザクションからなるバンドルを示しています。
+:::
+<!-- :::info: -->
+<!-- A bundle can consist of any number of transactions. This example shows a bundle of 4 transactions. -->
+<!-- ::: -->
+
 | トランザクションの現在のインデックス | `trunkTransaction`フィールド | `branchTransaction`フィールド | 説明 |
 | :--- | :--- | :--- | :--- |
-| 0 | このバンドルのトランザクション1 | 別のバンドルの末尾トランザクションハッシュ。このトランザクションハッシュは[チップ選択プロセス](root://the-tangle/0.1/concepts/tip-selection.md)から返されます。 | このトランザクションは**末尾トランザクション**と呼ばれます。 |
+| 0 | このバンドルのトランザクション1 | 別のバンドルの末尾トランザクションハッシュ。このトランザクションハッシュは[チップ選択プロセス](root://node-software/0.1/iri/concepts/tip-selection.md)から返されます。 | このトランザクションは**末尾トランザクション**と呼ばれます。 |
 | 1 | このバンドルのトランザクション2 | トランザクション0と同じbranchTransactionハッシュ | このトランザクションは、`trunkTransaction`フィールドを介してトランザクション0にリンクされています。 |
 | 2 | このバンドルのトランザクション3 | トランザクション0、1と同じbranchTransactionハッシュ | このトランザクションは、`trunkTransaction`フィールドを介してトランザクション1にリンクされています。 |
-| 最後のインデックス | このバンドルの他のすべてのトランザクションと同じbranchTransactionハッシュ | 別のバンドルの末尾トランザクションハッシュ。このトランザクションハッシュは[チップ選択プロセス](root://the-tangle/0.1/concepts/tip-selection.md)から返されます。 | このトランザクションを**先頭トランザクション**と呼びます。バンドルは任意の数のトランザクションで構成できます。 |
+| 最後のインデックス | このバンドルの他のすべてのトランザクションと同じbranchTransactionハッシュ | 別のバンドルの末尾トランザクションハッシュ。このトランザクションハッシュは[チップ選択プロセス](root://node-software/0.1/iri/concepts/tip-selection.md)から返されます。 | このトランザクションを**先頭トランザクション**と呼びます。 |

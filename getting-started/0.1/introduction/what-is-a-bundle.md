@@ -1,17 +1,17 @@
 # バンドルとは？
 <!-- # What is a bundle? -->
 
-**バンドルは、データを送信したり、ノードにIOTAトークンを特定のアドレスから特定のアドレスに転送するように指示する1つ以上のトランザクショングループです。バンドル内の各トランザクションの運命は、残りの部分に依存します。つまりすべてのトランザクションが有効か、またはすべて無効かです。**
-<!-- **A bundle is a group of one or more transactions, which send data or instruct a node to transfer IOTA tokens from certain addresses to others. The fate of each transaction in a bundle depends on the rest. Either all transactions are valid or none of them are.** -->
+**バンドルとは、データを格納したり、特定のアドレスから他のアドレスにIOTAトークンを転送するようにノードに指示することができる1つ以上のトランザクションのグループです。すべてのトランザクションは、単一のものであっても、常にバンドルとしてノードに送信されます。**
+<!-- **A bundle is a group of one or more transactions that can contain data and/or instruct a node to transfer IOTA tokens from certain addresses to others. All transactions, even single ones, are always sent to a node as a bundle.** -->
 
 バンドルの構造は、先頭トランザクション、本体トランザクション、および末尾トランザクションから構成されます。末尾トランザクションはインデックス0、先頭トランザクションはバンドル内の最後のトランザクションです。
 <!-- The structure of a bundle consists of a head, a body, and a tail, where the tail is index 0 and the head is the last transaction in the bundle. -->
 
-末尾トランザクションから始まるすべてのトランザクションは、次のインデックスを持つトランザクションへの参照によって接続されます。たとえば、末尾トランザクションはトランザクション1に接続され、トランザクション1はトランザクション2に接続され、以下同様に続きます。これらの接続により、ノードはバンドルを再構築してその内容を検証できます。
-<!-- All transactions, starting from the tail, are connected by reference to the one with the next index. For example, the tail transaction is connected to transaction 1, which is connected to transaction 2, and so on. These connections allow nodes to reconstruct bundles and validate their contents. -->
+末尾トランザクションから始まるすべてのトランザクションは、次のインデックスを持つトランザクションを参照します。たとえば、末尾トランザクションはトランザクション1を参照し、トランザクション1はトランザクション2を参照します。これらの接続により、ノードはバンドルを再構築してその内容を検証できます。
+<!-- All transactions, starting from the tail, reference the one with the next index. For example, the tail transaction references transaction 1, which references transaction 2, and so on. These connections allow nodes to reconstruct bundles and validate their contents. -->
 
-タングルにトランザクションを添付するために、先頭トランザクションはタングル内の他の2つのバンドルの末尾トランザクションに接続されます。 （末尾トランザクションと本体トランザクションは、これらの2つの末尾トランザクションの1つにも接続されています。）この2つの末尾トランザクションは、[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)時にノードによって選択されます。
-<!-- To attach transactions to the Tangle, the head transaction is connected to the tails of two other bundles in the Tangle. (The tail and body transactions are connected to one of those tails as well.) These tail transactions are selected by nodes during [tip selection](root://the-tangle/0.1/concepts/tip-selection.md). -->
+バンドル内の各トランザクションの運命は、残りの部分によって決まります。すべてのトランザクションが有効か、またはすべて無効かです。
+<!-- The fate of each transaction in a bundle depends on the rest. Either all transactions are valid or none of them are. -->
 
 ## IOTAトークンを転送するバンドルの例
 <!-- ## Example of a bundle that transfers IOTA tokens -->
@@ -46,5 +46,5 @@ IOTAトークンを転送するには、バンドルに少なくとも1つの入
 <!-- [You must not withdraw from an address more than once](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). So, a transfer bundle may require an extra output transaction to deposit the remaining balance of a withdrawn address into a new address. -->
 <!-- ::: -->
 
-[バンドルの詳細を学んでみましょう](root://iota-basics/0.1/concepts/bundles-and-transactions.md)。
-<!-- [Learn more about bundles](root://iota-basics/0.1/concepts/bundles-and-transactions.md). -->
+[バンドルとトランザクションの詳細を学びます](root://iota-basics/0.1/concepts/bundles-and-transactions.md)。
+<!-- [Learn more about bundles and transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md). -->

@@ -1,16 +1,20 @@
 # トランザクションとは？
 <!-- # What is a transaction? -->
 
-**トランザクションは、単独で使用することも、他のトランザクションと一緒にパッケージ化することもできる単一の操作です。単独型のトランザクションは、たとえばIOTAトークンを含まないデータのみを送信するものです。**
-<!-- **A transaction is a single operation that can stand alone or be packaged with other transactions. Stand-alone transactions are those that contain no value, for example to send only data.** -->
+**IOTAネットワークに何か送信したい場合は、トランザクションの形でノードに送信する必要があります。トランザクションは、入力トランザクションまたは出力トランザクションのいずれかになり得る単一の操作です。**
+<!-- **If you want to send anything to an IOTA network, you must send it to a node in the form of a transaction. A transaction is a single operation that can be either an input or an output.** -->
 
-トランザクションは、次のいずれかのタイプになります。
-<!-- Transactions can be one of the following types: -->
+**入力トランザクション**はアドレスからIOTAトークンを取り出します。このトランザクションには、バンドルに署名してアドレスの所有権を証明する署名が含まれている必要があります。
+<!-- An **input transaction** withdraws IOTA tokens from an address. This transaction must contain the signature that signs the bundle and proves ownership of the address. -->
 
-* **入力トランザクション：**アドレスからIOTAトークンを取り出すトランザクション。このトランザクションには、バンドルに署名してアドレスの所有権を証明する署名が含まれている必要があります。署名が大きすぎると、バンドル内のゼロトークンの出力トランザクションで断片化されます。
-<!-- * **Input transaction:** Withdraws IOTA tokens from an address. This transaction must contain the signature that signs the bundle and proves ownership of the address. If the signature is too large, it's fragmented over zero-value output transactions in the bundle. -->
-* **出力トランザクション：**IOTAトークンを受信者のアドレスに入金するトランザクション。もしくはトークンが含まれていないトランザクション（ゼロトークントランザクション）。
-<!-- * **Output transaction:** Deposits IOTA tokens into a recipient's address or contains no value (a zero-value transaction). -->
+**出力トランザクション**は、IOTAトークンを受信者のアドレスに預け入れ、またはIOTAトークンが含まれていません（ゼロトークントランザクション）。
+<!-- An **output transaction** deposits IOTA tokens into a recipient's address or contains no value (a zero-value transaction). -->
 
-[バンドルとトランザクションの詳細を学んでみましょう](root://iota-basics/0.1/concepts/bundles-and-transactions.md)。
-<!-- [Learn more about bundles and transactions](root://iota-basics/0.1/concepts/bundles-and-transactions.md). -->
+ノードにトランザクションを送信する前に、トランザクションは常にバンドルにグループ化されています。
+<!-- Before you send transactions to a node they're always grouped into a bundle. -->
+
+ノードがどのトランザクションに関連情報が含まれているかを知るためにバンドルが必要です。たとえば、トランザクションの署名が大きすぎる場合、同じバンドル内の複数のゼロトークン出力トランザクションにわたって断片化されています。
+<!-- Bundles are necessary so that nodes know which transactions contain related information. For example, if a transaction's signature is too large, it's fragmented over several zero-value output transactions in the same bundle. -->
+
+別の例として、IOTAトークンを転送するには、IOTAトークンを取り出すための入力トランザクションと、トークンを新しいアドレスに預け入れるための出力トランザクションが少なくとも1つ必要です。そのためには、それらのトランザクションを同じバンドルにまとめます。
+<!-- Another example is that to transfer IOTA tokens, you need at least one input transaction to withdraw the IOTA tokens and one output transaction to deposit the tokens into a new address. To do so, you group those transactions in the same bundle. -->

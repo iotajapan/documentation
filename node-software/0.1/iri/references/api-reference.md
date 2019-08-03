@@ -145,8 +145,8 @@ curl http://localhost:14265 \
 
 ## attachToTangle
 
-与えられたトランザクショントライトについてノード上で[プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)を行います。
-<!-- Do [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md) on a node for the given transaction trytes. -->
+与えられたトランザクショントライトについてノード上で[プルーフオブワーク](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)を行います。
+<!-- Do [proof of work](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md) on a node for the given transaction trytes. -->
 
  ### パラメータ
 

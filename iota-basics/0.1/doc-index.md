@@ -2,6 +2,8 @@
 
 [序説/概要](/introduction/overview.md)
 
+[概念/タングル](/concepts/the-tangle.md)
+
 [概念/アドレスと署名](/concepts/addresses-and-signatures.md)
 
 [概念/バンドルとトランザクション](/concepts/bundles-and-transactions.md)

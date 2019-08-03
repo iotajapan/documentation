@@ -63,6 +63,19 @@ This section contains information about how IOTA node software works and how you
     - [Data in the Ict logs](/ict/references/log-data.md)
     - [Troubleshooting](/ict/references/troubleshooting.md)
 
+## Coordicide Alphanet
+
+- [Overview](/alphanet/introduction/overview.md)
+
+- How-to guides
+
+    - [Run an Alphanet node](/alphanet/how-to-guides/run-the-node.md)
+    - [Subscribe to events](/alphanet/how-to-guides/subscribe-to-events.md)
+
+- References
+
+    - [Alphanet/References/Command-line flags](/alphanet/references/command-line-flags.md)
+
 ## GoShimmer
 
 - [Overview](/goshimmer/introduction/overview.md)

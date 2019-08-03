@@ -143,8 +143,8 @@
     ];
     ```
 
-10. `転送`オブジェクトから[バンドル](../introduction/what-is-a-bundle.md)を作成するには、それを[`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers)メソッドに渡します。次に、返されたバンドルのトライトを`sendTrytes()`メソッドに渡して、[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)、[プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)、および[ノード](../introduction/what-is-a-node.md)へのバンドル送信を行います。
-  <!-- 10. To construct a [bundle](../introduction/what-is-a-bundle.md) from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method. Then, pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md), and send the bundle to the [node](../introduction/what-is-a-node.md) -->
+10. `転送`オブジェクトから[バンドル](../introduction/what-is-a-bundle.md)を作成するには、それを[`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers)メソッドに渡します。次に、返されたバンドルのトライトを`sendTrytes()`メソッドに渡して、[チップ選択](root://node-software/0.1/iri/concepts/tip-selection.md)、[プルーフオブワーク](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)、および[ノード](../introduction/what-is-a-node.md)へのバンドル送信を行います。
+  <!-- 10. To construct a [bundle](../introduction/what-is-a-bundle.md) from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method. Then, pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [proof of work](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md), and send the bundle to the [node](../introduction/what-is-a-node.md) -->
 
     ```js
     iota.prepareTransfers(seed, transfers)

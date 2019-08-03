@@ -1,6 +1,7 @@
 # タングルとは？
 <!-- # What is the Tangle? -->
 
+<<<<<<< HEAD
 **バンドルを作成するときは、ネットワーク内の2つの既存のトランザクションを参照する必要があります。ノードがトランザクションを受け取ると、ノードは受け取ったトランザクションを既存のトランザクションに添付します。すべてのトランザクション間の添付関係は、タングルと呼ばれるデータ構造を形成します。**
 <!-- **When you create a bundle, you must reference it to two existing transactions in the network. When a node receives your transactions, it attach them to these existing ones. The attachments among all the transactions form a data structure that's called the Tangle.** -->
 
@@ -14,15 +15,30 @@
 
 トランザクション6はトランザクション5（および表示されていない別のトランザクション）に接続されています。そのため、トランザクション6はトランザクション5を介して**間接的**にトランザクション3を参照します。
 <!-- Transaction 6 is attached to transaction 5 (and another transaction that's not shown). So, transaction 6 **indirectly** references transaction 3 (through transaction 5). -->
+=======
+**The Tangle is the immutable data structure that contains a history of IOTA transactions. All nodes in an IOTA network store a copy of the Tangle in their ledgers and can read from it and attach new transactions to it.**
+
+Transactions in the Tangle are immutable because their contents are cryptographically referenced to the history of two other transactions. So, if any transaction were to change in that history, all the references would be broken.
+
+![A directed acyclic graph](../images/dag.png)
+
+In this diagram, each numbered box is a transaction. Transaction 5 **directly** references transactions 2 and 3, and transaction 6 **indirectly** references transaction 3 (through transaction 5).
+>>>>>>> upstream/develop
 
 ## トランザクションの確定方法
 <!-- ## How a transaction becomes confirmed -->
 
+<<<<<<< HEAD
 転送バンドルをノードに送信しても、影響を受けるアドレスの残高はすぐには更新されません。
 <!-- When you send a transfer bundle to a node, it doesn't update the balances of the affected addresses straight away. -->
 
 全ノードは、バンドル内のすべてのトランザクションが確定されるまでIOTAトークンを転送しません。
 <!-- Nodes do not transfer IOTA tokens until all transactions in the bundle are confirmed. -->
+=======
+Transactions in the Tangle can be in one of two states: Pending or confirmed.
+
+When you send a bundle to a node, that bundle is pending and the node doesn't update the balances of the affected addresses until it's confirmed.
+>>>>>>> upstream/develop
 
 ペンディング状態から確定済み状態に移行するには、全ノードがトランザクションの状態について合意に達する必要があります。
 <!-- To go from a pending state to a confirmed state, nodes must reach consensus on the state of a transaction. -->
@@ -31,6 +47,7 @@
 <!-- At the moment, nodes reach a consensus on transactions that are **directly or indirectly referenced by a milestone** (transaction that's created and sent by the Coordinator). -->
 
 :::info:
+<<<<<<< HEAD
 トランザクション6がマイルストーンの場合、トランザクション5、3、2、および1が確定され、最終的なものと見なされます。
 :::
 <!-- :::info: -->
@@ -39,3 +56,10 @@
 
 [コーディネータ](root://the-tangle/0.1/concepts/the-coordinator.md)と[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)について学ぶ。
 <!-- Learn more about [the Coordinator](root://the-tangle/0.1/concepts/the-coordinator.md) and [tip selection](root://the-tangle/0.1/concepts/tip-selection.md). -->
+=======
+If transaction 6 were a milestone, then transaction 5, 3, 2, and 1 would all be confirmed.
+::: 
+
+Learn more about [the Tangle](root://iota-basics/0.1/concepts/the-tangle.md)
+
+>>>>>>> upstream/develop

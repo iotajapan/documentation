@@ -34,8 +34,8 @@ IOTAトークンを転送するバンドルを再添付すると、確定され�
 ## 促進
 <!-- ## Promote -->
 
-バンドルを促進するとは、末尾トランザクションの[累積荷重](root://the-tangle/0.1/concepts/tip-selection.md)を増やすことによって、チップ選択で選択される可能性を高めることを意味します。バンドルを促進するとき、末尾トランザクションと最新のマイルストーンの両方を参照するゼロトークントランザクションを作成して送信します。
-<!-- To promote a bundle means to increases its chances of being selected during tip selection by increasing the [cumulative weight](root://the-tangle/0.1/concepts/tip-selection.md) of its tail transaction. When you promote a bundle, you create and send a zero-value transaction that references both its tail transaction and the latest milestone. -->
+バンドルを促進するとは、末尾トランザクションの[累積荷重](root://node-software/0.1/iri/concepts/tip-selection.md)を増やすことによって、チップ選択で選択される可能性を高めることを意味します。バンドルを促進するとき、末尾トランザクションと最新のマイルストーンの両方を参照するゼロトークントランザクションを作成して送信します。
+<!-- To promote a bundle means to increases its chances of being selected during tip selection by increasing the [cumulative weight](root://node-software/0.1/iri/concepts/tip-selection.md) of its tail transaction. When you promote a bundle, you create and send a zero-value transaction that references both its tail transaction and the latest milestone. -->
 
 促進しているバンドルが矛盾した状態（二重支払い）になるか、参照しているマイルストーンが最新のマイルストーンよりも6個古く無ければ、バンドルを促進するほうがバンドルを再添付するよりも効果的です。
 <!-- Promoting a bundle is often more effective than reattaching a bundle, unless the bundle you're promoting leads to an inconsistent state (double-spend) or is older than the last six milestones. -->

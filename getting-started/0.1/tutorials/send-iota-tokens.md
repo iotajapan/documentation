@@ -1,8 +1,8 @@
-# テストトークンを送信する（Node.js）
-<!-- # Send test IOTA tokens -->
+# テスト用IOTAトークンを転送する
+<!-- # Transfer test IOTA tokens -->
 
-**商品やサービスと引き換えにIOTAトークンを誰かに送ることができます。このチュートリアルでは、アドレスの一つから他のアドレスへテストトークンを送信します。**
-<!-- **You may want to send IOTA tokens to someone in exchange for goods or services. In this tutorial we send test tokens from one of your addresses to another.** -->
+**商品やサービスと引き換えにIOTAトークンを誰かに転送ことができます。このチュートリアルでは、アドレスの一つから他のアドレスへテストトークンを送信します。**
+<!-- **You may want to transfer IOTA tokens to someone in exchange for goods or services. In this tutorial we send test tokens from one of your addresses to another.** -->
 
 ## 前提条件
 <!-- ## Prerequisites -->
@@ -26,8 +26,8 @@
 <!-- [Get some free test tokens](../tutorials/receive-test-tokens.md) -->
 <!-- ::: -->
 
-## テストトークンを他のアドレスに送信する
-<!-- ## Send test tokens to one of your other addresses -->
+## テストトークンを他のアドレスに転送する
+<!-- ## Transfer test tokens to one of your other addresses -->
 
 この例では、バンドルを[Devnetノード](../references/iota-networks.md#devnet)に送信します。 Devnetは、トークンが無料であること以外はMainnetとほぼ同じです。Devnetに送るどんなバンドルも、Mainnetのような他のネットワーク上には存在しません。
 <!-- In this example, we send a bundle to a [Devnet node](../references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any bundles that you send to the Devnet do not exist on other networks such as the Mainnet. -->
@@ -123,8 +123,8 @@
     <!-- [Learn why you should never use spent addresses](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse). -->
     <!-- ::: -->
 
-8. 送信するIOTAトークンの量、トランザクションに追加するタグ、およびトークンの送信先アドレスを指定する転送オブジェクトを作成します。
-  <!-- 8. Create a transfer object that specifies the amount of IOTA tokens you want to send, the tag you want to add to the transaction, and the address to send the tokens to -->
+8. 転送したいIOTAトークンの量、トランザクションに追加したいタグ、そしてトークンを送信するアドレスを指定する`transfers`オブジェクトを作成します。
+  <!-- 8. Create a `transfers` object that specifies the amount of IOTA tokens you want to transfer, the tag you want to add to the transaction, and the address to send the tokens to -->
 
     ```js
     const transfers = [
@@ -136,8 +136,8 @@
     ]
     ```
 
-9. `転送`オブジェクトから[バンドル](../introduction/what-is-a-bundle.md)を作成するには、転送オブジェクトを[`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers)メソッドに渡します。次に、返されたバンドルのトライトを`sendTrytes()`メソッドに渡して、[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)、[プルーフオブワーク](root://the-tangle/0.1/concepts/proof-of-work.md)、および[ノード](../introduction/what-is-a-node.md)へのバンドル送信を行います。
-  <!-- 9. To construct a [bundle](../introduction/what-is-a-bundle.md) from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method. Then, pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://the-tangle/0.1/concepts/tip-selection.md), [proof of work](root://the-tangle/0.1/concepts/proof-of-work.md), and send the bundle to the [node](../introduction/what-is-a-node.md) -->
+9. `転送`オブジェクトから[バンドル](../introduction/what-is-a-bundle.md)を作成するには、転送オブジェクトを[`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers)メソッドに渡します。次に、返されたバンドルのトライトを`sendTrytes()`メソッドに渡して、[チップ選択](root://node-software/0.1/iri/concepts/tip-selection.md)、[プルーフオブワーク](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)、および[ノード](../introduction/what-is-a-node.md)へのバンドル送信を行います。
+  <!-- 9. To construct a [bundle](../introduction/what-is-a-bundle.md) from your `transfers` object, pass it to the [`prepareTransfers()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.prepareTransfers) method. Then, pass the returned bundle trytes to the `sendTrytes()` method to do [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [proof of work](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md), and send the bundle to the [node](../introduction/what-is-a-node.md) -->
 
     ```js
     // Construct bundle and convert to trytes
@@ -174,8 +174,8 @@
 コンソールには、送信した[バンドル](../introduction/what-is-a-bundle.md)内のトランザクションに関する情報が表示されます。
 <!-- In the console, you'll see information about the transaction in the [bundle](../introduction/what-is-a-bundle.md) that you sent. -->
 
-バンドル内のトランザクションは、すべてのノードが各々の台帳にトランザクションを書き込むまで、ネットワーク内を伝搬します。
-<!-- The transactions in your bundle will propagate through the network until all the nodes have it in their ledgers. -->
+バンドル内のトランザクションは、すべてのノードがそれをタングルのコピーに格納するまで、ネットワークを介して転送されます。
+<!-- The transactions in your bundle will be forwarded through the network until all the nodes have it in their copy of the Tangle. -->
 
 ## コードを走らせる
 <!-- ## Run the code -->

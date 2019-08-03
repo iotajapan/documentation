@@ -128,11 +128,11 @@
     handleErr(err)
     ```
 
-    :::danger:シードごとにアカウントを1つ作成します
+    :::danger:シードごとにアカウントインスタンスを1つ作成します
     同じシードで複数のアカウントを作成してはいけません。そうすると、シードステートが上書きされるという競合状態が発生する可能性があります。
     :::
-    <!-- :::danger:Create one account per seed -->
-    <!-- You must not create multiple accounts with the same seed. Doing so could lead to a race condition where the seed state would be overwritten. -->
+    <!-- :::danger:Create one account instance per seed -->
+    <!-- You must not create multiple instances of an account with the same seed. Doing so could lead to a race condition where the seed state would be overwritten. -->
     <!-- ::: -->
 
     :::info:デフォルト設定

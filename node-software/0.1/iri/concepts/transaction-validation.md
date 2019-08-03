@@ -35,8 +35,8 @@ IRIノードが新しいトランザクションを受信すると、トラン�
 ## チップ選択プロセス中の検証
 <!-- ## Validation during the tip selection process -->
 
-クライアントがチップトランザクションをIRIノードにリクエストすると、[チップ選択](root://the-tangle/0.1/concepts/tip-selection.md)が行われます。
-<!-- When clients ask an IRI node for tip transactions, it does the [tip selection](root://the-tangle/0.1/concepts/tip-selection.md). -->
+クライアントがチップトランザクションをIRIノードにリクエストすると、[チップ選択](../concepts/tip-selection.md)が行われます。
+<!-- When clients ask an IRI node for tip transactions, it does the [tip selection](../concepts/tip-selection.md). -->
 
 チップ選択プロセス中にIRIノードが辿る各トランザクションのバンドルは、バンドルバリデータと台帳バリデータによってチェックされます。
 <!-- The bundles of each transaction that the IRI node traverses during the tip selection process are checked by the bundle validator and the ledger validator. -->
@@ -47,8 +47,8 @@ IRIノードが新しいトランザクションを受信すると、トラン�
 バンドルバリデータは、バンドル内のすべてのトランザクションが有効であることを確認します。
 <!-- The bundle validator makes sure that all transactions in a bundle are valid. -->
 
-[重み付きランダムウォーク](root://the-tangle/0.1/concepts/tip-selection.md)中に、バンドルバリデータは次のことをチェックします。
-<!-- During a [weighted random walk](root://the-tangle/0.1/concepts/tip-selection.md), the bundle validator checks the bundle of transactions for the following: -->
+[重み付きランダムウォーク](../concepts/tip-selection.md)中に、バンドルバリデータは次のことをチェックします。
+<!-- During a [weighted random walk](../concepts/tip-selection.md), the bundle validator checks the bundle of transactions for the following: -->
 
 - バンドル内のすべてのトランザクションのIOTAトークンの値が、IOTAトークンの総供給量の値を超えていない。
 <!-- - The value of any transaction in the bundle doesn’t exceed the total global supply -->
@@ -63,5 +63,5 @@ IRIノードが新しいトランザクションを受信すると、トラン�
 台帳バリデータは、二重支払いが確定されないようにします。
 <!-- The ledger validator makes sure that double-spends are never confirmed. -->
 
-[重み付きランダムウォーク](root://the-tangle/0.1/concepts/tip-selection.md)中に、台帳バリデータは、バンドル内のすべてのアドレスのIOTAトークンの量をチェックすることによって、各バンドルが二重支払いにつながらないことをチェックします。二重支払いが見つかった場合、重み付きランダムウォークは1つトランザクションを遡り、チップトランザクションへの別の経路を見つけます。
-<!-- During a [weighted random walk](root://the-tangle/0.1/concepts/tip-selection.md), the ledger validator checks that each bundle does not lead to a double-spend by checking the values of all addresses in a bundle. If a double-spend is found, the weighted random walk steps back one transaction and finds another route to a tip transaction. -->
+[重み付きランダムウォーク](../concepts/tip-selection.md)中に、台帳バリデータは、バンドル内のすべてのアドレスのIOTAトークンの量をチェックすることによって、各バンドルが二重支払いにつながらないことをチェックします。二重支払いが見つかった場合、重み付きランダムウォークは1つトランザクションを遡り、チップトランザクションへの別の経路を見つけます。
+<!-- During a [weighted random walk](../concepts/tip-selection.md), the ledger validator checks that each bundle does not lead to a double-spend by checking the values of all addresses in a bundle. If a double-spend is found, the weighted random walk steps back one transaction and finds another route to a tip transaction. -->
