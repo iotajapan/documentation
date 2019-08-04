@@ -370,5 +370,5 @@ rm -rf ~/.config/Electron
 1. 開発者ツールウィンドウが開いてフォーカスされている間に**Ctrl** + **R**（macOSでは**cmd** + **R**）を押して、トリニティをリロードします。
   <!-- 1. Reload Trinity by pressing **Ctrl**+ **R** (**cmd**+**R** on macOS) while the Developer tools window is open and in focus. -->
 
-2. 開発者ツールのコンソールでエラーを確認してください。エラーを修正するか、GitHubで[issue](https://github.com/iotaledger/trinity-wallet/issues)として報告するようにしてください。
+2. 開発者ツールのコンソールでエラーを確認します。エラーを修正するか、GitHubで[issue](https://github.com/iotaledger/trinity-wallet/issues)として報告してください。
   <!-- 2. Check the Developer tools console for any errors. Try to fix them or report them as an [issue](https://github.com/iotaledger/trinity-wallet/issues) on GitHub. -->

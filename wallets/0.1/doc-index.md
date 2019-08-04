@@ -2,8 +2,8 @@
 
 [序説/Overview](/introduction/overview.md)
 [トリニティ/序説/概要](/trinity/introduction/overview.md)
-[トリニティ/概念/Hardware wallet](/trinity/concepts/hardware-wallet.md)
-[トリニティ/概念/Node quorum](/trinity/concepts/node-quorum.md)
+[トリニティ/概念/ハードウェアウォレット](/trinity/concepts/hardware-wallet.md)
+[トリニティ/概念/ノード定足数](/trinity/concepts/node-quorum.md)
 [トリニティ/ハウツーガイド/アカウントを作成する](/trinity/how-to-guides/create-an-account.md)
 [トリニティ/ハウツーガイド/シードをバックアップする](/trinity/how-to-guides/back-up-seed.md)
 [トリニティ/ハウツーガイド/デスクトップ版のダウンロードを検証する](/trinity/how-to-guides/verify-trinity-desktop.md)

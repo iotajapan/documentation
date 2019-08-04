@@ -99,7 +99,7 @@ IOTAネットワーク内のすべてのノードは、すべてのアドレス�
 ![Address generation](../images/address-generation.png)
 
 :::info:アドレスを導出する
-JavaScriptクライアントライブラリを使用して[秘密鍵からアドレスを導出します](../how-to-guides/derive-addresses-from-private-keys.md)。
+JavaScriptクライアントライブラリを使用して[秘密鍵からアドレスを導出する](../how-to-guides/derive-addresses-from-private-keys.md)。
 :::
 <!-- :::info:Want to try this out? -->
 <!-- Use the JavaScript client library to [derive addresses from private keys](../how-to-guides/derive-addresses-from-private-keys.md). -->
