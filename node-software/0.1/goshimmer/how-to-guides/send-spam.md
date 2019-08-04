@@ -36,5 +36,5 @@
 ## 次のステップ
 <!-- ## Next steps -->
 
-ノードがトランザクションを受信しているので、[ノードの着信トランザクションを監視することができます](../how-to-guides/subscribe-to-events.md)ことができます。
+ノードがトランザクションを受信しているので、[ノードの着信トランザクションを監視する](../how-to-guides/subscribe-to-events.md)ことができます。
 <!-- Now that your node is receiving transactions, you can [monitor it for incoming transaction](../how-to-guides/subscribe-to-events.md) to see the transaction data. -->

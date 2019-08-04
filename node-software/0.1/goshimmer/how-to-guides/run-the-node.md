@@ -144,7 +144,8 @@ Dockerコンテナをビルドするには、Docker 17.05（マルチステー�
     sudo docker run -d --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -p 8081:8081 -it -v mainnetdb:/root/mainnetdb goshimmer --node-enable-plugins "spammer zeromq dashboard"
     ```
 
-    The container ID is displayed in the console.
+    コンテナIDがコンソールに表示されます。
+    <!-- The container ID is displayed in the console. -->
 
     :::info:
     再起動のたびにDockerコンテナを再起動するには、`run`コマンドに`--restart=always`フラグを追加します。
