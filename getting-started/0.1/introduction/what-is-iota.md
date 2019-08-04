@@ -29,7 +29,7 @@ IOTAが実際に、サプライチェーンをどのように改善できるか�
 <!-- ## What is the IOTA token? -->
 
 最も基本的なレベルでは、IOTAトークンはIOTAネットワーク内のノードによって保持されている所有権の記録です。
-<!-- At its most basic level, the IOTA token is a record of ownership that's held by the nodes in an IOTA network. -->
+  <!-- At its most basic level, the IOTA token is a record of ownership that's held by the nodes in an IOTA network. -->
 
     ```bash
     ADDRESS....ENDOFADDRESS;1000

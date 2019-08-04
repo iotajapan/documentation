@@ -1,7 +1,7 @@
 # 開発者向け重要事項の概要
 <!-- # Developer essentials overview -->
 
-**IOTAネットワークは、ノードとクライアントで構成されています。ノードは、トランザクションのタングルと呼ばれる台帳への読み取り/書き込みのアクセス権を持つデバイスです。クライアントは、データまたはIOTAトークンのいずれかを転送するトランザクションを作成し、トランザクションを検証のためにノードに送信するデバイスです。シードはクライアントに[addresses]へのアクセス権を与えます。アドレスには残高があり、残高がアドレス中のIOTAトークンの量を定義します。IOTAトークンを自分のアドレスから取り出すには、クライアントがトランザクションのバンドルをノードに送信して、ノードがトランザクションを検証して台帳を更新できるようにする必要があります。**
+**IOTAネットワークは、ノードとクライアントで構成されています。ノードは、トランザクションのタングルと呼ばれる台帳への読み取り/書き込みのアクセス権を持つデバイスです。クライアントは、データまたはIOTAトークンのいずれかを転送するトランザクションを作成し、トランザクションを検証のためにノードに送信するデバイスです。シードはクライアントに[アドレス](../concepts/addresses-and-signatures.md)へのアクセス権を与えます。アドレスには残高があり、残高がアドレス中のIOTAトークンの量を定義します。IOTAトークンを自分のアドレスから取り出すには、クライアントがトランザクションのバンドルをノードに送信して、ノードがトランザクションを検証して台帳を更新できるようにする必要があります。**
 <!-- **An IOTA network consists of a network of nodes. A node is a device that has read/write access to a ledger of transactions called the Tangle. A client is a device that creates transactions that transfer either data or IOTA tokens and sends them to nodes for validation. A seed gives a client access to [addresses](../concepts/addresses-and-signatures.md). Addresses have a balance, which defines the amount of IOTA tokens in them. To withdraw IOTA tokens from their addresses, clients must send bundles of transactions to a node so that the nodes can validate the transactions and update their ledgers.** -->
 
 ## クライアント

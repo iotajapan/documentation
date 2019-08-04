@@ -1,7 +1,7 @@
 # ノードとは？
 <!-- # What is a node? -->
 
-**ノードは、IOTAネットワーク内のタングルへの読み書きアクセス権を持つデバイスです。すべてのノードはタングルのコピーとIOTAトークンを保持するアドレスの記録を保存します。クライアントはIOTAネットワーク内の任意のノードにバンドルを送信できるので、トランザクションを検証でき、トランザクションをタングルに添付し、他のノード転送できます。
+**ノードは、IOTAネットワーク内のタングルへの読み書きアクセス権を持つデバイスです。すべてのノードはタングルのコピーとIOTAトークンを保持するアドレスの記録を保存します。クライアントはIOTAネットワーク内の任意のノードにバンドルを送信できるので、トランザクションを検証でき、トランザクションをタングルに添付し、他のノード転送にできます。**
 <!-- **A node is a device that has read and write access to the Tangle in an IOTA network. All nodes store a copy of the Tangle and a record of addresses that hold IOTA tokens. Clients can send their bundles to any node in an IOTA network so it can validate the transactions, attach them to the Tangle, and forward them to other nodes.** -->
 
 IOTAは無許可型DLTです。したがって、個人や企業を含め、誰でもノードを実行できます。
