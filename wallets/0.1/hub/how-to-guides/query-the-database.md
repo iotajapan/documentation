@@ -74,7 +74,7 @@
     ```
 
 :::info:
-MYSQLとさまざまなコマンドについて学ぶためには、[MYSQLのウェブサイト](https://dev.mysql.com/doc/refman/8.0/en/tutorial.html)をご覧ください。
+MYSQLとさまざまなコマンドについて学ぶためには、[MYSQLのウェブサイト](https://dev.mysql.com/doc/refman/8.0/en/tutorial.html)を参照します。
 :::
 <!-- :::info: -->
 <!-- To learn about MYSQL and the different commands, [see their website](https://dev.mysql.com/doc/refman/8.0/en/tutorial.html). -->

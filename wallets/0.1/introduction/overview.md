@@ -1,16 +1,18 @@
-# Wallets
+# ウォレット
+<!-- # Wallets -->
 
-**A wallet is an application that stores your seed and keeps a record of transactions in a database. You can use wallets to simplify the process of securing your seed, sending transactions, and managing your balance.**
+**ウォレットはシードを保存し、データベースにトランザクションの記録を保存するアプリケーションです。ウォレットを使用すると、シードの保護、トランザクションの送信、および残高の管理のプロセスを簡素化できます。**
+<!-- **A wallet is an application that stores your seed and keeps a record of transactions in a database. You can use wallets to simplify the process of securing your seed, sending transactions, and managing your balance.** -->
 
 -------------------------
 ![Trinity](../images/trinity.png)
-## [Trinity](../trinity/introduction/overview.md)
-Trinity is the official wallet for IOTA. This wallet is a mobile and desktop application with a user interface that allows you to transfer data and IOTA tokens. Trinity allows you to encrypt and store multiple seeds, where each seed has its own account, transaction history, and settings.
+## [トリニティ](../trinity/introduction/overview.md)
+トリニティはIOTAの公式ウォレットです。このウォレットは、データとIOTAトークンを転送できるユーザーインターフェイスを備えたモバイルおよびデスクトップアプリケーションです。トリニティでは、複数のシードを暗号化して保存することができます。各シードには独自のアカウント、トランザクション履歴、および設定があります。
 -------------------------
 
 -------------------------
 ![Hub](../images/hub.png)
-## [Hub](../hub/introduction/overview.md)
-Hub is a headless multi-user wallet for cryptocurrency exchanges. Hub offers you a secure way to manage deposits and withdrawals of users' IOTA tokens. When a user deposits IOTA tokens into one of their Hub addresses, Hub transfers those tokens to the Hub owners address in a process called a sweep. This way, the Hub owner can make sure that users' tokens are secure until they request a withdrawal.
+## [ハブ](../hub/introduction/overview.md)
+ハブは暗号通貨取引所のためのヘッドレスマルチユーザーウォレットです。ハブは、ユーザーのIOTAトークンの預け入れと取り出しを管理するための安全な方法を提供します。ユーザーがIOTAトークンを自分のハブアドレスの1つに入れると、スイープと呼ばれるプロセスでユーザーのIOTAトークンがハブ所有者のアドレスに転送されます。このようにして、ハブ所有者は、ユーザーが取り出しを要求するまでユーザーのIOTAトークンが安全であることを確認できます。
 -------------------------
 

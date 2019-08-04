@@ -1,7 +1,7 @@
-# トランザクションを受取る
+# トランザクションを受信する
 <!-- # Receive a transaction -->
 
-**トリニティには、トランザクションを受取り、ボタンをクリックするだけで新しいアドレスを生成することができるユーザー・インターフェースがあります。**
+**トリニティには、トランザクションを受信し、ボタンをクリックするだけで新しいアドレスを生成することができるユーザー・インターフェースがあります。**
 <!-- **Trinity has a user interface that allows you to receive transactions and generate new addresses at the click of a button.** -->
 
 :::danger:重要
