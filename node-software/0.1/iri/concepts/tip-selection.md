@@ -7,7 +7,7 @@
 一般的に、チップ選択アルゴリズムは、親を持たないトランザクションを選択します。この親を持たないトランザクションをチップと呼ぶため、これらの行為を`チップ選択`と呼びます。
 <!-- In general, the tip selection algorithm selects transactions that have no parents. These transactions are called tips, hence the name 'tip selection'. -->
 
-チップ選択アルゴリズムは[IOTAノードソフトウェア](root://node-software/0.1/iri/introduction/overview.md)に組み込まれていますが、ネットワークによって強制されているわけではありません。代わりに、ノードに[チップ選択アルゴリズムを使用するインセンティブ](../concepts/incentives-in-the-tangle.md)が与えられています。
+チップ選択アルゴリズムは[IOTAノードソフトウェア](root://node-software/0.1/iri/introduction/overview.md)に組み込まれていますが、ネットワークによって強制されているわけではありません。代わりに、ノードに[チップ選択アルゴリズムを使用するインセンティブ](#incentives-to-use-tip-selection)が与えられています。
 <!-- Although the tip selection algorithm is embedded in the [IRI node software](root://node-software/0.1/iri/introduction/overview.md), it isn't enforced by the network. Instead, nodes are given an [incentive to use the tip selection algorithm](#incentives-to-use-tip-selection). -->
 
 ## チップ選択プロセス
@@ -346,6 +346,7 @@ IOTAのトランザクションはバンドルにまとめて送信されます�
 2つのチップトランザクションは、どちらも無効ではないことを確認するために、互いの間の一貫性についてチェックします。したがって、クライアントのトランザクションは、他のトランザクションによって承認される可能性が高い2つの有効なトランザクションを参照するため、累積荷重が大きくなります。
 <!-- The two tip transactions are checked for consistency between each other to make sure that neither one is invalid. Therefore, the clients transaction references two valid transactions that have a better chance of being approved by another transaction, thus increasing its cumulative weight. -->
 
+<a name="incentives-to-use-tip-selection"></a>
 ## チップ選択を使用するインセンティブ
 <!-- ## Incentives to use tip selection -->
 

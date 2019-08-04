@@ -1,4 +1,3 @@
-<<<<<<< HEAD:iota-basics/0.1/concepts/bundles-and-transactions.md
 # バンドルとトランザクション
 <!-- # Bundles and transactions -->
 
@@ -24,57 +23,28 @@
 | `attachmentTimestamp` | UNIX時間：POW後の協定世界時（UTC）での1970年1月1日からのミリ秒 |
 | `attachmentTimestampLowerBound` | `attachmentTimestamp`フィールドの下限（現在使用されていません） |
 | `attachmentTimestampUpperBound` | `attachmentTimestamp`フィールドの上限（現在使用されていません） |
-| `nonce` | [プルーフオブワーク](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md)を確認するためにトランザクションをハッシュする必要がある回数を表すトライト |
+| `nonce` | [プルーフオブワーク](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)を確認するためにトランザクションをハッシュする必要がある回数を表すトライト |
 
 <!-- | **Field** | **Description** | -->
 <!-- | :-------- | :-------------- | -->
-<!-- | `signatureMessageFragment` | A signature or a message, both of which may be _fragmented_ over multiple transactions in the bundle. This field contains a signature if the transaction withdraws IOTA tokens. Otherwise, this field can contain a tryte-encoded message or all 9's where no message is defined. | -->
-<!-- | `address` | Contains either the sender or recipient's address. This field contains a recipient's address if the transaction is an output. Otherwise, this field contains an address from which IOTA tokens are being withdrawn (transaction with a negative `value` field). | -->
-<!-- | `value` | Amount of IOTA tokens to deposit to or withdraw from the address | -->
-<!-- | `obsoleteTag` | User-defined tag | -->
-<!-- | `timestamp` | Unix epoch: Seconds since Jan 1, 1970 (not-enforced and can be arbitrary) | -->
-<!-- | `currentIndex` | Index of the current transaction in the bundle | -->
-<!-- | `lastIndex` |Index of the last transaction in the bundle | -->
-<!-- | `bundle` | Hash of the bundle | -->
-<!-- | `trunkTransaction` |Transaction hash of a [parent transaction](../concepts/the-tangle.md#parent-and-children). This transaction hash can either be of an existing transaction in the Tangle or of [the next transaction index in the same bundle](../references/structure-of-a-bundle.md). | -->
-<!-- | `branchTransaction` |Transaction hash of a [parent transaction](../concepts/the-tangle.md#parents-and-children) | -->
-<!-- | `attachmentTag` |User-defined tag | 27 | -->
-<!-- | `attachmentTimestamp` |Unix epoch: Milliseconds since Jan 1, 1970 (after POW) | -->
+<!-- | `signatureMessageFragment`      | A signature or a message, both of which may be _fragmented_ over multiple transactions in the bundle. This field contains a signature if the transaction withdraws IOTA tokens. Otherwise, this field can contain a tryte-encoded message or all 9's where no message is defined. | -->
+<!-- | `address`                       | Contains either the sender or recipient's address. This field contains a recipient's address if the transaction is an output. Otherwise, this field contains an address from which IOTA tokens are being withdrawn (transaction with a negative `value` field). | -->
+<!-- | `value`                         | Amount of IOTA tokens to deposit to or withdraw from the address | -->
+<!-- | `obsoleteTag`                   | User-defined tag | -->
+<!-- | `timestamp`                     | Unix epoch: Seconds since Jan 1, 1970 (not-enforced and can be arbitrary) | -->
+<!-- | `currentIndex`                  | Index of the current transaction in the bundle | -->
+<!-- | `lastIndex`                     |Index of the last transaction in the bundle | -->
+<!-- | `bundle`                        | Hash of the bundle | -->
+<!-- | `trunkTransaction`              |Transaction hash of a [parent transaction](../concepts/the-tangle.md#parent-and-children). This transaction hash can either be of an existing transaction in the Tangle or of [the next transaction index in the same bundle](../references/structure-of-a-bundle.md). | -->
+<!-- | `branchTransaction`             |Transaction hash of a [parent transaction](../concepts/the-tangle.md#parents-and-children) | -->
+<!-- | `attachmentTag`                 |User-defined tag | -->
+<!-- | `attachmentTimestamp`           |Unix epoch: Milliseconds since Jan 1, 1970 (after POW) | -->
 <!-- | `attachmentTimestampLowerBound` |Lower limit of the `attachmentTimestamp` field (not currently used) | -->
 <!-- | `attachmentTimestampUpperBound` |Upper limit of the `attachmentTimestamp` field (not currently used) | -->
-<!-- | `nonce` |Trytes that represent the amount of times a transaction must be hashed to check the [proof of work](root://iota-basics/0.1/concepts/minimum-weight-magnitude.md). | -->
+<!-- | `nonce`                         |Trytes that represent the amount of times a transaction must be hashed to check the [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md). | -->
 
 トランザクションがバンドル内でグループ化されると、バンドル内の場所を定義する`currentIndex`フィールドとバンドル内の最後のトランザクションを定義する`lastIndex`フィールドの両方が与えられます。
 <!-- When a transaction is grouped in a bundle, it's given both a `currentIndex` field, which defines its place in the bundle, and a `lastIndex` field, which defines the last transaction in a bundle. -->
-=======
-# Bundles and transactions
-
-**If you want to send anything to an IOTA network, you must send it to a node in the form of a transaction. A transaction is a single operation that can be either an input (withdraw from an address) or an output (deposit into an address or have zero-value). To send a node one or more transactions, you must group them in a bundle.**
-
-Each transaction in a bundle has the following structure that allows nodes to validate them and attach them to the Tangle.
-
-
-| **Field**                         | **Description**                                                                                   |
-| :----------------------------- | :------ |
-| `signatureMessageFragment`      | A signature or a message, both of which may be _fragmented_ over multiple transactions in the bundle. This field contains a signature if the transaction withdraws IOTA tokens. Otherwise, this field can contain a tryte-encoded message or all 9's where no message is defined. |
-| `address`                       | Contains either the sender or recipient's address. This field contains a recipient's address if the transaction is an output. Otherwise, this field contains an address from which IOTA tokens are being withdrawn (transaction with a negative `value` field).   |
-| `value`                    | Amount of IOTA tokens to deposit to or withdraw from the address | 
-| `obsoleteTag`                   | User-defined tag |
-| `timestamp`                     | Unix epoch: Seconds since Jan 1, 1970 (not-enforced and can be arbitrary)                                                                                                                                                                                    |
-| `currentIndex`                  | Index of the current transaction in the bundle                                                                                                                                                                                                   |
-| `lastIndex`                     |Index of the last transaction in the bundle                                                                                                                                                                                           |
-| `bundle`                        | Hash of the bundle                |
-| `trunkTransaction`              |Transaction hash of a [parent transaction](../concepts/the-tangle.md#parent-and-children). This transaction hash can either be of an existing transaction in the Tangle or of [the next transaction index in the same bundle](../references/structure-of-a-bundle.md).                                                                                                                                 |
-| `branchTransaction`             |Transaction hash of a [parent transaction](../concepts/the-tangle.md#parents-and-children)                                                                                                                                                                 |
-| `attachmentTag`                |User-defined tag                                                                                                                                                                                                              |
-| `attachmentTimestamp`          |Unix epoch: Milliseconds since Jan 1, 1970 (after POW)                                                                                                                                                                                                           |
-| `attachmentTimestampLowerBound` |Lower limit of the `attachmentTimestamp` field (not currently used)                                                                                                                                                                                                      |
-| `attachmentTimestampUpperBound` |Upper limit of the `attachmentTimestamp` field (not currently used)                                                                                                                                                                                                         |
-| `nonce`                         |Trytes that represent the amount of times a transaction must be hashed to check the [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md).                                      |
-
-
-When a transaction is grouped in a bundle, it's given both a `currentIndex` field, which defines its place in the bundle, and a `lastIndex` field, which defines the last transaction in a bundle.
->>>>>>> upstream/develop:dev-essentials/0.1/concepts/bundles-and-transactions.md
 
 :::info:
 バンドルの構造は、先頭トランザクション、ボディトランザクション、および末尾トランザクションから構成されます。末尾トランザクションが最初の（インデックス0）、先頭トランザクションがバンドル内の最後のトランザクションです。
@@ -102,17 +72,11 @@ When a transaction is grouped in a bundle, it's given both a `currentIndex` fiel
 バンドルを不可分にする必要がある理由を説明するために、次の例を挙げます。
 <!-- To explain why bundles need to be atomic, take this example. -->
 
-<<<<<<< HEAD:iota-basics/0.1/concepts/bundles-and-transactions.md
-    オンラインで精算をするとして、支払うべき合計が10Miとします。あなたのシードは2つのアドレス（インデックス0と1）を持ち、両方とも5Miを含みます。したがって、3つのトランザクションを作成します。アドレス0から5Miを取り出す入力トランザクション、アドレス1から5Miを取り出す入力トランザクション、およびベンダーのアドレスに10Miを支払う出力トランザクションです。（入力トランザクションの両方のアドレスがセキュリティレベル1の秘密鍵から作成されたものとします。そのため、署名は各入力トランザクションに含まれています。）
-    <!-- You're at an online checkout and the total to pay is 10Mi. Your seed has 2 addresses (index 0 and 1), which both contain 5Mi. So, you create three transactions: One input transaction to withdraw 5Mi from address 0, another input transaction to withdraw 5Mi from address 1, and one output transaction to deposit 10Mi to the vendor's address. (We'll assume that both addresses in the input transactions were created from a private key with security level 1, so the signatures can fit in each transaction.) -->
+> オンラインで精算をするとして、支払うべき合計が10Miとします。あなたのシードは2つのアドレス（インデックス0と1）を持ち、両方とも5Miを含みます。したがって、3つのトランザクションを作成します。アドレス0から5Miを取り出す入力トランザクション、アドレス1から5Miを取り出す入力トランザクション、およびベンダーのアドレスに10Miを支払う出力トランザクションです。（入力トランザクションの両方のアドレスがセキュリティレベル1の秘密鍵から作成されたものとします。そのため、署名は各入力トランザクションに含まれています。）
+<!-- > You're at an online checkout and the total to pay is 10 Mi. Your seed has 2 addresses (index 0 and 1), which both contain 5 Mi. So, you create three transactions: One input transaction to withdraw 5 Mi from address 0, another input transaction to withdraw 5 Mi from address 1, and one output transaction to deposit 10 Mi to the vendor's address. (We'll assume that both addresses in the input transactions were created from a private key with security level 1, so the signatures can fit in each transaction.) -->
 
-    ベンダーが10Miを受け取るには、これら3つのトランザクションすべてが有効でなければなりません。各トランザクションは、IOTAトークンを転送するという目標を達成するために、互いの有効性に依存する連続的な命令です。
-    <!-- For the vendor to receive 10Mi, all three of those transactions must be valid. They're sequential instructions that rely on each other's validity to achieve the goal of transferring IOTA tokens. -->
-=======
-> You're at an online checkout and the total to pay is 10 Mi. Your seed has 2 addresses (index 0 and 1), which both contain 5 Mi. So, you create three transactions: One input transaction to withdraw 5 Mi from address 0, another input transaction to withdraw 5 Mi from address 1, and one output transaction to deposit 10 Mi to the vendor's address. (We'll assume that both addresses in the input transactions were created from a private key with security level 1, so the signatures can fit in each transaction.)
-
+> ベンダーが10Miを受け取るには、これら3つのトランザクションすべてが有効でなければなりません。各トランザクションは、IOTAトークンを転送するという目標を達成するために、互いの有効性に依存する連続的な命令です。
 > For the vendor to receive 10 Mi, all three of those transactions must be valid. They're sequential instructions that rely on each other's validity to achieve the goal of transferring IOTA tokens.
->>>>>>> upstream/develop:dev-essentials/0.1/concepts/bundles-and-transactions.md
 
 :::info:
 バンドルにパッケージ化する必要があるのは、複数のトランザクションだけではありません。
@@ -224,15 +188,11 @@ IOTAトークンを預け入れるトランザクションは、IOTAトークン
 ## バンドル例
 <!-- ## Example bundles -->
 
-<<<<<<< HEAD:iota-basics/0.1/concepts/bundles-and-transactions.md
 ### セキュリティレベル1のアドレスからの取り出し
 <!-- ### Withdraw from address with security level 1 -->
-=======
-This bundle transfers 80 i to a recipient from an address with a security level of 1.
->>>>>>> upstream/develop:dev-essentials/0.1/concepts/bundles-and-transactions.md
 
 次のバンドルは、セキュリティレベル1のアドレスから80iを受信者に転送します。
-<!-- This bundle transfers 80i to a recipient from an address with a security level of 1. -->
+<!-- This bundle transfers 80 i to a recipient from an address with a security level of 1. -->
 
 | **トランザクションインデックス** | **トランザクションの内容** | **トークン量** |
 | --- | --- | --- |
@@ -240,15 +200,11 @@ This bundle transfers 80 i to a recipient from an address with a security level 
 | 1 | 送信者のアドレスと署名 | -100（送信者のアドレスのトークン合計量 マイナス表示される）|
 | 2 | 残りのIOTAトークンを転送するためのアドレス（通常は送信者のアドレスの1つ）| 20（トランザクション1の送信者のアドレスの残りのトークン量）|
 
-<<<<<<< HEAD:iota-basics/0.1/concepts/bundles-and-transactions.md
 ### セキュリティレベル2のアドレスからの取り出し
 <!-- ### Withdraw from address with security level 2 -->
-=======
-This bundle transfers 80 i to a recipient from an address with a security level of 2.
->>>>>>> upstream/develop:dev-essentials/0.1/concepts/bundles-and-transactions.md
 
 次のバンドルは、セキュリティレベル2のアドレスから80iを受信者に転送します。
-<!-- This bundle transfers 80i to a recipient from an address with a security level of 2. -->
+<!-- This bundle transfers 80 i to a recipient from an address with a security level of 2. -->
 
 | **トランザクションインデックス** | **トランザクションの内容** | **トークン量** |
 | --- | --- | --- |
@@ -257,14 +213,11 @@ This bundle transfers 80 i to a recipient from an address with a security level 
 | 2 | 送信者のアドレスと署名の最後の断片 | 0 |
 | 3 | 残りのIOTAトークンを転送するためのアドレス（通常は送信者のアドレスの1つ）| 20（トランザクション1の送信者のアドレスの残りのトークン量）|
 
-<<<<<<< HEAD:iota-basics/0.1/concepts/bundles-and-transactions.md
 ### セキュリティレベル3のアドレスからの取り出し
 <!-- ### Withdraw from an address with security level 3 -->
-=======
-This bundle transfers 80 i to a recipient from an address with a security level of 3.
->>>>>>> upstream/develop:dev-essentials/0.1/concepts/bundles-and-transactions.md
 
 次のバンドルは、セキュリティレベル3のアドレスから80iを受信者に転送します。
+<!-- This bundle transfers 80 i to a recipient from an address with a security level of 3. -->
 
 | **トランザクションインデックス** | **トランザクションの内容** | **トークン量** |
 | --- | --- | --- |

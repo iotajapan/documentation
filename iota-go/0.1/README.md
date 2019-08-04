@@ -42,7 +42,7 @@
 ## 対象読者
 <!-- ## Audience -->
 
-このドキュメントは、Goプログラミング言語とオブジェクト指向プログラミングの概念に精通している人を対象にしています。[アドレスの再利用](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse)、[バンドルとトランザクション](root://dev-essentials/0.1/concepts/bundles-and-transactions.md)など、IOTAの基本概念にも精通している必要があります。
+このドキュメントは、Goプログラミング言語とオブジェクト指向プログラミングの概念に精通している人を対象にしています。[アドレスの再利用](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse)、[バンドルとトランザクション](root://dev-essentials/0.1/concepts/bundles-and-transactions.md)など、IOTAの基本概念にも精通している必要があります。
 <!-- This documentation is designed for people who are familiar with the Go programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [address reuse](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse), [bundles, and transactions](root://dev-essentials/0.1/concepts/bundles-and-transactions.md). -->
 
 このガイドは、IOTAを使用したアプリケーションの探求と開発を迅速に開始できるようにすることを目的としています。

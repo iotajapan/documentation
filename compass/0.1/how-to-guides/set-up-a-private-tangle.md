@@ -96,15 +96,11 @@
     sudo apt install jq
     ```
 
-<<<<<<< HEAD
 ## 手順2. マークル木を計算する
 <!-- ## Step 2. Compute the Merkle tree -->
 
-このガイドでは、[depth](../references/compass-configuration-options.md)16の[マークル木](root://iota-basics/0.1/concepts/the-tangle.md#milestones)を使用します。これにより、コンパスはマイルストーン送信の間隔に応じて、約45日間マイルストーンを送信できます。
-<!-- For this guide, we use a [Merkle tree](root://iota-basics/0.1/concepts/the-tangle.md#milestones) with a [depth](../references/compass-configuration-options.md) of 16, which allows Compass to send milestones for around 45 days, depending on the interval between them. -->
-=======
-For this guide, we use a [Merkle tree](root://dev-essentials/0.1/concepts/the-tangle.md#milestones) with a [depth](../references/compass-configuration-options.md) of 16, which allows Compass to send milestones for around 45 days, depending on the interval between them.
->>>>>>> upstream/develop
+このガイドでは、[depth](../references/compass-configuration-options.md)16の[マークル木](root://dev-essentials/0.1/concepts/the-tangle.md#milestones)を使用します。これにより、コンパスはマイルストーン送信の間隔に応じて、約45日間マイルストーンを送信できます。
+<!-- For this guide, we use a [Merkle tree](root://dev-essentials/0.1/concepts/the-tangle.md#milestones) with a [depth](../references/compass-configuration-options.md) of 16, which allows Compass to send milestones for around 45 days, depending on the interval between them. -->
 
 :::info:
 `depth`パラメータがマークル木を計算するのにかかる時間と総ネットワーク稼働時間の両方にどのように影響するかを示す[サンプルのマークル木計算時間](../references/merkle-tree-compute-times.md)をご覧ください。
@@ -382,14 +378,7 @@ APIエンドポイントの一覧については、[IRI APIリファレンス](r
 
 --------------------
 ### getBalances
-<<<<<<< HEAD
-```bash
-SEED9999999999999999999999999999999999999999999999999999999999999999999999999999999
-```
-上記のシードの合計残高を取得するには、[`getBalances`](root://node-software/0.1/iri/references/api-reference.md#getbalances)エンドポイントを呼び出します。これまでにIOTAクライアントライブラリを使用したことがない場合は、[このチュートリアル](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を完了することをお勧めします。
-=======
-Call the [`getBalances`](root://node-software/0.1/iri/references/api-reference.md#getbalances) endpoint to get the total balance of your seed. If you've never used the IOTA client libraries before, we recommend completing [this tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md).
->>>>>>> upstream/develop
+[`getBalances`](root://node-software/0.1/iri/references/api-reference.md#getbalances)エンドポイントを呼び出してシードの総残高を取得します。以前にIOTAクライアントライブラリを使用したことがない場合は、[このチュートリアル](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を完了することをお勧めします。
 
  ```js
  var request = require('request');

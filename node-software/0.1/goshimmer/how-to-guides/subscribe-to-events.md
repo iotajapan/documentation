@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-# トランザクションイベントを購読する
-<!-- # Subscribe to the transaction event -->
+# ノードの着信トランザクションを監視する
+<!-- # Monitor your node for incoming transactions -->
 
-**ノードがトランザクションを受信すると、ノードは受信したトランザクションをトランザクションイベントとしてゼロメッセージキュー（ZMQ）と呼ばれるサービスに発行します。クライアントとして、このイベントを購読し、ノードが受信するすべてのトランザクションの詳細を受信することができます。**
-<!-- **When your node receives transactions, it publishes them as a transaction event to a service called zero message queue (ZMQ). As a client, you can subscribe to this event and receive details of every transaction that your node receives.** -->
-=======
-# Monitor your node for incoming transactions
-
-**When your node receives transactions, it publishes them as a transaction event to a service called zero message queue (ZMQ). As a client, you can subscribe to this event to monitor your node for incoming transactions.**
->>>>>>> upstream/develop
+**ノードがトランザクションを受信すると、ノードは受信したトランザクションをトランザクションイベントとしてゼロメッセージキュー（ZMQ）と呼ばれるサービスに発行します。クライアントとして、このイベントを購読して、ノードの着信トランザクションを監視することができます。**
+<!-- **When your node receives transactions, it publishes them as a transaction event to a service called zero message queue (ZMQ). As a client, you can subscribe to this event to monitor your node for incoming transactions.** -->
 
 次のようにして、トランザクションデータをノードから受信することができます。
 <!-- You can receive this transaction data from a node by doing the following: -->
@@ -40,17 +34,11 @@
 * インターネット接続
 <!-- * An Internet connection -->
 
-<<<<<<< HEAD
-## 受信したトランザクションイベントを購読する
-<!-- ## Subscribe to the received transaction event -->
+## トランザクションイベントを購読する
+<!-- ## Subscribe to the transaction event -->
 
-最近受信したトランザクションをリッスンするために、ノードのZMQで`tx`イベントを購読することができます。
-<!-- You can subscribe to the `tx` event on the ZMQ of a node to listen for recently received transactions. -->
-=======
-## Subscribe to the transaction event
-
-You can subscribe to the `tx` event to monitor a node for recently received transactions.
->>>>>>> upstream/develop
+ノードが最近受信したトランザクションを監視するために`tx`イベントを購読することができます。
+<!-- You can subscribe to the `tx` event to monitor a node for recently received transactions. -->
 
 1\. zeromqライブラリをインストールします。
   <!-- 1\. Install the zeromq library -->
