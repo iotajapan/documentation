@@ -25,7 +25,7 @@
 [IRI/参考文献/スナップショットメタデータファイルのデータ](/iri/references/data-in-the-snapshot-metadata-file.md)
 [IRI/参考文献/IRI設定オプション](/iri/references/iri-configuration-options.md)
 [IRI/参考文献/ZMQイベント](/iri/references/zmq-events.md)
-[IRI/参考文献/Troubleshooting](/iri/references/troubleshooting.md)
+[IRI/参考文献/トラブルシューティング](/iri/references/troubleshooting.md)
 [GoShimmer/序説/概要](/goshimmer/introduction/overview.md)
 [GoShimmer/ハウツーガイド/GoShimmerノードを実行する](/goshimmer/how-to-guides/run-the-node.md)
 [GoShimmer/ハウツーガイド/ノードにスパムトランザクションを送信する](/goshimmer/how-to-guides/send-spam.md)

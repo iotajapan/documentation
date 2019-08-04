@@ -11,7 +11,7 @@
 <!-- At each point along the supply chain, any important data is stored on a cloud server then hashed and attached to the Tangle. With the hash on the Tangle, anyone with access to the cloud can verify the integrity of the cloud data by hashing it and comparing it to the immutable hash on the Tangle. -->
 
 :::info:
-[EVRYTHNGがIOTAをどのように使用するかについての詳細を調べるためにはIOTA財団のブログ記事を参照します](https://blog.iota.org/iota-evrythng-2a9b4b9d922d)。
+[EVRYTHNGがIOTAをどのように使用しているかについての詳細を調べるにはIOTA財団のブログ記事を参照します](https://blog.iota.org/iota-evrythng-2a9b4b9d922d)。
 :::
 <!-- :::info: -->
 <!-- [Read our blog post to find out more about how EVRYTHNG uses IOTA](https://blog.iota.org/iota-evrythng-2a9b4b9d922d). -->
@@ -29,7 +29,7 @@
 <!-- To host these nodes it's best to make sure that the host device has enough computational power to run reliably. For example, a good benchmark is to run each node on an instance of a virtual private server such as an [Amazon Web Services (AWS) R5 Large server](https://aws.amazon.com/ec2/instance-types/r5/) with 16 GB RAM and two virtual CPUs. -->
 
 :::info:
-[Linuxでノードを実行する](../how-to-guides/run-an-iri-node-on-linux.md)、または[Dockerコンテナでノードを実行する](../how-to-guides/run-an-iri-node-in-docker.md)のガイドを参照します。
+[Linuxでノードを実行する](../how-to-guides/run-an-iri-node-on-linux.md)、または[Dockerコンテナでノードを実行する](../how-to-guides/run-an-iri-node-in-docker.md)ガイドを参照する。
 :::
 <!-- :::info: -->
 <!-- Read our guide on [running a node on Linux](../how-to-guides/run-an-iri-node-on-linux.md), or on [running a node in a Docker container](../how-to-guides/run-an-iri-node-in-docker.md). -->
@@ -38,7 +38,7 @@
 ### プルーフオブワーク
 <!-- ### Proof of work -->
 
-ノードを構築すると、ノードが[プルーフオブワーク](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)をすることを可能にするオプションがあります。この機能が有効になっているとき、クライアントアプリケーションは`attachToTangle`APIエンドポイントを呼び出すことによってノードにプルーフオブワークをするように頼むことができます。このオプションはリモートプルーフオブワークと呼ばれます。
+ノードを構築すると、ノードが[プルーフオブワーク](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)をすることを可能にするオプションがあります。この機能が有効になっているとき、クライアントアプリケーションは`attachToTangle`APIエンドポイントを呼び出すことによって、ノードにプルーフオブワークをするように頼むことができます。このオプションはリモートプルーフオブワークと呼ばれます。
 <!-- When you're setting up your nodes, you have the option to allow them to do [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md). When this feature is enabled, client applications can ask your node to do proof of work by calling the `attachToTangle` API endpoint. This option is called remote proof of work. -->
 
 ![Remote proof of work](../images/remote-pow.png)
@@ -65,7 +65,7 @@
 ## クライアントアプリケーション
 <!-- ## Client applications -->
 
-APIエンドポイントを介してノードと通信するクライアントアプリケーションの場合、[AWS Lambda](https://aws.amazon.com/lambda/)などのサーバレスアーキテクチャのインスタンスでIOTAクライアントライブラリの1つを使用するのが最善です。このようにして、アプリケーションはハードウェアに制限されず、高い可用性を持ちます。
+APIエンドポイントを介してノードと通信するクライアントアプリケーションの場合、[AWS Lambda](https://aws.amazon.com/lambda/)などのサーバレスアーキテクチャのインスタンスで、IOTAクライアントライブラリの1つを使用するのが最善です。このようにして、アプリケーションはハードウェアに制限されず、高い可用性を持ちます。
 <!-- For a client application that will communicate with your nodes through API endpoints, it's best to use one of the IOTA client libraries on an instance of a serverless architecture such as [AWS Lambda](https://aws.amazon.com/lambda/). This way, your application is not restricted by hardware and has a high availability. -->
 
 :::info:
@@ -84,7 +84,7 @@ APIエンドポイントを介してノードと通信するクライアント�
 すべてのノードにAPI呼び出しを均等に分散させるために、ロードバランサとして機能するリバースプロキシサーバを実行できます。
 <!-- To evenly distribute the API calls among all your nodes, you can run a reverse proxy server that will act as a load balancer. -->
 
-このようにして、すべてのノードがそのAPI呼び出しを送信するリバースプロキシサーバのドメイン名を1つにすることができます。ただし、バックエンドでは、最も余裕のある計算能力を持つノードがリクエストを処理し、リクエストをリバースプロキシサーバに返します。
+このようにして、すべてのノードがそのAPI呼び出しを送信するリバースプロキシサーバのドメイン名を1つにすることができます。ただし、バックエンドでは、最も余裕のある計算能力を持つノードがリクエストを処理し、レスポンスをリバースプロキシサーバに返します。
 <!-- This way, you can even have one domain name for your reverse proxy server that all nodes will send their API calls to. But, on the backend, the nodes with the most spare computational power will process the request and return the response to the reverse proxy server. -->
 
 :::info:
@@ -97,5 +97,5 @@ APIエンドポイントを介してノードと通信するクライアント�
 ## 統合サポート
 <!-- ## Integrations support -->
 
-自身の推奨事項を共有したい場合、またはIOTAを自身のアーキテクチャーに統合するのを手伝って欲しい場合は、IOTA財団のチーム（`integrations@iota.org`）にご連絡ください。
+自身の長所を共有したい場合、またはIOTAを自身のアーキテクチャーに統合するのを手伝って欲しい場合は、IOTA財団のチーム（`integrations@iota.org`）にご連絡ください。
 <!-- If you want to share your own recommendations, or if you want help integrating IOTA into your own architecture, get in touch with our team at: integrations@iota.org -->

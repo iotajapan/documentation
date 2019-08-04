@@ -94,6 +94,7 @@ PoWを計算する関数は[PearlDiver](https://github.com/iotaledger/iri/blob/f
 <!-- The function that calculates PoW is called the [PearlDiver](https://github.com/iotaledger/iri/blob/fcf2d105851ee891b093e2857592fa05258ec5be/src/main/java/com/iota/iri/crypto/PearlDiver.java). -->
 <!-- ::: -->
 
+<a name="options-for-doing-proof-of-work"></a>
 ### プルーフオブワークを行うためのオプション
 <!-- ### Options for doing proof of work -->
 
