@@ -1,7 +1,7 @@
 # タングル
 <!-- # The Tangle -->
 
-**タングルは、IOTAトランザクションを含むイミュータブルなデータ構造です。IOTAネットワーク内のすべてのノードは、タングルのコピーを台帳に保存し、台帳から読み取り、新しいトランザクションを添付し、その内容について合意に達します。**
+**タングルは、IOTAトランザクションを含むイミュータブルなデータ構造です。IOTAネットワーク内のすべてのノードは、タングルのコピーを台帳に保存し、台帳から読み取り、新しいトランザクションを添付し、トランザクション内容について合意に達します。**
 <!-- **The Tangle is the immutable data structure that contains IOTA transactions. All nodes in an IOTA network store a copy of the Tangle in their ledgers, read from it, attach new transactions to it, and reach a consensus on its contents.** -->
 
 タングルでは、各トランザクションは参照によって他の2つのトランザクションに添付されています。
@@ -27,7 +27,7 @@
 参照は家系図を形成し、新しいトランザクションが**子トランザクション**の場合、ブランチおよびトランクトランザクションは**親トランザクション**になります。
 <!-- References form a family tree, whereby if a new transaction is a **child**, the branch and trunk transactions are its **parents**. -->
 
-上図では、トランザクション6はトランザクション5を直接参照しているため、トランザクション5はトランザクション6の**親トランザクション**です。一方、トランザクション6はトランザクション3を間接的に参照しているため、トランザクション3はトランザクション6の**祖父母トランザクション**です。 。
+上図では、トランザクション6はトランザクション5を直接参照しているため、トランザクション5はトランザクション6の**親トランザクション**です。一方、トランザクション6はトランザクション3を間接的に参照しているため、トランザクション3はトランザクション6の**祖父母トランザクション**です。
 <!-- In the diagram, transaction 6 directly references transaction 5, so transaction 5 is a **parent** of transaction 6. On the other hand, transaction 6 indirectly references transaction 3, so transaction 3 is a **grandparent** of transaction 6. -->
 
 これらの直接および間接的な参照はトランザクションの履歴を構成します。
@@ -69,13 +69,13 @@
 トランザクションが確定済みと見なされるためには、ノードは、アドレスの残高を更新する前に、いつ最終的なものと見なすべきかについて合意に達する必要があります。
 <!-- For a transaction to be considered confirmed, nodes must reach a consensus on when to consider it final before they can update the balances of addresses. -->
 
-トランザクションがコーディネーターによって送信され署名されたトランザクションによって直接または間接的に参照された場合、トランザクションは確定済みと見なされます。
+トランザクションがコーディネーターによって送信され署名されたトランザクションによって直接または間接的に参照された場合に、トランザクションは確定済みと見なされます。
 <!-- A transaction is considered confirmed when it's directly or indirectly referenced by a transaction that's sent and signed by the Coordinator. -->
 
 ### コーディネーター
 <!-- ### The Coordinator -->
 
-コーディネーターは、同じアドレスから定期的にトランザクションのバンドルを作成、署名、および送信するアプリケーションです。これらの各バンドルには、合意に達するためにノードが使用するマイルストーンと呼ばれるトランザクションが含まれています。マイルストーンがタングル内のトランザクションを直接または間接的に参照する場合、ノードはそのトランザクションの状態とその履歴全体を確定済みとしてマークします。
+コーディネーターは、同じアドレスから定期的にトランザクションのバンドルを作成、署名、および送信するアプリケーションです。これらの各バンドルには、ノードが合意に達するために使用するマイルストーンと呼ばれるトランザクションが含まれています。マイルストーンがタングル内のあるトランザクションを直接または間接的に参照した場合、ノードはそのトランザクションの状態とその履歴全体を確定済みとしてマークします。
 <!-- The Coordinator is an application that creates, signs, and sends bundles of transactions from the same address at regular intervals. Each of these bundles contains transactions called milestones that nodes use to reach a consensus. When milestones directly or indirectly reference a transaction in the Tangle, nodes mark the state of that transaction and its entire history as confirmed. -->
 
 :::info:コーディサイド
@@ -113,20 +113,20 @@ IOTAはWinternitzワンタイム署名方式（W-OTS）を使用するため、�
 
 ![Example Merkle tree](../images/merkle-tree-example.png)
 
-コーディネーターは、そのマークルツリーの各リーフに対して1つの署名付きバンドルを署名して送信できます。
+コーディネーターは、自身のマークル木の各リーフに対して1つの署名付きバンドルを署名して送信できます。
 <!-- The Coordinator can sign and send one signed bundle for each leaf in its Merkle tree. -->
 
 この例では、4つのリーフがあり、それぞれがコーディネーターの公開鍵と秘密鍵のペアの1つを表します。これらの鍵ペアは事前に作成され、コーディネーターのアドレスを計算するために使用されます。マークル木内の鍵ペアの総数は、公式`2<sup>depth</sup>`の`depth`によって異なります。この例では、マークル木の`depth`は2です。
 <!-- In this example, we have four leaves, which each represent one of the Coordinator's public/private key pairs. These key pairs are created in advance and used to compute the the Coordinator's address. The total number of key pairs in a Merkle tree depends on its depth in this formula: 2<sup>depth</sup>. In this example, the Merkle tree's depth is 2. -->
 
 :::info:
-Mainnetでは、コーディネーターのマークル木の深さは23です。したがって、コーディネーターは`8,388,608`の公開鍵と秘密鍵のペアを持ち、同じ数のマイルストーンを送信できます。
+Mainnetでは、コーディネーターのマークル木の`depth`は23です。したがって、コーディネーターは`8,388,608`の公開鍵と秘密鍵のペアを持ち、同じ数のマイルストーンを送信できます。
 :::
 <!-- :::info: -->
 <!-- On the Mainnet, the Coordinator's Merkle tree has a depth of 23. So, the Coordinator has 8,388,608 public/private key pairs and can send the same number of milestones. -->
 <!-- ::: -->
 
-コーディネーターのアドレスを計算するために、公開鍵はペアでハッシュされます。
+コーディネーターのアドレスを計算するために、公開鍵はペアでハッシュ化されます。
 <!-- To compute the Coordinator's address, the public keys are hashed in pairs: -->
 
 * **ノード1：** Hash(Hash(リーフ1の公開鍵) Hash(リーフ2の公開鍵))
@@ -140,9 +140,9 @@ Mainnetでは、コーディネーターのマークル木の深さは23です�
 <!-- Node 1 is a hash of the result of hashing both the public key of leaf 1 and the public key of leaf 2. Node 2 is a hash of the result of hashing both the public key of leaf 3 and the public key of leaf 4. The Coordinator's address is a hash of the result of hashing the hash of node 1 and node 2. -->
 
 :::info:
-コーディネーターの秘密鍵は、シード、インデックス、およびセキュリティレベルから派生します。
+コーディネーターの秘密鍵は、シード、インデックス、およびセキュリティレベルから導出します。
 
-Mainnetでは、これらの秘密鍵はセキュリティレベル2です。結果として、マイルストーン署名は1つのトランザクションに収まるには大きすぎるため、2つに分割する必要があります。
+Mainnetでは、コーディネーターの秘密鍵はセキュリティレベル2です。結果として、マイルストーンの署名は1つのトランザクションに収まるには大きすぎるため、2つに分割する必要があります。
 
 [秘密鍵の導出方法の詳細を学ぶ](root://dev-essentials/0.1/concepts/addresses-and-signatures.md)。
 :::
@@ -165,7 +165,7 @@ Mainnetでは、これらの秘密鍵はセキュリティレベル2です。結
 
 * 断片化された署名を含む2つのトランザクション
 <!-- * Two transactions that contain the fragmented signature -->
-* [`signatureMessageFragment`]フィールドがマークル木を再構築することができるのに十分なマークル木からの足りないデータを含む1つのトランザクション。
+* [`signatureMessageFragment`](root://dev-essentials/0.1/references/structure-of-a-transaction.md)フィールドにマークル木を再構築することができるのに十分なマークル木からの足りないデータを含む1つのトランザクション。
 <!-- * One transaction whose [`signatureMessageFragment`](root://dev-essentials/0.1/references/structure-of-a-transaction.md) field contains enough missing data from the Merkle tree to be able to rebuild it -->
 
 ![Example Merkle tree](../images/merkle-tree-example.png)
