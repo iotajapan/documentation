@@ -504,5 +504,5 @@ events {
 ## 次のステップ
 <!-- ## Next steps -->
 
-ハブのセキュリティを向上させるには、ハブを[署名サーバ](../how-to-guides/install-the-signing-server.md)に接続します。
+ハブのセキュリティを向上させるには、ハブを[署名サーバ](../how-to-guides/install-the-signing-server.md)に接続する。
 <!-- To improve the security of your Hub, connect it to a [signing server](../how-to-guides/install-the-signing-server.md). -->

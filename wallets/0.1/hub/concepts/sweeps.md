@@ -56,7 +56,7 @@ IOTAは、Winternitzワンタイム署名方式を使用して署名を作成し
 <!-- - Update the users' balances in the database tables when the transactions in the sweep are confirmed -->
 
 :::info:包含状態についてもっと知りたいですか？
-[トランザクションが確認されたかどうかを確認する方法](root://dev-essentials/0.1/how-to-guides/check-transaction-confirmation.md)をご覧ください。
+[トランザクションが確認されたかどうかを確認する方法](root://dev-essentials/0.1/how-to-guides/check-transaction-confirmation.md)を参照します。
 :::
 <!-- :::info:Want to learn more about inclusion states? -->
 <!-- Find out how to [check if a transaction is confirmed](root://dev-essentials/0.1/how-to-guides/check-transaction-confirmation.md). -->
