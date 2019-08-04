@@ -1,137 +1,216 @@
-# The Tangle
+# タングル
+<!-- # The Tangle -->
 
-**The Tangle is the immutable data structure that contains IOTA transactions. All nodes in an IOTA network store a copy of the Tangle in their ledgers, read from it, attach new transactions to it, and reach a consensus on its contents.**
+**タングルは、IOTAトランザクションを含むイミュータブルなデータ構造です。IOTAネットワーク内のすべてのノードは、タングルのコピーを台帳に保存し、台帳から読み取り、新しいトランザクションを添付し、その内容について合意に達します。**
+<!-- **The Tangle is the immutable data structure that contains IOTA transactions. All nodes in an IOTA network store a copy of the Tangle in their ledgers, read from it, attach new transactions to it, and reach a consensus on its contents.** -->
 
-In the Tangle, each transaction is attached to two others by reference.
+タングルでは、各トランザクションは参照によって他の2つのトランザクションに添付されています。
+<!-- In the Tangle, each transaction is attached to two others by reference. -->
 
-The references among transactions form a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), which is a sequence of vertices where every edge is directed from an earlier point to a later one in the sequence.
+トランザクション間の参照は、[有向非巡回グラフ](https://en.wikipedia.org/wiki/Directed_acyclic_graph)（DAG）の型を形成します。これは、すべての辺がシーケンス内の前の点から後の点へ向かう頂点のシーケンスです。
+<!-- The references among transactions form a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), which is a sequence of vertices where every edge is directed from an earlier point to a later one in the sequence. -->
 
-In the Tangle, vertices are transactions, and edges are references.
+タングルでは、頂点はトランザクションであり、辺は参照です。
+<!-- In the Tangle, vertices are transactions, and edges are references. -->
 
-In this diagram, the numbered boxes represent transactions. The transactions on the left come first in the sequence, and the transactions on the right come after.
+下図では、番号付きのボックスはトランザクションを表します。左側のトランザクションがシーケンスの先頭になり、右側のトランザクションが後になります。
+<!-- In this diagram, the numbered boxes represent transactions. The transactions on the left come first in the sequence, and the transactions on the right come after. -->
 
 ![A directed acyclic graph](../images/dag.png)
 
-## Parents and children
+## 親トランザクションと子トランザクション
+<!-- ## Parents and children -->
 
-When a node attaches a new transaction to the Tangle, that transaction directly references two existing ones to the left of it.
+ノードが新しいトランザクションをタングルに添付すると、そのトランザクションは上図の左側にある2つの既存のトランザクションを直接参照します。
+<!-- When a node attaches a new transaction to the Tangle, that transaction directly references two existing ones to the left of it. -->
 
-References form a family tree, whereby if a new transaction is a **child**, the branch and trunk transactions are its **parents**.
+参照は家系図を形成し、新しいトランザクションが**子トランザクション**の場合、ブランチおよびトランクトランザクションは**親トランザクション**になります。
+<!-- References form a family tree, whereby if a new transaction is a **child**, the branch and trunk transactions are its **parents**. -->
 
-In the diagram, transaction 6 directly references transaction 5, so transaction 5 is a **parent** of transaction 6. On the other hand, transaction 6 indirectly references transaction 3, so transaction 3 is a **grandparent** of transaction 6.
+上図では、トランザクション6はトランザクション5を直接参照しているため、トランザクション5はトランザクション6の**親トランザクション**です。一方、トランザクション6はトランザクション3を間接的に参照しているため、トランザクション3はトランザクション6の**祖父母トランザクション**です。 。
+<!-- In the diagram, transaction 6 directly references transaction 5, so transaction 5 is a **parent** of transaction 6. On the other hand, transaction 6 indirectly references transaction 3, so transaction 3 is a **grandparent** of transaction 6. -->
 
-These direct and indirect references make up a transaction's history.
+これらの直接および間接的な参照はトランザクションの履歴を構成します。
+<!-- These direct and indirect references make up a transaction's history. -->
 
-A transaction can be valid only if it references two other transaction's whose history does not conflict with it.
+トランザクションが有効になるのは、履歴が自分のトランザクション内容と競合しない他の2つのトランザクションを参照している場合だけです。
+<!-- A transaction can be valid only if it references two other transaction's whose history does not conflict with it. -->
 
-For example, if transaction 6 instructs the node to withdraw 10 Mi from an address, the history of its parents must lead to a point where that address is sent at least 10 Mi.
+たとえば、トランザクション6があるアドレスから10Miを取り出すようにノードに指示した場合、トランザクション6の親トランザクションの履歴がトランザクション6のアドレスに少なくとも10Miが送られているポイントに繋がっている必要があります。
+<!-- For example, if transaction 6 instructs the node to withdraw 10 Mi from an address, the history of its parents must lead to a point where that address is sent at least 10 Mi. -->
 
-## Consensus
+## コンセンサス
+<!-- ## Consensus -->
 
-Nodes are responsible for validating transactions and their histories to make sure that they don't conflict. To validate a transaction, a node needs to have that transaction's history in its ledger. The transactions in any node's ledger make up its **view of the Tangle**.
+ノードは、トランザクションとその履歴を検証して、競合しないことを確認する責任があります。トランザクションを検証するには、ノードはそのトランザクションの履歴を台帳に保持する必要があります。すべてのノードの台帳にあるトランザクションは**タングルの概観**を構成します。
+<!-- Nodes are responsible for validating transactions and their histories to make sure that they don't conflict. To validate a transaction, a node needs to have that transaction's history in its ledger. The transactions in any node's ledger make up its **view of the Tangle**. -->
 
-Because the Tangle is distributed among all nodes in an IOTA network, some of them can have different views of the Tangle. So, to make sure that all nodes eventually have the same view of the Tangle, they forward any new transactions that they receive to their neighbors. If a node is missing part of a transaction's history, it will asks its neighbors for the missing transactions.
+タングルはIOTAネットワーク内のすべてのノードに分散されているため、すべてのノードのうちのいくつかのノードはタングルのさまざまな概観を持つことができます。そのため、すべてのノードがタングルについて同じ概観を常に持っていることを確認するために、受信したすべての新しいトランザクションを隣接ノードに転送します。あるノードがトランザクションの履歴の一部を失っている場合、そのノードは隣接ノードに欠けているトランザクションを問い合わせます。
+<!-- Because the Tangle is distributed among all nodes in an IOTA network, some of them can have different views of the Tangle. So, to make sure that all nodes eventually have the same view of the Tangle, they forward any new transactions that they receive to their neighbors. If a node is missing part of a transaction's history, it will asks its neighbors for the missing transactions. -->
 
-When a node has a transaction's history, the transaction is considered solid. The goal of all nodes is to make the transactions in their ledgers solid.
+ノードにトランザクションの履歴がある場合、そのトランザクションは凝固していると見なされます。すべてのノードの目標は、台帳のトランザクションを凝固にすることです。
+<!-- When a node has a transaction's history, the transaction is considered solid. The goal of all nodes is to make the transactions in their ledgers solid. -->
 
 :::info:
-Nodes don't need the entire history of a transaction, starting from the first ever transaction to consider it solid.
+ノードはトランザクションの全履歴を必要としません。トランザクションの履歴は、トランザクションを凝固と考えるための最初のトランザクションから始まります。
 
-Instead, nodes need the history of a transaction up to a predefined one, which is called an entry point. When the transaction's history goes far back enough to reference an entry point, the node stops solidifying it.
+代わりに、ノードには、エントリポイントと呼ばれる事前定義されたポイントまでのトランザクションの履歴が必要です。トランザクションの履歴がエントリポイントを参照するまでさかのぼると、ノードはトランザクションを凝固するのをやめます。
 
-An example of a predefined entry point is a [local snapshot](root://node-software/0.1/iri/concepts/local-snapshot.md).
+定義済みエントリポイントの例は、[ローカルスナップショット](root://node-software/0.1/iri/concepts/local-snapshot.md)です。
 :::
+<!-- :::info: -->
+<!-- Nodes don't need the entire history of a transaction, starting from the first ever transaction to consider it solid. -->
+<!--  -->
+<!-- Instead, nodes need the history of a transaction up to a predefined one, which is called an entry point. When the transaction's history goes far back enough to reference an entry point, the node stops solidifying it. -->
+<!--  -->
+<!-- An example of a predefined entry point is a [local snapshot](root://node-software/0.1/iri/concepts/local-snapshot.md). -->
+<!-- ::: -->
 
-For a transaction to be considered confirmed, nodes must reach a consensus on when to consider it final before they can update the balances of addresses.
+トランザクションが確定済みと見なされるためには、ノードは、アドレスの残高を更新する前に、いつ最終的なものと見なすべきかについて合意に達する必要があります。
+<!-- For a transaction to be considered confirmed, nodes must reach a consensus on when to consider it final before they can update the balances of addresses. -->
 
-A transaction is considered confirmed when it's directly or indirectly referenced by a transaction that's sent and signed by the Coordinator.
+トランザクションがコーディネーターによって送信され署名されたトランザクションによって直接または間接的に参照された場合、トランザクションは確定済みと見なされます。
+<!-- A transaction is considered confirmed when it's directly or indirectly referenced by a transaction that's sent and signed by the Coordinator. -->
 
-### The Coordinator
+### コーディネーター
+<!-- ### The Coordinator -->
 
-The Coordinator is an application that creates, signs, and sends bundles of transactions from the same address at regular intervals. Each of these bundles contains transactions called milestones that nodes use to reach a consensus. When milestones directly or indirectly reference a transaction in the Tangle, nodes mark the state of that transaction and its entire history as confirmed.
+コーディネーターは、同じアドレスから定期的にトランザクションのバンドルを作成、署名、および送信するアプリケーションです。これらの各バンドルには、合意に達するためにノードが使用するマイルストーンと呼ばれるトランザクションが含まれています。マイルストーンがタングル内のトランザクションを直接または間接的に参照する場合、ノードはそのトランザクションの状態とその履歴全体を確定済みとしてマークします。
+<!-- The Coordinator is an application that creates, signs, and sends bundles of transactions from the same address at regular intervals. Each of these bundles contains transactions called milestones that nodes use to reach a consensus. When milestones directly or indirectly reference a transaction in the Tangle, nodes mark the state of that transaction and its entire history as confirmed. -->
 
-:::info:Coordicide
-At the moment, we are focused on a project called [Coordicide](https://coordicide.iota.org/), which is a proposal for the removal of the Coordinator. When this happens, nodes will be able to reach a consensus without milestones.
+:::info:コーディサイド
+現時点では、コーディネーターの削除を提案する[コーディサイド](https://coordicide.iota.org/)というプロジェクトに注目しています。これが起こるとき、ノードはマイルストーンなしで合意に達することができます。
 :::
+<!-- :::info:Coordicide -->
+<!-- At the moment, we are focused on a project called [Coordicide](https://coordicide.iota.org/), which is a proposal for the removal of the Coordinator. When this happens, nodes will be able to reach a consensus without milestones. -->
+<!-- ::: -->
 
-### Milestones
+### マイルストーン
+<!-- ### Milestones -->
 
-The Coordinator sends milestones to nodes at regular intervals. Nodes use these milestones to reach a consensus. 
+コーディネーターは定期的にマイルストーンをノードに送信します。ノードは合意に達するためにこれらのマイルストーンを使用します。
+<!-- The Coordinator sends milestones to nodes at regular intervals. Nodes use these milestones to reach a consensus. -->
 
-To determine which transactions are milestones, all nodes in the same IOTA network know the address of the Coordinator.
+どのトランザクションがマイルストーンであるかを判断するために、同じIOTAネットワーク内のすべてのノードはコーディネーターのアドレスを知っています。
+<!-- To determine which transactions are milestones, all nodes in the same IOTA network know the address of the Coordinator. -->
 
-When nodes see a transaction that's been sent from the Coordinator's address, they validate it by doing the following:
+ノードがコーディネーターのアドレスから送信されたトランザクションを確認したら、次の手順を実行して検証します。
+<!-- When nodes see a transaction that's been sent from the Coordinator's address, they validate it by doing the following: -->
 
-* Make sure that it doesn't lead to a double-spend
-* Verify its signature
+* マイルストーンが二重支払いにつながらないことを確かめる。
+<!-- * Make sure that it doesn't lead to a double-spend -->
+* マイルストーンの署名を確認する。
+<!-- * Verify its signature -->
 
-Because IOTA uses the Winternitz one-time signature scheme (W-OTS), a private key should sign only one bundle. To allow the Coordinator to sign multiple bundles whose signatures can still be verified against one address, that address is derived from the Coordinator's Merkle tree.
+IOTAはWinternitzワンタイム署名方式（W-OTS）を使用するため、秘密鍵は1つのバンドルにのみ署名する必要があります。コーディネーターが複数のバンドルに署名しつつ、かつそれらすべての署名が1つのアドレスに対して検証できるようにするために、コーディネーターのアドレスはコーディネーターのマークル木から導出されます。
+<!-- Because IOTA uses the Winternitz one-time signature scheme (W-OTS), a private key should sign only one bundle. To allow the Coordinator to sign multiple bundles whose signatures can still be verified against one address, that address is derived from the Coordinator's Merkle tree. -->
 
-### The Coordinator's Merkle tree
+### コーディネーターのマークル木
+<!-- ### The Coordinator's Merkle tree -->
 
-A Merkle tree is a data structure that starts by hashing data at the leaves and ends at the Merkle root (the Coordinator's address).
+マークル木は、リーフでデータをハッシュ化することから始まり、マークルルート（コーディネーターのアドレス）で終わるデータ構造です。
+<!-- A Merkle tree is a data structure that starts by hashing data at the leaves and ends at the Merkle root (the Coordinator's address). -->
 
 ![Example Merkle tree](../images/merkle-tree-example.png)
 
-The Coordinator can sign and send one signed bundle for each leaf in its Merkle tree.
+コーディネーターは、そのマークルツリーの各リーフに対して1つの署名付きバンドルを署名して送信できます。
+<!-- The Coordinator can sign and send one signed bundle for each leaf in its Merkle tree. -->
 
-In this example, we have four leaves, which each represent one of the Coordinator's public/private key pairs. These key pairs are created in advance and used to compute the the Coordinator's address. The total number of key pairs in a Merkle tree depends on its depth in this formula: 2<sup>depth</sup>. In this example, the Merkle tree's depth is 2.
-
-:::info:
-On the Mainnet, the Coordinator's Merkle tree has a depth of 23. So, the Coordinator has 8,388,608 public/private key pairs and can send the same number of milestones.
-:::
-
-To compute the Coordinator's address, the public keys are hashed in pairs:
-
-* **Node 1:** Hash(Hash(public key of leaf 1) Hash(public key of leaf 2))
-* **Node 2:** Hash(Hash(public key of leaf 3) Hash(public key of leaf 4))
-* **Coordinator's address:** Hash(Hash(node 1) Hash(node 2))
-
-Node 1 is a hash of the result of hashing both the public key of leaf 1 and the public key of leaf 2. Node 2 is a hash of the result of hashing both the public key of leaf 3 and the public key of leaf 4. The Coordinator's address is a hash of the result of hashing the hash of node 1 and node 2.
+この例では、4つのリーフがあり、それぞれがコーディネーターの公開鍵と秘密鍵のペアの1つを表します。これらの鍵ペアは事前に作成され、コーディネーターのアドレスを計算するために使用されます。マークル木内の鍵ペアの総数は、公式`2<sup>depth</sup>`の`depth`によって異なります。この例では、マークル木の`depth`は2です。
+<!-- In this example, we have four leaves, which each represent one of the Coordinator's public/private key pairs. These key pairs are created in advance and used to compute the the Coordinator's address. The total number of key pairs in a Merkle tree depends on its depth in this formula: 2<sup>depth</sup>. In this example, the Merkle tree's depth is 2. -->
 
 :::info:
-The Coordinator's private keys are derived from a seed, an index, and a security level.
-
-On the Mainnet, these private keys are security level 2. As a result, the milestone signature is too large to fit in one transaction and must be fragmented across two.
-
-[Learn more about how private keys are derived](root://dev-essentials/0.1/concepts/addresses-and-signatures.md).
+Mainnetでは、コーディネーターのマークル木の深さは23です。したがって、コーディネーターは`8,388,608`の公開鍵と秘密鍵のペアを持ち、同じ数のマイルストーンを送信できます。
 :::
+<!-- :::info: -->
+<!-- On the Mainnet, the Coordinator's Merkle tree has a depth of 23. So, the Coordinator has 8,388,608 public/private key pairs and can send the same number of milestones. -->
+<!-- ::: -->
 
-### How nodes verify milestones
+コーディネーターのアドレスを計算するために、公開鍵はペアでハッシュされます。
+<!-- To compute the Coordinator's address, the public keys are hashed in pairs: -->
 
-To verify milestones, nodes must rebuild the Merkle tree to find the Merkle root. If the rebuilt Merkle root is the same as the Coordinator's address, nodes know the milestone was sent by the Coordinator.
+* **ノード1：** Hash(Hash(リーフ1の公開鍵) Hash(リーフ2の公開鍵))
+<!-- * **Node 1:** Hash(Hash(public key of leaf 1) Hash(public key of leaf 2)) -->
+* **ノード2：** Hash(Hash(リーフ3の公開鍵) Hash(リーフ4の公開鍵))
+<!-- * **Node 2:** Hash(Hash(public key of leaf 3) Hash(public key of leaf 4)) -->
+* **コーディネーターのアドレス：** Hash(Hash(ノード1) Hash(ノード2))
+<!-- * **Coordinator's address:** Hash(Hash(node 1) Hash(node 2)) -->
 
-To allow nodes to rebuild the Merkle tree, the Coordinator sends the following milestones in the bundle:
+ノード1は、リーフ1の公開鍵とリーフ2の公開鍵の両方をハッシュ化した結果のハッシュ値です。ノード2は、リーフ3の公開鍵とリーフ4の公開鍵の両方をハッシュ化した結果のハッシュ値です。コーディネーターのアドレスは、ノード1とノード2のハッシュ値をハッシュ化した結果のハッシュ値です。
+<!-- Node 1 is a hash of the result of hashing both the public key of leaf 1 and the public key of leaf 2. Node 2 is a hash of the result of hashing both the public key of leaf 3 and the public key of leaf 4. The Coordinator's address is a hash of the result of hashing the hash of node 1 and node 2. -->
 
-* Two transactions that contain the fragmented signature
-* One transaction whose [`signatureMessageFragment`](root://dev-essentials/0.1/references/structure-of-a-transaction.md) field contains enough missing data from the Merkle tree to be able to rebuild it
+:::info:
+コーディネーターの秘密鍵は、シード、インデックス、およびセキュリティレベルから派生します。
+
+Mainnetでは、これらの秘密鍵はセキュリティレベル2です。結果として、マイルストーン署名は1つのトランザクションに収まるには大きすぎるため、2つに分割する必要があります。
+
+[秘密鍵の導出方法の詳細を学ぶ](root://dev-essentials/0.1/concepts/addresses-and-signatures.md)。
+:::
+<!-- :::info: -->
+<!-- The Coordinator's private keys are derived from a seed, an index, and a security level. -->
+<!--  -->
+<!-- On the Mainnet, these private keys are security level 2. As a result, the milestone signature is too large to fit in one transaction and must be fragmented across two. -->
+<!--  -->
+<!-- [Learn more about how private keys are derived](root://dev-essentials/0.1/concepts/addresses-and-signatures.md). -->
+<!-- ::: -->
+
+### ノードがマイルストーンを検証する方法
+<!-- ### How nodes verify milestones -->
+
+マイルストーンを検証するには、ノードはマークル木を再構築してマークルルートを見つける必要があります。再構築されたマークルルートがコーディネーターのアドレスと同じ場合、ノードはマイルストーンがコーディネーターによって送信されたことを認識します。
+<!-- To verify milestones, nodes must rebuild the Merkle tree to find the Merkle root. If the rebuilt Merkle root is the same as the Coordinator's address, nodes know the milestone was sent by the Coordinator. -->
+
+ノードがマークル木を再構築できるようにするために、コーディネーターはバンドル内に次のマイルストーンを送信します。
+<!-- To allow nodes to rebuild the Merkle tree, the Coordinator sends the following milestones in the bundle: -->
+
+* 断片化された署名を含む2つのトランザクション
+<!-- * Two transactions that contain the fragmented signature -->
+* [`signatureMessageFragment`]フィールドがマークル木を再構築することができるのに十分なマークル木からの足りないデータを含む1つのトランザクション。
+<!-- * One transaction whose [`signatureMessageFragment`](root://dev-essentials/0.1/references/structure-of-a-transaction.md) field contains enough missing data from the Merkle tree to be able to rebuild it -->
 
 ![Example Merkle tree](../images/merkle-tree-example.png)
 
-For example, as a node, we have seen a bundle that was signed with the private key of leaf 1.
+たとえば、ノードとして、リーフ1の秘密鍵で署名されたバンドルを見たとします。
+<!-- For example, as a node, we have seen a bundle that was signed with the private key of leaf 1. -->
 
-First, we verify the signature to find out the public key of leaf 1.
+まず、署名を検証してリーフ1の公開鍵を見つけます。
+<!-- First, we verify the signature to find out the public key of leaf 1. -->
 
 :::info:
-[Learn how nodes verify signatures](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#how-nodes-verify-signatures)
+[ノードが署名を検証する方法を学ぶ](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#how-nodes-verify-signatures)。
 :::
+<!-- :::info: -->
+<!-- [Learn how nodes verify signatures](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#how-nodes-verify-signatures) -->
+<!-- ::: -->
 
-To help us calculate the Merkle root, the third milestone in the bundle contains the following:
+マークルルートを計算するために、バンドルの3番目のマイルストーンには次のものが含まれます。
+<!-- To help us calculate the Merkle root, the third milestone in the bundle contains the following: -->
 
-* The public key of leaf 2
-* The hash of node 2
+* リーフ2の公開鍵
+<!-- * The public key of leaf 2 -->
+* ノード2のハッシュ値
+<!-- * The hash of node 2 -->
 
-Now, we hash the public keys of leaves 1 and 2 to find the hash of node 1. Then we hash the hash of nodes 1 and 2 to find the Merkle root.
+ここで、リーフ1とリーフ2の公開鍵をハッシュ化してノード1のハッシュ値を見つけます。次に、ノード1とノード2のハッシュ値をハッシュ化してマークルルートを見つけます。
+<!-- Now, we hash the public keys of leaves 1 and 2 to find the hash of node 1. Then we hash the hash of nodes 1 and 2 to find the Merkle root. -->
 
-If the Merkle root is the same as the Coordinator's address, the bundle was signed with one of the private keys in the Coordinator's Merkle tree.
+マークルルートがコーディネーターのアドレスと同じ場合、バンドルはコーディネーターのマークル木の秘密鍵の1つで署名されています。
+<!-- If the Merkle root is the same as the Coordinator's address, the bundle was signed with one of the private keys in the Coordinator's Merkle tree. -->
 
-:::info:Want to run your own Coordinator?
-Use Compass to create, sign, and send milestones in your own private Tangle.
+:::info:独自のコーディネーターを実行したいですか？
+コンパスを使用して、独自のプライベートタングルでマイルストーンを作成、署名、および送信します。
 :::
+<!-- :::info:Want to run your own Coordinator? -->
+<!-- Use Compass to create, sign, and send milestones in your own private Tangle. -->
+<!-- ::: -->
 
-## Further research
+## 参考文献
+<!-- ## Further research -->
 
-We have an active research department that focuses on developing the Tangle and its related protocols.
+IOTA財団はタングルとそれに関連するプロトコルの開発に焦点を当てている活発な研究部を持っています。
+<!-- We have an active research department that focuses on developing the Tangle and its related protocols. -->
 
-* [Academic Papers](https://www.iota.org/research/academic-papers)
-* [Roadmap](https://www.iota.org/research/roadmap)
+* [学術論文](https://www.iota.org/research/academic-papers)
+<!-- * [Academic Papers](https://www.iota.org/research/academic-papers) -->
+* [ロードマップ](https://www.iota.org/research/roadmap)
+<!-- * [Roadmap](https://www.iota.org/research/roadmap) -->
