@@ -289,7 +289,7 @@ class WalkerAlpha(Walker):
 次のいずれかが発生した場合、トランザクションは無効と見なされます。
 <!-- A transaction is considered invalid if any of the following occur: -->
 
-* トランザクションが参照するタングルの一部が未知であるとき、トランザクションは[ソリッド](root://iota-basics/0.1/references/glossary.md#solid)ではなくなる為、トランザクションの状態を再構築することができない場合。
+* トランザクションが参照するタングルの一部が未知であるため、トランザクションが凝固ではなく、トランザクションの状態を再構築することができない場合。
 <!-- * It is not solid and we cannot reconstruct its state, since a portion of the Tangle that this transaction references is unknown. -->
 
 * トランザクションが過去の遠すぎるトランザクション、つまり`latestSolidMilestone - maxDepth`を超えるトランザクションを参照している場合。
