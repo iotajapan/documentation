@@ -76,7 +76,7 @@
 <!-- > You're at an online checkout and the total to pay is 10 Mi. Your seed has 2 addresses (index 0 and 1), which both contain 5 Mi. So, you create three transactions: One input transaction to withdraw 5 Mi from address 0, another input transaction to withdraw 5 Mi from address 1, and one output transaction to deposit 10 Mi to the vendor's address. (We'll assume that both addresses in the input transactions were created from a private key with security level 1, so the signatures can fit in each transaction.) -->
 
 > ベンダーが10Miを受け取るには、これら3つのトランザクションすべてが有効でなければなりません。各トランザクションは、IOTAトークンを転送するという目標を達成するために、互いの有効性に依存する連続的な命令です。
-> For the vendor to receive 10 Mi, all three of those transactions must be valid. They're sequential instructions that rely on each other's validity to achieve the goal of transferring IOTA tokens.
+<!-- > For the vendor to receive 10 Mi, all three of those transactions must be valid. They're sequential instructions that rely on each other's validity to achieve the goal of transferring IOTA tokens. -->
 
 :::info:
 バンドルにパッケージ化する必要があるのは、複数のトランザクションだけではありません。

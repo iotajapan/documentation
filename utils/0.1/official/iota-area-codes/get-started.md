@@ -103,7 +103,7 @@
     ```
 
     :::info:
-    ここでは、より小さな領域を定義するために[特別な精度](https://github.com/iotaledger/iota-area-codes/blob/master/docs/api.md#CodePrecision)を使います。
+    ここでは、より小さなエリアを定義するために[特別な精度](https://github.com/iotaledger/iota-area-codes/blob/master/docs/api.md#CodePrecision)を使います。
     :::
     <!-- :::info: -->
     <!-- Here, we use [extra precision](https://github.com/iotaledger/iota-area-codes/blob/master/docs/api.md#CodePrecision) to define a smaller area. -->
@@ -176,7 +176,7 @@ IAC APIを使用してトランザクションに地理的位置をタグ付け�
 ## 次のステップ
 <!-- ## Next steps -->
 
-[IACファインダユーティリティ](https://utils.iota.org/area-codes)を使用して、新しいIACの場所を見つけます。
+[IACファインダユーティリティ](https://utils.iota.org/area-codes)を使用して、新しいIACの場所を見つける。
 <!-- Use the [IAC finder utility](https://utils.iota.org/area-codes) to find the location of a new IAC. -->
 
 ![IAC finder](../images/iac-finder.png)
@@ -190,5 +190,5 @@ IAC APIを使用してトランザクションに地理的位置をタグ付け�
 <!-- Just search for your transaction and scroll down. -->
 <!-- ::: -->
 
-領域を拡大するためにはIACの右側からトライトを削除します。
+エリアを拡大するためにIACの右側からトライトを削除する。
 <!-- Try removing trytes from the right of an IAC to expand the area. -->

@@ -119,11 +119,11 @@ MAMチャンネルについての理解
 パラメータ情報は3つのフィールドで構成されています。
 <!-- Parameter information consist of 3 fields: -->
 
-    * **フィールドID：** このIDは特定のセンサーのために他のすべてのパラメータの中で一意であるべきです。IDは必ず英字（[a-z]）で始まり、その後に任意の数の英字、数字（[0-9]）、ハイフン（"-"）、および下線（"_"）を続けることができます。最大許容長は40文字に設定されています。
+  * **フィールドID：** このIDは特定のセンサーのために他のすべてのパラメータの中で一意であるべきです。IDは必ず英字（[a-z]）で始まり、その後に任意の数の英字、数字（[0-9]）、ハイフン（"-"）、および下線（"_"）を続けることができます。最大許容長は40文字に設定されています。
+  * **フィールド名：** フィールドの目的を示すプレーンテキストのパラメータの説明。最大許容長は40文字に設定されています。
+  * **フィールド単位：** 主に[国際単位系](https://whatis.techtarget.com/reference/Table-of-Physical-Units)（SI）における[物理量](https://en.wikipedia.org/wiki/List_of_physical_quantities)および[単位](https://whatis.techtarget.com/reference/Table-of-Physical-Units)の略語。湿度、大気質、降水量、風速、風向などの[環境測定](https://www.fondriest.com/environmental-measurements/parameters/)単位でもあります。このフィールドの長さは20文字以内にしてください。
     <!-- * **Field ID**: This ID should be unique among all other parameters for the specific sensor. Please note that the ID must begin with a letter ([a-z]) and may be followed by any number of letters, digits ([0–9]), hyphens (“-”), and underscores (“_”). Max allowed length is set to 40 characters. -->
-    * **フィールド名：** フィールドの目的を示すプレーンテキストのパラメータの説明。最大許容長は40文字に設定されています。
     <!-- * **Field Name**: Plain text parameter description that indicates the purpose of the field. Max allowed length is set to 40 characters. -->
-    * **フィールド単位：** 主に[国際単位系](https://whatis.techtarget.com/reference/Table-of-Physical-Units)（SI）における[物理量](https://en.wikipedia.org/wiki/List_of_physical_quantities)および[単位](https://whatis.techtarget.com/reference/Table-of-Physical-Units)の略語。湿度、大気質、降水量、風速、風向などの[環境測定](https://www.fondriest.com/environmental-measurements/parameters/)単位でもあります。このフィールドの長さは20文字以内にしてください。
     <!-- * **Field Unit**: [Physical quantities](https://en.wikipedia.org/wiki/List_of_physical_quantities) and [units](https://whatis.techtarget.com/reference/Table-of-Physical-Units) abbreviation, primarily in the International [System of Units](https://whatis.techtarget.com/reference/Table-of-Physical-Units) (SI). It can also be a unit of [environmental measurements](https://www.fondriest.com/environmental-measurements/parameters/), like humidity, air quality, precipitation, wind speed or direction. Please keep the length of this field within 20 characters. -->
 
 4. **Download Publish Script**をクリックして、事前設定された.zipアーカイブ（タングルにデバイスデータを保存する方法の例とドキュメントが含まれている）をダウンロードします。

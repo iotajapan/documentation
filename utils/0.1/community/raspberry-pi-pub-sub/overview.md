@@ -132,8 +132,8 @@ IOTAの最も重要な利点の1つは、タングルのトランザクション
 このチュートリアルを読んだ後は、このアプリケーションを適応させて、必要なあらゆる種類のデバイスからあらゆる種類のデータを送信できるようになります。
 <!-- After going through this tutorial, you know enough to adapt this application to send any kind of data from any kind of device that you want. -->
 
-[データを暗号化し、MAM（マスク認証メッセージング）チャネルを介して送信します](../mam-watcher/overview.md)。
+[データを暗号化し、MAM（マスク認証メッセージング）チャネルを介して送信する](../mam-watcher/overview.md)。
 <!-- [Start encrypting your data and sending it through a MAM (masked authenticated messaging) channel](../mam-watcher/overview.md). -->
 
-[IOTAクライアントライブラリを知り](root://client-libraries/0.1/introduction/overview.md)、他にできることを調べます。
+[IOTAクライアントライブラリを知り](root://client-libraries/0.1/introduction/overview.md)、他にできることを調べる。
 <!-- [Get to know the IOTA client libraries](root://client-libraries/0.1/introduction/overview.md) and find out what else you can do. -->

@@ -54,5 +54,5 @@ IOTA Mainnet上で、[コーディネーター](root://dev-essentials/0.1/concep
 ## 次のステップ
 <!-- ## Next steps -->
 
-[プライベートタングルを設定します](../how-to-guides/set-up-a-private-tangle.md)。
+[プライベートタングルを設定する](../how-to-guides/set-up-a-private-tangle.md)。
 <!-- [Set up a private Tangle](../how-to-guides/set-up-a-private-tangle.md). -->

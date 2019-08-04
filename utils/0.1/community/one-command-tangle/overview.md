@@ -347,10 +347,10 @@ Node.jsで[JavaScriptクライアントライブラリ](root://client-libraries/
 ## 次のステップ
 <!-- ## Next steps -->
 
-自身のネットワークで他のツールやユーティリティを使います。
+自身のネットワークで他のツールやユーティリティを使う。
 <!-- Use one of our other tools and utilities with your new network. -->
 
-ネットワークを通して暗号化されたメッセージを送るために[MAMウォッチャー](../mam-watcher/overview.md)を試します。
+ネットワークを通して暗号化されたメッセージを送るために[MAMウォッチャー](../mam-watcher/overview.md)を試す。
 <!-- Try out the [MAM watcher](../mam-watcher/overview.md) to send encrypted messages through your network. -->
 
 :::info:

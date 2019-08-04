@@ -82,5 +82,5 @@ PoCのアーキテクチャー（下の画像）は、センサーまたはそ�
 ### データフィールド
 <!-- ### Data fields -->
 
-センサーごとに正しいデータフィールドを定義する必要があります。これらのデータフィールドはタングルに保存され、購入者のデータマーケットプレイスWebポータルに表示されます。一般的に、あなたが保存し、売却したいデータを説明するだけにしてください。
+センサーごとに正しいデータフィールドを定義する必要があります。これらのデータフィールドはタングルに保存され、購入者のデータマーケットプレイスWebポータルに表示されます。一般的に、保存し、売却したいデータを説明するだけにします。
 <!-- For each of your sensors, you have to define the correct data fields, which will be stored on the Tangle, and displayed on the Data Marketplace web portal for the purchaser. In general, just be descriptive with the data that you want to store and sell. -->

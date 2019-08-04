@@ -1,17 +1,11 @@
 # 自分のノードにスパムトランザクションを送信する
 <!-- # Send spam transactions to your node -->
 
-<<<<<<< HEAD
-**ノードが1秒間に処理できるトランザクション数をテストするには、Web APIエンドポイントを使用してスパムトランザクションを送信します。**
-<!-- **To test how many transactions per second your node can process, you can use a web API endpoint to send it spam transactions.** -->
+**ノードが1秒間に処理できるトランザクション数をテストするには、`spammer`APIエンドポイントを使用してスパムトランザクションを送信します。**
+<!-- **To test how many transactions per second your node can process, you can use a `spammer` API endpoint to send it spam transactions.** -->
 
-`spammer`APIエンドポイントは自分のノードにスパムトランザクションを送ることを可能にします。
-<!-- The `spammer` API endpoint allows you to send your node spam transactions. -->
-=======
-**To test how many transactions per second your node can process, you can use a `spammer` API endpoint to send it spam transactions.**
-
-When you send your node spam transactions, it processes them, adds them to its ledger, and forwards them to its neighbors for processing.
->>>>>>> upstream/develop
+自分のノードにスパムトランザクションを送信すると、ノードはスパムトランザクションを処理し、自身の台帳にスパムトランザクションを追加し、そして処理のためにスパムトランザクションを隣接ノードに転送します。
+<!-- When you send your node spam transactions, it processes them, adds them to its ledger, and forwards them to its neighbors for processing. -->
 
 1. Webブラウザを開き、アドレスバーに以下のように入力します。インターネットを通して自分のノードにアクセスしたいならば、`localhost`を自分のIPアドレスに置き換えます。
   <!-- 1. Open a web browser and enter the following into the address bar. If you want to access your node through the Internet, replace `localhost` with your IP address. -->
@@ -27,18 +21,11 @@ When you send your node spam transactions, it processes them, adds them to its l
     <!-- By default, this endpoint sends 1,000 transactions per second (TPS). If you want to change the TPS, you can add the `tps` query parameter. For example, to send 10,000 TPS, send a request to the following endpoint `http://localhost:8080/spammer?cmd=start&tps=10000` -->
     <!-- ::: -->
 
-<<<<<<< HEAD
-2. ノードがトランザクションを受信していることを確認するには、ウェブブラウザで`http://localhost:8081/dashboard`に行き、ユーザーインターフェースを開きます。
-  <!-- 2. To check that your node is receiving transactions, open the user interface by going to `http://localhost:8081/dashboard` in a web browser -->
-
-    ![GoShimmer web user interface](../images/goshimmer-web-ui.png)
-
-=======
-2. To check that your node is receiving transactions, open the dashboard by going to `http://localhost:8081/dashboard` in a web browser
+2. ノードがトランザクションを受信していることを確認するには、ウェブブラウザで`http://localhost:8081/dashboard`に行き、ダッシュボードを開きます。
+  <!-- 2. To check that your node is receiving transactions, open the dashboard by going to `http://localhost:8081/dashboard` in a web browser -->
 
     ![GoShimmer dashboard](../images/goshimmer-web-ui.png)
-    
->>>>>>> upstream/develop
+
     :::info:
     表示されたTPSは設定した`tps`パラメータの値より低いかもしれません。この違いの理由は使用しているコンピュータハードウェアの限界によるものかもしれません。
     :::
@@ -49,9 +36,5 @@ When you send your node spam transactions, it processes them, adds them to its l
 ## 次のステップ
 <!-- ## Next steps -->
 
-<<<<<<< HEAD
-ノードがトランザクションを受信しているので、トランザクションデータを見るためにノード上で[トランザクションイベントを購読する](../how-to-guides/subscribe-to-events.md)ことができます。
-<!-- Now that your node is receiving transactions, you can [subscribe to the transaction event](../how-to-guides/subscribe-to-events.md) on your node to see that data. -->
-=======
-Now that your node is receiving transactions, you can [monitor it for incoming transaction](../how-to-guides/subscribe-to-events.md) to see the transaction data.
->>>>>>> upstream/develop
+ノードがトランザクションを受信しているので、[ノードの着信トランザクションを監視することができます](../how-to-guides/subscribe-to-events.md)ことができます。
+<!-- Now that your node is receiving transactions, you can [monitor it for incoming transaction](../how-to-guides/subscribe-to-events.md) to see the transaction data. -->

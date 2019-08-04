@@ -165,7 +165,7 @@
 ## 次のステップ
 <!-- ## Next steps -->
 
-自身の[プライベートタングルを実行し](../one-command-tangle/overview.md)、プライベートタングルにMAMメッセージを送信します。
+自身の[プライベートタングルを実行し](../one-command-tangle/overview.md)、プライベートタングルにMAMメッセージを送信する。
 <!-- Try [running your own private Tangle](../one-command-tangle/overview.md) and sending the sending the MAM messages to it. -->
 
 :::info:
