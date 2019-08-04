@@ -10,9 +10,9 @@ IOTAネットワーク内のすべてのノードは、すべてのアドレス�
 この記録は以下のようになります。アドレスはセミコロンの左側にあり、残高は右側にあります。
   <!-- This record looks something like this, where the address is on the left of the semicolon and the balance is on the right: -->
 
-    ```bash
-    ADDRESS....ENDOFADDRESS;1000
-    ```
+  ```bash
+  ADDRESS....ENDOFADDRESS;1000
+  ```
 
 ノードは、どのクライアントがアドレスを所有しているのかを知りません。なぜならノードはクライアントのシードを持っていないからです。そのため、ノードは暗号化を使用してトランザクションを検証します。
 <!-- Nodes don't know which client owns an address because they don't have the clients' seeds. So, nodes use cryptography to validate a transaction. -->
@@ -64,9 +64,9 @@ IOTAネットワーク内のすべてのノードは、すべてのアドレス�
 まず、シードとインデックスを組み合わせてハッシュ化し、81トライトの**subseed **を導出します。
 <!-- First, the seed and index are combined and hashed to derive an 81-tryte **subseed**: -->
 
-    ```bash
-    Kerl(seed + index)
-    ```
+  ```bash
+  Kerl(seed + index)
+  ```
 
 秘密鍵を導出するために、セキュリティレベルごとに27回[スポンジ関数](https://keccak.team/sponge_duplex.html)で**subseed**を吸収して圧搾します。
 <!-- To derive a private key, the subseed is absorbed and squeezed in a [sponge function](https://keccak.team/sponge_duplex.html) 27 times per security level. -->
@@ -141,10 +141,10 @@ JavaScriptクライアントライブラリを使用して[秘密鍵からアド
 正規化バンドルハッシュの各トライトは、[10進数に変換](../references/tryte-alphabet.md)されます。そして、それぞれについて次の計算が実行されます。
 <!-- The selected trytes of the normalized bundle hash are [converted to their decimal values](../references/tryte-alphabet.md). Then, the following calculation is performed on each of them: -->
 
-    ```bash
-    13 - 10進数の値
-    <!-- 13 - decimal value -->
-    ```
+  ```bash
+  13 - 10進数の値
+  <!-- 13 - decimal value -->
+  ```
 
 この計算結果は、署名フラグメントを導出するためにキーフラグメント内の27個のセグメントそれぞれがハッシュ化される回数です。各署名フラグメントには2,187トライトが含まれています。
 <!-- The result of this calculation is the number of times that each of the 27 segments in the key fragment must be hashed to derive the signature fragment. Each signature fragment contains 2,187 trytes. -->
@@ -167,10 +167,10 @@ JavaScriptクライアントライブラリを使用して[秘密鍵からアド
 正規化バンドルハッシュの各トライトは[10進数に変換](../references/tryte-alphabet.md)されます。そして、それぞれについて次の計算が実行されます。
 <!-- The selected trytes of the normalized bundle hash are [converted to decimal values](../references/tryte-alphabet.md). Then, the following calculation is performed on each of them: -->
 
-    ```bash
-    13 + 10進数の値
-    <!-- 13 + decimal value -->
-    ```
+  ```bash
+  13 + 10進数の値
+  <!-- 13 + decimal value -->
+  ```
 
 この計算の結果は、署名フラグメント内の27個のセグメントからキーフラグメントを導出するために、各セグメントをハッシュ化する回数です。
 <!-- The result of this calculation is the number of times that each of the 27 segments in the signature fragments must be hashed to derive the key fragments. -->
