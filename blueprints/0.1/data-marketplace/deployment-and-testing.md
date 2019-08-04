@@ -101,23 +101,23 @@ MAMチャンネルについての理解
 3. お使いのデバイスに関する基本情報を入力します。収集したいデータストリームに関連するフィールドを必ず入力してください。
   <!-- 3. Enter some basic information about your device. Make sure you complete the fields relating to the data streams you would like to collect. -->
 
-    * **デバイスID：** このIDは既存のすべてのセンサー間で一意である必要があり、データストリームを購入するときのアクセスキーとして機能します。IDは必ず英字（a-z）で始まり、その後に任意の数の英字、数字（0-9）、ハイフン（"-"）、および下線（"_"）を続けることができます。最大許容長は40文字に設定されています。
-    <!-- * **Device ID**: This ID should be unique among all existing sensors and will serve as access key when purchasing a data stream. Please note that the ID must begin with a letter ([a-z]) and may be followed by any number of letters, digits ([0–9]), hyphens (“-”), and underscores (“_”). Max allowed length is set to 40 characters. -->
-    * **デバイスタイプ：** プレーンテキストタイプの説明。これは、他のデータマーケットプレイス参加者がセンサーのデータストリームの使用の可能性を識別するのに役立ちます。典型的な例：「気象ステーション」、「トラッキングデバイス」、充電ステーション」。
-    <!-- * **Device Type**: Plain text type description, that helps other Data Marketplace participants identify potential usage of the sensors’ data stream. Typical examples: “weather station”, “tracking device”, “charging station”. -->
-    * **カンパニー：** センサーを所有および管理している会社の名前を入力します。この情報は、センサーの所有者とデータストリームの購入に関心のあるデータマーケットプレイスユーザーとの間の信頼関係を高めます。
-    <!-- * **Company**: Provide the name of the company that owns and maintains the sensor. This information creates more trust between sensor owners and Data Marketplace users who are interested in purchasing the data stream. -->
-    * **場所（市/国）：** この情報は、センサーデータが購入に値するかどうかを識別するのに役立ちます。たとえば、一部のユーザーは、特定の地域にある気象センサーや環境センサーからデータストリームを購入することに関心があるかもしれません。
-    <!-- * **Location (city / country)**: This information helps to identify if the sensor data is relevant for purchasing. For example, some users might be interested in purchasing data streams from weather or environmental sensors located in a specific region. -->
-    * **GPS座標（経度/緯度）：** https://www.gps-coordinates.net/ などのサービスを使用して、センサーに適したGPSデータを取得できます。負の値の場合はハイフン（"-"）と小数点記号（"."）を先頭に付けることができます。文字や特殊文字を入力しないでください。
-    <!-- * **GPS Coordinates (latitude / longitude)**: You can use a service like https://www.gps-coordinates.net/ to get the right GPS data for your sensor. We accept coordinates as a number of digits ([0–9]), that could be prepended by a hyphen (“-”) for negative value, and a decimal separator (“.”). Please do not enter any letters or special characters. -->
-    * **データストリームの値段：** ここでセンサーデータの価格を定義できます。価値の定義を制限するわけではありませんが、プレビューや払い戻しのオプションがなければ、ごく少数の顧客だけがデータストリームのためにお金を払う準備ができていることに注意してください。一方、非常に低い価格を設定すると、合計1000分の1セント未満の支払総額が発生する可能性があります。1Miの[現在の価格](https://coinmarketcap.com/currencies/iota/)である1,000,000（100万）IOTAトークンを確認することをお勧めします。センサーのコストと保守作業に応じて、1,000iから50,000iの範囲内で価格を設定することをお勧めします。
-    <!-- * **Price of the data stream**: Here you can define the cost of the sensor data. We do not restrict you with defining the value, but please keep in mind that without a preview and refund options, only a few customers will be ready to pay a fortune for a data stream. On the other hand, setting a very low price might result in a total collected payment under 1/1000 of a cent. We encourage you to check the [current price](https://coinmarketcap.com/currencies/iota/) of 1 Mi, which is 1000000 (one million) IOTA tokens. We suggest that you set the price within the range of 1000 i to 50000 i, depending on the cost and maintenance efforts of the sensor. -->
-    * **データフィールド：** センサー構成の最も重要な部分。センサーによってキャプチャされ、タングルに保存されるすべてのパラメータに関する情報を入力してください。右側の**+**と**X**ボタンを押すと、フィールドを追加または削除できます。
-    <!-- * **Data Fields**: The most essential part of the sensor configuration. Please provide information for every parameter that will be captured by the sensor and stored on the Tangle. You can add or remove fields by pressing the **+** and **X** buttons on the right. -->
+  * **デバイスID：** このIDは既存のすべてのセンサー間で一意である必要があり、データストリームを購入するときのアクセスキーとして機能します。IDは必ず英字（a-z）で始まり、その後に任意の数の英字、数字（0-9）、ハイフン（"-"）、および下線（"_"）を続けることができます。最大許容長は40文字に設定されています。
+  <!-- * **Device ID**: This ID should be unique among all existing sensors and will serve as access key when purchasing a data stream. Please note that the ID must begin with a letter ([a-z]) and may be followed by any number of letters, digits ([0–9]), hyphens (“-”), and underscores (“_”). Max allowed length is set to 40 characters. -->
+  * **デバイスタイプ：** プレーンテキストタイプの説明。これは、他のデータマーケットプレイス参加者がセンサーのデータストリームの使用の可能性を識別するのに役立ちます。典型的な例：「気象ステーション」、「トラッキングデバイス」、充電ステーション」。
+  <!-- * **Device Type**: Plain text type description, that helps other Data Marketplace participants identify potential usage of the sensors’ data stream. Typical examples: “weather station”, “tracking device”, “charging station”. -->
+  * **カンパニー：** センサーを所有および管理している会社の名前を入力します。この情報は、センサーの所有者とデータストリームの購入に関心のあるデータマーケットプレイスユーザーとの間の信頼関係を高めます。
+  <!-- * **Company**: Provide the name of the company that owns and maintains the sensor. This information creates more trust between sensor owners and Data Marketplace users who are interested in purchasing the data stream. -->
+  * **場所（市/国）：** この情報は、センサーデータが購入に値するかどうかを識別するのに役立ちます。たとえば、一部のユーザーは、特定の地域にある気象センサーや環境センサーからデータストリームを購入することに関心があるかもしれません。
+  <!-- * **Location (city / country)**: This information helps to identify if the sensor data is relevant for purchasing. For example, some users might be interested in purchasing data streams from weather or environmental sensors located in a specific region. -->
+  * **GPS座標（経度/緯度）：** https://www.gps-coordinates.net/ などのサービスを使用して、センサーに適したGPSデータを取得できます。負の値の場合はハイフン（"-"）と小数点記号（"."）を先頭に付けることができます。文字や特殊文字を入力しないでください。
+  <!-- * **GPS Coordinates (latitude / longitude)**: You can use a service like https://www.gps-coordinates.net/ to get the right GPS data for your sensor. We accept coordinates as a number of digits ([0–9]), that could be prepended by a hyphen (“-”) for negative value, and a decimal separator (“.”). Please do not enter any letters or special characters. -->
+  * **データストリームの値段：** ここでセンサーデータの価格を定義できます。価値の定義を制限するわけではありませんが、プレビューや払い戻しのオプションがなければ、ごく少数の顧客だけがデータストリームのためにお金を払う準備ができていることに注意してください。一方、非常に低い価格を設定すると、合計1000分の1セント未満の支払総額が発生する可能性があります。1Miの[現在の価格](https://coinmarketcap.com/currencies/iota/)である1,000,000（100万）IOTAトークンを確認することをお勧めします。センサーのコストと保守作業に応じて、1,000iから50,000iの範囲内で価格を設定することをお勧めします。
+  <!-- * **Price of the data stream**: Here you can define the cost of the sensor data. We do not restrict you with defining the value, but please keep in mind that without a preview and refund options, only a few customers will be ready to pay a fortune for a data stream. On the other hand, setting a very low price might result in a total collected payment under 1/1000 of a cent. We encourage you to check the [current price](https://coinmarketcap.com/currencies/iota/) of 1 Mi, which is 1000000 (one million) IOTA tokens. We suggest that you set the price within the range of 1000 i to 50000 i, depending on the cost and maintenance efforts of the sensor. -->
+  * **データフィールド：** センサー構成の最も重要な部分。センサーによってキャプチャされ、タングルに保存されるすべてのパラメータに関する情報を入力してください。右側の**+**と**X**ボタンを押すと、フィールドを追加または削除できます。
+  <!-- * **Data Fields**: The most essential part of the sensor configuration. Please provide information for every parameter that will be captured by the sensor and stored on the Tangle. You can add or remove fields by pressing the **+** and **X** buttons on the right. -->
 
 パラメータ情報は3つのフィールドで構成されています。
-<!-- Parameter information consist of 3 fields: -->
+  <!-- Parameter information consist of 3 fields: -->
 
   * **フィールドID：** このIDは特定のセンサーのために他のすべてのパラメータの中で一意であるべきです。IDは必ず英字（[a-z]）で始まり、その後に任意の数の英字、数字（[0-9]）、ハイフン（"-"）、および下線（"_"）を続けることができます。最大許容長は40文字に設定されています。
   * **フィールド名：** フィールドの目的を示すプレーンテキストのパラメータの説明。最大許容長は40文字に設定されています。
