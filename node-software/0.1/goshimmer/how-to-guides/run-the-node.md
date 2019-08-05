@@ -165,7 +165,7 @@ Dockerコンテナをビルドするには、Docker 17.05（マルチステー�
   <!-- 6. To see the status screen, attach the Docker container by doing the following. Replace the `$ContainerID` placeholder with your container ID. -->
 
     ```bash
-    docker attack $ContainerID
+    docker attach $ContainerID
     ```
 
 :::success:おめでとうございます:tada:
