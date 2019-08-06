@@ -16,14 +16,23 @@ IOTAが実際に、サプライチェーンをどのように改善できるか�
 ## IOTAはどのように機能するのか？
 <!-- ## How does IOTA work? -->
 
-クライアントは[バンドル](../introduction/what-is-a-bundle.md)と呼ばれる関連する[トランザクション](../introduction/what-is-a-transaction.md)のグループを[ノード](../introduction/what-is-a-node.md)に送信します。バンドル内のトランザクションは、あるアドレスから別のアドレスにIOTAトークンを転送するようにノードに指示することも、単にデータを含めることもできます。これらのアドレスは、[シード](../introduction/what-is-a-seed.md)と呼ばれるクライアントの一意の秘密パスワードを使用して作成されています。
-<!-- Clients send groups of related [transactions](../introduction/what-is-a-transaction.md) called [bundles](../introduction/what-is-a-bundle.md) to [nodes](../introduction/what-is-a-node.md). The transactions in a bundle can instruct the node to transfer IOTA tokens from one address to another, or they can simply contain data. These addresses are creating, using a client's unique secret password called a [seed](../introduction/what-is-a-seed.md). -->
+IOTAネットワークで何かを転送するには、ノードにトランザクションと呼ばれる命令を送信する必要があります。この命令には、データやIOTAトークンを含めることができます。
+<!-- To transfer anything in an IOTA network you need to send a node an instruction, called a transaction, which can contain data and/or IOTA tokens. -->
 
-ノードは[トランザクションの検証](root://node-software/0.1/iri/concepts/transaction-validation.md)とトランザクションを[タングル](../introduction/what-is-the-tangle.md)へ添付する責任があります。
-<!-- Nodes are responsible for [validating transactions](root://node-software/0.1/iri/concepts/transaction-validation.md) and attaching them to [the Tangle](../introduction/what-is-the-tangle.md). -->
+IOTAネットワーク内のノードは、相互にゴシップ情報を送信するデバイスの分散ネットワークです。そのため、1つのノードが世界のどこにいてもトランザクションを受信すると、トランザクションをネットワーク内の他のすべてのノードに転送します。これにより、同じIOTAネットワーク内のすべてのノードがすべてのトランザクションを検証および保存できます。
+<!-- The nodes in an IOTA network are a distributed network of devices that gossip information among each other. So, when one node, no matter where it is in the world, receives a transaction, it will be forwarded to every other node in the network. This way, all nodes in the same IOTA network can validate and store all transactions. -->
 
-バンドルが確定されると、ノードはそのバンドルのトランザクションに現れるアドレスの残高を更新します。
-<!-- When a bundle is confirmed, the nodes update the balances of any addresses that appear in that bundle's transactions. -->
+ノードが保存するトランザクションのコレクションはタングルと呼ばれ、ノードのみが直接アクセスできます。
+<!-- The collection of transactions that the nodes store is called the Tangle, and only nodes have direct access to it. -->
+
+その結果、IOTAプロトコルは、クライアントがノードに接続してタングルへのアクセスを要求するクライアント/サーバーモデルを使用しています。
+<!-- As a result, the IOTA protocol uses a client/server model where clients connect to nodes to request access to the Tangle. -->
+
+クライアントはIOTAネットワークにおけるユーザーです。すべてのクライアントには、アドレスのマスターキーである一意の[シード](../introduction/what-is-a-seed.md)があります。クライアントがデータまたはIOTAトークンを別のクライアントに送信する場合、そのクライアントは[バンドル](../introduction/what-is-a-bundle.md)と呼ばれる関連する[トランザクション](../introduction/what-is-a-transaction.md)のグループを[ノード](../introduction/what-is-a-node.md)に送信する必要があります。
+<!-- Clients are the users of an IOTA network. All clients have a unique [seed](../introduction/what-is-a-seed.md), which is a master key to their addresses. When any client wants to send data or tokens to another, that client must send groups of related [transactions](../introduction/what-is-a-transaction.md) called [bundles](../introduction/what-is-a-bundle.md) to a [node](../introduction/what-is-a-node.md). -->
+
+次に、ノードは[トランザクションを検証](root://node-software/0.1/iri/concepts/transaction-validation.md)し、[タングル](../introduction/what-is-the-tangle.md)に添付します。これでトランザクションは確定されます。
+<!-- Nodes then [validate the transactions](root://node-software/0.1/iri/concepts/transaction-validation.md) and attach them to [the Tangle](../introduction/what-is-the-tangle.md), where they can be confirmed. -->
 
 ## IOTAトークンとは？
 <!-- ## What is the IOTA token? -->
