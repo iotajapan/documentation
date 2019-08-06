@@ -161,7 +161,7 @@
 
     ![Trunk transaction in a Tangle explorer](../images/tangle-explorer-trunk.PNG)
 
-## コードを走らせる
+## コードを実行する
 <!-- ## Run the code -->
 
 このガイドのサンプルコードを実行してWebブラウザに結果を表示するには、緑色のボタンをクリックしてください。

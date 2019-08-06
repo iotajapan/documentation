@@ -177,7 +177,7 @@ IOTA core ライブラリの内部で、アドレスは特定のインデック�
 <!-- You've proven that, under the hood of the IOTA core library, addresses are derived from private keys with a certain index and security level. -->
 <!-- ::: -->
 
-## コードを走らせる
+## コードを実行する
 <!-- ## Run the code -->
 
 このガイドのサンプルコードを実行してWebブラウザに結果を表示するには, 緑色のボタンをクリックしてください。

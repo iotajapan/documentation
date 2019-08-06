@@ -34,7 +34,7 @@ Linuxオペレーティングシステムを使用している場合は、以下
 * インターネット接続
 <!-- * An Internet connection -->
 
-## IRIノードを走らせる
+## IRIノードを実行する
 <!-- ## Run an IRI node -->
 
 1. [Dockerをインストール](https://docs.docker.com/install/#supported-platforms)します。システム要件よりも古いバージョンのMacまたはWindowsを実行している場合は、代わりに[Docker Toolbox](https://docs.docker.com/toolbox/overview/)をインストールします。

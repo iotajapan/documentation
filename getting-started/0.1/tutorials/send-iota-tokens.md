@@ -177,7 +177,7 @@
 バンドル内のトランザクションは、すべてのノードがそれをタングルのコピーに格納するまで、ネットワークを介して転送されます。
 <!-- The transactions in your bundle will be forwarded through the network until all the nodes have it in their copy of the Tangle. -->
 
-## コードを走らせる
+## コードを実行する
 <!-- ## Run the code -->
 
 このガイドのサンプルコードを実行してWebブラウザに結果を表示するには、緑色のボタンをクリックします。

@@ -75,7 +75,7 @@
 `getNewAddress()`メソッドのインデックスとセキュリティレベルの引数を変更して、別のアドレスを導出してください。
 <!-- Try changing the index and security level arguments in the `getNewAddress()` method to create a different address. -->
 
-## コードを走らせる
+## コードを実行する
 <!-- ## Run the code -->
 
 このガイドのサンプルコードを実行してWebブラウザに結果を表示するには、緑色のボタンをクリックしてください。

@@ -104,7 +104,7 @@
     ファイルを実行すると、`false`ブーリアンを含む配列が表示されます。これは、トランザクションがまだ確定されていないことを意味します。
     <!-- When you execute the file, you should see an array that contains the `false` boolean, meaning that the transaction is not yet confirmed. -->
 
-## コードを走らせる
+## コードを実行する
 <!-- ## Run the code -->
 
 このガイドのサンプルコードを実行してWebブラウザに結果を表示するには、緑色のボタンをクリックします。

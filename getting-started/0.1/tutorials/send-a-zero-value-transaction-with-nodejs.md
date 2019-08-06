@@ -213,7 +213,7 @@
 <!-- These transactions were chosen during tip selection and added to the [`branchTransaction` and `trunkTransaction` fields](root://dev-essentials/0.1/references/structure-of-a-transaction.md) of your transaction. -->
 <!-- ::: -->
 
-## コードを走らせる
+## コードを実行する
 <!-- ## Run the code -->
 このチュートリアルのサンプルコードを実行してWebブラウザで結果を確認するには、緑色のボタンをクリックします。
 <!-- Click the green button to run the sample code in this tutorial and see the results in the web browser. -->

@@ -7,13 +7,13 @@
 IOTAをアプリやWebサイトに統合するには、次の3つの手順を完了する必要があります。
 <!-- To start integrating IOTA into your app or website you need complete these three steps: -->
 
-1. IOTAトークンを保持できるアドレスにアクセスできるように[シードを作成する](#step-1.-create-a-seed)。
+1. IOTAトークンを保持できるアドレスにアクセスできるように[シードを作成する](#create-a-seed)。
 <!-- 1. [Create a seed](#step-1.-create-a-seed) so you can have access to addresses that can hold IOTA tokens -->
 
-2. ノードを介してIOTAネットワークと対話できるように[クライアントライブラリをインストールする](#step-2.-install-a-client-library)。
+2. ノードを介してIOTAネットワークと対話できるように[クライアントライブラリをインストールする](#install-a-client-library)。
 <!-- 2. [Install a client library](#step-2.-install-a-client-library) so that you can interact with an IOTA network through a node -->
 
-3. [テストAPIリクエストを送信](#step-2.-make-a-test-api-request)して、自分がノードに接続できていることを確認する。
+3. [テストAPIリクエストを送信](#make-a-test-api-request)して、自分がノードに接続できていることを確認します。
 <!-- 3. [Make a test API request](#step-2.-make-a-test-api-request) to confirm that you're connected to a node -->
 
 :::info:開発者ではありませんか？
@@ -23,6 +23,7 @@ IOTAをアプリやWebサイトに統合するには、次の3つの手順を完
 <!-- If you want to see how IOTA works without having to write code, you can [use Trinity to create a seed and send your first data transaction](../tutorials/send-a-zero-value-transaction-with-the-trinity-wallet.md). -->
 <!-- ::: -->
 
+<a name="create-a-seed"></a>
 ## 手順1. シードを作成する
 <!-- ## Step 1. Create a seed -->
 
@@ -82,6 +83,7 @@ KeePassは、1つのマスターパスワードまたはキーファイルでロ
 7\. **OK**をクリックして、シードを保存します。
 --------------------
 
+<a name="install-a-client-library"></a>
 ## 手順2. クライアントライブラリをインストールする
 <!-- ## Step 2. Install a client library -->
 
@@ -154,6 +156,7 @@ $ go get github.com/iotaledger/iota.go/api
 [Goドキュメントを参照してください](root://iota-go/0.1/README.md)。
 --------------------
 
+<a name="make-a-test-api-request"></a>
 ## 手順.3 テストAPIリクエストを送信する
 <!-- ## Step 3. Make a test API request -->
 

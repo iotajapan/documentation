@@ -39,12 +39,12 @@ IOTAトークンを転送するには、バンドルに少なくとも1つの入
 <!-- * **Output transaction:** Deposit 100 Mi to the recipient's address -->
 <!-- * **Output transaction:** Deposit the remaining 5 Mi from address 2 into address 3 -->
 
-:::danger:アドレスの全残高を常に取り出します
-IOTAはバンドルに署名するために[Winternitzワンタイム署名方式](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse)を使用します。この署名方式は、アドレスから一度だけ安全にIOTAトークンを取り出せることを意味しています。よって、常にアドレスから全残高を取り出す必要があります。残高の一部だけを他の人に転送したい場合は、残りの残高を自分の未使用のアドレスの1つなどに転送する必要があります。
+:::danger:アドレスの全残高を常に取り出す
+IOTAはバンドルに署名するために[Winternitzワンタイム署名方式](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse)を使用しています。この署名方式は、アドレスから一度だけ安全にIOTAトークンを取り出せることを意味しています。よって、常にアドレスから全残高を取り出す必要があります。残高の一部だけを他の人に転送したい場合は、残りの残高を自分の未使用のアドレスの1つなどに転送する必要があります。
 :::
 <!-- :::danger:Always withdraw the total balance of an address -->
 <!-- IOTA uses the [Winternitz one-time signature scheme](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse) to sign bundles. This signature scheme means that addresses can be safely withdrawn from only once, so you must always withdraw the total balance from an address. If you want to transfer only some of that balance to another person, you can transfer the remaining balance to one of your own unspent addresses. -->
 <!-- ::: -->
 
-[バンドルとトランザクションの詳細を学びます](root://dev-essentials/0.1/concepts/bundles-and-transactions.md)。
+[バンドルとトランザクションの詳細を学ぶ](root://dev-essentials/0.1/concepts/bundles-and-transactions.md)。
 <!-- [Learn more about bundles and transactions](root://dev-essentials/0.1/concepts/bundles-and-transactions.md). -->
