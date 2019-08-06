@@ -125,7 +125,7 @@
 ### GetDepositAddressReply
 
 新しい預け入れアドレスを含む返信。
-Reply containing the new deposit address.
+<!-- Reply containing the new deposit address. -->
 
 | **フィールド** | **タイプ** | **ラベル** | **説明** |
 | -------------- | ---------- | ---------- | -------- |
@@ -426,7 +426,8 @@ Reply containing the new deposit address.
 | UA_DEPOSIT   | 1 | 追跡された新規ユーザーの預け入れ |
 | UA_SWEEP     | 2 | ハブスウィープ |
 
-## Scalar Value Types
+## スカラー値のタイプ
+<!-- ## Scalar Value Types -->
 
 | .protoタイプ                   | メモ                                                         | C++での型 | Javaでの型 | Pythonでの型 |
 | ------------------------------ | ------------------------------------------------------------ | ------ -- | ---------- | ------------ |
