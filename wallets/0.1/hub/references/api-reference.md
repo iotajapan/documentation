@@ -426,7 +426,7 @@
 | UA_DEPOSIT   | 1 | 追跡された新規ユーザーの預け入れ |
 | UA_SWEEP     | 2 | ハブスウィープ |
 
-## スカラー値のタイプ
+## スカラー値タイプ
 <!-- ## Scalar Value Types -->
 
 | .protoタイプ                   | メモ                                                         | C++での型 | Javaでの型 | Pythonでの型 |
