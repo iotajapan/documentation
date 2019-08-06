@@ -40,9 +40,9 @@ IOTAネットワーク内のノードは、相互にゴシップ情報を送信�
 最も基本的なレベルでは、IOTAトークンはIOTAネットワーク内のノードによって保持されている所有権の記録です。
   <!-- At its most basic level, the IOTA token is a record of ownership that's held by the nodes in an IOTA network. -->
 
-    ```bash
-    ADDRESS....ENDOFADDRESS;1000
-    ```
+  ```bash
+  ADDRESS....ENDOFADDRESS;1000
+  ```
 
 セミコロンの左側にアドレスがあります。これらはネットワーク内の各クライアントに一意のものです。セミコロンの右側には、そのアドレスに属するIOTAトークンの量があります。この場合は1,000トークンです。
 <!-- On the left of the semicolon is an address. These are unique to each client in the network. On the right of the semicolon is an amount of IOTA tokens that belong to that address, in this case 1,000 tokens. -->
