@@ -219,7 +219,7 @@ GoShimmerノードを実行しています。
 <!-- * An Internet connection -->
 * ノードを実行しているデバイスに[ポート14626（TCP/UDP）と14666（TCP）を転送します](root://general/0.1/how-to-guides/expose-your-local-device.md)。
 <!-- * [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node -->
-# パブリックIPアドレス
+* パブリックIPアドレス
 <!-- * A public IP address -->
 
 ### 手順1. コードをダウンロードする
