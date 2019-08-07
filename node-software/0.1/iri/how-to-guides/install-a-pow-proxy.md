@@ -86,11 +86,11 @@ PoWプロキシサーバは、IOTAミドルウェアを使用する[Caddy](https
 
     # Log requests to the proxy with rotation
     log requests.log {
-            rotate_size 100
-            rotate_age  90
-            rotate_keep 20
-            rotate_compress
-            }
+        rotate_size 100
+        rotate_age  90
+        rotate_keep 20
+        rotate_compress
+        }
 
     #tls /etc/letsencrypt/live/iota-tangle.io/fullchain.pem /etc/letsencrypt/live/iota-tangle.io/privkey.pem
 
@@ -103,9 +103,9 @@ PoWプロキシサーバは、IOTAミドルウェアを使用する[Caddy](https
     # Set up a reverse proxy to your IRI node
     # In this example, we connect to a public Devnet node, but you can also connect to your own node
     proxy / https://nodes.devnet.iota.org:443 {
-            header_upstream X-IOTA-API-VERSION 1.4
-            header_upstream Access-Control-Allow-Origin *
-            }
+        header_upstream X-IOTA-API-VERSION 1.4
+        header_upstream Access-Control-Allow-Origin *
+        }
     }
     ```
 
@@ -188,7 +188,7 @@ PoWプロキシサーバは、IOTAミドルウェアを使用する[Caddy](https
     PoWプロキシサーバが`attachToTangle`エンドポイントを処理してそれをコンソールにログ出力することがわかります：
     <!-- You should see that the PoW proxy server handles the `attachToTangle` endpoint and logs it to the console: -->
 
-    ```
+    ```bash
     [iota interceptor] 2019/07/17 11:16:15 new attachToTangle request from 127.0.0.1:63167
     [iota interceptor] 2019/07/17 11:16:15 bundle: SBEKOAJCN9NZOECDIIYYAUBZBTGPEIFLUIGTDU9EGDEVS9TGPTGQLFJAFXZBIHLRWLTAZLALRXOFOPTXB
     [iota interceptor] 2019/07/17 11:16:15 doing PoW for bundle with 1 txs...

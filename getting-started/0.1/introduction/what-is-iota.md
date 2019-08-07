@@ -10,12 +10,12 @@ IOTAは、M2M経済圏における、効率性の向上、生産量の増加、�
 <dl><dt>M2M経済圏</dt><dd>人間の介入なしに、任意のデバイスがデータと価値を他のデバイスに転送できる経済圏。</dd></dl>
 <!-- <dl><dt>machine-to-machine economy</dt><dd>Economy in which any device can transfer data and value to other devices without human intervention.</dd></dl> -->
 
-IOTAが実際に、サプライチェーンをどのように改善できるかについては[このビデオ](https://www.youtube.com/embed/Gr-LstcDcAw)をご覧ください。
-<!-- To see IOTA in action, watch [this video](https://www.youtube.com/embed/Gr-LstcDcAw) about how it can improve supply chains. -->
+<iframe src="https://www.youtube.com/embed/Gr-LstcDcAw" width="400" height="200"></iframe>
 
 ## IOTAはどのように機能するのか？
 <!-- ## How does IOTA work? -->
 
+<<<<<<< HEAD
 IOTAネットワークで何かを転送するには、ノードにトランザクションと呼ばれる命令を送信する必要があります。この命令には、データやIOTAトークンを含めることができます。
 <!-- To transfer anything in an IOTA network you need to send a node an instruction, called a transaction, which can contain data and/or IOTA tokens. -->
 
@@ -33,6 +33,37 @@ IOTAネットワーク内のノードは、相互にゴシップ情報を送信�
 
 次に、ノードは[トランザクションを検証](root://node-software/0.1/iri/concepts/transaction-validation.md)し、[タングル](../introduction/what-is-the-tangle.md)に添付します。これでトランザクションは確定されます。
 <!-- Nodes then [validate the transactions](root://node-software/0.1/iri/concepts/transaction-validation.md) and attach them to [the Tangle](../introduction/what-is-the-tangle.md), where they can be confirmed. -->
+=======
+IOTAはパーミッションレスです。つまり、誰でもネットワークを使用して支払いをしたり、データを送信したりできます。サインアップしたり、個人情報を提供したり、サブスクリプションを支払う必要はありません。代わりに、IOTAネットワークに送信するすべてのものが暗号化によって検証されます。 IOTAプロトコルの暗号化機能により、次の利点が得られます。
+<!-- IOTA is permissionless, which means that anyone can use the network to make payments or send data. You don't need to sign up, give away your personal details, or pay a subscription. Instead, everything that you send to an IOTA network is verified through cryptography. The cryptographic functions in the IOTA protocol allow you to benefit from the following: -->
+
+* **真正性：** トランザクションを送信し、トランザクション中のデータまたはIOTAトークンを所有していることを証明します。
+<!-- * **Authenticity:** Prove that you sent a transaction and that you own the data or IOTA tokens in it -->
+* **完全性：** トランザクションが変更されていないことを証明します。
+<!-- * **Integrity:** Prove that your transaction is unchanged -->
+* **秘密性：** 暗号化によってデータにアクセスできるユーザーを制御します。
+<!-- * **Confidentiality:** Control who has access to your data through encryption -->
+
+IOTAを使用するために必要なのは[シード](../introduction/what-is-a-seed.md)のみです。これはIOTAの暗号化機能のマスターキーです。
+<!-- To use IOTA, all you need is a [seed](../introduction/what-is-a-seed.md), which is the master key to the cryptographic functions in IOTA. -->
+
+シードがある場合、シードを使用して、データまたはIOTAトークンを転送できるアドレスを作成できます。
+<!-- When you have a seed, you can use it to create addresses to which you can transfer data or IOTA tokens. -->
+
+IOTAで何かを転送するには、[トランザクション](../introduction/what-is-a-transaction.md)と呼ばれるオブジェクトに命令をパッケージ化します。次に、そのトランザクションを[バンドル](../introduction/what-is-a-bundle.md)にグループ化し、[ノード](../introduction/what-is-a-node.md)に送信します。ノードは、トランザクションの検証と実行を行います。
+<!-- To transfer anything in IOTA, you package an instruction into an object called a [transaction](../introduction/what-is-a-transaction.md). Then, you group that transaction into a [bundle](../introduction/what-is-a-bundle.md), and send it to a [node](../introduction/what-is-a-node.md), which is responsible for validating it and carrying it out. -->
+
+### ネットワークの基本
+<!-- ### Network basics -->
+
+ノードは、IOTAネットワークを構成するデバイスです。他の分散システムと同様に、IOTAネットワーク内のノードは相互に接続されているため、相互にゴシップ情報があります。したがって、1つのノード（世界のどこにいても）がトランザクションを受信すると、ネットワーク内の他のすべてのノードに転送されます。このようにして、同じIOTAネットワーク内のすべてのノードがすべてのトランザクションを検証して保存できます。
+<!-- Nodes are the devices that make up an IOTA network. Like any distributed system, the nodes in an IOTA network are interconnected such that they gossip information among each other. So, when one node (no matter where it is in the world) receives a transaction, it will be forwarded to every other node in the network. This way, all nodes in the same IOTA network can validate all transactions and store them. -->
+
+ノードが保存するトランザクションのコレクションは[タングル](../introduction/what-is-the-tangle.md)と呼ばれ、ノードだけがタングルに直接アクセスできます。タングルは、有向非循環グラフ（DAG）と呼ばれるデータ構造で、各トランザクションは、自分より前にある2つのトランザクションのハッシュ値を参照します。このように、すべてのトランザクションはイミュータブルであり、ノードが信頼性を検証するために遡ることができる参照の履歴があります。
+<!-- The collection of transactions that the nodes store is called [the Tangle](../introduction/what-is-the-tangle.md), and only nodes have direct access to it. The Tangle is a data structure called a directed acyclic graph (DAG), where each transaction references the hashes of two transactions that came before it. This way, all transactions are immutable and have a history of references that nodes can traverse to validate their trustworthiness. -->
+
+ノードのみがタングルにアクセスできるため、IOTAプロトコルは、クライアントがノードに接続してタングルへのアクセスを要求するクライアント/サーバーモデルを使用しています。
+<!-- Because only nodes have access to the Tangle, the IOTA protocol uses a client/server model where clients connect to nodes to request access to it. -->
 
 ## IOTAトークンとは？
 <!-- ## What is the IOTA token? -->
@@ -76,6 +107,12 @@ IOTAネットワーク内の各ノードはトランザクションを検証し�
 台帳にあるすべてのトランザクションはイミュータブルかつ透明です。
 <!-- All transactions in the ledger are immutable and transparent. -->
 
+タングルの各トランザクションは、自分より前にある2つのトランザクションのハッシュ値を参照します。その結果、各トランザクションは自分自身を自身の参照にコミットします。
+<!-- Each transaction in the Tangle references the hashes of two previous ones. As a result, each transaction is commits itself to its references. -->
+
+トランザクションの内容が変更されると、ハッシュ値が無効になり、トランザクションも無効になります。
+<!-- If the contents of any transaction were to change, the hashes would be invalid, making the transactions invalid. -->
+
 ### 安全性
 <!-- ### Security -->
 
@@ -94,8 +131,8 @@ IOTAは無料で利用でき、購読料を支払う必要も、契約にサイ�
 ### スケーラビリティ
 <!-- ### Scalability -->
 
-台帳に追加される各トランザクションごとに、前の2つのトランザクションが検証されます。ネットワークを介して伝播する新しいトランザクションが多いほど、他のトランザクションの検証が高速になるため、このプロセスによってIOTAは非常にスケーラブルになります。
-<!-- For each transaction that's appended to the ledger, two previous transactions are validated. This process makes IOTA incredibly scalable because the more new transactions that propagate through the network, the faster other transactions are validated. -->
+タングルに添付される各トランザクションごとに、前の2つのトランザクションが検証されます。ネットワークを介して伝播する新しいトランザクションが多いほど、他のトランザクションの検証が高速になるため、このプロセスによってIOTAは非常にスケーラブルになります。
+<!-- For each transaction that's attached to the Tangle, two previous transactions are validated. This process makes IOTA incredibly scalable because the more new transactions that propagate through the network, the faster other transactions are validated. -->
 
 ## IOTAはどういった産業で役に立つのか？
 <!-- ## For what industries is IOTA useful? -->
@@ -116,8 +153,11 @@ IOTAは無料で利用でき、購読料を支払う必要も、契約にサイ�
 ## どのようにIOTAを始めれば良いか？
 <!-- ## How do I get started? -->
 
-* [こちらからはじめましょう](../tutorials/get-started.md)。
-<!-- * [Start your IOTA journey](../tutorials/get-started.md) -->
+* [初心者向けチュートリアルでIOTAの旅を始めましょう](../tutorials/get-started.md)。
+<!-- * [Start your IOTA journey with our beginner tutorials](../tutorials/get-started.md) -->
 
-* IOTAを既に使用している[いくつかのアプリケーション](../references/use-cases.md)をご覧ください。
+* IOTAでアプリケーションを開発するために[必要な基本概念を学ぶ](root://dev-essentials/0.1/introduction/overview.md)。
+<!-- * [Learn the essential concepts](root://dev-essentials/0.1/introduction/overview.md) that you need to develop applications on IOTA. -->
+
+* IOTAを既に使用している[いくつかのアプリケーション](../references/use-cases.md)を参照する。
 <!-- * Take a look at some [applications that are already using IOTA](../references/use-cases.md) -->
