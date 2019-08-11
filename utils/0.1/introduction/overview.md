@@ -13,7 +13,15 @@ IOTA財団では、以下のユーティリティを管理しています。こ�
 #### **エリアコード検索** ####
 [Link](../official/iota-area-codes/overview.md)
 
-IOTAトランザクションを地理的位置でタグ付けし、同じタグで他のIOTAトランザクションを見つけます。
+IOTAトランザクションにジオロケーションのタグを付け、同じタグを持つ他のトランザクションを見つけます。
+<!-- Tag an IOTA transaction with a geo-location, and find others with the same tag. -->
+---
+
+#### **トライトコンプレッサー** ####
+[Link](../official/tryte-compress/overview.md)
+
+トランザクショントライトをより小さなメモリスペースに保存して、後で再ブロードキャストまたは再添付できるようにします。
+<!-- Store transaction trytes in a smaller memory space so you can later rebroadcast or reattach them. -->
 ---------------
 
 ### __コミュニティサポート__ ###

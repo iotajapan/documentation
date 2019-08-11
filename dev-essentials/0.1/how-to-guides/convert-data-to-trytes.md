@@ -19,7 +19,7 @@
 
 * Node.js 8、またはNode.js 10以上。[最新のLTS](https://nodejs.org/en/download/)をお勧めします。
 <!-- * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
-* [Visual Studio Code](https://code.visualstudio.com/Download)のようなコードエディタ
+* [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディタ
 <!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
 * インターネット接続
 <!-- * An Internet connection -->

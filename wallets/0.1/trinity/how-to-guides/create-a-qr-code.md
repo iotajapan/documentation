@@ -14,8 +14,8 @@ QRコードは、アドレス、金額、およびメッセージの各フィー
 <!-- To send to an address in Trinity, it must include the 9-tryte checksum. If you generated a new address in Trinity, that address will already include the checksum. -->
 <!-- ::: -->
 
-1. [iota-qr-codes.dag.sh](https://iota-qr-codes.dag.sh/)に行きます。
-<!-- 1. Go to [iota-qr-codes.dag.sh](https://iota-qr-codes.dag.sh/) -->
+1. [公式IOTAユーティリティWebサイト](https://utils.iota.org/qr-create)に移動します。
+<!-- 1. Go to the [official IOTA utility website](https://utils.iota.org/qr-create) -->
 2. フィールドに入力します。
 <!-- 2. Complete the fields -->
 3. PNGファイルとしてQRコードを保存します。
