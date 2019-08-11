@@ -126,7 +126,7 @@
     同時に複数のアカウントに1つのアダプタインスタンスを使用することはできません。新しいアカウントごとにプライベートアダプタが作成されます。
     :::
     <!-- :::info: -->
-    <!-- The [@iota/persistence-adapter-level](https://github.com/iotaledger/iota.js/tree/next/packages/persistence-adapter-level) adapter is the default. This adapter stores the seed state in the `leveldown` flavor of the [LevelDB database](http://leveldb.org/). You can customize this adapter to use a different database. -->
+      <!-- The [@iota/persistence-adapter-level](https://github.com/iotaledger/iota.js/tree/next/packages/persistence-adapter-level) adapter is the default. This adapter stores the seed state in the `leveldown` flavor of the [LevelDB database](https://github.com/google/leveldb). You can customize this adapter to use a different database. -->
     <!--  -->
     <!-- You can't use one adapter instance for multiple accounts at the same time. A private adapter is created for each new account. -->
     <!-- ::: -->
