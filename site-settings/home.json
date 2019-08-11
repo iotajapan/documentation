@@ -3,11 +3,11 @@
     "headerTopLinks": [
         {
             "href": "https://github.com/iotaledger/documentation/commit/f6e706b12210bcf194cafb65b70545c1a4e2759e",
-            "name": "このcommitまで済"
+            "name": "ここまで翻訳済"
         },
         {
             "href": "https://github.com/iotajapan/documentation-platform",
-            "name": "github(ja)"
+            "name": "GitHub(ja)"
         },
         {
             "href": "https://iotajapan.com",
@@ -15,11 +15,11 @@
         },
         {
             "href": "https://docs.iota.org",
-            "name": "DOCS(EN)"
+            "name": "docs(en)"
         },
         {
             "href": "https://github.com/iotaledger/documentation-platform",
-            "name": "github(en)"
+            "name": "GitHub(en)"
         },
         {
             "href": "https://iota.org",
