@@ -68,5 +68,5 @@ IACは以下の3つの部分で構成されています（区切り文字`9`を�
 ## 参考文献
 <!-- ## Further reading -->
 
-IACの詳細については、[ブログの投稿](https://blog.iota.org/iota-area-codes-a-proposal-to-geo-tag-iota-transactions-d3c457d1df1b)を参照してください。
+IACの詳細については、[ブログの投稿](https://blog.iota.org/iota-area-codes-a-proposal-to-geo-tag-iota-transactions-d3c457d1df1b)を参照します。
 <!-- For more information about IACs, [read our blog post](https://blog.iota.org/iota-area-codes-a-proposal-to-geo-tag-iota-transactions-d3c457d1df1b). -->
