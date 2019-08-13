@@ -21,8 +21,6 @@
 <!-- * **ZMQ:** How clients can [subscribe to your node's ZMQ events](../how-to-guides/subscribe-to-events-in-an-iri-node.md) -->
 * **Tip selection：** [チップ選択](../concepts/tip-selection.md)中の重み付きランダムウォークの長さとランダムさ
 <!-- * **Tip selection:** The length and randomness of the weighted random walk during [tip selection](../concepts/tip-selection.md) -->
-* **Tip solidification：** チップトランザクションが凝固になる方法
-<!-- * **Tip solidification:** How tip transactions become solid. -->
 * **Proof of work：** ノードが[プルーフオブワーク](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)を行う方法
 <!-- * **Proof of work:** How your node does [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) -->
 * **Local snapshots：** ノードが[ローカルスナップショット](../concepts/local-snapshot.md)を実行する方法とタイミング
@@ -140,15 +138,6 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 | <a name="max-analyzed-transactions"></a> `--max-analyzed-transactions` | `MAX_ANALYZED_TXS` | チップ選択中に分析される可能性のある未確定トランザクションの最大数を設定して、未確定トランザクションを参照する最新のマイルストーンを見つけます。 | number | 20,000 |
 | <a name="max-depth"></a> `--max-depth` | `MAX_DEPTH` | IRIがチップ選択を開始する場所からの過去のマイルストーン数（深さ）の最大数を設定します。 | number | 15 | この値は、重み付きランダムウォークが妥当な時間内に終了するのに十分なほど小さく、かつ[部分グラフ](../concepts/tip-selection.md#subgraph-selection)に十分な新しいトランザクションが含まれるのに十分なほど大きい必要があります。 |
 | <a name="tip-selection-timeout-sec"></a> `--tip-selection-timeout-sec` | `TIP_SELECTION_TIMEOUT_SEC` | IRIがチップ選択を完了するために費やすことができる最大秒数を設定します。 | number | 60 | このオプションは、チップ選択に時間がかかりすぎる場合に、ノードが停止するのを防ぎます。 |
-
-## Tip solidification
-
-これらの設定を使用して、チップトランザクションが凝固する方法をカスタマイズします。
-<!-- Use these settings to customize how tip transactions become solid. -->
-
-| **コマンドラインフラグ** | **設定ファイルのパラメータ** | **説明** | **有効な値** | **デフォルト値** | **メモ** |
-| :----------- | :--------------------------- | :------- | :------------------- | :--------------- | :------- |
-| <a name="tip-selection-timeout-sec"></a> `--tip-solidfier-enabled` | `TIP_SOLIDIFIER_ENABLED` | マイルストーンではないチップトランザクションをノードが凝固させることを有効にします。 | boolean | false | デフォルトでは、IRIは積極的にマイルストーンのみを凝固しようとします。他のチップトランザクションは、ゴシッププロトコルを通じて凝固になります。このオプションを `true`に設定すると、ノードは非マイルストーンを凝固するためにより多くのリソースを使います。 |
 
 ## Proof of work
 

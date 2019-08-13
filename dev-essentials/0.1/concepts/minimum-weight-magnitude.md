@@ -15,21 +15,24 @@
 
 <!-- PoW is easy to calculate for one email, but costs a lot in time and computational power to calculate for mass spam emails. -->
 
-### IOTAにおけるプルーフオブワーク
-<!-- ### Proof of work in IOTA -->
+## IOTAにおけるプルーフオブワーク
+<!-- ## Proof of work in IOTA -->
 
 ハッシュキャッシュと同様に、各トランザクションは検証される前にPoWを含まなければなりません。このPoWは、大量のスパムトランザクションを作成するのにかかる時間と計算能力を増大させることによって、IOTAネットワークにスパム保護を提供します。
 <!-- Similar to hashcash, each transaction must include a PoW before it can be validated. This PoW provides spam protection for an IOTA network by increasing the time and computational power it takes to create mass spam transactions. -->
 
-トランザクションのPoWを計算するには、以下の[トランザクションの内容](root://dev-essentials/0.1/references/structure-of-a-transaction.md)をトライトからトリットに変換し、次にそれらのトリットをハッシュ化してトランザクションハッシュを生成します。
+<!-- トランザクションのPoWを計算するには、以下の[トランザクションの内容](root://dev-essentials/0.1/references/structure-of-a-transaction.md)をトライトからトリットに変換し、次にそれらのトリットをハッシュ化してトランザクションハッシュを生成します。 -->
 <!-- To calculate the PoW for a transaction, the following [contents of the transaction](root://dev-essentials/0.1/references/structure-of-a-transaction.md) are converted from trytes to trits, then those trits are hashed to result in a transaction hash: -->
 
-* **バンドルハッシュ：** ハッシュはバンドル内のすべてのトランザクションの`address`、`obsoleteTag`、`timestamp`、`value`、`currentIndex`、そして`lastindex`フィールドを使って計算されます。これらのフィールドは**バンドルエッセンス**と呼ばれます。
+<!-- * **バンドルハッシュ：** ハッシュはバンドル内のすべてのトランザクションの`address`、`obsoleteTag`、`timestamp`、`value`、`currentIndex`、そして`lastindex`フィールドを使って計算されます。これらのフィールドは**バンドルエッセンス**と呼ばれます。 -->
 <!-- * **Bundle hash:** Hash that's calculated using the `address`, `obsoleteTag`, `timestamp`, `value`, `currentIndex`, and `lastindex` fields of all transactions in a bundle. These fields are called the **bundle essence**. -->
-* **署名：** トランザクションの署名（アドレスからIOTAトークンを取り出す場合）
+<!-- * **署名：** トランザクションの署名（アドレスからIOTAトークンを取り出す場合） -->
 <!-- * **Signature:** Signature of the transaction (if it withdraws IOTA tokens from an address) -->
-* **トランクトランザクションとブランチトランザクション：** トランザクションが参照および承認する2つのトランザクション
+<!-- * **トランクトランザクションとブランチトランザクション：** トランザクションが参照および承認する2つのトランザクション -->
 <!-- * **Trunk transaction and branch transaction:** Two transactions that the transaction references and approves -->
+
+トランザクションのPoWを計算するために、[トランザクションの内容](root://dev-essentials/0.1/references/structure-of-a-transaction.md)はトライトからトリットに変換され、それらのトリットはハッシュ化されてトランザクションハッシュになります。
+<!-- To calculate the PoW for a transaction, [its contents](root://dev-essentials/0.1/references/structure-of-a-transaction.md) are converted from trytes to trits, then those trits are hashed to result in a transaction hash. -->
 
 ### 最小重量値
 <!-- ### Minimum weight magnitude -->
@@ -63,8 +66,8 @@ MWMが1増えるごとに、PoWの難しさは3倍になります。
 トランザクションハッシュが正しい数の0トリット（[最小重量値](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)）で終了する場合、そのトランザクションは有効と見なされます。
 <!-- If the transaction hash ends in the correct number of 0 trits ([minimum weight magnitude](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)), it's considered valid. -->
 
-### `nance`フィールド
-<!-- ### The `nonce` field -->
+### ノンス
+<!-- ### The nonce -->
 
 トランザクションハッシュが正しい数の0トリットで終わっていない場合、トランザクションの`nonce`フィールドの値がインクリメントされ、トランザクションハッシュは再びハッシュ化されます。
 <!-- If the transaction hash doesn't end in the correct number of 0 trits, the value of the transaction's `nonce` field is incremented and the transaction hash is hashed again. -->
