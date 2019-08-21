@@ -10,7 +10,7 @@
 この例では、[存在の証明ライブラリ](https://github.com/iotaledger/iota-poex-tool)を使用して、ファイルが変更されていないことを証明します。
 <!-- In this example, we use the [proof-of-existance library](https://github.com/iotaledger/iota-poex-tool) to prove that a file is unchanged. -->
 
-まず、後で変更されていないことを証明したいファイルを作成します。次に、ファイルをハッシュ化し、そのハッシュ値をトランザクションに追加してから、[Devnet](root://getting-started/0.1/references/iota-networks.md#devnet)タングルに添付します。Devnetは、トークンが無料であることを除いて、Mainnetにほぼ同じです。Devnetに送信するトランザクションは、Mainnetなどの他のネットワークには存在しません。
+まず、後で変更されていないことを証明したいファイルを作成します。次に、ファイルをハッシュ化し、そのハッシュ値をトランザクションに追加してから、[Devnet](root://getting-started/0.1/references/iota-networks.md#devnet)タングルに添付します。Devnetは、トークンが無料であることを除いて、Mainnetとほぼ同じです。Devnetに送信するトランザクションは、Mainnetなどの他のネットワークには存在しません。
 <!-- First, we create a file that we later want to prove is unchanged. Then, we hash the file and add its hash to a transaction before attaching it to the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet) Tangle. The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
 
 :::info:
@@ -20,7 +20,7 @@
 <!-- Transactions on the Tangle are immutable, so we can use the transaction as a source of truth. -->
 <!-- ::: -->
 
-次に、タングルからトランザクションを読み取り、ファイルハッシュを取得します。ファイルハッシュを取得したら、元のファイルを再度ハッシュ化し、2つハッシュ値を比較します。両方のハッシュ値が同じ場合、元のファイルは変更されません。
+次に、タングルからトランザクションを読み取り、ファイルハッシュを取得します。ファイルハッシュを取得したら、元のファイルを再度ハッシュ化し、2つハッシュ値を比較します。両方のハッシュ値が同じ場合、元のファイルは変更されていません。
 <!-- Then, we read the transaction from the Tangle to retrieve the file hash. When we have the file hash, we hash the original file again and compare the two. If both hashes are the same, the original file is unchanged. -->
 
 ### 前提条件
@@ -59,7 +59,7 @@ IOTAクライアントライブラリを使用したことがない場合は、[
     My super secret contract.
     ```
 
-3. `contract.txt`ファイルと同じディレクトリに`index.js`ファイルを作成し、ライブラリをリクエストすることから始めます。
+3. `contract.txt`ファイルと同じディレクトリに`index.js`ファイルを作成し、ライブラリを要求することから始めます。
   <!-- 3. Create an `index.js` file in the same directory as the `contract.txt` file, and start by requiring the libraries -->
 
     ```js
@@ -156,7 +156,7 @@ IOTAクライアントライブラリを使用したことがない場合は、[
     ```
 
 :::success:おめでとうございます:tada:
-これで、タングルを単一の真実のソースとして使用して、ファイルがまだ変更されていないことを確認できます。
+これで、タングルを単一の真実のソースとして使用して、ファイルがまだ変更されていないことを確認できました。
 :::
 <!-- :::success:Congratulations :tada: -->
 <!-- You can now use the Tangle as a single source of truth to verify that a file is still unchanged. -->
@@ -180,7 +180,7 @@ IOTAクライアントライブラリを使用したことがない場合は、[
 ## 次のステップ
 <!-- ## Next steps -->
 
-学んだことを使用して、タングルで署名されたドキュメントを保護するアプリケーションを構築する。参考のために[ドキュメントの不変性の設計図](root://blueprints/0.1/doc-immutability/overview.md)を使用できます。
+学んだことを使用して、タングル上で署名されたドキュメントを保護するアプリケーションを構築する。参考のために[ドキュメントの不変性の設計図](root://blueprints/0.1/doc-immutability/overview.md)を使用できます。
 <!-- Use what you've learned to build an application that secures signed documents on the Tangle. You can use the [document immutability blueprint](root://blueprints/0.1/doc-immutability/overview.md) for inspiration. -->
 
 存在の証明ユーザーインターフェイスを使用して[ファイルハッシュをタングルにアップロード](https://iota-poex.dag.sh)する。
