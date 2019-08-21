@@ -148,7 +148,7 @@ SEED9999999999999999999999999999999999999999999999999999999999999999999999999999
 ### GetBalances
 Node.jsで[JavaScriptクライアントライブラリ](root://client-libraries/0.1/introduction/overview.md)を使用すると、[`getBalances`](root://node-software/0.1/iri/references/api-reference.md#getbalances)エンドポイントを呼び出してシードの合計残高を取得できます。
 
-これまでにIOTAクライアントライブラリを使用したことがない場合は、[このチュートリアル](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を完了することをお勧めします。
+これまでにIOTAクライアントライブラリを使用したことがない場合は、[入門チュートリアル](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を完了することをお勧めします。
 
  ```js
  var request = require('request');

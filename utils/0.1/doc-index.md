@@ -13,3 +13,5 @@
 [公式サポート/IOTAエリアコード/はじめに](/official/iota-area-codes/get-started.md)
 
 [公式サポート/トライトコンプレッサー/はじめに](/official/tryte-compress/overview.md)
+
+[公式サポート/存在の証明/はじめに](/official/proof-of-existance/overview.md)

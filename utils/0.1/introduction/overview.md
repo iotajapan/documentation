@@ -22,6 +22,13 @@ IOTAトランザクションにジオロケーションのタグを付け、同�
 
 トランザクショントライトをより小さなメモリスペースに保存して、後で再ブロードキャストまたは再添付できるようにします。
 <!-- Store transaction trytes in a smaller memory space so you can later rebroadcast or reattach them. -->
+---
+
+#### **存在の証明プロバイダー** ####
+[Link](../official/proof-of-existance/overview.md)
+
+ファイルが変更されていないことを証明し、すべての関係者がファイルを信頼できるようにします。
+<!-- Prove that a file is unchanged so that all parties that trust it. -->
 ---------------
 
 ### __コミュニティサポート__ ###

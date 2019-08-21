@@ -1,8 +1,8 @@
 # トライトコンプレッサー
 <!-- # Trytes compressor -->
 
-**トランザクションのバンドルをノードに送信すると、そのトランザクションがネットワークの他の部分に到達しない場合があります。たとえば、ノードは、トランザクションを隣接ノードに転送する前にオフラインになる場合があります。そのため、後でトランザクションを再ブロードキャストまたは再添付できるように、トランザクションのトライトを保存することをお勧めします。トランザクショントライトをより小さいメモリスペースに保存するには、トライトコンプレッサーツールを使用して、トライトをバイトに圧縮します。**
-<!-- **When you send a bundle of transactions to a node, sometimes that transaction doesn't reach the rest of the network. For example, a node may go offline before it can forward your transactions to its neighbors. As a result, we recommend that you store the transaction trytes so that you can later rebroadcast or reattach them. To store transaction trytes in a smaller memory space, use the trytes compressor tool to compress the trytes into bytes.** -->
+**トランザクションのバンドルをノードに送信すると、それらのトランザクションがネットワークの残りの部分に届かない場合があり、トランザクションが確定されないことがあります。たとえば、ノードは、トランザクションを隣接ノードに転送する前にオフラインになる場合があります。そのため、後でトランザクションを再ブロードキャストまたは再添付できるように、トランザクションのトライトを保存することをお勧めします。トランザクショントライトをより小さいメモリスペースに保存するには、トライトコンプレッサーツールを使用して、トライトをバイトに圧縮します。**
+<!-- **When you send a bundle of transactions to a node, sometimes those transactions don't reach the rest of the network, so they will never be confirmed. For example, a node may go offline before it can forward your transactions to its neighbors. As a result, we recommend that you store the transaction trytes so that you can later rebroadcast or reattach them. To store transaction trytes in a smaller memory space, use the trytes compressor tool to compress the trytes into bytes.** -->
 
 トライトを圧縮するアルゴリズムは、連長圧縮と静的ハフマン木に基づくハフマン符号化の組み合わせを使用して、トライトが占有するメモリ領域の量を最大75％削減します。
 <!-- The algorithm that compresses the trytes uses a combination of run-length encoding and huffman encoding based on a static huffman tree to reduce the amount of memory space that they occupy by up to 75%. -->
@@ -10,8 +10,8 @@
 このアルゴリズムは、組み込みデバイスで使用できるほど軽量でもあります。
 <!-- This algorithm is also lightweight enough to be used by embedded devices. -->
 
-## ゼロトークントランザクションを圧縮する
-<!-- ## Compress a zero-value transaction -->
+## ゼロトークントランザクションを圧縮して保存する
+<!-- ## Compress and store a zero-value transaction -->
 
 この例では、[Devnet](root://getting-started/0.1/references/iota-networks.md#devnet)でトランザクションを作成して送信します。Devnetは、トークンが無料であること以外は、ほとんどMainnetと同じです。Devnetに送信するトランザクションは、Mainnetなどの他のネットワークには存在しません。
 <!-- In this example, we create and send a transaction on the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
@@ -33,14 +33,14 @@
 <!-- * Access to a command prompt -->
 * インターネット接続
 <!-- * An Internet connection -->
-* [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md)、[`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter)、および[`@iota/tryte-compress`](https://github.com/iotaledger/tryte-compress-js)ライブラリ
-<!-- * The [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/tryte-compress`](https://github.com/iotaledger/tryte-compress-js) libraries -->
+* [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md)、[`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter)、および[`@iota/tryte-compress`](https://github.com/iotaledger/tryte-compress-js)パッケージ
+<!-- * The [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/tryte-compress`](https://github.com/iotaledger/tryte-compress-js) packages -->
 
 :::info:
-IOTAクライアントライブラリを使用したことがない場合は、[このチュートリアル](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を完了することをお勧めします。
+IOTAクライアントライブラリを使用したことがない場合は、[入門チュートリアル](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を完了することをお勧めします。
 :::
 <!-- :::info: -->
-<!-- If you've never used the IOTA client libraries before, we recommend completing [this tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md) -->
+<!-- If you've never used the IOTA client libraries before, we recommend completing [the getting started tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md) -->
 <!-- ::: -->
 
 ---

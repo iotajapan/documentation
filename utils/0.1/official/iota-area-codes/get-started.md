@@ -21,14 +21,14 @@
 <!-- * Access to a command prompt -->
 * インターネット接続
 <!-- * An Internet connection -->
-* [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md)ライブラリと[`@iota/area-codes`](https://github.com/iotaledger/iota-area-codes)ライブラリ
-<!-- * The [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md) and [`@iota/area-codes`](https://github.com/iotaledger/iota-area-codes) libraries -->
+* [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md)パッケージと[`@iota/area-codes`](https://github.com/iotaledger/iota-area-codes)パッケージ
+<!-- * The [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md) and [`@iota/area-codes`](https://github.com/iotaledger/iota-area-codes) packages -->
 
 :::info:
-これまでにIOTAクライアントライブラリを使用したことがない場合は、[このチュートリアル](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を完了することをお勧めします。
+これまでにIOTAクライアントライブラリを使用したことがない場合は、[入門チュートリアル](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を完了することをお勧めします。
 :::
 <!-- :::info: -->
-<!-- If you've never used the IOTA client libraries before, we recommend completing [this tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md) -->
+<!-- If you've never used the IOTA client libraries before, we recommend completing [the getting started tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md) -->
 <!-- ::: -->
 
 ## 手順1. 座標を探す
