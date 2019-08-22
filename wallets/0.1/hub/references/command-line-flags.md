@@ -84,7 +84,7 @@
 <!-- |`--useHttpsIRI`| Communicate with the IRI node through the HTTPS protocol (make sure that the node that's specified in the `--apiAddress` flag supports https)|`--nouseHttpsIRI`| -->
 
 ## 署名フラグ
-## Signing flags
+<!-- ## Signing flags -->
 
 | **フラグ** | **説明** | **デフォルト値** |
 | :--------- | :------- | :--------------- |
