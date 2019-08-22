@@ -26,7 +26,7 @@
 <!-- * An Internet connection -->
 * [`@iota/bundle`](https://github.com/iotaledger/iota.js/tree/next/packages/bundle), [`@iota/core`](https://github.com/iotaledger/iota.js/tree/next/packages/core), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), および[`@iota/transaction`](https://github.com/iotaledger/iota.js/tree/next/packages/transaction)パッケージ
 <!-- * The [`@iota/bundle`](https://github.com/iotaledger/iota.js/tree/next/packages/bundle), [`@iota/core`](https://github.com/iotaledger/iota.js/tree/next/packages/core), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/transaction`](https://github.com/iotaledger/iota.js/tree/next/packages/transaction) packages -->
-* ハブの[`SignBundle_enabled`フラグ]が`true`に設定されていることを確認します。
+* ハブの[`SignBundle_enabled`フラグ](../references/command-line-flags.md#signBundle)が`true`に設定されていることを確認します。
 <!-- * Make sure that Hub's [`SignBundle_enabled` flag](../references/command-line-flags.md#signBundle) is set to `true`. -->
 
 :::info:
@@ -52,7 +52,7 @@ IOTAクライアントライブラリを使用したことがない場合は、[
     const Converter = require('@iota/converter');
     ```
 
-2. 未署名のバンドルを作成して保存するために、`createUnsignedBundle）`関数を作成します。
+2. 未署名のバンドルを作成して保存するために、`createUnsignedBundle()`関数を作成します。
   <!-- 2. Create a `createUnsignedBundle()` function to create and save an unsigned bundle -->
 
     ```js
@@ -96,10 +96,10 @@ IOTAクライアントライブラリを使用したことがない場合は、[
 
     | **フィールド** | **説明** | **メモ** |
     | :------------- | :------- | :------- |
-    | `outputAddress` | スウィープアドレス上のトークンを転送する新しい81トライトのアドレス（チェックサムなし） | このアドレスは、ハブアドレスである必要はありません。たとえば、トークンをハードウェアウォレットのアドレスに送信できます。 |
+    | `outputAddress` | スウィープアドレス上のIOTAトークンを転送する新しい81トライトのアドレス（チェックサムなし） | このアドレスは、ハブアドレスである必要はありません。たとえば、IOTAトークンをハードウェアウォレットのアドレスに送信できます。 |
     | `inputAddress` | 救う必要があるIOTAトークンを含む、スウィープした81トライトのアドレス（チェックサムなし） | [`balanceSubscription()`メソッド](../references/api-reference.md#hub.rpc.BalanceSubscriptionRequest)を使用して、受信アドレスへの預け入れをチェックすることをお勧めします。[`getUserHistory()`メソッド](../references/api-reference.md#hub.rpc.GetUserHistoryRequest)を使用して、どの使用済みアドレスに正のバランスがあるかを確認することもできます。 |
-    | `securityLevel` | スウィープアドレスのセキュリティレベル | デフォルトのセキュリティレベルは2です。[`keySecLevel`コマンドラインフラグ](../references/command-line-flags.md#keySec)のセキュリティレベルを変更した場合は、必ずそれを使用してください。 |
-    | `value` | `inputAddress`フィールドのスウィープアドレスの合計残高 | [theta ngle.org](https://thetangle.org/)などのタングルエクスプローラーでアドレスの残高を確認できます。 |
+    | `securityLevel` | スウィープアドレスのセキュリティレベル | デフォルトのセキュリティレベルは2です。[`keySecLevel`コマンドラインフラグ](../references/command-line-flags.md#keySec)のセキュリティレベルを変更した場合は、必ずそれを使用します。 |
+    | `value` | `inputAddress`フィールドのスウィープアドレスの合計残高 | [thetangle.org](https://thetangle.org/)などのタングルエクスプローラーでアドレスの残高を確認できます。 |
 
     <!-- |**Field**|**Description**|**Notes**| -->
     <!-- |:----|:----------|:-----------| -->
@@ -120,10 +120,10 @@ IOTAクライアントライブラリを使用したことがない場合は、[
     let inputAddress = Converter.trytesToTrits('ADDRESS...');
 
     const params = {
-    outputAddress: outputAddress,
-    inputAddress: inputAddress,
-    securityLevel: 2,
-    value: 1
+      outputAddress: outputAddress,
+      inputAddress: inputAddress,
+      securityLevel: 2,
+      value: 1
     }
     ```
 
@@ -147,20 +147,20 @@ Hubには`signBundle()`gRPCメソッドがあり、ハブユーザーのアド�
 <!-- Hub has a `signBundle()` gRPC method that allows you to sign bundles that withdraw from a Hub user's address. -->
 
 :::info:
-`signBundle()`メソッドを使用する前に、Hubの[`SignBundle_enabled`フラグ](../references/command-line-flags.md#signBundle)が`true`に設定されていることを確認します。
+`signBundle()`メソッドを使用する前に、ハブの[`SignBundle_enabled`フラグ](../references/command-line-flags.md#signBundle)が`true`に設定されていることを確認します。
 :::
 <!-- :::info: -->
 <!-- Before you use the `signBundle()` method, make sure that Hub's [`SignBundle_enabled` flag](../references/command-line-flags.md#signBundle) is set to `true`. -->
 <!-- ::: -->
 
-1. Hubで、未署名のバンドルハッシュとスウィープしたアドレスを`signBundle()`メソッドに渡します。
+1. ハブで、未署名のバンドルハッシュとスウィープしたアドレスを`signBundle()`メソッドに渡します。
   <!-- 1. In Hub, pass the unsigned bundle hash and the swept address to the `signBundle()` method -->
 
     ```bash
     Hub@localhost:50051> client.signBundle({address:'ADDRESS...',bundleHash:'BUNDLEHASH...',authentication:'',validateChecksum:false},pr)
     ```
 
-2. 返された署名をコピーし、`trytesToTrits()`メソッドにペースとして、トライトに変換します。
+2. 返された署名をコピーし、`trytesToTrits()`メソッドにペーストして、トライトに変換します。
   <!-- 2. Copy the returned signature and paste it into the `trytesToTrits()` method to convert it to trits -->
 
     ```js
@@ -259,7 +259,7 @@ Hubには`signBundle()`gRPCメソッドがあり、ハブユーザーのアド�
     <!-- Here, we reverse the transaction trytes array because nodes expect a bundle to be sent head first. -->
     <!-- ::: -->
 
-:::success:
+:::success:おめでとうございます:tada:
 スウィープしたアドレスからIOTAトークンを救う署名済みバンドルを送信しました。
 :::
 <!-- :::success: -->
