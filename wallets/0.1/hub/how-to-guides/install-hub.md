@@ -204,7 +204,7 @@ INFO: Build completed successfully, 1811 total actions
 <!--  -->
 <!-- ```shell -->
 <!-- Target //hub:hub up-to-date: -->
-<!-- 	bazel-bin/hub/hub -->
+<!--    bazel-bin/hub/hub -->
 <!-- INFO: Elapsed time: 1531.342s, Critical Path: 208.27s -->
 <!-- INFO: 1377 processes: 1377 linux-sandbox. -->
 <!-- INFO: Build completed successfully, 1811 total actions -->
@@ -329,15 +329,6 @@ INFO: Build completed successfully, 1811 total actions
     :::
     <!-- :::success:Congratulations:tada: -->
     <!-- Hub is now running! -->
-    <!-- ::: -->
-
-    :::danger:json.exception.parse_error.101
-    次のエラーメッセージが表示される場合は、接続先のノードがHTTPSではなくHTTPプロトコルを使用していることを確認してください。ノードのアドレスは、[コマンドラインフラグ](../references/command-line-flags.md)の`apiAddress`フィールドで確認できます。
-    `E0328 10:57:54.417129 13906 beast.cc:65] [json.exception.parse_error.101] parse error at 1: syntax error - invalid literal; last read: '<'`
-    :::
-    <!-- :::danger:json.exception.parse_error.101 -->
-    <!-- If you see the following error message, make sure that the node you're connected to uses the HTTP protocol instead of HTTPS. You can check the address of your node in the `apiAddress` field of the [command line flags](../references/command-line-flags.md). -->
-    <!-- E0328 10:57:54.417129 13906 beast.cc:65] [json.exception.parse_error.101] parse error at 1: syntax error - invalid literal; last read: '<' -->
     <!-- ::: -->
 
     シェルセッションでハブを実行しています。このセッションを閉じると、ハブは停止します。そのため、ハブをscreen/tmuxセッション、system-wideサービス、またはスーパーバイザープロセスで実行することを検討してください。

@@ -4,8 +4,8 @@
 **スイープは、ユーザーの取り出しと預け入れの残高のバンドルです。ユーザーがIOTAトークンをハブアドレスに預け入れるか、ハブアドレスから取り出すと、ハブはそれらの転送を1つのスイープに結合します。取り出しの合計が預け入れの合計よりも少ない場合、ハブは残りの残高をハブ所有者に属する新しいアドレスに転送します。預け入れの合計が取り出しの合計よりも少ない場合、ハブはハブ所有者のアドレスのIOTAトークンを使用して、残りの取り出しの残高を満たします。**
 <!-- **A sweep is a bundle that balances users' withdrawals and deposits. When users deposit IOTA tokens into a Hub address or when users withdraw them from one, Hub combines those transfers into a sweep. If the total amount of withdrawals is less than the total amount of deposits, then Hub transfers the remaining balance to a new address that belongs to the Hub owner. If the total amount of deposits is less than the total amount of withdrawals, Hub uses the tokens in the Hub owner's addresses to fulfill the remaining withdrawal balance.** -->
 
-スイープは、ハブ所有者に属する安全なアドレスにユーザーの預け入れが転送されることを保証するオプションの安全機能です。
-<!-- Sweeps are an optional safety feature that assure that deposited tokens are transferred to a secure address that belongs to the Hub owner. -->
+スウィープは、ハブ所有者に属する安全なアドレスに預け入れたIOTAトークンが確実に転送されるようにするオプションの安全機能です。
+<!-- Sweeps are an optional safety feature that ensures that deposited tokens are transferred to a secure address that belongs to the Hub owner. -->
 
 ## スイープの理由
 <!-- ## The reason for sweeps -->
@@ -16,9 +16,6 @@ IOTAはWinternitzワンタイム署名スキームを使用して署名を作成
 ハブは、定期的にユーザーの預け入れアドレスからハブ所有者のアドレスにIOTAトークンを転送することにより、ユーザーが同じアドレスから2回以上取り出すリスクを減らします。
 <!-- Hub reduces the risk of a user withdrawing from the same address more than once by transferring IOTA tokens from users' deposit addresses to a Hub owner's address at regular intervals. -->
 
-このように、取り出しはハブによって管理され、ユーザーが同じアドレスから2回以上取り出しを行えないようにします。
-<!-- This way, any withdrawals are managed by Hub to make sure that the user does not -->
-
 :::danger:
 交換所のフロントエンドで、ユーザーの預け入れアドレスが1回限りのものであることを明確にする必要があります。
 :::
@@ -27,10 +24,10 @@ IOTAはWinternitzワンタイム署名スキームを使用して署名を作成
 <!-- ::: -->
 
 :::info:
-[使用済みアドレスの詳細と、使用済みアドレスからは2度とIOTAトークンを取り出してはいけない理由](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse)を知る。
+[使用済みアドレスの詳細](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse)と、アドレスから2回以上取り出してはならない理由を参照します。
 :::
 <!-- :::info: -->
-<!-- [Discover the details about spent addresses and why you must never withdraw from an address more than once](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse). -->
+<!-- [Discover the details about spent addresses](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse) and why you must never withdraw from an address more than once. -->
 <!-- ::: -->
 
 ## スイープの仕組み
