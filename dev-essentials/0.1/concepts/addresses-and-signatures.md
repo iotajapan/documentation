@@ -17,7 +17,7 @@ IOTAネットワーク内のすべてのノードは、すべてのアドレス�
 ノードは、どのクライアントがアドレスを所有しているのかを知りません。なぜならノードはクライアントのシードを持っていないからです。そのため、ノードは暗号化を使用してトランザクションを検証します。
 <!-- Nodes don't know which client owns an address because they don't have the clients' seeds, so they use cryptography to validate a transaction. -->
 
-ノードがトランザクションを検証するとき、トランザクションがIOTAトークンを取り出す場合、そのトランザクションはアドレスを所有するシードの所有者によって作成されたことを確認します。ノードはトランザクションの署名を確認して、アドレスの所有権の確認を行います。
+ノードがトランザクションを検証するとき、トランザクションがIOTAトークンを取り出す場合、ノードはそのトランザクションがアドレスを所有するシードの所有者によって作成されたことを確認します。つまり、ノードはトランザクションの署名を確認して、アドレスの所有権の確認を行います。
 <!-- When a node validates a transaction, it makes sure that, if it withdraws IOTA tokens, it was created by the owner of the seed that owns the address. The node does this by checking the transaction signature. -->
 
 有効な署名を作成するには、クライアントは、IOTAトークンの取り出し元のアドレスに対応する秘密鍵を必要とします。
@@ -164,7 +164,7 @@ IOTAはWinternitzワンタイム署名スキーム（W-OTS）を使用して署�
 <!-- The result of this calculation is the number of times that each of the 27 segments in the key fragment must be hashed to derive the signature fragment. Each signature fragment contains 2,187 trytes. -->
 
 :::info:
-トランザクションの[`signatureMessageFragment`フィールド](../references/structure-of-a-transaction.md)に含めることができるのは2187トライトだけなので、1より大きいセキュリティレベルを持つインプットアドレスは、ゼロトークンのアウトプットトランザクションの`signatureMessageFragment`フィールドに残りの署名を分けて入れる必要があります。
+トランザクションの[`signatureMessageFragment`フィールド](../references/structure-of-a-transaction.md)に含めることができるのは2187トライトだけなので、1より大きいセキュリティレベルを持つ入力アドレスは、ゼロトークンの出力トランザクションの`signatureMessageFragment`フィールドに残りの署名を分けて入れる必要があります。
 :::
 <!-- :::info: -->
 <!-- Because a transaction's [`signatureMessageFragment` field](../references/structure-of-a-transaction.md) can contain only 2187 trytes, any input address with a security level greater than 1 must fragment the rest of the signature over zero-value output transactions. -->
