@@ -27,7 +27,7 @@
 [ハブ/ハウツーガイド/API入門](/hub/how-to-guides/get-started-with-the-api.md)
 [ハブ/ハウツーガイド/データベースにクエリする](/hub/how-to-guides/query-the-database.md)
 [ハブ/ハウツーガイド/ハブを交換所に統合する](/hub/how-to-guides/integrate-hub.md)
-[ハブ/ハウツーガイド/スウィープされたアドレスからトークンを解放する](/hub/how-to-guides/rescue-tokens.md)
+[ハブ/ハウツーガイド/スウィープしたアドレスからトークンを救う](/hub/how-to-guides/rescue-tokens.md)
 [ハブ/参考文献/APIリファレンス](/hub/references/api-reference.md)
 [ハブ/参考文献/コマンドラインフラグ](/hub/references/command-line-flags.md)
 [ハブ/参考文献/データベーステーブル](/hub/references/database-tables.md)

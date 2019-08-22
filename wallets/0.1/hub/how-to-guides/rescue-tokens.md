@@ -1,31 +1,49 @@
-# Rescue IOTA tokens from a swept address
+# スウィープしたアドレスからIOTAトークンを救う
+<!-- # Rescue IOTA tokens from a swept address -->
 
-**The Winternitz one-time signature scheme is used to sign bundles that withdraw IOTA tokens from addresses. As a result, addresses are safe to withdraw from only once. After Hub sweeps an address, that address is spent and must never be withdrawn from again. But, sometimes users send IOTA tokens to old deposit addresses that have already been swept. In this case, the address is at risk of an attacker trying to brute force its signature to steal its tokens. To rescue the tokens from the swept address, you can try to transfer them to a new address before a potential attacker can.**
+**Winternitzワンタイム署名スキームは、アドレスからIOTAトークンを取り出すバンドルに署名するために使用されます。その結果、アドレスは1度だけならIOTAトークンを取り出しても安全です。ハブがアドレスをスウィープした後、そのアドレスは使用済みになり、そのアドレスから再び取り出しを行なってはいけません。ただし、ユーザーはIOTAトークンを、既にスウィープした古い預け入れアドレスに送信する場合があります。この場合、攻撃者が署名に対して総当たり攻撃を行いIOTAトークンを盗もうとするリスクがあります。スウィープしたアドレスからIOTAトークンを救うために、潜在的な攻撃者が総当たり攻撃を仕掛ける前にIOTAトークンを新しいアドレスに転送しようとすることができます。**
+<!-- **The Winternitz one-time signature scheme is used to sign bundles that withdraw IOTA tokens from addresses. As a result, addresses are safe to withdraw from only once. After Hub sweeps an address, that address is spent and must never be withdrawn from again. But, sometimes users send IOTA tokens to old deposit addresses that have already been swept. In this case, the address is at risk of an attacker trying to brute force its signature to steal its tokens. To rescue the tokens from the swept address, you can try to transfer them to a new address before a potential attacker can.** -->
 
-To rescue tokens from a swept address, you must create an unsigned bundle outside of Hub, use Hub to sign it, then send the complete bundle to a node.
+スウィープしたアドレスからIOTAトークンを救うには、ハブの外部で未署名のバンドルを作成し、ハブを使用してそのバンドルに署名してから、完全なバンドルをノードに送信する必要があります。
+<!-- To rescue tokens from a swept address, you must create an unsigned bundle outside of Hub, use Hub to sign it, then send the complete bundle to a node. -->
 
-In this guide, we use the JavaScript client library to create and send the bundle, but we also have other [official and community libraries](root://client-libraries/0.1/introduction/overview.md), including Go, Java, and Python.
+このガイドでは、JavaScriptクライアントライブラリを使用してバンドルを作成および送信しますが、Go、Java、Pythonなどの他の[公式およびコミュニティライブラリ](root://client-libraries/0.1/introduction/overview.md)もあります。
+<!-- In this guide, we use the JavaScript client library to create and send the bundle, but we also have other [official and community libraries](root://client-libraries/0.1/introduction/overview.md), including Go, Java, and Python. -->
 
-## Prerequisites
+## 前提条件
+<!-- ## Prerequisites -->
 
-To complete this guide, you need the following:
+このガイドを完了するには、次のものが必要です。
+<!-- To complete this guide, you need the following: -->
 
-* Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
-* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* Access to a command prompt
-* An Internet connection
-* The [`@iota/bundle`](https://github.com/iotaledger/iota.js/tree/next/packages/bundle), [`@iota/core`](https://github.com/iotaledger/iota.js/tree/next/packages/core), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/transaction`](https://github.com/iotaledger/iota.js/tree/next/packages/transaction) packages
-* Make sure that Hub's [`SignBundle_enabled` flag](../references/command-line-flags.md#signBundle) is set to `true`.
+* Node.js 8、またはNode.js 10以降。 [最新のLTS](https://nodejs.org/en/download/)をお勧めします。
+<!-- * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
+* [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディター
+<!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
+* コマンドプロンプトへのアクセス
+<!-- * Access to a command prompt -->
+* インターネット接続
+<!-- * An Internet connection -->
+* [`@iota/bundle`](https://github.com/iotaledger/iota.js/tree/next/packages/bundle), [`@iota/core`](https://github.com/iotaledger/iota.js/tree/next/packages/core), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), および[`@iota/transaction`](https://github.com/iotaledger/iota.js/tree/next/packages/transaction)パッケージ
+<!-- * The [`@iota/bundle`](https://github.com/iotaledger/iota.js/tree/next/packages/bundle), [`@iota/core`](https://github.com/iotaledger/iota.js/tree/next/packages/core), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/transaction`](https://github.com/iotaledger/iota.js/tree/next/packages/transaction) packages -->
+* ハブの[`SignBundle_enabled`フラグ]が`true`に設定されていることを確認します。
+<!-- * Make sure that Hub's [`SignBundle_enabled` flag](../references/command-line-flags.md#signBundle) is set to `true`. -->
 
 :::info:
-If you've never used the IOTA client libraries before, we recommend completing [the getting started tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)
+IOTAクライアントライブラリを使用したことがない場合は、[入門チュートリアル](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を完了することをお勧めします。
 :::
+<!-- :::info: -->
+<!-- If you've never used the IOTA client libraries before, we recommend completing [the getting started tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md) -->
+<!-- ::: -->
 
-## Step 1. Create an unsigned bundle
+## 手順1. 未署名のバンドルを作成する
+<!-- ## Step 1. Create an unsigned bundle -->
 
-Before Hub can sign a bundle, you need to create an unsigned one.
+ハブがバンドルに署名する前に、未署名のバンドルを作成する必要があります。
+<!-- Before Hub can sign a bundle, you need to create an unsigned one. -->
 
-1. Require the packages
+1. パッケージを要求します。
+  <!-- 1. Require the packages -->
 
     ```js
     const Iota = require('@iota/core');
@@ -34,185 +52,239 @@ Before Hub can sign a bundle, you need to create an unsigned one.
     const Converter = require('@iota/converter');
     ```
 
-2. Create a `createUnsignedBundle()` function to create and save an unsigned bundle
+2. 未署名のバンドルを作成して保存するために、`createUnsignedBundle）`関数を作成します。
+  <!-- 2. Create a `createUnsignedBundle()` function to create and save an unsigned bundle -->
 
     ```js
     async function createUnsignedBundle({ outputAddress, inputAddress, securityLevel, value }) {
-   let bundle = new Int8Array();
-   const issuanceTimestamp = Converter.valueToTrits(Math.floor(Date.now() / 1000));
+    let bundle = new Int8Array();
+    const issuanceTimestamp = Converter.valueToTrits(Math.floor(Date.now() / 1000));
 
-   bundle = Bundle.addEntry(bundle, {
+    bundle = Bundle.addEntry(bundle, {
       address: outputAddress,
       value: Converter.valueToTrits(value),
       issuanceTimestamp
-   });
+    });
 
     // For every security level, create a new zero-value transaction to which you can later add the rest of the signature fragments
-   for (let i = 0; i < securityLevel; i++) {
-       bundle = Bundle.addEntry(bundle, {
-          address: inputAddress,
-          value: Converter.valueToTrits(i == 0 ? -value : 0),
-          issuanceTimestamp
-       });
-   }
+    for (let i = 0; i < securityLevel; i++) {
+      bundle = Bundle.addEntry(bundle, {
+        address: inputAddress,
+        value: Converter.valueToTrits(i == 0 ? -value : 0),
+        issuanceTimestamp
+      });
+    }
 
-   const result = await Bundle.finalizeBundle(bundle);
-   
-   // Save the bundle array to a binary file
-   fs.writeFileSync('bundle', result, (error) => {
+    const result = await Bundle.finalizeBundle(bundle);
+
+    // Save the bundle array to a binary file
+    fs.writeFileSync('bundle', result, (error) => {
       if(!error) {
-         console.log('Bundle details saved to file');
+        console.log('Bundle details saved to file');
       } else{
-         console.log(`Error writing file: ${error}`);
+        console.log(`Error writing file: ${error}`);
       }});
 
-   const bundleHash = Converter.tritsToTrytes(Transaction.bundle(result));
+    const bundleHash = Converter.tritsToTrytes(Transaction.bundle(result));
 
-   console.log(bundleHash);
+    console.log(bundleHash);
     }
     ```
 
-3. Get the following values from Hub and add them to the `parameters` object:
+3. ハブから次の値を取得し、それらを`parameters`オブジェクトに追加します。
+  <!-- 3. Get the following values from Hub and add them to the `parameters` object: -->
 
-    |**Field**|**Description**|**Notes**|
-    |:----|:----------|:-----------|
-    |`outputAddress`|The new 81-tryte address (without a checksum) to which you want to transfer the tokens on the swept address|This address does not need to be a Hub address. For example, you may want to send the tokens to an address on a hardware wallet. |
-    |`inputAddress`|The swept 81-tryte address (without a checksum) that contains the IOTA tokens that you need to rescue|It's best practice to use the [`balanceSubscription()` method](../references/api-reference.md#hub.rpc.BalanceSubscriptionRequest) to check for incoming deposits into swept addresses. You can also use the [`getUserHistory()` method](../references/api-reference.md#hub.rpc.GetUserHistoryRequest) to check which spent addresses have a positive balance.|
-    |`securityLevel`| The security level of the swept address|The default security level is 2. If you changed the security level in the [`keySecLevel` command-line flag](../references/command-line-flags.md#keySec), make sure you use that one. |
-    |`value`|The total balance of the swept address in the `inputAddress` field|You can check the balance of any address on a Tangle explorer such as [thetangle.org](https://thetangle.org/) |
+    | **フィールド** | **説明** | **メモ** |
+    | :------------- | :------- | :------- |
+    | `outputAddress` | スウィープアドレス上のトークンを転送する新しい81トライトのアドレス（チェックサムなし） | このアドレスは、ハブアドレスである必要はありません。たとえば、トークンをハードウェアウォレットのアドレスに送信できます。 |
+    | `inputAddress` | 救う必要があるIOTAトークンを含む、スウィープした81トライトのアドレス（チェックサムなし） | [`balanceSubscription()`メソッド](../references/api-reference.md#hub.rpc.BalanceSubscriptionRequest)を使用して、受信アドレスへの預け入れをチェックすることをお勧めします。[`getUserHistory()`メソッド](../references/api-reference.md#hub.rpc.GetUserHistoryRequest)を使用して、どの使用済みアドレスに正のバランスがあるかを確認することもできます。 |
+    | `securityLevel` | スウィープアドレスのセキュリティレベル | デフォルトのセキュリティレベルは2です。[`keySecLevel`コマンドラインフラグ](../references/command-line-flags.md#keySec)のセキュリティレベルを変更した場合は、必ずそれを使用してください。 |
+    | `value` | `inputAddress`フィールドのスウィープアドレスの合計残高 | [theta ngle.org](https://thetangle.org/)などのタングルエクスプローラーでアドレスの残高を確認できます。 |
+
+    <!-- |**Field**|**Description**|**Notes**| -->
+    <!-- |:----|:----------|:-----------| -->
+    <!-- |`outputAddress`|The new 81-tryte address (without a checksum) to which you want to transfer the tokens on the swept address|This address does not need to be a Hub address. For example, you may want to send the tokens to an address on a hardware wallet. | -->
+    <!-- |`inputAddress`|The swept 81-tryte address (without a checksum) that contains the IOTA tokens that you need to rescue|It's best practice to use the [`balanceSubscription()` method](../references/api-reference.md#hub.rpc.BalanceSubscriptionRequest) to check for incoming deposits into swept addresses. You can also use the [`getUserHistory()` method](../references/api-reference.md#hub.rpc.GetUserHistoryRequest) to check which spent addresses have a positive balance.| -->
+    <!-- |`securityLevel`| The security level of the swept address|The default security level is 2. If you changed the security level in the [`keySecLevel` command-line flag](../references/command-line-flags.md#keySec), make sure you use that one. | -->
+    <!-- |`value`|The total balance of the swept address in the `inputAddress` field|You can check the balance of any address on a Tangle explorer such as [thetangle.org](https://thetangle.org/) | -->
 
     :::info:
-    You need the security level of the swept address so that the `createUnsignedBundle()` function can create enough zero-value transactions to which you can add the [signature fragments](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#signatures).
+    `createUnsignedBundle()`関数が[signature fragment](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#signatures)を追加できる十分なゼロトークントランザクションを作成できるように、スウィープアドレスのセキュリティレベルが必要です。
     :::
+    <!-- :::info: -->
+    <!-- You need the security level of the swept address so that the `createUnsignedBundle()` function can create enough zero-value transactions to which you can add the [signature fragments](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#signatures). -->
+    <!-- ::: -->
 
     ```js
     let outputAddress = Converter.trytesToTrits('ADDRESS...');
     let inputAddress = Converter.trytesToTrits('ADDRESS...');
 
     const params = {
-   outputAddress: outputAddress,
-   inputAddress: inputAddress,
-   securityLevel: 2,
-   value: 1
-   }
+    outputAddress: outputAddress,
+    inputAddress: inputAddress,
+    securityLevel: 2,
+    value: 1
+    }
     ```
 
-2. Call the `createUnsignedBundle()` function, and pass it the parameters you got from Hub
+2. `createUnsignedBundle()`関数を呼び出し、ハブから取得したパラメーターを渡します。
+  <!-- 2. Call the `createUnsignedBundle()` function, and pass it the parameters you got from Hub -->
 
     ```js
     createUnsignedBundle(parameters);
     ```
 
-    This function saves the unsigned bundle to a binary file called `bundle` in your current directory.
+    この関数は、現在のディレクトリにある`bundle`と呼ばれるバイナリファイルに未署名のバンドルを保存します。
+    <!-- This function saves the unsigned bundle to a binary file called `bundle` in your current directory. -->
 
-3. Execute the file, then copy the unsigned bundle hash from the console to the clipboard. Hub needs this bundle hash to create the signature.
+3. ファイルを実行し、未署名のバンドルハッシュをコンソールからクリップボードにコピーします。ハブは、署名を作成するためにこのバンドルハッシュを必要とします。
+  <!-- 3. Execute the file, then copy the unsigned bundle hash from the console to the clipboard. Hub needs this bundle hash to create the signature. -->
 
-## Step 2. Use Hub to sign the unsigned bundle
+## 手順2. ハブを使用して未署名のバンドルに署名する
+<!-- ## Step 2. Use Hub to sign the unsigned bundle -->
 
-Hub has a `signBundle()` gRPC method that allows you to sign bundles that withdraw from a Hub user's address.
+Hubには`signBundle()`gRPCメソッドがあり、ハブユーザーのアドレスから取り出しバンドルに署名できます。
+<!-- Hub has a `signBundle()` gRPC method that allows you to sign bundles that withdraw from a Hub user's address. -->
 
 :::info:
-Before you use the `signBundle()` method, make sure that Hub's [`SignBundle_enabled` flag](../references/command-line-flags.md#signBundle) is set to `true`.
+`signBundle()`メソッドを使用する前に、Hubの[`SignBundle_enabled`フラグ](../references/command-line-flags.md#signBundle)が`true`に設定されていることを確認します。
 :::
+<!-- :::info: -->
+<!-- Before you use the `signBundle()` method, make sure that Hub's [`SignBundle_enabled` flag](../references/command-line-flags.md#signBundle) is set to `true`. -->
+<!-- ::: -->
 
-1. In Hub, pass the unsigned bundle hash and the swept address to the `signBundle()` method
+1. Hubで、未署名のバンドルハッシュとスウィープしたアドレスを`signBundle()`メソッドに渡します。
+  <!-- 1. In Hub, pass the unsigned bundle hash and the swept address to the `signBundle()` method -->
 
-   ```
-   Hub@localhost:50051> client.signBundle({address:'ADDRESS...',bundleHash:'BUNDLEHASH...',authentication:'',validateChecksum:false},pr)
-   ```
+    ```bash
+    Hub@localhost:50051> client.signBundle({address:'ADDRESS...',bundleHash:'BUNDLEHASH...',authentication:'',validateChecksum:false},pr)
+    ```
 
-2. Copy the returned signature and paste it into the `trytesToTrits()` method to convert it to trits
+2. 返された署名をコピーし、`trytesToTrits()`メソッドにペースとして、トライトに変換します。
+  <!-- 2. Copy the returned signature and paste it into the `trytesToTrits()` method to convert it to trits -->
 
     ```js
     const signature = Converter.trytesToTrits('SIGNATURE...')
     ```
 
-3. Read the unsigned bundle from the `bundle` file you saved earlier
+3. 前に保存した`bundle`ファイルから未署名のバンドルを読み取ります。
+  <!-- 3. Read the unsigned bundle from the `bundle` file you saved earlier -->
 
-   ```js
-   bundle = new Int8Array(fs.readFileSync('bundle'));
-   ```
+    ```js
+    bundle = new Int8Array(fs.readFileSync('bundle'));
+    ```
 
-4. Add the signature to the unsigned bundle
+4. 署名を未署名のバンドルに追加します。
+  <!-- 4. Add the signature to the unsigned bundle -->
 
+    ```js
+    bundle.set(Bundle.addSignatureOrMessage(bundle, signature, 1));
+    ```
 
-   ```js
-   bundle.set(Bundle.addSignatureOrMessage(bundle, signature, 1));
-   ```
+    :::info:
+    3番目の引数は、署名フラグメントの追加を開始するバンドル内の最初のトランザクションを指定します。この例では、最初のトランザクションは出力トランザクションであるため、署名は必要ありません。
+    :::
+    <!-- :::info: -->
+    <!-- The third argument specifies the first transaction in the bundle to which to start adding the signature fragments. In our example, the first transaction is the output transaction, so it doesn't need a signature. -->
+    <!-- ::: -->
 
-   :::info:
-   The third argument specifies the first transaction in the bundle to which to start adding the signature fragments. In our example, the first transaction is the output transaction, so it doesn't need a signature.
-   :::
+## 手順3. 署名済みバンドルをノードに送信する
+<!-- ## Step 3. Send the signed bundle to a node -->
 
-## Step 3. Send the signed bundle to a node
+バンドル内の入力トランザクションに署名フラグメントを追加すると、バンドルは署名され、ノードに送信する準備が整います。
+<!-- After adding the signature fragments to the input transactions in your bundle, it's now signed and ready to be sent to a node. -->
 
-After adding the signature fragments to the input transactions in your bundle, it's now signed and ready to be sent to a node.
+1. 署名済みバンドル内のトランザクションをトライトに変換し、それらを新しい配列にプッシュします。
+  <!-- 1. Convert the transactions in the signed bundle to trytes and push them into a new array -->
 
-1. Convert the transactions in the signed bundle to trytes and push them into a new array
-
-   ```js
-   const trytes = []
-   for (let offset = 0; offset < bundle.length; offset += Transaction.TRANSACTION_LENGTH) {
+    ```js
+    const trytes = []
+    for (let offset = 0; offset < bundle.length; offset += Transaction.TRANSACTION_LENGTH) {
       trytes.push(Converter.tritsToTrytes(bundle.subarray(offset, offset + Transaction.TRANSACTION_LENGTH)));
-   }
-   ```
+    }
+    ```
 
-2. Connect to a node by adding the URL of one to the `provider` field
+2. `provider`フィールドにURLを追加して、ノードに接続します。
+  <!-- 2. Connect to a node by adding the URL of one to the `provider` field -->
 
-   ```js
-   const iota = Iota.composeAPI({
+    ```js
+    const iota = Iota.composeAPI({
       provider: ''
-   });
-   ```
+    });
+    ```
 
-3. Set the node configuration options
+3. ノード構成オプションを設定します。
+  <!-- 3. Set the node configuration options -->
 
-   ```js
-   const depth = 3;
-   const minWeightMagnitude = 14;
-   ```
+    ```js
+    const depth = 3;
+    const minWeightMagnitude = 14;
+    ```
 
-   :::info:Depth
-   The `depth` argument affects [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md). The greater the depth, the farther back in the Tangle the weighted random walk starts.
-   :::
-   
-   :::info:Minimum weight magnitude
-   The [`minimum weight magnitude`](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) (MWM) argument affects the difficulty of proof of work (PoW). The greater the MWM, the more difficult the PoW.
-   
-   Every IOTA network enforces its own MWM. On the Devnet, the MWM is 9. But, on the Mainnet the MWM is 14. If you use a MWM that's too small, your transactions won't be valid and will never be confirmed.
-   :::
+    :::info:Depth
+    `depth`引数は[チップ選択](root://node-software/0.1/iri/concepts/tip-selection.md)に影響します。`depth`が大きいほど、タングルの奥に戻り、重み付きランダムウォークが始まります。
+    :::
+    <!-- :::info:Depth -->
+    <!-- The `depth` argument affects [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md). The greater the depth, the farther back in the Tangle the weighted random walk starts. -->
+    <!-- ::: -->
 
-4. Send the bundle's transaction trytes to the node
+    :::info:最小重量値（Minimum weight magnitude）
+    [`最小重量値`](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)（MWM）引数は、プルーフオブワーク（PoW）の難易度に影響します。MWMが大きいほど、PoWは難しくなります。
 
-   ```js
-   iota.sendTrytes(trytes.reverse(), depth, minWeightMagnitude)
-   .then(bundle => {
+    すべてのIOTAネットワークは、独自のMWMを強制します。Devnetでは、MWMは9です。しかし、Mainnetでは、MWMは14です。小さすぎるMWMを使用すると、トランザクションは有効にならず、確定されません。
+    :::
+    <!-- :::info:Minimum weight magnitude -->
+    <!-- The [`minimum weight magnitude`](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) (MWM) argument affects the difficulty of proof of work (PoW). The greater the MWM, the more difficult the PoW. -->
+    <!--  -->
+    <!-- Every IOTA network enforces its own MWM. On the Devnet, the MWM is 9. But, on the Mainnet the MWM is 14. If you use a MWM that's too small, your transactions won't be valid and will never be confirmed. -->
+    <!-- ::: -->
+
+4. バンドルのトランザクショントライトをノードに送信します。
+  <!-- 4. Send the bundle's transaction trytes to the node -->
+
+    ```js
+    iota.sendTrytes(trytes.reverse(), depth, minWeightMagnitude)
+    .then(bundle => {
       console.log(`Sent bundle: ${JSON.stringify(bundle, null, 1)}`)
-   })
-   .catch(error => {
+    })
+    .catch(error => {
       console.log(error);
-   });
-   ```
+    });
+    ```
 
-   :::info:
-   Here, we reverse the transaction trytes array because nodes expect a bundle to be sent head first.
-   :::
+    :::info:
+    ここで、ノードはバンドルの先頭トランザクションから先に送信されることを期待しているため、トランザクショントライト配列を逆にします。
+    :::
+    <!-- :::info: -->
+    <!-- Here, we reverse the transaction trytes array because nodes expect a bundle to be sent head first. -->
+    <!-- ::: -->
 
 :::success:
-You've sent a signed bundle that rescues IOTA tokens from a swept address.
+スウィープしたアドレスからIOTAトークンを救う署名済みバンドルを送信しました。
 :::
+<!-- :::success: -->
+<!-- You've sent a signed bundle that rescues IOTA tokens from a swept address. -->
+<!-- ::: -->
 
 :::warning:
-Until the bundle is confirmed, the tokens are still at risk of being withdrawn by an attacker.
+バンドルが確定されるまで、IOTAトークンは攻撃者によって取り出される危険性があります。
 
-To increase the chances of your bundle being confirmed, you can [promote and reattach it](root://dev-essentials/0.1/how-to-guides/confirm-pending-bundle.md).
+バンドルが確定される可能性を高めるには、[促進と再添付](root://dev-essentials/0.1/how-to-guides/confirm-pending-bundle.md)を行います。
 :::
+<!-- :::warning: -->
+<!-- Until the bundle is confirmed, the tokens are still at risk of being withdrawn by an attacker. -->
+<!--  -->
+<!-- To increase the chances of your bundle being confirmed, you can [promote and reattach it](root://dev-essentials/0.1/how-to-guides/confirm-pending-bundle.md). -->
+<!-- ::: -->
 
-## Sample code
+## サンプルコード
+<!-- ## Sample code -->
 
-This is the code for an example swept address that we used to test this tutorial.
+これは、このチュートリアルのテストに使用したスウィープアドレスの例のコードです。
+<!-- This is the code for an example swept address that we used to test this tutorial. -->
 
-You can [see the history of this address](https://thetangle.org/address/LIQJBJRBSTGYWHYRPCLLCZUMP9SLHCBBWGQ9YRFWYDFF9FMXIAELYLTTBXCPVIDWWZYIOJIFLUFYVZIBD) on a Tangle explorer.
+タングルエクスプローラーで[このアドレスの履歴を表示](https://thetangle.org/address/LIQJBJRBSTGYWHYRPCLLCZUMP9SLHCBBWGQ9YRFWYDFF9FMXIAELYLTTBXCPVIDWWZYIOJIFLUFYVZIBD)できます。
+<!-- You can [see the history of this address](https://thetangle.org/address/LIQJBJRBSTGYWHYRPCLLCZUMP9SLHCBBWGQ9YRFWYDFF9FMXIAELYLTTBXCPVIDWWZYIOJIFLUFYVZIBD) on a Tangle explorer. -->
 
 ```js
 const Iota = require('@iota/core');
@@ -222,38 +294,38 @@ const Converter = require('@iota/converter');
 const fs = require('fs');
 
 async function createUnsignedBundle({ outputAddress, inputAddress, securityLevel, value }) {
-   let bundle = new Int8Array();
-   const issuanceTimestamp = Converter.valueToTrits(Math.floor(Date.now() / 1000));
+  let bundle = new Int8Array();
+  const issuanceTimestamp = Converter.valueToTrits(Math.floor(Date.now() / 1000));
 
-   bundle = Bundle.addEntry(bundle, {
-      address: outputAddress,
-      value: Converter.valueToTrits(value),
+  bundle = Bundle.addEntry(bundle, {
+    address: outputAddress,
+    value: Converter.valueToTrits(value),
+    issuanceTimestamp
+  });
+
+  // For every security level, we need a new zero-value transaction in which to add the rest of the signature fragments
+  for (let i = 0; i < securityLevel; i++) {
+    bundle = Bundle.addEntry(bundle, {
+      address: inputAddress,
+      value: Converter.valueToTrits(i == 0 ? -value : 0),
       issuanceTimestamp
-   });
+    });
+  }
 
-    // For every security level, we need a new zero-value transaction in which to add the rest of the signature fragments
-   for (let i = 0; i < securityLevel; i++) {
-       bundle = Bundle.addEntry(bundle, {
-          address: inputAddress,
-          value: Converter.valueToTrits(i == 0 ? -value : 0),
-          issuanceTimestamp
-       });
-   }
+  const result = await Bundle.finalizeBundle(bundle);
 
-   const result = await Bundle.finalizeBundle(bundle);
-   
-   fs.writeFileSync('bundle', result, (error) => {
-      if(!error) {
-         console.log('Bundle details saved to file');
-      } else{
-         console.log(`Error writing file: ${error}`);
-      }});
+  fs.writeFileSync('bundle', result, (error) => {
+    if(!error) {
+      console.log('Bundle details saved to file');
+    } else{
+      console.log(`Error writing file: ${error}`);
+    }});
 
-   // Get the bundle hash trytes
-   const bundleHash = Converter.tritsToTrytes(Transaction.bundle(result));
+  // Get the bundle hash trytes
+  const bundleHash = Converter.tritsToTrytes(Transaction.bundle(result));
 
-   // Use the bundle hash in Hub to get the signature
-   console.log(bundleHash);
+  // Use the bundle hash in Hub to get the signature
+  console.log(bundleHash);
 }
 
 // Get the values for these parameters from Hub
@@ -262,14 +334,14 @@ let outputAddress = Converter.trytesToTrits('LYRGKMBCVZMTPRRMPDNNRXFVKIXTZCJTZDO
 let inputAddress = Converter.trytesToTrits('LIQJBJRBSTGYWHYRPCLLCZUMP9SLHCBBWGQ9YRFWYDFF9FMXIAELYLTTBXCPVIDWWZYIOJIFLUFYVZIBD');
 
 const params = {
-   // Address in trits to send the tokens from the swept address (without checksum)
-   outputAddress: outputAddress,
-   // Swept address in trits (without checksum)
-   inputAddress: inputAddress,
-   // Security level of the swept address
-   securityLevel: 2,
-   // Total amount of IOTA tokens to withdraw from the swept address
-   value: 1 
+  // Address in trits to send the tokens from the swept address (without checksum)
+  outputAddress: outputAddress,
+  // Swept address in trits (without checksum)
+  inputAddress: inputAddress,
+  // Security level of the swept address
+  securityLevel: 2,
+  // Total amount of IOTA tokens to withdraw from the swept address
+  value: 1
 }
 
 createUnsignedBundle(params);
@@ -284,12 +356,12 @@ bundle.set(Bundle.addSignatureOrMessage(bundle, signature, 1));
 
 const trytes = []
 for (let offset = 0; offset < bundle.length; offset += Transaction.TRANSACTION_LENGTH) {
-    trytes.push(Converter.tritsToTrytes(bundle.subarray(offset, offset + Transaction.TRANSACTION_LENGTH)));
+  trytes.push(Converter.tritsToTrytes(bundle.subarray(offset, offset + Transaction.TRANSACTION_LENGTH)));
 }
 
 const iota = Iota.composeAPI({
-   // Replace with the URL of the IRI node you want to send the transactions to
-    provider: 'https://pow.iota.community:443'
+  // Replace with the URL of the IRI node you want to send the transactions to
+  provider: 'https://pow.iota.community:443'
 });
 
 const depth = 3;
@@ -297,11 +369,10 @@ const minWeightMagnitude = 14;
 
 // We need the bundle to be in order head to tail before sending it to the node
 iota.sendTrytes(trytes.reverse(), depth, minWeightMagnitude)
-   .then(bundle => {
-      console.log(`Sent bundle: ${JSON.stringify(bundle, null, 1)}`)
-   })
-   .catch(error => {
-      console.log(error);
-   });
+  .then(bundle => {
+    console.log(`Sent bundle: ${JSON.stringify(bundle, null, 1)}`)
+  })
+  .catch(error => {
+    console.log(error);
+  });
 ```
-
