@@ -157,6 +157,14 @@ gRPCとprotobufに慣れていない場合は、[gRPCクイックスタートガ
 
 <a name="hub.rpc.ProcessTransferBatchReply"></a>
 
+### HubAddressBalanceReason
+
+| **名前** | **番号** | **説明** |
+| :------- | :------- | :------- |
+| HUB_UNKNOWN | 0 |              |
+| INBOUND     | 1 | スウィープインバウンド（残余アドレスとして使用） |
+| OUTBOUND    | 2 | スウィープアウトバウンド（入力として使用） |
+
 ### ProcessTransferBatchReply
 
 <a name="hub.rpc.ProcessTransferBatchRequest"></a>
@@ -182,7 +190,7 @@ gRPCとprotobufに慣れていない場合は、[gRPCクイックスタートガ
 
 | **フィールド** | **タイプ** | **ルール** | **説明** |
 | -------------- | ---------- | ---------- | -------- |
-| address          | [string](#string) | singular | ハブ所有者のアドレス（チェックサムなし） |
+| address          | [string](#string) | singular | 取り出しをするハブユーザーのアドレス（チェックサムなし） |
 | bundleHash       | [string](#string) | singular | 署名が必要なバンドルハッシュ |
 | authentication   | [string](#string) | singular | 認証トークン（使用する場合） |
 | validateChecksum | [bool](#bool)     | singular | アドレスを検証するかどうか |
@@ -264,6 +272,19 @@ gRPCとprotobufに慣れていない場合は、[gRPCクイックスタートガ
 | amount | [int64](#int64) | singular | 残高に変更した量 |
 | sweepBundleHash or withdrawalUUID | [string](#string) | singular | `DEPOSIT`イベントのバンドルハッシュか`WITHDRAWAL`の取り出しUUIDか`WITHDRAWAL_CANCELED`のいずれかが含まれます。 |
 
+<a name="hub.rpc.UserAccountBalanceEventType"></a>
+
+### UserAccountBalanceEventType
+
+| **名前** | **番号** | **説明** |
+| :------- | :------- | :------- |
+| UAB_UNKNOWN         | 0 | 未使用 |
+| DEPOSIT             | 1 | ユーザーアカウントへの預け入れ（正の量） |
+| BUY                 | 2 | ユーザーが転送バッチの一部として購入したトークン（正の量） |
+| WITHDRAWAL          | 3 | ユーザーの取り出しリクエスト（負の量） |
+| WITHDRAWAL_CANCELED | 4 | キャンセルされたユーザーの取り出しリクエスト（正の量） |
+| SELL                | 5 | ユーザーが転送バッチの一部として売却したトークン（負の量） |
+
 <a name="hub.rpc.UserAddressBalanceEvent"></a>
 
 ### UserAddressBalanceEvent
@@ -276,6 +297,16 @@ gRPCとprotobufに慣れていない場合は、[gRPCクイックスタートガ
 | reason | [UserAddressBalanceReason](#hub.rpc.UserAddressBalanceReason) | singular | アドレスの残高が変更された理由 |
 | tail transaction hash or bundle hash | [string](#string) | singular | `DEPOSIT`理由の末尾トランザクションハッシュまたは`SWEEP`理由のバンドルハッシュのいずれかが含まれます。 |
 | timestamp | [uint64](#uint64) | singular | 残高の変化が発生したエポックからのミリ秒単位の経過時間 |
+
+<a name="hub.rpc.UserAddressBalanceReason"></a>
+
+### UserAddressBalanceReason
+
+| **名前** | **番号** | **説明** |
+| :------- | :------- | :------- |
+| UADD_UNKNOWN | 0 | 不明 |
+| UA_DEPOSIT   | 1 | 新規ユーザーの預け入れ |
+| UA_SWEEP     | 2 | 新しいスウィープ |
 
 <a name="hub.rpc.UserWithdrawCancelRequest"></a>
 
@@ -331,6 +362,8 @@ gRPCとprotobufに慣れていない場合は、[gRPCクイックスタートガ
 
 <a name="hub.rpc.Error"></a>
 
+<a name="hub.rpc.HubAddressBalanceReason"></a>
+
 ### Error
 
 エラーはシリアル化され、ステータスの詳細フィールドに保存されます。
@@ -365,46 +398,13 @@ gRPCとprotobufに慣れていない場合は、[gRPCクイックスタートガ
 | GET_ADDRESS_FAILED              | 13 | rpc signing_serverの呼び出しに失敗しました（GetAddressForUUID）。 |
 | GET_SECURITY_LEVEL_FAILED       | 14 | rpc signing_serverの呼び出しに失敗しました（GetSecurityLevel）。 |
 
-<a name="hub.rpc.HubAddressBalanceReason"></a>
-
-### HubAddressBalanceReason
-
-| **名前** | **番号** | **説明** |
-| :------- | :------- | :------- |
-| HUB_UNKNOWN | 0 |              |
-| INBOUND     | 1 | スウィープインバウンド（残余アドレスとして使用） |
-| OUTBOUND    | 2 | スウィープアウトバウンド（入力として使用） |
-
-<a name="hub.rpc.UserAccountBalanceEventType"></a>
-
-### UserAccountBalanceEventType
-
-| **名前** | **番号** | **説明** |
-| :------- | :------- | :------- |
-| UAB_UNKNOWN         | 0 | 未使用 |
-| DEPOSIT             | 1 | ユーザーアカウントへの預け入れ（正の量） |
-| BUY                 | 2 | ユーザーが転送バッチの一部として購入したトークン（正の量） |
-| WITHDRAWAL          | 3 | ユーザーの取り出しリクエスト（負の量） |
-| WITHDRAWAL_CANCELED | 4 | キャンセルされたユーザーの取り出しリクエスト（正の量） |
-| SELL                | 5 | ユーザーが転送バッチの一部として売却したトークン（負の量） |
-
-<a name="hub.rpc.UserAddressBalanceReason"></a>
-
-### UserAddressBalanceReason
-
-| **名前** | **番号** | **説明** |
-| :------- | :------- | :------- |
-| UADD_UNKNOWN | 0 | 不明 |
-| UA_DEPOSIT   | 1 | 新規ユーザーの預け入れ |
-| UA_SWEEP     | 2 | 新しいスウィープ |
-
 ## スカラー値タイプ
 <!-- ## Scalar Value Types -->
 
-| .protoタイプ                   | メモ | C++での型 | Javaでの型 | Pythonでの型 |
-| ------------------------------ | ---- | --------- | ---------- | ------------ |
-| <a name="double" /> double     |      | double | double | float |
-| <a name="float" /> float       |      | float  | float  | float |
+| **.protoタイプ**               | **メモ** | **C++での型** | **Javaでの型** | **Pythonでの型** |
+| :----------------------------- | :------- | :------------ | :------------- | :--------------- |
+| <a name="double" /> double     |          | double | double | float |
+| <a name="float" /> float       |          | float | float | float |
 | <a name="int32" /> int32       | 可変長符号化を使用します。負の数をエンコードするのは非効率的です。- あなたのフィールドが負の値を持つ可能性が高い場合は、代わりにsint32を使用してください。 | int32 | int | int |
 | <a name="int64" /> int64       | 可変長符号化を使用します。負の数をエンコードするのは非効率的です。- あなたのフィールドが負の値を持つ可能性が高い場合は、代わりにsint64を使用してください。 | int64 | long | int/long |
 | <a name="uint32" /> uint32     | 可変長符号化を使用します。 | uint32 | int | int/long |

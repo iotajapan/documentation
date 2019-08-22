@@ -20,7 +20,7 @@
 | `--argon2MCost` | Argon2のメモリコスト（バイト単位）。このフラグについては、[Stack Exchangeのこのトピック](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options)を参照してください。 | 1 << 17 |
 | `--argon2Parallelism` | Argon2で並列に使用するスレッド数。このフラグについては、[Stack Exchangeのこのトピック](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options)を参照してください。 | 1 |
 | `--argon2Mode` | 使用するArgon2モード：1=Argon2i、2=Argon2id | 2 |
-| `--keySecLevel` | IOTA[秘密鍵](root://dev-essentials/0.1/concepts/addresses-and-signatures.md)に使用する[セキュリティレベル](root://dev-essentials/0.1/references/security-levels.md) | 2 |
+| <a name="keySec"></a>`--keySecLevel` | IOTA[秘密鍵](root://dev-essentials/0.1/concepts/addresses-and-signatures.md)に使用する[セキュリティレベル](root://dev-essentials/0.1/references/security-levels.md) | 2 |
 
 ## hub/db/db.ccからのフラグ
 <!-- ## Flags from hub/db/db.cc -->

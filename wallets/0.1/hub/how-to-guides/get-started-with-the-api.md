@@ -25,8 +25,8 @@
     sudo apt install -y npm
     ```
 
-2. grpccパッケージをインストールします。
-  <!-- 2. Install the grpcc package -->
+2. `grpcc`パッケージをインストールします。
+  <!-- 2. Install the `grpcc` package -->
 
     ```bash
     sudo npm install -g grpcc
@@ -44,6 +44,13 @@
     ```bash
     grpcc -i -a localhost:50051 -p proto/hub.proto
     ```
+
+    :::info:
+    バイナリがインストールされていないというエラーメッセージが表示される場合は、`node_modules`ディレクトリを削除してから、`sudo npm install -g --unsafe-perm grpcc`コマンドで`grpcc`パッケージを再インストールします。
+    :::
+    <!-- :::info: -->
+    <!-- If you see an error message about a binary not being installed, try removing your `node_modules` directory, then reinstall the `grpcc` package with the following command: `sudo npm install -g --unsafe-perm grpcc`. -->
+    <!-- ::: -->
 
     次のようなものが見えるはずです。
     <!-- You should see something like the following: -->
@@ -93,8 +100,15 @@
     <!-- The `pr` argument is a pre-built callback function that prints the result to the console. -->
     <!-- ::: -->
 
-    これで、データベースに新しいユーザーができました。[`user_account`テーブルを照会する](../how-to-guides/query-the-database.md)と、データベース内にこのユーザーを確認できます。
-    <!-- Now, you'll have a new user in the database. You can see this user in the database by [querying the `user_account` table](../how-to-guides/query-the-database.md). -->
+    これで、データベースに新しいユーザーができました。
+    Now, you'll have a new user in the database.
+
+    :::info:
+    [user_account`テーブルをクエリする](../how-to-guides/query-the-database.md)ことでデータベースでこのユーザーを確認することができます。
+    :::
+    <!-- :::info: -->
+    <!--  You can see this user in the database by [querying the `user_account` table](../how-to-guides/query-the-database.md). -->
+    <!--  ::: -->
 
 6. ユーザーの新しい預け入れアドレスを作成します。
   <!-- 5. Create a new deposit address for the user -->
@@ -119,12 +133,12 @@
     :::info:
     データベースでは、アドレスは常にチェックサムなしで保存されます。
 
-    すべてのアドレスは固有のシードから作成されます。すべてのシードは`seeduuid`フィールドの値と[`salt`](../references/command-line-flags.md)パラメータ（もし与えられていれば）のハッシュ値から作られます。
+    すべてのアドレスは固有のシードから作成され、すべてのシードは`seeduuid`フィールドの値と[`salt`](../references/command-line-flags.md)パラメータ（もし与えられていれば）のハッシュ値から作られます。
     :::
     <!-- :::info: -->
     <!-- In the database, addresses are always saved without the checksum. -->
     <!--  -->
-    <!-- All addresses are created from unique seeds. All seeds are created from a hash of the values of the `seeduuid` field and the [`salt`](../references/command-line-flags.md) parameter (if provided). -->
+    <!-- All addresses are created from unique seeds, and all seeds are created from a hash of the values of the `seeduuid` field and the [`salt`](../references/command-line-flags.md) parameter (if provided). -->
     <!-- ::: -->
 
 8. **Ctrl**+**C**を2回押して、gRPCクライアントを停止します。
@@ -134,7 +148,7 @@
 2つの異なる預け入れアドレスを持つ新しいユーザーを作成するために2つのgRPCメソッドを使用しました。
 これらの預け入れアドレスはそれぞれ、固有のシードから導出したものです。
 :::
-<!-- :::success:Congratulations!:tada: -->
+<!-- :::success:Congratulations :tada: -->
 <!-- You've successfully used two gRPC methods to create a new user with two different deposit addresses. -->
 <!-- Each of these deposit addresses was derived from a unique seed. -->
 <!-- ::: -->
@@ -142,11 +156,9 @@
 ## 次のステップ
 <!-- ## Next steps -->
 
-1. 預け入れアドレスのいずれかにIOTAトークンを預け入れます。
-<!-- 1. Send funds to one of the deposit addresses -->
-2. [`sweepSubscription()`](../references/api-reference.md#hub.rpc.SweepSubscriptionRequest)メソッドを使用して、新しいスウィープイベントを購読します。こうすることで、スウィープが行われるとハブから通知されます。
-<!-- 2. Use the [`sweepSubscription()`](../references/api-reference.md#hub.rpc.SweepSubscriptionRequest) method to subscribe to new sweep events. This way, Hub will let you know when a sweep takes place. -->
-3. [データベースを照会して](../how-to-guides/query-the-database.md)、各預け入れアドレスのシードを作成するために使用されたシードUUIDを見つけます。
-<!-- 3. [Query the database to find out the seed UUID](../how-to-guides/query-the-database.md) that was used to create the seed for each deposit address. -->
-4. [`userWithdraw()`](../references/api-reference.md#hub.rpc.UserWithdrawRequest)メソッドを使用して、預け入れアドレスからのIOTAトークンの取り出しを依頼します。
-<!-- 4. Use the [`userWithdraw()`](../references/api-reference.md#hub.rpc.UserWithdrawRequest) method to make a withdrawal request from the deposit address -->
+1. IOTAトークンをユーザーの預け入れアドレスの1つに預け入れる。
+<!-- 1. Deposit IOTA tokens into one of the user deposit addresses -->
+2. [`sweepSubscription`](../references/api-reference.md#hub.rpc.SweepSubscriptionRequest)メソッドを使用して、新しいスウィープイベントを購読する。こうすることで、スウィープが行われるとハブから通知されます。
+<!-- 2. Use the [`sweepSubscription`](../references/api-reference.md#hub.rpc.SweepSubscriptionRequest) method to subscribe to new sweep events. This way, Hub will let you know when a sweep takes place. -->
+4. [`userWithdraw`](../references/api-reference.md#hub.rpc.UserWithdrawRequest)メソッドを使用して、預け入れアドレスからのIOTAトークンの取り出しを依頼する。
+<!-- 3. Use the [`userWithdraw()`](../references/api-reference.md#hub.rpc.UserWithdrawRequest) method to make a withdrawal request from the deposit address -->
