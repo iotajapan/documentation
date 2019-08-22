@@ -1,4 +1,4 @@
-# ハブを暗号通貨取引所に統合する
+# ハブを暗号通貨交換所に統合する
 <!-- # Integrate Hub into a cryptocurrency exchange -->
 
 **ユーザーの残高をどのように管理するかに応じて、ハブをさまざまな方法で交換所に統合できます。**
@@ -10,7 +10,7 @@
 このガイドでは、2つの統合オプションについて説明します。
 <!-- In this guide, we discuss two integration options: -->
 
-- **ハブでユーザーの残高を管理する（デフォルト）：** 取引とユーザー残高を管理する最も簡単な方法
+- **ハブでユーザーの残高を管理する（デフォルト）：** トレードとユーザー残高を管理する最も簡単な方法
 <!-- - **Manage user balances in Hub (default):** Easiest way to manage trades and user balances -->
 - **ハブ外でユーザーの残高を管理する：** すべてのユーザーのIOTAトークンをハブの外部に保存する最も簡単な方法
 <!-- - **Manage user balances outside of Hub:** Easiest way to store all users' IOTA tokens outside of Hub -->
@@ -18,16 +18,16 @@
 ## 統合オプション1. ハブでユーザーの残高を管理する
 <!-- ## Integration option 1. Manage user balances in Hub -->
 
-ハブは、それぞれが残高を追跡しているユーザーアカウントをサポートします。このようにして、ユーザーは自分が所有するトークンと同数だけトークンをトレードできます。
+ハブは、それぞれが残高を追跡しているユーザーアカウントをサポートします。このようにして、ユーザーは自分が所有するIOTAトークンと同数だけIOTAトークンをトレードできます。
 <!-- Hub supports user accounts that each have a tracked balance. This way,users can trade and withdraw only as many tokens as they own. -->
 
 トレードを実行するには、`ProcessTransfers`または`UserWithdraw`エンドポイントを使用できます。
 <!-- To action a trade, you can use the `ProcessTransfers` or the `UserWithdraw` endpoints. -->
 
 :::info:
-`ProcessTransfers`エンドポイントを使用する場合、タングル上でトークンは転送されません。代わりに、ユーザーの残高はデータベース上で更新されます。これは、ユーザーが取り出しをリクエストできるトークンの数に影響します。
+`ProcessTransfers`エンドポイントを使用する場合、タングル上でIOTAトークンは転送されません。代わりに、ユーザーの残高はデータベース上で更新されます。これは、ユーザーが取り出しをリクエストできるIOTAトークンの量に影響します。
 
-`UserWithdraw`エンドポイントを使用すると、トークンはタングル上で転送され、データベース上のユーザーの残高も更新されます。
+`UserWithdraw`エンドポイントを使用すると、IOTAトークンはタングル上で転送され、データベース上のユーザーの残高も更新されます。
 :::
 <!-- :::info: -->
 <!-- When you use the `ProcessTransfers` endpoint, no tokens are transferred on the Tangle. Instead, the users' balances are updated in the database, which affects how many tokens users can request to withdraw. -->
@@ -35,14 +35,14 @@
 <!-- When you use the `UserWithdraw` endpoint, the tokens are transferred on the Tangle and the users' balances are updated in the database. -->
 <!-- ::: -->
 
-`UserWithdraw`エンドポイントを使用すると、ハブの所有者のアドレスではなく、ユーザーのアドレスからのみ取り出すことができるため、ハブの外側（コールドウォレット）にトークンを保存することは困難です。
+`UserWithdraw`エンドポイントを使用すると、ハブ所有者のアドレスではなく、ユーザーのアドレスからのみ取り出すことができるため、ハブの外側（コールドウォレット）にトークンを保存することは困難です。
 <!-- Because the `UserWithdraw` endpoint allows you to withdraw only from a user address and not the Hub owner's addresses, it's difficult to store tokens outside of Hub (in a cold wallet). -->
 
 | **ユーザーのアクション** | **交換所のアクション** | **ハブエンドポイント** |
 | :----------------------- | :--------------------- | :--------------------- |
 | 交換所にIOTAアカウントでサインアップします。 | ハブに新しいユーザーを作成します。 | `CreateUser` |
-| IOTAトークンを預け入れるる預け入れアドレスをリクエストします。 | ユーザーの新しい預け入れアドレスを作成します。 | `GetDepositAddress` |
-| IOTAトークンをアドレスに預け入れます。 | 預け入れがハブ所有者の新しいアドレスの1つにスイープされた後、交換所フロントエンドでユーザーに通知します。 | `BalanceSubscription` |
+| IOTAトークンを預け入れる預け入れアドレスをリクエストします。 | ユーザーの新しい預け入れアドレスを作成します。 | `GetDepositAddress` |
+| IOTAトークンをアドレスに預け入れます。 | 預け入れがハブ所有者の新しいアドレスの1つにスイープされた後、交換所のフロントエンドでユーザーに通知します。 | `BalanceSubscription` |
 | ハブ外のアドレスへの取り出しをリクエストします。 | 取り出しを発行します。 | `UserWithdraw` |
 | 別のユーザーからトークンを購入します。 | ハブデータベースの残高を更新することにより、2人のユーザー間のトレードを処理します。 | `ProcessTransfers` |
 
@@ -54,7 +54,7 @@
 <!-- |Requests a withdrawal to an address outside of Hub|Issues the withdrawal|`UserWithdraw`| -->
 <!-- |Buys tokens from another user|Actions the trade between the two users by updating their balances in the Hub database|`ProcessTransfers`| -->
 
-### IOTAトークンをハブの外部に保存する
+### IOTAトークンをハブ外に保存する
 <!-- ### Store IOTA tokens outside of Hub -->
 
 IOTAトークンをハブの外部に保存するには、ハブ所有者のアドレスの1つから新しいコールドウォレットアドレスにIOTAトークンを転送する必要があります。
@@ -73,7 +73,7 @@ IOTAトークンをハブの外部に保存するには、ハブ所有者のア�
 2. コールドストレージとして使用する`hub_address`テーブル行のハブアドレスに対して、[`is_cold_storage`](../references/database-tables.md#hub_address)フィールドを1に設定します。
   <!-- 2. Set the [`is_cold_storage`](../references/database-tables.md#hub_address) field to 1 for any Hub addresses in the `hub_address` table row that you want to use as cold storage. -->
 
-3. 選択したハブアドレスのシードUUIDを保存し、ハブから削除します。
+3. 選択したハブアドレスのシードUUIDを保存し、そのシードUUIDをハブから削除します。
   <!-- 3. Save the seed UUIDs of your chosen Hub addresses, then delete it from Hub -->
 
 4. シードUUID（および設定されている場合はソルト）を使用して、ハブ外の選択したハブアドレスのシードを再作成します。
@@ -129,8 +129,8 @@ IOTAトークンをハブの外部に保存するには、ハブ所有者のア�
 | **ユーザーのアクション** | **交換所のアクション** | **ハブエンドポイント** |
 | :----------------------- | :--------------------- | :--------------------- |
 | 交換所にIOTAアカウントでサインアップします。 | ハブに新しいユーザーを作成します。 | `CreateUser` |
-| IOTAトークンを預け入れるる預け入れアドレスをリクエストします。 | ユーザーの新しい預け入れアドレスを作成します。 | `GetDepositAddress` |
-| IOTAトークンをアドレスに預け入れます。 | 預け入れがハブ所有者の新しいアドレスの1つにスイープされた後、交換所フロントエンドでユーザーに通知します。次に、ホットウォレットがすべてのIOTAトークンを所有するように、ハブデータベースを更新します。| `BalanceSubscription`と`ProcessTransfers` |
+| IOTAトークンを預け入れる預け入れアドレスをリクエストします。 | ユーザーの新しい預け入れアドレスを作成します。 | `GetDepositAddress` |
+| IOTAトークンをアドレスに預け入れます。 | 預け入れがハブ所有者の新しいアドレスの1つにスイープされた後、交換所のフロントエンドでユーザーに通知します。次に、ホットウォレットがすべてのIOTAトークンを所有するように、ハブデータベースを更新します。| `BalanceSubscription`と`ProcessTransfers` |
 | ハブ外のアドレスへの取り出しをリクエストします。 | ホットウォレットからユーザーが選択したアドレスへの取り出しを発行します。 | `UserWithdraw` |
 | 別のユーザーからトークンを購入します。 | ユーザーが交換所で暗号資産を売買する場合、ホットウォレットがすべてのトークンを所有しているため、ハブには何も記録されません。その結果、交換所はハブ外のすべてのアカウンティングを処理する必要があります。 | `ProcessTransfers` |
 
@@ -142,7 +142,7 @@ IOTAトークンをハブの外部に保存するには、ハブ所有者のア�
 <!-- |Requests a withdrawal to an address outside of Hub|Actions the withdrawal from the hot wallet to the user's chosen address|`UserWithdraw`| -->
 <!-- |Buys tokens from another user|When users buy and sell cryptocurrencies on the exchange, nothing is recorded in Hub because as far as Hub is aware, the hot wallet owns all the tokens. As a result, the exchange must handle all the accounting outside of Hub.|None| -->
 
-### IOTAトークンをハブの外部に保存する
+### IOTAトークンをハブ外に保存する
 <!-- ### Store IOTA tokens outside of Hub -->
 
 IOTAトークンをハブの外部に保存するには、IOTAトークンをホットウォレットアドレスからコールドウォレットアドレスに転送する必要があります。
@@ -175,7 +175,7 @@ IOTAトークンをハブの外部に保存するには、IOTAトークンをホ
   <!-- 1. Create a new deposit address for the hot wallet, using the `GetDepositAddress` endpoint -->
 
   :::warning:警告
-  アドレスから2回以上取り出しを行なってはいけません。
+  同じアドレスから2回以上取り出しを行なってはいけません。
   :::
    <!-- :::warning:Warning -->
    <!-- Addresses must never be withdrawn from more than once. -->

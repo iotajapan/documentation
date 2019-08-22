@@ -1,7 +1,7 @@
 # gRPC APIを使い始める
 <!-- # Get started with the gRPC API -->
 
-**ハブは、任意のgRPCクライアントを使用して呼び出すことができるいくつかのgRPCメソッドを公開しています。これらの方法で、データベースおよびIOTAネットワークとやり取りすることでユーザーのトークンを管理できます。このガイドでは、新しい預け入れアドレスを持つ新しいユーザーを作成するためのgRPC APIの基本について学習します。**
+**ハブは、任意のgRPCクライアントを使用して呼び出すことができるいくつかのgRPCメソッドを公開しています。これらの方法で、データベースおよびIOTAネットワークとやり取りすることでユーザーのIOTAトークンを管理できます。このガイドでは、新しい預け入れアドレスを持つ新しいユーザーを作成するためのgRPC APIの基本について学習します。**
 <!-- **Hub exposes some gRPC methods that you can call using any gRPC client. These methods allow you to manage users' tokens by interfacing with the database and an IOTA network. In this guide, you'll learn the basics of the gRPC API to create a new user with some new deposit addresses.** -->
 
 :::info:
@@ -101,7 +101,7 @@
     <!-- ::: -->
 
     これで、データベースに新しいユーザーができました。
-    Now, you'll have a new user in the database.
+    <!-- Now, you'll have a new user in the database. -->
 
     :::info:
     [user_account`テーブルをクエリする](../how-to-guides/query-the-database.md)ことでデータベースでこのユーザーを確認することができます。
@@ -127,7 +127,7 @@
     client.getDepositAddress({userId: "Jake", includeChecksum: true}, pr)
     ```
 
-    これで、ユーザーは2つの異なる`seeduuid`フィールドから作成された2つのアドレスを持つことになります。[`user_address`テーブルを照会する](../how-to-guides/query-the-database.md)ことで、データベース内のこのデータを見ることができます。
+    これで、ユーザーは2つの異なる`seeduuid`フィールドから作成された2つのアドレスを持つことになります。[`user_address`テーブルにクエリする](../how-to-guides/query-the-database.md)ことで、データベース内のこのデータを見ることができます。
     <!-- Now, that user will have two addresses that were created from two different `seeduuid` fields. You can see this data in the database by [querying the `user_address` table](../how-to-guides/query-the-database.md). -->
 
     :::info:

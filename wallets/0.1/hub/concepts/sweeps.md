@@ -1,7 +1,7 @@
 # スウィープ
 <!-- # Sweeps -->
 
-**スイープは、ユーザーの取り出しと預け入れの残高のバンドルです。ユーザーがIOTAトークンをハブアドレスに預け入れるか、ハブアドレスから取り出すと、ハブはそれらの転送を1つのスイープに結合します。取り出しの合計が預け入れの合計よりも少ない場合、ハブは残りの残高をハブ所有者に属する新しいアドレスに転送します。預け入れの合計が取り出しの合計よりも少ない場合、ハブはハブ所有者のアドレスのトークンを使用して、残りの取り出しの残高を満たします。**
+**スイープは、ユーザーの取り出しと預け入れの残高のバンドルです。ユーザーがIOTAトークンをハブアドレスに預け入れるか、ハブアドレスから取り出すと、ハブはそれらの転送を1つのスイープに結合します。取り出しの合計が預け入れの合計よりも少ない場合、ハブは残りの残高をハブ所有者に属する新しいアドレスに転送します。預け入れの合計が取り出しの合計よりも少ない場合、ハブはハブ所有者のアドレスのIOTAトークンを使用して、残りの取り出しの残高を満たします。**
 <!-- **A sweep is a bundle that balances users' withdrawals and deposits. When users deposit IOTA tokens into a Hub address or when users withdraw them from one, Hub combines those transfers into a sweep. If the total amount of withdrawals is less than the total amount of deposits, then Hub transfers the remaining balance to a new address that belongs to the Hub owner. If the total amount of deposits is less than the total amount of withdrawals, Hub uses the tokens in the Hub owner's addresses to fulfill the remaining withdrawal balance.** -->
 
 スイープは、ハブ所有者に属する安全なアドレスにユーザーの預け入れが転送されることを保証するオプションの安全機能です。
@@ -54,7 +54,7 @@ IOTAはWinternitzワンタイム署名スキームを使用して署名を作成
 5. すべての預け入れIOTAトークンを選択した取り出しアドレスに転送するスイープを作成します。1回のスイープで発行できる預け入れ/取り出しの数は、[`--sweep_max_deposit`および`--sweep_max_withdrawal`](../references/command-line-flags.md#sweepLimits)フラグによって制限されます。
   <!-- 5. Create a sweep that transfers any deposited IOTA tokens to the chosen withdrawal addresses. The number of deposits and withdrawals that can be issued in a single sweep is limited by the [`--sweep_max_deposit` and `--sweep_max_withdrawal`](../references/command-line-flags.md#sweepLimits) flags. -->
 
-6. スイープ内の末尾トランザクションの包含状態を確認して、確定されたかどうかを判断します。スイープ内のトランザクションが確定されるまで、ハブは末尾トランザクションを[再添付と促進](root://dev-essentials/0.1/concepts/reattach-rebroadcast-promote.md)します。
+6. スイープ内の末尾トランザクションの包含状態を確認して、確定されたかどうかを判断します。スイープ内のトランザクションが確定されるまで、ハブは末尾トランザクションの[再添付と促進](root://dev-essentials/0.1/concepts/reattach-rebroadcast-promote.md)を行います。
   <!-- 6. Check the inclusion state of the tail transaction in the sweep to determine if it's been confirmed. Hub [reattaches and promotes](root://dev-essentials/0.1/concepts/reattach-rebroadcast-promote.md) the tail transaction until the transactions in the sweep are confirmed. -->
 
 7. スイープのトランザクションが確定されたら、データベーステーブルのユーザーの残高を更新します。

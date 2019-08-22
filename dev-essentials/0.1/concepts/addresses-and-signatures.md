@@ -7,7 +7,7 @@
 IOTAネットワーク内のすべてのノードは、すべてのアドレスのプラスの残高を記録します。
 <!-- All nodes in an IOTA network keep a record of the positive balances of all addresses. -->
 
-この記録は以下のようになります。アドレスはセミコロンの左側にあり、残高は右側にあります。
+アドレスの記録は以下のようになります。アドレスはセミコロンの左側にあり、残高は右側にあります。
   <!-- This record looks something like this, where the address is on the left of the semicolon and the balance is on the right: -->
 
   ```bash
@@ -23,7 +23,7 @@ IOTAネットワーク内のすべてのノードは、すべてのアドレス�
 有効な署名を作成するには、クライアントは、IOTAトークンの取り出し元のアドレスに対応する秘密鍵を必要とします。
 <!-- To create a valid signature, a client needs the private key that corresponds to the address from which IOTA tokens are being withdrawn. -->
 
-この秘密鍵を作成する唯一の方法は、アドレスの作成に使用されたシードを所有することです。このように、署名は、秘密鍵の所有権、つまりシードの所有権を証明することによって、アドレスの所有権を証明します。
+この秘密鍵を作成する唯一の方法は、アドレスの作成に使用したシードを所有していることです。このように、署名は、秘密鍵の所有権、つまりシードの所有権を証明することによって、アドレスの所有権を証明します。
 <!-- The only way to create this private key is by owning the seed that was used to create the address. This way, signatures prove ownership of an address by proving ownership of the private key and thus the seed. -->
 
 ## IOTAでのシードの使い方
@@ -39,7 +39,7 @@ IOTAネットワーク内のすべてのノードは、すべてのアドレス�
 * **セキュリティレベル：** 秘密鍵の長さに影響を与える1から3の間の数
 <!-- * **Security level:** Number between 1 and 3 that affects the length of a private key -->
 
-同じシード、インデックス、セキュリティレベルを使用する場合、ハッシュ関数は常に同じアドレスと秘密鍵のペアを返します。このプロパティは、アドレスと秘密鍵を_決定的_にします。シードを使用して、インデックスを増やし、3つのセキュリティレベルをすべて使用することにより、ほぼ無制限の数のアドレスと秘密鍵のペア（9<sup>57</ sup>）を作成できます。
+同じシード、インデックス、セキュリティレベルを使用する場合、ハッシュ関数は常に同じアドレスと秘密鍵のペアを返します。このプロパティは、アドレスと秘密鍵を_決定論的_にします。シードを使用して、インデックスを増やし、3つのセキュリティレベルをすべて使用することにより、ほぼ無制限の数のアドレスと秘密鍵のペア（9<sup>57</sup>）を作成できます。
 <!-- If you use the same seed, index, and security level, the hash function will always return the same address and private key pair. This property makes addresses and private keys _deterministic_. Seeds can be used to create an almost unlimited number of addresses and private key pairs (9<sup>57</sup>) by incrementing the index and using all three security levels. -->
 
 :::info:
@@ -49,7 +49,7 @@ IOTAネットワーク内のすべてのノードは、すべてのアドレス�
 <!-- You can try this by using our JavaScript client library to [create a new address](../how-to-guides/create-an-address.md). -->
 <!-- ::: -->
 
-アドレスを作成する最初の手順は、シード、インデックス、およびセキュリティレベルから秘密鍵を取得することです。
+アドレスを作成する最初の手順は、シード、インデックス、およびセキュリティレベルから秘密鍵を導出することです。
 <!-- The first step to create an address is to derive a private key from the seed, index, and security level. -->
 
 ## 秘密鍵の導出方法
@@ -65,7 +65,7 @@ IOTAネットワーク内のすべてのノードは、すべてのアドレス�
   Kerl(seed + index)
   ```
 
-秘密鍵を導出するために、セキュリティレベルごとに27回[スポンジ関数](https://keccak.team/sponge_duplex.html)で**subseed**を吸収して圧搾します。
+秘密鍵を導出するために、セキュリティレベルごとに27回[スポンジ関数](https://keccak.team/sponge_duplex.html)で**subseed**を吸収し圧搾します。
 <!-- To derive a private key, the subseed is absorbed and squeezed in a [sponge function](https://keccak.team/sponge_duplex.html) 27 times per security level. -->
 
 スポンジ関数の結果は、[セキュリティレベル](../references/security-levels.md)に応じて長さが異なる秘密鍵です。セキュリティレベルが高いほど、秘密鍵はより長くより安全になります。
@@ -84,7 +84,7 @@ IOTAネットワーク内のすべてのノードは、すべてのアドレス�
 <!-- A group of 27 hashed segments is called a **key fragment**. -->
 <!-- ::: -->
 
-秘密鍵は2,187トライト、4374トライト、または6,561トライトで構成されているため、秘密鍵にはセキュリティレベルごとに1つのキーフラグメントが存在します。たとえば、セキュリティレベル1の秘密鍵は2,187トライトで構成されています。これは27個のセグメントからなり、1つのキーフラグメントになります。セキュリティレベル2では2つのキーフラグメント、セキュリティレベル3では3つのキーフラグメントとなります。
+秘密鍵は2,187トライト、4374トライト、または6,561トライトで構成されているため、秘密鍵にはセキュリティレベルごとに1つのキーフラグメントが存在します。たとえば、セキュリティレベル1の秘密鍵は2,187トライトで構成されています。よってセキュリティレベル1の秘密鍵は2,178/81=27より、27個のセグメントからなり、1つのキーフラグメントになります。セキュリティレベル2では2つのキーフラグメント、セキュリティレベル3では3つのキーフラグメントとなります。
 <!-- Because a private key consists of 2,187, 4,374, or 6,561 trytes, a private key has one key fragment for each security level. For example, a private key with security level 1 consists of 2,187 trytes, which is 27 segments, which results in one key fragment. -->
 
 各キーフラグメントは1回ハッシュ化されて、セキュリティレベルごとに1つの**キーダイジェスト**を導出します。次に、キーダイジェストが結合され、1回ハッシュ化されて、81トライトのアドレスが導出されます。
@@ -100,7 +100,7 @@ IOTAネットワーク内のすべてのノードは、すべてのアドレス�
 ![Address generation](../images/address-generation.png)
 
 :::info:アドレスを導出する
-JavaScriptクライアントライブラリを使用して[秘密鍵からアドレスを導出する](../how-to-guides/derive-addresses-from-private-keys.md)。
+JavaScriptクライアントライブラリを使用して[秘密鍵からアドレスを導出できます](../how-to-guides/derive-addresses-from-private-keys.md)。
 :::
 <!-- :::info:Want to try this out? -->
 <!-- Use the JavaScript client library to [derive addresses from private keys](../how-to-guides/derive-addresses-from-private-keys.md). -->
@@ -129,7 +129,7 @@ IOTAはWinternitzワンタイム署名スキーム（W-OTS）を使用して署�
 <!-- By signing the bundle hash, it's impossible for attackers to intercept a bundle and change any transaction without changing the bundle hash and invalidating the signature. -->
 
 :::info:
-バンドルハッシュは、各トランザクションの`address`、`value`、`obsoleteTag`、`currentIndex`、`lastIndex`、そして`timestamp`フィールドの値のハッシュ値から導出されます。このバンドルハッシュは、パッケージを保証するために各トランザクションの`bundle`フィールドに含まれています。これらのフィールドのいずれかの値が変更されると、ノードはバンドルハッシュを無効にします。
+バンドルハッシュは、各トランザクションの`address`、`value`、`obsoleteTag`、`currentIndex`、`lastIndex`、そして`timestamp`フィールドの値のハッシュ値から導出されます。このバンドルハッシュは、パッケージを保証するために各トランザクションの`bundle`フィールドに含まれます。これらのフィールドのいずれかの値が変更されると、ノードはバンドルハッシュを無効にします。
 :::
 <!-- :::info: -->
 <!-- The bundle hash is derived from a hash of the values of each transaction's `address`, `value`, `obsoleteTag`, `currentIndex`, `lastIndex` and `timestamp` fields. This bundle hash is included in each transaction's `bundle` field to seal the package. If the values of any of these fields were to change, the nodes would invalidate the bundle hash. -->
@@ -138,7 +138,7 @@ IOTAはWinternitzワンタイム署名スキーム（W-OTS）を使用して署�
 ### 秘密鍵を使用して署名を作成する方法
 <!-- ### How private keys are used to create signatures -->
 
-アドレスから一度取り出しても常に安全であることを保証するために、最初にバンドルハッシュを正規化して、秘密鍵の半分だけが署名で公開されるようにします。
+アドレスから一度IOTAトークンの取り出しを行なっても常に安全であることを保証するために、最初にバンドルハッシュを正規化して、秘密鍵の半分だけが署名で公開されるようにします。
 <!-- To make sure that it's always safe to withdraw from an address once, first the bundle hash is normalized to make sure that only half of the private key is revealed in the signature. -->
 
 <a id="address-reuse"></a>
@@ -150,7 +150,7 @@ IOTAはWinternitzワンタイム署名スキーム（W-OTS）を使用して署�
 <!-- If an address is withdrawn from (spent) more than once, more of the private key is revealed, so an attacker could brute force its signature and steal the IOTA tokens. -->
 <!-- ::: -->
 
-秘密鍵が持つキーフラグメントの数に応じて、27、54、または81トライトの正規化バンドルハッシュが選択されます。これらのトライトはキーフラグメント内のセグメントの個数に対応しています。
+秘密鍵が持つキーフラグメントの数に応じて、27トライト、54トライト、または81トライトの正規化バンドルハッシュが選択されます。これらのトライトはキーフラグメント内のセグメントの個数に対応しています。
 <!-- Depending on the number of key fragments that a private key has, 27, 54, or 81 trytes of the normalized bundle hash are selected. These trytes correspond to the number of segments in a key fragment. -->
 
 正規化バンドルハッシュの各トライトは、[10進数に変換](../references/tryte-alphabet.md)されます。そして、それぞれについて次の計算が実行されます。
@@ -179,7 +179,7 @@ IOTAはWinternitzワンタイム署名スキーム（W-OTS）を使用して署�
 署名を検証するために、ノードはバンドルハッシュを正規化します。
 <!-- To verify a signature, nodes normalize the bundle hash. -->
 
-そして、署名の長さに応じて、正規化バンドルハッシュの27、54、または81トライトが選択されます。これらのトライトは、署名フラグメント内の81トライトセグメントの数に対応しています。
+そして、署名の長さに応じて、正規化バンドルハッシュの27トライト、54トライト、または81トライトが選択されます。これらのトライトは、署名フラグメント内の81トライトセグメントの数に対応しています。
 <!-- Then, depending on the length of the signature, 27, 54, or 81 trytes of the normalized bundle hash are selected. These trytes correspond to the number of 81-tryte segments in a signature fragment. -->
 
 正規化バンドルハッシュの各トライトは[10進数に変換](../references/tryte-alphabet.md)されます。そして、それぞれについて次の計算が実行されます。
