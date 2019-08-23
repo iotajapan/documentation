@@ -10,7 +10,7 @@
 平衡3進法では、データは1、0、または-1として表すことができます。これらの値はトリットと呼ばれます。3トリットは1トライトに相当します。これは27（3<sup>3</sup>）の可能な値を持つことができます。
 <!-- In balanced trinary, data can be represented as 1, 0, or -1. These values are called trits. Three trits is equal to one tryte, which can have 27 (3<sup>3</sup>) possible values. -->
 
-IOTAは、1トライトを27文字（A〜Zと9）にエンコードした[トライト文字](../references/tryte-alphabet.md)を用いて、データを表現します。
+IOTAは、1トライトを27文字（A〜Zと9）にエンコードした[トライトアルファベット](../references/tryte-alphabet.md)を用いて、データを表現します。
 <!-- IOTA represents data as tryte-encoded characters, according to the [tryte alphabet](../references/tryte-alphabet.md) where each of the 27 characters consists of one tryte. -->
 
 幸い、自分でプログラムを書いてデータをバイトからトライトへ変換する必要はありません。[IOTAクライアントライブラリ](root://client-libraries/0.1/introduction/overview.md)には、データを変換するための組み込み関数があります。あるいは、[IOTAツール](https://laurencetennant.com/iota-tools/index.html)などのサービスを使用することもできます。
