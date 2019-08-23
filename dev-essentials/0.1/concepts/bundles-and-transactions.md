@@ -119,9 +119,9 @@
 出力トランザクションは、次のいずれかになります。
 <!-- Output transactions can be one of the following: -->
 
-* `signatureMessageFragment`フィールドにメッセージのみを含むゼロトークントランザクション
+* `signatureMessageFragment`フィールドにメッセージのみを含むゼロトークン出力トランザクション
 <!-- * A zero-value transactions that contains only a message in the `signatureMessageFragment` field -->
-* IOTAトークンを目的のアドレスに預け入れる正の値を持つトランザクション
+* IOTAトークンを目的のアドレスに預け入れる正の値を持つ出力トランザクション
 <!-- * A transaction with a positive value that deposits IOTA tokens into an address -->
 
 バンドルには複数の出力トランザクションを含めることができます。出力トランザクション内のメッセージが`signatureMessageFragment`フィールド（2187トライト）よりも大きい場合、そのメッセージは他のゼロトークン出力トランザクションにまたがって分断化される可能性があります。
