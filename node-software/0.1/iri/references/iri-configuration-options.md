@@ -60,6 +60,7 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 
 ## Network
 
+<<<<<<< HEAD
 これらの設定を使用して、ノードが近隣ノードと通信する方法をカスタマイズします。
 <!-- Use these settings to customize how your node communicates with neighbors. -->
 
@@ -77,6 +78,7 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 | <a name="p-remove-request"></a> `--p-remove-request` | `P_REMOVE_REQUEST` | IRIがトランザクションをリクエストするのを止める確率を設定します。 | 0から1の間の数 |0.01 | 存在しないトランザクションハッシュが最終的に削除されるように、この数は0に近いはずです。 |
 | <a name="queue-size"></a> `--queue-size` | `Q_SIZE_NODE` | REPLY、BROADCAST、およびRECEIVEネットワークキューの最大サイズを設定します。 | number | 1,000 |
 | <a name="reconnect-attempt-interval-seconds"></a> `--reconnect-attempt-interval-seconds` | `RECONNECT_ATTEMPT_INTERVAL_SECONDS` | 切断された隣接ノードに再接続しようとする前に待機する秒数を設定します。 | number | 60 |
+| <a name="testnet"></a> `--testnet` | `TESTNET` | ノードをメインネット以外のネットワークで実行するかどうか | boolean | false |
 
 ## IXI
 
