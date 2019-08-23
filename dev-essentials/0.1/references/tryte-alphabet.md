@@ -7,7 +7,7 @@
 IOTAは[3進数](../concepts/trinary.md)システムを使用しています。そのため、アドレス、シード、署名などのデータはトライトに変換されます。読みやすくするために、これらの文字は27個ある文字コードの1つとして表示されます。
 <!-- IOTA uses a [trinary](../concepts/trinary.md) numeric system. As such, data, such as addresses, seeds, and signatures, is converted to trytes. To make the trytes easy to read, these trytes are represented as one of 27 possible tryte-encoded characters. -->
 
-|トライトがエンコードされた文字|トライト|10進数|
+|トライトがエンコードされたアルファベット|トライト|10進数|
 |:-----------------------------|:-------|:-----|
 |                               9|  0,  0,  0 |     0|
 |                               A|  1,  0,  0 |     1|
