@@ -13,8 +13,8 @@ IOTAをアプリやWebサイトに統合するには、次の3つの手順を完
 2. ノードを介してIOTAネットワークと対話できるように[クライアントライブラリをインストールする](#install-a-client-library)。
 <!-- 2. [Install a client library](#step-2.-install-a-client-library) so that you can interact with an IOTA network through a node -->
 
-3. [テストAPIリクエストを送信](#make-a-test-api-request)して、自分がノードに接続できていることを確認します。
-<!-- 3. [Make a test API request](#step-2.-make-a-test-api-request) to confirm that you're connected to a node -->
+3. [テストAPIリクエストを送信](#make-a-test-api-request)して、自分が同期済みノードに接続できていることを確認します。
+<!-- 3. [Make a test API request](#step-2.-make-a-test-api-request) to confirm that you're connected to a synchronized node -->
 
 :::info:開発者ではありませんか？
 コードを記述しなくてもIOTAがどのように機能するかを知りたい場合は、[トリニティを使用してシードを作成し、初めてのデータトランザクションを送信する](../tutorials/send-a-zero-value-transaction-with-the-trinity-wallet.md)こともできます。
@@ -160,15 +160,39 @@ $ go get github.com/iotaledger/iota.go/api
 ## 手順.3 テストAPIリクエストを送信する
 <!-- ## Step 3. Make a test API request -->
 
-ライブラリをテストするには、`getNodeInfo()`メソッドを呼び出してノードに接続し、そこからタングルに関する情報をリクエストします。
-<!-- To test the libraries, you can connect to a node and request information about the Tangle from it by calling the `getNodeInfo()` method. -->
+ノードを使用する前に、ノードがIOTAネットワークの残りの部分と同期していることを確認する必要があります。そうすることで、最新の[タングルの概観](root://dev-essentials/0.1/concepts/the-tangle.md)になります。
+<!-- Before you use a node, you should make sure that it's synchronized with the rest of the network. This way, you know that it has an up-to-date [view of the Tangle](root://dev-essentials/0.1/concepts/the-tangle.md). -->
+
+`latestMilestoneIndex`フィールドが`latestSolidSubtangleMilestoneIndex`フィールドと等しい場合、ノードは同期していると見なされます。
+<!-- A node is considered synchronized when the `latestMilestoneIndex` field is equal to the `latestSolidSubtangleMilestoneIndex` field. -->
+
+`latestMilestoneIndex`フィールドは、ノードが隣接ノードから受信した最新のマイルストーンのインデックスです。
+<!-- The `latestMilestoneIndex` field is the index of the latest milestone that the node has received from its neighbors. -->
+
+`latestSolidSubtangleMilestoneIndex`フィールドは、ノードの台帳にマイルストーンが直接および間接的に参照したすべてのトランザクションがある最新のマイルストーンのインデックスです。
+<!-- The `latestSolidSubtangleMilestoneIndex` field is the index of the latest milestone for which the node's ledger has all the transactions that the milestone directly and indirectly references. -->
 
 :::info:
-ここでは、テストに使用できる[IOTAネットワーク](../references/iota-networks.md)の1つであるDevnet上のノードに接続します。Devnetは、トークンが無料であること以外はMainnetと似ています。
+`latestMilestoneIndex`と`latestSolidSubtangleMilestoneIndex`フィールドは、IRIノードが同期済み隣接ノードに接続されている場合にのみ正確です。
 :::
 <!-- :::info: -->
-<!-- Here, we connect to a node on the Devnet, which is one of the [IOTA networks](../references/iota-networks.md) that you can use for testing. The Devnet is similar to the Mainnet, except the tokens are free. -->
+<!-- The `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are accurate only when the IRI node is connected to synchronized neighbors. -->
 <!-- ::: -->
+
+1. 現在の`latestMilestoneIndex`フィールドを確認するには、[Discord](https://discord.iota.org)に移動し、いずれかのチャンネルに**!milestone**を入力します。
+  <!-- 1. To check the current `latestMilestoneIndex` field, go to our [Discord](https://discord.iota.org) and enter **!milestone** in one of the channels -->
+
+    ![Entering !milestone on Discord](../images/discord-milestone-check.PNG)
+
+2. ノードが同期されているかどうかを確認するには、`getNodeInfo()`メソッドを呼び出します。
+  <!-- 2. To check if your node is synchronized, call the `getNodeInfo()` method -->
+
+    :::info:
+    ここでは、テストに使用できる[IOTAネットワーク](../references/iota-networks.md)の1つであるDevnetのノードに接続します。Devnetは、トークンが無料であること以外はMainnetにほとんど同じです。
+    :::
+    <!-- :::info: -->
+    <!-- Here, we connect to a node on the Devnet, which is one of the [IOTA networks](../references/iota-networks.md) that you can use for testing. The Devnet is similar to the Mainnet, except the tokens are free. -->
+    <!-- ::: -->
 
 --------------------
 ### JavaScript
@@ -267,11 +291,17 @@ func handleErr(err error) {
 }
 ```
 
+`latestMilestoneIndex`フィールドがDiscordから取得した`latestMilestoneIndex`フィールドと`latestSolidSubtangleMilestoneIndex`フィールドに等しい場合、ノードは同期しています。
+<!-- If the `latestMilestoneIndex` field is equal to the one you got from Discord and the `latestSolidSubtangleMilestoneIndex` field, the node is synchronized. -->
+
+そうでない場合は、別のノードに接続してみてください。[iota.dance Webサイト](https://iota.dance/)には、Mainnetノードのリストがあります。
+<!-- If not, try connecting to a different node. The [iota.dance website](https://iota.dance/) includes a list of Mainnet nodes. -->
+
 :::success: おめでとうございます:tada:
-ノードへの接続を確認できました。これで、[トランザクションを送信する](../tutorials/send-a-zero-value-transaction-with-nodejs.md)準備が整いました。
+同期済みノードへの接続を確認できました。これで、[トランザクションを送信する](../tutorials/send-a-zero-value-transaction-with-nodejs.md)準備が整いました。
 :::
 <!-- :::success: Congratulations :tada: -->
-<!-- You've confirmed your connection to the node. Now, you're ready to [send a transaction to it](../tutorials/send-a-zero-value-transaction-with-nodejs.md). -->
+<!-- You've confirmed your connection to a synchronized node. Now, you're ready to [send a transaction to it](../tutorials/send-a-zero-value-transaction-with-nodejs.md). -->
 <!-- ::: -->
 
 :::info:
@@ -281,8 +311,8 @@ func handleErr(err error) {
 <!-- To learn what these fields mean, [see the API reference](root://node-software/0.1/iri/references/api-reference.md#getNodeInfo). -->
 <!-- ::: -->
 
-## コードを実行する（Node.js）
-<!-- ## Run the code (Node.js) -->
+# コードを実行する
+<!-- ## Run the code -->
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/Connect-to-a-node?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 

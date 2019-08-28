@@ -115,6 +115,18 @@ JavaScriptクライアントライブラリを使用して[秘密鍵からアド
 IOTAはWinternitzワンタイム署名スキーム（W-OTS）を使用して署名を作成します。この署名方式は量子耐性があります。つまり、署名は[量子コンピューター](https://en.wikipedia.org/wiki/Quantum_computing)からの攻撃に対して耐性があります。しかし、Winternitzワンタイム署名スキームは、秘密鍵の未知の量も公開してしまいます。
 <!-- IOTA uses the Winternitz one-time signature scheme (W-OTS) to create signatures. This signature scheme is quantum resistant, meaning that signatures are resistant to attacks from [quantum computers](https://en.wikipedia.org/wiki/Quantum_computing). But, this signature scheme also reveals an unknown amount of the private key. -->
 
+アドレスから一度IOTAトークンの取り出しを行なっても常に安全であることを保証するために、最初にバンドルハッシュを正規化して、秘密鍵の半分だけが署名で公開されるようにします。
+<!-- To make sure that it's always safe to withdraw from an address once, first the bundle hash is normalized to make sure that only half of the private key is revealed in the signature. -->
+
+<a id="address-reuse"></a>
+
+:::danger:署名済みアドレス
+1つのアドレスから2回以上IOTAトークンを取り出すと（署名すると）、より多くの秘密鍵が漏洩するため、攻撃者はその署名に総当たり攻撃を行いIOTAトークンを盗むことができます。
+:::
+<!-- :::danger:Spent addresses -->
+<!-- If an address is withdrawn from (spent) more than once, more of the private key is revealed, so an attacker could brute force its signature and steal the IOTA tokens. -->
+<!-- ::: -->
+
 署名を作成するには、秘密鍵を使用して、アドレスからIOTAトークンを取り出すトランザクションのバンドルハッシュに署名します。次に、署名の結果がトランザクションの[`signatureMessageFragment`フィールド](../references/structure-of-a-transaction.md)に追加されます。
 <!-- To create a signature, private keys are used to sign the bundle hash of any transaction that withdraws IOTA tokens from the address. Then, the resulting signature is added to the transaction's [`signatureMessageFragment` field](../references/structure-of-a-transaction.md). -->
 
@@ -137,18 +149,6 @@ IOTAはWinternitzワンタイム署名スキーム（W-OTS）を使用して署�
 
 ### 秘密鍵を使用して署名を作成する方法
 <!-- ### How private keys are used to create signatures -->
-
-アドレスから一度IOTAトークンの取り出しを行なっても常に安全であることを保証するために、最初にバンドルハッシュを正規化して、秘密鍵の半分だけが署名で公開されるようにします。
-<!-- To make sure that it's always safe to withdraw from an address once, first the bundle hash is normalized to make sure that only half of the private key is revealed in the signature. -->
-
-<a id="address-reuse"></a>
-
-:::danger:署名済みアドレス
-1つのアドレスから2回以上IOTAトークンを取り出すと（署名すると）、より多くの秘密鍵が漏洩するため、攻撃者はその署名に総当たり攻撃を行いIOTAトークンを盗むことができます。
-:::
-<!-- :::danger:Spent addresses -->
-<!-- If an address is withdrawn from (spent) more than once, more of the private key is revealed, so an attacker could brute force its signature and steal the IOTA tokens. -->
-<!-- ::: -->
 
 秘密鍵が持つキーフラグメントの数に応じて、27トライト、54トライト、または81トライトの正規化バンドルハッシュが選択されます。これらのトライトはキーフラグメント内のセグメントの個数に対応しています。
 <!-- Depending on the number of key fragments that a private key has, 27, 54, or 81 trytes of the normalized bundle hash are selected. These trytes correspond to the number of segments in a key fragment. -->

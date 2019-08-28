@@ -7,8 +7,8 @@
 ## プルーフオブワークについて
 <!-- ## About proof of work -->
 
-プルーフオブワーク（PoW）は、特定の要件を満たすために試行錯誤を使用して計算されるデータの一部です。PoWの重要なことは、製造が困難であるが検証が容易であるということです。
-<!-- A proof of work (PoW) is a piece of data that is calculated using trial and error to meet certain requirements. The key to PoW is that it's difficult to produce, but easy to verify. -->
+プルーフオブワーク（PoW）は、特定の要件を満たすために試行錯誤を使用して計算されるデータの一部です。PoWの重要なことは、PoWを行うことは困難であるがPoWの結果を確認することは容易であるということです。
+<!-- A proof of work (PoW) is a piece of data that is calculated using trial and error to meet certain requirements. The key to PoW is that it's difficult to do, but easy to check. -->
 
 大量の電子メールスパムを減らすための概念として、PoWが導入されました。この概念は[ハッシュキャッシュ](https://en.wikipedia.org/wiki/Hashcash)として知られており、ハッシュキャッシュはすべてのEメールの内容についてプルーフオブワークを要求することによってEメールのスパムを防ぎます。
 <!-- PoW was introduced as a concept to reduce large amounts of email spam. This concept is known as [hashcash](https://en.wikipedia.org/wiki/Hashcash), and is a method of preventing email spam by requiring a proof of work for the contents of every email. -->

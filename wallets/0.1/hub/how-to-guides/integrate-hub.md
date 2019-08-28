@@ -43,7 +43,7 @@
 | 交換所にIOTAアカウントでサインアップします。 | ハブに新しいユーザーを作成します。 | `CreateUser` |
 | IOTAトークンを預け入れる預け入れアドレスをリクエストします。 | ユーザーの新しい預け入れアドレスを作成します。 | `GetDepositAddress` |
 | IOTAトークンをアドレスに預け入れます。 | 預け入れがハブ所有者の新しいアドレスの1つにスイープされた後、交換所のフロントエンドでユーザーに通知します。 | `BalanceSubscription` |
-| ハブ外のアドレスへの取り出しをリクエストします。 | 取り出しを発行します。 | `UserWithdraw` |
+| ハブ外のアドレスへの取り出しをリクエストします。 | 取り出しを実行します。 | `UserWithdraw` |
 | 別のユーザーからトークンを購入します。 | ハブデータベースの残高を更新することにより、2人のユーザー間のトレードを処理します。 | `ProcessTransfers` |
 
 <!-- |**User action**|**Exchange action**|**Hub endpoint**| -->
@@ -51,7 +51,7 @@
 <!-- |Signs up for an IOTA account on the exchange|Creates a new user in Hub| `CreateUser`| -->
 <!-- |Requests a deposit address in which to deposit IOTA tokens|Creates a new deposit address for the user|`GetDepositAddress`| -->
 <!-- |Deposits IOTA tokens into the address|Notifies the user on the exchange frontend after the deposit has been swept to one of the Hub owner's new addresses| `BalanceSubscription`| -->
-<!-- |Requests a withdrawal to an address outside of Hub|Issues the withdrawal|`UserWithdraw`| -->
+<!-- |Requests a withdrawal to an address outside of Hub|Actions the withdrawal|`UserWithdraw`| -->
 <!-- |Buys tokens from another user|Actions the trade between the two users by updating their balances in the Hub database|`ProcessTransfers`| -->
 
 ### IOTAトークンをハブ外に保存する
@@ -130,7 +130,8 @@ IOTAトークンをハブの外部に保存するには、ハブ所有者のア�
 | :----------------------- | :--------------------- | :--------------------- |
 | 交換所にIOTAアカウントでサインアップします。 | ハブに新しいユーザーを作成します。 | `CreateUser` |
 | IOTAトークンを預け入れる預け入れアドレスをリクエストします。 | ユーザーの新しい預け入れアドレスを作成します。 | `GetDepositAddress` |
-| IOTAトークンをアドレスに預け入れます。 | 預け入れがハブ所有者の新しいアドレスの1つにスイープされた後、交換所のフロントエンドでユーザーに通知します。次に、ホットウォレットがすべてのIOTAトークンを所有するように、ハブデータベースを更新します。| `BalanceSubscription`と`ProcessTransfers` |
+| IOTAトークンをアドレスに預け入れます。 | 預け入れがハブ所有者の新しいアドレスの1つにスイープされた後、交換所のフロントエンドでユーザーに通知します。次に、交換所のバックエンドでユーザーの残高を更新します。| `BalanceSubscription` |
+| | ホットウォレットがすべてのIOTAトークンを所有するように、ハブデータベースを更新します。 | `ProcessTransfers` |
 | ハブ外のアドレスへの取り出しをリクエストします。 | ホットウォレットからユーザーが選択したアドレスへの取り出しを発行します。 | `UserWithdraw` |
 | 別のユーザーからトークンを購入します。 | ユーザーが交換所で暗号資産を売買する場合、ホットウォレットがすべてのトークンを所有しているため、ハブには何も記録されません。その結果、交換所はハブ外のすべてのアカウンティングを処理する必要があります。 | `ProcessTransfers` |
 
@@ -138,9 +139,11 @@ IOTAトークンをハブの外部に保存するには、ハブ所有者のア�
 <!-- |:----------|:--------------|:-----------| -->
 <!-- |Signs up for an IOTA account on the exchange|Creates a new user in Hub| `CreateUser`| -->
 <!-- |Requests a deposit address in which to deposit IOTA tokens|Creates a new deposit address for the user|`GetDepositAddress`| -->
-<!-- |Deposits IOTA tokens into the address|Notifies the user on the exchange frontend after the deposit has been swept to one of the Hub owner's new addresses. Then, updates the Hub database so that the hot wallet owns all the IOTA tokens| `BalanceSubscription` and `ProcessTransfers`| -->
+<!-- |Deposits IOTA tokens into the address|Notifies the user on the exchange frontend after the deposit has been swept to one of the Hub owner's new addresses. Then, updates the user's balance on the exchange backend.|`BalanceSubscription`| -->
+<!-- | |Updates the Hub database so that the hot wallet owns all the IOTA tokens|`ProcessTransfers`| -->
 <!-- |Requests a withdrawal to an address outside of Hub|Actions the withdrawal from the hot wallet to the user's chosen address|`UserWithdraw`| -->
 <!-- |Buys tokens from another user|When users buy and sell cryptocurrencies on the exchange, nothing is recorded in Hub because as far as Hub is aware, the hot wallet owns all the tokens. As a result, the exchange must handle all the accounting outside of Hub.|None| -->
+
 
 ### IOTAトークンをハブ外に保存する
 <!-- ### Store IOTA tokens outside of Hub -->

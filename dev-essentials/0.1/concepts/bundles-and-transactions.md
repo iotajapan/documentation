@@ -63,8 +63,8 @@
 * `lastIndex`
 * `timestamp`
 
-したがって、これらのフィールドのいずれかの値が変更されると、ノードはバンドル内のすべてのトランザクションを無効にします。
-<!-- So, if the values of any of these fields were to change, the nodes would invalidate all transactions in the bundle. -->
+したがって、これらのトランザクションのいずれかの値が変更されると、ノードはバンドル内のすべてのトランザクションを無効にします。
+<!-- So, if the values of any of these transaction fields were to change, the nodes would invalidate all transactions in the bundle. -->
 
 その結果、バンドルは不可分です。バンドル内のすべてのトランザクションが有効かつ確定済みであるか、またはどれも有効ではありません。
 <!-- As a result, bundles are atomic: Either all transactions in the bundle are valid and confirmed or none of them are. -->
@@ -75,15 +75,14 @@
 > オンラインで精算をするとして、支払うべき合計が10Miとします。あなたのシードは2つのアドレス（インデックス0と1）を持ち、両方とも5Miを含みます。したがって、3つのトランザクションを作成します。アドレス0から5Miを取り出す入力トランザクション、アドレス1から5Miを取り出す入力トランザクション、およびベンダーのアドレスに10Miを支払う出力トランザクションです。（入力トランザクションの両方のアドレスがセキュリティレベル1の秘密鍵から作成されたものとします。そのため、署名は各入力トランザクションに含まれています。）
 <!-- > You're at an online checkout and the total to pay is 10 Mi. Your seed has 2 addresses (index 0 and 1), which both contain 5 Mi. So, you create three transactions: One input transaction to withdraw 5 Mi from address 0, another input transaction to withdraw 5 Mi from address 1, and one output transaction to deposit 10 Mi to the vendor's address. (We'll assume that both addresses in the input transactions were created from a private key with security level 1, so the signatures can fit in each transaction.) -->
 
-> ベンダーが10Miを受け取るには、これら3つのトランザクションすべてが有効でなければなりません。各トランザクションは、IOTAトークンを転送するという目標を達成するために、互いの有効性に依存する連続的な命令です。
-<!-- > For the vendor to receive 10 Mi, all three of those transactions must be valid. They're sequential instructions that rely on each other's validity to achieve the goal of transferring IOTA tokens. -->
+> ベンダーが10Miを受け取るには、これら3つのトランザクションすべてが有効でなければなりません。各トランザクションは、10MiのIOTAトークンを転送するという目標を達成するために、互いの有効性に依存する連続的な命令です。
+<!-- > For the vendor to receive 10 Mi, all three of those transactions must be valid. They're sequential instructions that rely on each other's validity to achieve the goal of transferring 10 Mi. -->
 
 :::info:
-バンドルにパッケージ化する必要があるのは、複数のトランザクションだけではありません。
-1つのトランザクションでも、パッケージ化する必要があります。
+バンドルにパッケージ化する必要があるのは、複数のトランザクションだけではありません。1つのトランザクションでも、パッケージ化する必要があります。この場合、1つのトランザクションがバンドル内の先頭トランザクションと末尾トランザクションの両方になります。
 :::
 <!-- :::info: -->
-<!-- It's not just multiple transactions that need to be packaged in a bundle, even individual ones do. -->
+<!-- It's not just multiple transactions that need to be packaged in a bundle, even individual ones do. In this case, the single transaction would be the head and tail transaction in the bundle. -->
 <!-- ::: -->
 
 ## トランザクションの種類
@@ -134,10 +133,10 @@ IOTAトークンを預け入れるトランザクションは、IOTAトークン
 <!-- Transactions that deposit IOTA tokens can also contain a message because they don't withdraw IOTA tokens, and therefore don't contain a signature. -->
 <!-- ::: -->
 
-## トランザクションを送信するためのオプション
+## バンドルを送信するためのオプション
 <!-- ## Options for sending a transaction -->
 
-トランザクションを作成したら、以下の2つの引数と共にトランザクションをノードに送信する必要があります。
+バンドルを作成したら、以下の2つの引数と共にトランザクションをノードに送信する必要があります。
 <!-- When you've created your transaction, you need to send it to a node along with two other arguments: -->
 
 * 深さ
@@ -158,14 +157,17 @@ IOTAトークンを預け入れるトランザクションは、IOTAトークン
 [最小重量値](../concepts/minimum-weight-magnitude.md)（MWM）は、プルーフオブワーク中に行われる作業量を定義する変数です。ノードにトランザクションを送信するときは、そのノードのネットワークに対して正しいMWMを使用する必要があります。そうでなければ、トランザクションは有効にならず、すべてのノードがトランザクションを拒否します。
 <!-- The [minimum weight magnitude](../concepts/minimum-weight-magnitude.md) (MWM) is a variable that defines how much work is done during proof of work. When you send a transaction to a node, you must use the correct MWM for that node's network. Otherwise, your transaction won't be valid and all nodes will reject it. -->
 
+たとえば、MainnetのMWMは14ですが、DevnetのMWMは9のみです。
+<!-- For example, the MWM on the Mainnet is 14, but the MWM on the Devnet is only 9. -->
+
 ## トランザクションとバンドルの間の参照
 <!-- ## References among transactions and bundles -->
 
 先頭を除くバンドル内の各トランザクションは`trunkTransaction`フィールドを通して[前のトランザクションを参照します](../references/structure-of-a-bundle.md)。この接続により、ノードはタングル内のバンドルを再構築し、バンドル内のすべてのトランザクションの内容を検証できます。
 <!-- Each transaction in a bundle, except the head, [references the proceeding one](../references/structure-of-a-bundle.md) through the `trunkTransaction` field. These connections allow nodes to reconstruct bundles in the Tangle and validate the contents of all its transactions. -->
 
-他の`branchTransaction`と`trunkTransaction`フィールドは、チップ選択後にノードが返したタングル内の2つの既存のバンドルの末尾トランザクションを参照します。
-<!-- The other `branchTransaction` and `trunkTransaction` fields reference the tail transactions of two existing bundles in the Tangle that the node returned after tip selection. -->
+他の`branchTransaction`と`trunkTransaction`フィールドは、タングル内の2つの既存のバンドルの末尾トランザクションを参照します。
+<!-- The other `branchTransaction` and `trunkTransaction` fields reference the tail transactions of two existing bundles in the Tangle. -->
 
 :::info:
 これらの参照を見るためには[トランザクションのバンドルを送信します](../how-to-guides/send-bundle.md)。
@@ -180,8 +182,11 @@ IOTAトークンを預け入れるトランザクションは、IOTAトークン
 バンドルを[ノード](root://node-software/0.1/iri/introduction/overview.md)に送信すると、トランザクションは検証され、台帳に追加されます。
 <!-- After you send a bundle to a [node](root://node-software/0.1/iri/introduction/overview.md), it validates the transactions and appends each one to its ledger. -->
 
-[チップ選択](root://node-software/0.1/iri/concepts/tip-selection.md)の間、ノードは`trunkTransaction`フィールドを辿ることによって、[バンドル内の各トランザクションを見つけて検証します](root://node-software/0.1/iri/concepts/transaction-validation.md#bundle-validator)。ノードが先頭トランザクションまでのすべてのトランザクションを検証したら、バンドルは有効と見なされます。
-<!-- During [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), a node finds and [validates each transaction in your bundle](root://node-software/0.1/iri/concepts/transaction-validation.md#bundle-validator) by traversing its `trunkTransaction` field. When the node has validated all transactions up to the head, your bundle is considered valid. -->
+[チップ選択](root://node-software/0.1/iri/concepts/tip-selection.md)の間、ノードは`trunkTransaction`フィールドを辿ることによって、[バンドル内の各トランザクションを見つけて検証します](root://node-software/0.1/iri/concepts/transaction-validation.md#bundle-validator)。
+<!-- During [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), a node finds and [validates each transaction in your bundle](root://node-software/0.1/iri/concepts/transaction-validation.md#bundle-validator) by traversing its `trunkTransaction` field. -->
+
+ノードが先頭トランザクションまでのすべてのトランザクションを検証したら、バンドルは有効と見なされます。
+<!-- When the node has validated all transactions up to the head, your bundle is considered valid. -->
 
 ![Example of a bundle of 4 transactions](../images/bundle.png)
 
@@ -189,7 +194,7 @@ IOTAトークンを預け入れるトランザクションは、IOTAトークン
 <!-- ## Example bundles -->
 
 ### セキュリティレベル1のアドレスからの取り出し
-<!-- ### Withdraw from address with security level 1 -->
+<!-- ### Withdraw from an address with security level 1 -->
 
 次のバンドルは、セキュリティレベル1のアドレスから80iを受信者に転送します。
 <!-- This bundle transfers 80 i to a recipient from an address with a security level of 1. -->

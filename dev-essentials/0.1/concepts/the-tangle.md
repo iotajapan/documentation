@@ -4,8 +4,15 @@
 **タングルは、IOTAトランザクションを含むイミュータブルなデータ構造です。IOTAネットワーク内のすべてのノードは、タングルのコピーを台帳に保存し、台帳から読み取り、新しいトランザクションを添付し、トランザクション内容について合意に達します。**
 <!-- **The Tangle is the immutable data structure that contains IOTA transactions. All nodes in an IOTA network store a copy of the Tangle in their ledgers, read from it, attach new transactions to it, and reach a consensus on its contents.** -->
 
-タングルでは、各トランザクションは参照によって他の2つのトランザクションに添付されています。
-<!-- In the Tangle, each transaction is attached to two others by reference. -->
+タングルのトランザクションは、トランザクション内で他の2つのトランザクションの履歴を暗号的に参照するため、イミュータブルです。そのため、その履歴中のいずれかのトランザクションが変更されると、すべての参照が破損します。
+<!-- Transactions in the Tangle are immutable because their contents are cryptographically referenced to the history of two other transactions. So, if any transaction were to change in that history, all the references would be broken. -->
+
+:::info:
+これらの暗号化参照は、トランザクションハッシュです。各トランザクションには、そのコンテンツから派生した一意のトランザクションハッシュがあります。その結果、トランザクションの内容はイミュータブルです。
+:::
+<!-- :::info: -->
+<!-- These cryptographic references are transaction hashes. Each transaction has a unique transaction hash that's derived from its contents. As a result, the contents of a transaction are immutable. -->
+<!-- ::: -->
 
 トランザクション間の参照は、[有向非巡回グラフ](https://en.wikipedia.org/wiki/Directed_acyclic_graph)（DAG）の型を形成します。これは、すべての辺がシーケンス内の前の点から後の点へ向かう頂点のシーケンスです。
 <!-- The references among transactions form a type of [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG), which is a sequence of vertices where every edge is directed from an earlier point to a later one in the sequence. -->
@@ -24,11 +31,18 @@
 ノードが新しいトランザクションをタングルに添付すると、そのトランザクションは上図の左側にある2つの既存のトランザクションを直接参照します。
 <!-- When a node attaches a new transaction to the Tangle, that transaction directly references two existing ones to the left of it. -->
 
-参照は家系図を形成し、新しいトランザクションが**子トランザクション**の場合、ブランチおよびトランクトランザクションは**親トランザクション**になります。
-<!-- References form a family tree, whereby if a new transaction is a **child**, the branch and trunk transactions are its **parents**. -->
+:::info:
+ノードは、[チップ選択](root://node-software/0.1/iri/concepts/tip-selection.md)を実行して、新しいトランザクションを添付するトランザクションを決定します。
+:::
+<!-- :::info: -->
+<!-- Nodes decide which transactions to attach a new one to by doing [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md). -->
+<!-- ::: -->
 
-上図では、トランザクション6はトランザクション5を直接参照しているため、トランザクション5はトランザクション6の**親トランザクション**です。一方、トランザクション6はトランザクション3を間接的に参照しているため、トランザクション3はトランザクション6の**祖父母トランザクション**です。
-<!-- In the diagram, transaction 6 directly references transaction 5, so transaction 5 is a **parent** of transaction 6. On the other hand, transaction 6 indirectly references transaction 3, so transaction 3 is a **grandparent** of transaction 6. -->
+参照は家系図を形成します。これにより、新しいトランザクションが**子トランザクション**の場合、[ブランチおよびトランクトランザクションフィールド](../references/structure-of-a-transaction.md)のトランザクションハッシュは**親トランザクション**になります。
+<!-- References form a family tree, whereby if a new transaction is a **child**, the transactions hashes in its [branch and trunk transaction fields](../references/structure-of-a-transaction.md) are its **parents**. -->
+
+上図では、トランザクション6はトランザクション5を直接参照しているため、トランザクション5はトランザクション6の**親トランザクション**です。同様に、トランザクション6はトランザクション3を間接的に参照しているため、トランザクション3はトランザクション6の**祖父母トランザクション**です。
+<!-- In the diagram, transaction 6 directly references transaction 5, so transaction 5 is a **parent** of transaction 6. Similarly, transaction 6 indirectly references transaction 3, so transaction 3 is a **grandparent** of transaction 6. -->
 
 これらの直接および間接的な参照はトランザクションの履歴を構成します。
 <!-- These direct and indirect references make up a transaction's history. -->
@@ -42,14 +56,17 @@
 ## コンセンサス
 <!-- ## Consensus -->
 
-ノードは、トランザクションとその履歴を検証して、競合しないことを確認する責任があります。トランザクションを検証するには、ノードはそのトランザクションの履歴を台帳に保持する必要があります。すべてのノードの台帳にあるトランザクションは**タングルの概観**を構成します。
-<!-- Nodes are responsible for validating transactions and their histories to make sure that they don't conflict. To validate a transaction, a node needs to have that transaction's history in its ledger. The transactions in any node's ledger make up its **view of the Tangle**. -->
+ノードは、トランザクションとその履歴を検証して、競合しないことを確認する責任があります。トランザクションを検証するには、ノードはそのトランザクションの履歴を台帳に保持する必要があります。
+<!-- Nodes are responsible for validating transactions and their histories to make sure that they don't conflict. To validate a transaction, a node needs to have that transaction's history in its ledger. -->
 
-タングルはIOTAネットワーク内のすべてのノードに分散されているため、すべてのノードのうちのいくつかのノードはタングルのさまざまな概観を持つことができます。そのため、すべてのノードがタングルについて同じ概観を常に持っていることを確認するために、受信したすべての新しいトランザクションを隣接ノードに転送します。あるノードがトランザクションの履歴の一部を失っている場合、そのノードは隣接ノードに欠けているトランザクションを問い合わせます。
-<!-- Because the Tangle is distributed among all nodes in an IOTA network, some of them can have different views of the Tangle. So, to make sure that all nodes eventually have the same view of the Tangle, they forward any new transactions that they receive to their neighbors. If a node is missing part of a transaction's history, it will asks its neighbors for the missing transactions. -->
+タングルはIOTAネットワーク内のすべてのノードに分散されているため、ノードの一部は、台帳内で他のノードよりも多いまたは少ないトランザクションを持つことができます。任意のノードの台帳のトランザクションは、**タングルの概観**を構成します。
+<!-- Because the Tangle is distributed among all nodes in an IOTA network, some of them can have more or fewer transactions in their ledgers than other nodes. The transactions in any node's ledger make up its **view of the Tangle**. -->
 
-ノードにトランザクションの履歴がある場合、そのトランザクションは凝固していると見なされます。すべてのノードの目標は、台帳のトランザクションを凝固にすることです。
-<!-- When a node has a transaction's history, the transaction is considered solid. The goal of all nodes is to make the transactions in their ledgers solid. -->
+したがって、すべてのノードが最終的にタングルの同じ概観を持つようにするために、受信したすべての新しいトランザクションを隣接ノードに転送します。
+<!-- So, to make sure that all nodes eventually have the same view of the Tangle, they forward any new transactions that they receive to their neighbors. -->
+
+ノードにトランザクションの全履歴がある場合、トランザクションは凝固であると見なされます。つまり、確定したと考えることができるということです。
+<!-- When a node has a transaction's entire history, the transaction is considered solid, which means that it can be considered for confirmation. -->
 
 :::info:
 ノードはトランザクションの全履歴を必要としません。トランザクションの履歴は、トランザクションを凝固と考えるための最初のトランザクションから始まります。
@@ -69,8 +86,15 @@
 トランザクションが確定済みと見なされるためには、ノードは、アドレスの残高を更新する前に、いつ最終的なものと見なすべきかについて合意に達する必要があります。
 <!-- For a transaction to be considered confirmed, nodes must reach a consensus on when to consider it final before they can update the balances of addresses. -->
 
-トランザクションがコーディネーターによって送信され署名されたトランザクションによって直接または間接的に参照された場合に、トランザクションは確定済みと見なされます。
-<!-- A transaction is considered confirmed when it's directly or indirectly referenced by a transaction that's sent and signed by the Coordinator. -->
+トランザクションが、凝固しており、かつコーディネーターによって送信および署名されたトランザクションによって直接または間接的に参照された場合に、確定済みと見なされます。
+<!-- A transaction is considered confirmed when it's solid and it's directly or indirectly referenced by a transaction that's sent and signed by the Coordinator. -->
+
+:::info:
+これは、コーディネーターが新しいマイルストーンを作成している間に、チップ選択でトランザクションを選択する必要があることを意味します。
+:::
+<!-- :::info: -->
+<!-- This means that the transaction must be selected during tip selection when the Coordinator is creating a new milestone. -->
+<!-- ::: -->
 
 ### コーディネーター
 <!-- ### The Coordinator -->
@@ -88,11 +112,8 @@
 ### マイルストーン
 <!-- ### Milestones -->
 
-コーディネーターは定期的にマイルストーンをノードに送信します。ノードは合意に達するためにこれらのマイルストーンを使用します。
-<!-- The Coordinator sends milestones to nodes at regular intervals. Nodes use these milestones to reach a consensus. -->
-
-どのトランザクションがマイルストーンであるかを判断するために、同じIOTAネットワーク内のすべてのノードはコーディネーターのアドレスを知っています。
-<!-- To determine which transactions are milestones, all nodes in the same IOTA network know the address of the Coordinator. -->
+コーディネーターはマイルストーンを定期的にノードに送信し、ノードはこれらのマイルストーンを使用して合意に達します。
+<!-- The Coordinator sends milestones to nodes at regular intervals, and nodes use these milestones to reach a consensus. -->
 
 ノードがコーディネーターのアドレスから送信されたトランザクションを確認したら、次の手順を実行して検証します。
 <!-- When nodes see a transaction that's been sent from the Coordinator's address, they validate it by doing the following: -->
@@ -102,8 +123,8 @@
 * マイルストーンの署名を確認する。
 <!-- * Verify its signature -->
 
-IOTAはWinternitzワンタイム署名方式（W-OTS）を使用するため、秘密鍵は1つのバンドルにのみ署名する必要があります。コーディネーターが複数のバンドルに署名しつつ、かつそれらすべての署名が1つのアドレスに対して検証できるようにするために、コーディネーターのアドレスはコーディネーターのマークル木から導出されます。
-<!-- Because IOTA uses the Winternitz one-time signature scheme (W-OTS), a private key should sign only one bundle. To allow the Coordinator to sign multiple bundles whose signatures can still be verified against one address, that address is derived from the Coordinator's Merkle tree. -->
+IOTAはWinternitzワンタイム署名方式（W-OTS）を使用するため、アドレスから2回以上取り出しを行うことはできません。コーディネーターが複数のバンドルに署名しつつ、かつそれらすべての署名が1つのアドレスに対して検証できるようにするために、コーディネーターのアドレスはコーディネーターのマークル木から導出されます。
+<!-- Because IOTA uses the Winternitz one-time signature scheme (W-OTS), addresses must not be withdrawn from more than once. To allow the Coordinator to sign multiple bundles whose signatures can still be verified against one address, that address is derived from the Coordinator's Merkle tree. -->
 
 ### コーディネーターのマークル木
 <!-- ### The Coordinator's Merkle tree -->

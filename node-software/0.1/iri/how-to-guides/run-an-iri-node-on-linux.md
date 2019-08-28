@@ -394,20 +394,20 @@ IRIをダウンロードして設定したら、実行します。
 <!-- Now that your node is up and running, it'll start to [synchronize its ledger with the network](../concepts/the-ledger.md#ledger-synchronization). Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing. -->
 
 <a name="check-that-the-iri-is-synchronized"></a>
-## 手順4. IRIが同期していることを確認する
-<!-- ## Step 4. Check that the IRI is synchronized -->
+## 手順4. ノードが同期していることを確認する
+<!-- ## Step 4. Check that the node is synchronized -->
 
-`latestMilestoneIndex`フィールドが`latestSolidSubtangleMilestoneIndex`フィールドと等しい場合、IRIは同期していると見なされます。
-<!-- The IRI is considered synchronized when the `latestMilestoneIndex` field is equal to the `latestSolidSubtangleMilestoneIndex` field. -->
+`latestMilestoneIndex`フィールドが`latestSolidSubtangleMilestoneIndex`フィールドと等しい場合、ノードは同期していると見なされます。
+<!-- A node is considered synchronized when the `latestMilestoneIndex` field is equal to the `latestSolidSubtangleMilestoneIndex` field. -->
 
-`latestMilestoneIndex`フィールドは、IRIが隣接ノードから受け取った最新のマイルストーンのインデックスです。
-<!-- The `latestMilestoneIndex` field is the index of the latest milestone that the IRI has received from its neighbors. -->
+`latestMilestoneIndex`フィールドは、ノードが隣接ノードから受け取った最新のマイルストーンのインデックスです。
+<!-- The `latestMilestoneIndex` field is the index of the latest milestone that the node has received from its neighbors. -->
 
-`latestSolidSubtangleMilestoneIndex`フィールドは、IRIノードがマイルストーンを凝固（マイルストーンが直接および間接的に参照するすべてのトランザクションをIRIノードが持った状態）にした最新のマイルストーンのインデックスです。
-<!-- The `latestSolidSubtangleMilestoneIndex` field is the index of the latest milestone for which the IRI node's ledger has all the transactions that the milestone directly and indirectly references. -->
+`latestSolidSubtangleMilestoneIndex`フィールドは、ノードがマイルストーンを凝固（マイルストーンが直接および間接的に参照するすべてのトランザクションをIRIノードが持った状態）にした最新のマイルストーンのインデックスです。
+<!-- The `latestSolidSubtangleMilestoneIndex` field is the index of the latest milestone for which the node's ledger has all the transactions that the milestone directly and indirectly references. -->
 
-`latestMilestoneIndex`フィールドと`latestSolidSubtangleMilestoneIndex`フィールドは、IRIノードが同期済み隣接ノードに接続されている場合にのみ正確です。
-<!-- The `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are accurate only when the IRI node is connected to synchronized neighbors. -->
+`latestMilestoneIndex`フィールドと`latestSolidSubtangleMilestoneIndex`フィールドは、ノードが同期済み隣接ノードに接続されている場合にのみ正確です。
+<!-- The `latestMilestoneIndex` and `latestSolidSubtangleMilestoneIndex` fields are accurate only when the node is connected to synchronized neighbors. -->
 
 1. 現在の`latestMilestoneIndex`フィールドを確認するには、[Discord](https://discord.iota.org)に移動し、いずれかのチャンネルに**!milestone**と入力してください。
   <!-- 1. To check the current `latestMilestoneIndex` field, go to our [Discord](https://discord.iota.org) and enter **!milestone** in one of the channels -->
