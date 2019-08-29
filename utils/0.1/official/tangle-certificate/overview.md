@@ -1,50 +1,75 @@
-# Tangle certificate creator overview
+# タングル証明書作成者の概要
+<!-- # Tangle certificate creator overview -->
 
-**A certificate is an official document that proves a fact about the bearer. But, when certificates are digital, they are subject to fraud. Digital certificates can be copied and edited, which affects their authenticity and credibility. To prove that a certificate is authentic, credible, and unchanged, you can attach it to the Tangle.**
+**証明書は、所有者に関する事実を証明する公式文書です。しかし、証明書がデジタルの場合、それらは詐欺の対象となります。デジタル証明書はコピーおよび編集できるため、確実性と信用性に影響します。証明書が本物であり、信頼でき、変更されていないことを証明するために、証明書をタングルに添付することができます。**
+<!-- **A certificate is an official document that proves a fact about the bearer. But, when certificates are digital, they are subject to fraud. Digital certificates can be copied and edited, which affects their authenticity and credibility. To prove that a certificate is authentic, credible, and unchanged, you can attach it to the Tangle.** -->
 
-## Create an immutable certificate
+## イミュータブルな証明書を作成する
+<!-- ## Create an immutable certificate -->
 
-In this example, we use the [Tangle certificate API](https://certification-api.iota.org/docs/#iota-certification-api) to attach a certificate to the Tangle, using the development environment.
+この例では、開発環境を使用して、[Tangle certificate API](https://certification-api.iota.org/docs/#iota-certification-api)を使用してTangleに証明書を添付します。
+<!-- In this example, we use the [Tangle certificate API](https://certification-api.iota.org/docs/#iota-certification-api) to attach a certificate to the Tangle, using the development environment. -->
 
-First, we create a certificate background that we can use to create a template. Then, we create an issuer who has access to the template and can attach it to the Tangle.
+最初に、テンプレートの作成に使用できる証明書のバックグラウンドを作成します。次に、テンプレートにアクセスし、テンプレートをタングルに添付できる発行者を作成します。
+<!-- First, we create a certificate background that we can use to create a template. Then, we create an issuer who has access to the template and can attach it to the Tangle. -->
 
 :::info:
-Transactions on [the Tangle](root://dev-essentials/0.1/concepts/the-tangle.md) are immutable, so we can use the transaction as a source of truth.
+[タングル](root://dev-essentials/0.1/concepts/the-tangle.md)のトランザクションはイミュータブルであるため、トランザクションを真実の源として使用できます。
 :::
+<!-- :::info: -->
+<!-- Transactions on [the Tangle](root://dev-essentials/0.1/concepts/the-tangle.md) are immutable, so we can use the transaction as a source of truth. -->
+<!-- ::: -->
 
-Then, we use the web interface to read the certificate from the Tangle and to verify that it's authentic.
+次に、Webインターフェイスを使用して、タングルから証明書を読み取り、証明書が本物であることを確認します。
+<!-- Then, we use the web interface to read the certificate from the Tangle and to verify that it's authentic. -->
 
-### Prerequisites
+### 前提条件
+<!-- ### Prerequisites -->
 
-To complete this tutorial, you need the following:
+このチュートリアルを完了するには、次のものが必要です。
+<!-- To complete this tutorial, you need the following: -->
 
-* Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/).
-* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* Access to a command prompt
-* An Internet connection
-* The [`axios`](https://www.npmjs.com/package/axios) package
+* Node.js 8、またはNode.js 10以降。 [最新のLTS](https://nodejs.org/en/download/)をお勧めします。
+<!-- * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
+* [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディター
+<!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
+* コマンドプロンプトへのアクセス
+<!-- * Access to a command prompt -->
+* インターネット接続
+<!-- * An Internet connection -->
+* [`axios`](https://www.npmjs.com/package/axios)パッケージ
+<!-- * The [`axios`](https://www.npmjs.com/package/axios) package -->
 
-### Step 1. Get API credentials
+### 手順1. API認証情報を取得する
+<!-- ### Step 1. Get API credentials -->
 
-To use the Tangle certificate API, you need access to the IOTA Foundation server.
+タングル証明書APIを使用するには、IOTA財団のサーバーにアクセスする必要があります。
+<!-- To use the Tangle certificate API, you need access to the IOTA Foundation server. -->
 
-All backgrounds, templates, issuers, and certificates are stored on the server under a unique organization ID.
+すべてのバックグラウンド、テンプレート、発行者、および証明書は、一意の組織IDでサーバーに保存されます。
+<!-- All backgrounds, templates, issuers, and certificates are stored on the server under a unique organization ID. -->
 
-To create, read, update, or delete any of an organization's certificate data, you need the administrator ID and the administrator passphrase.
+組織の証明書データを作成、読み取り、更新、または削除するには、管理者IDと管理者パスフレーズが必要です。
+<!-- To create, read, update, or delete any of an organization's certificate data, you need the administrator ID and the administrator passphrase. -->
 
-Contact us to receive your own organization ID, administrator ID, and administrator passphrase
+独自の組織ID、管理者ID、および管理者パスフレーズを受け取るには、お問い合わせください。
+<!-- Contact us to receive your own organization ID, administrator ID, and administrator passphrase -->
 
-```
+```bash
 integrations@iota.org
 ```
 
-### Step 2. Create a background
+### 手順2. バックグラウンドを作成する
+<!-- ### Step 2. Create a background -->
 
-Before you can create a certificate, you need a background SVG image.
+証明書を作成する前に、バックグラウンドのSVGイメージが必要です。
+<!-- Before you can create a certificate, you need a background SVG image. -->
 
-This SVG image can include placeholders that are wrapped in double percentage signs (%%). When you come to create a certificate, you can specify the content to replace the placeholders.
+このSVG画像には、二重のパーセント記号（%%）で囲まれたプレースホルダーを含めることができます。証明書を作成するときに、プレースホルダーを置き換えるコンテンツを指定できます。
+<!-- This SVG image can include placeholders that are wrapped in double percentage signs (%%). When you come to create a certificate, you can specify the content to replace the placeholders. -->
 
-1. Create a file called `background.svg` in your working directory and copy in the following code
+1. 作業ディレクトリに`background.svg`というファイルを作成し、次のコードをコピーします。
+  <!-- 1. Create a file called `background.svg` in your working directory and copy in the following code -->
 
     ```xml
     <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -102,7 +127,8 @@ This SVG image can include placeholders that are wrapped in double percentage si
     </svg>
     ```
 
-2. Create a new file called `index.js` in the same directory as the `background.svg` file, then copy in the following code
+2. `background.svg`ファイルと同じディレクトリに`index.js`という新しいファイルを作成し、次のコードをコピーします。
+  <!-- 2. Create a new file called `index.js` in the same directory as the `background.svg` file, then copy in the following code -->
 
     ```js
     const fs = require('fs');
@@ -220,19 +246,23 @@ This SVG image can include placeholders that are wrapped in double percentage si
     })();
     ```
 
-Replace the `$ORG_ID`, `$ADMIN_USER_ID`, and `$ADMIN_PASS_PHRASE` placeholders with your own credentials.
+`$ORG_ID`、`$ ADMIN_USER_ID`、および `$ADMIN_PASS_PHRASE`プレースホルダーを独自の認証情報に置き換えます。
+<!-- Replace the `$ORG_ID`, `$ADMIN_USER_ID`, and `$ADMIN_PASS_PHRASE` placeholders with your own credentials. -->
 
-### Step 3. Run the code
+### 手順3. コードを実行する
+<!-- ### Step 3. Run the code -->
 
-You can run the sample code by using the following command
+次のコマンドを使用して、サンプルコードを実行できます。
+<!-- You can run the sample code by using the following command -->
 
 ```bash
 node index.js
 ```
 
-You should see something like the following:
+次のようなものが表示されるはずです。
+<!-- You should see something like the following: -->
 
-```
+```bash
 Creating background...
 Created background JQHNXOTAT9CBTYGHKANMG9WNCIZ
 Creating template...
@@ -243,20 +273,12 @@ Creating certificate...
 Created certificate FAZLSJRLEPPBRVITOPBZNTIVEJWPEQARIOEHNMHBEOJDGABLKPYIHWPMAJWVZTJXFIAFGSVXPGOCBQ999 https://certification.iota.works/FAZLSJRLEPPBRVITOPBZNTIVEJWPEQARIOEHNMHBEOJDGABLKPYIHWPMAJWVZTJXFIAFGSVXPGOCBQ999
 ```
 
-## Next steps
+## 次のステップ
+<!-- ## Next steps -->
 
 To verify your certificate, open a web browser and go to the URL that was printed to the console: https://certification.iota.works/FAZLSJRLEPPBRVITOPBZNTIVEJWPEQARIOEHNMHBEOJDGABLKPYIHWPMAJWVZTJXFIAFGSVXPGOCBQ999
 
 ![Test certificate](../images/test-certificate.png)
 
-Use the [administration portal](https://certification-admin.iota.org/) to create new certificates or check for existing ones.
-
-
-
-
-
-
-
-
-
-
+[管理ポータル](https://certification-admin.iota.org/)を使用して、新しい証明書を作成するか、既存の証明書を確認します。
+<!-- Use the [administration portal](https://certification-admin.iota.org/) to create new certificates or check for existing ones. -->
