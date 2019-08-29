@@ -16,6 +16,7 @@
 :::info:
 タングルのトランザクションはイミュータブルであるため、トランザクションを真実のソースとして使用できます。
 :::
+<<<<<<< HEAD
 <!-- :::info: -->
 <!-- Transactions on the Tangle are immutable, so we can use the transaction as a source of truth. -->
 <!-- ::: -->
@@ -37,38 +38,32 @@
 <!-- * Access to a command prompt -->
 * インターネット接続
 <!-- * An Internet connection -->
-* [`@iota/poex-tool`](root://getting-started/0.1/tutorials/get-started.md)パッケージおよび[`regenerator-runtime`](https://www.npmjs.com/package/regenerator-runtime)パッケージ
-<!-- * The [`@iota/poex-tool`](root://getting-started/0.1/tutorials/get-started.md) and the [`regenerator-runtime`](https://www.npmjs.com/package/regenerator-runtime) packages -->
+* [`@iota/poex-tool`](https://www.npmjs.com/package/iota-poex-tool)パッケージおよび[`regenerator-runtime`](https://www.npmjs.com/package/regenerator-runtime)パッケージ
+<!-- * The [`@iota/poex-tool`](https://www.npmjs.com/package/iota-poex-tool) and the [`regenerator-runtime`](https://www.npmjs.com/package/regenerator-runtime) packages -->
 
-:::info:
-IOTAクライアントライブラリを使用したことがない場合は、[入門チュートリアル](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を完了することをお勧めします。
-:::
-<!-- :::info: -->
-<!-- If you've never used the IOTA client libraries before, we recommend completing [the getting started tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md) -->
-<!-- ::: -->
+### 手順1. サンプルコントラクトを作成する
+<!-- ### Step 1. Create an example contract -->
 
----
-
-1. `contract.txt`という新しいファイルを作成します。
-  <!-- 1. Create a new file called `contract.txt` -->
-
-2. `contract.txt`ファイルにテキストを追加します。ここでは、次のテキストを使用します。
-  <!-- 2. Add some text to the `contract.txt` file, for example, we use the following: -->
+作業ディレクトリに`contract.txt`という新しいファイルを作成し、次のテキストをコピーします。
+<!-- Create a new file called `contract.txt` in your working directory, then copy in the following text -->
 
     ```bash
     My super secret contract.
     ```
 
-3. `contract.txt`ファイルと同じディレクトリに`index.js`ファイルを作成し、ライブラリを要求することから始めます。
-  <!-- 3. Create an `index.js` file in the same directory as the `contract.txt` file, and start by requiring the libraries -->
+### 手順2. サンプルをセットアップする
+<!-- ### Step 2. Set up the sample -->
+
+1. `contract.txt`ファイルと同じディレクトリに`index.js`という新しいファイルを作成し、ライブラリが必要です。
+  <!-- 1. Create a new file called `index.js` in the same directory as the `contract.txt` file, then require the libraries -->
 
     ```js
     require('regenerator-runtime');
     const PoEx = require ('@iota/poex-tool');
     ```
 
-4. ハッシュ値をタングルに添付するファイルへのパスを取得する非同期関数を作成します。
-  <!-- 4. Create an asynchronous function that takes a path to a file whose hash you want to attach to the Tangle -->
+2. ハッシュ値をタングルに添付するファイルへのパスを取得する非同期関数を作成します。
+  <!-- 2. Create an asynchronous function that takes a path to a file whose hash you want to attach to the Tangle -->
 
     ```js
     async function publish (file) {
@@ -82,8 +77,8 @@ IOTAクライアントライブラリを使用したことがない場合は、[
     <!-- You can also pass this function binary data. -->
     <!-- ::: -->
 
-5. `publish`関数で、ファイルをハッシュ化し、トランザクションでDevnetノードに送信します。
-  <!-- 5. In the `publish` function, hash the file, then send it in a transaction to a Devnet node -->
+3. `publish`関数で、ファイルをハッシュ化し、トランザクションでDevnetノードに送信します。
+  <!-- 3. In the `publish` function, hash the file, then send it in a transaction to a Devnet node -->
 
     ```js
     async function publish (file) {
@@ -110,8 +105,8 @@ IOTAクライアントライブラリを使用したことがない場合は、[
     }
     ```
 
-6. `publish`関数を実行し、`contract.txt`ファイルへのパスを渡します。
-  <!-- 6. Run the `publish` function, and pass it the path to the `contract.txt` file -->
+4. `publish`関数を実行し、`contract.txt`ファイルへのパスを渡します。
+  <!-- 4. Run the `publish` function, and pass it the path to the `contract.txt` file -->
 
     ```js
     publish('contract.txt');
@@ -120,8 +115,8 @@ IOTAクライアントライブラリを使用したことがない場合は、[
     ファイルを実行すると、トランザクションがタングルに添付されていることがわかります。これで、バンドルハッシュを使用して、ファイルが変更されていないことを確認できます。
     <!-- When you execute the file, you should see that the transaction was attached to the Tangle. Now, you can use the bundle hash to verify that the file is unchanged. -->
 
-7. `publish`関数の最後で、ファイルのハッシュ値がタングルに添付されたものとまだ一致していることを検証します。
-  <!-- 7. At the end of the `publish` function, verify that the hash of the file still matches the one that was attached to the Tangle -->
+5. `publish`関数の最後で、ファイルのハッシュ値がタングルに添付されたものとまだ一致していることを検証します。
+  <!-- 5. At the end of the `publish` function, verify that the hash of the file still matches the one that was attached to the Tangle -->
 
     ```js
     // Set the node to check for the transaction
@@ -148,13 +143,6 @@ IOTAクライアントライブラリを使用したことがない場合は、[
     <!-- [Find out more about IOTA networks](root://getting-started/0.1/references/iota-networks.md). -->
     <!-- ::: -->
 
-    ファイルが一致する場合、次の出力が表示されます。
-    <!-- If the file is a match, you should see the following output: -->
-
-    ```bash
-    File verified: The file matches the hash on the Tangle
-    ```
-
 :::success:おめでとうございます:tada:
 これで、タングルを単一の真実のソースとして使用して、ファイルがまだ変更されていないことを確認できました。
 :::
@@ -176,6 +164,20 @@ IOTAクライアントライブラリを使用したことがない場合は、[
 <!-- ::: -->
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/proof-of-existance-utility?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+次のコマンドを使用して、独自のデバイスでサンプルコードを実行することもできます。
+<!-- You can also run the sample code on your own device by using the following command -->
+
+```bash
+node index.js
+```
+
+ファイルが一致する場合、次の出力が表示されます。
+<!-- If the file is a match, you should see the following output: -->
+
+```bash
+File verified: The file matches the hash on the Tangle
+```
 
 ## 次のステップ
 <!-- ## Next steps -->

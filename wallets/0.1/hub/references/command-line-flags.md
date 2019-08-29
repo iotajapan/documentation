@@ -113,7 +113,7 @@
 
 | **フラグ** | **説明** | **デフォルト値** |
 | :--------- | :------- | :--------------- |
-| <a name="monitorInterval"></a> `--monitorInterval` | ハブが預け入れアドレスをチェックし、[`user_address`テーブルと`user_address_balance`テーブル](../references/database-tables.md)を更新する間隔（ミリ秒）。トークンを含むものは、次のスイープに含まれます。0=無効。 | 60000 |
+| <a name="monitorInterval"></a> `--monitorInterval` | ハブが預け入れアドレスをチェックし、[`user_address`テーブルと`user_address_balance`テーブル](../references/database-tables.md)を更新する間隔（ミリ秒）。トークンを含むものは、次のスイープに含まれます（スイープを無効にするには、このフラグを0に設定します）。 | 60000 |
 | `--sweepInterval` | ハブがスウィープ間で待機する間隔（ミリ秒）。0=無効。 | 600000 |
 | <a name="sweepLimits"></a> `--sweep_max_deposit` | スウィープに含めるユーザー預け入れの最大数 | 5 |
 | `--sweep_max_withdraw` | スウィープに含める取り出しリクエストの最大数 | 7 |
@@ -121,6 +121,6 @@
 <!-- | **Flag** |   **Description**| **Default values**| -->
 <!-- | :------------------------ | :--------------- | :--------| -->
 <!-- |<a name="monitorInterval"></a>`--monitorInterval`|Interval in milliseconds that Hub checks deposit addresses and updates the [`user_address` and `user_address_balance` tables](../references/database-tables.md). Those that contain tokens are included in the next sweep. 0=disabled.|60000| -->
-<!-- |`--sweepInterval` |Interval in milliseconds that Hub waits between sweeps. 0=disabled.|600000| -->
+<!-- |`--sweepInterval` |Interval in milliseconds that Hub waits between sweeps (set this flag to 0 to disable sweeps)|600000| -->
 <!-- |<a name="sweepLimits"></a>`--sweep_max_deposit`|Maximum number of user deposits to include in a sweep|5| -->
 <!-- |`--sweep_max_withdraw`|Maximum number of withdraw requests to include in a sweep|7| -->

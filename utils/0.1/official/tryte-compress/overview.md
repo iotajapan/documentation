@@ -1,5 +1,5 @@
-# トライトコンプレッサー
-<!-- # Trytes compressor -->
+# トライトコンプレッサー概要
+<!-- # Trytes compressor overview -->
 
 **トランザクションのバンドルをノードに送信すると、それらのトランザクションがネットワークの残りの部分に届かない場合があり、トランザクションが確定されないことがあります。たとえば、ノードは、トランザクションを隣接ノードに転送する前にオフラインになる場合があります。そのため、後でトランザクションを再ブロードキャストまたは再添付できるように、トランザクションのトライトを保存することをお勧めします。トランザクショントライトをより小さいメモリスペースに保存するには、トライトコンプレッサーツールを使用して、トライトをバイトに圧縮します。**
 <!-- **When you send a bundle of transactions to a node, sometimes those transactions don't reach the rest of the network, so they will never be confirmed. For example, a node may go offline before it can forward your transactions to its neighbors. As a result, we recommend that you store the transaction trytes so that you can later rebroadcast or reattach them. To store transaction trytes in a smaller memory space, use the trytes compressor tool to compress the trytes into bytes.** -->
@@ -43,10 +43,11 @@ IOTAクライアントライブラリを使用したことがない場合は、[
 <!-- If you've never used the IOTA client libraries before, we recommend completing [the getting started tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md) -->
 <!-- ::: -->
 
----
+### 手順1. サンプルコードを作成する
+<!-- ### Step 1. Create the sample code -->
 
-1. ライブラリが必要です。
-  <!-- 1. Require the libraries -->
+1. 作業ディレクトリに`index.js`という新しいファイルを作成し、ライブラリが必要です。
+  <!-- 1. Create a new file called `index.js` in your working directory, then require the libraries -->
 
     ```js
     const Iota = require('@iota/core');
@@ -157,6 +158,23 @@ IOTAクライアントライブラリを使用したことがない場合は、[
 <!-- Whenever you send a transaction, you are now compressing the transaction trytes and storing them on your local device. -->
 <!-- ::: -->
 
+### 手順2. コードを実行する
+<!-- ### Step 2. Run the code -->
+
+次のコマンドを使用して、サンプルコードを実行できます。
+<!-- You can run the sample code by using the following command -->
+
+```bash
+node index.js
+```
+
+次のようなものが表示されるはずです。
+<!-- You should see something like the following: -->
+
+```bash
+Compressed tail transaction trytes were saved to: MZGKBEXTDCVNBRZYFLFPWWQKWT9OB9ULHKQDHTCMQGITEIXKUDJJU9KVOW9UEIKJAMQAOJU9OITXEV999
+```
+
 ## サンプルコード
 <!-- ## Sample code -->
 
@@ -226,13 +244,13 @@ function storeTailTransaction (transactionHash, bundleTrytes) {
 ## 次のステップ
 <!-- ## Next steps -->
 
-* [トライトコンプレッサーユーティリティ](https://utils.iota.org/compress)を使用して、ユーザーインターフェイスでトライトを圧縮し、どのようなメモリ節約が行われるかを確認します。
-  <!-- * Use the [trytes compressor utility](https://utils.iota.org/compress) to compress trytes in a user interface and see what memory savings you make. -->
+[トライトコンプレッサーユーティリティ](https://utils.iota.org/compress)を使用して、ユーザーインターフェイスでトライトを圧縮し、どのようなメモリ節約が行われるかを確認します。
+<!-- Use the [trytes compressor utility](https://utils.iota.org/compress) to compress trytes in a user interface and see what memory savings you make. -->
 
     ![Compressor](../images/compress.png)
 
-* トライトコンプレッサーAPIを使用して、トライトをノードに再送信する前に解凍します。たとえば、次のことができます。
-  <!-- * Use the trytes compressor API to decompress the trytes before resending them to a node. For example, you could do the following: -->
+トライトコンプレッサーAPIを使用して、トライトをノードに再送信する前に解凍します。たとえば、次のことができます。
+<!-- Use the trytes compressor API to decompress the trytes before resending them to a node. For example, you could do the following: -->
 
     ```js
     function readCompressedTailTransaction (file){

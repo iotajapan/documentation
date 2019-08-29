@@ -17,18 +17,25 @@ IOTAトランザクションにジオロケーションのタグを付け、同�
 <!-- Tag an IOTA transaction with a geo-location, and find others with the same tag. -->
 ---
 
+#### **存在の証明プロバイダー** ####
+[Link](../official/proof-of-existance/overview.md)
+
+<!-- Prove that a file is unchanged so that all parties that trust it. -->
+---
+
+#### **タングル証明書作成者** ####
+[Link](../official/tangle-certificate/overview.md)
+
+カスタム不変証明書を作成し、それを発行できるユーザーを制御します。
+<!-- Create a custom immutable certificate and control who can issue it. -->
+---
+
 #### **トライトコンプレッサー** ####
 [Link](../official/tryte-compress/overview.md)
 
 トランザクショントライトをより小さなメモリスペースに保存して、後で再ブロードキャストまたは再添付できるようにします。
 <!-- Store transaction trytes in a smaller memory space so you can later rebroadcast or reattach them. -->
----
-
-#### **存在の証明プロバイダー** ####
-[Link](../official/proof-of-existance/overview.md)
-
-ファイルが変更されていないことを証明し、すべての関係者がファイルを信頼できるようにします。
-<!-- Prove that a file is unchanged so that all parties that trust it. -->
+>>>>>>> upstream/develop
 ---------------
 
 ### __コミュニティサポート__ ###

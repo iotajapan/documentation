@@ -628,13 +628,25 @@ curl http://localhost:14265 \
 `tips`パラメータがない場合、返された残高は最新の確定済みマイルストーンの時点で正しいです。
 <!-- If the `tips` parameter is missing, the returned balance is correct as of the latest confirmed milestone. -->
 
- ### パラメータ
+:::info:
+このAPIエンドポイントは、ノードが同期している場合にのみデータを返します。
 
-| **パラメータ** | **必須または任意** | **説明** | **タイプ** |
-|--|--|--|--|
-| `addresses` | 必須 | 残高を取得するアドレス（チェックサムを含まない） | stringの配列 |
-| `threshold` | 必須 | 0から100までの確認しきい値 | integer |
-| `tips` | 任意 | 残高を見つけるためにトランザクションの履歴をたどるチップ | stringの配列 |
+[ノードが同期しているかどうかを確認する方法をご確認ください](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request)。
+:::
+<!-- :::info: -->
+<!-- This API endpoint returns data only if the node is synchronized. -->
+<!--  -->
+<!-- [Find out how to check if a node is synchronized](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request). -->
+<!-- ::: -->
+
+### パラメータ
+<!-- ### Parameters -->
+
+|**パラメータ**|**必須または任意**|**説明**|**タイプ**|
+|---|---|---|---|
+|`addresses`|必須|残高を取得するアドレス（チェックサムを含まない）|stringの配列|
+|`threshold`|必須|0から100までの確認しきい値|integer|
+|`tips`|任意|残高を見つけるためにトランザクションの履歴をたどるチップ|stringの配列|
 
 ### 例
 --------------------
@@ -754,12 +766,25 @@ curl http://localhost:14265 \
 過去の包含状態のトランザクションを取得するために、複数のチップ（つまりマイルストーン）を検索できます。
 <!-- You can search for multiple tips (and thus, milestones) to get past inclusion states of transactions. -->
 
-### パラメータ
+:::info:
+このAPIエンドポイントは、ノードが同期している場合にのみデータを返します。
 
-| **パラメータ** | **必須または任意** | **説明** | **タイプ** |
-|--|--|--|--|
-| `transactions` | 必須 | 包含状態を取得したいトランザクションハッシュのリスト | stringの配列 |
-| `tips` | 必須(空も可) | 検索したいチップトランザクションハッシュ（マイルストーンを含む）のリスト | stringの配列 |
+[ノードが同期しているかどうかを確認する方法をご確認ください](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request)。
+:::
+<!-- :::info: -->
+<!-- This API endpoint returns data only if the node is synchronized. -->
+<!--  -->
+<!-- [Find out how to check if a node is synchronized](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request). -->
+<!-- ::: -->
+
+
+### パラメータ
+<!-- ### Parameters -->
+
+|**パラメータ**|**必須または任意**|**説明**|**タイプ**|
+|---|---|---|---|
+|`transactions`|必須|包含状態を取得したいトランザクションハッシュのリスト|stringの配列|
+|`tips`|必須(空も可)|検索したいチップトランザクションハッシュ（マイルストーンを含む）のリスト|stringの配列|
 
 ### 例
 --------------------
@@ -1168,7 +1193,7 @@ curl http://localhost:14265 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
 --------------------
 ### 200
 ```json
@@ -1201,12 +1226,24 @@ curl http://localhost:14265 \
 ブランチ/トランクトランザクションとして使用する2つの矛盾しないチップトランザクションハッシュを取得します。
 <!-- Get two consistent tip transaction hashes to use as branch/trunk transactions. -->
 
-### パラメータ
+:::info:
+このAPIエンドポイントは、ノードが同期している場合にのみデータを返します。
 
-| **パラメータ** | **必須または任意** | **説明** | **タイプ** |
-|--|--|--|--|
-| `depth` | 必須 | チップ選択アルゴリズムを開始するために戻るマイルストーンの数。 | integer |
-| `reference` | 任意 | 重み付きランダムウォークを開始するトランザクションハッシュ。このパラメータを使用して、返されたチップトランザクションハッシュが与えられた参照トランザクションを確実に承認するようにします。 | string |
+[ノードが同期しているかどうかを確認する方法をご確認ください](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request)。
+:::
+<!-- :::info: -->
+<!-- This API endpoint returns data only if the node is synchronized. -->
+<!--  -->
+<!-- [Find out how to check if a node is synchronized](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request). -->
+<!-- ::: -->
+
+### パラメータ
+<!-- ### Parameters -->
+
+|**パラメータ**|**必須または任意**|**説明**|**タイプ**|
+|---|---|---|---|
+|`depth`|必須|チップ選択アルゴリズムを開始するために戻るマイルストーンの数。|integer|
+|`reference`|任意|重み付きランダムウォークを開始するトランザクションハッシュ。このパラメータを使用して、返されたチップトランザクションハッシュが与えられた参照トランザクションを確実に承認するようにします。|string|
 
 ### 例
 --------------------
