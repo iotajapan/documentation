@@ -10,7 +10,7 @@
 
 [公式サポート/IOTAエリアコード/始める](/official/iota-area-codes/overview.md)
 
-[公式サポート/存在の証明/始める](/official/proof-of-existance/overview.md)
+[公式サポート/存在の証明プロバイダー/始める](/official/proof-of-existance/overview.md)
 
 [公式サポート/タングル証明書作成者/始める](/official/tangle-certificate/overview.md)
 

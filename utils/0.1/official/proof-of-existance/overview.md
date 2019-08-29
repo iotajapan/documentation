@@ -16,7 +16,6 @@
 :::info:
 タングルのトランザクションはイミュータブルであるため、トランザクションを真実のソースとして使用できます。
 :::
-<<<<<<< HEAD
 <!-- :::info: -->
 <!-- Transactions on the Tangle are immutable, so we can use the transaction as a source of truth. -->
 <!-- ::: -->
@@ -47,9 +46,9 @@
 作業ディレクトリに`contract.txt`という新しいファイルを作成し、次のテキストをコピーします。
 <!-- Create a new file called `contract.txt` in your working directory, then copy in the following text -->
 
-    ```bash
-    My super secret contract.
-    ```
+  ```bash
+  My super secret contract.
+  ```
 
 ### 手順2. サンプルをセットアップする
 <!-- ### Step 2. Set up the sample -->

@@ -20,6 +20,7 @@ IOTAトランザクションにジオロケーションのタグを付け、同�
 #### **存在の証明プロバイダー** ####
 [Link](../official/proof-of-existance/overview.md)
 
+ファイルが変更されていないことを証明し、すべての関係者がそれを信頼するようにします。
 <!-- Prove that a file is unchanged so that all parties that trust it. -->
 ---
 
@@ -35,7 +36,6 @@ IOTAトランザクションにジオロケーションのタグを付け、同�
 
 トランザクショントライトをより小さなメモリスペースに保存して、後で再ブロードキャストまたは再添付できるようにします。
 <!-- Store transaction trytes in a smaller memory space so you can later rebroadcast or reattach them. -->
->>>>>>> upstream/develop
 ---------------
 
 ### __コミュニティサポート__ ###

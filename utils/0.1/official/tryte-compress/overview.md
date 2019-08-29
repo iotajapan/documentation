@@ -247,19 +247,19 @@ function storeTailTransaction (transactionHash, bundleTrytes) {
 [トライトコンプレッサーユーティリティ](https://utils.iota.org/compress)を使用して、ユーザーインターフェイスでトライトを圧縮し、どのようなメモリ節約が行われるかを確認します。
 <!-- Use the [trytes compressor utility](https://utils.iota.org/compress) to compress trytes in a user interface and see what memory savings you make. -->
 
-    ![Compressor](../images/compress.png)
+  ![Compressor](../images/compress.png)
 
 トライトコンプレッサーAPIを使用して、トライトをノードに再送信する前に解凍します。たとえば、次のことができます。
 <!-- Use the trytes compressor API to decompress the trytes before resending them to a node. For example, you could do the following: -->
 
-    ```js
-    function readCompressedTailTransaction (file){
+  ```js
+  function readCompressedTailTransaction (file){
 
-        let transactionBytes = fs.readFileSync(file);
+      let transactionBytes = fs.readFileSync(file);
 
-        let transactionTrytes = Compressor.decompressTrytes(transactionBytes);
+      let transactionTrytes = Compressor.decompressTrytes(transactionBytes);
 
-        console.log(transactionTrytes);
+      console.log(transactionTrytes);
 
-    }
-    ```
+  }
+  ```
