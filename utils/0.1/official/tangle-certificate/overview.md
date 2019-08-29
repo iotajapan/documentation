@@ -276,7 +276,9 @@ Created certificate FAZLSJRLEPPBRVITOPBZNTIVEJWPEQARIOEHNMHBEOJDGABLKPYIHWPMAJWV
 ## 次のステップ
 <!-- ## Next steps -->
 
-To verify your certificate, open a web browser and go to the URL that was printed to the console: https://certification.iota.works/FAZLSJRLEPPBRVITOPBZNTIVEJWPEQARIOEHNMHBEOJDGABLKPYIHWPMAJWVZTJXFIAFGSVXPGOCBQ999
+証明書を確認するには、Webブラウザーを開き、コンソールに出力されたURLにアクセスします。
+https://certification.iota.works/FAZLSJRLEPPBRVITOPBZNTIVEJWPEQARIOEHNMHBEOJDGABLKPYIHWPMAJWVZTJXFIAFGSVXPGOCBQ999
+<!-- To verify your certificate, open a web browser and go to the URL that was printed to the console: https://certification.iota.works/FAZLSJRLEPPBRVITOPBZNTIVEJWPEQARIOEHNMHBEOJDGABLKPYIHWPMAJWVZTJXFIAFGSVXPGOCBQ999 -->
 
 ![Test certificate](../images/test-certificate.png)
 
