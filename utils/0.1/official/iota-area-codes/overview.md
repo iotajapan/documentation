@@ -131,11 +131,8 @@ IACの詳細については、[ブログの投稿](https://blog.iota.org/iota-ar
 トランザクションをいくつかの座標でタグ付けするには、座標をIACとしてエンコードする必要があります。
 <!-- To tag a transaction with some coordinates, you need to encode them as an IAC. -->
 
-そのために、[IAC API](https://github.com/iotaledger/iota-area-codes/blob/master/docs/api.md)を使用できます。
-<!-- To do so, you can use the [IAC API](https://github.com/iotaledger/iota-area-codes/blob/master/docs/api.md). -->
-
-この例では、[Devnet](root://getting-started/0.1/references/iota-networks.md#devnet)上のトランザクションにタグを付けます。Devnetは、トークンが無料であること以外はMainnetとほぼ同じです。Devnetに送信したトランザクションは、Mainnetのような他のネットワークには存在しません。
-<!-- In this example, we tag a transaction on the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
+この例では、[IAC API](https://github.com/iotaledger/iota-area-codes/blob/master/docs/api.md)を使用して座標からIACを作成し、トランザクションの`tag`フィールドにIACを追加して[Devnet](root://getting-started/0.1/references/iota-networks.md#devnet)に送信します。Devnetは、トークンが無料であること以外は、Mainnetほとんど同じです。Devnetに送信するトランザクションは、Mainnetなどの他のネットワークには存在しません。
+<!-- In this example, we use the [IAC API](https://github.com/iotaledger/iota-area-codes/blob/master/docs/api.md) to create an IAC from coordinates, then we add the IAC to the `tag` field of a transaction and send it to the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
 
 1. IOTAクライアントライブラリを必要とします。
   <!-- 1. Require the IOTA client libraries -->

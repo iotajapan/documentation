@@ -43,8 +43,8 @@ IOTAクライアントライブラリを使用したことがない場合は、[
 <!-- If you've never used the IOTA client libraries before, we recommend completing [the getting started tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md) -->
 <!-- ::: -->
 
-### 手順1. サンプルコードを作成する
-<!-- ### Step 1. Create the sample code -->
+### 手順1. サンプルをセットアップする
+<!-- ### Step 1. Set up the sample -->
 
 1. 作業ディレクトリに`index.js`という新しいファイルを作成し、ライブラリが必要です。
   <!-- 1. Create a new file called `index.js` in your working directory, then require the libraries -->
