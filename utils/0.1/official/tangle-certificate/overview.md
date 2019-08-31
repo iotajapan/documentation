@@ -284,14 +284,3 @@ https://certification.iota.works/FAZLSJRLEPPBRVITOPBZNTIVEJWPEQARIOEHNMHBEOJDGAB
 
 [API](https://certification-api.iota.org/docs/#iota-certification-api)を使用して、証明書を管理します。
 <!-- Use the [API](https://certification-api.iota.org/docs/#iota-certification-api) to manage your certificates. -->
-
-
-
-
-
-
-
-
-
-
->>>>>>> upstream/develop
