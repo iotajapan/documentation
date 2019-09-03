@@ -25,6 +25,8 @@
 
 [チュートリアル/初めてのデータトランザクションを送信する（トリニティ）](/tutorials/send-a-zero-value-transaction-with-the-trinity-wallet.md)
 
+[参考文献/開発者ハンドブック](/references/quickstart-dev-handbook.md)
+
 [参考文献/IOTAネットワーク](/references/iota-networks.md)
 
 [参考文献/ユースケース](/references/use-cases.md)
