@@ -10,7 +10,7 @@
 IOTAネットワークは、すべてのノードがタングルのコピーを保存する相互接続されたノードの集まりです。各IOTAネットワークのタングルには異なるトランザクションが含まれているため、IOTAトークンの分布はそれぞれ異なります。
 <!-- An IOTA network is a collection of interconnected nodes that each store a copy of the Tangle. In each IOTA network, the Tangle contains different transactions, so the distribution of IOTA tokens is different in each one. -->
 
-IOTA財団は、誰でもがノードを実行でき、ノードに接続でき、トランザクションの読み取り/書き込みができる3つの許可のないネットワークを維持しています。
+IOTA財団は、誰でもがノードを実行でき、ノードに接続でき、トランザクションの読み取り/書き込みができる2つの参加に許可を必要としない（パーミッションレス）ネットワークを維持しています。
 <!-- The IOTA Foundation maintains three permissionless networks, where anyone can run a node, connect to them, and read/write transactions. -->
 
 パーミッションレスネットワークは公開されているため、トランザクションで送信するデータは誰でも閲覧できます。ただし、暗号化とMAMチャネルの使用により、トランザクション内のデータをいつでも保護できます。
@@ -18,8 +18,8 @@ IOTA財団は、誰でもがノードを実行でき、ノードに接続でき�
 
 |**タイプ**|**ステータス**|**説明**|
 |:---------|:-------------|:-------|
-|Mainnet|アクティブ/成長中|メインIOTAネットワーク。IOTAトークンには、暗号資産交換所などのプラットフォームで取引される価値があります。このネットワークは数千のノードで構成され、誰でも利用できます。|
-|Devnet|アクティブ|IOTAトークンにテスト目的以外の価値がない開発IOTAネットワーク。このネットワークは、トランザクションを作成して送信するために必要な時間と計算能力が少ないことを除けば、メインネットに同じです。|
+|Mainnet|アクティブ/成長中|メインIOTAネットワーク。IOTAトークンには、暗号資産交換所などのプラットフォームで取引できる価値があります。このネットワークは数千のノードで構成され、誰でも利用できます。|
+|Devnet|アクティブ|IOTAトークンにテスト目的以外の価値がない開発IOTAネットワーク。このネットワークは、トランザクションを作成して送信するために必要な時間と計算能力が少ないことを除けば、メインネットと同じです。|
 
 <!-- |**Type** |**Status**|**Description**| -->
 <!-- :-----|:------|:---------| -->
@@ -90,7 +90,7 @@ https://thetangle.org などの一部のノード（パーマノード）は、�
 通常、パーマノード接続への費用は月額料金として法定通貨で支払われます。
 <!-- This costs is usually requested as a monthly fee paid in fiat currency. -->
 
-別のオプションは、ローカルIOTAノードをデプロイし、IOTA Mainnetに接続して（既存のIOTAノードとピアリングすることにより）、独自のトランザクションを送信することです。そのようなノードは、すべてのトランザクションを永続的に（有効にした場合）保存し、他のトランザクションの前に自分のトランザクションを処理します（他のクライアントが自分のノードにトランザクションを送信するのを止めることもできます）。
+別のオプションは、ローカルIOTAノードをデプロイし、IOTA Mainnetに接続して（既存のIOTAノードとピアリングすることにより）、独自のトランザクションを送信することです。そのようなノードは、すべてのトランザクションを永続的に（有効にした場合）保存し、他のトランザクションの前に自分のトランザクションを処理できます（他のクライアントが自分のノードにトランザクションを送信するのを止めることもできます）。
 <!-- Another option is to deploy a local IOTA node, connect it to the IOTA Mainnet (by peering it with existing IOTA nodes) and send your own transactions to it. Such node will permanently (if enabled to do so) store all your transactions and will process your transactions before any other transaction (you can even stop other clients from sending transactions to your node). -->
 
 このオプションには、ローエンドサーバーのデプロイメント（物理サーバーまたは仮想サーバー）に関連する最小コストが必要です。
@@ -146,13 +146,13 @@ const transfers = [
 ```
 
 :::info:
-[トランザクションの構造の詳細](root://dev-essentials/0.1/references/structure-of-a-transaction.md)を参照してください。
+[トランザクションの構造の詳細](root://dev-essentials/0.1/references/structure-of-a-transaction.md)をご覧ください。
 :::
 <!-- :::info: -->
 <!-- [Learn more about the structure of a transaction](root://dev-essentials/0.1/references/structure-of-a-transaction.md). -->
 <!-- ::: -->
 
-トランザクションをノードに送信する準備ができたら、正しい最小重量値の大きさを使用していることを確認してください。メインネット上のMWMは14です。
+トランザクションをノードに送信する準備ができたら、正しい最小重量値（MWM）を使用していることを確認してください。メインネット上のMWMは14です。
 <!-- When you're ready to send the transaction to your node, make sure that you use the correct minimum weight magnitude. The MWM on the Mainnet is 14. -->
 
 ```js
@@ -179,7 +179,7 @@ iota.prepareTransfers(seed, transfers)
 #### Mainnetでサードパーティのノードを使用する利点と欠点
 <!-- #### Advantages and disadvantages of using third-party nodes on the Mainnet -->
 
-サードパーティのノードへの接続は便利ですが、信頼できるサービスが必要な場合は不利になります。
+サードパーティのノードへの接続は便利ですが、信頼できるサービスが必要な場合は不利になる場合があります。
 <!-- Connecting to third-party nodes is convenient, but comes at a disadvantage if you need a reliable service. -->
 
 |**利点**|**欠点**|
@@ -200,7 +200,7 @@ iota.prepareTransfers(seed, transfers)
 <!-- To overcome these disadvantages, we recommend you run your own node and connect your application to it for direct access to the Tangle. Your own node gives you more control on how fast your transactions are attached to the Tangle and allows you to store them permanently. -->
 
 :::info:
-[Dockerコンテナでノードを実行する](root://node-software/0.1/iri/how-to-guides/run-an-iri-node-in-docker.md)または[Linuxサーバーでダウンロードして実行する](root://node-software/0.1/iri/how-to-guides/run-an-iri-node-on-linux.md)を実行できます。
+[Dockerコンテナでノードを実行する](root://node-software/0.1/iri/how-to-guides/run-an-iri-node-in-docker.md)または[Linuxサーバーでダウンロードして実行する](root://node-software/0.1/iri/how-to-guides/run-an-iri-node-on-linux.md)をご覧ください。
 :::
 <!-- :::info: -->
 <!-- You can [run a node in a Docker container](root://node-software/0.1/iri/how-to-guides/run-an-iri-node-in-docker.md) or [download and run it on a Linux server](root://node-software/0.1/iri/how-to-guides/run-an-iri-node-on-linux.md). -->
@@ -238,12 +238,12 @@ DevnetとMainnetを切り替えるには、`provider`フィールドをhttps://n
 <!-- [Learn how to set up a private Tangle](root://compass/0.1/how-to-guides/set-up-a-private-tangle.md). -->
 <!-- ::: -->
 
-### 役に立つリンク
+### 役立つリンク
 <!-- ### Useful links -->
 
 * [Amazon Web Services（AWS）でノードを実行する](https://gitlab.com/iot.fabian.rami/iota-aws-full-node)。（未検証）
 <!-- * [Run a node on Amazon Web Services (AWS)](https://gitlab.com/iot.fabian.rami/iota-aws-full-node) (not tested) -->
-* [アプリケーション設計図](root://blueprints/0.1/introduction/overview.md)を使用して、IOTAでアプリケーションを作成する方法を確認してください。
+* [アプリケーション設計図](root://blueprints/0.1/introduction/overview.md)を参照して、IOTAでアプリケーションを作成する方法を確認してください。
 <!-- * [Read our application blueprints](root://blueprints/0.1/introduction/overview.md) to see how you can create an application on IOTA -->
 
 ## IOTAとIoT
@@ -300,7 +300,7 @@ IOTAコミュニティは、さまざまな言語でMAMを使用できるよう�
 ## スマートコントラクトに関するメモ
 <!-- ## A note on smart contracts -->
 
-IOTAは、Qubicと呼ばれる独自のスマートコントラクトソリューションを開発しています。IOTAスマートコントラクトは、特定の条件が満たされた場合の資金の単純な譲渡を超えます。実際、Qubicの野望は、スマートコントラクトを許可するだけでなく、IoTデバイスのアウトソーシングクォーラムコンピューティングも提供することです。
+IOTAは、Qubicと呼ばれる独自のスマートコントラクトソリューションを開発しています。IOTAスマートコントラクトは、特定の条件が満たされた場合の資金の単純な譲渡を超えます。Qubicの野望は、スマートコントラクトを許可するだけでなく、IoTデバイスのアウトソーシングクォーラムコンピューティングも提供することです。
 <!-- IOTA is developing its own solution to smart contracts, called Qubic. IOTA smart contracts will go beyond the simple transfer of funding when a specific condition is met. In fact, the ambition of Qubic is to not only allow smart contracts, but also provide outsourced quroum computing for IoT devices. -->
 
 :::info:
