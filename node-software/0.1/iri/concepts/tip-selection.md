@@ -142,31 +142,19 @@ Map<TxId -> Integer> calculate(TxId entryPoint)
 ソートされた部分グラフに含まれるすべてのトランザクションに対して、直接承認トランザクションと間接承認トランザクションを含む未来集合が作成されます。各トランザクションの評価は、`未来集合 + 1（トランザクションの自重）`のサイズです。
 <!-- For every transaction included in our sorted subgraph, a future set is created, containing direct and indirect approvers. The rating of each transaction is the size of its future set + 1 (the transaction's own weight). -->
 
-```java
+```python
 entryPoint = latestSolidMilestone - depth
-
 entryPointTrunk = entryPoint
-
 entryPointBranch = reference or entry point
-
 ratings = CumulativeWeightCalculator.calculate(entryPointTrunk)
-
 class CumulativeWeightCalculator(RatingCalculator):
-
     def calculate(startTx):
-
         rating = dict()
-
         subgraph = Tangle(startTx)
-
         topologicalSubgraph = sortTopologically(subgraph)
-
         for tx in topologicalSubgraph:
-
             rating[tx] = len(futureSet(tx)) + 1
-
         return rating
-
 ```
 
 #### 最適化
@@ -205,84 +193,47 @@ TxId walk(TxId entryPoint, Map<TxId -> Integer> ratings, WalkValidator validator
 
 ```python
 class WalkerAlpha(Walker):
-
     def walk(entryPoint, ratings, validator):
-
         step = entryPoint
-
         prevStep = None
-
         while step:
-
             approvers = getApprovers(step)
-
             prevStep = step
-
             step = nextStep(ratings, approvers, validator)
-
         # When there are no more steps, this transaction is a tip
-
         return prevStep
 
-
-
     def nextStep(ratings, approvers, validator):
-
         approversWithRating = approvers.filter(a => ratings.contains(a))
-
         # There is no valid approver, this transaction is a tip
-
         if len(approversWithRating) == 0:
-
             return None
-
         approversRatings = approverswithRating.map(a => ratings.get(a))
-
         weights = ratingsToWeights(approversRatings)
-
         approver = weightedChoice(approversWithRating, weights)
-
         if approver is not None:
-
             tail = validator.findTail(approver)
-
             # If the selected approver is invalid, step back and try again
-
             if validator.isInvalid(tail):
-
                 approvers = approvers.remove(approver)
-
                 return nextStep(ratings, approvers, validator)
-
             return tail
-
         return None
 
-
-
     def weightedChoice(approvers, weights):
-
         randomNumber = random(0, sum(weights))
-
         for approver in approvers:
-
             randomNumber = randomNumber - weights.get(approver)
-
             if randomNumber <= 0:
-
                 return approver
 
     def ratingsToWeights(ratings):
-
         highestRating = max(ratings)
-
         normalizedRatings = ratings.map(r => r - highestRating)
-
         weights = normalizedRatings.map(r => math.exp(r * alpha))
-
         return weights
-
 ```
+
 #### バリデータの条件
 <!-- #### Validator conditions -->
 
@@ -303,31 +254,18 @@ class WalkerAlpha(Walker):
 
 ```python
 class WalkValidator:
-
     previousTransactions = []
-
     def isInvalid(transaction):
-
         previousTransactions.append(transaction)
-
         if notSolid(transaction):
-
             return True
-
         if belowMaxDepth(transaction):
-
             return True
-
         if inconsistent(transaction):
-
             return True
-
         if inconsistentWithPreviousTransactions(transaction):
-
             return True
-
         return False
-
 ```
 
 :::info:
