@@ -17,7 +17,7 @@
 <!-- * Administrator access to your router -->
 * Linux Ubuntu 18.04 server
 
-Linuxサーバがなく、WindowsまたはmacOSオペレーティングシステムを実行している場合は、[仮想マシンで実行]できます。
+Linuxサーバがなく、WindowsまたはmacOSオペレーティングシステムを実行している場合は、[仮想マシンで実行](../how-to-guides/set-up-virtual-machine.md)できます。
 <!-- If you don't have a Linux server and you're running a Windows or macOS operating system, you can [run one in a virtual machine](../how-to-guides/set-up-virtual-machine.md). -->
 
 ## 手順1. ローカルネットワークで静的IPアドレスを取得する
