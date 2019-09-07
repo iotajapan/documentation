@@ -8,5 +8,5 @@
 <!-- 1. Go to the #nodesharing channel on [Discord](https://discord.iota.org) -->
 2. 誰かのIRIノードのURLまたはIPアドレスを尋ね、その人にあなたのIRIノードのURLまたはIPアドレスを渡します。6〜7個の隣接IRIノードに接続することをお勧めします。
 <!-- 2. Ask for the URL or IP address of someone's IRI node, and give that person the URL or IP address of your IRI node. We recommend connecting to between 6 and 7 neighbor IRI nodes. -->
-3. 隣接IRIノードのURLまたはIPアドレスを[`NEIGHBORS`](../references/iri-configuration-options.md#neighbors)設定パラメータに追加します。
+3. 隣接IRIノードのURLまたはIPアドレスを[`NEIGHBORS`](../references/iri-configuration-options.md#neighbors)設定パラメーターに追加します。
 <!-- 3. Add the URLs or IP addresses of your neighbor IRI nodes to the [`NEIGHBORS`](../references/iri-configuration-options.md#neighbors) configuration parameter -->

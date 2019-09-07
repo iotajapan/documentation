@@ -227,7 +227,8 @@ docker pull iotaledger/iri:latest
 3. [隣接ノードを見つけて](../how-to-guides/find-neighbor-iri-nodes.md)、隣接ノードのURLまたはIPアドレスをconfig.iniファイルに追加します。
   <!-- 3. [Find neighbors](../how-to-guides/find-neighbor-iri-nodes.md) and add their URL or IP addresses to your config.ini file -->
 
-  <!-- Now that your node is up and running, it'll start to [synchronize its ledger with the network](../concepts/the-ledger.md#ledger-synchronization). Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing. -->
+ノードが稼働しているので、[ノードの台帳がIOTAネットワークとの同期](../concepts/the-ledger.md#ledger-synchronization)を開始します。ノードに同期する時間を与えるか、IRIノードが同期していない場合はトラブルシューティングガイドをお読みください。
+<!-- Now that your node is up and running, it'll start to [synchronize its ledger with the network](../concepts/the-ledger.md#ledger-synchronization). Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing. -->
 
 ## 手順3. ノードが同期していることを確認する
 <!-- ## Step 3. Check that the node is synchronized -->
