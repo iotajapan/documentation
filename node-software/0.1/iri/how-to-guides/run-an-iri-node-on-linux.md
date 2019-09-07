@@ -35,9 +35,9 @@ IRIはJavaソフトウェアなので、Javaランタイム環境（JRE）で実
 
 最新のIRIソフトウェアをダウンロードする方法は2つあります。
 <!-- You have two options for downloading the latest IRI software: -->
-* GitHubからビルド済みJavaファイルをダウンロードする。（最速オプション）
+* [GitHubからビルド済みJavaファイルをダウンロードする](#download-the-pre-built-iri-java-file)。（最速オプション）
 <!-- * Download the pre-built Java file from GitHub (quickest option) -->
-* GitHub上のソースコードからJavaファイルをビルドする。
+* [GitHub上のソースコードからJavaファイルをビルドする](#build-the-iri-java-file-from-the-source-code)。
 <!-- * Build the Java file from the source code on GitHub -->
 
 <a name="download-the-pre-built-iri-java-file"></a>
@@ -122,6 +122,7 @@ HTTP request sent, awaiting response ... 200 OK
 これで、IRI Javaファイルと`spent-addresses-db`ディレクトリがサーバに保存されたので、実行する前に[IRIを設定](#configure-the-iri)します。
 <!-- Now that the IRI Java file and the `spent-addresses-db` directory are saved on your server, [configure the IRI](#configure-the-iri) before running it. -->
 
+<a name="build-the-iri-java-file-from-the-source-code"></a>
 ### ソースコードからIRI Javaファイルをビルドする
 <!-- ### Build the IRI Java file from the source code -->
 
