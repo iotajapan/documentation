@@ -111,7 +111,7 @@ IRI Dockerコンテナをダウンロードする方法は2つあります。
 <!-- * [Build the Docker container from the source code](#build-the-iri-docker-container-from-the-source-code) -->
 
 <a name="download-the-pre-built-iri-docker-container"></a>
-## ビルド済みのIRI Dockerコンテナをダウンロードする
+### ビルド済みのIRI Dockerコンテナをダウンロードする
 <!-- ### Download the pre-built IRI Docker container -->
 
 ビルド済みのIRI Javaファイル用のDockerコンテナは、IOTA GitHubリポジトリにあります。
@@ -122,7 +122,7 @@ docker pull iotaledger/iri:latest
 ```
 
 <a name="build-the-iri-docker-container-from-the-source-code"></a>
-## ソースコードからIRI Dockerコンテナをビルドする
+### ソースコードからIRI Dockerコンテナをビルドする
 <!-- ### Build the IRI Docker container from the source code -->
 
 ビルド済みのDockerコンテナをダウンロードする代わりに、次のいずれかの理由でソースコードからファイルをビルドすることをお勧めします。
@@ -156,7 +156,7 @@ docker pull iotaledger/iri:latest
     docker build -t iri .
     ```
 
-## 手順2. IRIを実行する
+## 手順3. IRIを実行する
 <!-- ## Step 2. Run the IRI -->
 
 `run`コマンドに[設定オプション](../references/iri-configuration-options.md)をフラグとして渡すことでノードの設定ができます。
@@ -230,7 +230,7 @@ docker pull iotaledger/iri:latest
 ノードが稼働しているので、[ノードの台帳がIOTAネットワークとの同期](../concepts/the-ledger.md#ledger-synchronization)を開始します。ノードに同期する時間を与えるか、IRIノードが同期していない場合はトラブルシューティングガイドをお読みください。
 <!-- Now that your node is up and running, it'll start to [synchronize its ledger with the network](../concepts/the-ledger.md#ledger-synchronization). Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing. -->
 
-## 手順3. ノードが同期していることを確認する
+## 手順4. ノードが同期していることを確認する
 <!-- ## Step 3. Check that the node is synchronized -->
 
 `latestMilestoneIndex`フィールドが`latestSolidSubtangleMilestoneIndex`フィールドと等しい場合、ノードは同期していると見なされます。
