@@ -30,7 +30,7 @@ MAMエクスプローラーを使用して確認します。
 ## HTMLにMAMを追加する
 <!-- ## Adding MAM in HTML -->
 
-`<html>`タグを使用してHTMLページを作成します。文字セットを`utf-8`に設定します。`<head>`セクションで、ページにタイトルを付けます。`<body>`タグを使用してWebページの本文を開始します。`<div>`タグを使用して本文内に分割を設定し、`ID = "output"`を指定して、スクリプトが出力の送信先を認識できるようにします。
+`&lt; html &gt;`タグを使用してHTMLページを作成します。文字セットを`utf-8`に設定します。`<head>`セクションで、ページにタイトルを付けます。`<body>`タグを使用してWebページの本文を開始します。`<div>`タグを使用して本文内に分割を設定し、`ID = "output"`を指定して、スクリプトが出力の送信先を認識できるようにします。
 <!-- Use the `<html>` tag to create your HTML page.  Set the character set to "utf-8".  In the `<head>` section, give your page a title.  Start the body of your webpage using the `<body>` tag.  Set a division within the body using the `<div>` tag and give it an ID="output" so your script knows where to send the output. -->
 
 ```html

@@ -106,7 +106,7 @@ publishAll()
 ```
 
 メッセージをデコードするには`secretKey`が必要です。
-You need the secretKey to decode the message
+<!-- You need the secretKey to decode the message -->
 
 ```js
     const result = await Mam.fetch(root, mode, secretKey)
