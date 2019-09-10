@@ -1,33 +1,39 @@
-# Publishing to a webpage with MAM
+# MAMを使用してWebページに公開する
+<!-- # Publishing to a webpage with MAM -->
 
-**You can build a webpage to publish and fetch MAM messages.**  
+**Webページを作成して、MAMメッセージを発行および取得できます。**
+<!-- **You can build a webpage to publish and fetch MAM messages.** -->
 
-Publish three messages
+3つのメッセージを公開します。
+<!-- Publish three messages -->
 
-```
+```js
 Published: ALICE
 Published: BOB
 Published: CHARLIE
 ```
 
-Fetch and decode three messages
+3つのメッセージを取得してデコードします。
+<!-- Fetch and decode three messages -->
 
-```
+```js
 Fetched and parsed ALICE
 Fetched and parsed BOB
 Fetched and parsed CHARLIE
 ```
 
-Use the MAM Explorer to verify
-
+MAMエクスプローラーを使用して確認します。
+<!-- Use the MAM Explorer to verify -->
 
 ![screen capture showing these three MAM messages](images/webMAM.png)
 
-## Adding MAM in HTML
+## HTMLにMAMを追加する
+<!-- ## Adding MAM in HTML -->
 
-Use the ```<html>``` tag to create your HTML page.  Set the character set to "utf-8".  In the ```<head>``` section, give your page a title.  Start the body of your webpage using the ```<body``` tag.  Set a division within the body using the ```<div>``` tag and give it an ID="output" so your script knows where to send the output.
+`<html>`タグを使用してHTMLページを作成します。文字セットを`utf-8`に設定します。`<head>`セクションで、ページにタイトルを付けます。`<body>`タグを使用してWebページの本文を開始します。`<div>`タグを使用して本文内に分割を設定し、`ID = "output"`を指定して、スクリプトが出力の送信先を認識できるようにします。
+<!-- Use the `<html>` tag to create your HTML page.  Set the character set to "utf-8".  In the `<head>` section, give your page a title.  Start the body of your webpage using the `<body>` tag.  Set a division within the body using the `<div>` tag and give it an ID="output" so your script knows where to send the output. -->
 
-```
+```html
 <html>
 <meta charset="utf-8" />
 
@@ -39,15 +45,17 @@ Use the ```<html>``` tag to create your HTML page.  Set the character set to "ut
     <div id="output"></div>
 ```
 
-Tell the script where to find mam.web.min.js
+スクリプトに`mam.web.min.js`の検索場所を伝えます。
+<!-- Tell the script where to find mam.web.min.js -->
 
-```
+```html
     <script src="../lib/mam.web.min.js"></script>
 ```
 
-Define the tryte alphabet.  Add functions to convert ascii characters to trytes and trytes to ascii
+トリテアルファベットを定義します。ASCII文字をトライトに変換し、トライトをASCIIに変換する関数を追加します。
+<!-- Define the tryte alphabet.  Add functions to convert ascii characters to trytes and trytes to ascii -->
 
-```
+```html
     <script>
         const TRYTE_ALPHABET = '9ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -69,9 +77,11 @@ Define the tryte alphabet.  Add functions to convert ascii characters to trytes 
             return ascii;
         };
 ```
-Configure the provider.  This example uses the IOTA testbed, called "Devnet".  Configure the mamExplorerLink.  This example uses the IOTA MAM explorer.  Set the HTML output to ```output```
 
-```
+プロバイダーを構成します。この例では、`Devnet`と呼ばれるIOTAテストネットワークを使用します。mamExplorerLinkを構成します。この例では、IOTA MAMエクスプローラーを使用します。HTML出力を`output`に設定します。
+<!-- Configure the provider.  This example uses the IOTA testbed, called "Devnet".  Configure the mamExplorerLink.  This example uses the IOTA MAM explorer.  Set the HTML output to `output` -->
+
+```html
         (async function () {
             const mode = 'public'
             const provider = 'https://nodes.devnet.iota.org'
@@ -81,15 +91,19 @@ Configure the provider.  This example uses the IOTA testbed, called "Devnet".  C
             const outputHtml = document.querySelector("#output");
 
 ```
-Tell MAM to use the provider
 
-```
+MAMにプロバイダーを使用するように指示します。
+<!-- Tell MAM to use the provider -->
+
+```html
             // Initialise MAM State
             let mamState = Mam.init(provider)
 ```
-For each message, convert to trytes, then send it.  You will get the message root which is the MAM channel ID for this MAM stream
 
-```
+メッセージごとに、トライトに変換して送信します。このMAMストリームのMAMチャネルIDであるメッセージルートを取得します。
+<!-- For each message, convert to trytes, then send it.  You will get the message root which is the MAM channel ID for this MAM stream -->
+
+```html
             // Publish to tangle
             const publish = async packet => {
                 // Create MAM Payload - STRING OF TRYTES
@@ -106,8 +120,11 @@ For each message, convert to trytes, then send it.  You will get the message roo
                 return message.root
             }
 ```
-Publish three messages
-```
+
+3つのメッセージを公開します。
+<!-- Publish three messages -->
+
+```html
             const publishAll = async () => {
                 const root = await publish('ALICE')
 
@@ -119,8 +136,11 @@ Publish three messages
             }
 
 ```
-Fetch three messages
-```
+
+3つのメッセージを取得します。
+<!-- Fetch three messages -->
+
+```html
             // Callback used to pass data out of the fetch
             const logData = data => outputHtml.innerHTML += `Fetched and parsed ${JSON.parse(trytesToAscii(data))}<br/>`;
 
@@ -134,18 +154,21 @@ Fetch three messages
             result.messages.forEach(message => {
                 outputHtml.innerHTML += `Fetched and parsed ${JSON.parse(trytesToAscii(message))}<br/>`
             });
+```
 
-```
-Provide a link so these transactions can be verified using the MAM Explorer
-```
+MAMエクスプローラーを使用してこれらのトランザクションを検証できるようにリンクを提供します。
+<!-- Provide a link so these transactions can be verified using the MAM Explorer -->
+
+```html
             outputHtml.innerHTML += `Verify with MAM Explorer:<br/><a target="_blank" href="${mamExplorerLink}${root}">${mamExplorerLink}${root}</a>`;
         })();
     </script>
-
 ```
-End the script by close the body and the HTML tags
 
-```
+本文とHTMLタグを閉じてスクリプトを終了します。
+<!-- End the script by close the body and the HTML tags -->
+
+```html
 </body>
 
 </html>

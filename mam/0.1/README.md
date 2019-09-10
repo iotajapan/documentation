@@ -7,9 +7,9 @@
 <!-- - Create MAM messages with varying encryption schemes -->
 - MAM メッセージを公開する（IOTA.JS クライアントライブラリを使用）
 <!-- - Publish MAM messages (using the IOTA.JS Client library) -->
-- MAM ストリームのフェッチとデコード
+- MAM ストリームの取得とデコード
 <!-- - Fetch & decode MAM streams -->
-- 単一のメッセージのフェッチとデコード
+- 単一のメッセージの取得とデコード
 <!-- - Fetch & Decode singular messages -->
 
 ライブラリの機能の詳細については、次をご覧ください。

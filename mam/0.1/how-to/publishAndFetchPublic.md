@@ -12,7 +12,7 @@ const Mam = require('../lib/mam.client.js')
 const { asciiToTrytes, trytesToAscii } = require('@iota/converter')
 ```
 
-プライバシーモードをパブリックモードに設定します。プロバイダーを構成します。この例では、「Devnet」と呼ばれるIOTAテストネットワークを使用します。mamExplorerLinkを構成します。この例では、IOTA MAMエクスプローラーを使用します。
+プライバシーモードをパブリックモードに設定します。プロバイダーを構成します。この例では、`Devnet`と呼ばれるIOTAテストネットワークを使用します。mamExplorerLinkを構成します。この例では、IOTA MAMエクスプローラーを使用します。
 <!-- Set the privacy mode to public.  Configure the provider.  This example uses the IOTA testbed, called "Devnet".  Configure the mamExplorerLink.  This example uses the IOTA MAM explorer. -->
 
 ```js
