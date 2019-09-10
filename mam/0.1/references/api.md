@@ -1,10 +1,13 @@
-# Masked Authentication Messaging (MAM) API
+# マスクされた認証メッセージング（MAM）API
+<!-- # Masked Authentication Messaging (MAM) API -->
 
-This is wrapper library for the WASM/ASM.js output of the IOTA Bindings repository. 
+これは、IOTAバインディングリポジトリのWASM/ASM.js出力用のラッパーライブラリです。
+<!-- This is wrapper library for the WASM/ASM.js output of the IOTA Bindings repository. -->
 
 ## `init`
 
-This initialises the state. This will return a state object that tracks the progress of your channel and channels you are following
+これにより、ステートが初期化されます。これは、あなたがフォローしているチャネルの進行状況を追跡するステートオブジェクトを返します。
+<!-- This initialises the state. This will return a state object that tracks the progress of your channel and channels you are following -->
 
 #### Input
 
@@ -12,22 +15,30 @@ This initialises the state. This will return a state object that tracks the prog
 Mam.init(settings, seed, security)
 ```
 
-1. **settings**: `Object` or `String` Configuration object or network provider URL.
-    Configuration object:
-    1. **provider**: `String` Network provider URL.
-    2. **attachToTangle** `Function` function to override default `attachToTangle` to use another Node to do the PoW or use a PoW service.
-2. **seed**: `String` Optional tryte-encoded seed. *Null value generates a random seed*
-3. **security**: `Integer` Optional security of the keys used. *Null value defaults to `2`*
+1. **設定**：`Object`または`String`設定オブジェクトまたはネットワークプロバイダーのURL。
+  <!-- 1. **settings**: `Object` or `String` Configuration object or network provider URL. -->
+    構成オブジェクト：
+    <!-- Configuration object: -->
+    1. **provider**：`String` ネットワークプロバイダーのURL。
+    <!-- 1. **provider**: `String` Network provider URL. -->
+    2. **attachToTangle**：`Function` デフォルトの`attachToTangle`をオーバーライドして別のノードを使用してPoWを実行したり、PoWサービスを使用したりするための関数。
+    <!-- 2. **attachToTangle** `Function` function to override default `attachToTangle` to use another Node to do the PoW or use a PoW service. -->
+2. **seed**：`String` オプションのトライトでエンコードされたシード。*Null値はランダムシードを生成します。*
+<!-- 2. **seed**: `String` Optional tryte-encoded seed. *Null value generates a random seed* -->
+3. **security**：`Integer` 使用されるキーのオプションのセキュリティ。*Null値のデフォルトは`2`です。*
+<!-- 3. **security**: `Integer` Optional security of the keys used. *Null value defaults to `2`* -->
 
 #### Return
 
-1. **Object** - Initialised state object to be used in future actions
+1. **Object** - 将来のアクションで使用される初期化されたステートオブジェクト
+<!-- 1. **Object** - Initialised state object to be used in future actions -->
 
 ------
 
 ## `changeMode`
 
-This takes the state object and changes the default channel mode from `public` to the specified mode and `sidekey`. There are only three possible modes: `public`, `private`, & `restricted`. If you fail to pass one of these modes it will default to `public`. This will return a state object that tracks the progress of your channel and channels you are following
+これはステートオブジェクトを取得し、デフォルトのチャネルモードを`public`から指定されたモードと`sidekey`に変更します。3つのモードのみがあります：`public`、` private`、および`restricted`。これらのモードのいずれかに合致しない場合、デフォルトで`public`になります。これは、あなたがフォローしているチャネルの進行状況を追跡するステートオブジェクトを返します
+<!-- This takes the state object and changes the default channel mode from `public` to the specified mode and `sidekey`. There are only three possible modes: `public`, `private`, & `restricted`. If you fail to pass one of these modes it will default to `public`. This will return a state object that tracks the progress of your channel and channels you are following -->
 
 #### Input
 
@@ -35,19 +46,24 @@ This takes the state object and changes the default channel mode from `public` t
 Mam.changeMode(state, mode, sidekey)
 ```
 
-1. **state**: `Object` Initialised IOTA library with a provider set.
-2. **mode**: `String` Intended channel mode. Can be only: `public`, `private` or `restricted`
-3. **sideKey**: `String` Tryte-encoded encryption key, `81 trytes` long. *Required for restricted mode*
+1. **state**：`Object` プロバイダーセットで初期化されたIOTAライブラリ。
+<!-- 1. **state**: `Object` Initialised IOTA library with a provider set. -->
+2. **mode**：`String` 意図したチャネルモード。指定できるのは、`public`、`private`または`restricted`のみです。
+<!-- 2. **mode**: `String` Intended channel mode. Can be only: `public`, `private` or `restricted` -->
+3. **sideKey**：`String` トライトでエンコードされた`81トライト`の長さの暗号化キー、。*制限モードに必要*
+<!-- 3. **sideKey**: `String` Tryte-encoded encryption key, `81 trytes` long. *Required for restricted mode* -->
 
 #### Return
 
-1. **Object** - Initialised state object to be used in future actions
+1. **Object** - 将来のアクションで使用される初期化されたステートオブジェクト。
+<!-- 1. **Object** - Initialised state object to be used in future actions -->
 
 ------
 
 ## `getRoot`
 
-This method will return the root for the supplied mam state.
+このメソッドは、指定されたmamステートのルートを返します。
+<!-- This method will return the root for the supplied mam state. -->
 
 #### Input
 
@@ -55,17 +71,20 @@ This method will return the root for the supplied mam state.
 Mam.getRoot(state)
 ```
 
-1. **state**: `Object` Initialised IOTA library with a provider set.
+1. **state**：`Object` プロバイダーセットで初期化されたIOTAライブラリ。
+<!-- 1. **state**: `Object` Initialised IOTA library with a provider set. -->
 
 #### Return
 
-1. **string** - The root calculated from the provided state.
+1. **string** - 指定されたステートから計算されたルート。
+<!-- 1. **string** - The root calculated from the provided state. -->
 
 ------
 
-### `create`
+## `create`
 
-Creates a MAM message payload from a state object, tryte-encoded message and an optional side key. Returns an updated state and the payload for sending.
+ステートオブジェクト、トライトでエンコードされたメッセージ、およびオプションのサイドキーからMAMメッセージペイロードを作成します。更新されたステートと送信用のペイロードを返します。
+<!-- Creates a MAM message payload from a state object, tryte-encoded message and an optional side key. Returns an updated state and the payload for sending. -->
 
 #### Input
 
@@ -73,21 +92,28 @@ Creates a MAM message payload from a state object, tryte-encoded message and an 
 Mam.create(state, message)
 ```
 
-1. **state**: `Object` Initialised IOTA library with a provider set.
-2. **message**: `String` Tryte-encoded payload to be encrypted. Tryte-encoded payload can be generated by calling `asciiToTrytes` from the `@iota/converter` and passing a stringified JSON object
+1. **state**：`Object` プロバイダーセットで初期化されたIOTAライブラリ。
+<!-- 1. **state**: `Object` Initialised IOTA library with a provider set. -->
+2. **message**：`String` 暗号化されるトライトでエンコードされたペイロード。 トライトでエンコードされたペイロードは、`@iota/converter`から`asciiToTrytes`を呼び出し、文字列化されたJSONオブジェクトを渡すことで生成できます。
+<!-- 2. **message**: `String` Tryte-encoded payload to be encrypted. Tryte-encoded payload can be generated by calling `asciiToTrytes` from the `@iota/converter` and passing a stringified JSON object -->
 
 #### Return
 
-1. **state**: `Object` Updated state object to be used with future actions.
-2. **payload**: `String` Tryte-encoded payload.
-3. **root**: `String` Tryte-encoded root of the payload.
-4. **address**: `String` Tryte-encoded address used as an location to attach the payload.
+1. **state**：`Object` 将来のアクションで使用される更新されたステートオブジェクト。
+<!-- 1. **state**: `Object` Updated state object to be used with future actions. -->
+2. **payload**：`String` トライトでエンコードされたペイロード。
+<!-- 2. **payload**: `String` Tryte-encoded payload. -->
+3. **root**：`String` ペイロードのトライトでエンコードされたルート。
+<!-- 3. **root**: `String` Tryte-encoded root of the payload. -->
+4. **address**：`String` ペイロードを添付する場所として使用されるトライトでエンコードされたアドレス。
+<!-- 4. **address**: `String` Tryte-encoded address used as an location to attach the payload. -->
 
 ------
 
 ## `decode`
 
-Enables a user to decode a payload
+ユーザーがペイロードをデコードできるようにします。
+<!-- Enables a user to decode a payload -->
 
 #### Input
 
@@ -95,21 +121,28 @@ Enables a user to decode a payload
 Mam.decode(payload, sideKey, root)
 ```
 
-1. **payload**: `String` Tryte-encoded payload.
-2. **sideKey**: `String` Tryte-encoded encryption key. *Null value falls back to default key*
-3. **root**: `String` Tryte-encoded string used as the address to attach the payload.
+1. **payload**：`String` トライトでエンコードされたペイロード。
+<!-- 1. **payload**: `String` Tryte-encoded payload. -->
+2. **sideKey**：`String` トライトでエンコードされた暗号化キー。*Null値はデフォルトキーにフォールバックします。*
+<!-- 2. **sideKey**: `String` Tryte-encoded encryption key. *Null value falls back to default key* -->
+3. **root**：`String` ペイロードを添付するためのアドレスとして使用されるトライトでエンコードされた文字列。
+<!-- 3. **root**: `String` Tryte-encoded string used as the address to attach the payload. -->
 
 #### Return
 
-1. **state**: `Object` Updated state object to be used with future actions.
-2. **payload**: `String` Tryte-encoded payload.
-3. **root**: `String` Tryte-encoded root used as an address to attach the payload.
+1. **state**：`Object` 将来のアクションで使用される更新されたステートオブジェクト。
+<!-- 1. **state**: `Object` Updated state object to be used with future actions. -->
+2. **payload**：`String` トライトでエンコードされたペイロード。
+<!-- 2. **payload**: `String` Tryte-encoded payload. -->
+3. **root**：`String` ペイロードを添付するためのアドレスとして使用されたトライトにエンコードされたルート。
+<!-- 3. **root**: `String` Tryte-encoded root used as an address to attach the payload. -->
 
 ------
 
 ## `subscribe`
 
-This method will add a subscription to your state object using the provided channel details.
+このメソッドは、提供されたチャネルの詳細を使用して、ステートオブジェクトにサブスクリプションを追加します。
+<!-- This method will add a subscription to your state object using the provided channel details. -->
 
 #### Input
 
@@ -117,20 +150,26 @@ This method will add a subscription to your state object using the provided chan
 Mam.subscribe(state, channelRoot, channelMode, channelKey)
 ```
 
-1. **state**: `Object` Initialised IOTA library with a provider set.
-2. **channelRoot**: `String` The root of the channel to subscribe to.
-3. **channelMode**: `String` Optional, can one of `public`, `private` or `restricted` *Null value falls back to public*
-4. **channelKey**: `String` Optional, The key of the channel to subscribe to.
+1. **state**：`Object` プロバイダーセットで初期化されたIOTAライブラリ。
+<!-- 1. **state**: `Object` Initialised IOTA library with a provider set. -->
+2. **channelRoot**：`String` 購読するチャネルのルート。
+<!-- 2. **channelRoot**: `String` The root of the channel to subscribe to. -->
+3. **channelMode**：`String` オプションで、`public`、`private`、または`restricted`のいずれかを指定できます。*Null値は`public`にフォールバックします。*
+<!-- 3. **channelMode**: `String` Optional, can one of `public`, `private` or `restricted` *Null value falls back to public* -->
+4. **channelKey**：`String` オプションで、購読するチャネルのキー。
+<!-- 4. **channelKey**: `String` Optional, The key of the channel to subscribe to. -->
 
 #### Return
 
-1. **Object** - Updated state object to be used with future actions.
+1. **Object** - 将来のアクションで使用される更新されたステートオブジェクト。
+<!-- 1. **Object** - Updated state object to be used with future actions. -->
 
 ------
 
 ## `listen`
 
-Listen to a channel for new messages.
+新しいメッセージのチャンネルをリッスンします。
+<!-- Listen to a channel for new messages. -->
 
 #### Input
 
@@ -138,18 +177,22 @@ Listen to a channel for new messages.
 Mam.listen(channel, callback)
 ```
 
-1. **channel**: `Object` The channel object to listen to.
-2. **callback**: `String` Callback called when new messages arrive.
+1. **channel**：`Object` リッスンするチャネルオブジェクト。
+<!-- 1. **channel**: `Object` The channel object to listen to. -->
+2. **callback**：`String` 新しいメッセージが到着したときに呼び出されるコールバック。
+<!-- 2. **callback**: `String` Callback called when new messages arrive. -->
 
 #### Return
 
-Nothing
+なし
+<!-- Nothing -->
 
 ------
 
-### `attach`
+## `attach`
 
-Asynchronous.  Attaches a payload to the Tangle.
+非同期。タングルにペイロードを添付します。
+<!-- Asynchronous.  Attaches a payload to the Tangle. -->
 
 #### Input
 
@@ -157,23 +200,31 @@ Asynchronous.  Attaches a payload to the Tangle.
 await Mam.attach(payload, address, depth, minWeightMagnitude, tag)
 ```
 
-1. **payload**: `String` Tryte-encoded payload to be attached to the Tangle.
-2. **root**: `String` Tryte-encoded string returned from the `Mam.create()` function.
-3. **depth**: `number` Optional depth at which Random Walk starts. A value of 3 is typically used by wallets, meaning that RW starts 3 milestones back. *Null value will set depth to 3*
-4. **minWeightMagnitude**: `number` Optional minimum number of trailing zeros in transaction hash. This is used by `attachToTangle` function to search for a valid nonce. Currently is 14 on mainnet & spamnnet and 9 on most other devnets. *Null value will set minWeightMagnitude to 9*
-5. **tag**: `String` Optional tag of 0-27 trytes. *Null value will set tag to empty string*
+1. **payload**：`String` タングルに添付されるトライトでエンコードされたペイロード。
+<!-- 1. **payload**: `String` Tryte-encoded payload to be attached to the Tangle. -->
+2. **root**：`String` `Mam.create()`関数から返されたトライトでエンコードされた文字列。
+<!-- 2. **root**: `String` Tryte-encoded string returned from the `Mam.create()` function. -->
+3. **depth**：`number` ランダムウォークを開始するオプションの深さ。通常、ウォレットでは3の値が使用されます。つまり、RWは3つ前のマイルストーンから開始します。*Null値は深さ3に設定します。*
+<!-- 3. **depth**: `number` Optional depth at which Random Walk starts. A value of 3 is typically used by wallets, meaning that RW starts 3 milestones back. *Null value will set depth to 3* -->
+4. **minWeightMagnitude**：`number` トランザクションハッシュの末尾のゼロのオプションの最小個数。この最少個数は有効なナンスを検索するために`attachToTangle`関数によって使用されます。現在、MainnetとSpamnnetで14、他のほとんどのDevnetで9です。*Null値は`minWeightMagnitude`を9に設定します*
+<!-- 4. **minWeightMagnitude**: `number` Optional minimum number of trailing zeros in transaction hash. This is used by `attachToTangle` function to search for a valid nonce. Currently is 14 on mainnet & spamnnet and 9 on most other devnets. *Null value will set minWeightMagnitude to 9* -->
+5. **tag**：`String` 0〜27トライトのオプションのタグ。*Null値はタグを空の文字列に設定します。*
+<!-- 5. **tag**: `String` Optional tag of 0-27 trytes. *Null value will set tag to empty string* -->
 
 #### Return
 
-1. `Array` Transaction objects that have been attached to the network.
+1. `Array` - ネットワークに添付されたトランザクションオブジェクト。
+<!-- 1. `Array` Transaction objects that have been attached to the network. -->
 
 ------
 
 ## `fetch`
 
-Asynchronous.
+非同期。
+<!-- Asynchronous. -->
 
-Fetches the channel sequentially from a known `root` and optional `sidekey`. This call can be used in two ways: **Without a callback** will cause the function to read the entire channel before returning. **With a callback** the application will return data through the callback and finally the `nextroot` when finished.
+既知の`root`とオプションの`sidekey`からチャネルを順番に取得します。この呼び出しは、次の2つの方法で使用できます。**コールバックなし**では、戻る前にチャネル全体を読み取ります。**コールバックを使用**すると、アプリケーションはコールバックを介してデータを返し、終了すると最終的に`nextroot`を返します。
+<!-- Fetches the channel sequentially from a known `root` and optional `sidekey`. This call can be used in two ways: **Without a callback** will cause the function to read the entire channel before returning. **With a callback** the application will return data through the callback and finally the `nextroot` when finished. -->
 
 #### Input
 
@@ -181,24 +232,33 @@ Fetches the channel sequentially from a known `root` and optional `sidekey`. Thi
 await Mam.fetch(root, mode, sidekey, callback, limit)
 ```
 
-1. **root**: `String` Tryte-encoded string used as the entry point to a channel. *NOT the address!*
-2. **mode**: `String` Channel mode. Can one of `public`, `private` or `restricted` *Null value falls back to public*
-3. **sideKey**: `String` Tryte-encoded encryption key. *Null value falls back to default key*
-4. **callback**: `Function` Optional callback. *Null value will cause the function to push payload into the messages array.*
-5. **limit**: `Number` Optional limits the number of items returned, defaults to all.
+1. **root**：`String` チャネルへのエントリポイントとして使用されるトライトでエンコードされた文字列。*アドレスではありません！*
+<!-- 1. **root**: `String` Tryte-encoded string used as the entry point to a channel. *NOT the address!* -->
+2. **mode**：`String` チャネルモード。`public`、`private`、または`restricted`のいずれか。*Null値はpublicにフォールバックします。*
+<!-- 2. **mode**: `String` Channel mode. Can one of `public`, `private` or `restricted` *Null value falls back to public* -->
+3. **sideKey**：`String` トライトでエンコードされた暗号化キー。*Null値はデフォルトキーにフォールバックします。*
+<!-- 3. **sideKey**: `String` Tryte-encoded encryption key. *Null value falls back to default key* -->
+4. **callback**：`Function` オプションのコールバック。* Null値により、関数はペイロードをメッセージ配列にプッシュします。*
+<!-- 4. **callback**: `Function` Optional callback. *Null value will cause the function to push payload into the messages array.* -->
+5. **limit**：`Number` オプションで、返されるアイテムの数を制限します。デフォルトは`all`です。
+<!-- 5. **limit**: `Number` Optional limits the number of items returned, defaults to all. -->
 
 #### Return
 
-1. **nextRoot**: `String` Tryte-encoded string pointing to the next root.
-2. **messages**: `Array` Array of Tryte-encoded messages from the channel.
+1. **nextRoot**：`String` 次のルートを指すトライトでエンコードされた文字列。
+<!-- 1. **nextRoot**: `String` Tryte-encoded string pointing to the next root. -->
+2. **messages**：`Array` チャネルからのトライトでエンコードされたメッセージの配列。
+<!-- 2. **messages**: `Array` Array of Tryte-encoded messages from the channel. -->
 
 ------
 
-### `fetchSingle`
+## `fetchSingle`
 
-Asynchronous.  
+非同期。
+<!-- Asynchronous. -->
 
-Fetches a single message from a known `root` and optional `sidekey`.
+既知の`root`とオプションの`sidekey`から単一のメッセージを取得します。
+<!-- Fetches a single message from a known `root` and optional `sidekey`. -->
 
 #### Input
 
@@ -206,11 +266,16 @@ Fetches a single message from a known `root` and optional `sidekey`.
 await Mam.fetchSingle(root, mode, sidekey)
 ```
 
-1. **root**: `String` Tryte-encoded string used as the entry point to a channel. *NOT the address!*
-2. **mode**: `String` Channel mode. Can one of `public`, `private` or `restricted` *Null value falls back to public*
-3. **sideKey**: `String` Tryte-encoded encryption key. *Null value falls back to default key*
+1. **root**：`String` チャネルへのエントリポイントとして使用されるトライトでエンコードされた文字列。*アドレスではありません！*
+<!-- 1. **root**: `String` Tryte-encoded string used as the entry point to a channel. *NOT the address!* -->
+2. **mode**：`String` チャネルモード。`public`、`private`、または`restricted`のいずれか。*Null値は`public`にフォールバックします。*
+<!-- 2. **mode**: `String` Channel mode. Can one of `public`, `private` or `restricted` *Null value falls back to public* -->
+3. **sideKey**：`String` トライトでエンコードされた暗号化キー。*Null値はデフォルトキーにフォールバックします。*
+<!-- 3. **sideKey**: `String` Tryte-encoded encryption key. *Null value falls back to default key* -->
 
 #### Return
 
-1. **nextRoot**: `String` Tryte-encoded string pointing to the next root.
-2. **payload**: `String` Tryte-encoded messages from the channel.
+1. **nextRoot**：`String` 次のルートを指すトライトでエンコードされた文字列。
+<!-- 1. **nextRoot**: `String` Tryte-encoded string pointing to the next root. -->
+2. **payload**：`String` チャネルからのトライトでエンコードされたメッセージ。
+<!-- 2. **payload**: `String` Tryte-encoded messages from the channel. -->
