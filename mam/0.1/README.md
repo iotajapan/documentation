@@ -1,13 +1,13 @@
 # マスクされた認証済みメッセージングライブラリ
 <!-- # Masked Authenticated Messaging Library -->
 
-これは**公式**JavaScript MAMライブラリであり、次のことができます。
+これは**公式** JavaScript MAM ライブラリであり、次のことができます。
 <!-- This is the **official** JavaScript MAM library, which allows you to do the following: -->
-- さまざまな暗号化スキームでMAMメッセージを作成する
+- さまざまな暗号化スキームで MAM メッセージを作成する
 <!-- - Create MAM messages with varying encryption schemes -->
-- MAMメッセージを公開する（IOTA.JSクライアントライブラリを使用）
+- MAM メッセージを公開する（IOTA.JS クライアントライブラリを使用）
 <!-- - Publish MAM messages (using the IOTA.JS Client library) -->
-- MAMストリームのフェッチとデコード
+- MAM ストリームのフェッチとデコード
 <!-- - Fetch & decode MAM streams -->
 - 単一のメッセージのフェッチとデコード
 <!-- - Fetch & Decode singular messages -->
@@ -15,12 +15,12 @@
 ライブラリの機能の詳細については、次をご覧ください。
 <!-- To learn more about how the library works: -->
 
-- ["公開"MAMメッセージを送信する方法](root://mam/0.1/how-to/publishAndFetchPublic.md)をご覧ください。
+- ["公開" MAM メッセージを送信する方法](root://mam/0.1/how-to/publishAndFetchPublic.md)をご覧ください。
 <!-- - See how you can [send "Public" MAM message](root://mam/0.1/how-to/publishAndFetchPublic.md). -->
 - [トランザクションの送受信方法](root://iota-js/0.1/how-to-guides/create-and-manage-cda.md)をご覧ください。
 <!-- - See how you can [send and receive](root://iota-js/0.1/how-to-guides/create-and-manage-cda.md) transactions. -->
 
-[IOTA JS GitHubリポジトリ](https://github.com/iotaledger/iota.js)でライブラリを取得します。
+[IOTA JS GitHub リポジトリ](https://github.com/iotaledger/iota.js)でライブラリを取得します。
 <!-- Get the library at the [IOTA JS  GitHub repository](https://github.com/iotaledger/iota.js). -->
 
 :::warning:ベータソフトウェア
