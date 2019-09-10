@@ -15,7 +15,7 @@
 Mam.init(settings, seed, security)
 ```
 
-1. **設定**：`Object`または`String`設定オブジェクトまたはネットワークプロバイダーのURL。
+1. **settings**：`Object`または`String` 設定オブジェクトまたはネットワークプロバイダーのURL。
   <!-- 1. **settings**: `Object` or `String` Configuration object or network provider URL. -->
     構成オブジェクト：
     <!-- Configuration object: -->
@@ -23,21 +23,21 @@ Mam.init(settings, seed, security)
     <!-- 1. **provider**: `String` Network provider URL. -->
     2. **attachToTangle**：`Function` デフォルトの`attachToTangle`をオーバーライドして別のノードを使用してPoWを実行したり、PoWサービスを使用したりするための関数。
     <!-- 2. **attachToTangle** `Function` function to override default `attachToTangle` to use another Node to do the PoW or use a PoW service. -->
-2. **seed**：`String` オプションのトライトでエンコードされたシード。*Null値はランダムシードを生成します。*
+2. **seed**：`String` トライトでエンコードされたオプションのシード。*Null値はランダムなシードを生成します。*
 <!-- 2. **seed**: `String` Optional tryte-encoded seed. *Null value generates a random seed* -->
 3. **security**：`Integer` 使用されるキーのオプションのセキュリティ。*Null値のデフォルトは`2`です。*
 <!-- 3. **security**: `Integer` Optional security of the keys used. *Null value defaults to `2`* -->
 
 #### Return
 
-1. **Object** - 将来のアクションで使用される初期化されたステートオブジェクト
+1. **Object** - 将来のアクションで使用される初期化されたステートオブジェクト。
 <!-- 1. **Object** - Initialised state object to be used in future actions -->
 
 ------
 
 ## `changeMode`
 
-これはステートオブジェクトを取得し、デフォルトのチャネルモードを`public`から指定されたモードと`sidekey`に変更します。3つのモードのみがあります：`public`、` private`、および`restricted`。これらのモードのいずれかに合致しない場合、デフォルトで`public`になります。これは、あなたがフォローしているチャネルの進行状況を追跡するステートオブジェクトを返します
+これはステートオブジェクトを取得し、デフォルトのチャネルモードを`public`から指定されたモードと`sidekey`に変更します。3つのモードのみがあります：`public`、` private`、および`restricted`です。これらのモードのいずれかに合致しない場合、デフォルトで`public`になります。これは、あなたがフォローしているチャネルの進行状況を追跡するステートオブジェクトを返します。
 <!-- This takes the state object and changes the default channel mode from `public` to the specified mode and `sidekey`. There are only three possible modes: `public`, `private`, & `restricted`. If you fail to pass one of these modes it will default to `public`. This will return a state object that tracks the progress of your channel and channels you are following -->
 
 #### Input
@@ -50,7 +50,7 @@ Mam.changeMode(state, mode, sidekey)
 <!-- 1. **state**: `Object` Initialised IOTA library with a provider set. -->
 2. **mode**：`String` 意図したチャネルモード。指定できるのは、`public`、`private`または`restricted`のみです。
 <!-- 2. **mode**: `String` Intended channel mode. Can be only: `public`, `private` or `restricted` -->
-3. **sideKey**：`String` トライトでエンコードされた`81トライト`の長さの暗号化キー、。*制限モードに必要*
+3. **sideKey**：`String` トライトでエンコードされた`81トライト`の長さの暗号化キー。*制限モードで必要です。*
 <!-- 3. **sideKey**: `String` Tryte-encoded encryption key, `81 trytes` long. *Required for restricted mode* -->
 
 #### Return
@@ -62,7 +62,7 @@ Mam.changeMode(state, mode, sidekey)
 
 ## `getRoot`
 
-このメソッドは、指定されたmamステートのルートを返します。
+このメソッドは、指定されたMAMステートのルートを返します。
 <!-- This method will return the root for the supplied mam state. -->
 
 #### Input
@@ -168,7 +168,7 @@ Mam.subscribe(state, channelRoot, channelMode, channelKey)
 
 ## `listen`
 
-新しいメッセージのチャンネルをリッスンします。
+新しいメッセージのチャネルをリッスンします。
 <!-- Listen to a channel for new messages. -->
 
 #### Input
@@ -202,11 +202,11 @@ await Mam.attach(payload, address, depth, minWeightMagnitude, tag)
 
 1. **payload**：`String` タングルに添付されるトライトでエンコードされたペイロード。
 <!-- 1. **payload**: `String` Tryte-encoded payload to be attached to the Tangle. -->
-2. **root**：`String` `Mam.create()`関数から返されたトライトでエンコードされた文字列。
+2. **address**：`String` `Mam.create()`関数から返されたトライトでエンコードされた文字列。
 <!-- 2. **root**: `String` Tryte-encoded string returned from the `Mam.create()` function. -->
 3. **depth**：`number` ランダムウォークを開始するオプションの深さ。通常、ウォレットでは3の値が使用されます。つまり、RWは3つ前のマイルストーンから開始します。*Null値は深さ3に設定します。*
 <!-- 3. **depth**: `number` Optional depth at which Random Walk starts. A value of 3 is typically used by wallets, meaning that RW starts 3 milestones back. *Null value will set depth to 3* -->
-4. **minWeightMagnitude**：`number` トランザクションハッシュの末尾のゼロのオプションの最小個数。この最少個数は有効なナンスを検索するために`attachToTangle`関数によって使用されます。現在、MainnetとSpamnnetで14、他のほとんどのDevnetで9です。*Null値は`minWeightMagnitude`を9に設定します*
+4. **minWeightMagnitude**：`number` トランザクションハッシュの末尾のゼロのオプションの最小個数。この最少個数は有効なナンスを検索するために`attachToTangle`関数によって使用されます。現在、MainnetとSpamnnetで14、他のほとんどのDevnetで9です。*Null値は`minWeightMagnitude`を9に設定します。*
 <!-- 4. **minWeightMagnitude**: `number` Optional minimum number of trailing zeros in transaction hash. This is used by `attachToTangle` function to search for a valid nonce. Currently is 14 on mainnet & spamnnet and 9 on most other devnets. *Null value will set minWeightMagnitude to 9* -->
 5. **tag**：`String` 0〜27トライトのオプションのタグ。*Null値はタグを空の文字列に設定します。*
 <!-- 5. **tag**: `String` Optional tag of 0-27 trytes. *Null value will set tag to empty string* -->
