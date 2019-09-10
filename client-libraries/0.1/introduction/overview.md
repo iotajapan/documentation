@@ -40,10 +40,11 @@
 
 ---
 
-#### **MAM library** ####
+#### **MAMライブラリ** ####
 [Link](root://mam/0.1/README.md)
 
-The official MAM client library. This library enables user to create, send & decode MAM messages.
+公式のMAMクライアントライブラリ。このライブラリにより、ユーザーはMAMメッセージを作成、送信、およびデコードできます。
+<!-- The official MAM client library. This library enables user to create, send & decode MAM messages. -->
 
 
 ---------------

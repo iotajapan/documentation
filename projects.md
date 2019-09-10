@@ -10,5 +10,6 @@
 [Javaライブラリ](/iota-java)
 [JSライブラリ](/iota-js)
 [MAM](/mam)
+[スマートシティ](/smartcity)
 [一般](/general)
 [貢献](/contribution)
