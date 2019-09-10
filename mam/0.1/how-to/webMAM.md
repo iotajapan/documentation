@@ -30,7 +30,7 @@ MAMエクスプローラーを使用して確認します。
 ## HTMLにMAMを追加する
 <!-- ## Adding MAM in HTML -->
 
-`&lt; html &gt;`タグを使用してHTMLページを作成します。文字セットを`utf-8`に設定します。`<head>`セクションで、ページにタイトルを付けます。`<body>`タグを使用してWebページの本文を開始します。`<div>`タグを使用して本文内に分割を設定し、`ID = "output"`を指定して、スクリプトが出力の送信先を認識できるようにします。
+`&lt;html&gt;`タグを使用してHTMLページを作成します。文字セットを`utf-8`に設定します。`&lt;head&gt;`セクションで、ページにタイトルを付けます。`&lt;body&gt;`タグを使用してWebページの本文を開始します。`&lt;div&gt;`タグを使用して本文内に分割を設定し、`ID = "output"`を指定して、スクリプトが出力の送信先を認識できるようにします。
 <!-- Use the `<html>` tag to create your HTML page.  Set the character set to "utf-8".  In the `<head>` section, give your page a title.  Start the body of your webpage using the `<body>` tag.  Set a division within the body using the `<div>` tag and give it an ID="output" so your script knows where to send the output. -->
 
 ```html
@@ -55,7 +55,7 @@ MAMエクスプローラーを使用して確認します。
 トリテアルファベットを定義します。ASCII文字をトライトに変換し、トライトをASCIIに変換する関数を追加します。
 <!-- Define the tryte alphabet.  Add functions to convert ascii characters to trytes and trytes to ascii -->
 
-```html
+```js
     <script>
         const TRYTE_ALPHABET = '9ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -81,7 +81,7 @@ MAMエクスプローラーを使用して確認します。
 プロバイダーを構成します。この例では、`Devnet`と呼ばれるIOTAテストネットワークを使用します。mamExplorerLinkを構成します。この例では、IOTA MAMエクスプローラーを使用します。HTML出力を`output`に設定します。
 <!-- Configure the provider.  This example uses the IOTA testbed, called "Devnet".  Configure the mamExplorerLink.  This example uses the IOTA MAM explorer.  Set the HTML output to `output` -->
 
-```html
+```js
         (async function () {
             const mode = 'public'
             const provider = 'https://nodes.devnet.iota.org'
@@ -95,7 +95,7 @@ MAMエクスプローラーを使用して確認します。
 MAMにプロバイダーを使用するように指示します。
 <!-- Tell MAM to use the provider -->
 
-```html
+```js
             // Initialise MAM State
             let mamState = Mam.init(provider)
 ```
@@ -103,7 +103,7 @@ MAMにプロバイダーを使用するように指示します。
 メッセージごとに、トライトに変換して送信します。このMAMストリームのMAMチャネルIDであるメッセージルートを取得します。
 <!-- For each message, convert to trytes, then send it.  You will get the message root which is the MAM channel ID for this MAM stream -->
 
-```html
+```js
             // Publish to tangle
             const publish = async packet => {
                 // Create MAM Payload - STRING OF TRYTES
@@ -124,7 +124,7 @@ MAMにプロバイダーを使用するように指示します。
 3つのメッセージを公開します。
 <!-- Publish three messages -->
 
-```html
+```js
             const publishAll = async () => {
                 const root = await publish('ALICE')
 
@@ -140,7 +140,7 @@ MAMにプロバイダーを使用するように指示します。
 3つのメッセージを取得します。
 <!-- Fetch three messages -->
 
-```html
+```js
             // Callback used to pass data out of the fetch
             const logData = data => outputHtml.innerHTML += `Fetched and parsed ${JSON.parse(trytesToAscii(data))}<br/>`;
 
