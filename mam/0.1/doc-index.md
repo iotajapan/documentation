@@ -1,8 +1,8 @@
 # Index
 
-[Introduction/Overview](README.md)
-[How-to Guides/Publish public MAM Stream](/how-to/publishAndFetchPublic.md)
-[How-to Guides/Use custom stream tags](/how-to/publishAndFetchPublicCustomTag.md)
-[How-to Guides/Publish encrypted stream](/how-to/publishAndFetchRestricted.md)
-[How-to Guides/Publish stream from browser](/how-to/webMAM.md)
-[References/API Reference](/references/api.md)
+[序説/概要](README.md)
+[ハウツーガイド/Publish public MAM Stream](/how-to/publishAndFetchPublic.md)
+[ハウツーガイド/Use custom stream tags](/how-to/publishAndFetchPublicCustomTag.md)
+[ハウツーガイド/Publish encrypted stream](/how-to/publishAndFetchRestricted.md)
+[ハウツーガイド/Publish stream from browser](/how-to/webMAM.md)
+[参考文献/APIリファレンス](/references/api.md)
