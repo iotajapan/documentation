@@ -98,7 +98,7 @@ publishAll()
     result.messages.forEach(message => console.log('Fetched and parsed', JSON.parse(trytesToAscii(message)), '\n'))
 ```
 
-MAMエクスプローラーでこれらのメッセージを表示するためのコマンドラインを印刷します。
+MAMエクスプローラーでこれらのメッセージを表示するためのコマンドラインを出力します。
 <!-- Print the command line for viewing these messages in the MAM Explorer -->
 
 ```js
