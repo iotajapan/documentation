@@ -38,6 +38,14 @@
 公式のGoクライアントライブラリ。このライブラリには、公式のAPIと追加機能が含まれています。
 <!-- The official Go client library. This library includes the official API and additional features. -->
 
+---
+
+#### **MAM library** ####
+[Link](root://mam/0.1/README.md)
+
+The official MAM client library. This library enables user to create, send & decode MAM messages.
+
+
 ---------------
 
 ### __コミュニティサポートライブラリ__ ###

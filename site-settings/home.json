@@ -51,14 +51,14 @@
             "name": "IOTAとは？"
         },
         {
-            "href": "/docs/getting-started/0.1/introduction/what-is-dlt",
+            "href": "/docs/getting-started/0.1/tutorials/get-started",
             "image": "2.png",
-            "name": "DLTとは？"
+            "name": "入門"
         },
         {
-            "href": "/docs/client-libraries/0.1/introduction/overview",
+            "href": "/docs/getting-started/0.1/references/quickstart-dev-handbook",
             "image": "3.png",
-            "name": "開発を始める"
+            "name": "開発者ハンドブック"
         }
     ]
 }

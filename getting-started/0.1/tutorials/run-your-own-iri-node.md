@@ -90,7 +90,7 @@ Linuxオペレーティングシステムを使用している場合は、以下
   <!-- 4. Run the IRI -->
 
     ```bash
-    docker run --name iri iotaledger/iri:latest --remote -p 14265
+    docker run --name iri iotaledger/iri:latest --remote true -p 14265
     ```
 
     IRIノードは現在実行中で、次のURL：http://localhost.com:14265 で[IRI API](root://node-software/0.1/iri/references/api-reference.md)を通してIRIノードと対話することができます。

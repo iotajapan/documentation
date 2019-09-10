@@ -9,6 +9,6 @@
 [Goライブラリ](/iota-go)
 [Javaライブラリ](/iota-java)
 [JSライブラリ](/iota-js)
+[MAM](/mam)
 [一般](/general)
-[スマートシティ](/smartcity)
 [貢献](/contribution)

@@ -166,7 +166,7 @@ docker pull iotaledger/iri:latest
   <!-- 1. Run the IRI with the `-p` flag to specify the API port -->
 
     ```bash
-    docker run --name iri iotaledger/iri:latest --remote -p 14265
+    docker run --name iri iotaledger/iri:latest --remote true -p 14265
     ```
 
     設定オプションをIRI設定ファイルに保存したい場合は、IRI設定ファイルへのパスを`-c`フラグと一緒に渡す必要があります。たとえば、Dockerホストの`/path/to/conf/config.ini`にconfig.iniファイルを保存した場合は、DOCKER RUNコマンドに`-c /path/to/conf/config.ini`を追加します。
