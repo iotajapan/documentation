@@ -115,7 +115,7 @@
 
 | **フラグ** | **説明** | **デフォルト値** |
 | :--------- | :------- | :--------------- |
-| <a name="monitorInterval"></a> `--monitorInterval` | ハブが預け入れアドレスをチェックし、[`user_address`テーブルと`user_address_balance`テーブル](../references/database-tables.md)を更新する間隔（ミリ秒）。トークンを含むものは、次のスイープに含まれます（スイープを無効にするには、このフラグを0に設定します）。 | 60000 |
+| <a name="monitorInterval"></a> `--monitorInterval` | ハブが預け入れアドレスをチェックし、[`user_address`テーブルと`user_address_balance`テーブル](../references/database-tables.md)を更新する間隔（ミリ秒）。トークンを含むものは、次のスウィープに含まれます（スウィープを無効にするには、このフラグを0に設定します）。 | 60000 |
 | `--sweepInterval` | ハブがスウィープ間で待機する間隔（ミリ秒）。0=無効。 | 600000 |
 | <a name="sweepLimits"></a> `--sweep_max_deposit` | スウィープに含めるユーザー預け入れの最大数 | 5 |
 | `--sweep_max_withdraw` | スウィープに含める取り出しリクエストの最大数 | 7 |

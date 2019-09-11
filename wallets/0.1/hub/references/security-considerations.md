@@ -14,7 +14,7 @@
 <!-- Hub reduces this risk by transferring IOTA tokens from users' deposit addresses to a Hub owner's address at regular intervals. This process happens in a [sweep](../concepts/sweeps.md). -->
 
 :::danger:重要
-使用済みアドレスを保護するためにスイープを頼るべきではありません。ハブがスウィープする前に、攻撃者は資金を盗むことができます。
+使用済みアドレスを保護するためにスウィープを頼るべきではありません。ハブがスウィープする前に、攻撃者は資金を盗むことができます。
 
 したがって、使用済みアドレスに2度とトークンを預け入れないようにユーザーに通知することが重要です。
 :::

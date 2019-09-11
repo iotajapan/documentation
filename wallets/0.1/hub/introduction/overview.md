@@ -1,7 +1,7 @@
 # ハブ概要
 <!-- # Hub overview -->
 
-**ハブは暗号通貨交換所のためのヘッドレスマルチユーザーウォレットです。ハブは、ユーザーのIOTAトークンの預け入れと取り出しを管理するための安全な方法を提供します。ユーザーがIOTAトークンを自分のハブアドレスの1つに預け入れると、スイープと呼ばれるプロセスでユーザーのトークンがハブ所有者のアドレスに転送されます。このようにして、ハブの所有者は、ユーザーが取り出しをリクエストするまでユーザーのトークンが安全であることを確認できます。**
+**ハブは暗号通貨交換所のためのヘッドレスマルチユーザーウォレットです。ハブは、ユーザーのIOTAトークンの預け入れと取り出しを管理するための安全な方法を提供します。ユーザーがIOTAトークンを自分のハブアドレスの1つに預け入れると、スウィープと呼ばれるプロセスでユーザーのトークンがハブ所有者のアドレスに転送されます。このようにして、ハブの所有者は、ユーザーが取り出しをリクエストするまでユーザーのトークンが安全であることを確認できます。**
 <!-- **Hub is a headless multi-user wallet for cryptocurrency exchanges. Hub offers you a secure way to manage deposits and withdrawals of users' IOTA tokens. When a user deposits IOTA tokens into one of their Hub addresses, Hub transfers those tokens to the Hub owners address in a process called a sweep. This way, the Hub owner can make sure that users' tokens are secure until they request a withdrawal.** -->
 
 ハブを使用すると、以下のプロセスを通じてIOTAを独自のアプリケーションに統合できます。
@@ -41,7 +41,7 @@ IOTAネットワークの各クライアントには、[シード](root://gettin
 <!-- * Salt: Characters that you can define in an optional [`salt` flag](../references/command-line-flags.md) -->
 
 :::info:
-データベースには、ユーザーが所有しているIOTAトークン量の記録が含まれています。IOTAトークンはユーザーのアドレスには保存されません。代わりに、ユーザーのIOTAトークンは[スイープ](../concepts/sweeps.md)中にハブ所有者のアドレスに転送されます。ユーザーが後で[`userWithdrawRequest`コマンド](../references/api-reference.md#hub.rpc.UserWithdrawRequest)をトリガーした時に、ハブはユーザーのIOTAトークンを選択されたアドレスに送信するための新しいスイープを作成します。
+データベースには、ユーザーが所有しているIOTAトークン量の記録が含まれています。IOTAトークンはユーザーのアドレスには保存されません。代わりに、ユーザーのIOTAトークンは[スウィープ](../concepts/sweeps.md)中にハブ所有者のアドレスに転送されます。ユーザーが後で[`userWithdrawRequest`コマンド](../references/api-reference.md#hub.rpc.UserWithdrawRequest)をトリガーした時に、ハブはユーザーのIOTAトークンを選択されたアドレスに送信するための新しいスウィープを作成します。
 :::
 <!-- :::info: -->
 <!-- The database contains a record of how many IOTA tokens a user has. The IOTA tokens are not kept on the user's addresses. Instead, they are transferred to the Hub owners address during a [sweep](../concepts/sweeps.md). If a user later triggers a [`userWithdrawRequest` command](../references/api-reference.md#hub.rpc.UserWithdrawRequest), Hub creates a new sweep to send the user's tokens to the chosen addresses. -->
@@ -69,7 +69,7 @@ IOTAは、バンドルに署名するためにWinternitzワンタイム署名方
 **預け入れアドレス管理：** ハブは、すべての預け入れに対して新しいシードから新しいアドレスを導出します。そのために、ハブは取り出し管理を使用して、アドレスからすでにIOTAトークンが取り出されているかどうかを確認します。そして、アドレスからIOTAトークンが取り出されている場合、ハブは新しい預け入れアドレスの導出に使用する新しいシードUUIDを作成します。
 <!-- **Deposit address management:** Hub derives a new address from a new seed for every deposit. To do so, Hub uses the withdrawal management to check whether an address was already withdrawn from. If an address has been withdrawn from, Hub creates a new seed UUID to use to derive a new deposit address. -->
 
-**スウィープ：** ユーザーの取り出しリクエストを実行すると、ハブは[スイープ](../concepts/sweeps.md)と呼ばれるバンドルを作成します。これは、ユーザーの預け入れアドレスからハブ所有者のアドレスの1つに資金を移動するためのものです。
+**スウィープ：** ユーザーの取り出しリクエストを実行すると、ハブは[スウィープ](../concepts/sweeps.md)と呼ばれるバンドルを作成します。これは、ユーザーの預け入れアドレスからハブ所有者のアドレスの1つに資金を移動するためのものです。
 <!-- **Sweeps:** When actioning a user's withdrawal request, Hub creates a bundle, called a [sweep](../concepts/sweeps.md), that also moves funds from users' deposit addresses to one of the Hub owner's addresses. -->
 
 ## 制限事項
