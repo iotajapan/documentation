@@ -2,7 +2,7 @@
     "headerTitle": "開発者用ドキュメント",
     "headerTopLinks": [
         {
-            "href": "https://github.com/iotaledger/documentation/commit/524fe5ec8a707f93d05d9ed8bb28a657a6692afc",
+            "href": "https://github.com/iotaledger/documentation/commit/01ac079183a0633e3cc1efd504d521d98b9d0c57",
             "name": "ここまで翻訳済"
         },
         {
@@ -52,12 +52,12 @@
         },
         {
             "href": "/docs/getting-started/0.1/tutorials/get-started",
-            "image": "2.png",
+            "image": "3.png",
             "name": "入門"
         },
         {
             "href": "/docs/getting-started/0.1/references/quickstart-dev-handbook",
-            "image": "3.png",
+            "image": "2.png",
             "name": "開発者ハンドブック"
         }
     ]

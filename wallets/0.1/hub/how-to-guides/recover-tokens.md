@@ -1,14 +1,19 @@
-# スウィープしたアドレスからIOTAトークンを救う
-<!-- # Rescue IOTA tokens from a swept address -->
+# スウィープアドレスからIOTAトークンを回復する
+<!-- # Recover IOTA tokens from a swept address -->
 
-**Winternitzワンタイム署名スキームは、アドレスからIOTAトークンを取り出すバンドルに署名するために使用されます。その結果、アドレスは1度だけならIOTAトークンを取り出しても安全です。ハブがアドレスをスウィープした後、そのアドレスは使用済みになり、そのアドレスから再び取り出しを行なってはいけません。ただし、ユーザーはIOTAトークンを、既にスウィープした古い預け入れアドレスに送信する場合があります。この場合、攻撃者が署名に対して総当たり攻撃を行いIOTAトークンを盗もうとするリスクがあります。スウィープしたアドレスからIOTAトークンを救うために、潜在的な攻撃者が総当たり攻撃を仕掛ける前にIOTAトークンを新しいアドレスに転送しようとすることができます。**
-<!-- **The Winternitz one-time signature scheme is used to sign bundles that withdraw IOTA tokens from addresses. As a result, addresses are safe to withdraw from only once. After Hub sweeps an address, that address is spent and must never be withdrawn from again. But, sometimes users send IOTA tokens to old deposit addresses that have already been swept. In this case, the address is at risk of an attacker trying to brute force its signature to steal its tokens. To rescue the tokens from the swept address, you can try to transfer them to a new address before a potential attacker can.** -->
+**Winternitzワンタイム署名スキームは、アドレスからIOTAトークンを取り出すバンドルに署名するために使用されます。その結果、アドレスは1度だけならIOTAトークンを取り出しても安全です。ハブがアドレスをスウィープした後、そのアドレスは使用済みになり、そのアドレスから再び取り出しを行なってはいけません。ただし、ユーザーはIOTAトークンを、既にスウィープした古い預け入れアドレスに送信する場合があります。この場合、攻撃者が署名に対して総当たり攻撃を行いIOTAトークンを盗もうとするリスクがあります。スウィープしたアドレスからIOTAトークンを回復するために、潜在的な攻撃者が総当たり攻撃を仕掛ける前にIOTAトークンを新しいアドレスに転送しようとすることができます。**
+<!-- **The Winternitz one-time signature scheme is used to sign bundles that withdraw IOTA tokens from addresses. As a result, addresses are safe to withdraw from only once. After Hub sweeps an address, that address is spent and must never be withdrawn from again. But, sometimes users send IOTA tokens to old deposit addresses that have already been swept. In this case, the address is at risk of an attacker trying to brute force its signature to steal its tokens. To recover the tokens from the swept address, you can try to transfer them to a new address before a potential attacker can.** -->
 
-スウィープしたアドレスからIOTAトークンを救うには、ハブの外部で未署名のバンドルを作成し、ハブを使用してそのバンドルに署名してから、完全なバンドルをノードに送信する必要があります。
-<!-- To rescue tokens from a swept address, you must create an unsigned bundle outside of Hub, use Hub to sign it, then send the complete bundle to a node. -->
+:::info:
+このガイドでは、`signBundle()`メソッドを使用して、使用済みアドレスからIOTAトークンを回復します。`signBundle()`メソッドは、使用済みアドレスの合計残高を1つ以上の出力アドレスに預け入れるカスタムバンドルを作成するのに役立ちます。
 
-このガイドでは、JavaScriptクライアントライブラリを使用してバンドルを作成および送信しますが、Go、Java、Pythonなどの他の[公式およびコミュニティライブラリ](root://client-libraries/0.1/introduction/overview.md)もあります。
-<!-- In this guide, we use the JavaScript client library to create and send the bundle, but we also have other [official and community libraries](root://client-libraries/0.1/introduction/overview.md), including Go, Java, and Python. -->
+使用済みアドレスの合計残高を単一の出力アドレスに転送するには、[`recoverFunds()`メソッド](../references/api-reference.md#hub.rpc.RecoverFundsRequest)を使用する方が簡単です。
+:::
+<!-- :::info: -->
+<!-- In this guide, we use the `signBundle()` method to recover IOTA tokens from a spent address. This method is useful for creating a custom bundle that deposits any amount of the spent address's total balance into one or more output addresses. -->
+<!--  -->
+<!-- To transfer the total balance of a spent address into a single output address, it's easier to use the [`recoverFunds()` method](../references/api-reference.md#hub.rpc.RecoverFundsRequest). -->
+<!-- ::: -->
 
 ## 前提条件
 <!-- ## Prerequisites -->
@@ -41,6 +46,13 @@ IOTAクライアントライブラリを使用したことがない場合は、[
 
 ハブがバンドルに署名する前に、未署名のバンドルを作成する必要があります。
 <!-- Before Hub can sign a bundle, you need to create an unsigned one. -->
+
+:::info
+このガイドでは、JavaScriptクライアントライブラリを使用してバンドルを作成および送信しますが、Go、Java、Pythonなどの他の[公式およびコミュニティライブラリ](root://client-libraries/0.1/introduction/overview.md)もあります。
+:::
+<!-- :::info: -->
+<!-- <!-- In this guide, we use the JavaScript client library to create and send the bundle, but we also have other [official and community libraries](root://client-libraries/0.1/introduction/overview.md), including Go, Java, and Python. --> -->
+<!-- ::: -->
 
 1. パッケージを要求します。
   <!-- 1. Require the packages -->
@@ -97,14 +109,14 @@ IOTAクライアントライブラリを使用したことがない場合は、[
     | **フィールド** | **説明** | **メモ** |
     | :------------- | :------- | :------- |
     | `outputAddress` | スウィープアドレス上のIOTAトークンを転送する新しい81トライトのアドレス（チェックサムなし） | このアドレスは、ハブアドレスである必要はありません。たとえば、IOTAトークンをハードウェアウォレットのアドレスに送信できます。 |
-    | `inputAddress` | 救う必要があるIOTAトークンを含む、スウィープした81トライトのアドレス（チェックサムなし） | [`balanceSubscription()`メソッド](../references/api-reference.md#hub.rpc.BalanceSubscriptionRequest)を使用して、受信アドレスへの預け入れをチェックすることをお勧めします。[`getUserHistory()`メソッド](../references/api-reference.md#hub.rpc.GetUserHistoryRequest)を使用して、どの使用済みアドレスに正のバランスがあるかを確認することもできます。 |
+    | `inputAddress` | 回復する必要があるIOTAトークンを含む、スウィープした81トライトのアドレス（チェックサムなし） | [`balanceSubscription()`メソッド](../references/api-reference.md#hub.rpc.BalanceSubscriptionRequest)を使用して、受信アドレスへの預け入れをチェックすることをお勧めします。[`getUserHistory()`メソッド](../references/api-reference.md#hub.rpc.GetUserHistoryRequest)を使用して、どの使用済みアドレスに正のバランスがあるかを確認することもできます。 |
     | `securityLevel` | スウィープアドレスのセキュリティレベル | デフォルトのセキュリティレベルは2です。[`keySecLevel`コマンドラインフラグ](../references/command-line-flags.md#keySec)のセキュリティレベルを変更した場合は、必ずそれを使用します。 |
     | `value` | `inputAddress`フィールドのスウィープアドレスの合計残高 | [thetangle.org](https://thetangle.org/)などのタングルエクスプローラーでアドレスの残高を確認できます。 |
 
     <!-- |**Field**|**Description**|**Notes**| -->
     <!-- |:----|:----------|:-----------| -->
     <!-- |`outputAddress`|The new 81-tryte address (without a checksum) to which you want to transfer the tokens on the swept address|This address does not need to be a Hub address. For example, you may want to send the tokens to an address on a hardware wallet. | -->
-    <!-- |`inputAddress`|The swept 81-tryte address (without a checksum) that contains the IOTA tokens that you need to rescue|It's best practice to use the [`balanceSubscription()` method](../references/api-reference.md#hub.rpc.BalanceSubscriptionRequest) to check for incoming deposits into swept addresses. You can also use the [`getUserHistory()` method](../references/api-reference.md#hub.rpc.GetUserHistoryRequest) to check which spent addresses have a positive balance.| -->
+    <!-- |`inputAddress`|The swept 81-tryte address (without a checksum) that contains the IOTA tokens that you need to recover|It's best practice to use the [`balanceSubscription()` method](../references/api-reference.md#hub.rpc.BalanceSubscriptionRequest) to check for incoming deposits into swept addresses. You can also use the [`getUserHistory()` method](../references/api-reference.md#hub.rpc.GetUserHistoryRequest) to check which spent addresses have a positive balance.| -->
     <!-- |`securityLevel`| The security level of the swept address|The default security level is 2. If you changed the security level in the [`keySecLevel` command-line flag](../references/command-line-flags.md#keySec), make sure you use that one. | -->
     <!-- |`value`|The total balance of the swept address in the `inputAddress` field|You can check the balance of any address on a Tangle explorer such as [thetangle.org](https://thetangle.org/) | -->
 
@@ -260,10 +272,10 @@ Hubには`signBundle()`gRPCメソッドがあり、ハブユーザーのアド�
     <!-- ::: -->
 
 :::success:おめでとうございます:tada:
-スウィープしたアドレスからIOTAトークンを救う署名済みバンドルを送信しました。
+スウィープしたアドレスからIOTAトークンを回復する署名済みバンドルを送信しました。
 :::
 <!-- :::success: -->
-<!-- You've sent a signed bundle that rescues IOTA tokens from a swept address. -->
+<!-- You've sent a signed bundle that recovers IOTA tokens from a swept address. -->
 <!-- ::: -->
 
 :::warning:

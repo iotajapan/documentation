@@ -90,6 +90,7 @@
 | :--------- | :------- | :--------------- |
 | `--authProvider` | [`signBundle`](../references/api-reference.md#hub.rpc.SignBundleRequest)メソッドを認証するために使用するプロバイダ。この値は "non"または"hmac"になります。 | "none" |
 | `--hmacKeyPath` | [`signBundle`](../references/api-reference.md#hub.rpc.SignBundleRequest)メソッドの認証に使用されるHMACキーへのパス | "/dev/null" |
+| <a name="recoverFunds"></a>`--RecoverFunds_enabled` | `RecoverFunds`エンドポイントを使用できるかどうか | `--noRecoverFunds_enabled` |
 | <a name="signBundle"></a>`--SignBundle_enabled` | [`SignBundle`エンドポイント](../references/api-reference.md#hub.rpc.SignBundleRequest)を使用できるかどうか | false |
 | `--signingMode` | バンドルに署名するために使用するメソッド。この値は"local"または"remote"です（署名サーバーを実行している場合）。 | "local" |
 | `--signingProviderAddress` | 署名サーバーのURLまたはIPアドレス。`--signingMode`に "remote"値がある場合は、このフラグも使用する必要があります。 | "0.0.0.0:50052" |
@@ -101,6 +102,7 @@
 <!-- | :------------------------ | :--------------- | :--------| -->
 <!-- |`--authProvider`| Provider to use to authenticate the [`signBundle`](../references/api-reference.md#hub.rpc.SignBundleRequest) method. This value can be "none" or "hmac"| "none"| -->
 <!-- |`--hmacKeyPath` |Path to the HMAC key used to authenticate the [`signBundle`](../references/api-reference.md#hub.rpc.SignBundleRequest) method|"/dev/null"| -->
+<!-- |<a name="recoverFunds"></a>`--RecoverFunds_enabled`|Whether you can use the `RecoverFunds` endpoint|`--noRecoverFunds_enabled`| -->
 <!-- |<a name="signBundle"></a>`--SignBundle_enabled`|Whether you can use the [`SignBundle` endpoint](../references/api-reference.md#hub.rpc.SignBundleRequest)|false| -->
 <!-- |`--signingMode`|Method to use to sign bundles. This value can be "local" or "remote" (if you run a signing server) |"local"| -->
 <!-- |`--signingProviderAddress`|URL or IP address of the signing server. Where you have the "remote" value for the `--signingMode`, you must also use this flag.|"0.0.0.0:50052"| -->

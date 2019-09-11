@@ -25,19 +25,20 @@ gRPCとprotobufに慣れていない場合は、[gRPCクイックスタートガ
 | **メソッド名** | **リクエストタイプ** | **レスポンスタイプ** | **説明** |
 | ---------- | ---------------- | ---------------- | ---- |
 | CreateUser | [CreateUserRequest](#hub.rpc.CreateUserRequest) | [CreateUserReply](#hub.rpc.CreateUserRequest) | ハブに新しいユーザーを作成します。 |
+| GetAddressInfo | [GetAddressInfoRequest](#hub.rpc.GetAddressInfoRequest) | [GetAddressInfoReply](#hub.rpc.GetAddressInfoRequest) | 預け入れアドレスを所有しているユーザーのIDを取得します。 |
 | GetBalance | [GetBalanceRequest](#hub.rpc.GetBalanceRequest) | [GetBalanceReply](#hub.rpc.GetBalanceRequest) | ユーザーの利用可能残高を取得します。 |
 | GetDepositAddress | [GetDepositAddressRequest](#hub.rpc.GetDepositAddressRequest) | [GetDepositAddressReply](#hub.rpc.GetDepositAddressRequest) | ユーザーの新しい預け入れアドレスを作成します。 |
-| UserWithdraw | [UserWithdrawRequest](#hub.rpc.UserWithdrawRequest) | [UserWithdrawReply](#hub.rpc.UserWithdrawRequest) | ユーザーに取り出しリクエストを送信します。 |
-| UserWithdrawCancel | [UserWithdrawCancelRequest](#hub.rpc.UserWithdrawCancelRequest) | [UserWithdrawCancelReply](#hub.rpc.UserWithdrawCancelRequest) | ユーザーの取り出しリクエストの取り消しを送信します。スウィープに含まれていない場合にのみ可能です。 |
+| GetStats | [StatsRequest](#hub.rpc.StatsRequest) | [StatsReply](#hub.rpc.StatsRequest) | ハブが現在管理しているすべてのユーザーの合計残高を取得します。 |
 | GetUserHistory | [GetUserHistoryRequest](#hub.rpc.GetUserHistoryRequest) | [GetUserHistoryReply](#hub.rpc.GetUserHistoryRequest) | ユーザーの残高履歴を取得します。 |
 | ProcessTransferBatch | [ProcessTransferBatchRequest](#hub.rpc.ProcessTransferBatchRequest) | [ProcessTransferBatchReply](#hub.rpc.ProcessTransferBatchRequest) | 取引所からの買い/売りのバッチを処理します。このバッチの合計金額は0でなければならないことに注意してください。 |
 | BalanceSubscription | [BalanceSubscriptionRequest](#hub.rpc.BalanceSubscriptionRequest) | [BalanceEvent](#hub.rpc.BalanceSubscriptionRequest) | 指定されたタイムスタンプ以降のすべての残高変更のストリームを監視します。 |
-| GetStats | [StatsRequest](#hub.rpc.StatsRequest) | [StatsReply](#hub.rpc.StatsRequest) | ハブが現在管理しているすべてのユーザーの合計残高を取得します。 |
-| SweepSubscription | [SweepSubscriptionRequest](#hub.rpc.SweepSubscriptionRequest) | [SweepEvent](#SweepEvent) | 指定されたタイムスタンプ以降のすべてのスウィープのストリームを監視します。 |
-| GetAddressInfo | [GetAddressInfoRequest](#hub.rpc.GetAddressInfoRequest) | [GetAddressInfoReply](#hub.rpc.GetAddressInfoRequest) | 預け入れアドレスを所有しているユーザーのIDを取得します。 |
-| SweepInfo | [SweepInfoRequest](#hub.rpc.SweepInfoRequest) | [SweepEvent](#SweepEvent) | 特定の取り出しまたはバンドルハッシュのスウィープに関する情報を取得します。 |
+| RecoverFunds | [RecoverFundsRequest](#hub.rpc.RecoverFundsRequest) | [RecoverFundsReply](#hub.rpc.RecoverFundsReply) | IOTAトークンを使用済みアドレスから単一の出力アドレスに転送します。このメソッドを使用するには、[`--RecoverFunds_enabled`フラグ](../references/command-line-flags.md#recoverFunds)を指定してハブを実行する必要があります。 |
 | SignBundle | [SignBundleRequest](#hub.rpc.SignBundleRequest) | [SignBundleReply](#hub.rpc.SignBundleRequest) | バンドルハッシュの署名を取得します。 |
 | SweepDetail | [SweepDetailRequest](#hub.rpc.SweepDetailRequest) | [SweepDetailReply](#hub.rpc.SweepDetailRequest) | スウィープに関する詳細情報を取得します。 |
+| SweepInfo | [SweepInfoRequest](#hub.rpc.SweepInfoRequest) | [SweepEvent](#SweepEvent) | 特定の取り出しまたはバンドルハッシュのスウィープに関する情報を取得します。 |
+| SweepSubscription | [SweepSubscriptionRequest](#hub.rpc.SweepSubscriptionRequest) | [SweepEvent](#SweepEvent) | 指定されたタイムスタンプ以降のすべてのスウィープのストリームを監視します。 |
+| UserWithdraw | [UserWithdrawRequest](#hub.rpc.UserWithdrawRequest) | [UserWithdrawReply](#hub.rpc.UserWithdrawRequest) | ユーザーに取り出しリクエストを送信します。 |
+| UserWithdrawCancel | [UserWithdrawCancelRequest](#hub.rpc.UserWithdrawCancelRequest) | [UserWithdrawCancelReply](#hub.rpc.UserWithdrawCancelRequest) | ユーザーの取り出しリクエストの取り消しを送信します。スウィープに含まれていない場合にのみ可能です。 |
 | WasWithdrawalCancelled | [WasWithdrawalCancelledRequest](#hub.rpc.WasWithdrawalCancelledRequest) | [WasWithdrawalCancelledReply](#hub.rpc.WasWithdrawalCancelledReply) | 取り出しがキャンセルされたかどうかを調べます。 |
 
 <a name="messages.proto"></a>
@@ -184,9 +185,31 @@ gRPCとprotobufに慣れていない場合は、[gRPCクイックスタートガ
 | userId | [string](#string) | singular | 転送中に残高を使用するユーザーのID |
 | amount | [int64](#int64)   | singular | 転送用のトークンの量 |
 
-<a name="hub.rpc.SignBundleRequest"></a>
+### RecoverFundsRequest
+
+このメソッドを使用するには、[`--RecoverFunds_enabled`フラグ](../references/command-line-flags.md#recoverFunds)を指定してハブを実行する必要があります。
+<!-- To use this method, you must run Hub with the [`--RecoverFunds_enabled` flag](../references/command-line-flags.md#recoverFunds). -->
+
+<a name="hub.rpc.RecoverFundsRequest"></a>
+
+| **フィールド** | **タイプ** | **ルール** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| userId | [string](#string) | singular | 資金を回収したい使用済みアドレスのユーザーのID |
+| address | [string](#string) |  singular | ユーザーの使用済みアドレス（チェックサムなし） |
+| validateChecksum | [string](#string) | singular | アドレスを検証するかどうか |
+| payoutAddress | [string](#string) | singular | `アドレス`フィールドのアドレスの合計残高の転送先アドレス |
+
+<a name="hub.rpc.RecoverFundsReply"></a>
+
+### RecoverFundsReply
+
+現在使用されていません。
+<!-- Currently not used. -->
 
 ### SignBundleRequest
+
+このメソッドを使用するには、[`--SignBundle_enabled`フラグ](../references/command-line-flags.md#signBundle)を指定してハブを実行する必要があります。
+<!-- To use this method, you must run Hub with the [`--SignBundle_enabled` flag](../references/command-line-flags.md#signBundle). -->
 
 | **フィールド** | **タイプ** | **ルール** | **説明** |
 | -------------- | ---------- | ---------- | -------- |
@@ -390,13 +413,18 @@ gRPCとprotobufに慣れていない場合は、[gRPCクイックスタートガ
 | BATCH_INCONSISTENT              | 5 | バッチが矛盾しています（十分な残高がないままユーザーのアカウントから資金を削除しようとしています）。 |
 | BATCH_AMOUNT_ZERO               | 6 | 取引に関連する金額が無効です（0より大きくまたは小さくなければなりません）。 |
 | UNKNOWN_ADDRESS                 | 7 | アドレスがハブに認識されていません。 |
-| WITHDRAWAL_CAN_NOT_BE_CANCELLED | 8 | 取り出しはすでにスウィープされたか取り消されました。 |
-| INELIGIBLE_ADDRESS              | 9 | アドレスがリクエストされた操作に適格ではありません。 |
-| INVALID_AUTHENTICATION          | 10 | 提供された認証トークンが無効です。 |
-| CHECKSUM_INVALID                | 11 | 提供されたアドレスに無効なチェックサムが含まれています。 |
+| WITHDRAWAL_CAN_NOT_BE_CANCELLED | 8 | 取り出しは既にスウィープまたはキャンセルされています。 |
+| INELIGIBLE_ADDRESS              | 9 | アドレスはリクエストされた操作の資格がありません。 |
+| INVALID_AUTHENTICATION          | 10 | 指定された認証トークンは無効です。 |
+| CHECKSUM_INVALID                | 11 | 指定されたアドレスに無効なチェックサムが含まれています。 |
 | SIGNING_FAILED                  | 12 | rpc signing_serverの呼び出しに失敗しました（GetSignatureForUUID）。 |
 | GET_ADDRESS_FAILED              | 13 | rpc signing_serverの呼び出しに失敗しました（GetAddressForUUID）。 |
 | GET_SECURITY_LEVEL_FAILED       | 14 | rpc signing_serverの呼び出しに失敗しました（GetSecurityLevel）。 |
+| IRI_CLIENT_UNAVAILABLE          | 15 | ノードのAPIの呼び出しに失敗しました。 |
+| ADDRESS_WAS_ALREADY_SPENT       | 16 | 指定されたアドレスは既に使用されています。 |
+| INVALID_UUID                    | 17 | 指定されたUUIDは無効です。 |
+| WRONG_USER_ADDRESS              | 18 | 指定されたアドレスはハブユーザーに属していません。 |
+| ADDRESS_BALANCE_ZERO            | 19 | 指定されたアドレスにはIOTAトークンが含まれていません。 |
 
 ## スカラー値タイプ
 <!-- ## Scalar Value Types -->
