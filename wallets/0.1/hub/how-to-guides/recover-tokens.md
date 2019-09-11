@@ -47,7 +47,7 @@ IOTAクライアントライブラリを使用したことがない場合は、[
 ハブがバンドルに署名する前に、未署名のバンドルを作成する必要があります。
 <!-- Before Hub can sign a bundle, you need to create an unsigned one. -->
 
-:::info
+:::info:
 このガイドでは、JavaScriptクライアントライブラリを使用してバンドルを作成および送信しますが、Go、Java、Pythonなどの他の[公式およびコミュニティライブラリ](root://client-libraries/0.1/introduction/overview.md)もあります。
 :::
 <!-- :::info: -->
