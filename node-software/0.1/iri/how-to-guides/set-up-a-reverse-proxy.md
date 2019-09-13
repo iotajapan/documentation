@@ -197,11 +197,21 @@ NginxがこれらのIPアドレスからのリクエストを受信したとき�
     }
     ```
 
-3. `upstream`ブロックディレクティブに、IRIノードのIPアドレスごとに1つの`server`シンプルディレクティブを追加します。
-  <!-- 3. In the `upstream` block directive, add one `server` simple directives for each IP address of your IRI nodes -->
+3. `upstream`ブロックディレクティブで、[`ip_hash`](http://nginx.org/en/docs/http/load_balancing.html#nginx_load_balancing_with_ip_hash)ディレクティブを追加します。
+  <!-- 4. In the `upstream` block directive, add the [`ip_hash`](http://nginx.org/en/docs/http/load_balancing.html#nginx_load_balancing_with_ip_hash) directive. -->
 
     ```shell
     upstream iri {
+    ip_hash;
+    }
+    ```
+
+4. `upstream`ブロックディレクティブで、IRIノードのIPアドレスごとに1つの`server`シンプルディレクティブを追加します。
+  <!-- 4. In the `upstream` block directive, add one `server` simple directives for each IP address of your IRI nodes -->
+
+    ```shell
+    upstream iri {
+    ip_hash;
     server 127.0.0.3:8000;
     server 127.0.0.3:8001;
     server 192.168.0.1:8000;
@@ -209,8 +219,8 @@ NginxがこれらのIPアドレスからのリクエストを受信したとき�
     }
     ```
 
-4. `server`ブロックディレクティブで、`proxy_pass`シンプルディレクティブの値を`http://iri`に変更します。`iri`をあなたの`upstream`ブロックディレクティブの名前に変更します。
-  <!-- 4. In the `server` block directive, change the value of the `proxy_pass` simple directive to http://iri. Change `iri` to the name of your `upstream` block directive. -->
+5. `server`ブロックディレクティブで、`proxy_pass`シンプルディレクティブの値を`http://iri`に変更します。`iri`をあなたの`upstream`ブロックディレクティブの名前に変更します。
+  <!-- 5. In the `server` block directive, change the value of the `proxy_pass` simple directive to http://iri. Change `iri` to the name of your `upstream` block directive. -->
 
 Nginxが複数のリクエストを受信すると、`upstream`ブロックディレクティブにリストされているIRIノード間でそれらを均等に分配します。
 <!-- Now, when Nginx receives multiple requests, it evenly distributes them among your IRI nodes that are listed in the `upstream` block directive. -->
