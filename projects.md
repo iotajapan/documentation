@@ -1,5 +1,5 @@
-[入門](/getting-started)
-[必須事項](/dev-essentials)
+[IOTA入門](/getting-started)
+[IOTA必須事項](/dev-essentials)
 [CLライブラリ](/client-libraries)
 [ノードSW](/node-software)
 [私用タングル](/compass)
