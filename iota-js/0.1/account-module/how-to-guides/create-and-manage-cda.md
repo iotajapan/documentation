@@ -19,7 +19,7 @@ CDAを作成するときに、`timeoutAt`フィールドを指定して、アク
 <!-- * **expectedAmount (recommended):** The amount of IOTA tokens that the address is expected to receive. When the address contains this amount, it's considered expired. We recommend specifying this condition. -->
 
 :::info:
-同じCDAで`expected_amount`と`multi_use`フィールドを指定することはできません。CDA条件に関する詳細なアドバイスについては、[FAQ](../ references / cda-advice.md)を参照してください。
+同じCDAで`expected_amount`と`multi_use`フィールドを指定することはできません。CDA条件に関する詳細なアドバイスについては、[FAQ](../references/cda-advice.md)を参照してください。
 :::
 <!-- :::info: -->
 <!-- You can't specify the `expected_amount` and `multi_use` fields in the same CDA. Please refer to the [FAQ](../references/cda-advice.md) for more advice about CDA conditions. -->
