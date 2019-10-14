@@ -31,14 +31,14 @@ P2Pエネルギーグリッドでのエネルギー取引には、4つの上位�
 
 ---------------
 #### iota.jsクライアントライブラリ ####
-[Link](root://iota-js/0.1/README.md)
+[Link](root://iota-js/0.1/introduction/overview.md)
 
 iota.jsクライアントライブラリを使ってトランザクションを作成、送信、受信する方法を学びます。
 ---
 #### MAMの説明 ####
 [Link](https://blog.iota.org/introducing-masked-authenticated-messaging-e55c1822d50e)
 
-マスク認証メッセージングは、タングルを介して暗号化されたデータストリームへのアクセスを公開および制御する機能を追加するセカンドレイヤーのデータ通信プロトコルです。MAMの機能の詳細についてはこちらをご覧ください。
+マスクされた認証済みメッセージングは、タングルを介して暗号化されたデータストリームへのアクセスを公開および制御する機能を追加するセカンドレイヤーのデータ通信プロトコルです。MAMの機能の詳細についてはこちらをご覧ください。
 ---
 #### MAMのGitHubリポジトリ ####
 [Link](https://github.com/iotaledger/mam.client.js)

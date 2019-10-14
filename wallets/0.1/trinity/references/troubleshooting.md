@@ -27,8 +27,8 @@
 トランザクションを送信すると、確定されるまでペンディング状態になります。
 <!-- When you send a transaction, it has a pending status until it's confirmed. -->
 
-トランザクションが長時間ペンディングしている場合は、[自動促進設定](../how-to-guides/change-the-advanced-settings.md)が**有効**に設定されていることを確認してください。
-<!-- If a transaction is pending for a long time, make sure that the [Auto-promotion setting](../how-to-guides/change-the-advanced-settings.md) is set to **Enabled**. -->
+トランザクションが長時間ペンディングしている場合は、[自動促進設定](../how-to-guides/auto-promote.md)が**有効**に設定されていることを確認してください。
+<!-- If a transaction is pending for a long time, make sure that the [Auto-promotion setting](../how-to-guides/auto-promote.md) is set to **Enabled**. -->
 
 :::info:
 自動促進は、モバイル端末では、トリニティが前面に表示されている場合にのみ利用できます。

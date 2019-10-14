@@ -11,6 +11,12 @@ IRI（IOTAリファレンス実装）は、IOTA Mainnet上で動作するオー�
 -------------------------
 
 -------------------------
+![Chronicle](../images/Chronicle.png)
+## [Chronicle](../chronicle/introduction/overview.md)
+Chronicle is an addition to the IRI node software that allows you to store all transactions in a separate distributed database that's secure and scales well.
+-------------------------
+
+-------------------------
 ![GoShimmer](../images/GoShimmer.png)
 ## [GoShimmer](../goshimmer/introduction/overview.md)
 GoShimmerは、コーディネーターなしでIOTAネットワークのプロトタイプを実装しているオープンソースのGoソフトウェアです。このネットワークはまだ開発中なので、すべてのモジュールが存在するわけではありませんが、準備ができたら新しいモジュールが追加されます。

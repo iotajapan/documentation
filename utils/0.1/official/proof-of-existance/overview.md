@@ -53,8 +53,8 @@
 ### 手順2. サンプルをセットアップする
 <!-- ### Step 2. Set up the sample -->
 
-1. `contract.txt`ファイルと同じディレクトリに`index.js`という新しいファイルを作成し、ライブラリが必要です。
-  <!-- 1. Create a new file called `index.js` in the same directory as the `contract.txt` file, then require the libraries -->
+1. `contract.txt`ファイルと同じディレクトリに`index.js`という新しいファイルを作成し、パッケージを`require`します。
+  <!-- 1. Create a new file called `index.js` in the same directory as the `contract.txt` file, then require the packages -->
 
     ```js
     require('regenerator-runtime');

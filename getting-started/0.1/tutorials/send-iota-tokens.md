@@ -39,8 +39,8 @@
     mkdir iota-example
     ```
 
-2. `iota-example`ディレクトリに移動して、`core`および`converter`IOTAクライアントライブラリをインストールします。
-  <!-- 2. Change into the `iota-example` directory and install the `core` and `converter` IOTA client libraries -->
+2. `iota-example`ディレクトリに移動して、`core`および`converter`パッケージをインストールします。
+  <!-- 2. Change into the `iota-example` directory and install the `core` and `converter` packages -->
 
     ```bash
     cd iota-example
@@ -63,11 +63,10 @@
 3. `iota-example`ディレクトリに、`value-transaction.js`という新しいファイルを作成します。
   <!-- 3. In the `iota-example` directory, create a new file called `value-transaction.js` -->
 
-4. `core`IOTAクライアントライブラリが必要です。
-  <!-- 4. Require the `core` IOTA client library -->
+4. `core`パッケージを`require`します。
+  <!-- 4. Require the `core` package -->
 
     ```js
-    // Require the IOTA library
     const Iota = require('@iota/core');
     ```
 

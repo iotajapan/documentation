@@ -40,8 +40,8 @@
 ノードが最近受信したトランザクションを監視するために`tx`イベントを購読することができます。
 <!-- You can subscribe to the `tx` event to monitor a node for recently received transactions. -->
 
-1\. zeromqライブラリをインストールします。
-  <!-- 1\. Install the zeromq library -->
+1\. `zeromq`パッケージをインストールします。
+  <!-- 1\. Install the zeromq package -->
 
 --------------------
 ### Node.js

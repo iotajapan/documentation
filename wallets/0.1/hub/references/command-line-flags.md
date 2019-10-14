@@ -49,6 +49,7 @@
 
 <!-- | **Flag** |   **Description**| **Default values**| -->
 <!-- | :------------------------ | :--------------- | :--------| -->
+<!-- | :------------------------ | :--------------- | :--------| -->
 <!-- |`--argon2MCost`|Memory cost of Argon2 in bytes. [See this Stack Exchange topic](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options) for a discussion on this flag.| 1 << 17| -->
 <!-- |`--argon2TCost` |Time cost of Argon2. [See this Stack Exchange topic](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options) for a discussion on this flag.|4| -->
 <!-- |`--argon2Mode` |Argon2 mode to use: 1=argon2i, 2=argon2id|2| -->
@@ -76,6 +77,7 @@
 
 <!-- | **Flag** |   **Description**| **Default values**| -->
 <!-- | :------------------------ | :--------------- | :--------| -->
+<!-- | :------------------------ | :--------------- | :--------| -->
 <!-- |`--apiAddress`| URL or IP address of the IRI node that Hub connects to. To avoid connecting to a malicious node, we recommend [running your own node](root://node-software/0.1/iri/introduction/overview.md) and connecting to it.| "127.0.0.1:14265"| -->
 <!-- |`--attachmentInterval`|Interval in milliseconds that Hub waits between [reattaching and promoting transactions](root://dev-essentials/0.1/concepts/reattach-rebroadcast-promote.md). 0=disabled.|240000| -->
 <!-- |`--depth`|Value to use for the `depth` parameter of the [`getTransactionsToApprove` (GTTA)](root://node-software/0.1/iri/references/api-reference.md#getTransactionsToApprove) endpoint| 3| -->
@@ -88,10 +90,10 @@
 
 | **フラグ** | **説明** | **デフォルト値** |
 | :--------- | :------- | :--------------- |
-| `--authProvider` | [`signBundle`](../references/api-reference.md#hub.rpc.SignBundleRequest)メソッドを認証するために使用するプロバイダ。この値は "non"または"hmac"になります。 | "none" |
-| `--hmacKeyPath` | [`signBundle`](../references/api-reference.md#hub.rpc.SignBundleRequest)メソッドの認証に使用されるHMACキーへのパス | "/dev/null" |
+| `--authProvider` | `signBundle`メソッドを認証するために使用するプロバイダ。この値は "non"または"hmac"になります。 | "none" |
+| `--hmacKeyPath` | `signBundle`メソッドの認証に使用されるHMACキーへのパス | "/dev/null" |
 | <a name="recoverFunds"></a>`--RecoverFunds_enabled` | `RecoverFunds`エンドポイントを使用できるかどうか | `--noRecoverFunds_enabled` |
-| <a name="signBundle"></a>`--SignBundle_enabled` | [`SignBundle`エンドポイント](../references/api-reference.md#hub.rpc.SignBundleRequest)を使用できるかどうか | false |
+| <a name="signBundle"></a>`--SignBundle_enabled` | `SignBundle`エンドポイントを使用できるかどうか | false |
 | `--signingMode` | バンドルに署名するために使用するメソッド。この値は"local"または"remote"です（署名サーバーを実行している場合）。 | "local" |
 | `--signingProviderAddress` | 署名サーバーのURLまたはIPアドレス。`--signingMode`に "remote"値がある場合は、このフラグも使用する必要があります。 | "0.0.0.0:50052" |
 | `--signingServerChainCert` | SSL暗号化を使用するようにハブを設定し（`--authMode="ssl"`）、[署名サーバー](../how-to-guides/install-the-signing-server.md)がある場合は、SSL証明書チェーンへのパスをこのフラグに渡す必要があります。 | "/dev/null" |
@@ -100,10 +102,10 @@
 
 <!-- | **Flag** |   **Description**| **Default values**| -->
 <!-- | :------------------------ | :--------------- | :--------| -->
-<!-- |`--authProvider`| Provider to use to authenticate the [`signBundle`](../references/api-reference.md#hub.rpc.SignBundleRequest) method. This value can be "none" or "hmac"| "none"| -->
-<!-- |`--hmacKeyPath` |Path to the HMAC key used to authenticate the [`signBundle`](../references/api-reference.md#hub.rpc.SignBundleRequest) method|"/dev/null"| -->
+<!-- |`--authProvider`| Provider to use to authenticate the `signBundle` method. This value can be "none" or "hmac"| "none"| -->
+<!-- |`--hmacKeyPath` |Path to the HMAC key used to authenticate the `signBundle` method|"/dev/null"| -->
 <!-- |<a name="recoverFunds"></a>`--RecoverFunds_enabled`|Whether you can use the `RecoverFunds` endpoint|`--noRecoverFunds_enabled`| -->
-<!-- |<a name="signBundle"></a>`--SignBundle_enabled`|Whether you can use the [`SignBundle` endpoint](../references/api-reference.md#hub.rpc.SignBundleRequest)|false| -->
+<!-- |<a name="signBundle"></a>`--SignBundle_enabled`|Whether you can use the `SignBundle` endpoint|false| -->
 <!-- |`--signingMode`|Method to use to sign bundles. This value can be "local" or "remote" (if you run a signing server) |"local"| -->
 <!-- |`--signingProviderAddress`|URL or IP address of the signing server. Where you have the "remote" value for the `--signingMode`, you must also use this flag.|"0.0.0.0:50052"| -->
 <!-- |`--signingServerChainCert`|If you configure Hub to use SSL encryption (`--authMode="ssl"`) and you have a [signing server](../how-to-guides/install-the-signing-server.md), you must pass the path to the SSL certificate chain to this flag|"/dev/null"| -->

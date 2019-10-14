@@ -1,14 +1,14 @@
 # クライアントライブラリ概要
 <!-- # Client libraries overview -->
 
-**IOTAクライアントライブラリは、IOTAプロトコルの複雑さを、トランザクションの作成、送信、受信、およびリクエストを可能にする単純な関数に抽象化します。**
-<!-- **The IOTA client libraries abstract the complexity of the IOTA protocol into simple functions that allow you to create, send, receive, and request transactions.** -->
+**IOTAクライアントライブラリは、IOTAプロトコルの複雑さを、トランザクションの作成、送信、受信、およびリクエストを可能にする単純なメソッドに抽象化します。**
+<!-- **The IOTA client libraries abstract the complexity of the IOTA protocol into simple methods that allow you to create, send, receive, and request transactions.** -->
 
-:::warning:ベータソフトウェア
-クライアントライブラリは現在ベータ版です。本番環境での使用はサポートされていません。
+:::warning:ベータソフトウェアです！
+クライアントライブラリは現在ベータ版であり、運用環境では使用しないでください。
 :::
 <!-- :::warning:Beta software -->
-<!-- The client libraries are currently in beta. Their use in production is not supported. -->
+<!-- The client libraries are currently in beta and you should not use them in production environments. -->
 <!-- ::: -->
 
 ### **公式サポートライブラリ** ###
@@ -17,36 +17,26 @@
 ---------------
 
 #### **JavaScriptライブラリ** ####
-[Link](root://iota-js/0.1/README.md)
+[Link](root://iota-js/0.1/introduction/overview.md)
 
-公式のJavaScriptクライアントライブラリ。このライブラリには、公式のAPIと追加機能が含まれています。
-<!-- The official JavaScript client library. This library includes the official API and additional features. -->
+公式のJavaScriptクライアントライブラリ。 このライブラリには、コアパッケージ、アカウントモジュールパッケージ、およびMAMパッケージが含まれています。
+<!-- The official JavaScript client library. This library includes the core package, the account module packages, and the MAM package. -->
 
 ---
 
 #### **Javaライブラリ** ####
-[Link](root://iota-java/0.1/README.md)
+[Link](root://iota-java/0.1/introduction/overview.md)
 
-公式のJavaクライアントライブラリ。このライブラリには、公式のAPIと追加機能が含まれています。
-<!-- The official Java client library. This library includes the official API and additional features. -->
-
----
-
-#### **Golangライブラリ** ####
-[Link](root://iota-go/0.1/README.md)
-
-公式のGoクライアントライブラリ。このライブラリには、公式のAPIと追加機能が含まれています。
-<!-- The official Go client library. This library includes the official API and additional features. -->
+公式のJavaクライアントライブラリ。 このライブラリには、コアライブラリとアカウントモジュールが含まれています。
+<!-- The official Java client library. This library includes the core library and the account module. -->
 
 ---
 
-#### **MAMライブラリ** ####
-[Link](root://mam/0.1/README.md)
+#### **Goライブラリ** ####
+[Link](root://iota-go/0.1/introduction/overview.md)
 
-公式のMAMクライアントライブラリ。このライブラリにより、ユーザーはMAMメッセージを作成、送信、およびデコードできます。
-<!-- The official MAM client library. This library enables user to create, send & decode MAM messages. -->
-
-
+公式のGoクライアントライブラリ。 このライブラリには、コアライブラリとアカウントモジュールが含まれています。
+<!-- The official Go client library. This library includes the core library and the account module. -->
 ---------------
 
 ### __コミュニティサポートライブラリ__ ###
@@ -72,8 +62,8 @@ C＃.NET 4.6クライアントライブラリ。このライブラリには、�
 ## 便利なリンク
 <!-- ## Useful links -->
 
-- **[タングルエクスプローラ](https://www.thetangle.org)：** タングル内のトランザクションを見る。
-<!-- - **[Tangle explorer](https://www.thetangle.org):** View transactions on the Tangle -->
+- **[タングルエクスプローラ](https://utils.iota.org)：** タングル内のトランザクションを見る。
+<!-- - **[Tangle explorer](https://utils.iota.org):** View transactions on the Tangle -->
 - **[公式Discord](https://discord.iota.org)：** 言語固有のチャンネルでディスカッションに参加する。
 <!-- - **[Official Discord](https://discord.iota.org):** Join the discussion in language-specific channels. -->
 

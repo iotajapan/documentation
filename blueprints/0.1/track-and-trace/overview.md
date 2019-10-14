@@ -112,7 +112,7 @@ IOTAネットワーク全体に広がるパーミッションレスな性質の�
 
 ---------------
 #### iota.jsクライアントライブラリ ####
-[Link](root://iota-js/0.1/README.md)
+[Link](root://iota-js/0.1/introduction/overview.md)
 
 iota.jsクライアントライブラリを使ってトランザクションを作成、送信、受信する方法を学びます。
 ---

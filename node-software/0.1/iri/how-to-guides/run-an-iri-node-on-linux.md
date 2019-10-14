@@ -244,6 +244,13 @@ IRIはJava仮想マシンで動作します。したがって、IRIを実行す�
 permanode（すべてのトランザクションを台帳に保持するノード）を実行する場合は、[`LOCAL_SNAPSHOTS_PRUNING_ENABLED`設定パラメータ](../references/iri-configuration-options.md#local-snapshots-enabled)を`false`に設定します。
 <!-- If you want to run a permanode (keep all transactions in the ledger), set the [`LOCAL_SNAPSHOTS_PRUNING_ENABLED` configuration parameter](../references/iri-configuration-options.md#local-snapshots-enabled) to `false`. -->
 
+:::info:
+[クロニクルノードソフトウェア](root://node-software/0.1/chronicle/introduction/overview.md)を使用して、すべてのトランザクションを個別のデータベースに保存することもできます。
+:::
+<!-- :::info: -->
+<!-- You can also store all transactions in a separate database with the [Chronicle node software](root://node-software/0.1/chronicle/introduction/overview.md). -->
+<!-- ::: -->
+
 ### Devnetノードを設定する
 <!-- ### Configure a Devnet node -->
 

@@ -53,8 +53,8 @@
 * トランザクションハッシュ
 <!-- * The transaction hash -->
 
-1\. zeromqライブラリをインストールします。
-<!-- 1\. Install the zeromq library -->
+1\. `zeromq`パッケージをインストールします。
+  <!-- 1\. Install the `zeromq` package -->
 
 --------------------
 ### Node.js

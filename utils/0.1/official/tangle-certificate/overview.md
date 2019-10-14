@@ -282,5 +282,6 @@ https://certification.iota.works/FAZLSJRLEPPBRVITOPBZNTIVEJWPEQARIOEHNMHBEOJDGAB
 [管理ポータル](https://certification-admin.iota.org/)を使用して、新しい証明書を作成するか、既存の証明書を確認します。
 <!-- Use the [administration portal](https://certification-admin.iota.org/) to create new certificates or check for existing ones. -->
 
-[API](https://certification-api.iota.org/docs/#iota-certification-api)を使用して、証明書を管理します。
-<!-- Use the [API](https://certification-api.iota.org/docs/#iota-certification-api) to manage your certificates. -->
+
+[API](https://certification-api.iota.org/docs/#iota-certification-api)を使用して、証明書を管理します。たとえば、証明書を間違えて無効にしたい場合は、[`setBlacklist`エンドポイント](https://certification-api.iota.org/docs/#setblacklist)を使用します。
+<!-- Use the [API](https://certification-api.iota.org/docs/#iota-certification-api) to manage your certificates. For example, if you make a mistake on a certificate and want to invalidate it, use the [`setBlacklist` endpoint](https://certification-api.iota.org/docs/#setblacklist). -->

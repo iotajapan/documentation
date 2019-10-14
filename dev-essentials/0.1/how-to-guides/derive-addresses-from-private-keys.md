@@ -37,8 +37,8 @@
 この例では、iota.jsライブラリの[`signing`パッケージ](https://github.com/iotaledger/iota.js/tree/next/packages/signing)を使用して、シードから秘密鍵を導出し、次に秘密鍵からアドレスを導出します。
 <!-- In this example, we use the [`signing` package](https://github.com/iotaledger/iota.js/tree/next/packages/signing) of the iota.js library to derive private keys from a seed and then to derive addresses from those private keys. -->
 
-1. IOTAライブラリが必要です。
-  <!-- 1. Require the IOTA libraries -->
+1. パッケージを`require`します。
+  <!-- 1. Require the packages -->
 
     ```js
     const Iota = require('@iota/core');

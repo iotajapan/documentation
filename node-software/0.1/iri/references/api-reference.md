@@ -620,6 +620,95 @@ curl http://localhost:14265 \
 | `hashes` | 返されるトランザクションハッシュは入力によって異なります。`bundles`：与えられたバンドルハッシュを含むトランザクションハッシュの配列を返します。`addresses`：`address`フィールドに与えられたアドレスを含むトランザクションハッシュの配列を返します。`tags`：`tag`フィールドに与えられた値を含むトランザクションハッシュの配列を返します。`approvees`：`branchTransaction`フィールドまたは`trunkTransaction`フィールドに与えられたトランザクションを含むトランザクションハッシュの配列を返します。 |
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
 
+## getNodeAPIConfiguration
+
+Get a node's API configuration settings.
+
+### Examples
+--------------------
+### Python
+```python
+import urllib2
+import json
+
+command = {"command": "getNodeAPIConfiguration"}
+
+stringified = json.dumps(command)
+
+headers = {
+    'content-type': 'application/json',
+    'X-IOTA-API-Version': '1'
+}
+
+request = urllib2.Request(url="http://localhost:14265", data=stringified, headers=headers)
+returnData = urllib2.urlopen(request).read()
+
+jsonData = json.loads(returnData)
+
+print jsonData
+```
+---
+### Node.js
+```js
+var request = require('request');
+
+var command = {"command": "getNodeAPIConfiguration"}
+
+var options = {
+  url: 'http://localhost:14265',
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+		'X-IOTA-API-Version': '1',
+    'Content-Length': Buffer.byteLength(JSON.stringify(command))
+  },
+  json: command
+};
+
+request(options, function (error, response, data) {
+  if (!error && response.statusCode == 200) {
+    console.log(data);
+  }
+});
+```
+---
+### Curl
+```bash
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{"command": "getNodeAPIConfiguration"}'
+```
+--------------------
+
+### Response examples
+--------------------
+### 200
+```json
+{
+ "maxFindTransactions": 100000,
+ "maxRequestsList": 1000,
+ "maxGetTrytes": 10000,
+ "maxBodyLength": 1000000,
+ "testNet": true,
+ "milestoneStartIndex": 434525,
+ "duration": 1
+}
+```
+---
+### 400
+```json
+{
+  "error": "'command' parameter has not been specified"
+}
+```
+--------------------
+
+### Results
+
+The [configuration settings](../references/iri-configuration-options.md) that the node is using.
+
 ## getBalances
 
 確定済みのアドレスの残高を取得します。
@@ -635,7 +724,7 @@ curl http://localhost:14265 \
 :::
 <!-- :::info: -->
 <!-- This API endpoint returns data only if the node is synchronized. -->
-<!--  -->
+
 <!-- [Find out how to check if a node is synchronized](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request). -->
 <!-- ::: -->
 
@@ -767,13 +856,13 @@ curl http://localhost:14265 \
 <!-- You can search for multiple tips (and thus, milestones) to get past inclusion states of transactions. -->
 
 :::info:
-このAPIエンドポイントは、ノードが同期している場合にのみデータを返します。
+このエンドポイントは、ノードが同期している場合にのみデータを返します。
 
 [ノードが同期しているかどうかを確認する方法をご確認ください](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request)。
 :::
 <!-- :::info: -->
-<!-- This API endpoint returns data only if the node is synchronized. -->
-<!--  -->
+<!-- This endpoint returns data only if the node is synchronized. -->
+
 <!-- [Find out how to check if a node is synchronized](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request). -->
 <!-- ::: -->
 
@@ -898,6 +987,93 @@ curl http://localhost:14265 \
 |--|--|
 | `states` | `transactions`パラメータと同じ順序のブール値のリスト。`true`はトランザクションが確定されたことを意味します。 |
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
+
+## getMissingTransactions
+
+Get all transaction hashes that a node is currently requesting from its neighbors.
+
+### Examples
+--------------------
+### Python
+```python
+import urllib2
+import json
+
+command = {"command": "getMissingTransactions"}
+
+stringified = json.dumps(command)
+
+headers = {
+    'content-type': 'application/json',
+    'X-IOTA-API-Version': '1'
+}
+
+request = urllib2.Request(url="http://localhost:14265", data=stringified, headers=headers)
+returnData = urllib2.urlopen(request).read()
+
+jsonData = json.loads(returnData)
+
+print jsonData
+```
+---
+### Node.js
+```js
+var request = require('request');
+
+var command = {"command": "getMissingTransactions"}
+
+var options = {
+  url: 'http://localhost:14265',
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+		'X-IOTA-API-Version': '1',
+    'Content-Length': Buffer.byteLength(JSON.stringify(command))
+  },
+  json: command
+};
+
+request(options, function (error, response, data) {
+  if (!error && response.statusCode == 200) {
+    console.log(data);
+  }
+});
+```
+---
+### Curl
+```bash
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{"command": "getMissingTransactions"}'
+```
+--------------------
+
+### Response examples
+--------------------
+### 200
+```json
+{
+ "hashes": [],
+ "duration": 0
+}
+```
+---
+### 400
+```json
+{
+  "error": "'command' parameter has not been specified"
+}
+```
+--------------------
+
+### Results
+
+|**Return field** | **Description** |
+|--|--|
+| `hashes` |Array of missing transaction hashes |
+| `duration` | Number of milliseconds it took to complete the request |
 
 ## getNeighbors
 
@@ -1227,13 +1403,13 @@ curl http://localhost:14265 \
 <!-- Get two consistent tip transaction hashes to use as branch/trunk transactions. -->
 
 :::info:
-このAPIエンドポイントは、ノードが同期している場合にのみデータを返します。
+このエンドポイントは、ノードが同期している場合にのみデータを返します。
 
 [ノードが同期しているかどうかを確認する方法をご確認ください](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request)。
 :::
 <!-- :::info: -->
-<!-- This API endpoint returns data only if the node is synchronized. -->
-<!--  -->
+<!-- This endpoint returns data only if the node is synchronized. -->
+
 <!-- [Find out how to check if a node is synchronized](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request). -->
 <!-- ::: -->
 

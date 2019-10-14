@@ -148,7 +148,7 @@ PoWプロキシサーバは、IOTAミドルウェアを使用する[Caddy](https
     <!-- ::: -->
 
     ```js
-    // Require the IOTA libraries
+    // Require the packages
     const Iota = require('@iota/core');
     const Converter = require('@iota/converter');
 

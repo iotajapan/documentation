@@ -59,7 +59,7 @@
     ![Hello world message](../images/trinity-hello-world.png)
 
 9. 金額フィールドが0であることを確認して、**送金**をクリックします。
-<!-- 9. Make sure that the AMOUNT field is 0 and click **Send** -->
+  <!-- 9. Make sure that the AMOUNT field is 0 and click **Send** -->
 
 トランザクションはトランザクション履歴に表示されます。トランザクションをクリックして詳細を表示します。
 <!-- Your transaction will appear in your transaction history. Click the transaction to display its details. -->

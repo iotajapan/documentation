@@ -1,8 +1,8 @@
 # データマーケットプレイス
 <!-- # Data Marketplace overview -->
 
-**データサイロでは、異なるデータポイント間でデータを売買することは困難です。この課題を克服するために、データマーケットプレイスはIOTAマスク認証メッセージング（Masked Authenticated Messaging（MAM））チャネルを使用してデータサイロを開き、ユーザーがデータと引き換えにIOTAトークンのマイクロペイメントをデータ所有者に支払うことを許可します。**
-<!-- **Data silos make it difficult to buy and sell data among different data points. To overcome this challenge, the Data Marketplace uses IOTA masked authenticated messaging (MAM) channels to open up the data silos and allow users to make micropayments of IOTA tokens to the data owners in exchange for data.** -->
+**データサイロにより、異なるデータポイント間でデータを売買することが難しくなります。 この課題を克服するために、データマーケットプレイスはマスクされた認証済みメッセージング（Masked Authenticated Messaging, MAM）チャネルを使用してデータサイロを開き、ユーザーがデータと引き換えにIOTAトークンのマイクロペイメントをデータ所有者に行えるようにします。**
+**Data silos make it difficult to buy and sell data among different data points. To overcome this challenge, the Data Marketplace uses Masked Authenticated Messaging (MAM) channels to open up the data silos and allow users to make micropayments of IOTA tokens to the data owners in exchange for data.**
 
 データは機械経済とコネクテッドワールドの最も基本的な要素の1つです。それはデータ - 情報 - 知識 - 知恵[（DIKW）ピラミッド](https://en.wikipedia.org/wiki/DIKW_pyramid)の基礎です。
 <!-- Data is one of the most fundamental ingredients in the machine economy and the connected world. It is the foundation of the Data — Information — Knowledge — Wisdom [(DIKW) pyramid](https://en.wikipedia.org/wiki/DIKW_pyramid). -->
@@ -114,14 +114,14 @@ REST APIを介してデータマーケットプレイスと対話します。
 この設計図をテストするには、コードとクイックスタートの手順を読んでください。
 ---
 #### iota.jsクライアントライブラリ ####
-[Link](root://iota-js/0.1/README.md)
+[Link](root://iota-js/0.1/introduction/overview.md)
 
 iota.jsクライアントライブラリを使ってトランザクションを作成、送信、受信する方法を学びます。
 ---
 #### MAMの説明 ####
 [Link](https://blog.iota.org/introducing-masked-authenticated-messaging-e55c1822d50e)
 
-マスク認証メッセージングは、タングルを介して暗号化されたデータストリームへのアクセスを公開および制御する機能を追加するセカンドレイヤーのデータ通信プロトコルです。MAMの機能の詳細についてはこちらをご覧ください。
+マスクされた認証済みメッセージングは、タングルを介して暗号化されたデータストリームへのアクセスを公開および制御する機能を追加するセカンドレイヤーのデータ通信プロトコルです。MAMの機能の詳細についてはこちらをご覧ください。
 ---
 #### MAMのGitHubリポジトリ ####
 [Link](https://github.com/iotaledger/mam.client.js)

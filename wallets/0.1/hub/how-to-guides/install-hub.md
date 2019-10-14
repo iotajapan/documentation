@@ -15,8 +15,8 @@
 Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server)サーバ。WindowsまたはMacオペレーティングシステムを使用している場合は、[仮想マシンにLinuxサーバを作成します](root://general/0.1/how-to-guides/set-up-virtual-machine.md)。
 <!-- A Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server) server. If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md). -->
 
-## 依存関係をインストールする
-<!-- ## Install the dependencies -->
+## 手順1. 依存関係をインストールする
+<!-- ## Step 1. Install the dependencies -->
 
 ハブをコンパイルするには、依存関係をインストールする必要があります。
 <!-- To compile Hub, you need to install the dependencies. -->
@@ -97,8 +97,9 @@ Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server)サーバ。Wind
     sudo apt install -y git
     ```
 
-## データベースサーバをインストールする
-<!-- ## Install the database server -->
+## 手順2. データベースサーバーをインストールする
+<!-- ## Step 2. Install the database server -->
+
 
 ハブには、ユーザーID、アドレス、残高などのデータを格納するためのデータベースが必要です。
 <!-- Hub needs a database, in which to store data such as user IDs, addresses, and balances. -->
@@ -159,8 +160,8 @@ mysql  Ver 15.1 Distrib 10.3.10-MariaDB, for debian-linux-gnu (x86_64) using rea
 これで、MariaDB 10.3.10がインストールされていることがわかります。これは、最小の10.2.1より新しいバージョンです。
 <!-- Here, you can see that MariaDB 10.3.10 is installed, which is a later version than the minimum of 10.2.1. -->
 
-## ハブをビルドする
-<!-- ## Build Hub -->
+## 手順3. ハブをビルドする
+<!-- ## Step 3. Build Hub -->
 
 これらすべての依存関係を設定したら、Hubをインストールします。
 <!-- After setting up all these dependencies it's time to install Hub. -->
@@ -191,7 +192,7 @@ mysql  Ver 15.1 Distrib 10.3.10-MariaDB, for debian-linux-gnu (x86_64) using rea
 
 :::success:成功
 ビルドが完了すると、標準出力に次のように表示されます。
-:::
+
 ```shell
 Target //hub:hub up-to-date:
     bazel-bin/hub/hub
@@ -199,9 +200,10 @@ INFO: Elapsed time: 1531.342s, Critical Path: 208.27s
 INFO: 1377 processes: 1377 linux-sandbox.
 INFO: Build completed successfully, 1811 total actions
 ```
+:::
 <!-- :::success:Success -->
 <!-- After the build is complete, the output should display something like the following: -->
-<!--  -->
+
 <!-- ```shell -->
 <!-- Target //hub:hub up-to-date: -->
 <!--    bazel-bin/hub/hub -->
@@ -211,8 +213,11 @@ INFO: Build completed successfully, 1811 total actions
 <!-- ``` -->
 <!-- ::: -->
 
-## データベースを作成する
-<!-- ## Create the database -->
+
+:::
+
+## 手順4. データベースを作成する
+<!-- ## Step 4. Create the database -->
 
 ハブをインストールしたら、ハブのデータを格納するデータベーステーブルを作成する必要があります。
 <!-- After Hub is installed, you need to create the database tables that store Hub's data. -->
@@ -224,29 +229,29 @@ INFO: Build completed successfully, 1811 total actions
 <!-- In these commands, make sure to replace the `myrootpassword` placeholder with the root password you chose when you installed MariaDB. -->
 <!-- ::: -->
 
-1. hubという名前のデータベースを作成します。
+1. `hub`と言う名のデータベースを作成します。
   <!-- 1. Create a database called hub -->
 
-    ```bash
-    echo "CREATE DATABASE hub" | mysql -u root -p myrootpassword
-    ```
+	```bash
+	echo "CREATE DATABASE hub" | mysql -uroot -pmyrootpassword
+	```
 
 2. ハブのソースコードからデータベースにデータベーススキーマをロードします。
   <!-- 2. Load the database schema from the Hub source code into the database -->
 
-    ```bash
-    mysql -h 127.0.0.1 -u root -p myrootpassword hub < schema/schema.sql
-    ```
+	```bash
+	mysql -h127.0.0.1 -uroot -pmyrootpassword hub < schema/schema.sql
+	```
 
 3. データベーストリガをインポートします。
   <!-- 3. Import the database triggers -->
 
-    ```bash
-    mysql -h 127.0.0.1 -u root -p myrootpassword hub < schema/triggers.mariadb.sql
-    ```
+	```bash
+	mysql -h127.0.0.1 -uroot -pmyrootpassword hub < schema/triggers.mariadb.sql
+	```
 
-## ハブを実行する
-<!-- ## Run Hub -->
+## 手順5. ハブを実行する
+<!-- ## Step 5. Run Hub -->
 
 ハブを実行するには、ビルドプロセス中に作成されたバイナリファイルを実行する必要があります。このバイナリファイルは`./bazel-bin/hub/hub`ディレクトリにあります。
 <!-- To run Hub, you need to execute the binary file that was created during the build process. This binary file is located in the `./bazel-bin/hub/hub` directory. -->
@@ -254,39 +259,40 @@ INFO: Build completed successfully, 1811 total actions
 バイナリファイルを実行する前に、バイナリファイルを設定する必要があります。
 <!-- Before you can run the binary file, you need to configure it. -->
 
+
 1. `start.sh`というシェルスクリプトファイルを作成します。
   <!-- 1. Create a shell script file called `start.sh` -->
 
-    ```bash
-    nano start.sh
-    ```
+	```bash
+	nano start.sh
+	```
 
 2. `start.sh`ファイルに、使用する[コマンドラインフラグ](../references/command-line-flags.md)を付けてハブを実行するためのコマンドを追加します。
   <!-- 2. In the start.sh file, add the command for running hub with any [command line flags](../references/command-line-flags.md) that you want to use: -->
 
-    ```shell
-    #!/bin/bash
+	```shell
+	#!/bin/bash
 
-    ./bazel-bin/hub/hub \
-        --salt CHANGETHIS \
-        --db hub \
-        --dbUser root \
-        --dbPassword myrootpassword \
-        --apiAddress 127.0.0.1:14265 \
-        --minWeightMagnitude 14 \
-        --listenAddress 127.0.0.1:50051
-    ```
+	./bazel-bin/hub/hub \
+		--salt CHANGETHIS \
+		--db hub \
+		--dbUser root \
+		--dbPassword myrootpassword \
+		--apiAddress 127.0.0.1:14265 \
+		--minWeightMagnitude 14 \
+		--listenAddress 127.0.0.1:50051
+	```
 
     :::warning:警告
     `salt`フラグの値を少なくとも20文字の文字列に変更してください。この値はハブによってシードを作成するために使用されるので、秘密にしてください。
 
     ソルトを保護するために、[署名サーバをインストールする](../how-to-guides/install-the-signing-server.md)ことをお勧めします。
     :::
-    <!-- :::warning:Warning -->
-    <!-- Change the value of the `salt` flag to a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret. -->
-    <!--  -->
-    <!-- To secure the salt, we recommend [installing a signing server](../how-to-guides/install-the-signing-server.md). -->
-    <!-- ::: -->
+	<!-- :::warning:Warning -->
+	<!-- Change the value of the `salt` flag to a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret. -->
+
+	<!-- To secure the salt, we recommend [installing a signing server](../how-to-guides/install-the-signing-server.md). -->
+	<!-- ::: -->
 
     :::info:
     この例では、ローカルのIRIノードがポート`14265`に接続されていると想定しています。このオプションをお勧めします。信頼できるリモートノードに接続したい場合は、`apiAddress`フィールドの値を、接続したいノードのURLまたはIPアドレスに置き換えます。
@@ -298,92 +304,92 @@ INFO: Build completed successfully, 1811 total actions
     ./bazel-bin/hub/hub --help
     ```
     :::
-    <!-- :::info: -->
-    <!-- This example assumes that you have a local IRI node connected to port `14265`. We recommend this option. If you want to connect to a trusted remote node, replace the value of the `apiAddress` field with the URL or IP address of the node that you want to connect to. -->
-    <!--  -->
-    <!-- Hub can't connect to nodes that use the HTTPS protocol. [View a list of available nodes](https://iota.dance/). -->
-    <!--  -->
-    <!-- To view the available [command line flags](../references/command-line-flags.md), do the following: -->
-    <!--  -->
-    <!-- ```bash -->
-    <!-- ./bazel-bin/hub/hub --help -->
-    <!-- ``` -->
-    <!-- ::: -->
+	<!-- :::info: -->
+	<!-- This example assumes that you have a local IRI node connected to port `14265`. We recommend this option. If you want to connect to a trusted remote node, replace the value of the `apiAddress` field with the URL or IP address of the node that you want to connect to. -->
+
+	<!-- Hub can't connect to nodes that use the HTTPS protocol. [View a list of available nodes](https://iota.dance/). -->
+
+	<!-- To view the available [command line flags](../references/command-line-flags.md), do the following: -->
+
+	<!-- ```bash -->
+	<!-- ./bazel-bin/hub/hub --help -->
+	<!-- ``` -->
+	<!-- ::: -->
 
 3. スクリプトを実行する権限を自分に与えます。
   <!-- 3. Give yourself permission to execute the script -->
 
-    ```bash
-    chmod a+x start.sh
-    ```
+	```bash
+	chmod a+x start.sh
+	```
 
 4. シェルスクリプトを実行してハブを起動します。
   <!-- 4. Run the shell script to start Hub -->
 
-    ```bash
-    ./start.sh
-    ```
+	```bash
+	./start.sh
+	```
 
     :::success:おめでとうございます:tada:
     ハブが稼働中です。
     :::
-    <!-- :::success:Congratulations:tada: -->
-    <!-- Hub is now running! -->
-    <!-- ::: -->
+	<!-- :::success:Congratulations -->
+	<!-- :tada: Hub is now running! -->
+	<!-- ::: -->
 
     シェルセッションでハブを実行しています。このセッションを閉じると、ハブは停止します。そのため、ハブをscreen/tmuxセッション、system-wideサービス、またはスーパーバイザープロセスで実行することを検討してください。
-    <!-- You're running Hub in your shell session. If you close this session, Hub will stop. Therefore, you might want to consider running Hub in a screen/tmux session, a system-wide service, or a supervised process. -->
+	<!-- You're running Hub in your shell session. If you close this session, Hub will stop. Therefore, you might want to consider running Hub in a screen/tmux session, a system-wide service, or a supervised process. -->
 
     このチュートリアルでは、スーパーバイザープロセスを使用して、ハブが常に実行され、再起動またはクラッシュ後に自動的に再起動するようにします。
-    <!-- For this tutorial, you'll use a supervisor process to make sure that Hub always runs and automatically restarts after a reboot or a crash. -->
+	<!-- For this tutorial, you'll use a supervisor process to make sure that Hub always runs and automatically restarts after a reboot or a crash.  -->
 
 5. `supervisor`パッケージをインストールします（`CTRL+C`を押して現在のシェルセッションを終了します）。
   <!-- 5. Install the `supervisor` package (press `CTRL+C` to exit the current shell session): -->
 
-    ```bash
-    sudo apt install -y supervisor
-    ```
+	```bash
+	sudo apt install -y supervisor
+	```
 
 6. スーパーバイザープロセス用の設定ファイルを作成します。
   <!-- 6. Create a configuration file for the supervised process -->
 
-    ```bash
-    sudo nano /etc/supervisor/conf.d/hub.conf
-    ```
+	```bash
+	sudo nano /etc/supervisor/conf.d/hub.conf
+	```
 
 7. hub.confファイルに次の行を追加します。`user`フィールドの値を変更し、`command`、`directory`、`stderr_logfile`、および`stdout_logfile`の各フィールドのパスがユーザーにとって正しいことを確認します。
   <!-- 7. Add the following lines to the hub.conf file. Change the value of the `user` field, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` fields are correct for your user. -->
 
-    ```shell
-    [program:hub]
-    command=/home/dave/rpchub/start.sh
-    directory=/home/dave/rpchub/
-    user=dave
-    autostart=true
-    autorestart=true
-    stderr_logfile=/home/dave/rpchub/err.log
-    stdout_logfile=/home/dave/rpchub/info.log
-    ```
+	```shell
+	[program:hub]
+	command=/home/dave/rpchub/start.sh
+	directory=/home/dave/rpchub/
+	user=dave
+	autostart=true
+	autorestart=true
+	stderr_logfile=/home/dave/rpchub/err.log
+	stdout_logfile=/home/dave/rpchub/info.log
+	```
 
 8. hub.confファイルを保存してスーパーバイザーをリロードします。
   <!-- 8. Save the hub.conf file and reload supervisor -->
 
-    ```bash
-    sudo supervisorctl reload
-    ```
+	```bash
+	sudo supervisorctl reload
+	```
 
     ハブはバックグラウンドで実行され、サーバの再起動後またはクラッシュ後に自動的に再起動します。
-    <!-- Hub should now be running in the background and should automatically start again after a server reboot or a crash. -->
+	<!-- Hub should now be running in the background and should automatically start again after a server reboot or a crash. -->
 
 9. スーパーバイザーの状況を確認します。
   <!-- 9. Check the supervisor status -->
 
-    ```bash
-    sudo supervisorctl status
-    ```
+	```bash
+	sudo supervisorctl status
+	```
 
-:::success:成功
-出力は次のようになります。
+:::success:成功です！
+出力には、次のようなものが表示されるはずです。
 
 ```shell
 hub RUNNING pid 9983, uptime 0:01:22
@@ -391,20 +397,23 @@ hub RUNNING pid 9983, uptime 0:01:22
 :::
 <!-- :::success:Success -->
 <!-- The output should display something like the following: -->
-<!--  -->
+
 <!-- ```shell -->
 <!-- hub RUNNING pid 9983, uptime 0:01:22 -->
 <!-- ``` -->
 <!-- ::: -->
 
-## ハブをテストする
-<!-- ## Test Hub -->
+## 手順6. ハブをテストする
+<!-- ## Step 6. Test Hub -->
 
-起動時に、ハブはあなたが対話するためのgRPCサーバを提供します。ハブは、対話するために使用できる[gRPC呼び出しのセット](../references/api-reference.md)が限られています。
-<!-- On startup, Hub provides a gRPC server for you to interact with. Hub has a [limited set of gRPC calls](../references/api-reference.md) that can be used to interact with it. -->
+起動時に、ハブはgRPCサーバーとRESTful APIサーバーを提供します。
+<!-- On startup, Hub provides a gRPC server and a RESTful API server for you to interact with: -->
 
-[gRPC](https://grpc.io/)をサポートする任意のプログラミング言語を介してハブと通信できます。このガイドでは、Pythonをいくつかの事例とともに使用します。
-<!-- You can communicate with Hub through any programming language that supports [gRPC](https://grpc.io/). In this guide, you'll use Python with some prebuilt examples. -->
+* [gRPC APIリファレンス](../references/grpc-api-reference.md)
+* [RESTful APIリファレンス](../references/restful-api-reference.md)
+
+[gRPC](https://grpc.io/)をサポートするプログラミング言語を使用して、ハブgRPC APIと通信できます。このガイドでは、いくつかのビルド済みの例とともにPythonを使用します。
+<!-- You can communicate with the Hub gRPC API through any programming language that supports [gRPC](https://grpc.io/). In this guide, you'll use Python with some prebuilt examples. -->
 
 1. GitHubからサンプルコードをダウンロードします。
   <!-- 1. Download the sample code from GitHub -->

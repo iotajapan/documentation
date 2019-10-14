@@ -7,7 +7,7 @@
 ### **公式サポート** ###
 
 IOTA財団では、以下のユーティリティを管理しています。これらのリンクを使用して、ユーティリティの使用方法と動作方法に関する情報を見つけます。
-<!-- The following utilities are maintained by us at the IOTA Foundation.  Use these links to find instructions for using the utilities and information about how they work. -->
+<!-- The following utilities are maintained by us at the IOTA Foundation. Use these links to find instructions for using the utilities and information about how they work. -->
 
 ---------------
 #### **エリアコード検索** ####

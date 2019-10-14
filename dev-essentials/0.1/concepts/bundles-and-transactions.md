@@ -145,7 +145,7 @@ IOTAトークンを預け入れるトランザクションは、IOTAトークン
 <!-- * Minimum weight magnitude -->
 
 深さは、ノードがタングルのどのくらい前まで戻って[チップ選択アルゴリズム](../concepts/the-tangle.md#tip-selection)を開始するかに影響します。ノードはチップ選択アルゴリズムを使用して、新しいトランザクションが`branchTransaction`と`trunkTransaction`フィールドで参照できるタングル内の2つの既存の末尾トランザクションを見つけます。
-<!-- The depth affects how far back in the Tangle the node starts the [tip selection algorithm](../concepts/the-tangle.md#tip-selection). Nodes use this algorithm to find two existing tail transactions in the Tangle that a new transaction can reference in the `branchTransaction` and `trunkTransaction` fields. -->
+<!-- The depth affects how far back in the Tangle the node starts the [tip selection algorithm](../concepts/the-tangle.md#tip-selection). Nodes use this algorithm to find two existing tail transactions on the Tangle that a new transaction can reference in the `branchTransaction` and `trunkTransaction` fields. -->
 
 :::info:
 深さが大きいほど、ノードはタングルの奥に戻ります。そのため、深さが大きいほど、チップ選択に時間がかかり、ノードの計算能力が高くなります。

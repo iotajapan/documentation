@@ -1,8 +1,8 @@
 # ハブ概要
 <!-- # Hub overview -->
 
-**ハブは暗号通貨交換所のためのヘッドレスマルチユーザーウォレットです。ハブは、ユーザーのIOTAトークンの預け入れと取り出しを管理するための安全な方法を提供します。ユーザーがIOTAトークンを自分のハブアドレスの1つに預け入れると、スウィープと呼ばれるプロセスでユーザーのトークンがハブ所有者のアドレスに転送されます。このようにして、ハブの所有者は、ユーザーが取り出しをリクエストするまでユーザーのトークンが安全であることを確認できます。**
-<!-- **Hub is a headless multi-user wallet for cryptocurrency exchanges. Hub offers you a secure way to manage deposits and withdrawals of users' IOTA tokens. When a user deposits IOTA tokens into one of their Hub addresses, Hub transfers those tokens to the Hub owners address in a process called a sweep. This way, the Hub owner can make sure that users' tokens are secure until they request a withdrawal.** -->
+**ハブは、暗号資産交換用のヘッドレスマルチユーザーウォレットです。ハブは、RESTful APIとgRPC APIを介して、ユーザーのIOTAトークンの預け入れや取り出しを管理する安全な方法を提供します。**
+<!-- **Hub is a headless multi-user wallet for cryptocurrency exchanges. Hub offers you a secure way to manage deposits and withdrawals of users' IOTA tokens through a RESTful API and a gRPC API.** -->
 
 ハブを使用すると、以下のプロセスを通じてIOTAを独自のアプリケーションに統合できます。
 <!-- Hub helps you to integrate IOTA into your own applications through the following processes: -->
@@ -17,8 +17,8 @@
 ハブを使用して、ユーザーがIOTAトークンをハブに預け入れられるようにするアプリケーションを構築できます。ユーザーがIOTAトークンを預け入れると、ハブは残高をデータベースに記録します。次に、ハブはそれらのIOTAトークンをハブ所有者のIOTAアドレスに転送します。このようにして、ハブ所有者はIOTAトークンを管理し、IOTAトークンをユーザーに対して安全に保つことができます。後でユーザーが取り出しを要求した場合、ハブ所有者はユーザーの残高を確認し、一連のトランザクションをノードに送信することでその取り出しを発行できます。
 <!-- You can use Hub to build applications that allow users to deposit IOTA tokens into it. When users deposit IOTA tokens, Hub keeps a record of their balances in a database. Then, Hub transfers those tokens to the Hub owner's IOTA address. This way the Hub owner has control over the tokens and can keep them safe for the users. If a user later requests a withdrawal, the Hub owner can issue that withdrawal by checking the user's balance and sending a bundle of transactions to a node. -->
 
-預け入れや取り出しなどのすべてのハブ機能は、[gRPC APIエンドポイント](../how-to-guides/get-started-with-the-api.md)を呼び出すことによって行われます。
-<!-- All Hub functions such as deposits and withdrawals are done by calling [gRPC API endpoints](../how-to-guides/get-started-with-the-api.md). -->
+預け入れや取り出しなどのすべてのハブ機能は、[gRPC APIエンドポイント](../how-to-guides/get-started-with-the-grpc-api.md)または[RESTful APIエンドポイント](../references/restful-api-reference.md)を呼び出すことによって行われます。
+<!-- All Hub functions such as deposits and withdrawals are done by calling either [gRPC API endpoints](../how-to-guides/get-started-with-the-grpc-api.md) or [RESTful API endpoints](../references/restful-api-reference.md). -->
 
 ## トランザクション監視
 <!-- ## Transaction monitoring -->
@@ -29,8 +29,8 @@
 ## シード作成
 <!-- ## Seed creation -->
 
-IOTAネットワークの各クライアントには、[シード](root://getting-started/0.1/introduction/what-is-a-seed.md)と呼ばれる秘密のパスワードがあります。これは、[アドレスの作成とバンドルの署名](root://dev-essentials/0.1/concepts/addresses-and-signatures.md)に使用されます。アドレスはトランザクションの送受信元のアカウントであり、署名はアドレスの所有権を証明するものです。
-<!-- Each client in an IOTA network has a secret password called a [seed](root://getting-started/0.1/introduction/what-is-a-seed.md), which is used to create [addresses and to sign bundles](root://dev-essentials/0.1/concepts/addresses-and-signatures.md). Addresses are the accounts from which transactions are sent and received, and signatures prove ownership of an address. -->
+IOTAネットワークの各クライアントには、[シード](root://getting-started/0.1/introduction/what-is-a-seed.md)と呼ばれる秘密のパスワードがあります。これは、[アドレスの作成とトランザクションのバンドルへの署名](root://dev-essentials/0.1/concepts/addresses-and-signatures.md)に使用されます。アドレスはトランザクションの送受信元のアカウントであり、署名はアドレスの所有権を証明するものです。
+<!-- Each client in an IOTA network has a secret password called a [seed](root://getting-started/0.1/introduction/what-is-a-seed.md), which is used to create [addresses and to sign bundles of transactions](root://dev-essentials/0.1/concepts/addresses-and-signatures.md). Addresses are the accounts from which transactions are sent and received, and signatures prove ownership of an address. -->
 
 各ユーザーのデポジットアドレスは、[Argon2](https://www.argon2.com/)ハッシュ関数を使用して新しいシードから導出します。次の値はシードを作成するために使用されます。
 <!-- Each user's deposit addresses is derived from a new seed, using the [Argon2](https://www.argon2.com/) hashing function. The following values are used to create a seed: -->
@@ -41,10 +41,10 @@ IOTAネットワークの各クライアントには、[シード](root://gettin
 <!-- * Salt: Characters that you can define in an optional [`salt` flag](../references/command-line-flags.md) -->
 
 :::info:
-データベースには、ユーザーが所有しているIOTAトークン量の記録が含まれています。IOTAトークンはユーザーのアドレスには保存されません。代わりに、ユーザーのIOTAトークンは[スウィープ](../concepts/sweeps.md)中にハブ所有者のアドレスに転送されます。ユーザーが後で[`userWithdrawRequest`コマンド](../references/api-reference.md#hub.rpc.UserWithdrawRequest)をトリガーした時に、ハブはユーザーのIOTAトークンを選択されたアドレスに送信するための新しいスウィープを作成します。
+データベースには、ユーザーが所有しているIOTAトークン量の記録が含まれています。IOTAトークンはユーザーのアドレスには保存されません。代わりに、ユーザーのIOTAトークンは[スウィープ](../concepts/sweeps.md)中にハブ所有者のアドレスに転送されます。
 :::
 <!-- :::info: -->
-<!-- The database contains a record of how many IOTA tokens a user has. The IOTA tokens are not kept on the user's addresses. Instead, they are transferred to the Hub owners address during a [sweep](../concepts/sweeps.md). If a user later triggers a [`userWithdrawRequest` command](../references/api-reference.md#hub.rpc.UserWithdrawRequest), Hub creates a new sweep to send the user's tokens to the chosen addresses. -->
+<!-- The database contains a record of how many IOTA tokens a user has. The IOTA tokens are not kept on the user's addresses. Instead, they are transferred to the Hub owners address during a [sweep](../concepts/sweeps.md). -->
 <!-- ::: -->
 
 ## トークン保護
@@ -75,8 +75,8 @@ IOTAは、バンドルに署名するためにWinternitzワンタイム署名方
 ## 制限事項
 <!-- ## Limitations -->
 
-ハブは、使用済みアドレスからユーザーがIOTAトークンを取り出すのを防ぐのに役立ちますが、ユーザーが使用済みアドレスに預け入れるのを妨げるものではありません。
-<!-- Hub helps to stop users from withdrawing from spent addresses, but it doesn't stop users from depositing into them. -->
+ユーザーが使用済みアドレスにIOTAトークンを預け入れた場合、APIの1つの`recoverFunds`メソッドを使用できます。
+<!-- If a user deposits tokens into a spent address, you can use the `recoverFunds` method in one of the APIs. -->
 
 ユーザーが使用済みアドレスにトークンを預け入れた場合は、gRPC APIを使用して[それらのトークンを取り出すバンドルを作成](https://github.com/iotaledger/rpchub/blob/master/docs/hip/001-sign_bundle.md)できます。
 <!-- If a user deposits tokens into a spent address, you can use the gRPC API to [create a bundle that withdraws those tokens](https://github.com/iotaledger/rpchub/blob/master/docs/hip/001-sign_bundle.md). -->

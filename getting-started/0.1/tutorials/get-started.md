@@ -114,7 +114,7 @@ Yarnを使ってライブラリをインストールします。
 yarn add @iota/core
 ```
 
-[JavaScriptドキュメントを参照してください](root://iota-js/0.1/README.md)。
+[JavaScriptドキュメントを参照してください](root://iota-js/0.1/introduction/overview.md).
 ---
 ### Java
 Gradleでライブラリをダウンロードします。
@@ -135,7 +135,8 @@ dependencies {
     compile 'com.github.iotaledger:iota-java:1.0.0-beta5'
 }
 ```
-[Javaドキュメントを参照してください](root://iota-java/0.1/README.md)。
+
+[Javaドキュメントを参照してください](root://iota-java/0.1/introduction/overview.md).
 ---
 ### Go
 IOTA Goクライアントライブラリとその依存関係をダウンロードするには、[Goモジュール](https://github.com/golang/go/wiki/Modules)（バージョン1.11以降で利用可能）を使用してプロジェクト内の依存関係を管理することをお勧めします。
@@ -153,7 +154,7 @@ $ go get github.com/iotaledger/iota.go/api
 ```
 上記のコマンドは、最新バージョンのIOTA Goクライアントライブラリをダウンロードし、そのバージョンを`go.mod`ファイルに書き込みます。
 
-[Goドキュメントを参照してください](root://iota-go/0.1/README.md)。
+[Goドキュメントを参照してください](root://iota-go/0.1/introduction/overview.md).
 --------------------
 
 <a name="step-3-make-a-test-api-request"></a>
@@ -197,7 +198,7 @@ $ go get github.com/iotaledger/iota.go/api
 --------------------
 ### JavaScript
 ```js
-// Require the IOTA library
+// Require the core package
 const Iota = require('@iota/core');
 
 // Create a new instance of the IOTA API object

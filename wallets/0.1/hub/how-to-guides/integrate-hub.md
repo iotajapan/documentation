@@ -21,32 +21,32 @@
 ハブは、それぞれが残高を追跡しているユーザーアカウントをサポートします。このようにして、ユーザーは自分が所有するIOTAトークンと同数だけIOTAトークンをトレードできます。
 <!-- Hub supports user accounts that each have a tracked balance. This way,users can trade and withdraw only as many tokens as they own. -->
 
-トレードを実行するには、`processTransfers()`または `userWithdraw()`メソッドを使用できます。
-<!-- To action a trade, you can use the `processTransfers()` or the `userWithdraw()` methods. -->
+トレードを実行するには、`processTransfers`または `userWithdraw`API呼び出しを使用できます。
+<!-- To action a trade, you can use the `processTransfers` or the `userWithdraw` API calls. -->
 
 :::info:
-`processTransfers()`メソッドを使用する場合、タングル上ではIOTAトークンは転送されません。代わりに、ユーザーの残高はデータベース上で更新されます。これは、ユーザーが取り出しをリクエストできるIOTAトークンの量に影響します。
+`processTransfers`API呼び出しを使用する場合、タングル上ではIOTAトークンは転送されません。代わりに、ユーザーの残高はデータベース上で更新されます。これは、ユーザーが取り出しをリクエストできるIOTAトークンの量に影響します。
 
-`userWithdraw()`メソッドを使用すると、IOTAトークンはタングル上で転送され、データベース上のユーザーの残高も更新されます。
+`userWithdraw`API呼び出しを使用すると、IOTAトークンはタングル上で転送され、データベース上のユーザーの残高も更新されます。
 :::
 <!-- :::info: -->
-<!-- When you use the `processTransfers()` method, no tokens are transferred on the Tangle. Instead, the users' balances are updated in the database, which affects how many tokens users can request to withdraw. -->
-<!--  -->
-<!-- When you use the `userWithdraw()` method, the tokens are transferred on the Tangle and the users' balances are updated in the database. -->
+<!-- When you use the `processTransfers` API call, no tokens are transferred on the Tangle. Instead, the users' balances are updated in the database, which affects how many tokens users can request to withdraw. -->
+
+<!-- When you use the `userWithdraw` API call, the tokens are transferred on the Tangle and the users' balances are updated in the database. -->
 <!-- ::: -->
 
-`userWithdraw()`エンドポイントを使用すると、ハブ所有者のアドレスではなく、ユーザーのアドレスからのみ取り出すことができるため、ハブの外側（コールドウォレット）にトークンを保存することは困難です。
-<!-- Because the `userWithdraw()` method allows you to withdraw only from a user address and not the Hub owner's addresses, it's difficult to store tokens outside of Hub (in a cold wallet). -->
+`userWithdraw`API呼び出しを使用すると、ハブ所有者のアドレスではなく、ユーザーのアドレスからのみ取り出すことができるため、ハブの外側（コールドウォレット）にトークンを保存することは困難です。
+<!-- Because the `userWithdraw` API call allows you to withdraw only from a user address and not the Hub owner's addresses, it's difficult to store tokens outside of Hub (in a cold wallet). -->
 
-| **ユーザーのアクション** | **交換所のアクション** | **ハブメソッド** |
+| **ユーザーのアクション** | **交換所のアクション** | **ハブのAPI呼び出し** |
 | :----------------------- | :--------------------- | :--------------------- |
 | 交換所にIOTAアカウントでサインアップします。 | ハブに新しいユーザーを作成します。 | `CreateUser` |
 | IOTAトークンを預け入れる預け入れアドレスをリクエストします。 | ユーザーの新しい預け入れアドレスを作成します。 | `getDepositAddress` |
 | IOTAトークンをアドレスに預け入れます。 | 預け入れがハブ所有者の新しいアドレスの1つにスウィープされた後、交換所のフロントエンドでユーザーに通知します。 | `balanceSubscription` |
 | ハブ外のアドレスへの取り出しをリクエストします。 | 取り出しを実行します。 | `userWithdraw` |
 | 別のユーザーからトークンを購入します。 | ハブデータベースの残高を更新することにより、2人のユーザー間のトレードを処理します。 | `processTransfers` |
-
-<!-- |**User action**|**Exchange action**|**Hub method**| -->
+<!-- |**User action**|**Exchange action**|**Hub API call**| -->
+<!-- |:----------|:--------------|:-----------| -->
 <!-- |:----------|:--------------|:-----------| -->
 <!-- |Signs up for an IOTA account on the exchange|Creates a new user in Hub| `CreateUser`| -->
 <!-- |Requests a deposit address in which to deposit IOTA tokens|Creates a new deposit address for the user|`getDepositAddress`| -->
@@ -60,8 +60,8 @@
 IOTAトークンをハブの外部に保存するには、ハブ所有者のアドレスの1つから新しいコールドウォレットアドレスにIOTAトークンを転送する必要があります。
 <!-- To store IOTA tokens outside of Hub, you need to transfer them from one of the Hub owner's addresses to the new cold wallet address. -->
 
-:::warning:警告
-ハブの外部にIOTAトークンを転送すると、取り出しリクエストを処理できなくなるリスクがあります。
+:::warning:警告！
+ハブ外にIOTAトークンを転送すると、取り出しリクエストを処理できなくなるリスクがあります。
 :::
 <!-- :::warning:Warning -->
 <!-- When you transfer tokens outside of Hub, you're at risk of not being able to process withdrawal requests. -->
@@ -86,10 +86,10 @@ IOTAトークンをハブの外部に保存するには、ハブ所有者のア�
   <!-- 6. Restart Hub -->
 
 :::info:
-ハブの外部にトークンを保存することに十分な関心がある場合、このタスクを簡単にする特別なメソッドを作成できます。[Discord](https://discord.iota.org)でご連絡ください。
+ハブ外にトークンを保存することに十分な関心がある場合、このタスクを簡単にする特別なAPI呼び出しを作成できます。[Discord](https://discord.iota.org)でご連絡ください。
 :::
 <!-- :::info: -->
-<!-- If enough interest exists for storing tokens outside of Hub, we can create a specialized method that makes this task easier. Please reach out to us on [Discord](https://discord.iota.org). -->
+<!-- If enough interest exists for storing tokens outside of Hub, we can create a specialized API call that makes this task easier. Please reach out to us on [Discord](https://discord.iota.org). -->
 <!-- ::: -->
 
 ### IOTAトークンをハブに送り返す
@@ -126,7 +126,7 @@ IOTAトークンをハブの外部に保存するには、ハブ所有者のア�
 
 ---
 
-| **ユーザーのアクション** | **交換所のアクション** | **ハブメソッド** |
+| **ユーザーのアクション** | **交換所のアクション** | **ハブのAPI呼び出し** |
 | :----------------------- | :--------------------- | :--------------------- |
 | 交換所にIOTAアカウントでサインアップします。 | ハブに新しいユーザーを作成します。 | `CreateUser` |
 | IOTAトークンを預け入れる預け入れアドレスをリクエストします。 | ユーザーの新しい預け入れアドレスを作成します。 | `GetDepositAddress` |
@@ -135,7 +135,8 @@ IOTAトークンをハブの外部に保存するには、ハブ所有者のア�
 | ハブ外のアドレスへの取り出しをリクエストします。 | ホットウォレットからユーザーが選択したアドレスへの取り出しを発行します。 | `UserWithdraw` |
 | 別のユーザーからトークンを購入します。 | ユーザーが交換所で暗号資産を売買する場合、ホットウォレットがすべてのトークンを所有しているため、ハブには何も記録されません。その結果、交換所はハブ外のすべてのアカウンティングを処理する必要があります。 | `ProcessTransfers` |
 
-<!-- |**User action**|**Exchange action**|**Hub method**| -->
+<!-- |**User action**|**Exchange action**|**Hub API call**| -->
+<!-- |:----------|:--------------|:-----------| -->
 <!-- |:----------|:--------------|:-----------| -->
 <!-- |Signs up for an IOTA account on the exchange|Creates a new user in Hub| `CreateUser`| -->
 <!-- |Requests a deposit address in which to deposit IOTA tokens|Creates a new deposit address for the user|`GetDepositAddress`| -->
@@ -147,18 +148,18 @@ IOTAトークンをハブの外部に保存するには、ハブ所有者のア�
 ### IOTAトークンをハブ外に保存する
 <!-- ### Store IOTA tokens outside of Hub -->
 
-IOTAトークンをハブの外部に保存するには、IOTAトークンをホットウォレットアドレスからコールドウォレットアドレスに転送する必要があります。
+IOTAトークンをハブ外に保存するには、IOTAトークンをホットウォレットアドレスからコールドウォレットアドレスに転送する必要があります。
 <!-- To store IOTA tokens outside of Hub, you need to transfer them from the hot wallet addresses to a cold wallet address. -->
 
-:::warning:警告
+:::warning:警告！
 ハブアドレスの外部にIOTAトークンを転送すると、取り出しリクエストを処理できなくなるリスクがあります。
 :::
 <!-- :::warning:Warning -->
 <!-- When you transfer tokens outside of Hub addresses, you're at risk of not being able to process withdrawal requests. -->
 <!-- ::: -->
 
-1. `userWithdraw()`メソッドを使用して、ホットウォレットから新しいアドレスへの取り出しを実行します。
-  <!-- 1. Action a withdrawal from the hot wallet to a new address, using the `userWithdraw()` method -->
+1. `userWithdraw`API呼び出しを使用して、ホットウォレットから新しいアドレスへの取り出しを実行します。
+  <!-- 1. Action a withdrawal from the hot wallet to a new address, using the `userWithdraw` API call -->
 
   :::warning:警告
   このシナリオでは、ハブは新しいアドレスが既に使用済みであるかどうかを確認できません。
@@ -173,8 +174,8 @@ IOTAトークンをハブの外部に保存するには、IOTAトークンをホ
 取り出しリクエストを処理するには、IOTAトークンをハブに戻し、スウィープで使用できるようにする必要があります。
 <!-- To process withdrawal requests, you may need to transfer IOTA tokens back into Hub so that it can use them in a sweep. -->
 
-1. `getDepositAddress()`メソッドを使用して、ホットウォレットの新しい預け入れアドレスを作成します。
-  <!-- 1. Create a new deposit address for the hot wallet, using the `getDepositAddress()` method -->
+1. `getDepositAddress`API呼び出しを使用して、ホットウォレットの新しい預け入れアドレスを作成します。
+  <!-- 1. Create a new deposit address for the hot wallet, using the `getDepositAddress` API call -->
 
   :::warning:警告
   同じアドレスから2回以上取り出しを行なってはいけません。

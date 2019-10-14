@@ -4,8 +4,8 @@
 **タングルは、IOTAトランザクションを含むイミュータブルなデータ構造です。IOTAネットワーク内のすべてのノードは、タングルのコピーを台帳に保存し、台帳から読み取り、新しいトランザクションを添付し、トランザクション内容について合意に達します。**
 <!-- **The Tangle is the immutable data structure that contains IOTA transactions. All nodes in an IOTA network store a copy of the Tangle in their ledgers, read from it, attach new transactions to it, and reach a consensus on its contents.** -->
 
-タングルのトランザクションは、トランザクション内で他の2つのトランザクションの履歴を暗号的に参照するため、イミュータブルです。そのため、その履歴中のいずれかのトランザクションが変更されると、すべての参照が破損します。
-<!-- Transactions in the Tangle are immutable because their contents are cryptographically referenced to the history of two other transactions. So, if any transaction were to change in that history, all the references would be broken. -->
+タングル内のトランザクションは、トランザクション内で他の2つのトランザクションの履歴を暗号的に参照するため、イミュータブルです。そのため、その履歴中のいずれかのトランザクションが変更されると、すべての参照が破損します。
+<!-- Transactions on the Tangle are immutable because their contents are cryptographically referenced to the history of two other transactions. So, if any transaction were to change in that history, all the references would be broken. -->
 
 :::info:
 これらの暗号化参照は、トランザクションハッシュです。各トランザクションには、そのコンテンツから派生した一意のトランザクションハッシュがあります。その結果、トランザクションの内容はイミュータブルです。

@@ -1,8 +1,8 @@
 # IOTA開発者ハンドブック
 <!-- # IOTA developer's handbook -->
 
-このクイックスタートガイドでは、IOTAテクノロジーについて簡単に説明し、独自のアプリケーションでIOTAテクノロジーをどのように活用できるかを特定するのに役立ちます。
-<!-- This quickstart guide gives you a brief walk through the IOTA technology to help you to identify how best you can leverage it in your own applications. -->
+このハンドブックでは、IOTAテクノロジーの概要を説明し、あなた自身のアプリケーションでIOTAテクノロジーをどのように活用できるかを特定するのに役立ちます。
+<!-- This handbook gives you a walk through the IOTA technology to help you to identify how best you can leverage it in your own applications. -->
 
 ## IOTAネットワークとは？
 <!-- ## What is an IOTA network? -->
@@ -14,7 +14,7 @@ IOTA財団は、誰でもがノードを実行でき、ノードに接続でき�
 <!-- The IOTA Foundation maintains three permissionless networks, where anyone can run a node, connect to them, and read/write transactions. -->
 
 パーミッションレスネットワークは公開されているため、トランザクションで送信するデータは誰でも閲覧できます。ただし、暗号化とMAMチャネルの使用により、トランザクション内のデータをいつでも保護できます。
-<!-- Permissionless networks are public, so any data you send in a transaction is open to anyone.  But, you can always protect the data in transactions through encryption and the use of MAM Channels. -->
+<!-- Permissionless networks are public, so any data you send in a transaction is open to anyone. But, you can always protect the data in transactions through encryption and the use of MAM channels. -->
 
 |**タイプ**|**ステータス**|**説明**|
 |:---------|:-------------|:-------|
@@ -106,7 +106,7 @@ Mainnetでトランザクションを送信する最も簡単な方法は、ク�
 <!-- Your application or service needs to connect to a node on the IOTA Mainnet. In the client libraries such as JavaScript, you usually define which node to connect to in the `provider` field. -->
 
 ```js
-// Require the IOTA libraries
+// Require the core package
 const Iota = require('@iota/core');
 
 // Create a new instance of the IOTA object
@@ -176,28 +176,23 @@ iota.prepareTransfers(seed, transfers)
 <!-- [See our tutorial for sending a transaction](../tutorials/send-a-zero-value-transaction-with-nodejs.md). -->
 <!-- ::: -->
 
-#### Mainnetでサードパーティのノードを使用する利点と欠点
-<!-- #### Advantages and disadvantages of using third-party nodes on the Mainnet -->
+#### メインネット上でサードパーティのノードを使用する際の考慮事項
+<!-- #### Things to consider when using third-party nodes on the Mainnet -->
 
-サードパーティのノードへの接続は便利ですが、信頼できるサービスが必要な場合は不利になる場合があります。
-<!-- Connecting to third-party nodes is convenient, but comes at a disadvantage if you need a reliable service. -->
+サードパーティのノードへの接続は便利ですが、信頼できるサービスが必要な場合は不利になります。例えば：
+<!-- Connecting to third-party nodes is convenient, but comes at a disadvantage if you need a reliable service. For example: -->
 
-|**利点**|**欠点**|
-|:--------|:-------|
-|IOTAネットワークをサービスとして使用できます。|トランザクションは、同じノードが受信した他のトランザクションと競合し、サードパーティのノードによって決定された優先度で処理されます。|
-| |高速PoW計算への支払い、または既にPoWを含むトランザクションの提供を要求される場合があります。|
-| |トランザクションのコピーは、ノードによって決定された限られた時間だけ保持される場合があります。|
-| |パーマノードオプション（トランザクションの永続的な保存など）では、料金の支払いが必要になる場合があります。|
+* トランザクションは、ノードが受信する他のトランザクションと競合し、ノードが決定する優先度で処理されます。
+<!-- * Your transactions will compete with other transactions that the node receives and will be processed with a priority that the node decides -->
+* 高速PoW計算への支払い、またはPoWを含むトランザクションの提供を要求される場合があります。
+<!-- * You might be requested to pay for fast PoW computation or to provide a transaction that includes PoW -->
+* トランザクションのコピーは、ノードによって決定された限られた時間だけノードに保持される場合があります。
+<!-- * A copy of your transactions might be kept only for a limited time that's decided by the node -->
+* パーマノードオプション（トランザクションの永久保存など）には手数料が必要な場合があります。
+<!-- * A permanode option (e.g. permanent storage of your transactions) might require a fee -->
 
-<!-- |**Advantages**|**Disadvantages**| -->
-<!-- |:-------------|:----------------| -->
-<!-- |You can use the IOTA network as a service|Your transactions will compete with other transactions received by the same node and will be processed with a priority decided by the third party node -->
-<!-- | |You might be requested to pay for fast PoW computation or to provide a transaction that includes already PoW -->
-<!-- | |A copy of your transactions might be retained only for a limited time decided by the node -->
-<!-- | |A permanode option (e.g. permanent store of your transactions) might require payment of a fee -->
-
-これらの欠点を克服するには、自身のノードを実行し、アプリケーションを接続してタングルに直接アクセスすることをお勧めします。自身のノードを使用すると、トランザクションがタングルに添付される速度をより詳細に制御でき、トランザクションを永続的に保存できます。
-<!-- To overcome these disadvantages, we recommend you run your own node and connect your application to it for direct access to the Tangle. Your own node gives you more control on how fast your transactions are attached to the Tangle and allows you to store them permanently. -->
+これらの欠点を克服するには、自分自身のノードを実行し、アプリケーションを接続してタングルに直接アクセスすることをお勧めします。自分自身のノードを使用すると、トランザクションがタングルに添付される速度をより詳細に制御でき、トランザクションを永続的に保存できます。
+<!-- To overcome these disadvantages, we recommend that you run your own node and connect your application to it for direct access to the Tangle. Your own node gives you more control on how fast your transactions are attached to the Tangle and allows you to store them permanently. -->
 
 :::info:
 [Dockerコンテナでノードを実行する](root://node-software/0.1/iri/how-to-guides/run-an-iri-node-in-docker.md)または[Linuxサーバーでダウンロードして実行する](root://node-software/0.1/iri/how-to-guides/run-an-iri-node-on-linux.md)をご覧ください。
@@ -259,7 +254,7 @@ IOTAの目標は、モノのインターネット（IoT）上のデバイスが�
 プルーフオブワークを行うことができるデバイスの例は[STM X-Cube-IOTA1](https://www.st.com/en/embedded-software/x-cube-iota1.html)です。このデバイスは、IOTA Cクライアントライブラリをミドルウェアとして使用します。
 :::
 <!-- :::info: -->
-<!-- A example of a device that can do proof of work is the [STM X-Cube-IOTA1](https://www.st.com/en/embedded-software/x-cube-iota1.html). This devices uses the IOTA C client library as middleware. -->
+<!-- An example of a device that can do proof of work is the [STM X-Cube-IOTA1](https://www.st.com/en/embedded-software/x-cube-iota1.html). This devices uses the IOTA C client library as middleware. -->
 <!-- ::: -->
 
 現在、IOTAをクラウドIoT環境（AWS IoTやGoogle Cloud IoTなど）に統合する最善の方法についても取り組んでいます。この統合により、タングルを介して物理デバイス間でIoTデータをシームレスに転送できます。
@@ -297,14 +292,14 @@ IOTAコミュニティは、さまざまな言語でMAMを使用できるよう�
 * [LoRAデバイスのラッパー](https://github.com/xdk2mam/xdk2mam/tree/Workbench-3.6/lora-sdcard)
 <!-- * [Wrapper for LoRA devices](https://github.com/xdk2mam/xdk2mam/tree/Workbench-3.6/lora-sdcard) -->
 
-## スマートコントラクトに関するメモ
-<!-- ## A note on smart contracts -->
+## スマートコントラクト
+<!-- ## Smart contracts -->
 
-IOTAは、Qubicと呼ばれる独自のスマートコントラクトソリューションを開発しています。IOTAスマートコントラクトは、特定の条件が満たされた場合の資金の単純な譲渡を超えます。Qubicの野望は、スマートコントラクトを許可するだけでなく、IoTデバイスのアウトソーシングクォーラムコンピューティングも提供することです。
-<!-- IOTA is developing its own solution to smart contracts, called Qubic. IOTA smart contracts will go beyond the simple transfer of funding when a specific condition is met. In fact, the ambition of Qubic is to not only allow smart contracts, but also provide outsourced quroum computing for IoT devices. -->
+キュービックと呼ばれるスマートコントラクトに対するIOTA独自のソリューションを開発しています。IOTAスマートコントラクトは、特定の条件が満たされた場合の資金の単純な譲渡を超えます。実際、キュービックの野望は、スマートコントラクトを許可するだけでなく、IoTデバイスのアウトソーシングクォーラムコンピューティングも提供することです。
+<!-- We are developing our own solution to smart contracts, called Qubic. IOTA smart contracts will go beyond the simple transfer of funding when a specific condition is met. In fact, the ambition of Qubic is to not only allow smart contracts, but also provide outsourced quroum computing for IoT devices. -->
 
 :::info:
-[Qubicの詳細とロードマップの内容](https://qubic.iota.org/intro)を参照してください。
+[キュービックの詳細とロードマップの内容](https://qubic.iota.org/intro)を参照してください。
 :::
 <!-- :::info: -->
 <!-- [Learn more about Qubic and see what's on the roadmap](https://qubic.iota.org/intro). -->

@@ -70,5 +70,3 @@
 
 モバイル端末のログインパスワードを変更するには、**設定** > **セキュリティ設定** > **パスワード変更**に移動します。
 <!-- To change the login password on a mobile device, go to **Settings** > **Security settings** > **Change password**. -->
-
-![Change password](../images/settings-password.jpg)

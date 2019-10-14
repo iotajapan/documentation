@@ -1,3 +1,3 @@
 # Index
 
-[Documentation/Style guide](style-guide.md)
+[ドキュメント/スタイルガイド](style-guide.md)

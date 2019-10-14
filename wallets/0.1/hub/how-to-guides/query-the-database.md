@@ -14,8 +14,8 @@
 ## 前提条件
 <!-- ## Prerequisites -->
 
-[預け入れアドレスを持つユーザーを作成します](../how-to-guides/get-started-with-the-api.md)。
-<!-- [Create a user who has a deposit address](../how-to-guides/get-started-with-the-api.md). -->
+[預け入れアドレスを持つユーザーを作成します](../how-to-guides/get-started-with-the-grpc-api.md)。
+<!-- [Create a user who has a deposit address](../how-to-guides/get-started-with-the-grpc-api.md). -->
 
 ---
 

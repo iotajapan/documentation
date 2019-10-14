@@ -30,8 +30,8 @@
 この例では、[Devnetノード](root://getting-started/0.1/references/iota-networks.md#devnet)に接続します。 Devnetは、トークンが無料であること以外はMainnetとほぼ同じです。Devnetに送信したトランザクションは、Mainnetのような他のネットワークには存在しません。
 <!-- In this example, we connect to a [Devnet node](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
 
-1. IOTAライブラリが必要です。
-  <!-- 1. Require the IOTA libraries -->
+1. `core`パッケージを`require`します。
+  <!-- 1. Require the `core` package -->
 
     ```js
     const Iota = require('@iota/core');

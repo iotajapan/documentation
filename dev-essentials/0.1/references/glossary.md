@@ -38,7 +38,7 @@
 <!-- ### Cryptography -->
 
 <a name="checksum"></a><dl><dt>チェックサム</dt><dd>エラーを検出し、正しいデータを入力したことを確認できるようにするためにデータをハッシュしたもの。例えば、トリニティでは、9文字のチェックサムが81文字のアドレスの後ろに追加されるので、ユーザーは自分のシード（81文字）とアドレス（90文字）を簡単に区別できます。</dd></dl>
-<!-- <dl><dt>checksum</dt><dd>Hashed data that allows you to detect errors and verify that you entered the correct data.  For example, in Trinity, a 9-character checksum is appended to the 81-tryte address so users can easily differentiate between their seed (81-trytes) and their address (90-characters) </dd></dl> -->
+<!-- <dl><dt>checksum</dt><dd>Hashed data that allows you to detect errors and verify that you entered the correct data. For example, in Trinity, a 9-character checksum is appended to the 81-tryte address so users can easily differentiate between their seed (81-trytes) and their address (90-characters) </dd></dl> -->
 
 <a name="curl"></a><dl><dt>Curl</dt><dd>IOTAで使用されている主なハッシュ関数。Curlは[Keccakクリエイター](https://en.wikipedia.org/wiki/SHA-3)（SHA-3）によって発明されたスポンジ構造に基づいています。 Curlはモノのインターネット（IoT）用に設計されています。</dd></dl>
 <!-- <dl><dt>Curl</dt><dd>Main hash function that's used in IOTA. Curl is based on a sponge construction, which was invented by the [Keccak creators](https://en.wikipedia.org/wiki/SHA-3) (SHA-3). Curl is designed for the Internet of things (IoT). </dd></dl> -->

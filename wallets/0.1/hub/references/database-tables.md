@@ -43,7 +43,7 @@
 | `id`          | 残高更新イベントの固有ID | NULL |
 | `hub_address` | `hub_address`テーブル内のアドレスのID | NULL |
 | `amount`      | アドレス内のIOTAトークンの総数 | 0 |
-| `reason`      | 残高更新イベントの[3つの理由](../references/api-reference.md#hub.rpc.HubAddressBalanceReason)のうちの1つ | NULL |
+| `reason`      | 残高更新イベントの3つの理由のうちの1つ | NULL |
 | `sweep`       | `sweep`テーブル内のスウィープのID | NULL |
 | `occured_at`  | 残高が`YYYY-MM-DD HH:MM:SS`の形式で更新された日時。 | 現在の日時 |
 
@@ -103,7 +103,7 @@
 | :------------- | :------- | :--------------- |
 | `user_id`    | `user_account`テーブル内のユーザーアカウントのID | NULL |
 | `amount`     | ユーザーがハブで所有しているIOTAトークンの総数 | NULL |
-| `reason`     | 残高更新イベントの[3つの理由](../references/api-reference.md#hub.rpc.HubAddressBalanceReason)のうちの1つ | NULL |
+| `reason`     | 残高更新イベントの3つの理由のうちの1つ | NULL |
 | `sweep`      | 残高を更新したスウィープのID。このIDは`sweep`テーブルにあります。 | NULL |
 | `withdrawal` | `withdrawal`テーブル内の取り出しのID | NULL |
 | `occured_at` | ユーザーの残高が`YYYY-MM-DD HH:MM:SS`の形式で更新された日時。 | 現在の日時 |
@@ -133,7 +133,7 @@
 | `id`           | ユーザーの残高更新イベントの固有ID | NULL |
 | `user_address` | `user_address`テーブル内のユーザーのアドレスのID | NULL |
 | `amount`       | アドレス上のIOTAトークンの総数 | NULL |
-| `reason`       | 残高更新イベントの[3つの理由](../references/api-reference.md#hub.rpc.HubAddressBalanceReason)のうちの1つ | NULL |
+| `reason`       | 残高更新イベントの3つの理由のうちの1つ | NULL |
 | `tail_hash`    | スウィープの81トライトの末尾トランザクションハッシュ | NULL |
 | `sweep`        | 残高を更新したスウィープのID。このIDは`sweep`テーブルにあります。 | NULL |
 | `message`      | 預け入れバンドル内の出力トランザクションの`signatureMessageFragment`フィールドの内容（単位：トライト） | NULL |

@@ -68,8 +68,8 @@
 ![A received transaction](../images/trinity-receive-message.png)
 
 :::info:
-アドレスフィールドは、[上級モード](../how-to-guides/change-the-advanced-settings.md)でのみ表示されます。
+アドレスフィールドは、[上級モード](../how-to-guides/change-the-general-settings.md)でのみ表示されます。
 :::
 <!-- :::info: -->
-<!-- The Addresses field is displayed only in [Advanced mode](../how-to-guides/change-the-advanced-settings.md). -->
+<!-- The Addresses field is displayed only in [Advanced mode](../how-to-guides/change-the-general-settings.md). -->
 <!-- ::: -->
