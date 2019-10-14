@@ -109,7 +109,7 @@ IOTAクライアントライブラリを使用したことがない場合は、[
     | **フィールド** | **説明** | **メモ** |
     | :------------- | :------- | :------- |
     | `outputAddress` | スウィープアドレス上のIOTAトークンを転送する新しい81トライトのアドレス（チェックサムなし） | このアドレスは、ハブアドレスである必要はありません。たとえば、IOTAトークンをハードウェアウォレットのアドレスに送信できます。 |
-    | `inputAddress` | 回復する必要があるIOTAトークンを含む、スウィープした81トライトのアドレス（チェックサムなし） | [`balanceSubscription()`メソッド](../references/api-reference.md#hub.rpc.BalanceSubscriptionRequest)を使用して、受信アドレスへの預け入れをチェックすることをお勧めします。[`getUserHistory()`メソッド](../references/grpc-api-reference.md#hub.rpc.GetUserHistoryRequest)を使用して、どの使用済みアドレスに正のバランスがあるかを確認することもできます。 |
+    | `inputAddress` | 回復する必要があるIOTAトークンを含む、スウィープした81トライトのアドレス（チェックサムなし） | [`balanceSubscription()`メソッド](../references/grpc-api-reference.md#hub.rpc.BalanceSubscriptionRequest)を使用して、受信アドレスへの預け入れをチェックすることをお勧めします。[`getUserHistory()`メソッド](../references/grpc-api-reference.md#hub.rpc.GetUserHistoryRequest)を使用して、どの使用済みアドレスに正のバランスがあるかを確認することもできます。 |
     | `securityLevel` | スウィープアドレスのセキュリティレベル | デフォルトのセキュリティレベルは2です。[`keySecLevel`コマンドラインフラグ](../references/command-line-flags.md#keySec)のセキュリティレベルを変更した場合は、必ずそれを使用します。 |
     | `value` | `inputAddress`フィールドのスウィープアドレスの合計残高 | [thetangle.org](https://thetangle.org/)などのタングルエクスプローラーでアドレスの残高を確認できます。 |
 

@@ -90,7 +90,7 @@
     ```
 
     :::info:
-    ステップ4のコンソールで、`createUser()`メソッドが`CreateUserRequest`オブジェクトを受け取ることがわかります。そのオブジェクトは[APIリファレンス](../references/api-reference.md#hub.rpc.CreateUserRequest)で検索できます。
+    ステップ4のコンソールで、`createUser()`メソッドが`CreateUserRequest`オブジェクトを受け取ることがわかります。そのオブジェクトは[APIリファレンス](../references/grpc-api-reference.md#hub.rpc.CreateUserRequest)で検索できます。
 
     `pr`引数は、結果をコンソールに出力するビルド済みのコールバック関数です。
     :::
@@ -158,7 +158,7 @@
 
 1. IOTAトークンをユーザーの預け入れアドレスの1つに預け入れる。
 <!-- 1. Deposit IOTA tokens into one of the user deposit addresses -->
-2. [`sweepSubscription()`](../references/api-reference.md#hub.rpc.SweepSubscriptionRequest)メソッドを使用して、新しいスウィープイベントを購読する。こうすることで、スウィープが行われるとハブから通知されます。
+2. [`sweepSubscription()`](../references/grpc-api-reference.md#hub.rpc.SweepSubscriptionRequest)メソッドを使用して、新しいスウィープイベントを購読する。こうすることで、スウィープが行われるとハブから通知されます。
 <!-- 2. Use the [`sweepSubscription()`](../references/grpc-api-reference.md#hub.rpc.SweepSubscriptionRequest) method to subscribe to new sweep events. This way, Hub will let you know when a sweep takes place. -->
 4. [`userWithdraw()`](../references/grpc-api-reference.md#hub.rpc.UserWithdrawRequest)メソッドを使用して、預け入れアドレスからのIOTAトークンの取り出しを依頼する。
 <!-- 3. Use the [`userWithdraw()`](../references/grpc-api-reference.md#hub.rpc.UserWithdrawRequest) method to make a withdrawal request from the deposit address -->
