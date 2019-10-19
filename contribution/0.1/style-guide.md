@@ -50,7 +50,7 @@ GitHubアカウントを既にお持ちで、コンピューターにGitがセ�
 <!-- 2. [Set up Git](https://help.github.com/articles/set-up-git/) -->
 3. [ドキュメントリポジトリ](https://github.com/iotaledger/documentation.git)に移動し、ページ上部の[**Fork**]をクリックします。
 <!-- 3. Go to our [documentation repository](https://github.com/iotaledger/documentation.git) and click **Fork** at the top of the page -->
-4.コマンドプロンプトで次を実行して、フォークをローカルマシンにコピーします。
+4. コマンドプロンプトで次を実行して、フォークをローカルマシンにコピーします。
   <!-- 4. Copy your fork to your local machine by doing the following in the command prompt: -->
 
     ```bash

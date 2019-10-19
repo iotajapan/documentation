@@ -312,7 +312,7 @@ func handleErr(err error) {
 <!-- To learn what these fields mean, [see the API reference](root://node-software/0.1/iri/references/api-reference.md#getNodeInfo). -->
 <!-- ::: -->
 
-# コードを実行する
+## コードを実行する
 <!-- ## Run the code -->
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/Connect-to-a-node?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>

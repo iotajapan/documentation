@@ -8,6 +8,4 @@
 
 [ハウツーガイド/シングルボードコンピュータを設定する](/how-to-guides/setup-sbc.md)
 
-[ハウツーガイド/シングルボードコンピュータにGoをインストールする](/how-to-guides/install-go-on-sbc.md)
-
 [参考文献/トラブルシューティング](/references/troubleshooting.md)

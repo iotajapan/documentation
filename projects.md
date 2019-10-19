@@ -12,4 +12,4 @@
 [JSライブラリ](/iota-js)
 [スマートシティ](/smartcity)
 [一般](/general)
-[コントリビューション](/contribution)
+[貢献](/contribution)
