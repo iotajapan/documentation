@@ -13,7 +13,7 @@
 
 [序説/バンドルとは？](/introduction/what-is-a-bundle.md)
 
-[チュートリアル/はじめに](/tutorials/get-started.md)
+[チュートリアル/開発入門](/tutorials/get-started.md)
 
 [チュートリアル/初めてのデータトランザクションを送信する（Node.js）](/tutorials/send-a-zero-value-transaction-with-nodejs.md)
 

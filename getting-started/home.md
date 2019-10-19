@@ -9,5 +9,5 @@
 [ユースケース](/0.1/references/use-cases.md)
 ## IOTAを使用して既に構築されているプロダクトについて学びます。
 
-[始める](/0.1/tutorials/get-started.md)
+[開発入門](/0.1/tutorials/get-started.md)
 ## アプリにIOTAを統合し、初めてのトランザクションを送信することから始めましょう。
