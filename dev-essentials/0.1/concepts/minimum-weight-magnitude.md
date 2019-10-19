@@ -40,8 +40,8 @@
 最小重量値（MWM）は、プルーフオブワークの要件を定義します。
 <!-- Minimum weight magnitude (MWM) defines the requirements for proof of work. -->
 
-プルーフオブワークの間、トランザクションハッシュは、MWMと同じ数の0トリットで終了するまで繰り返しハッシュ化されます。MWMが高いほど、プルーフオブワークは難しくなります。
-<!-- During proof of work, the transaction hash is repeatedly hashed until it ends in the same number of 0 trits as the MWM. The higher the MWM, the harder the proof of work. -->
+プルーフオブワークを実行中、トランザクションハッシュがMWMと同じ0トリット数で終了するまで、トランザクションは繰り返しハッシュ化されます。MWMが高いほど、プルーフオブワークが難しくなります。
+<!-- During proof of work, the transaction is repeatedly hashed until the transaction hash ends in the same number of 0 trits as the MWM. The higher the MWM, the harder the proof of work. -->
 
 :::info:
 [000トリットはトライトでは9としてエンコードされています](root://dev-essentials/0.1/references/tryte-alphabet.md)。

@@ -10,28 +10,31 @@
 このガイドでは、2つの統合オプションについて説明します。
 <!-- In this guide, we discuss two integration options: -->
 
-- **ハブでユーザーの残高を管理する（デフォルト）：** トレードとユーザー残高を管理する最も簡単な方法
-<!-- - **Manage user balances in Hub (default):** Easiest way to manage trades and user balances -->
-- **ハブ外でユーザーの残高を管理する：** すべてのユーザーのIOTAトークンをハブの外部に保存する最も簡単な方法
-<!-- - **Manage user balances outside of Hub:** Easiest way to store all users' IOTA tokens outside of Hub -->
+- **オプション1. ハブでユーザーの残高を管理する（デフォルト）：** トレードとユーザー残高を管理する最も簡単な方法
+<!-- - **Option 1: Manage user balances in Hub (default):** Easiest way to manage trades and user balances -->
+- **オプション2. ハブ外でユーザーの残高を管理する：** すべてのユーザーのIOTAトークンをハブの外部に保存する最も簡単な方法
+<!-- - **Option 2. Manage user balances outside of Hub:** Easiest way to store all users' IOTA tokens outside of Hub -->
 
 ## 統合オプション1. ハブでユーザーの残高を管理する
 <!-- ## Integration option 1. Manage user balances in Hub -->
 
 ハブは、それぞれが残高を追跡しているユーザーアカウントをサポートします。このようにして、ユーザーは自分が所有するIOTAトークンと同数だけIOTAトークンをトレードできます。
-<!-- Hub supports user accounts that each have a tracked balance. This way,users can trade and withdraw only as many tokens as they own. -->
+<!-- Hub supports user accounts that each have a tracked balance. This way, users can trade and withdraw only as many tokens as they own. -->
 
 トレードを実行するには、`processTransfers`または `userWithdraw`API呼び出しを使用できます。
 <!-- To action a trade, you can use the `processTransfers` or the `userWithdraw` API calls. -->
 
 :::info:
 `processTransfers`API呼び出しを使用する場合、タングル上ではIOTAトークンは転送されません。代わりに、ユーザーの残高はデータベース上で更新されます。これは、ユーザーが取り出しをリクエストできるIOTAトークンの量に影響します。
-
-`userWithdraw`API呼び出しを使用すると、IOTAトークンはタングル上で転送され、データベース上のユーザーの残高も更新されます。
 :::
 <!-- :::info: -->
 <!-- When you use the `processTransfers` API call, no tokens are transferred on the Tangle. Instead, the users' balances are updated in the database, which affects how many tokens users can request to withdraw. -->
+<!-- ::: -->
 
+:::info:
+`userWithdraw`API呼び出しを使用すると、IOTAトークンはタングル上で転送され、データベース上のユーザーの残高も更新されます。
+:::
+<!-- :::info: -->
 <!-- When you use the `userWithdraw` API call, the tokens are transferred on the Tangle and the users' balances are updated in the database. -->
 <!-- ::: -->
 
@@ -57,7 +60,7 @@
 ### IOTAトークンをハブ外に保存する
 <!-- ### Store IOTA tokens outside of Hub -->
 
-IOTAトークンをハブの外部に保存するには、ハブ所有者のアドレスの1つから新しいコールドウォレットアドレスにIOTAトークンを転送する必要があります。
+IOTAトークンをハブ外に保存するには、ハブ所有者のアドレスの1つから新しいコールドウォレットアドレスにIOTAトークンを転送する必要があります。
 <!-- To store IOTA tokens outside of Hub, you need to transfer them from one of the Hub owner's addresses to the new cold wallet address. -->
 
 :::warning:警告！
@@ -110,14 +113,6 @@ IOTAトークンをハブの外部に保存するには、ハブ所有者のア�
 4. ハブを再起動します。
   <!-- 4. Restart Hub -->
 
-### ビデオチュートリアル
-<!-- ### Video tutorial -->
-
-統合オプション1のセットアップを支援するために、ハブをサンプル取引所に統合するビデオチュートリアルを作成しました。
-<!-- To help you set up integration option 1, we made this video tutorial that integrates Hub into a sample exchange. -->
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/O2ukIXqJTls" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 ## 統合オプション2. ハブ外のユーザー残高を管理する
 <!-- ## Integration option 2. Manage user balances outside of Hub -->
 
@@ -129,10 +124,8 @@ IOTAトークンをハブの外部に保存するには、ハブ所有者のア�
 
 1. 新しいシードを使用してコールドウォレットを作成します。
 <!-- 1. Create a cold wallet, using a new seed -->
-2. ホットウォレットとして使用する新しいハブユーザーを作成します。
-<!-- 2. Create a new Hub user to use as a hot wallet -->
-
----
+2. ホットウォレットとして使用する新しいユーザーを作成します。
+<!-- 2. Create a new user to use as a hot wallet -->
 
 | **ユーザーのアクション** | **交換所のアクション** | **ハブのAPI呼び出し** |
 | :----------------------- | :--------------------- | :--------------------- |
@@ -196,7 +189,7 @@ IOTAトークンをハブ外に保存するには、IOTAトークンをホット
   <!-- 2. Send tokens from the external address to this deposit address -->
 
 ハブは預け入れを受け取り、スウィープの一環として預け入れをハブ所有者のアドレスに転送します。預け入れの合計残高が十分でない場合、ハブ所有者のアドレスにあるIOTAトークンを使用して取り出しリクエストを処理できます。
-<!-- Hub receives the deposit and transfers them to a Hub owner's address as part of a sweep. The tokens in the Hub owner's addresses can be used to fulfil withdrawal requests if the total balance of deposits is not enough. -->
+<!-- Hub receives the deposit and transfers them to a Hub owner's address as part of a sweep. The tokens in the Hub owner's addresses can be used to fulfill withdrawal requests if the total balance of deposits is not enough. -->
 
 :::info:
 [スウィープの仕組み](../concepts/sweeps.md)に関する詳細を参照します。

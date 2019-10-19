@@ -1,8 +1,8 @@
-# ハブをインストールする
-<!-- # Install Hub -->
+# ハブを実行する
+<!-- # Run Hub -->
 
-**ハブをインストールすると、簡単なAPI呼び出しを使用して、新しいユーザーを作成し、シードを管理し、預け入れと取り出しを発行できます。**
-<!-- **By installing Hub, you can create new users, manage their seeds, and issue deposits and withdrawals by using simple API calls.** -->
+**Hubは、新しいユーザーを作成し、IOTAトークンの預け入れと取り出しを管理するために使用できるウォレット管理システムです。ハブを独自のアプリケーションまたは取引所に統合するために使用できるgRPC APIまたはRESTful APIを公開するオプションがあります。**
+<!-- **Hub is a wallet management system that you can use to create new users, and manage their deposits and withdrawals of IOTA tokens. You have the option to expose either a gRPC API or a RESTful API that you can use to integrate Hub into your own applications or exchanges.** -->
 
 ![IOTA Hub architecture](../images/iota_hub.png)
 
@@ -255,7 +255,6 @@ INFO: Build completed successfully, 1811 total actions
 バイナリファイルを実行する前に、バイナリファイルを設定する必要があります。
 <!-- Before you can run the binary file, you need to configure it. -->
 
-
 1\. `start.sh`というシェルスクリプトファイルを作成します。
   <!-- 1\. Create a shell script file called `start.sh` -->
 
@@ -266,21 +265,17 @@ nano start.sh
 2\. `start.sh`ファイルに、使用する[コマンドラインフラグ](../references/command-line-flags.md)を付けてハブを実行するためのコマンドを追加します。
   <!-- 2\. In the start.sh file, add the command for running hub with the [command line flags](../references/command-line-flags.md) that you want to use -->
 
---------------------
 ### ベストプラクティス
 <!-- ### Best practice -->
 
 ハブを制御するローカルMainnetノードに接続することをお勧めします。ローカルMainnetノードがない場合は、[IRIノードソフトウェアについて](root://node-software/0.1/iri/introduction/overview.md)を参照してセットアップします。
 <!-- We recommend connecting Hub to a local Mainnet node that you control. If you don't have a local Mainnet node, [read about the IRI node software](root://node-software/0.1/iri/introduction/overview.md) for guides on setting one up. -->
 
-このコマンドは、ポート14265でローカルMainnetノードに接続します。
-<!-- This command connects to a local Mainnet node on port 14265. -->
+--------------------
+### gRPC API
 
-`salt`フラグの値を少なくとも20文字の文字列で置き換えます。`salt`フラグの値は、ハブがシードを作成するために使用するため、秘密にしてください。
-<!-- Replace the value of the `salt` flag with a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret. -->
-
-`dbPassword`フラグの値をMariaDBのインストール時に選択したルートパスワードに置き換えます。
-<!-- Replace the value of the `dbPassword` flag with the root password you chose when you installed MariaDB. -->
+このコマンドは、ポート14265でローカルMainnetノードに接続し、localhostのポート50051でgRPC APIサーバーを公開します。
+<!-- This command connects to a local Mainnet node on port 14265, and exposes the gRPC API server on port 50051 of the localhost. -->
 
 ```shell
 #!/bin/bash
@@ -295,21 +290,33 @@ nano start.sh
 	--listenAddress 127.0.0.1:50051
 ```
 ---
+
+### RESTful API
+
+このコマンドは、ポート14265でローカルMainnetノードに接続し、ローカルホストのポート50051でRESTful APIサーバーを公開します。
+<!-- This command connects to a local Mainnet node on port 14265, and exposes the RESTful API server on port 50051 of the localhost. -->
+
+```shell
+#!/bin/bash
+
+./bazel-bin/hub/hub \
+	--salt CHANGETHIS \
+	--db hub \
+	--dbUser root \
+	--dbPassword myrootpassword \
+	--apiAddress 127.0.0.1:14265 \
+	--minWeightMagnitude 14 \
+	--listenAddress 127.0.0.1:50051
+	--serverType http
+```
+---
+
 ### HTTPSのDevnetノード
 <!-- ### HTTPS Devnet node -->
 
-テストの目的で、リモートDevnetノードに接続することができます。ほとんどのリモートノードはHTTPS接続を使用するため、このコマンドには[`--useHttpsIRI`フラグ](../references/command-line-flags.md#useHttpsIRI)を`true`に設定します。
-<!-- For testing purposes, you may want to connect to a remote Devnet node. Most remote nodes use an HTTPS connection, so this command has the the [`--useHttpsIRI` flag](../references/command-line-flags.md#useHttpsIRI) set to `true`. -->
-<!-- For testing purposes, you may want to connect to a remote Devnet node. Most remote nodes use an HTTPS connection, so this command has the the [`--useHttpsIRI` flag](../references/command-line-flags.md#useHttpsIRI) set to `true`. -->
-
-Devnetは、トークンが無料であることを除いて、Mainnetに似ています。Devnetに送信するトランザクションは、Mainnetなどの他のネットワークには存在しません。
-<!-- The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
-
-`salt`フラグの値を少なくとも20文字の文字列で置き換えます。`salt`フラグの値は、ハブがシードを作成するために使用するため、秘密にしてください。
-<!-- Replace the value of the `salt` flag with a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret. -->
-
-`dbPassword`フラグの値をMariaDBのインストール時に選択したルートパスワードに置き換えます。
-<!-- Replace the value of the `dbPassword` flag with the root password you chose when you installed MariaDB. -->
+テストの目的で、リモートの[Devnet](root://getting-started/0.1/references/iota-networks.md#devnet)ノードに接続できます。ほとんどのリモートノードはHTTPS接続を使用するため、このコマンドには[`--useHttpsIRI`フラグ](../references/command-line-flags.md#useHttpsIRI)が`true`に設定されています。
+<!-- For testing purposes, you may want to connect to a remote [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet) node. Most remote nodes use an HTTPS connection, so this command has the [`--useHttpsIRI` flag](../references/command-line-flags.md#useHttpsIRI) set to `true`. -->
+<!-- For testing purposes, you may want to connect to a remote [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet) node. Most remote nodes use an HTTPS connection, so this command has the [`--useHttpsIRI` flag](../references/command-line-flags.md#useHttpsIRI) set to `true`. -->
 
 ```shell
 #!/bin/bash
@@ -327,9 +334,13 @@ Devnetは、トークンが無料であることを除いて、Mainnetに似て�
 --------------------
 
 :::warning:警告！
+`salt`フラグの値を少なくとも20文字の文字列で置き換えます。この値は、ハブがシードを作成するために使用するため、秘密にしてください。
+
 `salt`を保護するには、[署名サーバーのインストール](../how-to-guides/install-the-signing-server.md)をお勧めします。
 :::
 <!-- :::warning:Warning -->
+<!-- Replace the value of the `salt` flag with a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret. -->
+
 <!-- To secure the salt, we recommend [installing a signing server](../how-to-guides/install-the-signing-server.md). -->
 <!-- ::: -->
 
@@ -436,118 +447,16 @@ hub RUNNING pid 9983, uptime 0:01:22
 <!-- ``` -->
 <!-- ::: -->
 
-## 手順6. ハブをテストする
-<!-- ## Step 6. Test Hub -->
-
-起動時に、ハブはgRPCサーバーまたはRESTful APIサーバーのいずれかを提供します。
-<!-- On startup, Hub provides either a gRPC server or a RESTful API server for you to interact with: -->
-
-* [gRPC APIリファレンス](../references/grpc-api-reference.md)
-* [RESTful APIリファレンス](../references/restful-api-reference.md)
-
-このガイドでは、gRPC APIを公開しています。
-<!-- In this guide, we expose the gRPC API. -->
-
-:::info:
-RESTful APIを使用する場合は、`--serverType http`コマンドラインフラグを使用してハブを起動する必要があります。
-:::
-<!-- :::info: -->
-<!-- If you want to use the RESTful API, you must start Hub with the `--serverType http` command line flag. -->
-<!-- If you want to use the RESTful API, you must start Hub with the `--serverType http` command line flag. -->
-<!-- ::: -->
-
-[gRPC](https://grpc.io/)をサポートするプログラミング言語を使用して、ハブgRPC APIと通信できます。このガイドでは、いくつかのビルド済みの例とともにPythonを使用します。
-<!-- You can communicate with the Hub gRPC API through any programming language that supports [gRPC](https://grpc.io/). In this guide, you'll use Python with some prebuilt examples. -->
-
-
-1. GitHubからサンプルコードをダウンロードします。
-  <!-- 1. Download the sample code from GitHub -->
-
-    ```bash
-    cd ~
-    git clone https://github.com/fijter/rpchub-test.git \
-    cd rpchub-test
-    ```
-
-2. このサンプルコードには依存関係があります。グローバルなPython環境に依存関係をインストールしないようにするには、仮想環境を作成してください。
-  <!-- 2. This example code has dependencies. To avoid installing the dependencies in your global Python environment, create a virtual environment -->
-
-    ```bash
-    sudo apt-add-repository multiverse && sudo apt update
-    sudo apt install -y python3-venv
-    python3 -m venv env
-    ```
-
-3. シェルセッションで仮想環境をアクティブにします。
-  <!-- 3. Activate the virtual environment in a shell session -->
-
-    ```bash
-    . env/bin/activate
-    ```
-
-    :::info:
-    仮想環境を終了するには、`deactivate`コマンドを使用します。
-    :::
-    <!-- :::info: -->
-    <!-- To exit the virtual environment, use the `deactivate` command. -->
-    <!-- ::: -->
-
-4. 依存関係をインストールします。
-  <!-- 4. Install the dependencies -->
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-5. ハブで新しいユーザーアカウントを作成します。
-  <!-- 5. Create a new user account in Hub -->
-
-    ```bash
-    python examples/create_user.py
-    ```
-
-    出力には次のように表示されます。
-    <!-- The output should display the following: -->
-
-    ```shell
-    New user with id 'user-1' created!
-    ```
-
-6. ユーザーの新しい預け入れアドレスを作成します。
-  <!-- 6. Create a new deposit address for the user -->
-
-    ```bash
-    python examples/get_address.py
-    ```
-
-    出力には、user-1の新しい預け入れアドレスが表示されます。[トリニティ](root://wallets/0.1/trinity/introduction/overview.md)で試してみるために、IOTAトークンをいくつか送ってみてください。
-    <!-- The output should display a new deposit address for user-1. Feel free to send it a couple of IOTA tokens to try it out with [Trinity](root://wallets/0.1/trinity/introduction/overview.md)! -->
-
-7. ユーザーの残高と履歴を取得します。
-  <!-- 7. Get the balance and history for the user -->
-
-    ```bash
-    python examples/balance.py
-    ```
-
-ステップ6でIOTAトークンを預け入れアドレスに送信した場合、出力には次のように表示されます。
-<!-- If you sent IOTA tokens to the deposit address in step 6, the output should display something like the following: -->
-
-```shell
-10 i available for test 'user-1'
-History:
-events {
-    timestamp: 1540856214000
-    type: DEPOSIT
-    amount: 10
-}
-```
-
-[thetangle.org](https://thetangle.org/)などのタングルエクスプローラーで預け入れアドレスの履歴を見ると、ハブが預け入れアドレスから別のアドレス（ハブユーザーが取り出しを要求するまで資金が集められるハブ所有者のアドレス）に資金を移動したことが分かります。このプロセスは[スウィープ](../concepts/sweeps.md)と呼ばれます。
-<!-- If you look at the deposit address history in a Tangle explorer such as [thetangle.org](https://thetangle.org/), you will see that Hub moved the funds away from the deposit address and into a another address (Hub owner's address where funds are aggregated until a user requests a withdrawal). This process is called a [sweep](../concepts/sweeps.md). -->
-
 ## 次のステップ
 <!-- ## Next steps -->
+
+ハブの起動方法に応じて、gRPC APIサーバーまたはRESTful APIサーバーのいずれかを公開して、ユーザーと対話できるようにします。
+<!-- Depending on how you started Hub, it exposes either a gRPC API server or a RESTful API server for you to interact with: -->
+
+* [gRPC API入門](../how-to-guides/get-started-with-the-grpc-api.md)
+<!-- * [Get started with the gRPC API](../how-to-guides/get-started-with-the-grpc-api.md) -->
+* [RESTful API入門](../how-to-guides/get-started-with-the-grpc-api.md)
+<!-- * [Get started with the RESTful API](../how-to-guides/get-started-with-the-grpc-api.md) -->
 
 ハブのセキュリティを向上させるには、ハブを[署名サーバー](../how-to-guides/install-the-signing-server.md)に接続する。
 <!-- To improve the security of your Hub, connect it to a [signing server](../how-to-guides/install-the-signing-server.md). -->

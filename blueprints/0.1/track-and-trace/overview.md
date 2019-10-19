@@ -22,7 +22,7 @@
 <!-- When multiple parties use a returnable asset, it's easy for the owner to lose track of it. -->
 
 このような資産の置き忘れは、資産所有者にとって経済的損失となります。資産が不足してくると、回収可能資産は資産所有者の配達を遂行する能力に影響を与え、回収可能資産を回収するために時間とリソースを浪費します。
-<!-- Misplacement of such assets represents an economic loss for asset owners. When assets are missing, it affects the owners ability to fulfil deliveries and wastes their time and resources on recovering them. -->
+<!-- Misplacement of such assets represents an economic loss for asset owners. When assets are missing, it affects the owners ability to fulfill deliveries and wastes their time and resources on recovering them. -->
 
 以下の表は、このビジネス例で想定されているさまざまな利害関係者と役割をまとめたものです。この表には、回収可能資産の処理に関わるすべての関係を追跡するのがどれほど複雑かも示されています。
 <!-- The table below summarizes the different stakeholders and roles considered in our example business case. The table also shows how complex it is to keep track of all the relations involved in the handling of returnable assets. -->
