@@ -6,7 +6,7 @@
 
 [アカウント/序説/アカウント入門](/account-module/introduction/overview.md)
 [アカウント/ハウツーガイド/アカウントを作成する](/account-module/how-to-guides/create-account.md)
-[アカウント/ハウツーガイド/支払いのためにアカウントを監視する](/account-module/how-to-guides/listen-to-events.md)
+[アカウント/ハウツーガイド/アカウントへの支払いを監視する](/account-module/how-to-guides/listen-to-events.md)
 [アカウント/ハウツーガイド/支払いを行う](/account-module/how-to-guides/create-and-manage-cda.md)
 [アカウント/ハウツーガイド/プラグインを作成する](/account-module/how-to-guides/create-plugin.md)
 [アカウント/ハウツーガイド/別のデバイスにシードステートをインポートする](/account-module/how-to-guides/import-seed-state.md)

@@ -1,22 +1,34 @@
-# Get started with the RESTful API
+# RESTful API入門
+<!-- # Get started with the RESTful API -->
 
-**When you expose Hub's RESTful API server, you can interact with it through HTTP endpoints. These endpoints allow you to manage users' tokens by interfacing with the Hub database and an IOTA node. In this guide, you learn the basics of the RESTful API to create a new user with some new deposit addresses.**
+**ハブのRESTful APIサーバーを公開すると、HTTPエンドポイントを介してハブと対話できます。これらのエンドポイントを使用すると、ハブデータベースおよびIOTAノードと対話することにより、ユーザーのIOTAトークンを管理できます。このガイドでは、RESTful APIの基本を学習して、新しい預け入れアドレスを持つ新しいユーザーを作成します。**
+<!-- **When you expose Hub's RESTful API server, you can interact with it through HTTP endpoints. These endpoints allow you to manage users' tokens by interfacing with the Hub database and an IOTA node. In this guide, you learn the basics of the RESTful API to create a new user with some new deposit addresses.** -->
 
-## Prerequisites
+## 前提条件
+<!-- ## Prerequisites -->
 
-To use the code samples in this guide, you must have the following:
+このガイドのコードサンプルを使用するには、次のものが必要です。
+<!-- To use the code samples in this guide, you must have the following: -->
 
-* [Node.js (8+)](https://nodejs.org/en/) or [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/)
-* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
-* Access to a command prompt
+* [Node.js（8以上）](https://nodejs.org/en/)または[Python（3以上）](https://www.python.org/downloads/)と[PIP](https://pip.pypa.io/en/stable/installing/)
+<!-- * [Node.js (8+)](https://nodejs.org/en/) or [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/) -->
+* [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディタ
+<!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
+* コマンドプロンプトへのアクセス
+<!-- * Access to a command prompt -->
 
- :::info:
-The endpoints are all documented in the [RESTful API reference](../references/restful-api-reference.md).
+:::info:
+エンドポイントはすべて[RESTful APIリファレンス](../references/restful-api-reference.md)に文書化されています。
 :::
+<!-- :::info: -->
+<!-- The endpoints are all documented in the [RESTful API reference](../references/restful-api-reference.md). -->
+<!-- ::: -->
 
-## Step 1. Set up a connection to Hub
+## 手順1. ハブへの接続をセットアップする
+<!-- ## Step 1. Set up a connection to Hub -->
 
-1\. Install the libraries
+1\. ライブラリをインストールします。
+<!-- 1\. Install the libraries -->
 
 --------------------
 ### Node.js

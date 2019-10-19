@@ -2,9 +2,9 @@
 <!-- # Data Marketplace overview -->
 
 **データサイロにより、異なるデータポイント間でデータを売買することが難しくなります。 この課題を克服するために、データマーケットプレイスはマスクされた認証済みメッセージング（Masked Authenticated Messaging, MAM）チャネルを使用してデータサイロを開き、ユーザーがデータと引き換えにIOTAトークンのマイクロペイメントをデータ所有者に行えるようにします。**
-**Data silos make it difficult to buy and sell data among different data points. To overcome this challenge, the Data Marketplace uses Masked Authenticated Messaging (MAM) channels to open up the data silos and allow users to make micropayments of IOTA tokens to the data owners in exchange for data.**
+<!-- **Data silos make it difficult to buy and sell data among different data points. To overcome this challenge, the Data Marketplace uses Masked Authenticated Messaging (MAM) channels to open up the data silos and allow users to make micropayments of IOTA tokens to the data owners in exchange for data.** -->
 
-データは機械経済とコネクテッドワールドの最も基本的な要素の1つです。それはデータ - 情報 - 知識 - 知恵[（DIKW）ピラミッド](https://en.wikipedia.org/wiki/DIKW_pyramid)の基礎です。
+データは機械経済とコネクテッドワールドの最も基本的な要素の1つです。データは[データ-情報-知識-知恵（DIKW）ピラミッド](https://en.wikipedia.org/wiki/DIKW_pyramid)の基礎です。
 <!-- Data is one of the most fundamental ingredients in the machine economy and the connected world. It is the foundation of the Data — Information — Knowledge — Wisdom [(DIKW) pyramid](https://en.wikipedia.org/wiki/DIKW_pyramid). -->
 
 ![Data pyramid](../images/data-marketplace-otr-updates.png)

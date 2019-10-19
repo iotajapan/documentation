@@ -15,7 +15,7 @@
 [トリニティ/ハウツーガイド/カスタムノードに接続する](/trinity/how-to-guides/connect-to-a-custom-node.md)
 [トリニティ/ハウツーガイド/プルーフオブワークを外部委託する](/trinity/how-to-guides/outsource-pow.md)
 [トリニティ/ハウツーガイド/アカウントを管理する](/trinity/how-to-guides/manage-your-account.md)
-[トリニティ/ハウツーガイド/セキュリティ設定を管理する](/trinity/how-to-guides/manage-your-security-settings.md)
+[トリニティ/ハウツーガイド/生体認証を設定する](/trinity/how-to-guides/manage-your-security-settings.md)
 [トリニティ/ハウツーガイド/一般設定を変更する](/trinity/how-to-guides/change-the-general-settings.md)
 [トリニティ/ハウツーガイド/トランザクションの確定を助ける](/trinity/how-to-guides/auto-promote.md)
 [トリニティ/ハウツーガイド/スナップショット移行を実行する](/trinity/how-to-guides/perform-a-snapshot-transition.md)

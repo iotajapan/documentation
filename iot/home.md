@@ -1,13 +1,14 @@
-# IOTA allows devices on the Internet of Things to use the Tangle as a single source of truth, where they can buy, sell, or simply send data among each other for zero fees.
+# IOTAは、モノのインターネット上のデバイスがタングルを単一の真実のソースとして使用できるようにします。ここでは、無料で相互にデータを売買、または単に送信できます。
+<!-- # IOTA allows devices on the Internet of Things to use the Tangle as a single source of truth, where they can buy, sell, or simply send data among each other for zero fees. -->
 
-[IoT overview](/0.1/introduction/overview.md)
-## Learn the essentials of IoT and become familiar with the basic terms and concepts
+[IoT概要](/0.1/introduction/overview.md)
+## IoTの本質を学び、基本的な用語と概念を学びます。
 
-[Get started with microcontrollers](/0.1/how-to-guides/get-started-with-microcontrollers.md)
-## Start learning about microcontroller development with our guides for setting up the nRF52 series of microcontrollers
+[マイクロコントローラー入門](/0.1/how-to-guides/get-started-with-microcontrollers.md)
+## マイクロコントローラーのnRF52シリーズをセットアップするためのガイドを使用して、マイクロコントローラー開発について学びます。
 
-[Set up an nRF52 microcontroller](/0.1/how-to-guides/set-up-nrf52-microcontroller.md)
-## Set up an nRF52 series microcontroller so you can start following the rest of our guides
+[nRF52マイクロコントローラーをセットアップする](/0.1/how-to-guides/set-up-nrf52-microcontroller.md)
+## nRF52シリーズマイクロコントローラーをセットアップして、残りのガイドを実行できるようにします。
 
-[Set up a single-board computer](/0.1/how-to-guides/setup-sbc.md)
-## Set up a single-board computer such as the Raspberry pi
+[シングルボードコンピューターをセットアップする](/0.1/how-to-guides/setup-sbc.md)
+## Raspberry piなどのシングルボードコンピューターをセットアップします。

@@ -7,4 +7,4 @@
 ## IOTA Mainnetを実行するソフトウェアと、それを実行することでネットワークにどのように役立つかについて学びます。
 
 [GoShimmer](/0.1/goshimmer/introduction/overview.md)
-## Coordicideにつながるプロトタイプノードソフトウェアを実験します。
+## コーディサイドにつながるプロトタイプノードソフトウェアを実験します。
