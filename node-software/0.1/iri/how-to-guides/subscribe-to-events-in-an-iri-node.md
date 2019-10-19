@@ -39,8 +39,6 @@
 <!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
 * コマンドプロンプトへのアクセス
 <!-- * Access to a command prompt -->
-* インターネットへの接続
-<!-- * An Internet connection -->
 
 ## 最近確定されたトランザクションをリッスンする
 <!-- ## Listen for recently confirmed transactions -->

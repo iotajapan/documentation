@@ -54,8 +54,6 @@ IOTAプロトコルでは、IOTAトークンは[シード](root://getting-starte
 <!-- * Access to a command prompt -->
 * [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディタ
 <!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
-* インターネット接続
-<!-- * An Internet connection -->
 * [入門ガイド](../introduction/overview.md)に従っている
 <!-- * Follow our [Getting started guide](../introduction/overview.md) -->
 

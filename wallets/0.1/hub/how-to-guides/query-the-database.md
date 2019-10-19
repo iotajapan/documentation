@@ -1,8 +1,8 @@
-# ユーザーのアドレスのシードUUIDを調べる
-<!-- # Find out the seed UUID of a user's address -->
+# ハブデータベースをクエリする
+<!-- # Query the Hub database -->
 
-**ユーザーデータを追跡するために、ハブはユーザーデータをデータベーステーブルに格納します。このデータベーステーブルの一部のデータは、gRPC APIに公開されていません。たとえば、シードを再作成できるように、アドレスのシードUUIDを見つけたい場合です。このガイドでは、ハブデータベーステーブルの照会を開始するための基本を説明します。**
-<!-- **To keep track of user data, Hub stores it in database tables. Some of the data in these tables isn't exposed to the gRPC API. For example, you may want to find out the seed UUID for an address so that you can recreate the seed. This guide shows you the basics to get started with querying the Hub database tables.** -->
+**ユーザーデータを追跡するために、ハブはユーザーデータをデータベーステーブルに保存します。これらのテーブルのデータの一部は、APIに公開されていません。たとえば、アドレスのシードUUIDを見つけて、シードを再作成できます。このガイドでは、ハブデータベーステーブルのクエリを開始するための基本を示します。**
+<!-- **To keep track of user data, Hub stores it in database tables. Some of the data in these tables isn't exposed to the APIs. For example, you may want to find out the seed UUID for an address so that you can recreate the seed. This guide shows you the basics to get started with querying the Hub database tables.** -->
 
 :::info:
 このガイドはMariaDBのようなMYSQLデータベースと一緒にハブをインストールしていると仮定します。

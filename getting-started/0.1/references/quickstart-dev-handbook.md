@@ -296,7 +296,7 @@ IOTAコミュニティは、さまざまな言語でMAMを使用できるよう�
 <!-- ## Smart contracts -->
 
 キュービックと呼ばれるスマートコントラクトに対するIOTA独自のソリューションを開発しています。IOTAスマートコントラクトは、特定の条件が満たされた場合の資金の単純な譲渡を超えます。実際、キュービックの野望は、スマートコントラクトを許可するだけでなく、IoTデバイスのアウトソーシングクォーラムコンピューティングも提供することです。
-<!-- We are developing our own solution to smart contracts, called Qubic. IOTA smart contracts will go beyond the simple transfer of funding when a specific condition is met. In fact, the ambition of Qubic is to not only allow smart contracts, but also provide outsourced quroum computing for IoT devices. -->
+<!-- We are developing our own solution to smart contracts, called Qubic. IOTA smart contracts will go beyond the simple transfer of funding when a specific condition is met. In fact, the ambition of Qubic is to not only allow smart contracts, but also provide outsourced quorum computing for IoT devices. -->
 
 :::info:
 [キュービックの詳細とロードマップの内容](https://qubic.iota.org/intro)を参照してください。

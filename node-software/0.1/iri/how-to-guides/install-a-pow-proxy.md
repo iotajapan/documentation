@@ -20,8 +20,6 @@ PoWプロキシサーバは、IOTAミドルウェアを使用する[Caddy](https
 このガイドを完成するには、次のものが必要です。
 <!-- To complete this guide, you need the following: -->
 
-* インターネット接続
-<!-- * An Internet connection -->
 * Goプログラミング言語の少なくともバージョン1.12（最新バージョンをお勧めします）
 <!-- * At least version 1.12 of the Go programming language (we recommend the latest version) -->
 * GCC：macOSの場合は、[Homebrew](https://brew.sh/)（`brew install gcc`）を使ってGCCをインストールすることができます。Windowsの場合は、[TDM-GCCでインストールできます](http://tdm-gcc.tdragon.net/download)。Linux（Ubuntu 18.04）の場合は、[`build-essential`パッケージ](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/)からGCCをインストールできます。

@@ -6,6 +6,7 @@
 [ウォレット](/wallets)
 [ユーティリティ](/utils)
 [アプリ設計図](/blueprints)
+[IoTプロジェクト](/iot)
 [Goライブラリ](/iota-go)
 [Javaライブラリ](/iota-java)
 [JSライブラリ](/iota-js)

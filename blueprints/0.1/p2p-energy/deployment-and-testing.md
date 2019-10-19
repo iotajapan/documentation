@@ -23,8 +23,8 @@ P2Pエネルギーグリッドアプリケーションをデプロイするに�
 
 * [Node.js](https://nodejs.org/)
 
-* [MAM（マスク認証メッセージング）](https://github.com/iotaledger/mam.client.js)
-<!-- * [MAM (masked authenticated messaging)](https://github.com/iotaledger/mam.client.js) -->
+* [MAM（マスクされた認証済みメッセージング）](https://github.com/iotaledger/mam.client.js)
+<!-- * [MAM (Masked Authenticated Messaging)](https://github.com/iotaledger/mam.client.js) -->
 
 次のいずれかのクラウドサービスまたはローカルサーバーから選択します。
 <!-- Choose from one of the following cloud services or a local server: -->
@@ -74,7 +74,7 @@ MAMチャネルの理解
 <!-- ## Deploy the P2P energy grid app -->
 
 デプロイの手順は[GitHubリポジトリ](https://github.com/iotaledger/poc-p2p-energy)に文書化されています。
-<!-- The deployment instructions are documented in the [GitHub repository](https://github.com/iotaledger/poc-p2p-energy). -->
+<!--The deployment instructions are documented in the [GitHub repository](https://github.com/iotaledger/poc-p2p-energy).-->
 
 :::info:
 デプロイの手順は5月に公開される予定です。

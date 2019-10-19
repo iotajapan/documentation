@@ -2,7 +2,7 @@
 <!-- # Install the signing server -->
 
 **ハブのセキュリティを向上させるために、バンドル署名操作とソルト（シードの作成に使用）をハブだけが接続できる署名サーバーに移動できます。このガイドでは、SSL暗号化接続を介してハブに接続する署名サーバーをインストールして実行します。**
-<!-- **To improve the security of Hub, you can move the bundle signing operation and the salt (used to create seeds) to a signing server that only Hub can connect to. In this guide, you'll install and run a signing server that connects to Hub over an SSL encrypted connection.** -->
+<!-- **To improve the security of Hub, you can move the bundle signing operation and the salt (used to create seeds) to a signing server that only Hub can connect to. In this guide, you'll install and run a signing server that connects to Hub over an SSL-encrypted connection.** -->
 
 このガイドでは、[Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server)の新規インストールが必要です。
 <!-- For this guide, you'll need a new installation of [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server). -->
@@ -19,7 +19,7 @@
   <!-- 1. Make sure that the local apt repository is up to date and contains the multiverse repository -->
 
     ```bash
-    sudo apt update \
+    sudo apt update
     sudo apt upgrade
     ```
 
@@ -41,14 +41,14 @@
   <!-- 4. Download the binary installer for the [latest version of Bazel](https://github.com/bazelbuild/bazel/releases) -->
 
     ```bash
-    wget https://github.com/bazelbuild/bazel/releases/download/0.18.0/bazel-0.18.0-installer-linux-x86_64.sh
+    wget https://github.com/bazelbuild/bazel/releases/download/0.29.0/bazel-0.29.0-installer-linux-x86_64.sh
     ```
 
 5. インストーラスクリプトを実行できることを確認します。
   <!-- 5. Make sure that you can execute the installer script -->
 
     ```bash
-    chmod +x bazel-0.18.0-installer-linux-x86_64.sh
+    chmod +x bazel-0.29.0-installer-linux-x86_64.sh
     ```
 
 6. アクティブなユーザーの下に`--user`フラグを使用してBazelをインストールします。
@@ -79,14 +79,14 @@
   <!-- 1. Clone the GitHub repository -->
 
     ```bash
-    git clone https://github.com/iotaledger/rpchub.git
+    git clone https://github.com/iotaledger/hub.git
     ```
 
-2. rpchubディレクトリに移動します。
-  <!-- 2. Change into the `rpchub` directory -->
+2. `hub`ディレクトリに移動します。
+  <!-- 2. Change into the `hub` directory -->
 
     ```bash
-    cd rpchub
+    cd hub
     ```
 
 3. ソースコードから署名サーバーをビルドします。
@@ -116,7 +116,7 @@ INFO: Build completed successfully, 1412 total actions
 SSL証明書は、ハブと署名サーバー間の安全な通信に使用されます。ハブリポジトリには証明書を生成するためのスクリプトがいくつか含まれています。
 <!-- SSL certificates are used for secure communication between your Hub and the signing server. The Hub repository includes some scripts to generate the certificates. -->
 
-1. generate_ca.shファイルを開きます。
+1. `generate_ca.sh`ファイルを開きます。
   <!-- 1. Open the generate_ca.sh file -->
 
     ```bash
@@ -132,7 +132,7 @@ SSL証明書は、ハブと署名サーバー間の安全な通信に使用さ�
 3. 署名サーバーのホスト名を確認します。この例では、ホスト名は`signer`です。シェルで`hostname`コマンドを実行して、自分のホスト名が何であるかを確認します。
   <!-- 3. Check the hostname for the signing server. In the example the hostname is `signer`. You can check what your hostname is by executing the `hostname` command in your shell. -->
 
-4. generate_server.shファイルを開きます。
+4. `generate_server.sh`ファイルを開きます。
   <!-- 4. Open the generate-server file -->
 
     ```bash
@@ -215,8 +215,8 @@ SSL証明書は、ハブと署名サーバー間の安全な通信に使用さ�
     <!-- Use the same salt as the one you used in the [Hub configuration](../how-to-guides/install-hub.md#run-hub). -->
     <!-- ::: -->
 
-3. start.shファイルを実行可能にします。
-  <!-- 3. Make the start.sh file executable -->
+3. `start.sh`ファイルを実行可能にします。
+  <!-- 3. Make the `start.sh` file executable -->
 
     ```bash
     chmod a+x start.sh
@@ -257,18 +257,18 @@ SSL証明書は、ハブと署名サーバー間の安全な通信に使用さ�
     sudo nano /etc/supervisor/conf.d/signing.conf
     ```
 
-7. signing.confファイルに次の行を追加します。`user`フィールドの値を変更して、`command`、`directory`、`stderr_logfile`、および`stdout_logfile`フィールドのパスが正しいことを確認します。
-  <!-- 7. Add the following lines to the signing.conf file. Change the value of the `user` field, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` field are correct. -->
+7. 次の行を`signing.conf`ファイルに追加します。`user`フィールドの値をユーザー名に置き換え、`command`、`directory`、`stderr_logfile`、`stdout_logfile`フィールドのパスが正しいことを確認します。
+<!-- 7. Add the following lines to the signing.conf file. Replace the value of the `user` field with your username, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` field are correct. -->
 
     ```shell
     [program:hub]
-    command=/home/dave/rpchub/start.sh
-    directory=/home/dave/rpchub/
+    command=/home/dave/hub/start.sh
+    directory=/home/dave/hub/
     user=dave
     autostart=true
     autorestart=true
-    stderr_logfile=/home/dave/rpchub/err.log
-    stdout_logfile=/home/dave/rpchub/info.log
+    stderr_logfile=/home/dave/hub/err.log
+    stdout_logfile=/home/dave/hub/info.log
     ```
 
 8. signing.confファイルを保存してスーパーバイザーをリロードします。
@@ -304,11 +304,11 @@ signing RUNNING pid 11740, uptime 0:00:02
 ハブサーバーに生成されたSSL証明書をインポートし、SSL証明書を使用するようにstart.shスクリプトを編集する必要があります。
 <!-- In the Hub server, you need to import the generated SSL certificates and edit the start.sh script to use them. -->
 
-1. 証明書ファイル（client.crt、client.key、およびca.crt）をハブサーバーにコピーします。この例では、`scp`コマンドを使用してSSH経由で送信します。192.168.2.212をハブサーバーのURLまたはIPアドレスに変更します。`/home/dave/rpchub/`ディレクトリをハブがインストールされているパスに変更します。
-  <!-- 1. Copy the certificate files ( client.crt, client.key, and ca.crt) to the hub server. You can do this in any way you prefer. For this example, send them over SSH, using the `scp` command. Change 192.168.2.212 to the URL or IP address of your Hub server. Change the `/home/dave/rpchub/` directory to the path where your Hub is installed. -->
+1. 証明書ファイル（client.crt、client.key、およびca.crt）をハブサーバーにコピーします。この例では、`scp`コマンドを使用してSSH経由で送信します。192.168.2.212をハブサーバーのURLまたはIPアドレスに変更します。`/home/dave/hub/`ディレクトリをハブがインストールされているパスに置き換えます。
+  <!-- 1. Copy the certificate files ( client.crt, client.key, and ca.crt) to the hub server. You can do this in any way you prefer. For this example, send them over SSH, using the `scp` command. Change 192.168.2.212 to the URL or IP address of your Hub server. Replace the `/home/dave/hub/` directory with the path where your Hub is installed. -->
 
     ```bash
-    scp client.crt client.key ca.crt 192.168.2.212:/home/dave/rpchub/
+    scp client.crt client.key ca.crt 192.168.2.212:/home/dave/hub/
     ```
 
     出力は次のようになります。
@@ -327,7 +327,7 @@ signing RUNNING pid 11740, uptime 0:00:02
     sudo nano /etc/hosts
     ```
 
-3. このファイルで、署名サーバーのホスト名を署名サーバーのIPアドレスにマップします。192.168.2.210を署名サーバーのIPアドレスに変更します。`signer`を署名サーバーのホスト名に変更します。
+3. このファイルで、署名サーバーのホスト名を署名サーバーのIPアドレスにマップします。`192.168.2.210`を署名サーバーのIPアドレスに変更します。`signer`を署名サーバーのホスト名に変更します。
   <!-- 3. In this file, map the hostname of the signing server to its IP address. Change 192.168.2.210 to the IP address of your signing server. Change `signer` to the hostname of your signing server. -->
 
     ```shell
@@ -361,8 +361,8 @@ signing RUNNING pid 11740, uptime 0:00:02
     --signingServerSslCert ca.crt
     ```
 
-6. start.shファイルを保存してハブを再起動します。
-  <!-- 6. Save the start.sh file and restart Hub -->
+6. `start.sh`ファイルを保存してハブを再起動します。
+  <!-- 6. Save the `start.sh` file and restart Hub -->
 
     ```bash
     sudo supervisorctl restart hub

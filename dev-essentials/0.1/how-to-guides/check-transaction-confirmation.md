@@ -30,8 +30,6 @@
 <!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
 * コマンドプロンプトへのアクセス
 <!-- * Access to a command prompt -->
-* インターネット接続
-<!-- * An Internet connection -->
 
 ## トランザクションが確定したか確認する
 <!-- ## Check if a transaction is confirmed -->

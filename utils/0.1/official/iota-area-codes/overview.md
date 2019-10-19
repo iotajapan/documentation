@@ -57,6 +57,7 @@ IACは以下の3つの部分で構成されています（区切り文字`9`を�
 
 <!-- | **IAC length (trytes)**   | **Approximate area**| -->
 <!-- |:--------------|:---------------------| -->
+<!-- |:--------------|:---------------------| -->
 <!-- |2       |2200 km | -->
 <!-- |4      | 110 km | -->
 <!-- |6          | 5.5 km     | -->
@@ -93,8 +94,6 @@ IACの詳細については、[ブログの投稿](https://blog.iota.org/iota-ar
 <!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
 * コマンドプロンプトへのアクセス
 <!-- * Access to a command prompt -->
-* インターネット接続
-<!-- * An Internet connection -->
 * [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md)パッケージと[`@iota/area-codes`](https://github.com/iotaledger/iota-area-codes)パッケージ
 <!-- * The [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md) and [`@iota/area-codes`](https://github.com/iotaledger/iota-area-codes) packages -->
 

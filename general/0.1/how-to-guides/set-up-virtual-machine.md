@@ -19,8 +19,12 @@ Linuxは以下の理由で有益です。
 * Linuxは安全で信頼性があり、軽量です。
 <!-- * Linux is secure, reliable, and lightweight -->
 
-**メモ：** 自分のコンピュータでLinux仮想マシンを実行したくない場合は、Amazonなどの会社からクラウドコンピュータの使用を借りることができます。この方法を使うことで、ポート転送やメモリ不足を心配する必要はありません。Amazon AWSには、[クラウド上でLinux仮想マシンを起動する](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/)ためのセットアップガイドがあります。
-<!-- **Note:** If you don't want to run a Linux virtual machine on your own computer, you can rent the use of a cloud computer from a company such as Amazon. By using this approach, you don't need to worry about port forwarding or running out of memory. Amazon AWS has a setup guide for [launching a Linux virtual machine on their cloud](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/). -->
+:::info:
+自分のコンピュータでLinux仮想マシンを実行したくない場合は、Amazonなどの会社からクラウドコンピュータの使用を借りることができます。この方法を使うことで、ポート転送やメモリ不足を心配する必要はありません。Amazon AWSには、[クラウド上でLinux仮想マシンを起動する](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/)ためのセットアップガイドがあります。
+:::
+<!-- :::info: -->
+<!-- If you don't want to run a Linux virtual machine on your own computer, you can rent the use of a cloud computer from a company such as Amazon. By using this approach, you don't need to worry about port forwarding or running out of memory. Amazon AWS has a setup guide for [launching a Linux virtual machine on their cloud](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/). -->
+<!-- ::: -->
 
 ## Linuxサーバをセットアップする
 <!-- ## Set up a Linux server -->
@@ -46,7 +50,7 @@ WindowsまたはMacオペレーティングシステムでLinuxサーバを実�
 6. サーバの名前を入力し、スライダーを使って専用のRAMメモリの量を選択します。
   <!-- 6. Enter a name for your server, and use the slider to select the amount of RAM memory you'd like to dedicate to it -->
 
-    ![Create a new virtual machine](../virtual-machine-setup.png)
+    ![Create a new virtual machine](../images/virtual-machine-setup.png)
 
 7. 画面の指示に従ってデフォルト設定を選択します。
   <!-- 7. Follow the on-screen instructions and choose the default settings -->
@@ -57,7 +61,7 @@ WindowsまたはMacオペレーティングシステムでLinuxサーバを実�
 9. ウィンドウでファイルエクスプローラを開き、手順3でダウンロードしたUbuntu Serverファイルを選択します。
   <!-- 9. In the window, open the file explorer and select the Ubuntu Server file that you downloaded in step 3 -->
 
-    ![Virtual machine window](../select-virtual-image.png)
+    ![Virtual machine window](../images/select-virtual-image.png)
 
 おめでとうございます:tada: コンピュータ上でLinuxサーバが動いています！
 <!-- Congratulations :tada: You've got a Linux server running on your computer! -->
@@ -117,7 +121,7 @@ LinuxサーバがSSHプロトコルを使用したメッセージを理解する
 7. `inet`IPアドレスを書き留めます。
   <!-- 7. Make a note of the `inet` IP address -->
 
-    ![Linux server IP address](../linux-server-ip-address.png)
+    ![Linux server IP address](../images/linux-server-ip-address.png)
 
 ### LinuxサーバへのSSH接続を確立する
 <!-- ### Establish an SSH connection to your Linux server -->
@@ -150,7 +154,7 @@ LinuxサーバがSSHサーバとして構成されている場合は、ホスト
 3. LinuxサーバのIPアドレスを入力して**開く**をクリックします。
   <!-- 3. Enter the IP address of your Linux server and click **Open** -->
 
-    ![PuTTy configuration](../connect-putty-to-linux-server.PNG)
+    ![PuTTy configuration](../images/connect-putty-to-linux-server.PNG)
 
 これでSSH経由でLinuxサーバに接続しました。PuTTyまたはホストデバイスにLinuxコマンドを入力して、Linuxサーバ上でLinuxコマンドを実行します。
 <!-- You're now connected to your Linux server over SSH. Enter Linux commands in the PuTTy or host terminal to run them on your Linux server. -->

@@ -13,8 +13,6 @@
 * 4GB RAM
 * 64ビットプロセッサ
 <!-- * 64-bit processor -->
-* インターネット接続
-<!-- * An Internet connection -->
 * Linuxサーバ（このガイドでは[Ubuntu 18.04](http://releases.ubuntu.com/18.04)でテストされています）
 <!-- * A Linux server (this guide has been tested on [Ubuntu 18.04](http://releases.ubuntu.com/18.04)) -->
 * 静的な、または[duckdns.org](https://www.duckdns.org)などの動的DNSサービスに接続されている[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)
@@ -23,8 +21,8 @@
   <!-- * [Forward the following ports](root://general/0.1/how-to-guides/expose-your-local-device.md) to the device that's running the node: -->
 
     * **TCP隣接ノードのピアリングポート：** 15600
-    <!-- * **TCP neighbor peering port:** 15600 -->
     * **TCPのAPIポート：** 14265
+    <!-- * **TCP neighbor peering port:** 15600 -->
     <!-- * **TCP API port:** 14265 -->
 
 ## 手順.1 IRI Javaファイルをダウンロードする
@@ -274,7 +272,7 @@ Devnetノードを実行する場合は、`TESTNET`設定オプションを`true
 Spamnetノードを実行したい場合は、設定ファイルに以下の設定パラメータのみを含める必要があります。
 <!-- If you want to run a Spamnet node, you must include only the following configuration parameters in your configuration file: -->
 
-```
+```bash
 [IRI]
 ZMQ_ENABLED = TRUE
 TESTNET = TRUE
@@ -293,7 +291,7 @@ NEIGHBORS = tcp://p101.spamnet.iota.cafe:15600 tcp://p102.spamnet.iota.cafe:1560
 Spamnet上のトークンの総供給量を含むアドレスを定義するためのスナップショットファイルも作成しなければなりません。このファイルの場所は、`SNAPSHOT_FILE`設定パラメータで設定する必要があります。
 <!-- You must also create a snapshot file to define an address that contains the entire supply of tokens on the Spamnet. The location of this file must be set in the `SNAPSHOT_FILE` configuration parameter. -->
 
-```
+```bash
 WYF9OOFCQJRTLTRMREDWPOBQ9KNDMFVZSROZVXACAWKUMXAIYTFQCPAYZHNGKIWZZGKCSHSSTRDHDAJCW;2779530283277761
 ```
 

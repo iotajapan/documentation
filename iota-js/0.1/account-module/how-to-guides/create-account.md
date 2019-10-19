@@ -54,8 +54,6 @@ IOTAプロトコルでは、IOTAトークンは[シード](root://getting-starte
 <!-- * Access to a command prompt -->
 * [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディタ
 <!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
-* インターネット接続
-<!-- * An Internet connection -->
 * Node.js 8、またはNode.js 10以上。[最新のLTS](https://nodejs.org/en/download/)をお勧めします。
 <!-- * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
 
@@ -121,65 +119,65 @@ IOTAプロトコルでは、IOTAトークンは[シード](root://getting-starte
 1. アカウントが接続しているノードとどのように対話するかを変更するには、`depth`、`minWeightMagnitude`、`delay`、そして`maxDepth`フィールドの値をカスタマイズします。
   <!-- 1. To change how your account interacts with its connected nodes, customize the values of the `depth`, `minWeightMagnitude`, `delay`, and `maxDepth` fields -->
 
-    ```js
-    const account = createAccount({
-      seed,
-      provider,
+      ```js
+      const account = createAccount({
+        seed,
+        provider,
 
-      // タングル内でチップ選択を開始するために戻る深さ
-      depth: 3,
+        // タングル内でチップ選択を開始するために戻る深さ
+        depth: 3,
 
-      // Devnetにおける最小重量値9
-      minWeightMagnitude: 9,
+        // Devnetにおける最小重量値9
+        minWeightMagnitude: 9,
 
-      // 次の添付ラウンドまでの待機時間
-      delay: 1000 * 30,
+        // 次の添付ラウンドまでの待機時間
+        delay: 1000 * 30,
 
-      // トランザクションが促進できなくなる深さ
-      // maxDepthまでのトランザクションは自動的に再添付されます。
-      maxDepth: 6
-    });
-    ```
+        // トランザクションが促進できなくなる深さ
+        // maxDepthまでのトランザクションは自動的に再添付されます。
+        maxDepth: 6
+      });
+      ```
 
-2. シードステートのデータベース設定をカスタマイズするには、`persistenceAdapter`ファクトリーをアカウントに渡します。このアダプタは、アカウントがシードステートを保存できるローカルデータベースオブジェクトを作成します。デフォルトでは、ローカルデータベースはプロジェクトのルートに保存されます。`persistencePath`フィールドでローカルデータベースへのパスを変更できます。
-  <!-- 2. To customize the database settings that your seed state, pass a `persistenceAdapter` factory to your account. This adapter creates a local database object to which the account can save the seed state. By default, the local database is saved in the root of the project. You can change the path to the local database in the `persistencePath` field. -->
+2. シードステートを保存するデータベース設定をカスタマイズするには、`persistenceAdapter`ファクトリーをアカウントに渡します。このアダプタは、アカウントがシードステートを保存できるローカルデータベースオブジェクトを作成します。デフォルトでは、ローカルデータベースはプロジェクトのルートに保存されます。`persistencePath`フィールドでローカルデータベースへのパスを変更できます。
+  <!-- 2. To customize the database settings that store your seed state, pass a `persistenceAdapter` factory to your account. This adapter creates a local database object to which the account can save the seed state. By default, the local database is saved in the root of the project. You can change the path to the local database in the `persistencePath` field. -->
 
-    ```js
-    const { createPersistenceAdapter }  = require('@iota/persistence-adapter-level')
+      ```js
+      const { createPersistenceAdapter }  = require('@iota/persistence-adapter-level')
 
-    const account = createAccount({
-      seed,
-      provider,
-      persistencePath: './',
-      persistenceAdapter: createPersistenceAdapter
-    });
-    ```
+      const account = createAccount({
+        seed,
+        provider,
+        persistencePath: './',
+        persistenceAdapter: createPersistenceAdapter
+      });
+      ```
 
-    :::info:
-    [persistence-adapter-level](https://github.com/iotaledger/iota.js/tree/next/packages/persistence-adapter-level)パッケージがデフォルトです。このアダプターは、シードレベルを[LevelDBデータベース](https://github.com/google/leveldb)の`leveldown`フレーバーに保存します。別のデータベースを使用するようにこのアダプターをカスタマイズできます。
+      :::info:
+      [persistence-adapter-level](https://github.com/iotaledger/iota.js/tree/next/packages/persistence-adapter-level)パッケージがデフォルトです。このアダプターは、シードレベルを[LevelDBデータベース](https://github.com/google/leveldb)の`leveldown`フレーバーに保存します。別のデータベースを使用するようにこのアダプターをカスタマイズできます。
 
-    1つのアダプターインスタンスを複数のアカウントに同時に使用することはできません。新しいアカウントごとにプライベートアダプターが作成されます。
-    :::
-    <!-- :::info: -->
-    <!-- The [persistence-adapter-level](https://github.com/iotaledger/iota.js/tree/next/packages/persistence-adapter-level) package is the default. This adapter stores the seed state in the `leveldown` flavor of the [LevelDB database](https://github.com/google/leveldb). You can customize this adapter to use a different database. -->
+      1つのアダプターインスタンスを複数のアカウントに同時に使用することはできません。新しいアカウントごとにプライベートアダプターが作成されます。
+      :::
+      <!-- :::info: -->
+      <!-- The [persistence-adapter-level](https://github.com/iotaledger/iota.js/tree/next/packages/persistence-adapter-level) package is the default. This adapter stores the seed state in the `leveldown` flavor of the [LevelDB database](https://github.com/google/leveldb). You can customize this adapter to use a different database. -->
 
-    <!-- You can't use one adapter instance for multiple accounts at the same time. A private adapter is created for each new account. -->
-    <!-- ::: -->
+      <!-- You can't use one adapter instance for multiple accounts at the same time. A private adapter is created for each new account. -->
+      <!-- ::: -->
 
 3. CDAは、定義した時間が経過すると失効します。アカウントにカスタムの時間ソースを使用させるには、現在の時間をミリ秒で出力する`timeSource`メソッドを作成し、`timeSource`メソッドを`account`オブジェクトに渡します
   <!-- 3. CDAs expire after a time that you define. To have your account use a custom source of time, create a `timeSource` method that outputs the current time in milliseconds, and pass it to your `account` object -->
 
-    ```js
-    const account = createAccount({
-      seed,
-      provider,
-      timeSource: () => {
-        // NTP時間を取得します。
-        // const time = ...
-        return time
-      }
-    })
-    ```
+      ```js
+      const account = createAccount({
+        seed,
+        provider,
+        timeSource: () => {
+          // NTP時間を取得します。
+          // const time = ...
+          return time
+        }
+      })
+      ```
 
 ## 次のステップ
 <!-- ## Next steps -->

@@ -21,13 +21,11 @@
 <!-- * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
 * [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディタ
 <!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
-* インターネット接続
-<!-- * An Internet connection -->
 
 ## 新しいアドレスを作成する
 <!-- ## Create a new address -->
 
-この例では、[Devnetノード](root://getting-started/0.1/references/iota-networks.md#devnet)に接続します。 Devnetは、トークンが無料であること以外はMainnetとほぼ同じです。Devnetに送信したトランザクションは、Mainnetのような他のネットワークには存在しません。
+この例では、[Devnetノード](root://getting-started/0.1/references/iota-networks.md#devnet)に接続します。Devnetは、トークンが無料であること以外はMainnetとほぼ同じです。Devnetに送信したトランザクションは、Mainnetのような他のネットワークには存在しません。
 <!-- In this example, we connect to a [Devnet node](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
 
 1. `core`パッケージを`require`します。

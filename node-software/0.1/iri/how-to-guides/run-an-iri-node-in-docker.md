@@ -22,8 +22,6 @@ Linuxオペレーティングシステムを使用している場合は、この
 * 4GB RAM
 * 64ビットプロセッサ
 <!-- * 64-bit processor -->
-* インターネット接続
-<!-- * An Internet connection -->
 * 静的な、または[duckdns.org](https://www.duckdns.org)などの動的DNSサービスに接続されている[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)
 <!-- * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org) -->
 * ノードを実行しているデバイスに[次のポートを転送します](root://general/0.1/how-to-guides/expose-your-local-device.md)。

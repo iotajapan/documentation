@@ -31,8 +31,6 @@
 <!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
 * コマンドラインへのアクセス
 <!-- * Access to a command prompt -->
-* インターネット接続
-<!-- * An Internet connection -->
 * [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md)、[`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter)、および[`@iota/tryte-compress`](https://github.com/iotaledger/tryte-compress-js)パッケージ
 <!-- * The [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/tryte-compress`](https://github.com/iotaledger/tryte-compress-js) packages -->
 

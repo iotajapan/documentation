@@ -2,12 +2,17 @@
 
 **This list contains the commands for communicating with Hub through the RESTful API.**
 
+:::info:
+If you want to use the RESTful API, you must start Hub with the `--serverType http` command line flag.
+:::
+
 All the following commands must include an HTTP header.
 
 | **Header**       | **Value** | **Required or Optional** |
 |:---------------|:--------|:--------|
 | X-IOTA-API-Version | 1 | Required |
 | Content-Type | application/json | Optional |
+
 
 :::warning:
 This API is in beta, and is subject to change. We recommend that you don't use this API in production applications.
@@ -42,7 +47,7 @@ headers = {
     'X-IOTA-API-Version': '1'
 }
 
-request = urllib2.Request(url="http://localhost:50021", data=stringified, headers=headers)
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
 returnData = urllib2.urlopen(request).read()
 
 jsonData = json.loads(returnData)
@@ -60,7 +65,7 @@ var command = {
 };
 
 var options = {
-  url: 'http://localhost:50021',
+  url: 'http://localhost:50051',
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -79,15 +84,13 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:50021 \
+curl http://localhost:50051 \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'X-IOTA-API-Version: 1' \
 -d '{
-  command = {
   "command": "CreateUser",
   "userId": "user-1"
-}
 }'
 ```
 --------------------
@@ -119,7 +122,7 @@ Get the ID of the user that owns a given deposit address.
 
 |**Parameter** |**Required or Optional** |**Description** |**Type**|
 |--|--|--|--|
-| `address` |Required| The 81-tryte deposit address for which you want to find the owner (without checksum) | string|
+| `address` |Required| The 81-tryte deposit address (without checksum) | string|
 
 ### Examples
 --------------------
@@ -140,7 +143,7 @@ headers = {
     'X-IOTA-API-Version': '1'
 }
 
-request = urllib2.Request(url="http://localhost:50021", data=stringified, headers=headers)
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
 returnData = urllib2.urlopen(request).read()
 
 jsonData = json.loads(returnData)
@@ -158,7 +161,7 @@ var command = {
 };
 
 var options = {
-  url: 'http://localhost:50021',
+  url: 'http://localhost:50051',
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -210,17 +213,17 @@ curl http://localhost:50051 \
 
 |**Return field** | **Description** |
 |--|--|
-| `userId` | The ID of the Hub user that owns the deposit address|
+| `userId` | The ID of the user that owns the deposit address|
 
 ## GetBalance
 
-Get a Hub user's available balance.
+Get a user's available balance.
 
 ### Parameters
 
 |**Parameters** |**Required or Optional** |**Description** |**Type**
 |--|--|--|--|
-| `userId` |Required| The ID of the Hub user whose available balance you want to check | string
+| `userId` |Required| The ID of the user | string
 
 ### Examples
 --------------------
@@ -241,7 +244,7 @@ headers = {
     'X-IOTA-API-Version': '1'
 }
 
-request = urllib2.Request(url="http://localhost:50021", data=stringified, headers=headers)
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
 returnData = urllib2.urlopen(request).read()
 
 jsonData = json.loads(returnData)
@@ -259,7 +262,7 @@ var command = {
   }
 
 var options = {
-  url: 'http://localhost:50021',
+  url: 'http://localhost:50051',
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -278,7 +281,7 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:50021 \
+curl http://localhost:50051 \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'X-IOTA-API-Version: 1' \
@@ -320,7 +323,7 @@ Create a new deposit address for a given user.
 
 |**Parameter** | **Required or Optional**|**Description** |**Type**
 |--|--|--|--|
-| `userId` |Required| The ID of the Hub user for whom you want to create a new deposit address | string
+| `userId` |Required| The ID of the user | string
 
 ### Examples
 --------------------
@@ -341,7 +344,7 @@ headers = {
     'X-IOTA-API-Version': '1'
 }
 
-request = urllib2.Request(url="http://localhost:50021", data=stringified, headers=headers)
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
 returnData = urllib2.urlopen(request).read()
 
 jsonData = json.loads(returnData)
@@ -359,7 +362,7 @@ var command = {
 };
 
 var options = {
-  url: 'http://localhost:50021',
+  url: 'http://localhost:50051',
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -378,7 +381,7 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:50021 \
+curl http://localhost:50051 \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'X-IOTA-API-Version: 1' \
@@ -434,7 +437,7 @@ headers = {
     'X-IOTA-API-Version': '1'
 }
 
-request = urllib2.Request(url="http://localhost:50021", data=stringified, headers=headers)
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
 returnData = urllib2.urlopen(request).read()
 
 jsonData = json.loads(returnData)
@@ -452,7 +455,7 @@ var command = {
 
 
 var options = {
-  url: 'http://localhost:50021',
+  url: 'http://localhost:50051',
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -471,7 +474,7 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:50021 \
+curl http://localhost:50051 \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'X-IOTA-API-Version: 1' \
@@ -512,7 +515,7 @@ Get the history of a user's balance.
 
 |**Parameter** | **Required or Optional**|**Description** |**Type**
 |--|--|--|--|
-| `userId` |Required| The ID of the Hub user for whom you want to get a balance history | string
+| `userId` |Required| The ID of the user | string
 
 ### Examples
 --------------------
@@ -533,7 +536,7 @@ headers = {
     'X-IOTA-API-Version': '1'
 }
 
-request = urllib2.Request(url="http://localhost:50021", data=stringified, headers=headers)
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
 returnData = urllib2.urlopen(request).read()
 
 jsonData = json.loads(returnData)
@@ -551,7 +554,7 @@ var command = {
 }
 
 var options = {
-  url: 'http://localhost:50021',
+  url: 'http://localhost:50051',
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -570,7 +573,7 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:50021 \
+curl http://localhost:50051 \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'X-IOTA-API-Version: 1' \
@@ -646,7 +649,7 @@ This endpoint affects users' balances in the Hub database. No transactions are s
 
 |**Parameters** |**Required or Optional**|**Description** |**Type**
 |--|--|--|--|
-| `userId` |Required| The ID of the Hub user whose balance you want to update during the transfer |string|
+| `userId` |Required| The ID of the user whose balance you want to update during the transfer |string|
 | `amount` |Required| The amount of IOTA tokens to add or subtract from the user's balance  | integer|
 
 ### Examples
@@ -668,7 +671,7 @@ headers = {
     'X-IOTA-API-Version': '1'
 }
 
-request = urllib2.Request(url="http://localhost:50021", data=stringified, headers=headers)
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
 returnData = urllib2.urlopen(request).read()
 
 jsonData = json.loads(returnData)
@@ -686,7 +689,7 @@ var command = {
 };
 
 var options = {
-  url: 'http://localhost:50021',
+  url: 'http://localhost:50051',
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -705,7 +708,7 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:50021 \
+curl http://localhost:50051 \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'X-IOTA-API-Version: 1' \
@@ -764,7 +767,7 @@ headers = {
     'X-IOTA-API-Version': '1'
 }
 
-request = urllib2.Request(url="http://localhost:50021", data=stringified, headers=headers)
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
 returnData = urllib2.urlopen(request).read()
 
 jsonData = json.loads(returnData)
@@ -782,7 +785,7 @@ var command = {
 }
 
 var options = {
-  url: 'http://localhost:50021',
+  url: 'http://localhost:50051',
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -801,7 +804,7 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:50021 \
+curl http://localhost:50051 \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'X-IOTA-API-Version: 1' \
@@ -859,14 +862,14 @@ Depending on the value of the `type` field, the following data is returned:
 #### USER_ACCOUNT
 
 |**Return field** | **Description** |
-|`type`|The `USER_ACCOUNT` type is for changes to the balance of a user's account |
+| ----------- | ------------------------------------------------------------ |
+|`type`|The `USER_ACCOUNT` type is for changes to the balance of a user's account|
 |`reason`|  The type of [event that caused a change to the account balance](#balance-change-events-for-user-accounts)    |
 | `userId`          | ID of the user whose account's balance changed |
 | `timestamp`       | Time since epoch in milliseconds that the balance change occured|
-
 | amount          | Amount that changed to the balance     |
 | `sweepBundleHash` | Contains either the bundle hash for a `DEPOSIT` event|
-|`withdrawalUUID`| Contains a withdrawal UUID for a `WITHDRAWAL` or `WITHDRAWAL_CANCELED` event
+|`withdrawalUUID`| Contains a withdrawal UUID for a `WITHDRAWAL` or `WITHDRAWAL_CANCELED` event|
 
 #### USER_ADDRESS
 
@@ -934,7 +937,7 @@ headers = {
     'X-IOTA-API-Version': '1'
 }
 
-request = urllib2.Request(url="http://localhost:50021", data=stringified, headers=headers)
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
 returnData = urllib2.urlopen(request).read()
 
 jsonData = json.loads(returnData)
@@ -955,7 +958,7 @@ var command = {
 }
 
 var options = {
-  url: 'http://localhost:50021',
+  url: 'http://localhost:50051',
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -974,7 +977,7 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:50021 \
+curl http://localhost:50051 \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'X-IOTA-API-Version: 1' \
@@ -1050,7 +1053,7 @@ headers = {
     'X-IOTA-API-Version': '1'
 }
 
-request = urllib2.Request(url="http://localhost:50021", data=stringified, headers=headers)
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
 returnData = urllib2.urlopen(request).read()
 
 jsonData = json.loads(returnData)
@@ -1070,7 +1073,7 @@ var command = {
 }
 
 var options = {
-  url: 'http://localhost:50021',
+  url: 'http://localhost:50051',
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -1089,7 +1092,7 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:50021 \
+curl http://localhost:50051 \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'X-IOTA-API-Version: 1' \
@@ -1152,7 +1155,7 @@ headers = {
     'X-IOTA-API-Version': '1'
 }
 
-request = urllib2.Request(url="http://localhost:50021", data=stringified, headers=headers)
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
 returnData = urllib2.urlopen(request).read()
 
 jsonData = json.loads(returnData)
@@ -1170,7 +1173,7 @@ var command = {
 }
 
 var options = {
-  url: 'http://localhost:50021',
+  url: 'http://localhost:50051',
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -1189,7 +1192,7 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:50021 \
+curl http://localhost:50051 \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'X-IOTA-API-Version: 1' \
@@ -1260,7 +1263,7 @@ headers = {
     'X-IOTA-API-Version': '1'
 }
 
-request = urllib2.Request(url="http://localhost:50021", data=stringified, headers=headers)
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
 returnData = urllib2.urlopen(request).read()
 
 jsonData = json.loads(returnData)
@@ -1278,7 +1281,7 @@ var command = {
 }
 
 var options = {
-  url: 'http://localhost:50021',
+  url: 'http://localhost:50051',
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -1297,7 +1300,7 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:50021 \
+curl http://localhost:50051 \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'X-IOTA-API-Version: 1' \
@@ -1365,7 +1368,7 @@ headers = {
     'X-IOTA-API-Version': '1'
 }
 
-request = urllib2.Request(url="http://localhost:50021", data=stringified, headers=headers)
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
 returnData = urllib2.urlopen(request).read()
 
 jsonData = json.loads(returnData)
@@ -1383,7 +1386,7 @@ var command = {
 }
 
 var options = {
-  url: 'http://localhost:50021',
+  url: 'http://localhost:50051',
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -1402,7 +1405,7 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:50021 \
+curl http://localhost:50051 \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'X-IOTA-API-Version: 1' \
@@ -1486,7 +1489,7 @@ headers = {
     'X-IOTA-API-Version': '1'
 }
 
-request = urllib2.Request(url="http://localhost:50021", data=stringified, headers=headers)
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
 returnData = urllib2.urlopen(request).read()
 
 jsonData = json.loads(returnData)
@@ -1506,7 +1509,7 @@ var command = {
 }
 
 var options = {
-  url: 'http://localhost:50021',
+  url: 'http://localhost:50051',
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -1525,7 +1528,7 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:50021 \
+curl http://localhost:50051 \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'X-IOTA-API-Version: 1' \
@@ -1594,7 +1597,7 @@ headers = {
     'X-IOTA-API-Version': '1'
 }
 
-request = urllib2.Request(url="http://localhost:50021", data=stringified, headers=headers)
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
 returnData = urllib2.urlopen(request).read()
 
 jsonData = json.loads(returnData)
@@ -1612,7 +1615,7 @@ var command = {
 }
 
 var options = {
-  url: 'http://localhost:50021',
+  url: 'http://localhost:50051',
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -1631,7 +1634,7 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:50021 \
+curl http://localhost:50051 \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'X-IOTA-API-Version: 1' \
@@ -1665,7 +1668,7 @@ curl http://localhost:50021 \
 |--|--|
 | `success` | Whether the withdrawal was canceled |
 
-## wasAddressSpentFrom
+## WasAddressSpentFrom
 
 Find out if a deposit address has already been withdrawn from.
 
@@ -1686,8 +1689,8 @@ import urllib2
 import json
 
 command = {
-    "command": "wasAddressSpentFrom",
-    "address" : "LIQJBJRBSTGYWHYRPCLLCZUMP9SLHCBBWGQ9YRFWYDFF9FMXIAELYLTTBXCPVIDWWZYIOJIFLUFYVZIBD",
+    "command": "WasAddressSpentFrom",
+    "address" : "LIQJBJRBSTGYWHYRPCLLCZUMP9SLHCBBWGQ9YRFWYDFF9FMXIAELYLTTBXCPVIDWWZYIOJIFLUFYVZIBDXKSTGPYPA",
     "validateChecksum": "true"
 }
 
@@ -1698,7 +1701,7 @@ headers = {
     'X-IOTA-API-Version': '1'
 }
 
-request = urllib2.Request(url="http://localhost:50021", data=stringified, headers=headers)
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
 returnData = urllib2.urlopen(request).read()
 
 jsonData = json.loads(returnData)
@@ -1711,13 +1714,13 @@ print jsonData
 var request = require('request');
 
 var command = {
-    "command": "wasAddressSpentFrom",
-    "address" : "LIQJBJRBSTGYWHYRPCLLCZUMP9SLHCBBWGQ9YRFWYDFF9FMXIAELYLTTBXCPVIDWWZYIOJIFLUFYVZIBD",
+    "command": "WasAddressSpentFrom",
+    "address" : "LIQJBJRBSTGYWHYRPCLLCZUMP9SLHCBBWGQ9YRFWYDFF9FMXIAELYLTTBXCPVIDWWZYIOJIFLUFYVZIBDXKSTGPYPA",
     "validateChecksum": "true"
 }
 
 var options = {
-  url: 'http://localhost:50021',
+  url: 'http://localhost:50051',
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -1736,13 +1739,13 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:50021 \
+curl http://localhost:50051 \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'X-IOTA-API-Version: 1' \
 -d '{
-    "command": "wasAddressSpentFrom",
-    "address" : "LIQJBJRBSTGYWHYRPCLLCZUMP9SLHCBBWGQ9YRFWYDFF9FMXIAELYLTTBXCPVIDWWZYIOJIFLUFYVZIBD",
+    "command": "WasAddressSpentFrom",
+    "address" : "LIQJBJRBSTGYWHYRPCLLCZUMP9SLHCBBWGQ9YRFWYDFF9FMXIAELYLTTBXCPVIDWWZYIOJIFLUFYVZIBDXKSTGPYPA",
     "validateChecksum": "true"
 }'
 ```
@@ -1767,7 +1770,7 @@ curl http://localhost:50021 \
 
 |**Return field** |**Description**|
 |--|--|
-| `wasAddressSpentFrom` | Whether the address is spent|
+| `WasAddressSpentFrom` | Whether the address is spent|
 
 ## WasWithdrawalCancelled
 
@@ -1798,7 +1801,7 @@ headers = {
     'X-IOTA-API-Version': '1'
 }
 
-request = urllib2.Request(url="http://localhost:50021", data=stringified, headers=headers)
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
 returnData = urllib2.urlopen(request).read()
 
 jsonData = json.loads(returnData)
@@ -1816,7 +1819,7 @@ var command = {
 }
 
 var options = {
-  url: 'http://localhost:50021',
+  url: 'http://localhost:50051',
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -1835,7 +1838,7 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:50021 \
+curl http://localhost:50051 \
 -X POST \
 -H 'Content-Type: application/json' \
 -H 'X-IOTA-API-Version: 1' \

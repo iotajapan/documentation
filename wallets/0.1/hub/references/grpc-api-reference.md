@@ -384,22 +384,24 @@ gRPCとprotobufに慣れていない場合は、[gRPCクイックスタートガ
 
 ### WasAddressSpentFromRequest
 
-Find out if a deposit address has already been withdrawn from.
+預け入れアドレスからすでに取り出されているかどうかを調べます。
+<!-- Find out if a deposit address has already been withdrawn from. -->
 
-If this endpoint returns true, you should not deposit any more IOTA tokens into it.
+このエンドポイントが`true`を返す場合、これ以上IOTAトークンを預け入れないでください。
+<!-- If this endpoint returns true, you should not deposit any more IOTA tokens into it. -->
 
-|**Field**|**Type**|**Rules**|**Description**|
-| ---------------- | ----------------- | ----- | ------------------------------------------------------------ |
-| address          | [string](#string) | singular      | The user's deposit address whose spent status you want to check (may include a checksum)  |
-| validateChecksum | [bool](#bool)     |   singular    | Whether to validate the address. Set this field to `true` if the `address` field is a 90-tryte address (with checksum)                          |
+| **フィールド** | **タイプ** | **ルール** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| address          | [string](#string) | singular | 使用済みステータスを確認するユーザーの預け入れアドレス（チェックサムを含めることができます） |
+| validateChecksum | [bool](#bool)     | singular | アドレスを検証するかどうか。`address`フィールドが90トライアドレス（チェックサム付き）の場合、このフィールドを`true`に設定します。 |
 
 <a name="hub.rpc.WasAddressSpentFromReply"></a>
 
 ### WasAddressSpentFromReply
 
-|**Field**|**Type**|**Rules** |**Description**|
-| --------- | ----------------- | ----- | ----------------------- |
-| wasAddressSpentFrom | [bool](#bool) |   singular    | Whether the address is spent |
+| **フィールド** | **タイプ** | **ルール** | **説明** |
+| -------------- | ---------- | ---------- | -------- |
+| wasAddressSpentFrom | [bool](#bool) | singular | アドレスが使用されているかどうか |
 
 <a name="hub.rpc.StatsRequest"></a>
 
@@ -407,7 +409,7 @@ If this endpoint returns true, you should not deposit any more IOTA tokens into 
 
 | **フィールド** | **タイプ** | **ルール** | **説明** |
 | -------------- | ---------- | ---------- | -------- |
-| wasCancelled | [bool](#bool) | singular | 引き出しがキャンセルされたかどうか |
+| wasCancelled | [bool](#bool) | singular | 取り出しがキャンセルされたかどうか |
 
 <a name="hub.rpc.Error"></a>
 
@@ -449,7 +451,7 @@ If this endpoint returns true, you should not deposit any more IOTA tokens into 
 | IRI_CLIENT_UNAVAILABLE          | 15 | ノードのAPIの呼び出しに失敗しました。 |
 | ADDRESS_WAS_ALREADY_SPENT       | 16 | 指定されたアドレスは既に使用されています。 |
 | INVALID_UUID                    | 17 | 指定されたUUIDは無効です。 |
-| WRONG_USER_ADDRESS              | 18 | 指定されたアドレスはハブユーザーに属していません。 |
+| WRONG_USER_ADDRESS              | 18 | 指定されたアドレスはユーザーに属していません。 |
 | ADDRESS_BALANCE_ZERO            | 19 | 指定されたアドレスにはIOTAトークンが含まれていません。 |
 
 ## スカラー値タイプ

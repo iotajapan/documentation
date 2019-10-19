@@ -32,8 +32,6 @@
 <!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
 * コマンドプロンプトへのアクセス
 <!-- * Access to a command prompt -->
-* インターネット接続
-<!-- * An Internet connection -->
 * [`axios`](https://www.npmjs.com/package/axios)パッケージ
 <!-- * The [`axios`](https://www.npmjs.com/package/axios) package -->
 

@@ -137,7 +137,7 @@ GitHubアカウントを既にお持ちで、コンピューターにGitがセ�
   <!-- 2. Commit your changes -->
 
     ```bash
-    git commit -v -a -m "<Describe the changes you made>"
+    git commit -m "<Describe the changes you made>"
     ```
 
     :::info:
@@ -227,15 +227,15 @@ node buildProjects
 }
 ```
 
-単一のプロジェクトのみを検証する場合は、特定のフォルダ名のコマンドラインオプションを使用してスクリプトを実行できます。 例えば：
-<!-- If you want to validate just a single project you can run the script with a command line option of the specific folder name. For example: -->
+単一のプロジェクトのみを検証する場合は、特定のフォルダ名のコマンドラインオプションを使用してスクリプトを実行できます。 例えば、`getting-started`ディレクトリ内のコンテンツのみを検証するには：
+<!-- If you want to validate just a single project you can run the script with a command-line option of the specific folder name. For example, to validate only the content in the `getting-started` directory: -->
 
 ```shell
 node buildProjects getting-started
 ```
 
 ## 構造
-## Structure
+<!-- ## Structure -->
 
 `documentation`ディレクトリ内のコンテンツは、Webページ上でレンダリングできるように構成されています。
 <!-- The content in the `documentation` directory is structured in a way that allows us to render it on a webpage. -->

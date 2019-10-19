@@ -110,6 +110,14 @@ IOTAトークンをハブの外部に保存するには、ハブ所有者のア�
 4. ハブを再起動します。
   <!-- 4. Restart Hub -->
 
+### ビデオチュートリアル
+<!-- ### Video tutorial -->
+
+統合オプション1のセットアップを支援するために、ハブをサンプル取引所に統合するビデオチュートリアルを作成しました。
+<!-- To help you set up integration option 1, we made this video tutorial that integrates Hub into a sample exchange. -->
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/O2ukIXqJTls" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## 統合オプション2. ハブ外のユーザー残高を管理する
 <!-- ## Integration option 2. Manage user balances outside of Hub -->
 

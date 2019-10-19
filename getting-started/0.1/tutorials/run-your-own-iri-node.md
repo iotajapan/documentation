@@ -31,8 +31,6 @@ Linuxオペレーティングシステムを使用している場合は、以下
 
 * コマンドプロンプトへのアクセス
 <!-- * Access to a command prompt -->
-* インターネット接続
-<!-- * An Internet connection -->
 
 ## IRIノードを実行する
 <!-- ## Run an IRI node -->

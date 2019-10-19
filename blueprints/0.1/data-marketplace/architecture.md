@@ -76,7 +76,7 @@ PoCのアーキテクチャー（下の画像）は、センサーまたはそ�
 
 * [Netatmo Weather Station](https://www.netatmo.com/en-us/weather)
 * [Bosch XDK](https://xdk.bosch-connectivity.com/)
-* [Nordic Semiconductor Thingy:52](https://www.nordicsemi.com/Software-and-Tools/Development-Kits/Nordic-Thingy-52)
+* [Nordic Semiconductor Thingy:52](https://www.nordicsemi.com/Software-and-Tools/Development-Tools/Nordic-Thingy-52-App)
 * [Raspberry Pi with a sensor kit](https://www.adafruit.com/product/2733)
 
 ### データフィールド

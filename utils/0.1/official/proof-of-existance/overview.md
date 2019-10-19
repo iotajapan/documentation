@@ -35,8 +35,6 @@
 <!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
 * コマンドプロンプトへのアクセス
 <!-- * Access to a command prompt -->
-* インターネット接続
-<!-- * An Internet connection -->
 * [`@iota/poex-tool`](https://www.npmjs.com/package/iota-poex-tool)パッケージおよび[`regenerator-runtime`](https://www.npmjs.com/package/regenerator-runtime)パッケージ
 <!-- * The [`@iota/poex-tool`](https://www.npmjs.com/package/iota-poex-tool) and the [`regenerator-runtime`](https://www.npmjs.com/package/regenerator-runtime) packages -->
 

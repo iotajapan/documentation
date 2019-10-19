@@ -19,8 +19,6 @@
 <!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
 * コマンドプロンプトへのアクセス
 <!-- * Access to a command prompt -->
-* インターネット接続
-<!-- * An Internet connection -->
 
 ## 手順1. イミュータブルなメッセージをタングルに添付する
 <!-- ## Step 1. Attach an immutable message to the Tangle -->

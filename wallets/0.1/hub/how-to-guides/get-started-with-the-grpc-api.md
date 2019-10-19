@@ -32,11 +32,11 @@
     sudo npm install -g grpcc
     ```
 
-3. `rpchub`ディレクトリに移動します。
-  <!-- 3. Change into the `rpchub` directory -->
+3. `hub`ディレクトリに移動します。
+  <!-- 3. Change into the `hub` directory -->
 
     ```bash
-    cd rpchub
+    cd hub
     ```
 4. gRPCクライアントを起動します。
   <!-- 3. Start the gRPC client -->
@@ -160,5 +160,8 @@
 <!-- 1. Deposit IOTA tokens into one of the user deposit addresses -->
 2. [`sweepSubscription()`](../references/grpc-api-reference.md#hub.rpc.SweepSubscriptionRequest)メソッドを使用して、新しいスウィープイベントを購読する。こうすることで、スウィープが行われるとハブから通知されます。
 <!-- 2. Use the [`sweepSubscription()`](../references/grpc-api-reference.md#hub.rpc.SweepSubscriptionRequest) method to subscribe to new sweep events. This way, Hub will let you know when a sweep takes place. -->
-4. [`userWithdraw()`](../references/grpc-api-reference.md#hub.rpc.UserWithdrawRequest)メソッドを使用して、預け入れアドレスからのIOTAトークンの取り出しを依頼する。
+3. [`userWithdraw()`](../references/grpc-api-reference.md#hub.rpc.UserWithdrawRequest)メソッドを使用して、預け入れアドレスからのIOTAトークンの取り出しを依頼する。
 <!-- 3. Use the [`userWithdraw()`](../references/grpc-api-reference.md#hub.rpc.UserWithdrawRequest) method to make a withdrawal request from the deposit address -->
+
+これらの方法に慣れたら、[ハブを取引所に統合する](../how-to-guides/integrate-hub.md)の準備が整います。
+<!-- When you're comfortable with these methods, you're ready to [integrate Hub into your exchange](../how-to-guides/integrate-hub.md). -->

@@ -19,8 +19,6 @@
 <!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
 * コマンドプロンプトへのアクセス
 <!-- * Access to a command prompt -->
-* インターネットへの接続
-<!-- * An Internet connection -->
 
 ## ノードに関する情報をリクエストする
 <!-- ## Request information about the node -->

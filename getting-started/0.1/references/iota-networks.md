@@ -121,13 +121,6 @@ PoWノードを使用して小型デバイスの電力を節約します。
 このネットワークでは、アプリケーションをテストして、無料のSpamnetトークンを使用するPOCを構築できます。
 <!-- On this network, you can test your applications and build proof of concepts that use free Spamnet tokens. -->
 
-:::info:無料のSpamnetトークンを受け取る
-[蛇口ウェブサイト](https://faucet.spamnet.iota.org)は指定されたアドレスに1Ki（1000）のSpamnetトークンを送ります。
-:::
-<!-- :::info:Receive free Spamnet tokens -->
-<!-- The [faucet website](https://faucet.spamnet.iota.org) sends 1Ki (1000) Spamnet tokens to your specified address. -->
-<!-- ::: -->
-
 ![Spamnet configuration](../images/spamnet-topology.png)
 
 ### 最小重量値
