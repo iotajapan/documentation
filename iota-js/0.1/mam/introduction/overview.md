@@ -147,7 +147,6 @@ IOTA JavaScriptクライアントライブラリが役に立ち、貢献した�
 ### Node.js
 
 開発バージョン：
-<!-- Development version: -->
 
 ```bash
 # npmパッケージマネージャーの場合
@@ -158,7 +157,6 @@ yarn build-node-dev
 ```
 
 運用バージョン：
-<!-- Production version: -->
 
 ```bash
 # npmパッケージマネージャーの場合
@@ -171,7 +169,6 @@ yarn build-node-prod
 ### Webブラウザー
 
 開発バージョン：
-<!-- Development version: -->
 
 ```bash
 # npmパッケージマネージャーの場合
@@ -182,7 +179,6 @@ yarn build-web-dev
 ```
 
 運用バージョン：
-<!-- Production version: -->
 
 ```bash
 # npmパッケージマネージャーの場合

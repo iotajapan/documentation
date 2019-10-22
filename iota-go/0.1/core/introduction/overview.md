@@ -33,16 +33,16 @@ Goライブラリとその依存関係をインストールするには、次の
 1. `$GOPATH`以外のディレクトリで、プロジェクトのディレクトリを作成し、初期化します。`<your-module-path>`プレースホルダーを、`github.com/me/awesome-project`などのプロジェクトのパスに変更します。
   <!-- 1. In any directory outside of $GOPATH, create a directory for your project and initialize it. Change the `<your-module-path>` placeholder to the path of your project such as `github.com/me/awesome-project`. -->
 
-	```bash
-	go mod init <your-module-path>
-	```
+    ```bash
+    go mod init <your-module-path>
+    ```
 
 2. ライブラリをダウンロードします。
   <!-- 2. Download the library -->
 
-	```bash
-	go get github.com/iotaledger/iota.go/api
-	```
+    ```bash
+    go get github.com/iotaledger/iota.go/api
+    ```
 
 このコマンドはIOTA Goクライアントライブラリの最新バージョンをダウンロードし、そのバージョンを`go.mod`ファイルに書き込みます。
 <!-- This command downloads the latest version of the IOTA Go client library and writes the version into the `go.mod` file. -->
@@ -135,25 +135,25 @@ Goライブラリが役に立ち、貢献したいと思う場合は、[バグ�
 1. Ginkgoをダウンロードします。
   <!-- 1. Download Ginkgo -->
 
-	```bash
-	go get github.com/onsi/ginkgo/ginkgo
-	go get github.com/onsi/gomega/...
-	```
+    ```bash
+    go get github.com/onsi/ginkgo/ginkgo
+    go get github.com/onsi/gomega/...
+    ```
 
 2. 新しいパッケージを作成した場合は、対応するテストスイートファイルを生成します。
   <!-- 2. If you've written a new package, generate a corresponding test-suite file -->
 
-	```bash
-	cd <dir-of-your-package>
-	ginkgo bootstrap
-	```
+    ```bash
+    cd <dir-of-your-package>
+    ginkgo bootstrap
+    ```
 
 3. テストファイルをを生成します。
   <!-- 3. Generate a new testing file -->
 
-	```bash
-	ginkgo generate <package-name>
-	```
+    ```bash
+    ginkgo generate <package-name>
+    ```
 
 テストファイルを作成すると、次の2つのファイルが作成されます。
 <!-- After creating a testing file, you'll have following two files: -->
@@ -172,21 +172,21 @@ Ginkgoテストの作成方法に関するリファレンスとして既存の�
 4. テストを実行します。
   <!-- 4. Run your tests -->
 
-	```bash
-	go test -v
-	=== RUN   TestAddress
-	Running Suite: Address Suite
-	============================
-	Random Seed: 1542616006
-	Will run 11 of 11 specs
+    ```bash
+    go test -v
+    === RUN   TestAddress
+    Running Suite: Address Suite
+    ============================
+    Random Seed: 1542616006
+    Will run 11 of 11 specs
 
-	•••••••••••
-	Ran 11 of 11 Specs in 0.261 seconds
-	SUCCESS! -- 11 Passed | 0 Failed | 0 Pending | 0 Skipped
-	--- PASS: TestAddress (0.26s)
-	PASS
-	ok  	github.com/iotaledger/iota.go/address	0.264s
-	```
+    •••••••••••
+    Ran 11 of 11 Specs in 0.261 seconds
+    SUCCESS! -- 11 Passed | 0 Failed | 0 Pending | 0 Skipped
+    --- PASS: TestAddress (0.26s)
+    PASS
+    ok  	github.com/iotaledger/iota.go/address	0.264s
+    ```
 
 ### ドキュメントを更新する
 <!-- ### Update documentation -->
@@ -203,19 +203,19 @@ Ginkgoテストの作成方法に関するリファレンスとして既存の�
 3. 次のスキーマで例を作成します。
   <!-- 3. Write examples in the following schema: -->
 
-	```go
-	// i req: s, トライトに変換するASCII文字列。
-	// o: Trytes, 入力ASCII文字列のトライト表現。
-	// o: error, 非ASCII文字列入力に対して返されます。
-	func ExampleASCIIToTrytes() {
-		trytes, err := converter.ASCIIToTrytes("IOTA")
-		if err != nil {
-			// エラーを処理します。
-			return
-		}
-		fmt.Println(trytes) // output: "SBYBCCKB"
-	}
-	```
+    ```go
+    // i req: s, トライトに変換するASCII文字列。
+    // o: Trytes, 入力ASCII文字列のトライト表現。
+    // o: error, 非ASCII文字列入力に対して返されます。
+    func ExampleASCIIToTrytes() {
+    	trytes, err := converter.ASCIIToTrytes("IOTA")
+    	if err != nil {
+    		// エラーを処理します。
+    		return
+    	}
+    	fmt.Println(trytes) // output: "SBYBCCKB"
+    }
+    ```
 
 | **シンボル** | **説明** |
 | :------- | :--- |

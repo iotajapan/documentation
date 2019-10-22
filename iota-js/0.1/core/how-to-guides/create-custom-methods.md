@@ -20,7 +20,7 @@
 
     const client = createHttpClient({
       // IRIノードアドレスに置き換えます。
-      //またはテストのためにDevnetノードに接続します：'https://nodes.devnet.iota.org:443'
+        //またはテストのためにDevnetノードに接続します：'https://nodes.devnet.iota.org:443'
       provider: 'http://localhost:14265'
     })
 
