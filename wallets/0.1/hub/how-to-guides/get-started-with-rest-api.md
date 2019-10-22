@@ -44,7 +44,8 @@ pip install urllib3
 ```
 --------------------
 
-2\. Import the libraries
+2\. ライブラリをインポートします。
+<!-- 2\. Import the libraries -->
 
 --------------------
 ### Node.js
@@ -61,7 +62,9 @@ import urllib3
 ```
 --------------------
 
-3\. Set up the request body. Replace the `http://127.0.0.1:50051` URL with value of the `--listenAddress` flag that you used when you set up Hub.
+3\. リクエストボディを設定します。`http://127.0.0.1:50051`URLを、ハブのセットアップ時に使用した`--listenAddress`フラグの値に置き換えます。
+<!-- 3\. Set up the request body. Replace the `http://127.0.0.1:50051` URL with value of the `--listenAddress` flag that you used when you set up Hub. -->
+<!-- 3\. Set up the request body. Replace the `http://127.0.0.1:50051` URL with value of the `--listenAddress` flag that you used when you set up Hub. -->
 
 --------------------
 ### Node.js
@@ -99,9 +102,11 @@ print(json.dumps(results, indent=1, sort_keys=True))
 ```
 --------------------
 
-## Step 2. Deposit IOTA tokens into Hub
+## 手順2. ハブへIOTAトークンを預け入れる
+<!-- ## Step 2. Deposit IOTA tokens into Hub -->
 
-1\. Create a new user
+1\. 新しいユーザーを作成する
+<!-- 1\. Create a new user -->
 
 --------------------
 ### Node.js
@@ -123,13 +128,18 @@ command = json.dumps({
 ```
 --------------------
 
-You should see an empty object in the console, which means that the user was created.
+コンソールに空のオブジェクトが表示されます。これは、ユーザーが作成されたことを意味します。
+<!-- You should see an empty object in the console, which means that the user was created. -->
 
 :::info:
-You can see this user in the Hub database by [querying the `user_account` table](../how-to-guides/query-the-database.md).
+このユーザーは、[`user_account`テーブルのクエリ](../how-to-guides/query-the-database.md)によってハブデータベースで確認できます。
 :::
+<!-- :::info: -->
+<!-- You can see this user in the Hub database by [querying the `user_account` table](../how-to-guides/query-the-database.md). -->
+<!-- ::: -->
 
-2\. Create a new deposit address for the user
+2\. ユーザーの預け入れアドレスを作成します。
+<!-- 2\. Create a new deposit address for the user -->
 
 --------------------
 ### Node.js
@@ -151,9 +161,11 @@ command = json.dumps({
 ```
 --------------------
 
-You should see a new deposit address in the console.
+コンソールに新しい預け入れアドレスが表示されます。
+<!-- You should see a new deposit address in the console. -->
 
-3\. Create a new deposit address with the checksum
+3\. チェックサム付きの新しい預け入れアドレスを作成します。
+<!-- 3\. Create a new deposit address with the checksum -->
 
 --------------------
 ### Node.js
@@ -177,19 +189,28 @@ command = json.dumps({
 ```
 --------------------
 
-Now, the user has two addresses that were created from two different `seeduuid` fields. You can see this data in the database by [querying the `user_address` table](../how-to-guides/query-the-database.md).
+これで、ユーザーには2つの異なる`seeduuid`フィールドから作成された2つのアドレスがあります。[`user_address`テーブルのクエリ](../how-to-guides/query-the-database.md)によってデータベース内のこのデータを見ることができます。
+<!-- Now, the user has two addresses that were created from two different `seeduuid` fields. You can see this data in the database by [querying the `user_address` table](../how-to-guides/query-the-database.md). -->
 
 :::info:
-In the database, addresses are always saved without the checksum.
+データベースでは、アドレスは常にチェックサムなしで保存されます。
 :::
+<!-- :::info: -->
+<!-- In the database, addresses are always saved without the checksum. -->
+<!-- ::: -->
 
-4\. Send some IOTA tokens to one of the user's deposit addresses
+4\. ユーザーの預け入れアドレスのいずれかにIOTAトークンを送信します。
+<!-- 4\. Send some IOTA tokens to one of the user's deposit addresses -->
 
 :::info:
-[Trinity](root://wallets/0.1/trinity/introduction/overview.md) is the official IOTA wallet, which makes it easy to send IOTA tokens.
-::: 
+[Trinity](root://wallets/0.1/trinity/introduction/overview.md)は公式のIOTAウォレットであり、IOTAトークンを簡単に送信できます。
+:::
+<!-- :::info: -->
+<!-- [Trinity](root://wallets/0.1/trinity/introduction/overview.md) is the official IOTA wallet, which makes it easy to send IOTA tokens. -->
+<!-- ::: -->
 
-5\. Get the balance and history for the user  
+5\. ユーザーの残高と履歴を取得します。
+<!-- 5\. Get the balance and history for the user -->
 
 --------------------
 ### Node.js
@@ -211,7 +232,8 @@ command = json.dumps({
 ```
 --------------------
 
-If you sent IOTA tokens to the deposit address in step 4, the output should display something like the following:
+手順4でIOTAトークンを預け入れアドレスに送信した場合、出力には次のように表示されます。
+<!-- If you sent IOTA tokens to the deposit address in step 4, the output should display something like the following: -->
 
 ```shell
 10 i available for 'Jake'
@@ -223,18 +245,21 @@ events {
 }
 ```
 
-If you look at the deposit address history in a Tangle explorer such as [thetangle.org](https://thetangle.org/), you will see that Hub moved the funds away from the deposit address and into another address (Hub owner's address where funds are aggregated until a user requests a withdrawal). This process is called a [sweep](../concepts/sweeps.md).
+[thetangle.org](https://thetangle.org/)などのタングルエクスプローラーで預け入れアドレスの履歴を見ると、ハブが預け入れアドレスから別のアドレス（ユーザーが取り出しを要求するまで資金が集められるハブ所有者のアドレス）に資金を移動したことが分かります。このプロセスは[スウィープ](../concepts/sweeps.md)と呼ばれます。
+<!-- If you look at the deposit address history in a Tangle explorer such as [thetangle.org](https://thetangle.org/), you will see that Hub moved the funds away from the deposit address and into another address (Hub owner's address where funds are aggregated until a user requests a withdrawal). This process is called a [sweep](../concepts/sweeps.md). -->
 
-:::success:Congratulations :tada:
-You've successfully created a new user and tested how Hub handles deposits of IOTA tokens.
+:::success:おめでとうございます:tada:
+新しいユーザーを正常に作成し、ハブがIOTAトークンの預け入れを処理する方法をテストしました。
 :::
+<!-- :::success:Congratulations :tada: -->
+<!-- You've successfully created a new user and tested how Hub handles deposits of IOTA tokens. -->
+<!-- ::: -->
 
-## Next steps
+## 次のステップ
+<!-- ## Next steps -->
 
-[Set up a demo exchange](../how-to-guides/create-a-demo-exchange.md) to test an integration of Hub.
+[デモ取引所のセットアップ](../how-to-guides/create-a-demo-exchange.md)を行い、ハブの統合をテストする。
+<!-- [Set up a demo exchange](../how-to-guides/create-a-demo-exchange.md) to test an integration of Hub. -->
 
-[Integrate Hub into your exchange](../how-to-guides/integrate-hub.md).
-
-
-
-
+[取引所にハブを統合する](../how-to-guides/integrate-hub.md)。
+<!-- [Integrate Hub into your exchange](../how-to-guides/integrate-hub.md). -->

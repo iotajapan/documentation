@@ -258,7 +258,7 @@ SSL証明書は、ハブと署名サーバー間の安全な通信に使用さ�
     ```
 
 7. 次の行を`signing.conf`ファイルに追加します。`user`フィールドの値をユーザー名に置き換え、`command`、`directory`、`stderr_logfile`、`stdout_logfile`フィールドのパスが正しいことを確認します。
-<!-- 7. Add the following lines to the signing.conf file. Replace the value of the `user` field with your username, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` field are correct. -->
+  <!-- 7. Add the following lines to the signing.conf file. Replace the value of the `user` field with your username, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` field are correct. -->
 
     ```shell
     [program:hub]

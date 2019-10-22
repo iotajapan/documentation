@@ -170,9 +170,9 @@ gRPCクライアントがある場合は、gRPCクライアントを使用して
 5. ユーザーの残高と履歴を取得します。
   <!-- 5. Get the balance and history for the user -->
 
-	```bash
-	client.getBalance({userId: "Jake"}, pr)
-	```
+    ```bash
+    client.getBalance({userId: "Jake"}, pr)
+    ```
 
 手順4でIOTAトークンを預け入れアドレスに送信した場合、出力には次のように表示されます。
 <!-- If you sent IOTA tokens to the deposit address in step 4, the output should display something like the following: -->

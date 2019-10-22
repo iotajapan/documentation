@@ -26,43 +26,65 @@ IOTAはパーミッションレスネットワークです。誰でも自由に�
 <!-- Chronicle makes it easy for node owners to store all the IOTA transactions in a secure, scalable, and distributed Scylla database. -->
 
 :::info:
-Chronicle will be ported to Rust to align with the future strategy of the IOTA technology stack.
+クロニクルは、IOTAテクノロジースタックの将来の戦略に合わせてRustに移植されます。
 :::
+<!-- :::info: -->
+<!-- Chronicle will be ported to Rust to align with the future strategy of the IOTA technology stack. -->
+<!-- ::: -->
 
 :::info:
-[Ready to run Chronicle](../how-to-guides/get-started.md)?
+[クロニクルの実行の仕方](../how-to-guides/get-started.md)
 :::
+<!-- :::info: -->
+<!-- [Ready to run Chronicle](../how-to-guides/get-started.md)? -->
+<!-- ::: -->
 
-## How Chronicle works
+## クロニクルの仕組み
+<!-- ## How Chronicle works -->
 
-Chronicle receives transactions from IRI nodes through the `tx_trytes` [ZMQ event](root://node-software/0.1/iri/references/zmq-events.md). When Chronicle receives transactions, it processes them through an [Elixir](https://elixir-lang.org/) umbrella project, then it stores them in [ScyllaDB](https://www.scylladb.com/).
+クロニクルは、`tx_trytes`[ZMQイベント](root://node-software/0.1/iri/references/zmq-events.md)を介してIRIノードからトランザクションを受け取ります。クロニクルがトランザクションを受信すると、[Elixir](https://elixir-lang.org/)アンブレラプロジェクトを介してトランザクションを処理し、[ScyllaDB](https://www.scylladb.com/)に格納します。
+<!-- Chronicle receives transactions from IRI nodes through the `tx_trytes` [ZMQ event](root://node-software/0.1/iri/references/zmq-events.md). When Chronicle receives transactions, it processes them through an [Elixir](https://elixir-lang.org/) umbrella project, then it stores them in [ScyllaDB](https://www.scylladb.com/). -->
 
-ScyllaDB takes care of the big data concerns such as partitioning, replication, in-memory processing, and consistency.
+ScyllaDBは、パーティション分割、レプリケーション、メモリ内処理、一貫性などのビッグデータの問題を処理します。
+<!-- ScyllaDB takes care of the big data concerns such as partitioning, replication, in-memory processing, and consistency. -->
 
-Elixir provides web development tools and embedded software development tools plus a network that can be extended by building microservices.
+Elixirは、Web開発ツールと組み込みソフトウェア開発ツールに加えて、マイクロサービスを構築することで拡張できるネットワークを提供します。
+<!-- Elixir provides web development tools and embedded software development tools plus a network that can be extended by building microservices. -->
 
-When you send a data request to a Chronicle node, it requests the data from the ScyllaDB, then formats and returns you the response.
+クロニクルノードにデータリクエストを送信すると、ScyllaDBからデータがリクエストされ、レスポンスがフォーマットされて返されます。
+<!-- When you send a data request to a Chronicle node, it requests the data from the ScyllaDB, then formats and returns you the response. -->
 
 ![Chronicle architecture](../images/architecture.png)
 
-## How ScyllaDB works
+## ScyllaDBの仕組み
+<!-- ## How ScyllaDB works -->
 
-[ScyllaDB](https://docs.scylladb.com/using-scylla/) is a real-time, big data database featuring high throughput and low latency.
+[ScyllaDB](https://docs.scylladb.com/using-scylla/)は、高スループットと低遅延を特徴とするリアルタイムのビッグデータデータベースです。
+<!-- [ScyllaDB](https://docs.scylladb.com/using-scylla/) is a real-time, big data database featuring high throughput and low latency. -->
 
-Data is organized into rows and columns in a table, using the [primary key, the partition key, and the clustering key](http://sudotutorials.com/tutorials/cassandra/cassandra-primary-key-cluster-key-partition-key.html).
+データは、[プライマリキー、パーティションキー、およびクラスタリングキー](http://sudotutorials.com/tutorials/cassandra/cassandra-primary-key-cluster-key-partition-key.html)を使用して、テーブル内の行と列に編成されます。
+<!-- Data is organized into rows and columns in a table, using the [primary key, the partition key, and the clustering key](http://sudotutorials.com/tutorials/cassandra/cassandra-primary-key-cluster-key-partition-key.html). -->
 
-The primary key is a unique identifier for each row in a table. A partition key indicates which nodes store a row of data. Clustering keys sort data into a partition and affect how columns are ordered.
+プライマリキーは、テーブル内の各行の一意の識別子です。パーティションキーは、データの行を保存するノードを示します。クラスタリングキーは、データをパーティションにソートし、列の順序付けに影響します。
+<!-- The primary key is a unique identifier for each row in a table. A partition key indicates which nodes store a row of data. Clustering keys sort data into a partition and affect how columns are ordered. -->
 
-Storing and retrieving data is faster when the data is organized into distinct collections called shards. A Scylla partition is a logical storage unit that holds the rows identified by a partition key. A shard is a group of data with the same partition key.
+データがシャードと呼ばれる別個のコレクションに編成されると、データの保存と取得が高速になります。Scyllaパーティションは、パーティションキーで識別される行を保持する論理ストレージユニットです。シャードは、同じパーティションキーを持つデータのグループです。
+<!-- Storing and retrieving data is faster when the data is organized into distinct collections called shards. A Scylla partition is a logical storage unit that holds the rows identified by a partition key. A shard is a group of data with the same partition key. -->
 
-To ensure reliability and fault tolerance, Scylla stores data replicas on multiple nodes. These nodes are called replica nodes. Partitions are repeated on replica nodes. You can set the number of replicas by setting the replication factor (RF).
+信頼性と耐障害性を確保するために、Scyllaはデータレプリカを複数のノードに保存します。これらのノードはレプリカノードと呼ばれます。パーティションはレプリカノードで繰り返されます。複製係数（RF）を設定することにより、レプリカの数を設定できます。
+<!-- To ensure reliability and fault tolerance, Scylla stores data replicas on multiple nodes. These nodes are called replica nodes. Partitions are repeated on replica nodes. You can set the number of replicas by setting the replication factor (RF). -->
 
 :::info:
-[Learn more about fault tolerance in Scylla](https://docs.scylladb.com/architecture/architecture-fault-tolerance/).
+[Scyllaのフォールトトレランスの詳細](https://docs.scylladb.com/architecture/architecture-fault-tolerance/)をご覧ください。
 :::
+<!-- :::info: -->
+<!-- [Learn more about fault tolerance in Scylla](https://docs.scylladb.com/architecture/architecture-fault-tolerance/). -->
+<!-- ::: -->
 
 ![Data flow in Chronicle](../images/dataflow.png)
 
-## Next steps
+## 次のステップ
+<!-- ## Next steps -->
 
-[Run Chronicle](../how-to-guides/get-started.md) to get started with storing transactions.
+[クロニクルを実行](../how-to-guides/get-started.md)して、トランザクションの保存を開始します。
+<!-- [Run Chronicle](../how-to-guides/get-started.md) to get started with storing transactions. -->

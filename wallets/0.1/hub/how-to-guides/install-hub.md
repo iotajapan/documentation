@@ -137,7 +137,7 @@ Ubuntu 18.04 LTS用のデフォルトリポジトリはデータベースに使�
     インストール中に、MariaDBのrootパスワードを入力するように求められます。安全なパスワードを入力してください。後で必要になります。
     <!-- During the installation, you'll be prompted to enter a root password for MariaDB. Enter a secure password and remember it. You will need it later on. -->
 
-	![MariaDB password prompt](../images/mariapassword.png)
+    ![MariaDB password prompt](../images/mariapassword.png)
 
 5. MySQLがインストールされていることを確認します。
   <!-- 5. Make sure that MySQL is installed -->
@@ -188,6 +188,7 @@ mysql  Ver 15.1 Distrib 10.3.10-MariaDB, for debian-linux-gnu (x86_64) using rea
 
 :::success:成功
 ビルドが完了すると、標準出力に次のように表示されます。
+:::
 
 ```shell
 Target //hub:hub up-to-date:
@@ -196,7 +197,6 @@ INFO: Elapsed time: 1531.342s, Critical Path: 208.27s
 INFO: 1377 processes: 1377 linux-sandbox.
 INFO: Build completed successfully, 1811 total actions
 ```
-:::
 <!-- :::success:Success -->
 <!-- After the build is complete, the output should display something like the following: -->
 
@@ -208,9 +208,6 @@ INFO: Build completed successfully, 1811 total actions
 <!-- INFO: Build completed successfully, 1811 total actions -->
 <!-- ``` -->
 <!-- ::: -->
-
-
-:::
 
 ## 手順4. データベースを作成する
 <!-- ## Step 4. Create the database -->
@@ -275,7 +272,6 @@ nano start.sh
 ### gRPC API
 
 このコマンドは、ポート14265でローカルMainnetノードに接続し、localhostのポート50051でgRPC APIサーバーを公開します。
-<!-- This command connects to a local Mainnet node on port 14265, and exposes the gRPC API server on port 50051 of the localhost. -->
 
 ```shell
 #!/bin/bash
@@ -294,7 +290,6 @@ nano start.sh
 ### RESTful API
 
 このコマンドは、ポート14265でローカルMainnetノードに接続し、ローカルホストのポート50051でRESTful APIサーバーを公開します。
-<!-- This command connects to a local Mainnet node on port 14265, and exposes the RESTful API server on port 50051 of the localhost. -->
 
 ```shell
 #!/bin/bash
@@ -312,11 +307,8 @@ nano start.sh
 ---
 
 ### HTTPSのDevnetノード
-<!-- ### HTTPS Devnet node -->
 
 テストの目的で、リモートの[Devnet](root://getting-started/0.1/references/iota-networks.md#devnet)ノードに接続できます。ほとんどのリモートノードはHTTPS接続を使用するため、このコマンドには[`--useHttpsIRI`フラグ](../references/command-line-flags.md#useHttpsIRI)が`true`に設定されています。
-<!-- For testing purposes, you may want to connect to a remote [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet) node. Most remote nodes use an HTTPS connection, so this command has the [`--useHttpsIRI` flag](../references/command-line-flags.md#useHttpsIRI) set to `true`. -->
-<!-- For testing purposes, you may want to connect to a remote [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet) node. Most remote nodes use an HTTPS connection, so this command has the [`--useHttpsIRI` flag](../references/command-line-flags.md#useHttpsIRI) set to `true`. -->
 
 ```shell
 #!/bin/bash
