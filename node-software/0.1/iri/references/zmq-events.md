@@ -4,19 +4,20 @@
 **この表には、IRIノードが発行できるゼロメッセージキュー（ZMQ）イベントが含まれています。**
 <!-- **This table contains the zero message queue (ZMQ) events that an IRI node can publish.** -->
 
-すべてのイベントは、スペースで区切られたデータを含む少なくとも1つのバッファオブジェクトを返します。バッファの最初の項目は常にイベントの名前です。「返されたデータ」カラムの情報は、バッファが文字列に変換され、スペース文字で配列に分割されたかのように表示されます。
-<!-- All events return at least one buffer object that contains space-separated data. The first item in the buffer is always the name of the event. The information in the Returned data column is displayed as though the buffer had been converted to a string and split on a space character into an array. -->
+すべてのイベントは、スペースで区切られたデータを含む1つ以上のバッファーオブジェクトを返します。 バッファの最初の項目は常にイベントの名前です。返されたデータ列の情報は、バッファが文字列に変換され、スペース文字で配列に分割されたかのように表示されます。
+<!-- All events return one or more buffer objects, which contain space-separated data. The first item in the buffer is always the name of the event. The information in the Returned data column is displayed as though the buffer had been converted to a string and split on a space character into an array. -->
 
-:::info:
-返されるデータの各配列のインデックス0は、常にイベントの名前であるため表示されません。
+[IRIのバグ](https://github.com/iotaledger/iri/issues/1597)により、現在、バージョン1.8.0以降では次のイベントは利用できません。
+<!-- Due to [a bug in the IRI](https://github.com/iotaledger/iri/issues/1597), the following events are currently unavailable in version 1.8.0 or later: -->
 
-すべてのイベントは小文字でなければなりません。ただしアドレスイベントのトライトは大文字でなければなりません。
-:::
-<!-- :::info: -->
-<!-- Index 0 of each array of returned data is not displayed because it is always the name of the event. -->
-<!--  -->
-<!-- All events must be in lowercase letters except the trytes of the address event, which must be in uppercase letters. -->
-<!-- ::: -->
+* `dnscv`
+* `dnscc`
+* `dnscu`
+* `hmr`
+* `antn`
+* `rntn`
+* `rstat`
+* `rtl`
 
 | **イベントと説明** | **返ってくるデータ** |
 | :----------------- | :------------------- |

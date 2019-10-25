@@ -67,12 +67,14 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 
 |**コマンドラインフラグ**|**設定ファイルパラメータ**|**説明**|**有効な値**|**デフォルト値**|**メモ**|
 |:-----------------------|:-------------------------|:-------|:-----------|:---------------|:-------|
-|<a name="db"></a>`--db`|`MAIN_DB`|トランザクションの保存に使用されるデータベースの名前|string|rocksdb|現在、サポートされているデータベースはRocksDBのみです。|
+|<a name="db"></a>`--db`|`MAIN_DB`|トランザクションの保存に使用されるデータベースに名前を付けます。|string|rocksdb|現在、サポートされているデータベースはRocksDBのみです。|
 |<a name="db-cache-size"></a>`--db-cache-size`|`DB_CACHE_SIZE`|データベースキャッシュの最大サイズをキロバイト単位で設定します。|number|100,000|
 |<a name="db-log-path"></a>`--db-log-path`|`DB_LOG_PATH`|データベースログが保存されるファイルへのパスを設定します。|string|mainnet.log|
 |<a name="db-path"></a>`--db-path`|`DB_PATH`|データベースが保存されているディレクトリへのパスを設定します。|string|mainnetdb|
 |<a name="rescan"></a>`--rescan`|`RESCAN_DB`|すべてのトランザクションメタデータ（承認者、バンドル、タグ）を再スキャンします。|boolean|false|
 |<a name="revalidate"></a>`--revalidate`|`REVALIDATE`|確定済みのトランザクションとトランザクションメタデータに関するデータベースのデータを再読み込みします。|boolean|false|
+|`--spent-addresses-db-path`|`SPENT_ADDRESSES_DB_PATH`|使用済みアドレスデータベースが保存されるディレクトリへのパスを設定します。|string|"spent-addresses-db"|
+|`--spent-addresses-db-log-path`|`SPENT_ADDRESSES_DB_LOG_PATH`|使用済みアドレスデータベースのログが保存されるディレクトリへのパスを設定します。|string|"spent-addresses-log"|
 
 ## IXI
 

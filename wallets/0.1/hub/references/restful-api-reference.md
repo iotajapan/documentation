@@ -592,10 +592,12 @@ curl http://localhost:50051 \
 | **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
 | :----------- | :----------- | :--- | :----- |
 | `userId` | 必須 | ユーザーのID | string |
+| `newerThan` | 任意 | ユーザーの履歴を取得する日時。値が`0`の場合、ハブは履歴全体を取得します。 | Unix timestamp |
 
 <!-- |**Parameter** | **Required or Optional**|**Description** |**Type** -->
 <!-- |--|--|--|--| -->
-<!-- | `userId` |Required| The ID of the user | string -->
+<!-- | `userId` |Required| The ID of the user | string| -->
+<!-- | `newerThan` |Optional| The time and date from which to get the user's history. A `0` value means that Hub gets the entire history.|Unix timestamp -->
 
 ### 例
 <!-- ### Examples -->
@@ -676,7 +678,7 @@ curl http://localhost:50051 \
         "amount": "1000",
         "reason": "DEPOSIT",
         "sweepBundleHash": "EWLCW9FFLSBUGZZOOLFQLTRJFKNGPUVCIOCQYTSDOSZLBCBJIIJZGPALGAKKANBTDYOBVQFOJHA9OVFOY",
-        "withdrawalUUID": ""
+        "withdrawalUuid": ""
     },
     "event_1": {
         "userID": "user-1",
@@ -684,7 +686,7 @@ curl http://localhost:50051 \
         "amount": "-1",
         "reason": "WITHDRAWAL",
         "sweepBundleHash": "",
-        "withdrawalUUID": "4782e7d5-9ce4-477d-8fd0-32f5f3385db2"
+        "withdrawalUuid": "4782e7d5-9ce4-477d-8fd0-32f5f3385db2"
     },
     "event_2": {
         "userID": "user-1",
@@ -692,7 +694,7 @@ curl http://localhost:50051 \
         "amount": "1",
         "reason": "WITHDRAWAL_CANCELED",
         "sweepBundleHash": "",
-        "withdrawalUUID": "4782e7d5-9ce4-477d-8fd0-32f5f3385db2"
+        "withdrawalUuid": "4782e7d5-9ce4-477d-8fd0-32f5f3385db2"
     }
 }
 ```
@@ -715,7 +717,7 @@ curl http://localhost:50051 \
 | `reason` | [アカウント残高の変更を引き起こしたイベント](#balance-change-events-for-user-accounts)の種類 |
 | amount | 残高へと変更した量 |
 | `sweepBundleHash` | `DEPOSIT`イベントのバンドルハッシュが含まれます。 |
-| `withdrawalUUID` | `WITHDRAWAL`または`WITHDRAWAL_CANCELED`イベントの取り出しUUIDが含まれます。 |
+| `withdrawalUuid` | `WITHDRAWAL`または`WITHDRAWAL_CANCELED`イベントの取り出しUUIDが含まれます。 |
 
 <!-- |**Return field** | **Description** | -->
 <!-- | `userId`          | ID of the user whose account's balance changed | -->
@@ -723,7 +725,7 @@ curl http://localhost:50051 \
 <!-- |`reason`|  The type of [event that caused a change to the account balance](#balance-change-events-for-user-accounts)    | -->
 <!-- | amount          | Amount that changed to the balance     | -->
 <!-- | `sweepBundleHash` | Contains either the bundle hash for a `DEPOSIT` event| -->
-<!-- |`withdrawalUUID`| Contains a withdrawal UUID for a `WITHDRAWAL` or `WITHDRAWAL_CANCELED` event -->
+<!-- |`withdrawalUuid`| Contains a withdrawal UUID for a `WITHDRAWAL` or `WITHDRAWAL_CANCELED` event -->
 
 ## ProcessTransferBatch
 
@@ -943,7 +945,8 @@ curl http://localhost:50051 \
         "userId": "user-1",
         "timestamp": "1563796442000",
         "sweepBundleHash": "EWLCW9FFLSBUGZZOOLFQLTRJFKNGPUVCIOCQYTSDOSZLBCBJIIJZGPALGAKKANBTDYOBVQFOJHA9OVFOY",
-        "withdrawalUuid": ""
+        "withdrawalUuid": "",
+	"amount":1000
     },
     "event_1": {
         "type": "USER_ACCOUNT",
@@ -951,7 +954,8 @@ curl http://localhost:50051 \
         "userId": "user-1",
         "timestamp": "1563796562000",
         "sweepBundleHash": "",
-        "withdrawalUuid": "4782e7d5-9ce4-477d-8fd0-32f5f3385db2"
+        "withdrawalUuid": "4782e7d5-9ce4-477d-8fd0-32f5f3385db2",
+	"amount":1000
     },
     "event_2": {
         "type": "USER_ACCOUNT",
@@ -959,7 +963,8 @@ curl http://localhost:50051 \
         "userId": "user-1",
         "timestamp": "1563796604000",
         "sweepBundleHash": "",
-        "withdrawalUuid": "4782e7d5-9ce4-477d-8fd0-32f5f3385db2"
+        "withdrawalUuid": "4782e7d5-9ce4-477d-8fd0-32f5f3385db2",
+	"amount":1000
     },
 }
 ```
@@ -988,7 +993,7 @@ curl http://localhost:50051 \
 | `timestamp` | エポックからの残高変更が発生したミリ秒単位の時間 |
 | amount | 残高に変更した量 |
 | `sweepBundleHash` | `DEPOSIT`イベントのバンドルハッシュが含まれます。 |
-| `withdrawalUUID` | `WITHDRAWAL`または`WITHDRAWAL_CANCELED`イベントの取り出しUUIDが含まれます。 |
+| `withdrawalUuid` | `WITHDRAWAL`または`WITHDRAWAL_CANCELED`イベントの取り出しUUIDが含まれます。 |
 
 <!-- |**Return field** | **Description** | -->
 <!-- | ----------- | ------------------------------------------------------------ | -->
@@ -999,7 +1004,7 @@ curl http://localhost:50051 \
 <!-- | `timestamp`       | Time since epoch in milliseconds that the balance change occured| -->
 <!-- | amount          | Amount that changed to the balance     | -->
 <!-- | `sweepBundleHash` | Contains either the bundle hash for a `DEPOSIT` event| -->
-<!-- |`withdrawalUUID`| Contains a withdrawal UUID for a `WITHDRAWAL` or `WITHDRAWAL_CANCELED` event| -->
+<!-- |`withdrawalUuid`| Contains a withdrawal UUID for a `WITHDRAWAL` or `WITHDRAWAL_CANCELED` event| -->
 
 #### USER_ADDRESS
 
@@ -1444,12 +1449,19 @@ curl http://localhost:50051 \
 
 ## SweepInfo
 
-Get a list of withdrawal UUIDs that were included in a sweep, or get the bundle hash of the sweep that action a given withdrawal.
+To get a list of withdrawal UUIDs that were included in a sweep, use the following parameters:
 
 |**Parameters** |**Required or Optional**|**Description** |**Type**|
 |--|--|--|--|
-| `withdrawalUUID`       | Optional|The withdrawal UUID to check for inclusion in a sweep   |string|
-| `bundleHash`     |Optional| The bundle hash of the sweep to check for incuded withdrawals| string
+|`requestByUuid`|Required|Whether you are calling this endpoint with a withdrawal UUID|boolean|
+| `withdrawalUuid`       | Required|The withdrawal UUID to check for inclusion in a sweep   |string|
+
+To get the bundle hash of the sweep that actioned a given withdrawal, use the following parameters:
+
+|**Parameters** |**Required or Optional**|**Description** |**Type**|
+|--|--|--|--|
+|`requestByUuid`|Required|Whether you are calling this endpoint with a withdrawal UUID|boolean|
+| `bundleHash`     |Required| The bundle hash of the sweep to check for withdrawals| string
 
 ### Examples
 --------------------
@@ -1460,6 +1472,7 @@ import json
 
 command = {
     "command": "SweepInfo",
+    "requestByUuid": "false",
     "bundleHash" : "EWLCW9FFLSBUGZZOOLFQLTRJFKNGPUVCIOCQYTSDOSZLBCBJIIJZGPALGAKKANBTDYOBVQFOJHA9OVFOY"
 }
 
@@ -1484,6 +1497,7 @@ var request = require('request');
 
 var command = {
     "command": "SweepInfo",
+    "requestByUuid": "false",
     "bundleHash" : "EWLCW9FFLSBUGZZOOLFQLTRJFKNGPUVCIOCQYTSDOSZLBCBJIIJZGPALGAKKANBTDYOBVQFOJHA9OVFOY"
 }
 
@@ -1513,6 +1527,7 @@ curl http://localhost:50051 \
 -H 'X-IOTA-API-Version: 1' \
 -d '{
     "command": "SweepInfo",
+    "requestByUuid": "false",
     "bundleHash" : "EWLCW9FFLSBUGZZOOLFQLTRJFKNGPUVCIOCQYTSDOSZLBCBJIIJZGPALGAKKANBTDYOBVQFOJHA9OVFOY"
 }'
 ```
@@ -1631,18 +1646,18 @@ curl http://localhost:50051 \
     "event_0": {
         "bundleHash": "EWLCW9FFLSBUGZZOOLFQLTRJFKNGPUVCIOCQYTSDOSZLBCBJIIJZGPALGAKKANBTDYOBVQFOJHA9OVFOY",
         "timestamp": "1563796442000",
-        "uuid": []
+        "withdrawalUuid": []
     },
     "event_1": {
         "bundleHash": "AJINYQCLKFYOCFWFLPESXAQGXYSZCHILJ9ZZCTNQOUGOFGTIOAXYZBCEWEXWDGAFFXBOXZJAPAUHVAZEC",
         "timestamp": "1567537268000",
-        "uuid": []
+        "withdrawalUuid": []
 
     },
     "event_2": {
         "bundleHash": "GOHZXSDAFYDJTJ9GZKKCBAFFKDCTFGFIYDXADGUH9SJGFYPGIOWXEOJXOYSIGYANNWXEII9KSKUZZCHGX",
         "timestamp": "1567537470000",
-        "uuid": []
+        "withdrawalUuid": []
     }
 }
 ```
@@ -1659,7 +1674,7 @@ curl http://localhost:50051 \
 |--|--|
 | `bundleHash` | The bundle hash of the sweep|
 | `timestamp` | The UNIX timestamp of when the sweep was created |
-|`uuid`|The UUIDs of the withdrawals that were actioned in the sweep|
+|`withdrawalUuid`|The UUIDs of the withdrawals that were actioned in the sweep|
 
 ## UserWithdraw
 

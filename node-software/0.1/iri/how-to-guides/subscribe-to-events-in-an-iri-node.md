@@ -10,7 +10,7 @@
 * あるアドレスにトランザクションが送信されて確定したことを監視する。
 <!-- * Monitor an address for when a transaction is sent to it and confirmed -->
 * [thetangle.org](https://thetangle.org/)などのタングルビジュアライゼーションWebサイトを作成する。
-<!-- * Create a Tangle visualisation website, such as [thetangle.org](https://thetangle.org/) -->
+<!-- * Create a Tangle visualization website, such as [thetangle.org](https://thetangle.org/) -->
 
 次のようにして、ZMQのイベントを購読することができます。
 <!-- You can subscribe to events in the ZMQ by doing the following: -->
@@ -108,6 +108,13 @@ socket.connect('tcp://zmq.devnet.iota.org:5556')
 
 4\. `sn`イベントを購読します。このイベントは確定済みトランザクション用です。
 <!-- 4\. Subscribe to the `sn` event. This event is for confirmed transactions. -->
+
+:::info:
+アドレスイベントのトライトを除くすべてのイベントは小文字でなければなりません。アドレスイベントのトライトは大文字でなければなりません。
+:::
+<!-- :::info: -->
+<!-- All events must be in lowercase letters except the trytes of the address event, which must be in uppercase letters. -->
+<!-- ::: -->
 
 --------------------
 ### Node.js
