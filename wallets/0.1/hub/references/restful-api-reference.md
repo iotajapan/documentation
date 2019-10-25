@@ -1,34 +1,56 @@
-# RESTful API reference
+# RESTful APIリファレンス
+<!-- # RESTful API reference -->
 
-**Hub has a RESTful API that simplifies connections to the Tangle and the Hub database. Use this API reference to find endpoints and learn what they do.**
+**Hubには、タングルおよびハブデータベースへの接続を簡素化するRESTful APIがあります。このAPIリファレンスを使用して、エンドポイントを見つけ、それらの機能を学習します。**
+<!-- **Hub has a RESTful API that simplifies connections to the Tangle and the Hub database. Use this API reference to find endpoints and learn what they do.** -->
 
 :::info:
-If you want to use the RESTful API, you must start Hub with the `--serverType http` command-line flag.
+RESTful APIを使用する場合は、`--serverType http`コマンドラインフラグでハブを起動する必要があります。
 :::
+<!-- :::info: -->
+<!-- If you want to use the RESTful API, you must start Hub with the `--serverType http` command-line flag. -->
+<!-- If you want to use the RESTful API, you must start Hub with the `--serverType http` command-line flag. -->
+<!-- ::: -->
 
-All the following commands must include an HTTP header.
+以下のすべてのコマンドには、HTTPヘッダーを含める必要があります。
+<!-- All the following commands must include an HTTP header. -->
 
-| **Header**       | **Value** | **Required or Optional** |
-|:---------------|:--------|:--------|
-| X-IOTA-API-Version | 1 | Required |
-| Content-Type | application/json | Optional |
+| **ヘッダー** | **値** | **必須か任意か** |
+| :------- | :--- | :---------- |
+| X-IOTA-API-Version | 1 | 必須 |
+| Content-Type | application/json | 任意 |
 
+<!-- | **Header**       | **Value** | **Required or Optional** | -->
+<!-- |:---------------|:--------|:--------| -->
+<!-- |:---------------|:--------|:--------| -->
+<!-- | X-IOTA-API-Version | 1 | Required | -->
+<!-- | Content-Type | application/json | Optional | -->
 
 :::warning:
-This API is in beta, and is subject to change. We recommend that you don't use this API in production applications.
+このAPIはベータ版であり、変更される可能性があります。実稼働アプリケーションではこのAPIを使用しないことをお勧めします。
 :::
+<!-- :::warning: -->
+<!-- This API is in beta, and is subject to change. We recommend that you don't use this API in production applications. -->
+<!-- ::: -->
 
 ## CreateUser
 
-Create a new user on Hub.
+ハブで新しいユーザーを作成します。
+<!-- Create a new user on Hub. -->
 
- ### Parameters
+### パラメーター
+<!-- ### Parameters -->
 
-|**Parameter** | **Required or Optional**|**Description** | **Type**|
-|--|--|--|--|
-| `userId` | Required|A unique ID for the user | string|
+| **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
+| :----------- | :----------- | :--- | :----- |
+| `userId` | 必須 | ユーザーの一意のID | string |
 
-### Examples
+<!-- |**Parameter** | **Required or Optional**|**Description** | **Type**| -->
+<!-- |--|--|--|--| -->
+<!-- | `userId` | Required|A unique ID for the user | string| -->
+
+### 例
+<!-- ### Examples -->
 --------------------
 ### Python
 ```python
@@ -95,7 +117,8 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
+<!-- ### Response examples -->
 --------------------
 ### 200
 ```json
@@ -110,21 +133,30 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Results
+### 結果
+<!-- ### Results -->
 
-An empty object is returned in a successful result.
+空のオブジェクトが成功した結果として返されます。
+<!-- An empty object is returned in a successful result. -->
 
 ## GetAddressInfo
 
-Get the ID of the user that owns a given deposit address.
+与えられた預け入れアドレスを所有しているユーザーのIDを取得します。
+<!-- Get the ID of the user that owns a given deposit address. -->
 
- ### Parameters
+### パラメーター
+<!-- ### Parameters -->
 
-|**Parameter** |**Required or Optional** |**Description** |**Type**|
-|--|--|--|--|
-| `address` |Required| The 81-tryte deposit address (without checksum) | string|
+| **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
+| :----------- | :----------- | :--- | :----- |
+| `address` | 必須 | 81トライとの預け入れアドレス（チェックサム無し） | string |
 
-### Examples
+<!-- |**Parameter** |**Required or Optional** |**Description** |**Type**| -->
+<!-- |--|--|--|--| -->
+<!-- | `address` |Required| The 81-tryte deposit address (without checksum) | string| -->
+
+### 例
+<!-- ### Examples -->
 --------------------
 ### Python
 ```python
@@ -192,7 +224,8 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
+<!-- ### Response examples -->
 --------------------
 ### 200
 ```json
@@ -209,23 +242,35 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Results
+### 結果
+<!-- ### Results -->
 
-|**Return field** | **Description** |
-|--|--|
-| `userId` | The ID of the user that owns the deposit address|
+| **リターンフィールド** | **説明** |
+| :----------------- | :--- |
+| `userId` | 預け入れアドレスを所有するユーザーのID |
+
+<!-- |**Return field** | **Description** | -->
+<!-- |--|--| -->
+<!-- | `userId` | The ID of the user that owns the deposit address| -->
 
 ## GetBalance
 
-Get a user's available balance.
+ユーザーの利用可能な残高を取得します。
+<!-- Get a user's available balance. -->
 
-### Parameters
+### パラメーター
+<!-- ### Parameters -->
 
-|**Parameters** |**Required or Optional** |**Description** |**Type**
-|--|--|--|--|
-| `userId` |Required| The ID of the user | string
+| **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
+| :----------- | :----------- | :--- | :----- |
+| `userId` | 必須 | ユーザーのID | string |
 
-### Examples
+<!-- |**Parameters** |**Required or Optional** |**Description** |**Type** -->
+<!-- |--|--|--|--| -->
+<!-- | `userId` |Required| The ID of the user | string -->
+
+### 例
+<!-- ### Examples -->
 --------------------
 ### Python
 ```python
@@ -292,7 +337,8 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
+<!-- ### Response examples -->
 --------------------
 ### 200
 ```json
@@ -309,24 +355,37 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Results
+### 結果
+<!-- ### Results -->
 
-|**Return field**  |**Description** |
-|--|--|
-| `available` | The total amount of IOTA tokens that a user has available on Hub |
+| **リターンフィールド** | **説明** |
+| :----------------- | :--- |
+| `available` | ユーザーがハブで利用できるIOTAトークンの合計量 |
+
+<!-- |**Return field**  |**Description** | -->
+<!-- |--|--| -->
+<!-- | `available` | The total amount of IOTA tokens that a user has available on Hub | -->
 
 ## GetDepositAddress
 
-Create a new deposit address for a given user.
+与えられたユーザーの新しい預け入れアドレスを作成します。
+<!-- Create a new deposit address for a given user. -->
 
-### Parameters
+### パラメーター
+<!-- ### Parameters -->
 
-|**Parameter** | **Required or Optional**|**Description** |**Type**
-|--|--|--|--|
-| `userId` |Required| The ID of the user | string|
-|`includeChecksum`|Optional|Whether to include the 9-tryte checksum at the end of the address|boolean
+| **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
+| :----------- | :----------- | :--- | :----- |
+| `userId` | 必須 | ユーザーのID | string |
+|`includeChecksum`| 任意 | アドレスの最後に9トライとのチェックサムを含めるかどうか | boolean |
 
-### Examples
+<!-- |**Parameter** | **Required or Optional**|**Description** |**Type** -->
+<!-- |--|--|--|--| -->
+<!-- | `userId` |Required| The ID of the user | string| -->
+<!-- |`includeChecksum`|Optional|Whether to include the 9-tryte checksum at the end of the address|boolean -->
+
+### 例
+<!-- ### Examples -->
 --------------------
 ### Python
 ```python
@@ -393,7 +452,8 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
+<!-- ### Response examples -->
 --------------------
 ### 200
 ```json
@@ -410,17 +470,24 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Results
+### 結果
+<!-- ### Results -->
 
-|**Return field** | **Description** |
-|--|--|
-| `address` | A new 81-tryte deposit address (without checksum) |
+| **リターンフィールド** | **説明** |
+| :----------------- | :--- |
+| `address` | 新しい81トライトの預け入れアドレス（チェックサム無し） |
+
+<!-- |**Return field** | **Description** | -->
+<!-- |--|--| -->
+<!-- | `address` | A new 81-tryte deposit address (without checksum) | -->
 
 ## GetStats
 
-Get the total amount of IOTA tokens that are stored in Hub.
+ハブに保存されているIOTAトークンの合計量を取得します。
+<!-- Get the total amount of IOTA tokens that are stored in Hub. -->
 
-### Examples
+### 例
+<!-- ### Examples -->
 --------------------
 ### Python
 ```python
@@ -485,7 +552,8 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
+<!-- ### Response examples -->
 --------------------
 ### 200
 ```json
@@ -502,23 +570,35 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Results
+### 結果
+<!-- ### Results -->
 
-|**Return field** | **Description** |
-|--|--|
-| `totalBalance` | The total amount of IOTA tokens that are stored in the Hub owner's account|
+| **リターンフィールド** | **説明** |
+| :----------------- | :--- |
+| `totalBalance` | ハブ所有者のアカウントに保存されているIOTAトークンの合計量 |
+
+<!-- |**Return field** | **Description** | -->
+<!-- |--|--| -->
+<!-- | `totalBalance` | The total amount of IOTA tokens that are stored in the Hub owner's account| -->
 
 ## GetUserHistory
 
-Get the history of a user's balance.
+ユーザーの残高の履歴を取得します。
+<!-- Get the history of a user's balance. -->
 
-### Parameters
+### パラメーター
+<!-- ### Parameters -->
 
-|**Parameter** | **Required or Optional**|**Description** |**Type**
-|--|--|--|--|
-| `userId` |Required| The ID of the user | string
+| **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
+| :----------- | :----------- | :--- | :----- |
+| `userId` | 必須 | ユーザーのID | string |
 
-### Examples
+<!-- |**Parameter** | **Required or Optional**|**Description** |**Type** -->
+<!-- |--|--|--|--| -->
+<!-- | `userId` |Required| The ID of the user | string -->
+
+### 例
+<!-- ### Examples -->
 --------------------
 ### Python
 ```python
@@ -584,7 +664,8 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
+<!-- ### Response examples -->
 --------------------
 ### 200
 ```json
@@ -624,36 +705,60 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Results
+### 結果
+<!-- ### Results -->
 
-|**Return field** | **Description** |
-| `userId`          | ID of the user whose account's balance changed |
-| `timestamp`       | Time since epoch in milliseconds that the balance change occured|
-|`reason`|  The type of [event that caused a change to the account balance](#balance-change-events-for-user-accounts)    |
-| amount          | Amount that changed to the balance     |
-| `sweepBundleHash` | Contains either the bundle hash for a `DEPOSIT` event|
-|`withdrawalUUID`| Contains a withdrawal UUID for a `WITHDRAWAL` or `WITHDRAWAL_CANCELED` event
+| **リターンフィールド** | **説明** |
+| :----------------- | :--- |
+| `userId` | アカウントの残高が変更されたユーザーのID |
+| `timestamp` | エポックからの残高変更が発生したミリ秒単位の時間 |
+| `reason` | [アカウント残高の変更を引き起こしたイベント](#balance-change-events-for-user-accounts)の種類 |
+| amount | 残高へと変更した量 |
+| `sweepBundleHash` | `DEPOSIT`イベントのバンドルハッシュが含まれます。 |
+| `withdrawalUUID` | `WITHDRAWAL`または`WITHDRAWAL_CANCELED`イベントの取り出しUUIDが含まれます。 |
+
+<!-- |**Return field** | **Description** | -->
+<!-- | `userId`          | ID of the user whose account's balance changed | -->
+<!-- | `timestamp`       | Time since epoch in milliseconds that the balance change occured| -->
+<!-- |`reason`|  The type of [event that caused a change to the account balance](#balance-change-events-for-user-accounts)    | -->
+<!-- | amount          | Amount that changed to the balance     | -->
+<!-- | `sweepBundleHash` | Contains either the bundle hash for a `DEPOSIT` event| -->
+<!-- |`withdrawalUUID`| Contains a withdrawal UUID for a `WITHDRAWAL` or `WITHDRAWAL_CANCELED` event -->
 
 ## ProcessTransferBatch
 
-Process a batch of buys/sells from the exchange.
+取引所からの購入/販売のバッチを処理します。
+<!-- Process a batch of buys/sells from the exchange. -->
 
 :::info:
-The total amount of a batch must sum to 0.
+バッチの合計額は0になる必要があります。
 :::
+<!-- :::info: -->
+<!-- The total amount of a batch must sum to 0. -->
+<!-- ::: -->
 
 :::info:
-This endpoint affects users' balances in the Hub database. No transactions are sent to the Tangle.
+このエンドポイントは、ハブデータベース内のユーザーの残高に影響します。トランザクションはタングルに送信されません。
 :::
+<!-- :::info: -->
+<!-- This endpoint affects users' balances in the Hub database. No transactions are sent to the Tangle. -->
+<!-- ::: -->
 
- ### Parameters
+### パラメーター
+<!-- ### Parameters -->
 
-|**Parameters** |**Required or Optional**|**Description** |**Type**
-|--|--|--|--|
-| `userId` |Required| The ID of the user whose balance you want to update during the transfer |string|
-| `amount` |Required| The amount of IOTA tokens to add or subtract from the user's balance  | integer|
+| **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
+| :----------- | :----------- | :--- | :----- |
+| `userId` | 必須 | 転送中に残高を更新するユーザーのID | string |
+| `amount` | 必須 | ユーザーの残高に加算または減算するIOTAトークンの量 | integer |
 
-### Examples
+<!-- |**Parameters** |**Required or Optional**|**Description** |**Type** -->
+<!-- |--|--|--|--| -->
+<!-- | `userId` |Required| The ID of the user whose balance you want to update during the transfer |string| -->
+<!-- | `amount` |Required| The amount of IOTA tokens to add or subtract from the user's balance  | integer| -->
+
+### 例
+<!-- ### Examples -->
 --------------------
 ### Python
 ```python
@@ -720,7 +825,8 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
+<!-- ### Response examples -->
 --------------------
 ### 200
 ```json
@@ -735,21 +841,30 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Results
+### 結果
+<!-- ### Results -->
 
-An empty object is returned in a successful result.
+空のオブジェクトが成功した結果で返されます。
+<!-- An empty object is returned in a successful result. -->
 
 ## BalanceSubscription
 
-Monitor a stream of balance changes since a given time.
+特定の時間以降の残高の変化のストリームを監視します。
+<!-- Monitor a stream of balance changes since a given time. -->
 
- ### Parameters
+### パラメーター
+<!-- ### Parameters -->
 
-|**Parameters** |**Required or Optional**|**Description** |**Type**|
-|--|--|--|--|
-| `newerThan` |Required| The time and date from which to start monitoring balance changes. A `0` value means that Hub gets all balance changes.|Unix timestamp
+| **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
+| :----------- | :----------- | :--- | :----- |
+| `newerThan` | 必須 | バランスの変更を監視する開始日時。`0`値は、ハブがすべての残高変更を取得することを意味します。 | Unix timestamp |
 
-### Examples
+<!-- |**Parameters** |**Required or Optional**|**Description** |**Type**| -->
+<!-- |--|--|--|--| -->
+<!-- | `newerThan` |Required| The time and date from which to start monitoring balance changes. A `0` value means that Hub gets all balance changes.|Unix timestamp -->
+
+### 例
+<!-- ### Examples -->
 --------------------
 ### Python
 ```python
@@ -816,7 +931,8 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
+<!-- ### Response examples -->
 --------------------
 ### 200
 ```json
@@ -856,67 +972,117 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Results
+### 結果
+<!-- ### Results -->
 
-Depending on the value of the `type` field, the following data is returned:
+`type`フィールドの値に応じて、次のデータが返されます：
+<!-- Depending on the value of the `type` field, the following data is returned: -->
 
 #### USER_ACCOUNT
 
-|**Return field** | **Description** |
-| ----------- | ------------------------------------------------------------ |
-|`type`|The `USER_ACCOUNT` type is for changes to the balance of a user's account|
-|`reason`|  The type of [event that caused a change to the account balance](#balance-change-events-for-user-accounts)    |
-| `userId`          | ID of the user whose account's balance changed |
-| `timestamp`       | Time since epoch in milliseconds that the balance change occured|
-| amount          | Amount that changed to the balance     |
-| `sweepBundleHash` | Contains either the bundle hash for a `DEPOSIT` event|
-|`withdrawalUUID`| Contains a withdrawal UUID for a `WITHDRAWAL` or `WITHDRAWAL_CANCELED` event|
+| **リターンフィールド** | **説明** |
+| :----------------- | :--- |
+| `type` | `USER_ACCOUNT`タイプは、ユーザーのアカウントの残高を変更するためのものです。 |
+| `reason` | [アカウント残高の変更を引き起こしたイベント](#balance-change-events-for-user-accounts)の種類 |
+| `userId` | アカウントの残高が変更されたユーザーのID |
+| `timestamp` | エポックからの残高変更が発生したミリ秒単位の時間 |
+| amount | 残高に変更した量 |
+| `sweepBundleHash` | `DEPOSIT`イベントのバンドルハッシュが含まれます。 |
+| `withdrawalUUID` | `WITHDRAWAL`または`WITHDRAWAL_CANCELED`イベントの取り出しUUIDが含まれます。 |
+
+<!-- |**Return field** | **Description** | -->
+<!-- | ----------- | ------------------------------------------------------------ | -->
+<!-- | ----------- | ------------------------------------------------------------ | -->
+<!-- |`type`|The `USER_ACCOUNT` type is for changes to the balance of a user's account| -->
+<!-- |`reason`|  The type of [event that caused a change to the account balance](#balance-change-events-for-user-accounts)    | -->
+<!-- | `userId`          | ID of the user whose account's balance changed | -->
+<!-- | `timestamp`       | Time since epoch in milliseconds that the balance change occured| -->
+<!-- | amount          | Amount that changed to the balance     | -->
+<!-- | `sweepBundleHash` | Contains either the bundle hash for a `DEPOSIT` event| -->
+<!-- |`withdrawalUUID`| Contains a withdrawal UUID for a `WITHDRAWAL` or `WITHDRAWAL_CANCELED` event| -->
 
 #### USER_ADDRESS
 
-|**Return Field**|**Description**|
-| ----------- | ------------------------------------------------------------ |
-|`type`|The `USER_ADDRESS` type is for changes to one of a user's deposit address|
-| `userId`      | The ID of the user whose address's balance changed  |
-| `userAddress` | Address whose balance was changed                                                          |
-| `amount`      |Amount that changed to the balance                                                          |
-| `reason`      | The type of [event that caused a change to the balance of the user's address](#balance-change-events-for-user-addresses)                                                         |
-| `hash`       | Contains either a tail transaction hash for a `DEPOSIT` reason or a bundle hash for a `SWEEP` reason |
-| timestamp   | Time since epoch in milliseconds that the balance change occured|
+| **リターンフィールド** | **説明** |
+| :----------------- | :--- |
+| `type` |`USER_ADDRESS`タイプは、ユーザーの預け入れアドレスの1つを変更するためのものです。 |
+| `userId` | アドレスの残高が変更されたユーザーのID |
+| `userAddress` | 残高が変更されたアドレス |
+| `amount` | 残高に変更した量 |
+| `reason` | [ユーザーのアドレスの残高の変更を引き起こしたイベント](#balance-change-events-for-user-addresses)のタイプ |
+| `hash` | `DEPOSIT`理由の末尾トランザクションハッシュまたは`SWEEP`理由のバンドルハッシュが含まれます。 |
+| timestamp | エポックからの残高変更が発生したミリ秒単位の時間 |
+
+<!-- |**Return Field**|**Description**| -->
+<!-- | ----------- | ------------------------------------------------------------ | -->
+<!-- | ----------- | ------------------------------------------------------------ | -->
+<!-- |`type`|The `USER_ADDRESS` type is for changes to one of a user's deposit address| -->
+<!-- | `userId`      | The ID of the user whose address's balance changed  | -->
+<!-- | `userAddress` | Address whose balance was changed | -->
+<!-- | `amount`      |Amount that changed to the balance | -->
+<!-- | `reason`      | The type of [event that caused a change to the balance of the user's address](#balance-change-events-for-user-addresses) | -->
+<!-- | `hash`       | Contains either a tail transaction hash for a `DEPOSIT` reason or a bundle hash for a `SWEEP` reason | -->
+<!-- | timestamp   | Time since epoch in milliseconds that the balance change occured| -->
 
 #### HUB_ADDRESS
 
-|**Field**|**Description**|
-| --------------- | ----------------------------------------------------------- |
-`type`|The `HUB_ADDRESS` type is for changes to one of the Hub owner's addresses|
-| `hubAddress`      | Hub owner's 81-tryte address  (without checksum)         |
-| `amount`          | Amount that changed to the balance       |
-| `reason`          | The type of [event that caused a change to the balance of the Hub address balance](#balance-change-events-for-hub-addresses)         |
-| `sweepBundleHash` | Bundle hash of the sweep that resulted in the updated balance          |
-| `timestamp`       | Time since epoch in milliseconds that the balance change occured          |
+| **リターンフィールド** | **説明** |
+| :----------------- | :--- |
+| `type` | `HUB_ADDRESS`タイプは、ハブの所有者のアドレスの1つを変更するためのものです。 |
+| `hubAddress`      | ハブ所有者の81トライトのアドレス（チェックサムなし） |
+| `amount`          | 残高に変更した量 |
+| `reason`          | [ハブアドレスの残高の変化を引き起こしたイベント](#balance-change-events-for-hub-addresses)のタイプ |
+| `sweepBundleHash` | 更新された残高になったスイープのバンドルハッシュ |
+| `timestamp`       | エポックからの残高変更が発生したミリ秒単位の時間 |
+
+<!-- |**Field**|**Description**| -->
+<!-- | --------------- | ----------------------------------------------------------- | -->
+<!-- | `type` |The `HUB_ADDRESS` type is for changes to one of the Hub owner's addresses| -->
+<!-- | `hubAddress`      | Hub owner's 81-tryte address  (without checksum)         | -->
+<!-- | `amount`          | Amount that changed to the balance       | -->
+<!-- | `reason`          | The type of [event that caused a change to the balance of the Hub address balance](#balance-change-events-for-hub-addresses)         | -->
+<!-- | `sweepBundleHash` | Bundle hash of the sweep that resulted in the updated balance          | -->
+<!-- | `timestamp`       | Time since epoch in milliseconds that the balance change occured          | -->
 
 ## RecoverFunds
 
-Transfer IOTA tokens from a spent address to an unspent one.
+IOTAトークンを使用済みのアドレスから未使用のアドレスに転送します。
+<!-- Transfer IOTA tokens from a spent address to an unspent one. -->
 
 :::info:
-To use this endpoint, you must run Hub with the [`--RecoverFunds_enabled` flag](../references/command-line-flags.md#recoverFunds).
+このエンドポイントを使用するには、[`--RecoverFunds_enabled`フラグ](../references/command-line-flags.md#recoverFunds)を指定してハブを実行する必要があります。
 :::
+<!-- :::info: -->
+<!-- To use this endpoint, you must run Hub with the [`--RecoverFunds_enabled` flag](../references/command-line-flags.md#recoverFunds). -->
+<!-- To use this endpoint, you must run Hub with the [`--RecoverFunds_enabled` flag](../references/command-line-flags.md#recoverFunds). -->
+<!-- ::: -->
 
 :::info:
-If you want more control over where the tokens are transferred, use the [`SignBundle` endpoint](#SignBundle).
+トークンの転送先をさらに制御したい場合は、[`SignBundle`エンドポイント](#SignBundle)を使用します。
 :::
+<!-- :::info: -->
+<!-- If you want more control over where the tokens are transferred, use the [`SignBundle` endpoint](#SignBundle). -->
+<!-- ::: -->
 
-### Parameters
+### パラメーター
+<!-- ### Parameters -->
 
-|**Parameters** |**Required or Optional**|**Description** |**Type**|
-|--|--|--|--|
-| `userId` | Required | The ID of the user whose spent address you want to recover the funds from          | string|
-| `address` | Required| The user's spent address (without checksum)   |string|
-| `validateChecksum` | Required| Whether to validate the address. Set this field to `true` if the `payoutAddress` field is a 90-tryte address (with checksum) |boolean|
-| `payoutAddress` | Required|Address to which to transfer the total balance of the address in the `address` field (may include checksum)       |string
+| **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
+| :----------- | :----------- | :--- | :----- |
+| `userId` | 必須 | 使用済みアドレスから資金をリカバーしたいユーザーのID | string |
+| `address` | 必須| ユーザーの使用済みアドレス（チェックサムなし） | string |
+| `validateChecksum` | 必須 | アドレスを検証するかどうか。`payoutAddress`フィールドが90トライアドレス（チェックサム付き）の場合、このフィールドを`true`に設定します。 | boolean |
+| `payoutAddress` | 必須 | `address`フィールドのアドレスの合計残高の転送先アドレス（チェックサムを含む場合があります） | string |
 
-### Examples
+<!-- |**Parameters** |**Required or Optional**|**Description** |**Type**| -->
+<!-- |--|--|--|--| -->
+<!-- | `userId` | Required | The ID of the user whose spent address you want to recover the funds from          | string| -->
+<!-- | `address` | Required| The user's spent address (without checksum)   |string| -->
+<!-- | `validateChecksum` | Required| Whether to validate the address. Set this field to `true` if the `payoutAddress` field is a 90-tryte address (with checksum) |boolean| -->
+<!-- | `payoutAddress` | Required|Address to which to transfer the total balance of the address in the `address` field (may include checksum)       |string -->
+
+### 例
+<!-- ### Examples -->
 --------------------
 ### Python
 ```python
@@ -991,7 +1157,8 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
+<!-- ### Response examples -->
 --------------------
 ### 200
 ```json
@@ -1006,34 +1173,53 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Results
+### 結果
+<!-- ### Results -->
 
-An empty object is returned in a successful result.
+空のオブジェクトが成功した結果で返されます。
+<!-- An empty object is returned in a successful result. -->
 
 ## SignBundle
 
-Get a signature to add to an unsigned bundle.
+署名を取得して、未署名のバンドルに追加します。
+<!-- Get a signature to add to an unsigned bundle. -->
 
-This endpoint is useful for signing pre-built bundles that transfer IOTA tokens from a spent deposit address to two or more unspent addresses.
+このエンドポイントは、使用済みの預け入れアドレスから2つ以上の未使用アドレスにIOTAトークンを転送するビルド済みバンドルに署名するのに役立ちます。
+<!-- This endpoint is useful for signing pre-built bundles that transfer IOTA tokens from a spent deposit address to two or more unspent addresses. -->
 
-If you want to transfer all the IOTA tokens of a spent address into a single address, use the [`RecoverFunds` endpoint](#RecoverFunds).
+使用済みアドレスのすべてのIOTAトークンを単一のアドレスに転送する場合は、[`RecoverFunds`エンドポイント](#RecoverFunds)を使用します。
+<!-- If you want to transfer all the IOTA tokens of a spent address into a single address, use the [`RecoverFunds` endpoint](#RecoverFunds). -->
 
-For an example of how to use this endpoint, follow our guide to [build a bundle and sign it with Hub](../how-to-guides/recover-tokens.md).
+このエンドポイントの使用方法の例については、[バンドルを構築し、ハブでバンドルに署名する](../how-to-guides/recover-tokens.md)を参照してください。
+<!-- For an example of how to use this endpoint, follow our guide to [build a bundle and sign it with Hub](../how-to-guides/recover-tokens.md). -->
 
 :::info:
-To use this endpoint, you must run Hub with the [`--SignBundle_enabled` flag](../references/command-line-flags.md#signBundle).
+このエンドポイントを使用するには、[`--SignBundle_enabled`フラグ](../references/command-line-flags.md#signBundle)を指定してハブを実行する必要があります。
 :::
+<!-- :::info: -->
+<!-- To use this endpoint, you must run Hub with the [`--SignBundle_enabled` flag](../references/command-line-flags.md#signBundle). -->
+<!-- To use this endpoint, you must run Hub with the [`--SignBundle_enabled` flag](../references/command-line-flags.md#signBundle). -->
+<!-- ::: -->
 
-### Parameters
+### パラメーター
+<!-- ### Parameters -->
 
-|**Parameters** |**Required or Optional**|**Description** |**Type**|
-|--|--|--|--|
-| `address`          |The user's deposit address that you want to withdraw from (may include a checksum) |string|
-| `bundleHash`       | The bundle hash that needs signing   |string|
-| `authentication`   |Optional |Authentication token for the endpoint |string|
-| `validateChecksum` |Whether to validate the address. Set this field to `true` if the `address` field is a 90-tryte address (with checksum)
+| **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
+| :----------- | :----------- | :--- | :----- |
+| `address`          | 必須 | 取り出したいユーザーの預け入れアドレス（チェックサムを含む場合があります） | string |
+| `bundleHash`       | 必須 | 署名が必要なバンドルハッシュ | string |
+| `authentication`   | 任意 | エンドポイントの認証トークン | string |
+| `validateChecksum` | 任意 | アドレスを検証するかどうか。`address`フィールドが90トライアドレス（チェックサム付き）の場合、このフィールドを`true`に設定します。 |
 
-### Examples
+<!-- |**Parameters** |**Required or Optional**|**Description** |**Type**| -->
+<!-- |--|--|--|--| -->
+<!-- | `address`          |The user's deposit address that you want to withdraw from (may include a checksum) |string| -->
+<!-- | `bundleHash`       | The bundle hash that needs signing   |string| -->
+<!-- | `authentication`   |Optional |Authentication token for the endpoint |string| -->
+<!-- | `validateChecksum` |Whether to validate the address. Set this field to `true` if the `address` field is a 90-tryte address (with checksum) -->
+
+### 例
+<!-- ### Examples -->
 --------------------
 ### Python
 ```python
@@ -1106,7 +1292,8 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
+<!-- ### Response examples -->
 --------------------
 ### 200
 ```json
@@ -1123,21 +1310,34 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Results
+### 結果
+<!-- ### Results -->
 
-|**Return field**| **Description** |
-|--|--|
-| `signature` | The signature to include in the `signatureMessageFragment` field of the input transaction in the bundle|
+| **リターンフィールド** | **説明** |
+| :----------------- | :--- |
+| `signature` | バンドル内の入力トランザクションの`signatureMessageFragment`フィールドに含める署名 |
+
+<!-- |**Return field**| **Description** | -->
+<!-- |--|--| -->
+<!-- | `signature` | The signature to include in the `signatureMessageFragment` field of the input transaction in the bundle| -->
 
 ## SweepDetail
 
-Get information about a sweep (confirmation status, transaction trytes, and reattachments).
+スイープに関する情報（確定ステータス、トランザクショントライト、および再添付）を取得します。
+<!-- Get information about a sweep (confirmation status, transaction trytes, and reattachments). -->
 
-|**Parameters** |**Required or Optional**|**Description** |**Type**|
-|--|--|--|--|
-| `bundleHash`       | The bundle hash of the sweep   |string|
+### パラメーター
 
-### Examples
+| **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
+| :----------- | :----------- | :--- | :----- |
+| `bundleHash` | スウィープのバンドルハッシュ | string |
+
+<!-- |**Parameters** |**Required or Optional**|**Description** |**Type**| -->
+<!-- |--|--|--|--| -->
+<!-- | `bundleHash`       | The bundle hash of the sweep   |string| -->
+
+### 例
+<!-- ### Examples -->
 --------------------
 ### Python
 ```python
@@ -1204,7 +1404,8 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
+<!-- ### Response examples -->
 --------------------
 ### 200
 ```json
@@ -1226,13 +1427,20 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Results
+### 結果
+<!-- ### Results -->
 
-|**Return field** | **Description** |
-|--|--|
-| `confirmed` | The sweep's confirmation status |
-| `trytes`    | The transactions trytes, starting from the first bundle and ending with the latest reattachment bundle                            |
-| `tailHash`  | The sweep's tail transaction hashes (each reattached sweep results in a new tail transaction hash) |
+| **リターンフィールド** | **説明** |
+| :----------------- | :--- |
+| `confirmed` | スウィープの確定ステータス |
+| `trytes`    | 最初のバンドルから始まり、最新の再添付バンドルで終わるトランザクショントライト。 |
+| `tailHash`  | スウィープの末尾トランザクションハッシュ（再添付された各スウィープは、新しい末尾トランザクションハッシュになります） |
+
+<!-- |**Return field** | **Description** | -->
+<!-- |--|--| -->
+<!-- | `confirmed` | The sweep's confirmation status | -->
+<!-- | `trytes`    | The transactions trytes, starting from the first bundle and ending with the latest reattachment bundle                            | -->
+<!-- | `tailHash`  | The sweep's tail transaction hashes (each reattached sweep results in a new tail transaction hash) | -->
 
 ## SweepInfo
 
