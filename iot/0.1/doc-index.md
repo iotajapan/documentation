@@ -2,7 +2,7 @@
 
 [序説/概要](/introduction/overview.md)
 
-[概念/Flashing](/concepts/flashing.md)
+[概念/フラッシュ](/concepts/flashing.md)
 
 [概念/IPv6メッシュメットワーク](/concepts/ipv6-mesh-network.md)
 
