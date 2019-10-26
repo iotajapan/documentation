@@ -1449,21 +1449,34 @@ curl http://localhost:50051 \
 
 ## SweepInfo
 
-To get a list of withdrawal UUIDs that were included in a sweep, use the following parameters:
+スウィープに含まれていた取り出しUUIDのリストを取得するには、次のパラメーターを使用します。
+<!-- To get a list of withdrawal UUIDs that were included in a sweep, use the following parameters: -->
 
-|**Parameters** |**Required or Optional**|**Description** |**Type**|
-|--|--|--|--|
-|`requestByUuid`|Required|Whether you are calling this endpoint with a withdrawal UUID|boolean|
-| `withdrawalUuid`       | Required|The withdrawal UUID to check for inclusion in a sweep   |string|
+| **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
+| :----------- | :----------- | :--- | :----- |
+| `requestByUuid` | 必須 | 取り出しUUIDでこのエンドポイントを呼び出すかどうか | boolean |
+| `withdrawalUuid` | 必須 | スウィープへの包含を確認するための取り出しUUID | string |
 
-To get the bundle hash of the sweep that actioned a given withdrawal, use the following parameters:
+<!-- |**Parameters** |**Required or Optional**|**Description** |**Type**| -->
+<!-- |--|--|--|--| -->
+<!-- |`requestByUuid`|Required|Whether you are calling this endpoint with a withdrawal UUID|boolean| -->
+<!-- | `withdrawalUuid`       | Required|The withdrawal UUID to check for inclusion in a sweep   |string| -->
 
-|**Parameters** |**Required or Optional**|**Description** |**Type**|
-|--|--|--|--|
-|`requestByUuid`|Required|Whether you are calling this endpoint with a withdrawal UUID|boolean|
-| `bundleHash`     |Required| The bundle hash of the sweep to check for withdrawals| string
+特定の取り出しを実行したスウィープのバンドルハッシュを取得するには、次のパラメーターを使用します。
+<!-- To get the bundle hash of the sweep that actioned a given withdrawal, use the following parameters: -->
 
-### Examples
+| **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
+| :----------- | :----------- | :--- | :----- |
+|`requestByUuid`| 必須 | 取り出しUUIDでこのエンドポイントを呼び出すかどうか | boolean |
+| `bundleHash`     | 必須 | 取り出しを確認するスイープのバンドルハッシュ | string |
+
+<!-- |**Parameters** |**Required or Optional**|**Description** |**Type**| -->
+<!-- |--|--|--|--| -->
+<!-- |`requestByUuid`|Required|Whether you are calling this endpoint with a withdrawal UUID|boolean| -->
+<!-- | `bundleHash`     |Required| The bundle hash of the sweep to check for withdrawals| string -->
+
+### 例
+<!-- ### Examples -->
 --------------------
 ### Python
 ```python
@@ -1533,7 +1546,8 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
+<!-- ### Response examples -->
 --------------------
 ### 200
 ```json
@@ -1553,25 +1567,39 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Results
+### 結果
+<!-- ### Results -->
 
-|**Return field**| **Description** |
-|--|--|
-| `bundleHash` | The bundle hash of the sweep|
-| `timestamp` | The UNIX timestamp of when the sweep was created |
-|`withdrawalUuid`|The UUIDs of the withdrawals that were actioned in the sweep|
+| **リターンフィールド** | **説明** |
+| :----------------- | :--- |
+| `bundleHash` | スウィープのバンドルハッシュ |
+| `timestamp` | スウィープが作成されたときのUNIXタイムスタンプ |
+| `withdrawalUuid` | スウィープ内で実行された取り出しのUUID |
+
+<!-- |**Return field**| **Description** | -->
+<!-- |--|--| -->
+<!-- | `bundleHash` | The bundle hash of the sweep| -->
+<!-- | `timestamp` | The UNIX timestamp of when the sweep was created | -->
+<!-- |`withdrawalUuid`|The UUIDs of the withdrawals that were actioned in the sweep| -->
 
 ## SweepSubscription
 
-Monitor a stream of all sweeps since a given time.
+与えられた時間以降のすべてのスウィープのストリームを監視します。
+<!-- Monitor a stream of all sweeps since a given time. -->
 
-### Parameters
+### パラメーター
+<!-- ### Parameters -->
 
-|**Parameters** |**Required or Optional**|**Description** |**Type**|
-|--|--|--|--|
-| `newerThan` |Required| The time and date from which to start monitoring sweeps . A `0` value means that Hub gets all sweep events.|Unix timestamp
+| **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
+| :----------- | :----------- | :--- | :----- |
+| `newerThan` | 必須 | スウィープの監視を開始する日時。値が`0`の場合、ハブはすべてのスウィープイベントを取得します。 | Unix timestamp |
 
-### Examples
+<!-- |**Parameters** |**Required or Optional**|**Description** |**Type**| -->
+<!-- |--|--|--|--| -->
+<!-- | `newerThan` |Required| The time and date from which to start monitoring sweeps . A `0` value means that Hub gets all sweep events.|Unix timestamp -->
+
+### 例
+<!-- ### Examples -->
 --------------------
 ### Python
 ```python
@@ -1638,7 +1666,8 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
+<!-- ### Response examples -->
 --------------------
 ### 200
 ```json
@@ -1668,29 +1697,47 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Results
+### 結果
+<!-- ### Results -->
 
-|**Return field**| **Description** |
-|--|--|
-| `bundleHash` | The bundle hash of the sweep|
-| `timestamp` | The UNIX timestamp of when the sweep was created |
-|`withdrawalUuid`|The UUIDs of the withdrawals that were actioned in the sweep|
+| **リターンフィールド** | **説明** |
+| :----------------- | :--- |
+| `bundleHash` | スウィープのバンドルハッシュ |
+| `timestamp` | スウィープが作成されたときのUNIXタイムスタンプ |
+|`withdrawalUuid`| スウィープで実行された取り出しのUUID |
+
+<!-- |**Return field**| **Description** | -->
+<!-- |--|--| -->
+<!-- | `bundleHash` | The bundle hash of the sweep| -->
+<!-- | `timestamp` | The UNIX timestamp of when the sweep was created | -->
+<!-- |`withdrawalUuid`|The UUIDs of the withdrawals that were actioned in the sweep| -->
 
 ## UserWithdraw
 
-Submit a withdrawal request from a given user's account. If request is successful, Hub includes the withdrawal in the next sweep.
+与えられたユーザーのアカウントから取り出しリクエストを送信します。リクエストが成功した場合、ハブは次のスウィープに取り出しを含めます。
+<!-- Submit a withdrawal request from a given user's account. If request is successful, Hub includes the withdrawal in the next sweep. -->
 
-### Parameters
+### パラメーター
+<!-- ### Parameters -->
 
-|**Parameters** |**Required or Optional**|**Description** |**Type**
-|--|--|--|--|
-| `userId` |Required| The ID of the user that wants to withdraw IOTA tokens | string|
-| `amount` |Required| The amount to withdraw from the user's account | integer|
-| `payoutAddress` |Required| Address to which to transfer the IOTA tokens (may include checksum) | string|
-| `validateChecksum` |Required|Whether to validate the address. Set this field to `true` if the `payoutAddress` field is a 90-tryte address (with checksum) |boolean|
-| `tag` |Optional| The value to include in the `tag` field of the input transaction in the bundle | string|
+| **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
+| :----------- | :----------- | :--- | :----- |
+| `userId` | 必須 | IOTAトークンを取り出したいユーザーのID | string|
+| `amount` | 必須 | ユーザーのアカウントから取り出す量 | integer|
+| `payoutAddress` | 必須 | IOTAトークンの転送先アドレス（チェックサムを含む場合があります） | string|
+| `validateChecksum` | 必須 | アドレスを検証するかどうか。`payoutAddress`フィールドが90トライトアドレス（チェックサム付き）の場合、このフィールドを`true`に設定します。 | boolean |
+| `tag` | 任意 | バンドル内の入力トランザクションの`tag`フィールドに含める値 | string |
 
-### Examples
+<!-- |**Parameters** |**Required or Optional**|**Description** |**Type** -->
+<!-- |--|--|--|--| -->
+<!-- | `userId` |Required| The ID of the user that wants to withdraw IOTA tokens | string| -->
+<!-- | `amount` |Required| The amount to withdraw from the user's account | integer| -->
+<!-- | `payoutAddress` |Required| Address to which to transfer the IOTA tokens (may include checksum) | string| -->
+<!-- | `validateChecksum` |Required|Whether to validate the address. Set this field to `true` if the `payoutAddress` field is a 90-tryte address (with checksum) |boolean| -->
+<!-- | `tag` |Optional| The value to include in the `tag` field of the input transaction in the bundle | string| -->
+
+### 例
+<!-- ### Examples -->
 --------------------
 ### Python
 ```python
@@ -1763,7 +1810,8 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
+<!-- ### Response examples -->
 --------------------
 ### 200
 ```json
@@ -1780,27 +1828,42 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Results
+### 結果
+<!-- ### Results -->
 
-|**Return field** |**Description**|
-|--|--|
-| `uuid` | The withdrawal UUID for this withdrawal request |
+| **リターンフィールド** | **説明** |
+| :----------------- | :--- |
+| `uuid` | この取り出しリクエストの取り出しUUID |
+
+<!-- |**Return field** |**Description**| -->
+<!-- |--|--| -->
+<!-- | `uuid` | The withdrawal UUID for this withdrawal request | -->
 
 ## UserWithdrawCancel
 
-Submit a request to cancel a withdrawal.
+取り出しをキャンセルするリクエストを送信します。
+<!-- Submit a request to cancel a withdrawal. -->
 
 :::info:
-A cancelation is possible only if the withdrawal isn't already included in a sweep.
+取り消しは、取り出しがスウィープに含まれていない場合にのみ可能です。
 :::
+<!-- :::info: -->
+<!-- A cancelation is possible only if the withdrawal isn't already included in a sweep. -->
+<!-- ::: -->
 
-### Parameters
+### パラメーター
+<!-- ### Parameters -->
 
-|**Parameters** |**Required or Optional**|**Description** |**Type**
-|--|--|--|--|
-| `uuid` |Required| Withdrawal UUID that you want to cancel | string|
+| **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
+| :----------- | :----------- | :--- | :----- |
+| `uuid` | 必須 | キャンセルする取り出しUUID | string |
 
-### Examples
+<!-- |**Parameters** |**Required or Optional**|**Description** |**Type** -->
+<!-- |--|--|--|--| -->
+<!-- | `uuid` |Required| Withdrawal UUID that you want to cancel | string| -->
+
+### 例
+<!-- ### Examples -->
 --------------------
 ### Python
 ```python
@@ -1867,7 +1930,8 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
+<!-- ### Response examples -->
 --------------------
 ### 200
 ```json
@@ -1884,26 +1948,40 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Results
+### 結果
+<!-- ### Results -->
 
-|**Return field** |**Description**|
-|--|--|
-| `success` | Whether the withdrawal was canceled |
+| **リターンフィールド** | **説明** |
+| :----------------- | :--- |
+| `success` | 取り出しがキャンセルされたかどうか |
+
+<!-- |**Return field** |**Description**| -->
+<!-- |--|--| -->
+<!-- | `success` | Whether the withdrawal was canceled | -->
 
 ## WasAddressSpentFrom
 
-Find out if a deposit address has already been withdrawn from.
+預け入れアドレスがすでに取り出されているどうかを調べます。
+<!-- Find out if a deposit address has already been withdrawn from. -->
 
-If this endpoint returns true, you should not deposit any more IOTA tokens into it.
+このエンドポイントが`true`を返す場合、これ以上IOTAトークンを預け入れないでください。
+<!-- If this endpoint returns true, you should not deposit any more IOTA tokens into it. -->
 
-### Parameters
+### パラメーター
+<!-- ### Parameters -->
 
-|**Parameters** |**Required or Optional**|**Description** |**Type**
-|--|--|--|--|
-| `address`          |Required|The user's deposit address whose spent status you want to check (may include a checksum) |string|
-| `validateChecksum` |Optional|Whether to validate the address. Set this field to `true` if the `address` field is a 90-tryte address (with checksum)
+| **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
+| :----------- | :----------- | :--- | :----- |
+| `address`          | 必須 | 使用済みステータスを確認するユーザーの預け入れアドレス（チェックサムを含めることができます） | string |
+| `validateChecksum` | 任意 | アドレスを検証するかどうか。`address`フィールドが90トライトのアドレス（チェックサム付き）の場合、このフィールドを`true`に設定します。 | boolean |
 
-### Examples
+<!-- |**Parameters** |**Required or Optional**|**Description** |**Type** -->
+<!-- |--|--|--|--| -->
+<!-- | `address`          |Required|The user's deposit address whose spent status you want to check (may include a checksum) |string| -->
+<!-- | `validateChecksum` |Optional|Whether to validate the address. Set this field to `true` if the `address` field is a 90-tryte address (with checksum) -->
+
+### 例
+<!-- ### Examples -->
 --------------------
 ### Python
 ```python
@@ -1973,7 +2051,8 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
+<!-- ### Response examples -->
 --------------------
 ### 200
 ```json
@@ -1988,23 +2067,35 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Results
+### 結果
+<!-- ### Results -->
 
-|**Return field** |**Description**|
-|--|--|
-| `WasAddressSpentFrom` | Whether the address is spent|
+| **リターンフィールド** | **説明** |
+| :----------------- | :--- |
+| `WasAddressSpentFrom` | アドレスが使用済みかどうか |
+
+<!-- |**Return field** |**Description**| -->
+<!-- |--|--| -->
+<!-- | `WasAddressSpentFrom` | Whether the address is spent| -->
 
 ## WasWithdrawalCancelled
 
-Get the status of a canceled withdrawal.
+キャンセルされた取り出しのステータスを取得します。
+<!-- Get the status of a canceled withdrawal. -->
 
-### Parameters
+### パラメーター
+<!-- ### Parameters -->
 
-|**Parameters** |**Required or Optional**|**Description** |**Type**
-|--|--|--|--|
-| `uuid` |Required| Withdrawal UUID whose cancelation status you want to check | string|
+| **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
+| :----------- | :----------- | :--- | :----- |
+| `uuid` | 必須 | キャンセルステータスを確認する取り出しUUID | string |
 
-### Examples
+<!-- |**Parameters** |**Required or Optional**|**Description** |**Type** -->
+<!-- |--|--|--|--| -->
+<!-- | `uuid` |Required| Withdrawal UUID whose cancelation status you want to check | string| -->
+
+### 例
+<!-- ### Examples -->
 --------------------
 ### Python
 ```python
@@ -2071,7 +2162,8 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
+<!-- ### Response examples -->
 --------------------
 ### 200
 ```json
@@ -2086,36 +2178,67 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Results
+### 結果
+<!-- ### Results -->
 
-|**Return field** |**Description**|
-|--|--|
-| `wasCancelled` | Whether the withdrawal was canceled|
+| **リターンフィールド** | **説明** |
+| :----------------- | :--- |
+| `wasCancelled` | 取り出しがキャンセルされたかどうか |
 
-## Balance change events for user accounts
+<!-- |**Return field** |**Description**| -->
+<!-- |--|--| -->
+<!-- | `wasCancelled` | Whether the withdrawal was canceled| -->
 
-When requesting data about a user's balance history, the reason for the balance change will be one of the following events. 
+## ユーザーアカウントの残高変更イベント
+<!-- ## Balance change events for user accounts -->
 
-|**Name**|**Description**  |
-| :------------------- | :------------------------------------------------------------ |                                                      |
-| `DEPOSIT`              | User received tokens through a deposit event
-| `BUY`                  | User gained tokens as part of a batch transfer|
-| `WITHDRAWAL`           | User withdrew tokens                    |
-| `WITHDRAWAL_CANCELED`   | User canceled a withdrawal request          |
-| `SELL`                 | User lost tokens as part of a batch transfer|
+ユーザーの残高履歴に関するデータをリクエストする場合、残高変更の理由は次のいずれかのイベントになります。
+<!-- When requesting data about a user's balance history, the reason for the balance change will be one of the following events. -->
 
-## Balance change events for user addresses
+| **名前** | **説明** |
+| :--- | :--- |
+| `DEPOSIT`             | ユーザーは預け入れイベントを通じてトークンを受け取りました。 |
+| `BUY`                 | ユーザーはバッチ転送の一部としてトークンを取得しました。|
+| `WITHDRAWAL`          | ユーザーがトークンを取り出しました。 |
+| `WITHDRAWAL_CANCELED` | ユーザーが取り出しリクエストをキャンセルしました。 |
+| `SELL`                | ユーザーはバッチ転送の一部としてトークンを失いました。 |
 
-|**Name**| **Description**             |
-| ------------ | ------ | ------------------------ |
-| `UADD_UNKNOWN` |    Unknown                      |
-| `UA_DEPOSIT`   |  User's address received a new deposit |
-| `UA_SWEEP`     | Total balance of the user's address was transferred to one of the Hub owner's addresses during a sweep   |
+<!-- |**Name**|**Description**  | -->
+<!-- | :------------------- | :------------------------------------------------------------ | -->
+<!-- | :------------------- | :------------------------------------------------------------ | -->
+<!-- | `DEPOSIT`              | User received tokens through a deposit event | -->
+<!-- | `BUY`                  | User gained tokens as part of a batch transfer| -->
+<!-- | `WITHDRAWAL`           | User withdrew tokens                    | -->
+<!-- | `WITHDRAWAL_CANCELED`   | User canceled a withdrawal request          | -->
+<!-- | `SELL`                 | User lost tokens as part of a batch transfer| -->
 
-## Balance change events for Hub addresses
+## ユーザーアドレスの残高変更イベント
+<!-- ## Balance change events for user addresses -->
 
-|**Name**| **Description**             |
-| ------------ | ------ | ------------------------ |
-| `HUB_UNKNOWN` |    Unknown                      |
-| `INBOUND`   |  IOTA tokens were deposited into the Hub address during a sweep |
-| `OUTBOUND`     | IOTA tokens were withdrawn from the Hub address during a sweep|
+| **名前** | **説明** |
+| :--- | :--- |
+| `UADD_UNKNOWN` | 不明 |
+| `UA_DEPOSIT`   | ユーザーのアドレスに新しい預け入れを受け取りました。 |
+| `UA_SWEEP`     | スウィープ中に、ユーザーのアドレスの合計残高がハブ所有者のアドレスの1つに転送されました。 |
+
+<!-- |**Name**| **Description**             | -->
+<!-- | ------------ | ------ | ------------------------ | -->
+<!-- | ------------ | ------ | ------------------------ | -->
+<!-- | `UADD_UNKNOWN` |    Unknown                      | -->
+<!-- | `UA_DEPOSIT`   |  User's address received a new deposit | -->
+<!-- | `UA_SWEEP`     | Total balance of the user's address was transferred to one of the Hub owner's addresses during a sweep   | -->
+
+## ハブアドレスの残高変更イベント
+<!-- ## Balance change events for Hub addresses -->
+
+| **名前** | **説明** |
+| :--- | :--- |
+| `HUB_UNKNOWN` | 不明 |
+| `INBOUND`     | IOTAトークンは、スウィープ中にハブアドレスに預け入れらました。 |
+| `OUTBOUND`    | IOTAトークンは、スウィープ中にハブアドレスから取り出されました。 |
+
+<!-- |**Name**| **Description**             | -->
+<!-- | ------------ | ------ | -->
+<!-- | `HUB_UNKNOWN` |    Unknown                      | -->
+<!-- | `INBOUND`   |  IOTA tokens were deposited into the Hub address during a sweep | -->
+<!-- | `OUTBOUND`     | IOTA tokens were withdrawn from the Hub address during a sweep| -->
