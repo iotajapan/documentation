@@ -1,36 +1,53 @@
-# Request data from the sensor servers
+# センサーサーバーにデータをリクエストする
+<!-- # Request data from the sensor servers -->
 
-**In this guide, you request data from the sensors in your Bluetooth star network**
+**このガイドでは、Bluetoothスターネットワークのセンサーにデータをリクエストします**
+<!-- **In this guide, you request data from the sensors in your Bluetooth star network** -->
 
-## Prerequisites
+## 前提条件
+<!-- ## Prerequisites -->
 
-To complete this guide, you need the following:
+このガイドを完了するには、次のものが必要です。
+<!-- To complete this guide, you need the following: -->
 
-- [Configure a 6LoWPAN network](set-up-a-bluetooth-star-network.md)
-- [Install the Go toolchain on a single-board computer (SBC) or a PC](https://golang.org/doc/install)
+- [6LoWPANネットワークを構成する](set-up-a-bluetooth-star-network.md)
+<!-- - [Configure a 6LoWPAN network](set-up-a-bluetooth-star-network.md) -->
+-[シングルボードコンピューター（SBC）またはPCにGoツールチェーンをインストールする](https://golang.org/doc/install)
+<!-- - [Install the Go toolchain on a single-board computer (SBC) or a PC](https://golang.org/doc/install) -->
 
-## Architecture
+## アーキテクチャ
+<!-- ## Architecture -->
 
-The environment sensor runs a server application that waits for incoming UDP requests from a client.
+環境センサーは、クライアントからの着信UDPリクエストを待機するサーバーアプリケーションを実行します。
+<!-- The environment sensor runs a server application that waits for incoming UDP requests from a client. -->
 
-The server accepts UDP packets instead of TCP ones because UDP is a connection-less protocol, which is more efficient and more resilient than TCP.
+UDPはコネクションレス型プロトコルであるため、サーバーはTCPパケットではなくUDPパケットを受け入れます。これはTCPよりも効率的で回復力があります。
+<!-- The server accepts UDP packets instead of TCP ones because UDP is a connection-less protocol, which is more efficient and more resilient than TCP. -->
 
-Responses are sent back to the client on the same port from which the request was sent. For example, if the client (the SBC or the PC) sends a UDP packet on port 90 (outgoing-port at the SBC) to port 51037 (incoming-port on the sensor), the sensor sends the response to port 90 (on the SBC or PC).
+レスポンスは、リクエストが送信されたポートと同じポートでクライアントに送り返されます。たとえば、クライアント（SBCまたはPC）がポート90（SBCの発信ポート）でUDPパケットをポート51037（センサーの着信ポート）に送信する場合、センサーは（SBCまたはPCの）ポート90にレスポンスを送信します。
+<!-- Responses are sent back to the client on the same port from which the request was sent. For example, if the client (the SBC or the PC) sends a UDP packet on port 90 (outgoing-port at the SBC) to port 51037 (incoming-port on the sensor), the sensor sends the response to port 90 (on the SBC or PC). -->
 
-## Run the sensor server and client
+## センサーサーバーとクライアントを実行する
+<!-- ## Run the sensor server and client -->
 
-1. Start the server on your microcontroller
-    
+1. マイクロコントローラーでサーバーを起動します。
+  <!-- 1. Start the server on your microcontroller -->
+
     :::info:
-    You need to execute the following command in the serial console of your microcontroller.
+    マイクロコントローラーのシリアルコンソールで次のコマンドを実行する必要があります。
 
-    The serial terminal of your microcontroller is opened in the terminal where you executed the `make flash term` command.
+    マイクロコントローラーのシリアルターミナルは、`make flash term`コマンドを実行したターミナルで開かれます。
     :::
-    
+    <!-- :::info: -->
+    <!-- You need to execute the following command in the serial console of your microcontroller. -->
+
+    <!-- The serial terminal of your microcontroller is opened in the terminal where you executed the `make flash term` command. -->
+    <!-- ::: -->
+
     ```bash
     server start
     ```
-    
+
 2. Clone the client onto your SBC or PC
 
     ```bash
