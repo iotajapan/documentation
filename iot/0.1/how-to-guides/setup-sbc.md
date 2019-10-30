@@ -1,217 +1,307 @@
-# Set up a single-board computer
+# シングルボードコンピューターをセットアップする
+<!-- # Set up a single-board computer -->
 
-**A single-board computer (SBC) is a small computer in which a single circuit board includes memory, input/output ports, a microprocessor and any other necessary features. SBCs are lighter, more compact, more reliable, and more power efficient than multi-board computers such as desktops. You can set up an SBC for a purpose-built embedded application that uses IOTA technology.**
+**シングルボードコンピューター（SBC）は、単一の回路基板にメモリ、入出力ポート、マイクロプロセッサ、およびその他の必要な機能が含まれる小型のコンピュータです。SBCは、デスクトップなどのマルチボードコンピューターよりも軽く、コンパクトで、信頼性が高く、電力効率に優れています。IOTAテクノロジーを使用する専用の組み込みアプリケーション用にSBCをセットアップできます。**
+<!-- **A single-board computer (SBC) is a small computer in which a single circuit board includes memory, input/output ports, a microprocessor and any other necessary features. SBCs are lighter, more compact, more reliable, and more power efficient than multi-board computers such as desktops. You can set up an SBC for a purpose-built embedded application that uses IOTA technology.** -->
 
-## Prerequisites
+## 前提条件
+<!-- ## Prerequisites -->
 
-To complete this guide, you need the following:
+このガイドを完了するには、次のものが必要です。
+<!-- To complete this guide, you need the following: -->
 
-- A Linux-based operating system (OS) with installed SSH client and a configured network. 
-In this guide we use Ubuntu, but you can use other Linux distributions or macOS.
+- SSHクライアントがインストールされ、ネットワークが構成されているLinuxベースのオペレーティングシステム（OS）。このガイドではUbuntuを使用しますが、他のLinuxディストリビューションまたはmacOSを使用できます。
+  <!-- - A Linux-based operating system (OS) with installed SSH client and a configured network. -->
+  <!--   In this guide we use Ubuntu, but you can use other Linux distributions or macOS. -->
 
-    :::info:Windows users
-    You can use [a virtual machine (VM)](root://general/0.1/how-to-guides/set-up-virtual-machine.md) or the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+    :::info:Windowsユーザー
+    [仮想マシン（VM）](root://general/0.1/how-to-guides/set-up-virtual-machine.md)または[Linuxサブシステム](https://docs.microsoft.com/en-us/windows/wsl/install-win10)を使用できます。
     :::
+    <!-- :::info:Windows users -->
+    <!-- You can use [a virtual machine (VM)](root://general/0.1/how-to-guides/set-up-virtual-machine.md) or the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10). -->
+    <!-- ::: -->
 
-- An SBC such as the Rasperry Pi Zero W
+- Raspberry Pi Zero WなどのSBC
+<!-- - An SBC such as the Rasperry Pi Zero W -->
 
-- If possible, you should have a monitor and a keyboard to use for setting up your device. If you don't have a monitor or a keyboard, use a USB-to-UART connector. The [CP2102](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) is a well-known and inexpensive adapter, but your SBC might have an integrated one. To find out, see the documentation for your SBC.
+- 可能であれば、デバイスのセットアップに使用するモニターとキーボードが必要です。モニターまたはキーボードがない場合は、USB-UARTコネクターを使用します。[CP2102](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)はよく知られた安価なアダプターですが、SBCには統合されたアダプターがある場合があります。調べるには、SBCのドキュメントを参照してください。
+<!-- - If possible, you should have a monitor and a keyboard to use for setting up your device. If you don't have a monitor or a keyboard, use a USB-to-UART connector. The [CP2102](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers) is a well-known and inexpensive adapter, but your SBC might have an integrated one. To find out, see the documentation for your SBC. -->
 
-## Step 1. Prepare your SD card
+## 手順1. SDカードを準備する
+<!-- ## Step 1. Prepare your SD card -->
 
 :::info:
-This process is similar for many SBCs such as the Orange Pi. 
-If you have a separate guide for your SBC, you should follow that. Otherwise, use [Armbian](https://www.armbian.com/download/), which supports many development boards.
+このプロセスは、Orange Piなどの多くのSBCで同様です。SBCの個別のガイドがある場合は、それに従う必要があります。それ以外の場合は、[Armbian](https://www.armbian.com/download/)を使用してください。これは多くの開発ボードをサポートしています。
 :::
+<!-- :::info: -->
+<!-- This process is similar for many SBCs such as the Orange Pi. -->
+<!-- If you have a separate guide for your SBC, you should follow that. Otherwise, use [Armbian](https://www.armbian.com/download/), which supports many development boards. -->
+<!-- ::: -->
 
-In single-board computers, the operating system must be flashed onto an SD card.
+シングルボードコンピューターでは、オペレーティングシステムをSDカードにフラッシュする必要があります。
+<!-- In single-board computers, the operating system must be flashed onto an SD card. -->
 
-1. [Flash an operating system on your SD card](https://www.raspberrypi.org/documentation/installation/installing-images/)
+1. [SDカードのオペレーティングシステムをフラッシュします](https://www.raspberrypi.org/documentation/installation/installing-images/)。
+<!-- 1. [Flash an operating system on your SD card](https://www.raspberrypi.org/documentation/installation/installing-images/) -->
 
-2. Insert your SD card and turn on your SBC
+2. SDカードを挿入し、SBCの電源を入れます。
+<!-- 2. Insert your SD card and turn on your SBC -->
 
-## Step 2. Set up your SBC
+## 手順2. SBCをセットアップする
+<!-- ## Step 2. Set up your SBC -->
 
-You have the following options for setting up your SBC:
+SBCをセットアップするには、次のオプションがあります。
+<!-- You have the following options for setting up your SBC: -->
 
-- [Set it up with a monitor and a keyboard](#use-a-display-and-keyboard) (for IPv4 or IPv6 networks)
-- [Set it up with a USB-to-UART connector](#set-up-your-device-through-a-usb-to-uart-adapter) (for IPv4 or IPv6 networks)
-- [Set it up with an Ethernet port](#set-up-ethernet-devices) (for IPv4 networks only)
+- [モニターとキーボードで設定する](#use-a-display-and-keyboard)（IPv4またはIPv6ネットワークの場合）
+<!-- - [Set it up with a monitor and a keyboard](#use-a-display-and-keyboard) (for IPv4 or IPv6 networks) -->
+- [USB-to-UARTコネクターを使用してセットアップする](#set-up-your-device-through-a-usb-to-uart-adapter)（IPv4またはIPv6ネットワークの場合）
+<!-- - [Set it up with a USB-to-UART connector](#set-up-your-device-through-a-usb-to-uart-adapter) (for IPv4 or IPv6 networks) -->
+- [イーサネットポートで設定する](#set-up-ethernet-devices)（IPv4ネットワークのみ）
+<!-- - [Set it up with an Ethernet port](#set-up-ethernet-devices) (for IPv4 networks only) -->
 
-### Use a monitor and a keyboard
+<a name="use-a-display-and-keyboard"></a>
+### モニターとキーボードを使用する
+<!-- ### Use a monitor and a keyboard -->
 
-1. Connect the monitor and the keyboard to your SBC
+1. モニターとキーボードをSBCに接続します。
+<!-- 1. Connect the monitor and the keyboard to your SBC -->
 
-2. Log in with the default username and password
+2. デフォルトのユーザー名とパスワードでログインします。
+  <!-- 2. Log in with the default username and password -->
 
     :::info:
-    If you don't know the default username or password, search the website of your Linux distribution.
+    デフォルトのユーザー名またはパスワードがわからない場合は、LinuxディストリビューションのWebサイトを検索してください。
     :::
+    <!-- :::info: -->
+    <!-- If you don't know the default username or password, search the website of your Linux distribution. -->
+    <!-- ::: -->
 
-3. Configure your network interface
+3. ネットワークインターフェイスを設定します。
+  <!-- 3. Configure your network interface -->
 
-    If you have Ethernet, connect your SBC to your router through the Ethernet port. 
-    If you want to connect to your router through WiFi, do the following and replace `MY_SSID` with the name of your network and `MY_PASSWORD` with the password of your network
-    
+    イーサネットがある場合は、イーサネットポートを介してSBCをルーターに接続します。WiFi経由でルーターに接続する場合は、次の手順を実行して、`MY_SSID`をネットワークの名前に、`MY_PASSWORD`をネットワークのパスワードに置き換えます
+    <!-- If you have Ethernet, connect your SBC to your router through the Ethernet port. -->
+    <!-- If you want to connect to your router through WiFi, do the following and replace `MY_SSID` with the name of your network and `MY_PASSWORD` with the password of your network -->
+
     ```bash
     nmcli dev wifi connect MY_SSID password MY_PASSWORD
     ```
-    
-4. Check if your SBC is connected to the Internet
-    
+
+4. SBCがインターネットに接続されているかどうかを確認します。
+  <!-- 4. Check if your SBC is connected to the Internet -->
+
     ```bash
     ping iota.org
     ```
 
-5. Get your IP address
+5. IPアドレスを取得します。
+  <!-- 5. Get your IP address -->
 
-    Execute the `ifconfig` command. The program returns all network interfaces and their given IP addresses. The interfaces starting with `eth` are Ethernet network interfaces, and the ones starting with `wl` are the WiFi network interfaces.
+    `ifconfig`コマンドを実行します。プログラムは、すべてのネットワークインターフェイスとそれらの指定されたIPアドレスを返します。`eth`で始まるインターフェースはイーサネットネットワークインターフェースであり、`wl`で始まるインターフェースはWiFiネットワークインターフェースです。
+    <!-- Execute the `ifconfig` command. The program returns all network interfaces and their given IP addresses. The interfaces starting with `eth` are Ethernet network interfaces, and the ones starting with `wl` are the WiFi network interfaces. -->
 
-6. Connect to your device through SSH
+6. SSHを介してデバイスに接続します。
+  <!-- 6. Connect to your device through SSH -->
 
 --------------------
 ### IPv4
-Replace the `USERNAME` placeholder with your username and the `IP_ADDRESS` placeholder with the IPv4 address of your SBC.
+`USERNAME`プレースホルダーをユーザー名に、`IP_ADDRESS`プレースホルダーをSBCのIPv4アドレスに置き換えます。
 
 ```bash
 ssh USERNAME@IP_ADDRESS
 ```
 ---
 ### IPv6
-If you use IPv6, you must add the `-6` command-line argument and the the network interface name to the SSH command. 
+IPv6を使用する場合は、`-6`コマンドライン引数とネットワークインターフェイス名をSSHコマンドに追加する必要があります。
 
-For example:
+例：
 
-```
+```bash
 WiFi interface name: wlp3s0
 The SBCs' local IPv6 address: fe80::c0a2:76c6:4ed5:a44
 ```
-    
-In this example, the host system and the SBC are both connected to the router through WiFi. As a result, this is the command to connect to the SBC through SSH:
-    
+
+この例では、ホストシステムとSBCの両方がWiFiを介してルーターに接続されています。 結果として、これはSSH経由でSBCに接続するコマンドです。
+
 ```bash
 ssh -6 USERNAME@fe80::c0a2:76c6:4ed5:a442%wlp3s0
-``` 
+```
 --------------------
 
-:::success:Congratulations! :tada:
-You're connected to your SBC through SSH. Now you can run commands on your SBC.
+:::success:おめでとうございます！:tada:
+SSHを介してSBCに接続しています。これで、SBCでコマンドを実行できます。
 :::
+<!-- :::success:Congratulations! :tada: -->
+<!-- You're connected to your SBC through SSH. Now you can run commands on your SBC. -->
+<!-- ::: -->
 
-### Use a USB-to-UART connector
+<a name="set-up-your-device-through-a-usb-to-uart-adapter"></a>
+### USB-UARTコネクターを使用する
+<!-- ### Use a USB-to-UART connector -->
 
-You must execute these commands on your host system.
+ホストシステムでこれらのコマンドを実行する必要があります。
+<!-- You must execute these commands on your host system. -->
 
-1. Install PlatformIO
+1. PlatformIOをインストールします。
+  <!-- 1. Install PlatformIO -->
 
-    You need additional software to connect to the serial port. 
-    We recommend [PlatformIO](https://docs.platformio.org/en/latest/userguide/cmd_device.html?highlight=monitor#platformio-device-monitor).
-    PlatformIO provides a simple command-line tool to interact with your SBC.
+    シリアルポートに接続するには、追加のソフトウェアが必要です。[PlatformIO](https://docs.platformio.org/en/latest/userguide/cmd_device.html?highlight=monitor#platformio-device-monitor)をお勧めします。PlatformIOは、SBCと対話するためのシンプルなコマンドラインツールを提供します。
+    <!-- You need additional software to connect to the serial port. -->
+    <!-- We recommend [PlatformIO](https://docs.platformio.org/en/latest/userguide/cmd_device.html?highlight=monitor#platformio-device-monitor). -->
+    <!-- PlatformIO provides a simple command-line tool to interact with your SBC. -->
 
-2. Plug in your USB-to-UART connector
+2. USB-to-UARTコネクターを差し込みます。
+<!-- 2. Plug in your USB-to-UART connector -->
 
-3. Find the path to your USB-to-UART connector by removing it, executing the `ls /dev/ttyUSB*` command, plugging the USB-to-UART connector back into your PC, then executing the `ls /dev/ttyUSB*` command again. The new entry is your connector.
+3. USB-to-UARTコネクタを削除し、`ls /dev/ttyUSB*`コマンドを実行し、USB-to-UARTコネクタをPCに再び接続して、`ls /dev/ttyUSB*`コマンドを再度実行することにより、USB-to-UARTコネクタへのパスを見つけます。新しいエントリはコネクタです。
+<!-- 3. Find the path to your USB-to-UART connector by removing it, executing the `ls /dev/ttyUSB*` command, plugging the USB-to-UART connector back into your PC, then executing the `ls /dev/ttyUSB*` command again. The new entry is your connector. -->
 
-4. Change the permissions for your USB-to-UART connector. Replace the `$USB_PORT` placeholder with the path to your USB-to-UART connector such as `/dev/ttyUSB0`.
+4. USB-UARTコネクターのアクセス許可を変更します。`/USB/PORT`プレースホルダーを、`/dev/ttyUSB0`などのUSB-UARTコネクターへのパスに置き換えます。
+  <!-- 4. Change the permissions for your USB-to-UART connector. Replace the `$USB_PORT` placeholder with the path to your USB-to-UART connector such as `/dev/ttyUSB0`. -->
 
     ```bash
     sudo chmod 777 $USB_PORT
     ```
 
-5. Connect to your USB port. Replace the `$USB_PORT` and `$BAUD_RATE` placeholders with the path to your USB-to-UART connector such as `/dev/ttyUSB0` and the baud rate of your SBC.
+5. USBポートに接続します。`/USB/PORT`と`$BAUD_RATE`プレースホルダーを、`/dev/ ttyUSB0`などのUSB-to-UARTコネクターへのパスとSBCのボーレートに置き換えます。
+  <!-- 5. Connect to your USB port. Replace the `$USB_PORT` and `$BAUD_RATE` placeholders with the path to your USB-to-UART connector such as `/dev/ttyUSB0` and the baud rate of your SBC. -->
 
     ```bash
     platformio SBC monitor -b $BAUD_RATE -p $USB_PORT
     ```
 
     :::info:
-    See the documentation for your SBC to find its baud rate. For the Orange Pi Zero, the baud rate is 115200.
+    ボーレートを確認するには、SBCのドキュメントを参照してください。Orange Pi Zeroの場合、ボーレートは115200です。
     :::
+    <!-- :::info: -->
+    <!-- See the documentation for your SBC to find its baud rate. For the Orange Pi Zero, the baud rate is 115200. -->
+    <!-- ::: -->
 
-6. Restart your SBC
+6. SBCを再起動します。
+<!-- 6. Restart your SBC -->
 
-7. When the system asks for it, log in with the default username and password. You should change the root password and create a new user. Most systems require this change after the first login.
+7. システムから要求されたら、デフォルトのユーザー名とパスワードでログインします。ルートパスワードを変更して、新しいユーザーを作成する必要があります。ほとんどのシステムでは、最初のログイン後にこの変更が必要です。
+  <!-- 7. When the system asks for it, log in with the default username and password. You should change the root password and create a new user. Most systems require this change after the first login. -->
 
     :::info:
-    If you don't know the default username or password, search the website of your Linux distribution.
+    デフォルトのユーザー名またはパスワードがわからない場合は、LinuxディストリビューションのWebサイトを検索してください。
     :::
+    <!-- :::info: -->
+    <!-- If you don't know the default username or password, search the website of your Linux distribution. -->
+    <!-- ::: -->
 
-8. Configure your network interface
+8. ネットワークインターフェイスを設定します。
+  <!-- 8. Configure your network interface -->
 
-    If you have Ethernet, connect your SBC to your router through the Ethernet port. 
-    If you want to connect to your router through WiFi, do the following and replace `MY_SSID` with the name of your network and `MY_PASSWORD` with the password of your network
-    
+    イーサネットがある場合は、イーサネットポートを介してSBCをルーターに接続します。WiFi経由でルーターに接続する場合は、次の手順を実行して、`MY_SSID`をネットワークの名前に、`MY_PASSWORD`をネットワークのパスワードに置き換えます。
+    <!-- If you have Ethernet, connect your SBC to your router through the Ethernet port. -->
+    <!-- If you want to connect to your router through WiFi, do the following and replace `MY_SSID` with the name of your network and `MY_PASSWORD` with the password of your network -->
+
     ```bash
     nmcli dev wifi connect MY_SSID password MY_PASSWORD
     ```
-    
-9. Check if your SBC is connected to the Internet
-    
+
+9. SBCがインターネットに接続されているかどうかを確認します。
+  <!-- 9. Check if your SBC is connected to the Internet -->
+
     ```bash
     ping iota.org
     ```
 
-10. Find your IP address
+10. IPアドレスを見つけます。
+  <!-- 10. Find your IP address -->
 
     ```bash
     ifconfig
     ```
 
     :::info:
-    The interfaces that start with `eth` are Ethernet network interfaces, and the ones that start with `wl` are the WiFi network interfaces.
+    `eth`で始まるインターフェースはイーサネットネットワークインターフェースであり、`wl`で始まるインターフェースはWiFiネットワークインターフェースです。
     :::
+    <!-- :::info: -->
+    <!-- The interfaces that start with `eth` are Ethernet network interfaces, and the ones that start with `wl` are the WiFi network interfaces. -->
+    <!-- ::: -->
 
-11. Connect to your SBC through SSH. Replace the `USERNAME` and `IP_ADDRESS` placeholders with your username and IP address.
+11. SSHを介してSBCに接続します。`USERNAME`および`IP_ADDRESS`プレースホルダーをユーザー名とIPアドレスに置き換えます。
+  <!-- 11. Connect to your SBC through SSH. Replace the `USERNAME` and `IP_ADDRESS` placeholders with your username and IP address. -->
 
     ```bash
     ssh USERNAME@IP_ADDRESS
     ```
 
-:::success:Congratulations! :tada:
-You're connected to your SBC through SSH. Now you can run commands on your SBC.
+:::success:おめでとうございます！:tada:
+SSHを介してSBCに接続しています。これで、SBCでコマンドを実行できます。
 :::
+<!-- :::success:Congratulations! :tada: -->
+<!-- You're connected to your SBC through SSH. Now you can run commands on your SBC. -->
+<!-- ::: -->
 
-### Use an Ethernet connection
+<a name="set-up-ethernet-devices"></a>
+### イーサネット接続を使用する
+<!-- ### Use an Ethernet connection -->
 
 :::warning:
-You must be on an IPv4 network to complete this task.
+このタスクを完了するには、IPv4ネットワーク上にいる必要があります。
 :::
+<!-- :::warning: -->
+<!-- You must be on an IPv4 network to complete this task. -->
+<!-- ::: -->
 
-1. Find IP addresses in your local network
+1. ローカルネットワークでIPアドレスを見つけます。
+  <!-- 1. Find IP addresses in your local network -->
 
-    The subnet bytes must be set to zero and the netmask must be set in nmap.
-    For example:
-    Internal IP address: 10.197.0.57
-    Netmask: 255.255.255.0
-    
-    Here, the netmask is 24 because every place in the IP address takes 8 bits (256 states) and the netmask is set on 3 bytes. 3x8=24.
-    
+    サブネットバイトをゼロに設定し、ネットマスクをnmapで設定する必要があります。
+
+    例：
+
+    内部IPアドレス：`10.197.0.57`
+
+    ネットマスク：`255.255.255.0`
+    <!-- The subnet bytes must be set to zero and the netmask must be set in nmap. -->
+    <!-- For example: -->
+    <!-- Internal IP address: 10.197.0.57 -->
+    <!-- Netmask: 255.255.255.0 -->
+
+    ここでは、IPアドレスのすべての場所が8ビット（256ステート）を取り、ネットマスクが3バイトに設定されているため、ネットマスクは24です。`3x8 = 24`。
+    <!-- Here, the netmask is 24 because every place in the IP address takes 8 bits (256 states) and the netmask is set on 3 bytes. 3x8=24. -->
+
     ```bash
     nmap -sn 10.197.0.0/24
     ```
-    
-    Another example:
-    Internal IP address: 10.197.3.57
-    Netmask: 255.255.0.0
-    
-    So, now it is just 2x8=16. So, you need to use 16 instead of 24.
-    
+
+    別の例：
+
+    内部IPアドレス：`10.197.3.57`
+
+    ネットマスク：`255.255.0.0`
+    <!-- Another example: -->
+    <!-- Internal IP address: 10.197.3.57 -->
+    <!-- Netmask: 255.255.0.0 -->
+
+    したがって、現在は`2x8 = 16`になっています。したがって、24ではなく16を使用する必要があります。
+    <!-- So, now it is just 2x8=16. So, you need to use 16 instead of 24. -->
+
     ```bash
     nmap -sn 10.197.0.0/16
     ```
-    
-    Depending on the subnet, this process can take some time, since nmap needs to scan all IP addresses within the network. 
-    For a small subnet (netmask=24) is just takes some seconds, since nmap just need to scan 256 addresses.
-    In a bigger network that can take more time. For example netmask=16: nmap needs to scan 256*256 addresses. 
-    In my test-case this took 2944.17 seconds. If you are in a huge local network, you should consider using another variant.
 
-2. Connect to the IP addresses. If you found more than one IP address, try every IP address until you find the address of your SBC.
- 
+    nmapはネットワーク内のすべてのIPアドレスをスキャンする必要があるため、サブネットによっては、このプロセスに時間がかかる場合があります。nmapは256個のアドレスをスキャンするだけなので、小さなサブネット（`netmask = 24`）には数秒しかかかりません。より大きなネットワークでは、より時間がかかる可能性があります。たとえば、`netmask = 16`：nmapは`256 * 256`アドレスをスキャンする必要があります。私のテストケースでは、これには2944.17秒かかりました。巨大なローカルネットワークにいる場合は、別のバリアントの使用を検討する必要があります。
+    <!-- Depending on the subnet, this process can take some time, since nmap needs to scan all IP addresses within the network. -->
+    <!-- For a small subnet (netmask=24) is just takes some seconds, since nmap just need to scan 256 addresses. -->
+    <!-- In a bigger network that can take more time. For example netmask=16: nmap needs to scan 256*256 addresses. -->
+    <!-- In my test-case this took 2944.17 seconds. If you are in a huge local network, you should consider using another variant. -->
+
+2. IPアドレスに接続します。複数のIPアドレスが見つかった場合は、SBCのアドレスが見つかるまですべてのIPアドレスを試してください。
+  <!-- 2. Connect to the IP addresses. If you found more than one IP address, try every IP address until you find the address of your SBC. -->
+
     ```bash
     ssh USERNAME@IP_ADDRESS
     ```
 
-:::success:Congratulations! :tada:
-You're connected to your SBC through SSH. Now you can run commands on your SBC.
+:::success:おめでとうございます！:tada:
+SSHを介してSBCに接続しています。これで、SBCでコマンドを実行できます。
 :::
-
+<!-- :::success:Congratulations! :tada: -->
+<!-- You're connected to your SBC through SSH. Now you can run commands on your SBC. -->
+<!-- ::: -->

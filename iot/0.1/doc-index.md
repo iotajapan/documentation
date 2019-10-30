@@ -26,7 +26,7 @@
 
 [ハウツーガイド/Bluetoothスターネットワークをセットアップする](/how-to-guides/set-up-a-bluetooth-star-network.md)
 
-[ハウツーガイド/センサーデータをタングルに添付する](/how-to-guides/run-an-environment-to-tangle-app.md)
+[ハウツーガイド/センサーデーターをタングルに添付する](/how-to-guides/run-an-environment-to-tangle-app.md)
 
 [ハウツーガイド/ボッシュセンサーを接続する](/how-to-guides/connect-bosch-bme-280-bmp-280.md)
 

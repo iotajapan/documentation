@@ -158,9 +158,9 @@
 マイクロコントローラーガイドのいずれかを参照してください。
 <!-- Follow one of the our microcontroller guides: -->
 
-- [マイクロコントローラーのセンサーからデータを読み取る](../how-to-guides/read-sensor-data.md)。
+- [マイクロコントローラーのセンサーからデータを読み取る](../how-to-guides/read-sensor-data.md)
 <!-- - [Read data from a sensor on your microcontroller](../how-to-guides/read-sensor-data.md) -->
-- [環境センサーサーバーとクライアントを実行する](../how-to-guides/run-an-environment-sensor-and-client.md)。
+- [環境センサーサーバーとクライアントを実行する](../how-to-guides/run-an-environment-sensor-and-client.md)
 <!-- - [Run an environment sensor server and client](../how-to-guides/run-an-environment-sensor-and-client.md) -->
-- [センサーデータをタングルに添付する](../how-to-guides/run-an-environment-to-tangle-app.md)。
+- [センサーデータをタングルに添付する](../how-to-guides/run-an-environment-to-tangle-app.md)
 <!-- - [Attach sensor data to the Tangle](../how-to-guides/run-an-environment-to-tangle-app.md) -->

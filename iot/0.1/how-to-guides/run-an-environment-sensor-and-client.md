@@ -48,13 +48,15 @@ UDPはコネクションレス型プロトコルであるため、サーバー�
     server start
     ```
 
-2. Clone the client onto your SBC or PC
+2. クライアントをSBCまたはPCにクローンします。
+  <!-- 2. Clone the client onto your SBC or PC -->
 
     ```bash
     git clone https://github.com/iota-community/BLE-environment-sensor-client.git $GOPATH/src/github.com/citrullin/udp_client
     ```
 
-3. In the `client.go` file, replace the `"fe80::2ca:46ff:fed3:1967"` IPv6 address with the IPv6 address of your sensor server to allow the client to connect to it
+3. `client.go`ファイルで、`"fe80::2ca:46ff:fed3:1967"`のIPv6アドレスをセンサーサーバーのIPv6アドレスに置き換えて、クライアントが接続できるようにします。
+  <!-- 3. In the `client.go` file, replace the `"fe80::2ca:46ff:fed3:1967"` IPv6 address with the IPv6 address of your sensor server to allow the client to connect to it -->
 
     ```c
     var seedSensorConfig = SensorNode{
@@ -67,15 +69,21 @@ UDPはコネクションレス型プロトコルであるため、サーバー�
     ```
 
     :::info:
-    To find out the IPv6 address of your sensor server, execute the `ifconfig` command in the serial interface of the microcontroller.
+    センサーサーバーのIPv6アドレスを見つけるには、マイクロコントローラーのシリアルインターフェースで`ifconfig`コマンドを実行します。
     :::
-    
-4. Run the client application
+    <!-- :::info: -->
+    <!-- To find out the IPv6 address of your sensor server, execute the `ifconfig` command in the serial interface of the microcontroller. -->
+    <!-- ::: -->
+
+4. クライアントアプリケーションを実行します。
+  <!-- 4. Run the client application -->
 
     ```bash
     cd $GOPATH/src/github.com/citrullin/udp_client && go run client.go
     ```
 
-## Next steps
+## 次のステップ
+<!-- ## Next steps -->
 
-Now, you're ready to [attach this sensor data to the Tangle](../how-to-guides/run-an-environment-to-tangle-app.md).
+これで、[このセンサーデーターをタングルに添付する](../how-to-guides/run-an-environment-to-tangle-app.md)準備ができました。
+<!-- Now, you're ready to [attach this sensor data to the Tangle](../how-to-guides/run-an-environment-to-tangle-app.md). -->
