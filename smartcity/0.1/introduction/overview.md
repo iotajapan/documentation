@@ -11,7 +11,7 @@
 <!-- Example 1: [AstroPiOTA](../astropiota/introduction/overview.md) -->
 
 AstroPiOTAは、タングルを使用してローカル環境データを追跡するためにMAMに接続されている国際宇宙ステーションからのAstroPiのクローンです。地球上で、AstroPiOTAはローカルの天気予報を理解し報告するのを助け、地震予知に役立つかもしれません。
-<!-- AstroPiOTA is a clone of AstroPi from the International Space Station hooked to MAM for keeping track of local environment data using the Tangle. Here on earth, AstroPiOTA helps us understand and report local weather and may aid in earthquake prediction. -->
+AstroPiOTA is a clone of AstroPi from the International Space Station hooked to MAM for keeping track of local environment data using the Tangle. Here on earth, AstroPiOTA helps us understand and report local weather and may aid in earthquake prediction.
 
 前提条件：
 <!-- Requirements: -->

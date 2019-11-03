@@ -20,7 +20,7 @@
 :::info:
 nRF52シリーズマイクロコントローラーをフラッシュするための安価なオプションが必要な場合は、J-Linkオンボード（OB）クローンの購入を検討してください。
 
-標準のJリンクプログラマは、マイクロプロセッサでも使用できるため、より高価です。
+標準のJリンクプログラマは、マイクロプロセッサーでも使用できるため、より高価です。
 :::
 <!-- :::info: -->
 <!-- If you want a cheap option for flashing an nRF52 series microcontroller, consider buying a J-Link on-board (OB) clone. -->

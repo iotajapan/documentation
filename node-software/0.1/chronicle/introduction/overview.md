@@ -1,7 +1,7 @@
-# クロニクル概要
+# Chronicle 概要
 <!-- # Chronicle overview -->
 
-**クロニクルは、[IRIノード](root://node-software/0.1/iri/introduction/overview.md)に到達するすべてのトランザクションを安全で拡張性の高い分散データベースに保存できるパーマノードソリューションです。**
+**Chronicle は、[IRIノード](root://node-software/0.1/iri/introduction/overview.md)に到達するすべてのトランザクションを安全で拡張性の高い分散データベースに保存できるパーマノードソリューションです。**
 <!-- **Chronicle is a permanode solution that allows you to store all transactions that reach an [IRI node](root://node-software/0.1/iri/introduction/overview.md) in a distributed database that's secure and that scales well.** -->
 
 ## ハーマノードとは？
@@ -10,7 +10,7 @@
 パーマノードはタングルの完全な履歴を保存し、アプリケーションが拡張APIを介してデータを検索できるようにします。
 <!-- A permanode stores the full history of the Tangle and enables applications to search the data through an extended API. -->
 
-## クロニクルを実行する理由
+## Chronicle を実行する理由
 <!-- ## Why run Chronicle? -->
 
 IOTAはパーミッションレスネットワークです。誰でも自由に任意の量のデータをタングルに保存できます（トランザクションごとに少量の[プルーフオブワーク](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)は必要です）。

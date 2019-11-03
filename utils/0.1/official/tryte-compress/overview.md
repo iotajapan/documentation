@@ -1,7 +1,7 @@
 # トライトコンプレッサー概要
 <!-- # Trytes compressor overview -->
 
-**トランザクションのバンドルをノードに送信すると、それらのトランザクションがネットワークの残りの部分に届かない場合があり、トランザクションが確定されないことがあります。たとえば、ノードは、トランザクションを隣接ノードに転送する前にオフラインになる場合があります。そのため、後でトランザクションを再ブロードキャストまたは再添付できるように、トランザクションのトライトを保存することをお勧めします。トランザクショントライトをより小さいメモリスペースに保存するには、トライトコンプレッサーツールを使用して、トライトをバイトに圧縮します。**
+**トランザクションのバンドルをノードに送信すると、送信したトランザクションがネットワークの残りの部分に届かない場合があり、トランザクションが確定されないことがあります。たとえば、ノードは、トランザクションを隣接ノードに転送する前にオフラインになる場合があります。そのため、後でトランザクションを再ブロードキャストまたは再添付できるように、トランザクションのトライトを保存することをお勧めします。トランザクショントライトをより小さいメモリスペースに保存するには、トライトコンプレッサーツールを使用して、トライトをバイトに圧縮します。**
 <!-- **When you send a bundle of transactions to a node, sometimes those transactions don't reach the rest of the network, so they will never be confirmed. For example, a node may go offline before it can forward your transactions to its neighbors. As a result, we recommend that you store the transaction trytes so that you can later rebroadcast or reattach them. To store transaction trytes in a smaller memory space, use the trytes compressor tool to compress the trytes into bytes.** -->
 
 トライトを圧縮するアルゴリズムは、連長圧縮と静的ハフマン木に基づくハフマン符号化の組み合わせを使用して、トライトが占有するメモリ領域の量を最大75％削減します。
@@ -107,16 +107,16 @@ IOTAクライアントライブラリを使用したことがない場合は、[
 
     iota.prepareTransfers(seed, transfers)
     .then(trytes => {
-        // Store the trytes in a global variable
+        // グローバル変数にトライトを保存します
         bundleTrytes = trytes[0];
         return iota.sendTrytes(trytes, 3/*depth*/, 9/*MWM*/)
     })
     .then(bundle => {
-        // Store the tail transaction hash and the transaction trytes
+        // 末尾トランザクションハッシュとトランザクションのトライトを保存します
         storeTailTransaction(bundle[0].hash, bundleTrytes);
     })
     .catch(error => {
-        // Catch any errors
+        // エラーを処理します
         console.log(error);
     });
     ```
@@ -177,16 +177,16 @@ Compressed tail transaction trytes were saved to: MZGKBEXTDCVNBRZYFLFPWWQKWT9OB9
 <!-- ## Sample code -->
 
 ```js
-// Require the packages
+// パッケージを Require します
 const Iota = require('@iota/core');
 const Compressor = require('@iota/tryte-compress');
 const Converter = require('@iota/converter');
 const fs = require('fs');
 
-// Create a new instance of the IOTA object
-// Use the `provider` field to specify which IRI node to connect to
+// IOTAオブジェクトの新しいインスタンスを作成します
+// `provider`フィールドを使用して、接続するIRIノードを指定します
 const iota = Iota.composeAPI({
-provider: 'https://nodes.devnet.iota.org:443'
+  provider: 'https://nodes.devnet.iota.org:443'
 });
 
 const address = 'HELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDHELLOWORLDD';
@@ -207,18 +207,18 @@ let bundleTrytes;
 
 iota.prepareTransfers(seed, transfers)
   .then(trytes => {
-    // Store the trytes in a global variable
+    // グローバル変数にトライトを保存します
     bundleTrytes = trytes[0];
     return iota.sendTrytes(trytes, 3/*depth*/, 9/*MWM*/)
   })
   .then(bundle => {
-    // Store the tail transaction hash and the transaction trytes
+    // 末尾トランザクションハッシュとトランザクションのトライトを保存します
     storeTailTransaction(bundle[0].hash, bundleTrytes);
     var JSONBundle = JSON.stringify(bundle,null,1);
     console.log(`Sent bundle: ${JSONBundle}`);
   })
   .catch(error => {
-    // Catch any errors
+    // エラーを処理します
     console.log(error);
 });
 

@@ -25,12 +25,12 @@ nRF52シリーズのマイクロコントローラーは、ウェアラブル、
 マイクロコントローラーを購入するときは、次のことに注意してください。
 <!-- When you buy a microcontroller, keep the following in mind: -->
 
-- マイクロコントローラーに統合プログラマー（デバッガーと呼ばれることもある）がない場合は、別のプログラマーを購入する必要があります。
+- マイクロコントローラーに統合されたプログラマー（デバッガーと呼ばれることもある）がない場合は、別のプログラマーを購入する必要があります。
 <!-- - If your microcontroller does not have an integrated programmer (sometimetimes called a debugger), you'll need to buy a separate one -->
 - マイクロコントローラーに統合されたUSB-to-UARTコネクター（USB-TTLシリアルコネクターとも呼ばれる）がない場合は、別途購入する必要があります。
 <!-- - If your microcontroller does not have an integrated USB-to-UART connector (sometimes called a USB to TTL serial connector), you'll need to buy a separate one -->
 
-2\. 統合プログラマー（デバッガーとも呼ばれる）を持っていないマイクロコントローラーを購入する場合は、統合プログラマーを購入して[マイクロコントローラーに接続](../how-to-guides/connect-programmer.md)してください。
+2\. 統合されたプログラマー（デバッガーとも呼ばれる）を持っていないマイクロコントローラーを購入する場合は、統合されたプログラマーを購入して[マイクロコントローラーに接続](../how-to-guides/connect-programmer.md)してください。
 <!-- 2\. If you buy a microcontroller that doesn't have an integrated programmer (sometimes called a debugger), buy one and [connect it](../how-to-guides/connect-programmer.md). -->
 
 プログラマーを使用して、コードをマイクロコントローラーにフラッシュします。プログラマーの詳細については[こちら](https://www.engineersgarage.com/tutorials/microcontroller-programmer-burner)を参照してください。
@@ -40,7 +40,7 @@ nRF52シリーズのマイクロコントローラーは、ウェアラブル、
 :::info:
 nRF52シリーズマイクロコントローラーをフラッシュするための安価なオプションが必要な場合は、J-Linkオンボード（OB）クローンの購入を検討してください。
 
-標準のJリンクプログラマーは、マイクロプロセッサでも使用できるため、より高価です。
+標準のJ-linkプログラマーは、マイクロプロセッサーでも使用できるため、より高価です。
 :::
 <!-- :::info: -->
 <!-- If you want a cheap option for flashing an nRF52 series microcontroller, consider buying a J-Link on-board (OB) clone. -->
@@ -127,5 +127,5 @@ nRF52シリーズマイクロコントローラーをフラッシュするため
 ## 次のステップ
 <!-- ## Next steps -->
 
-[マイクロコントローラーをセットアップする](../how-to-guides/set-up-nrf52-microcontroller.md)。
+[マイクロコントローラーをセットアップする](../how-to-guides/set-up-nrf52-microcontroller.md)
 <!-- [Set up your microcontroller](../how-to-guides/set-up-nrf52-microcontroller.md). -->

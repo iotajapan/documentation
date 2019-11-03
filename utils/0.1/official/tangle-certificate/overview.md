@@ -7,7 +7,7 @@
 ## イミュータブルな証明書を作成する
 <!-- ## Create an immutable certificate -->
 
-この例では、開発環境を使用して、[Tangle certificate API](https://certification-api.iota.org/docs/#iota-certification-api)を使用してTangleに証明書を添付します。
+この例では、開発環境を使用して、[Tangle certificate API](https://certification-api.iota.org/docs/#iota-certification-api)を使用してタングルに証明書を添付します。
 <!-- In this example, we use the [Tangle certificate API](https://certification-api.iota.org/docs/#iota-certification-api) to attach a certificate to the Tangle, using the development environment. -->
 
 最初に、テンプレートの作成に使用できる証明書の背景を作成します。次に、テンプレートにアクセスし、テンプレートから証明書を作成できる発行者を作成します。

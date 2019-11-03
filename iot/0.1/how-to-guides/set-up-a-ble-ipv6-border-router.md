@@ -1,7 +1,7 @@
 # 境界ルーターをセットアップする
 <!-- # Set up a border router -->
 
-**スター型ネットワークのセンサーサーバーがインターネットにアクセスできるようにするには、データを渡すことができる境界ルーターが必要です。このガイドでは、Linuxデバイスでの境界ルーターのセットアップを使用します。**
+**スター型ネットワークのセンサーサーバーがインターネットにアクセスできるようにするには、データを渡すことができる境界ルーターが必要です。このガイドでは、Linux デバイスでの境界ルーターのセットアップを使用します。**
 <!-- **To allow the sensor servers in a star network to access the Internet, you need a border router that can pass on their data. In this guide, you use set up a border router on a Linux device.** -->
 
 ## 前提条件
@@ -10,17 +10,17 @@
 このガイドを完了するには、次のものが必要です。
 <!-- To complete this guide, you need the following: -->
 
-- Raspberry Piなどのシングルボードコンピューターまたはボーダールーターとして使用するLinuxベースのPC
+- Raspberry Pi などのシングルボードコンピューターまたは境界ルーターとして使用する Linux ベースの PC
 <!-- - Either a single-board computer such as a Raspberry Pi or a Linux-based PC to use as the border router -->
-- UbuntuなどのLinuxディストリビューション
+- Ubuntu などの Linux ディストリビューション
 <!-- - A Linux distribution such as Ubuntu -->
 - Bluetooth <= 4.0（USBドングルまたは統合された）
 <!-- - Bluetooth <= 4.0 (USB dongle or integrated) -->
 
-## 手順1. 互換性のあるLinuxカーネルをインストールする
+## 手順1. 互換性のある Linux カーネルをインストールする
 <!-- ## Step 1. Install a compatible Linux kernel -->
 
-[RIOT OSのバグ](https://github.com/RIOT-OS/RIOT/issues/11147)により、古いルーター（最大バージョン4.12）を使用して境界ルーターをセットアップする必要があります。
+[RIOT OSのバグ](https://github.com/RIOT-OS/RIOT/issues/11147)により、古いルーター（最大バージョン 4.12）を使用して境界ルーターをセットアップする必要があります。
 <!-- Due to [a bug in RIOT OS](https://github.com/RIOT-OS/RIOT/issues/11147), you need to use an older Linux kernel (maximum version 4.12) to set up a border router. -->
 
 1. デバイスのLinuxカーネルのバージョンを確認します。
@@ -33,7 +33,7 @@
     4.12より大きいバージョン番号が表示される場合は、次の2に進みます。それ以外の場合は、これらの手順の残りをスキップして6LoWPAN依存関係をインストールします。
     <!-- If you see a version number that's greater than 4.12, continue to step 2. Otherwise, skip the rest of these steps and install the 6LoWPAN dependencies. -->
 
-2. アーキテクチャを選択し、[Ubuntu Linux mainline kernel builds](https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.11.12/)から汎用カーネルイメージをダウンロードします。
+2. アーキテクチャを選択し、[Ubuntu Linux mainline kernel builds](https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.11.12/) から汎用カーネルイメージをダウンロードします。
 <!-- 2. Select your architecture and download the generic kernel image from the [Ubuntu Linux mainline kernel builds](https://kernel.ubuntu.com/~kernel-ppa/mainline/v4.11.12/) -->
 
 3. カーネルをインストールします。
@@ -46,7 +46,8 @@
 4. カーネルを選択するオプションが表示されるまで、`SHIFT`キーを押しながらシステムを再起動します。
 <!-- 4. Restart your system while holding the `SHIFT` key until you see the option to select a kernel -->
 
-5. Select the kernel version 4.11.12
+5. カーネルバージョン 4.11.12 を選択します。
+<!-- 5. Select the kernel version 4.11.12 -->
 
 ## 手順2. 6LoWPAN依存関係をインストールする
 <!-- ## Step 2. Install the 6LoWPAN dependencies -->
@@ -58,7 +59,7 @@
 <!-- You need to do these steps for every session. So, if you close your session, for example after a reboot, you have to reinstall these dependencies. -->
 <!-- ::: -->
 
-1. bluezをインストールします。
+1. bluez をインストールします。
   <!-- 1. Install bluez -->
 
     ```bash

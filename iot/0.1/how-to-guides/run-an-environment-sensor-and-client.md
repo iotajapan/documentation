@@ -12,7 +12,7 @@
 
 - [6LoWPANネットワークを構成する](set-up-a-bluetooth-star-network.md)
 <!-- - [Configure a 6LoWPAN network](set-up-a-bluetooth-star-network.md) -->
--[シングルボードコンピューター（SBC）またはPCにGoツールチェーンをインストールする](https://golang.org/doc/install)
+- [シングルボードコンピューター（SBC）またはPCにGoツールチェーンをインストールする](https://golang.org/doc/install)
 <!-- - [Install the Go toolchain on a single-board computer (SBC) or a PC](https://golang.org/doc/install) -->
 
 ## アーキテクチャ

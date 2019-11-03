@@ -14,7 +14,7 @@
 2. [センサーをマイクロコントローラーに接続します](../how-to-guides/connect-a-I2C-sensor.md)。
 <!-- 2. [Connect the sensor to your microcontroller](../how-to-guides/connect-a-I2C-sensor.md) -->
 
-3. SDOピンをVDDIOピンに接続して、BME/BMP 280に[I2Cデバイスアドレス0x77](https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMP280-DS001.pdf)を与えます（詳細については、"5.2I²Cインターフェイス"を参照してください）。
+3. SDOピンをVDDIOピンに接続して、BME/BMP 280に[I²Cデバイスアドレス0x77](https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMP280-DS001.pdf)を与えます（詳細については、"5.2I²Cインターフェイス"を参照してください）。
 <!-- 3. Connect the SDO pin to the VDDIO pin to give the BME/BMP 280 the [I2C device address 0x77.](https://ae-bst.resource.bosch.com/media/_tech/media/datasheets/BST-BMP280-DS001.pdf) (See "5.2 I²C Interface" for more information.) -->
 
 4. ボードなしのBME/BMP 280センサーを使用している場合、I2Cインターフェースを選択するには以下を行う必要があります。

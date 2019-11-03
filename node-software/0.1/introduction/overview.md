@@ -13,7 +13,7 @@ IRI（IOTAリファレンス実装）は、IOTA Mainnet上で動作するオー�
 -------------------------
 ![Chronicle](../images/Chronicle.png)
 ## [Chronicle](../chronicle/introduction/overview.md)
-Chronicle is an addition to the IRI node software that allows you to store all transactions in a separate distributed database that's secure and scales well.
+ChronicleはIRIノードソフトウェアに追加されたもので、すべてのトランザクションを安全で拡張性の高い個別の分散データベースに保存できます。
 -------------------------
 
 -------------------------
