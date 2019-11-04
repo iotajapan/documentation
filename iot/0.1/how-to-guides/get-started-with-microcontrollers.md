@@ -10,7 +10,7 @@ nRF52シリーズのマイクロコントローラーは、ウェアラブル、
 これらのチュートリアルにはBluetoothが含まれており、通常は安価なので、このシリーズのマイクロコントローラーを使用します。
 <!-- We use this series of microcontrollers in these tutorials because they include Bluetooth and are usually cheap. -->
 
-1\. 専門の電子小売業者から次のnRF52マイクロコントローラーのいずれかを購入します。
+1\. 専門の電子小売業者から次のnRF52マイクロコントローラー（nRF52のとてもよい[説明記事](https://shizuk.sakura.ne.jp/bluetooth/nrf52/overview.html)）のいずれかを購入します。
 <!-- 1\. Buy one of the following nRF52 microcontrollers from a specialized electronic retailer -->
 
 - SparkFunによるnRF52832ブレイクアウトボード
@@ -65,7 +65,7 @@ nRF52シリーズマイクロコントローラーをフラッシュするため
 <!-- These components are often useful when you're building hardware projects. -->
 <!-- For example, if you want to connect more than one I2C sensor to a microcontoller that has only one I2C port. -->
 
-**ブレドボード**
+**ブレッドボード**
 <!-- **Breadboard** -->
 
 ブレッドボードを使用すると、ハードウェアコンポーネントをはんだ付けせずに接続するための一時的な回路を作成できます。

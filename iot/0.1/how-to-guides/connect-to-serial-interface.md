@@ -42,7 +42,7 @@
 2. UART-USBドングルをPCに接続します。
 <!-- 2. Plug the UART-to-USB dongle into your PC -->
 
-マイクロコントローラーのピン配置は、使用する開発ボードによって異なります。このガイドでは、nRF52832モジュールとnrf52832ミニマムテストボードを使用します。
+マイクロコントローラーのピン配置は、使用する開発ボードによって異なります。このガイドでは、nRF52832モジュールとnRF52832最小テストボードを使用します。
 <!-- The microcontroller's pinout depends on the development board you use. In this guide, we use an nRF52832 module and an nrf52832 minimum test board. -->
 
 :::info:
