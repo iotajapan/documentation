@@ -20,7 +20,7 @@
 :::info:
 nRF52シリーズマイクロコントローラーをフラッシュするための安価なオプションが必要な場合は、J-Linkオンボード（OB）クローンの購入を検討してください。
 
-標準のJリンクプログラマは、マイクロプロセッサーでも使用できるため、より高価です。
+標準のJ-Linkプログラマーは、マイクロプロセッサーでも使用できるため、より高価です。
 :::
 <!-- :::info: -->
 <!-- If you want a cheap option for flashing an nRF52 series microcontroller, consider buying a J-Link on-board (OB) clone. -->
@@ -37,11 +37,11 @@ nRF52シリーズマイクロコントローラーをフラッシュするため
     <!-- **Option 1:** J-Link -->
 
     | **nRF52** | **J-Link (ピン)** |
-    | :-------- | :---------------- |
-    |    VCC     |    VCC (1)       |
-    |    GND     |    GND (4)       |
-    |    SWD     |    SWDIO (7)     |
-    |    SCLK    |    SWDCLK (9)    |
+    | :-------- | :--------------- |
+    |    VCC    |    VCC (1)       |
+    |    GND    |    GND (4)       |
+    |    SWD    |    SWDIO (7)     |
+    |    SCLK   |    SWDCLK (9)    |
 
     J-Linkは標準の20ピンJTAGを使用します。
     <!-- The J-Link uses a standard 20 pin JTAG. -->
@@ -54,11 +54,11 @@ nRF52シリーズマイクロコントローラーをフラッシュするため
     <!-- **Option 2:** J-Link OB -->
 
     | **nRF5x** | **J-Link OB** |
-    | :-------- | :------------ |
-    |    VCC    |    VCC        |
-    |    GND    |    GND        |
-    |    SWD    |    SWDIO      |
-    |    SCLK   |    SWDCLK     |
+    | :-------- | :----------- |
+    |    VCC    |    VCC       |
+    |    GND    |    GND       |
+    |    SWD    |    SWDIO     |
+    |    SCLK   |    SWDCLK    |
 
     ![J-Link OB pinout](../images/j-link-ob-pinout.png)
 
