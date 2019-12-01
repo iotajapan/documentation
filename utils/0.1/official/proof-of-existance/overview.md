@@ -10,8 +10,8 @@
 この例では、[存在の証明ライブラリ](https://github.com/iotaledger/iota-poex-tool)を使用して、ファイルが変更されていないことを証明します。
 <!-- In this example, we use the [proof-of-existance library](https://github.com/iotaledger/iota-poex-tool) to prove that a file is unchanged. -->
 
-まず、後で変更されていないことを証明したいファイルを作成します。次に、ファイルをハッシュ化し、そのハッシュ値をトランザクションに追加してから、[Devnet](root://getting-started/0.1/references/iota-networks.md#devnet)タングルに添付します。Devnetは、トークンが無料であることを除いて、Mainnetとほぼ同じです。Devnetに送信するトランザクションは、Mainnetなどの他のネットワークには存在しません。
-<!-- First, we create a file that we later want to prove is unchanged. Then, we hash the file and add its hash to a transaction before attaching it to the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet) Tangle. The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
+まず、後で変更されていないことを証明したいファイルを作成します。次に、ファイルをハッシュ化し、そのハッシュ値をトランザクションに追加してから、[Devnet](root://getting-started/0.1/network/iota-networks.md#devnet)タングルに添付します。Devnetは、トークンが無料であることを除いて、Mainnetとほぼ同じです。Devnetに送信するトランザクションは、Mainnetなどの他のネットワークには存在しません。
+<!-- First, we create a file that we later want to prove is unchanged. Then, we hash the file and add its hash to a transaction before attaching it to the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) Tangle. The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
 
 :::info:
 タングルのトランザクションはイミュータブルであるため、トランザクションを真実のソースとして使用できます。
@@ -29,14 +29,14 @@
 このチュートリアルを完了するには、次のものが必要です。
 <!-- To complete this tutorial, you need the following: -->
 
-* Node.js 8、またはNode.js 10以降。 [最新のLTS](https://nodejs.org/en/download/)をお勧めします。
-<!-- * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
-* [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディター
-<!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
-* コマンドプロンプトへのアクセス
-<!-- * Access to a command prompt -->
+- Node.js 8、またはNode.js 10以降。 [最新のLTS](https://nodejs.org/en/download/)をお勧めします。
+<!-- - Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
+- [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディター
+<!-- - A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
+- コマンドラインインターフェイスへのアクセス
+<!-- - Access to a command-line interface -->
 * [`@iota/poex-tool`](https://www.npmjs.com/package/iota-poex-tool)パッケージおよび[`regenerator-runtime`](https://www.npmjs.com/package/regenerator-runtime)パッケージ
-<!-- * The [`@iota/poex-tool`](https://www.npmjs.com/package/iota-poex-tool) and the [`regenerator-runtime`](https://www.npmjs.com/package/regenerator-runtime) packages -->
+<!-- - The [`@iota/poex-tool`](https://www.npmjs.com/package/iota-poex-tool) and the [`regenerator-runtime`](https://www.npmjs.com/package/regenerator-runtime) packages -->
 
 ### 手順1. サンプルコントラクトを作成する
 <!-- ### Step 1. Create an example contract -->
@@ -130,14 +130,14 @@
 
     トランザクションはDevnetタングルに接続されているため、Mainnetなどの他のネットワークには存在しません。
 
-    [IOTAネットワークの詳細](root://getting-started/0.1/references/iota-networks.md)をご覧ください。
+    [IOTAネットワークの詳細](root://getting-started/0.1/network/iota-networks.md)をご覧ください。
     :::
     <!-- :::info: -->
     <!-- We set the `provider` field again so that the library knows to request the transaction from a Devnet node. -->
-    <!--  -->
+
     <!-- The transaction is attached to the Devnet Tangle, so it does not exist on any other networks such as the Mainnet. -->
-    <!--  -->
-    <!-- [Find out more about IOTA networks](root://getting-started/0.1/references/iota-networks.md). -->
+
+    <!-- [Find out more about IOTA networks](root://getting-started/0.1/network/iota-networks.md). -->
     <!-- ::: -->
 
 :::success:おめでとうございます:tada:

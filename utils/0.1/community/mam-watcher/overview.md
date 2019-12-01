@@ -30,10 +30,10 @@
 このアプリケーションを使用するには、以下が必要です。
 <!-- To use this application, you need the following: -->
 
-* [LTSバージョンまたは最新バージョンのNode.jsとNPM](https://nodejs.org/en/download/)
-<!-- * [An LTS version or the latest version of Node.js and NPM](https://nodejs.org/en/download/) -->
+- [LTSバージョンまたは最新バージョンのNode.jsとNPM](https://nodejs.org/en/download/)
+<!-- - [An LTS version or the latest version of Node.js and NPM](https://nodejs.org/en/download/) -->
 
-* [Git](https://git-scm.com/download/linux)
+- [Git](https://git-scm.com/download/linux)
 
 ## アプリケーションを実行する
 <!-- ## Run the application -->

@@ -33,14 +33,14 @@
 `raspberrypi-pubsub`ディレクトリには、次のファイルがあります。
 <!-- In the `raspberrypi-pubsub` directory, you have the following files: -->
 
-* `index.js`： データを収集し、バンドルを作成して、トランザクションを送信します。
-<!-- * `index.js`: Collects data, constructs the bundle, and sends the transaction. -->
-* `temp.py`： [`envirophat`ライブラリ](https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-enviro-phat)を使用してセンサーから現在の温度を読み取ります。
-<!-- * `temp.py`: Uses the [`envirophat` library](https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-enviro-phat) to read the current temperature from the sensor. -->
-* `fetchTemp.js`： 現在の温度を取得するために`tempy.py`ファイルを実行します。
-<!-- * `fetchTemp.js`: Executes the `tempy.py` file to get the current temperature. -->
-* `zmqWatcher.js`： アドレスの確定を監視するために、Devnetノードの[ZMQ`address`イベント](root://node-software/0.1/iri/references/zmq-events.md#address)を購読します。
-<!-- * `zmqWatcher.js`: Subscribes to a Devnet node's [ZMQ `address` event](root://node-software/0.1/iri/references/zmq-events.md#address) to monitor the address for confirmation. -->
+- `index.js`： データを収集し、バンドルを作成して、トランザクションを送信します。
+<!-- - `index.js`: Collects data, constructs the bundle, and sends the transaction. -->
+- `temp.py`： [`envirophat`ライブラリ](https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-enviro-phat)を使用してセンサーから現在の温度を読み取ります。
+<!-- - `temp.py`: Uses the [`envirophat` library](https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-enviro-phat) to read the current temperature from the sensor. -->
+- `fetchTemp.js`： 現在の温度を取得するために`tempy.py`ファイルを実行します。
+<!-- - `fetchTemp.js`: Executes the `tempy.py` file to get the current temperature. -->
+- `zmqWatcher.js`： アドレスの確定を監視するために、Devnetノードの[ZMQ`address`イベント](root://node-software/0.1/iri/references/zmq-events.md#address)を購読します。
+<!-- - `zmqWatcher.js`: Subscribes to a Devnet node's [ZMQ `address` event](root://node-software/0.1/iri/references/zmq-events.md#address) to monitor the address for confirmation. -->
 
 `fetchTemp.js`ファイルと`zmqWatcher.js`ファイルはモジュールとしてエクスポートされ、`index.js`ファイルから呼び出されます。
 <!-- The `fetchTemp.js` and `zmqWatcher.js` files are exported as modules and called from the `index.js` file. -->
@@ -51,13 +51,13 @@
 このアプリケーションを使用するには、以下が必要です。
 <!-- To use this application, you need the following: -->
 
-* ラズベリーパイに接続された[Enviro Phatセンサーボード](https://shop.pimoroni.com/products/enviro-phat)
-<!-- * [An Enviro Phat sensor board](https://shop.pimoroni.com/products/enviro-phat) connected to a Raspberry Pi -->
+- ラズベリーパイに接続された[Enviro Phatセンサーボード](https://shop.pimoroni.com/products/enviro-phat)
+<!-- - [An Enviro Phat sensor board](https://shop.pimoroni.com/products/enviro-phat) connected to a Raspberry Pi -->
 
-* [LTSバージョンまたは最新バージョンのNode.jsとNPM](https://nodejs.org/en/download/)
-<!-- * [An LTS version or the latest version of Node.js and NPM](https://nodejs.org/en/download/) -->
+- [LTSバージョンまたは最新バージョンのNode.jsとNPM](https://nodejs.org/en/download/)
+<!-- - [An LTS version or the latest version of Node.js and NPM](https://nodejs.org/en/download/) -->
 
-* [Git](https://git-scm.com/download/linux)
+- [Git](https://git-scm.com/download/linux)
 
 ラズベリーパイの設定をするには、[これらの手順](https://medium.com/@lambtho/raspberry-setup-dcb23e8ba88)に従ってください。
 <!-- For help setting up a Raspberry Pi, you can follow [these instructions](https://medium.com/@lambtho/raspberry-setup-dcb23e8ba88). -->

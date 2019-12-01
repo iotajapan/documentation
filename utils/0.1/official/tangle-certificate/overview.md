@@ -1,8 +1,8 @@
 # タングル証明書作成者の概要
 <!-- # Tangle certificate creator overview -->
 
-**証明書は、所有者に関する事実を証明する公式文書です。しかし、証明書がデジタルの場合、それらは詐欺の対象となります。デジタル証明書はコピーおよび編集できるため、確実性と信用性に影響します。証明書が本物であり、信頼でき、変更されていないことを証明するために、証明書をタングルに添付することができます。**
-<!-- **A certificate is an official document that proves a fact about the bearer. But, when certificates are digital, they are subject to fraud. Digital certificates can be copied and edited, which affects their authenticity and credibility. To prove that a certificate is authentic, credible, and unchanged, you can attach it to the Tangle.** -->
+**証明書は、所有者に関する事実を証明する公式文書です。しかし、証明書がデジタルの場合、それらは詐欺の対象となります。デジタル証明書はコピーおよび編集できるため、確実性と信用性に影響します。証明書が本物であり、信頼でき、変更されていないことを証明するために、証明書を[タングル](root://getting-started/0.1/network/the-tangle.md)に添付することができます。**
+<!-- **A certificate is an official document that proves a fact about the bearer. But, when certificates are digital, they are subject to fraud. Digital certificates can be copied and edited, which affects their authenticity and credibility. To prove that a certificate is authentic, credible, and unchanged, you can attach it to the [Tangle](root://getting-started/0.1/network/the-tangle.md).** -->
 
 ## イミュータブルな証明書を作成する
 <!-- ## Create an immutable certificate -->
@@ -13,27 +13,20 @@
 最初に、テンプレートの作成に使用できる証明書の背景を作成します。次に、テンプレートにアクセスし、テンプレートから証明書を作成できる発行者を作成します。
 <!-- First, we create a certificate background that we can use to create a template. Then, we create an issuer who has access to the template and can create certificates from it. -->
 
-:::info:
-[タングル](root://dev-essentials/0.1/concepts/the-tangle.md)のトランザクションはイミュータブルであるため、トランザクションを真実の源として使用できます。
-:::
-<!-- :::info: -->
-<!-- Transactions on [the Tangle](root://dev-essentials/0.1/concepts/the-tangle.md) are immutable, so we can use the transaction as a source of truth. -->
-<!-- ::: -->
-
 ### 前提条件
 <!-- ### Prerequisites -->
 
 このチュートリアルを完了するには、次のものが必要です。
 <!-- To complete this tutorial, you need the following: -->
 
-* Node.js 8、またはNode.js 10以降。 [最新のLTS](https://nodejs.org/en/download/)をお勧めします。
-<!-- * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
-* [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディター
-<!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
-* コマンドプロンプトへのアクセス
-<!-- * Access to a command prompt -->
-* [`axios`](https://www.npmjs.com/package/axios)パッケージ
-<!-- * The [`axios`](https://www.npmjs.com/package/axios) package -->
+- Node.js 8、またはNode.js 10以降。 [最新のLTS](https://nodejs.org/en/download/)をお勧めします。
+<!-- - Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
+- [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディター
+<!-- - A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
+- コマンドラインインターフェイスへのアクセス
+<!-- - Access to a command-line interface -->
+- [`axios`](https://www.npmjs.com/package/axios)パッケージ
+<!-- - The [`axios`](https://www.npmjs.com/package/axios) package -->
 
 ### 手順1. API認証情報を取得する
 <!-- ### Step 1. Get API credentials -->

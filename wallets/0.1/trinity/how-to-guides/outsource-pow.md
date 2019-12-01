@@ -1,8 +1,8 @@
 # プルーフオブワークを外部委託する
 <!-- # Outsource proof of work -->
 
-**トランザクションを送信する前に、[プルーフオブワーク](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)を含める必要があります。プルーフオブワークには、エネルギーを使用して計算を行うコンピューターが必要です。デフォルトでは、トリニティを実行しているコンピューターでプルーフオブワークが行われます。**
-<!-- **Before you send a transaction, it must include a [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md). Proof of work requires a computer to use energy to do computations. By default proof of work is done on the computer that is running Trinity.** -->
+**トランザクションを送信する前に、[プルーフオブワーク](root://getting-started/0.1/transactions/proof-of-work.md)を含める必要があります。プルーフオブワークには、エネルギーを使用して計算を行うコンピューターが必要です。デフォルトでは、トリニティを実行しているコンピューターでプルーフオブワークが行われます。**
+<!-- **Before you send a transaction, it must include a [proof of work](root://getting-started/0.1/transactions/proof-of-work.md). Proof of work requires a computer to use energy to do computations. By default proof of work is done on the computer that is running Trinity.** -->
 
 **プルーフオブワークの外部委託**オプションを使用して、特定のノードにトランザクションのプルーフオブワークを行うように依頼できます。
 <!-- You can use the **Outsouce proof of work** option to ask a specific node to do the proof of work for your transactions. -->

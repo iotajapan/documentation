@@ -50,8 +50,8 @@ GitHubアカウントを既にお持ちで、コンピューターにGitがセ�
 <!-- 2. [Set up Git](https://help.github.com/articles/set-up-git/) -->
 3. [ドキュメントリポジトリ](https://github.com/iotaledger/documentation.git)に移動し、ページ上部の[**Fork**]をクリックします。
 <!-- 3. Go to our [documentation repository](https://github.com/iotaledger/documentation.git) and click **Fork** at the top of the page -->
-4. コマンドプロンプトで次を実行して、フォークをローカルマシンにコピーします。
-  <!-- 4. Copy your fork to your local machine by doing the following in the command prompt: -->
+4. コマンドラインインターフェイスで次を実行して、フォークをローカルマシンにコピーします。
+  <!-- 4. Copy your fork to your local machine by doing the following in the command-line interface: -->
 
     ```bash
     git clone https://github.com/{your username}/documentation
@@ -84,8 +84,8 @@ GitHubアカウントを既にお持ちで、コンピューターにGitがセ�
 - 文法の編集とスペルの修正、および既存の記事に関するその他の提案
 <!-- - Grammar edits and spelling corrections, and any other suggestions for an existing article -->
 
-1. コマンドプロンプトを開きます。
-<!-- 1. Open a command prompt -->
+1. コマンドラインインターフェイスを開きます。
+<!-- 1. Open a command-line interface -->
 
 2. 以下を実行します。
   <!-- 2. Do the following: -->
@@ -246,12 +246,12 @@ node buildProjects getting-started
 `projects.md`ファイルには、次のトップレベルのナビゲーションラベルとリンクが含まれています。
 <!-- The `projects.md` file contains the top level navigation labels and links for the following: -->
 
-* ホームページのフローティングメニュー
-<!-- * Home page floating menu -->
-* フッター
-<!-- * Footer -->
-* バーガーメニューのナビゲーション
-<!-- * Burger menu navigation -->
+- ホームページのフローティングメニュー
+<!-- - Home page floating menu -->
+- フッター
+<!-- - Footer -->
+- バーガーメニューのナビゲーション
+<!-- - Burger menu navigation -->
 
 ファイル内のアイテムの順序によって、ナビゲーション内の順序が決まります。
 <!-- The order of the items in the file determines the order in the navigation. -->
@@ -297,14 +297,14 @@ node buildProjects getting-started
 記事を作成または編集する場合は、スタイルガイドに従って次のことを行ってください。
 <!-- If you are creating or editing an article, please follow our style guide to help us do the following: -->
 
-* 一貫した声のトーンで作成し、維持する。
-<!-- * Create and maintain a consistent tone of voice -->
-* 標準形式のドキュメントを提供する。
-<!-- * Offer documentation in a standard format -->
-* ネイティブでない英語の読者向けに読みやすいようにドキュメントを作成する。
-<!-- * Make our documentation straightforward to read for non-native English readers -->
-* ドキュメントが読者を教育していることを確認する。
-<!-- * Make sure that our documentation educates our readers -->
+- 一貫した声のトーンで作成し、維持する。
+<!-- - Create and maintain a consistent tone of voice -->
+- 標準形式のドキュメントを提供する。
+<!-- - Offer documentation in a standard format -->
+- ネイティブでない英語の読者向けに読みやすいようにドキュメントを作成する。
+<!-- - Make our documentation straightforward to read for non-native English readers -->
+- ドキュメントが読者を教育していることを確認する。
+<!-- - Make sure that our documentation educates our readers -->
 
 このガイドでは説明していない記述について質問がある場合は、[Googleスタイルガイド](https://developers.google.com/style/)を使用してください。
 <!-- If you have a question about writing that we don't cover in this guide, use the [Google style guide](https://developers.google.com/style/). -->
@@ -552,7 +552,7 @@ Will Robinson :bomb:
 <!-- These general rules make information easier to understand and translate. -->
 
 | **規則** | **例** |
-| :--- | :--- |
+| :------- | :----- |
 | 短い言葉がするような長い言葉を使わない | 「~~活用~~ **使用**短い単語」 |
 | 単語を削除できる場合は、常に削除します | 「このメソッドは、~~正確に~~前のものと同じです」 |
 | 可能な場合は常にアクティブな音声を使用します | 「~~アクティブな音声は可能な限り常に使用する必要があります~~。」 「可能な場合は常にアクティブな音声を使用する必要があります」 |
@@ -581,18 +581,18 @@ Will Robinson :bomb:
 ### 句読点
 <!-- ### Punctuation -->
 
-* 常にコロンの後は大文字を使用します。
-* 常にオックスフォードコンマを使用します（「The Mainnet, Devnet, およびSpamnet」など、リストの前およびリスト内のコンマ）。
-* 単一の文のリストの最後にピリオドを使用しないでください。リスト項目が複数の文で構成されている場合にのみピリオドを使用します
-<!-- * Always use a capital letter after colons -->
-<!-- * Always use an oxford comma (comma before and in a list, for example 'The Mainnet, Devnet, and Spamnet') -->
-<!-- * Don't use periods at the end of single sentence lists. Use periods only when list items consists of more than one sentence -->
+- 常にコロンの後は大文字を使用します。
+- 常にオックスフォードコンマを使用します（「The Mainnet, Devnet, およびSpamnet」など、リストの前およびリスト内のコンマ）。
+- 単一の文のリストの最後にピリオドを使用しないでください。リスト項目が複数の文で構成されている場合にのみピリオドを使用します
+<!-- - Always use a capital letter after colons -->
+<!-- - Always use an oxford comma (comma before and in a list, for example 'The Mainnet, Devnet, and Spamnet') -->
+<!-- - Don't use periods at the end of single sentence lists. Use periods only when list items consists of more than one sentence -->
 
 ### 記事のタイトル
 <!-- ### Article titles -->
 
 | **規則** | **例** |
-| :--- | :--- |
+| :------- | :----- |
 | タイトルには大文字と小文字を使用します。タイトルケースを使用しないでください。 | 'The Distributed Ledger'ではなく'The distributed ledger' |
 | 'Concepts'セクションの記事タイトルは常に名詞でなければなりません | 'What is tip selection?'または'Understanding tip selection'ではなく'Tip selection' |
 | 'How-to guides'セクションの記事タイトルは、常に不定詞で始まる必要があります | 'Running the IRI'ではなく'Run the IRI'|
@@ -613,14 +613,13 @@ Will Robinson :bomb:
 
 次の質問に必ず回答してください。
 <!-- Make sure you answer the following questions: -->
-* 記事の内容はなんですか？
-<!-- * What is the article about? -->
-* なぜユーザーは記事の情報を気にするか、必要とするのですか？
-<!-- * Why do users care about or need the information in the article? -->
+- 記事の内容はなんですか？
+<!-- - What is the article about? -->
+- なぜユーザーは記事の情報を気にするか、必要とするのですか？
+<!-- - Why do users care about or need the information in the article? -->
 
 ### ハウツーガイド
 <!-- ### How-to guides -->
-
 
 ハウツーガイドは、ユーザーがタスクを達成するのに役立つ記事です。
 <!-- A how-to guide is an article that helps users achieve a task. -->
@@ -628,10 +627,10 @@ Will Robinson :bomb:
 ハウツーガイドを作成するときは、次の一般的なガイドラインに従ってください。
 <!-- When you write how-to guides, follow these general guidelines: -->
 
-* [記事ごとに1つのタスクを書く](#write-one-task-per-article)。
-<!-- * [Write one task per article](#write-one-task-per-article) -->
-* [長いハウツーガイドを整理するためのサブタスクを作成する](#create-subtasks-to-organize-long-how-to-guides)。
-<!-- * [Create subtasks to organize long how-to guides](#create-subtasks-to-organize-long-how-to-guides) -->
+- [記事ごとに1つのタスクを書く](#write-one-task-per-article)。
+<!-- - [Write one task per article](#write-one-task-per-article) -->
+- [長いハウツーガイドを整理するためのサブタスクを作成する](#create-subtasks-to-organize-long-how-to-guides)。
+<!-- - [Create subtasks to organize long how-to guides](#create-subtasks-to-organize-long-how-to-guides) -->
 
 各ハウツーガイドでは、シナリオを実行する方法だけでなく、ユーザーがシナリオを実行する理由も説明します。何を達成するか？なぜ必要なのか？
 <!-- Each how-to guide should explain not only **how** to perform the scenario, but also **why** a user would want to perform the scenario. What does it achieve? Why is it needed? -->
@@ -677,16 +676,16 @@ Will Robinson :bomb:
 コンセプト記事は、次のいずれかを行うために作成できます。
 <!-- Concept articles can be written to do any of the following: -->
 
-* システム、製品、またはソリューションの説明
-<!-- * Describe a system, product, or solution -->
-* ツールとテクノロジーの紹介
-<!-- * Introduce tools and technology -->
-* 機能、コンポーネント、特性、制限、機能を説明する
-<!-- * Explain features, components, characteristics, restrictions, and capabilities -->
-* 用語集で見つけるよりも詳細に用語を定義する
-<!-- * Define terms in more details than you would find in a glossary -->
-* メリットを説明するか、ユーザーがオプションを選択できるようにする
-<!-- * Describe benefits or help users to make choices between options -->
+- システム、製品、またはソリューションの説明
+<!-- - Describe a system, product, or solution -->
+- ツールとテクノロジーの紹介
+<!-- - Introduce tools and technology -->
+- 機能、コンポーネント、特性、制限、機能を説明する
+<!-- - Explain features, components, characteristics, restrictions, and capabilities -->
+- 用語集で見つけるよりも詳細に用語を定義する
+<!-- - Define terms in more details than you would find in a glossary -->
+- メリットを説明するか、ユーザーがオプションを選択できるようにする
+<!-- - Describe benefits or help users to make choices between options -->
 
 タスクとユーザーの目標をサポートするためのコンセプト記事を書く必要があります。
 <!-- You should write concept articles to support tasks and user goals. -->

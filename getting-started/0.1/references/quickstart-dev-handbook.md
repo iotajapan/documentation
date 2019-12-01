@@ -23,11 +23,9 @@ IOTA財団は、誰でもがノードを実行でき、ノードに接続でき�
 
 <!-- |**Type** |**Status**|**Description**| -->
 <!-- :-----|:------|:---------| -->
+<!-- :-----|:------|:---------| -->
 <!-- |Mainnet|Active and growing|The main IOTA network, where the IOTA token has value that's traded on platforms such as cryptocurrency exchanges. This network consists of thousands of nodes and is open to everybody. -->
 <!-- |Devnet|Active|The development IOTA network where the IOTA token has no value except for testing purposes. This network is like the Mainnet except it takes less time and computational power to create and send a transaction. -->
-
-[パーミッションレスIOTAネットワーク](../references/iota-networks.md)の詳細をご覧ください。
-<!-- Learn more about the [permissionless IOTA networks](../references/iota-networks.md). -->
 
 ### プライベートIOTAネットワークを実行できるか？
 <!-- ### Can I run a private IOTA network? -->
@@ -45,7 +43,7 @@ IOTAはオープンソーステクノロジーであるため、誰でも自由�
 <!-- ### Which IOTA network is best for me? -->
 
 アプリケーションに最適なIOTAネットワークは、そのステータスとニーズによって異なります。
-<!-- The best IOTA network for application will depend on its status and your needs. -->
+The best IOTA network for your application will depend on its status and your needs.
 
 :::info:
 IOTAプロトコルはベータ版の開発中であるため、将来、いくつかの重大な変更が発生する可能性があります。
@@ -57,11 +55,11 @@ IOTAプロトコルはベータ版の開発中であるため、将来、いく�
 これらすべてのネットワークについて、次のスキルが必要です。
 <!-- For all of these networks, you need the following skills: -->
 
-* サポートされている[クライアントライブラリ](root://client-libraries/0.1/introduction/overview.md)の1つでの経験を持つソフトウェア開発者（リクエストをノードに送信するため）
-<!-- * Software developer, with experience in one of the supported [client libraries](root://client-libraries/0.1/introduction/overview.md) (for sending requests to a node) -->
+- サポートされている[クライアントライブラリ](root://client-libraries/0.1/introduction/overview.md)の1つでの経験を持つソフトウェア開発者（リクエストをノードに送信するため）
+<!-- - Software developer, with experience in one of the supported [client libraries](root://client-libraries/0.1/introduction/overview.md) (for sending requests to a node) -->
 
-* サーバーのメンテナンスに関する知識（Mainnet上でノードを実行するため）
-<!-- * Knowledge of maintaining servers (for running a node on the Mainnet) -->
+- サーバーのメンテナンスに関する知識（Mainnet上でノードを実行するため）
+<!-- - Knowledge of maintaining servers (for running a node on the Mainnet) -->
 
 |**自分のニーズ**|**アプリケーションのステータス**|**ネットワーク**|
 |:---------|:-----------------------------|:---------------|
@@ -78,8 +76,8 @@ IOTAプロトコルはベータ版の開発中であるため、将来、いく�
 ### IOTA Mainnetを使用するコストはどのくらいか？
 <!-- ### What is the cost of using the IOTA Mainnet? -->
 
-IOTA Mainnetは無料で使用できます。 IOTAノードへのIOTAトランザクションの送信に関連する費用も、処理手数料もありません。 IOTAは無料のプロトコルです。
-<!-- The IOTA Mainnet is free to use. There are no costs associated for sending IOTA transactions to an IOTA node, nor any processing fee. IOTA is a fee-less protocol. -->
+IOTA Mainnetは無料で使用できます。 IOTAノードへのIOTAトランザクションの送信に関連する費用も、処理手数料もありません。IOTAは無料のプロトコルです。
+<!-- The IOTA Mainnet is free to use. There are no costs associated for sending IOTA transactions to an IOTA node, nor any processing fee. IOTA is a feeless protocol.  -->
 
 IOTAデータトランザクションの送信には、クライアントが暗号資産（IOTAトークン）を所有する必要はありません。
 <!-- Sending IOTA data transactions does not require clients to own any cryptocurrency. -->
@@ -124,10 +122,10 @@ provider: 'https://nodes.thetangle.org:443'
 <!-- ::: -->
 
 :::warning:
-すべてのノードがリモートプルーフオブワーク（PoW）をサポートしているわけではありません。よって、クライアントがMainnet上で公開されているノードのいずれかにトランザクションを送信する場合、[別のPoWオプション](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)を使用する必要があります。
+すべてのノードがリモートプルーフオブワーク（PoW）をサポートしているわけではありません。 したがって、PoWをサポートしていないノードにトランザクションを送信する場合は、[別のPoWオプション](root://getting-started/0.1/transactions/proof-of-work.md#options-for-doing-proof-of-work)を使用する必要があります。
 :::
 <!-- :::warning: -->
-<!-- Not all the nodes support remote proof of work (PoW). So, if your client wants to send a transaction to one of these nodes, it will have to use [another PoW option](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md). -->
+<!-- Not all the nodes support remote proof of work (PoW). So, if you want to send a transaction to one of these nodes, you will have to use [another PoW option](root://getting-started/0.1/transactions/proof-of-work.md#options-for-doing-proof-of-work). -->
 <!-- ::: -->
 
 ノードに接続したら、送信するデータとアドレスを指定する転送オブジェクトを作成する必要があります。
@@ -144,13 +142,6 @@ const transfers = [
     }
     ];
 ```
-
-:::info:
-[トランザクションの構造の詳細](root://dev-essentials/0.1/references/structure-of-a-transaction.md)をご覧ください。
-:::
-<!-- :::info: -->
-<!-- [Learn more about the structure of a transaction](root://dev-essentials/0.1/references/structure-of-a-transaction.md). -->
-<!-- ::: -->
 
 トランザクションをノードに送信する準備ができたら、正しい最小重量値（MWM）を使用していることを確認してください。メインネット上のMWMは14です。
 <!-- When you're ready to send the transaction to your node, make sure that you use the correct minimum weight magnitude. The MWM on the Mainnet is 14. -->
@@ -169,27 +160,20 @@ iota.prepareTransfers(seed, transfers)
     });
 ```
 
-:::info:
-[トランザクション送信のチュートリアル](../tutorials/send-a-zero-value-transaction-with-nodejs.md)を参照してください。
-:::
-<!-- :::info: -->
-<!-- [See our tutorial for sending a transaction](../tutorials/send-a-zero-value-transaction-with-nodejs.md). -->
-<!-- ::: -->
-
 #### メインネット上でサードパーティのノードを使用する際の考慮事項
 <!-- #### Things to consider when using third-party nodes on the Mainnet -->
 
 サードパーティのノードへの接続は便利ですが、信頼できるサービスが必要な場合は不利になります。例えば：
 <!-- Connecting to third-party nodes is convenient, but comes at a disadvantage if you need a reliable service. For example: -->
 
-* トランザクションは、ノードが受信する他のトランザクションと競合し、ノードが決定する優先度で処理されます。
-<!-- * Your transactions will compete with other transactions that the node receives and will be processed with a priority that the node decides -->
-* 高速PoW計算への支払い、またはPoWを含むトランザクションの提供を要求される場合があります。
-<!-- * You might be requested to pay for fast PoW computation or to provide a transaction that includes PoW -->
-* トランザクションのコピーは、ノードによって決定された限られた時間だけノードに保持される場合があります。
-<!-- * A copy of your transactions might be kept only for a limited time that's decided by the node -->
-* パーマノードオプション（トランザクションの永久保存など）には手数料が必要な場合があります。
-<!-- * A permanode option (e.g. permanent storage of your transactions) might require a fee -->
+- トランザクションは、ノードが受信する他のトランザクションと競合し、ノードが決定する優先度で処理されます。
+<!-- - Your transactions will compete with other transactions that the node receives and will be processed with a priority that the node decides -->
+- 高速PoW計算への支払い、またはPoWを含むトランザクションの提供を要求される場合があります。
+<!-- - You might be requested to pay for fast PoW computation or to provide a transaction that includes PoW -->
+- トランザクションのコピーは、ノードによって決定された限られた時間だけノードに保持される場合があります。
+<!-- - A copy of your transactions might be kept only for a limited time that's decided by the node -->
+- パーマノードオプション（トランザクションの永久保存など）には手数料が必要な場合があります。
+<!-- - A permanode option (permanent storage of your transactions) might require a fee -->
 
 これらの欠点を克服するには、自分自身のノードを実行し、アプリケーションを接続してタングルに直接アクセスすることをお勧めします。自分自身のノードを使用すると、トランザクションがタングルに添付される速度をより詳細に制御でき、トランザクションを永続的に保存できます。
 <!-- To overcome these disadvantages, we recommend that you run your own node and connect your application to it for direct access to the Tangle. Your own node gives you more control on how fast your transactions are attached to the Tangle and allows you to store them permanently. -->
@@ -206,13 +190,6 @@ iota.prepareTransfers(seed, transfers)
 
 Devnetは、トークンが無料であることを除いて、Mainnetとほぼ同じです。Devnetに送信するトランザクションは、Mainnetなどの他のネットワークには存在しません。
 <!-- The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
-
-:::info:
-[無料のテストトークンを取得する方法](../tutorials/receive-test-tokens.md)を参照してください。
-:::
-<!-- :::info: -->
-<!-- [Get some free test tokens](../tutorials/receive-test-tokens.md) -->
-<!-- ::: -->
 
 Mainnetを使用するのと同じように、Devnetでトランザクションを送信する最も簡単な方法は、クライアントライブラリを使用してアプリケーションのIOTAロジックを構築することです。
 <!-- In the same way as you use the Mainnet, the easiest way to send transactions on the Devnet is to use our client libraries to build the IOTA logic of your application. -->
@@ -236,10 +213,10 @@ DevnetとMainnetを切り替えるには、`provider`フィールドをhttps://n
 ### 役立つリンク
 <!-- ### Useful links -->
 
-* [Amazon Web Services（AWS）でノードを実行する](https://gitlab.com/iot.fabian.rami/iota-aws-full-node)。（未検証）
-<!-- * [Run a node on Amazon Web Services (AWS)](https://gitlab.com/iot.fabian.rami/iota-aws-full-node) (not tested) -->
-* [アプリケーション設計図](root://blueprints/0.1/introduction/overview.md)を参照して、IOTAでアプリケーションを作成する方法を確認してください。
-<!-- * [Read our application blueprints](root://blueprints/0.1/introduction/overview.md) to see how you can create an application on IOTA -->
+- [Amazon Web Services（AWS）でノードを実行する](https://gitlab.com/iot.fabian.rami/iota-aws-full-node)。（未検証）
+<!-- - [Run a node on Amazon Web Services (AWS)](https://gitlab.com/iot.fabian.rami/iota-aws-full-node) (not tested) -->
+- [アプリケーション設計図](root://blueprints/0.1/introduction/overview.md)を参照して、IOTAでアプリケーションを作成する方法を確認してください。
+<!-- - [Read our application blueprints](root://blueprints/0.1/introduction/overview.md) to see how you can create an application on IOTA -->
 
 ## IOTAとIoT
 <!-- ## IOTA and the Internet of Things -->
@@ -263,19 +240,19 @@ IOTAの目標は、モノのインターネット（IoT）上のデバイスが�
 ## マスクされた認証済みメッセージングに関するメモ
 <!-- ## A note on Masked Authenticated Messaging -->
 
-MAM（マスクされた認証済みメッセージング）は、IOTAタングルで暗号化されたデータストリームを作成して読み取ることができるセカンドレイヤーの通信プロトコルです。
-<!-- MAM (Masked Authenticated Messaging) is a second layer communication protocol that allows you to create and read encrypted data streams on the IOTA Tangle. -->
+[MAM（マスクされた認証済みメッセージング）](../transactions/masked-authenticated-messaging.md)は、IOTAタングルで暗号化されたデータストリームを作成して読み取ることができるセカンドレイヤーの通信プロトコルです。
+<!-- [MAM (Masked Authenticated Messaging)](../transactions/masked-authenticated-messaging.md) is a second layer communication protocol that allows you to create and read encrypted data streams on the IOTA Tangle. -->
 
 MAMは、タングルで機密データをストリーミングするのに特に適しています。
 <!-- MAM is particularly suitable for streaming sensitive data on the Tangle. -->
 
-現在、JavaScript MAMライブラリがあります。このライブラリを使用するには、次のいずれかが必要です。
-<!-- Currently, we have a JavaScript MAM library. To use this library, you need one of the following: -->
+現在、[JavaScript MAMライブラリ](root://iota-js/0.1/mam/introduction/overview.md)があります。このライブラリを使用するには、次のいずれかが必要です。
+<!-- Currently, we have a [JavaScript MAM library](root://iota-js/0.1/mam/introduction/overview.md). To use this library, you need one of the following: -->
 
-* Raspberry PiなどのNode.jsを実行できるIoTデバイス
-<!-- * An IoT device that can run Node.js such as a Raspberry Pi -->
-* Node.jsを実行して、デバイスが接続できるMAMプロキシとして機能できるサーバー
-<!-- * A server that can run Node.js to act as a MAM proxy to which your device can connect -->
+- Raspberry PiなどのNode.jsを実行できるIoTデバイス
+<!-- - An IoT device that can run Node.js such as a Raspberry Pi -->
+- Node.jsを実行して、デバイスが接続できるMAMプロキシとして機能できるサーバー
+<!-- - A server that can run Node.js to act as a MAM proxy to which your device can connect -->
 
 :::info:
 [MAMチャネルを介してRaspberry Piでセンサーデータをストリーミングする方法](root://utils/0.1/community/raspberry-pi-pub-sub/overview.md)を参照してください。
@@ -287,10 +264,10 @@ MAMは、タングルで機密データをストリーミングするのに特�
 IOTAコミュニティは、さまざまな言語でMAMを使用できるようにするいくつかのクライアントライブラリラッパーを維持しています。
 <!-- The IOTA community maintains some client library wrappers that allow you to use MAM in different languages: -->
 
-* [Bosch XDKプラットフォーム用のXDK2MAMラッパー](https://xdk2mam.io/)
-<!-- * [XDK2MAM wrapper for Bosch XDK platform](https://xdk2mam.io/) -->
-* [LoRAデバイスのラッパー](https://github.com/xdk2mam/xdk2mam/tree/Workbench-3.6/lora-sdcard)
-<!-- * [Wrapper for LoRA devices](https://github.com/xdk2mam/xdk2mam/tree/Workbench-3.6/lora-sdcard) -->
+- [Bosch XDKプラットフォーム用のXDK2MAMラッパー](https://xdk2mam.io/)
+<!-- - [XDK2MAM wrapper for Bosch XDK platform](https://xdk2mam.io/) -->
+- [LoRAデバイスのラッパー](https://github.com/xdk2mam/xdk2mam/tree/Workbench-3.6/lora-sdcard)
+<!-- - [Wrapper for LoRA devices](https://github.com/xdk2mam/xdk2mam/tree/Workbench-3.6/lora-sdcard) -->
 
 ## スマートコントラクト
 <!-- ## Smart contracts -->

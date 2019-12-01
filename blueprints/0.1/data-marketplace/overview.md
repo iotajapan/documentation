@@ -12,14 +12,14 @@
 このピラミッドのさまざまな層はすべてデータに依存しています。たとえば、車のセンサーは、ドライバーが渋滞を回避することを可能にする知恵をもたらす可能性があります。
 <!-- The different layers of this pyramid all rely on data. For example, sensors on cars can lead to the wisdom that allows drivers to bypass congestion: -->
 
-* **データ：** センサーは道路を監視し、周囲の表面で反射する光子からの信号を受信します。
-<!-- * **Data:** Sensors monitor the road and receive signals from the photons that reflect off the surface of their environment -->
-* **情報：** センサデータは、動いている物体の速度とそれらの相対的な位置に関する意味のある情報を抽出するために使用されます。
-<!-- * **Information:** Sensor data is used to extract meaningful information about the speed of the moving objects and their relative positions -->
-* **知識：** 情報はコンテキスト化されて知識にまとめられ、無線で最新の情報を入手して道路上のドライバーに、事故により道路が渋滞している可能性があることを伝えます。
-<!-- * **Knowledge:** Information is contextualized and distilled into knowledge, telling the drivers on the road via over-the-air updates that the road may be congested due to a crash -->
-* **知恵：** 知識は運転手が代替ルートをとることを可能にします。
-<!-- * **Wisdom:** Knowledge allows drivers to take an alternative route -->
+- **データ：** センサーは道路を監視し、周囲の表面で反射する光子からの信号を受信します。
+<!-- - **Data:** Sensors monitor the road and receive signals from the photons that reflect off the surface of their environment -->
+- **情報：** センサデータは、動いている物体の速度とそれらの相対的な位置に関する意味のある情報を抽出するために使用されます。
+<!-- - **Information:** Sensor data is used to extract meaningful information about the speed of the moving objects and their relative positions -->
+- **知識：** 情報はコンテキスト化されて知識にまとめられ、無線で最新の情報を入手して道路上のドライバーに、事故により道路が渋滞している可能性があることを伝えます。
+<!-- - **Knowledge:** Information is contextualized and distilled into knowledge, telling the drivers on the road via over-the-air updates that the road may be congested due to a crash -->
+- **知恵：** 知識は運転手が代替ルートをとることを可能にします。
+<!-- - **Wisdom:** Knowledge allows drivers to take an alternative route -->
 
 ## ビジネスケース
 <!-- ## Business case -->
@@ -72,18 +72,18 @@ IOTA財団は非営利団体としてオープンソース技術を生み出し�
 <!-- This Data Marketplace is not a launchpad for a future commercial service by the IOTA Foundation. -->
 <!-- ::: -->
 
-### イニシアチブの目的
+### イニシアティブの目的
 <!-- ### Objectives of the initiative -->
 
-このイニシアチブの目的は次のとおりです。
+このイニシアティブの目的は次のとおりです。
 <!-- The initiative’s objective was to do the following: -->
 
-* オープンソースの概念実証を作成します。
-<!-- * Produce an open source proof of concept -->
-* ビジネスモデルの革新を探ります。
-<!-- * Explore business model innovation -->
-* パーミッションレスイノベーションを促進するための共創エコシステムを育てます。
-<!-- * Grow a co-creation ecosystem to foster permissionless innovation -->
+- オープンソースの概念実証を作成します。
+<!-- - Produce an open source proof of concept -->
+- ビジネスモデルの革新を探ります。
+<!-- - Explore business model innovation -->
+- パーミッションレスイノベーションを促進するための共創エコシステムを育てます。
+<!-- - Grow a co-creation ecosystem to foster permissionless innovation -->
 
 その技術と同様に、イノベーションを可能にするためのIOTA財団のアプローチはオープンでパーミッションレスです。IOTA財団の目標は、エコシステムが新しいソリューションとビジネスモデルを共同で開発することを可能にすることであり、特定のソリューションを推進し市場に投入することではありません。
 <!-- Like its technology, the IOTA Foundation’s approach to enabling innovation is open and permissionless. Our ambition is to enable the ecosystem to co-create and develop new solutions and business models, but not to drive and push specific solutions to market. -->

@@ -43,12 +43,13 @@
 以下のいずれかの理由により、トリニティはトランザクションを送信するのを阻止することがあります。
 <!-- Trinity may stop you from sending a transaction for any of the following reasons: -->
 
-* セキュリティ上の理由から、IOTAアドレスからはIOTAトークンを一度だけしか取り出してはいけません。すでにIOTAトークンが取り出されたアドレスに資金がある場合、トリニティはあなたの資金を保護するためにそのアドレスからの取り出しを中止します。
-<!-- * For security reasons IOTA addresses should be withdrawn from only once. If you have funds on an address that has already been withdrawn from, Trinity stops you withdrawing from that address to protect your funds. -->
-* 送信先アドレスが以前に取り出された状態である場合、トリニティは資金を保護するためにそのアドレスに送信するのを防ぎます。この場合は、受信者に新しいアドレスを尋ねてください。
-<!-- * If the address you are sending to has been withdrawn from before, Trinity will prevent you sending to that address to protect the funds. In this case, ask your recipient for a new address. -->
-* 複数のトランザクションを作る場合は、最初のトランザクションが確定されるのを待ってから、別のトランザクションを作る必要があります。
-<!-- * If you are making multiple transactions, you may need to wait for your first transaction to be confirmed before making another transaction -->
+- セキュリティ上の理由から、IOTAアドレスからはIOTAトークンを一度だけしか取り出してはいけません。すでにIOTAトークンが取り出されたアドレスに資金がある場合、トリニティはあなたの資金を保護するためにそのアドレスからの取り出しを中止します。
+<!-- - For security reasons IOTA addresses should be withdrawn from only once. If you have funds on an address that has already been withdrawn from, Trinity stops you withdrawing from that address to protect your funds. -->
+- 送信先アドレスが以前に取り出された状態である場合、トリニティは資金を保護するためにそのアドレスに送信するのを防ぎます。この場合は、受信者に新しいアドレスを尋ねてください。
+<!-- - If the address you are sending to has been withdrawn from before, Trinity will prevent you sending to that address to protect the funds. In this case, ask your recipient for a new address. -->
+- 複数のトランザクションを作る場合は、最初のトランザクションが確定されるのを待ってから、別のトランザクションを作る必要があります。
+<!-- - If you are making multiple transactions, you may need to wait for your first transaction to be confirmed before making another transaction -->
+
 
 さらなる支援が必要な場合は、公式のIOTA [Discord](https://discord.iota.org)の#helpチャンネルでIOTA財団のメンバーに連絡を取ってください。
 <!-- Please get in touch with us on the #help channel in the official IOTA Discord for further help. -->

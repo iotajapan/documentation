@@ -1,4 +1,4 @@
-# IRI設定オプション
+# IRI構成オプション
 <!-- # IRI configuration options -->
 
 **IRI構成オプションを使用すると、ノードの動作をカスタマイズできます。これらのオプションは、コマンドライン（CLフラグ）または.ini構成ファイル（構成ファイルパラメーター）で設定できます。**
@@ -7,26 +7,26 @@
 変更したいオプションを見つけやすくするために、次のカテゴリに分類しています。
 <!-- To make it easier to find the options you want to change, we've separated them into the following categories: -->
 
-* **API：** APIがどのように応答し、どのホストがAPIにアクセスできるか
-<!-- * **API:** How the API responds and which hosts can access it -->
-* **IXI：** ノードがIXIモジュールを使用する方法
-<!-- * **IXI:** How your node uses IXI modules -->
-* **Database：** ノードが台帳で何をするのか
-<!-- * **Database:** What your node does with its ledger -->
-* **Local snapshots：** ノードが[ローカルスナップショット](../concepts/local-snapshot.md)を実行する方法とタイミング
-<!-- * **Local snapshots:** How and when your node does [local snapshots](../concepts/local-snapshot.md) -->
-* **Network：** ノードが隣接ノードと通信する方法
-<!-- * **Network:** How your node communicates with neighbors -->
-* **Proof of work：** ノードが[プルーフオブワーク](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)を行う方法
-<!-- * **Proof of work:** How your node does [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) -->
-* **Protocol：** どのトランザクションがネットワークによって受け入れられるのか、そしてトランザクションが他のノードにどのように伝播されるのか
-<!-- * **Protocol:** What transactions will be accepted by the network, and how they will be propagated to other nodes -->
-* **Testnet：** メインネットで実行していないときにノードが従うべきコーディネーター
-<!-- * **Testnet:** Which Coordinator your node should follow when it's not running on the Mainnet -->
-* **Tip selection：** [チップ選択](../concepts/tip-selection.md)中の重み付きランダムウォークの長さとランダムさ
-<!-- * **Tip selection:** The length and randomness of the weighted random walk during [tip selection](../concepts/tip-selection.md) -->
-* **ZMQ：** クライアントが[ノードのZMQイベントを購読する](../how-to-guides/subscribe-to-events-in-an-iri-node.md)方法
-<!-- * **ZMQ:** How clients can [subscribe to your node's ZMQ events](../how-to-guides/subscribe-to-events-in-an-iri-node.md) -->
+- **API：** APIがどのように応答し、どのホストがAPIにアクセスできるか
+<!-- - **API:** How the API responds and which hosts can access it -->
+- **IXI：** ノードがIXIモジュールを使用する方法
+<!-- - **IXI:** How your node uses IXI modules -->
+- **Database：** ノードが台帳で何をするのか
+<!-- - **Database:** What your node does with its ledger -->
+- **Local snapshots：** ノードが[ローカルスナップショット](../concepts/local-snapshot.md)を実行する方法とタイミング
+<!-- - **Local snapshots:** How and when your node does [local snapshots](../concepts/local-snapshot.md) -->
+- **Network：** ノードが隣接ノードと通信する方法
+<!-- - **Network:** How your node communicates with neighbors -->
+- **Proof of work：** ノードが[プルーフオブワーク](root://getting-started/0.1/transactions/proof-of-work.md)を行う方法
+<!-- - **Proof of work:** How your node does [proof of work](root://getting-started/0.1/transactions/proof-of-work.md) -->
+- **Protocol：** どのトランザクションがネットワークによって受け入れられるのか、そしてトランザクションが他のノードにどのように伝播されるのか
+<!-- - **Protocol:** What transactions will be accepted by the network, and how they will be propagated to other nodes -->
+- **Testnet：** メインネットで実行していないときにノードが従うべきコーディネーター
+<!-- - **Testnet:** Which Coordinator your node should follow when it's not running on the Mainnet -->
+- **Tip selection：** [チップ選択](../concepts/tip-selection.md)中の重み付きランダムウォークの長さとランダムさ
+<!-- - **Tip selection:** The length and randomness of the weighted random walk during [tip selection](../concepts/tip-selection.md) -->
+- **ZMQ：** クライアントがノードのZMQイベントを購読する方法
+<!-- - **ZMQ:** How clients can subscribe to your node's ZMQ events -->
 
 :::info:
 IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実行して、すべての設定オプションの一覧を見ることもできます。
@@ -122,8 +122,8 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 
 ## Proof of work
 
-これらの設定を使用して、ノードがどのように[プルーフオブワーク](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)するかをカスタマイズします。
-<!-- Use these settings to customize how your node does [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md). -->
+これらの設定を使用して、ノードがどのように[プルーフオブワーク](root://getting-started/0.1/transactions/proof-of-work.md)するかをカスタマイズします。
+<!-- Use these settings to customize how your node does [proof of work](root://getting-started/0.1/transactions/proof-of-work.md). -->
 
 |**コマンドラインフラグ**|**設定ファイルパラメータ**|**説明**|**有効な値**|**デフォルト値**|**メモ**|
 |:-----------------------|:-------------------------|:-------|:-----------|:---------------|:-------|
@@ -178,13 +178,13 @@ IRIをダウンロードした場合は、 `-help`フラグを付けてIRIを実
 
 ## ZMQ
 
-これらの設定を使用して、クライアントが[ノードのZMQイベントを購読する](../how-to-guides/subscribe-to-events-in-an-iri-node.md)方法をカスタマイズします。
-<!-- Use these settings to customize how clients can [subscribe to your node's ZMQ events](../how-to-guides/subscribe-to-events-in-an-iri-node.md). -->
+これらの設定を使用して、クライアントがノードのZMQイベントを購読する方法をカスタマイズします。
+<!-- Use these settings to customize how clients can subscribe to your node's ZMQ events. -->
 
-|**コマンドラインフラグ**|**設定ファイルパラメータ**|**説明**|**有効な値**|**デフォルト値**|**メモ**|
-|:-----------------------|:-------------------------|:-------|:-----------|:---------------|:-------|
-|<a name="zmq-enabled"></a>`--zmq-enable-ipc`|`ZMQ_ENABLE_IPC`|`ipc://iri`アドレスのIPCを介した[ゼロメッセージキュー](../concepts/zero-message-queue.md)サブスクリプションを有効にします。|boolean|false|デフォルトアドレスを変更するには、`ZMQ_IPC`オプションを設定します。|
-|`--zmq-enable-tcp`|`ZMQ_ENABLE_TCP`|ポート5556でTCPを介した[ゼロメッセージキュー](../concepts/zero-message-queue.md)サブスクリプションを有効にします。|boolean|false|デフォルトポートを変更するには`ZMQ_PORT`オプションを設定します。|
-|<a name="zmq-ipc"></a>`--zmq-ipc`|`ZMQ_IPC`|IPCを介してZMQと通信するために使用されるアドレスを設定します。|string|ipc://iri|
-|<a name="zmq-port"></a>`--zmq-port`|`ZMQ_PORT`|TCP経由でZMQに接続するために使用されるポートを設定します。|string|5556|
-|<a name="zmq-threads"></a>`--zmq-threads`|`ZMQ_THREADS`|ZMQ発行者が使用できるスレッドの最大数を設定します。|number|1|
+| **コマンドラインフラグ** | **設定ファイルパラメータ** | **説明** | **有効な値** | **デフォルト値** | **メモ** |
+| :------------------- | :--------------------- | :--- | :------- | :----------- | :--- |
+| <a name="zmq-enabled"></a>`--zmq-enable-ipc` | `ZMQ_ENABLE_IPC` | `ipc://iri`アドレスのIPCを介したZMQサブスクリプションを有効にします。 | boolean | false | デフォルトアドレスを変更するには、`ZMQ_IPC`オプションを設定します。 |
+| `--zmq-enable-tcp` | `ZMQ_ENABLE_TCP` | ポート5556でTCPを介したZMQサブスクリプションを有効にします。 | boolean | false | デフォルトポートを変更するには`ZMQ_PORT`オプションを設定します。 |
+| <a name="zmq-ipc"></a>`--zmq-ipc` | `ZMQ_IPC` | IPCを介してZMQと通信するために使用されるアドレスを設定します。 | string | ipc://iri |
+| <a name="zmq-port"></a>`--zmq-port` | `ZMQ_PORT` | TCP経由でZMQに接続するために使用されるポートを設定します。 | string | 5556 |
+| <a name="zmq-threads"></a>`--zmq-threads` | `ZMQ_THREADS` | ZMQ発行者が使用できるスレッドの最大数を設定します。 | number | 1 |

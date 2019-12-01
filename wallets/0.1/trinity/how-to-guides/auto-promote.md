@@ -1,8 +1,8 @@
 # トランザクションの確定を助ける
 <!-- # Help your transactions to be confirmed -->
 
-**トランザクションが確実に確定されるように、トリニティはトランザクションが確定されるまで自動促進（[促進と再添付](root://dev-essentials/0.1/concepts/reattach-rebroadcast-promote.md)）することができます。 **
-<!-- **To make sure that transactions are confirmed, Trinity can auto-promote ([promote and reattach](root://dev-essentials/0.1/concepts/reattach-rebroadcast-promote.md)) them until they're confirmed.** -->
+**トランザクションが確実に確定されるように、トリニティはトランザクションが確定されるまで自動促進（[促進と再添付](root://getting-started/0.1/transactions/reattach-rebroadcast-promote.md)）することができます。 **
+<!-- **To make sure that transactions are confirmed, Trinity can auto-promote ([promote and reattach](root://getting-started/0.1/transactions/reattach-rebroadcast-promote.md)) them until they're confirmed.** -->
 
 1. **設定** > **詳細設定**に行きます。
 <!-- 1. Go to **Settings** > **Advanced settings** -->

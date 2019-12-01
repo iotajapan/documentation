@@ -20,17 +20,17 @@ PoWプロキシサーバは、IOTAミドルウェアを使用する[Caddy](https
 このガイドを完成するには、次のものが必要です。
 <!-- To complete this guide, you need the following: -->
 
-* Goプログラミング言語の少なくともバージョン1.12（最新バージョンをお勧めします）
-<!-- * At least version 1.12 of the Go programming language (we recommend the latest version) -->
-* GCC：macOSの場合は、[Homebrew](https://brew.sh/)（`brew install gcc`）を使ってGCCをインストールすることができます。Windowsの場合は、[TDM-GCCでインストールできます](http://tdm-gcc.tdragon.net/download)。Linux（Ubuntu 18.04）の場合は、[`build-essential`パッケージ](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/)からGCCをインストールできます。
-<!-- * GCC: For macOS, you can install GCC using [Homebrew](https://brew.sh/) (`brew install gcc`). For Windows, you can [install TDM-GCC](http://tdm-gcc.tdragon.net/download). For Linux (Ubuntu 18.04), you can [install GCC from the `build-essential` package](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/). -->
-* [Git](https://git-scm.com/downloads)
+- Goプログラミング言語の少なくともバージョン1.12（最新バージョンをお勧めします）
+<!-- - At least version 1.12 of the Go programming language (we recommend the latest version) -->
+- GCC：macOSの場合は、[Homebrew](https://brew.sh/)（`brew install gcc`）を使ってGCCをインストールすることができます。Windowsの場合は、[TDM-GCCでインストールできます](http://tdm-gcc.tdragon.net/download)。Linux（Ubuntu 18.04）の場合は、[`build-essential`パッケージ](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/)からGCCをインストールできます。
+<!-- - GCC: For macOS, you can install GCC using [Homebrew](https://brew.sh/) (`brew install gcc`). For Windows, you can [install TDM-GCC](http://tdm-gcc.tdragon.net/download). For Linux (Ubuntu 18.04), you can [install GCC from the `build-essential` package](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/). -->
+- [Git](https://git-scm.com/downloads)
 
 ## プロキシサーバをダウンロード、ビルド、実行する
 <!-- ## Download, build, and run the proxy server -->
 
-1. コマンドプロンプトで、`GOPATH`環境変数を確認します。
-  <!-- 1. In the command prompt, check your `GOPATH` environment variable -->
+1. コマンドラインインターフェイスで、`GOPATH`環境変数を確認します。
+  <!-- 1. In the command-line interface, check your `GOPATH` environment variable -->
 
     ```bash
     go env GOPATH
@@ -114,8 +114,8 @@ PoWプロキシサーバは、IOTAミドルウェアを使用する[Caddy](https
     <!-- If you want to the connection between the client and the PoW proxy server to be secure, remove the hash symbol (#) before the `tls` directive and change the paths to point to your SSL certificates. -->
     <!-- ::: -->
 
-7. このファイルをLinuxまたはmacOSで実行するには、`.\caddy`を実行します。Windows上でこのファイルを実行するには、ダブルクリックするか、コマンドプロンプトで`.\caddy`を実行します。
-  <!-- 7. To execute this file on Linux or macOS, do `./caddy`. To execute this file on Windows, double click it, or do `.\caddy` in the command prompt. -->
+7. このファイルをLinuxまたはmacOSで実行するには、`.\caddy`を実行します。Windows上でこのファイルを実行するには、ダブルクリックするか、コマンドラインインターフェイスで`.\caddy`を実行します。
+  <!-- 7. To execute this file on Linux or macOS, do `./caddy`. To execute this file on Windows, double click it, or do `.\caddy` in the command-line interface. -->
 
     PoWプロキシサーバが起動すると、次のように表示されます。
     <!-- When the PoW proxy server starts, you should see something like the following: -->
@@ -129,20 +129,20 @@ PoWプロキシサーバは、IOTAミドルウェアを使用する[Caddy](https
     ```
 
     :::warning:
-    コマンドプロンプトを閉じると、PoWプロキシサーバはシャットダウンします。常に実行されるようにするには、サービスとして実行します。
+    コマンドラインインターフェイスを閉じると、PoWプロキシサーバはシャットダウンします。常に実行されるようにするには、サービスとして実行します。
     :::
     <!-- :::warning: -->
-    <!-- If you close the command prompt, the PoW proxy will shut it down. To make sure that it always runs, you can run it as a service. -->
+    <!-- If you close the command-line interface, the PoW proxy will shut it down. To make sure that it always runs, you can run it as a service. -->
     <!-- ::: -->
 
 8. ローカルのPoWプロキシサーバにトランザクションを送信します。
   <!-- 8. Send a transaction to your local PoW proxy server -->
 
     :::info:
-    初めてトランザクションを送信する場合は、[Node.jsの入門ガイド](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を参照します。
+    初めてトランザクションを送信する場合は、[Node.jsの入門ガイド](root://getting-started/0.1/how-to-guides/get-started.md)を参照します。
     :::
     <!-- :::info: -->
-    <!-- If this is your first time sending a transaction, follow our [getting started guide with Node.js](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md). -->
+    <!-- If this is your first time sending a transaction, follow our [getting started guide with Node.js](root://getting-started/0.1/how-to-guides/get-started.md). -->
     <!-- ::: -->
 
     ```js

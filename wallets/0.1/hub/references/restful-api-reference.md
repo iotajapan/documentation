@@ -12,8 +12,9 @@ RESTful APIを使用する場合は、`--serverType http`コマンドライン�
 <!-- If you want to use the RESTful API, you must start Hub with the `--serverType http` command-line flag. -->
 <!-- ::: -->
 
-以下のすべてのコマンドには、HTTPヘッダーを含める必要があります。
+以下のコマンドには、HTTPヘッダーを含める必要があります。
 <!-- All the following commands must include an HTTP header. -->
+<!-- The following commands must include an HTTP header. -->
 
 | **ヘッダー** | **値** | **必須か任意か** |
 | :------- | :--- | :---------- |
@@ -21,7 +22,6 @@ RESTful APIを使用する場合は、`--serverType http`コマンドライン�
 | Content-Type | application/json | 任意 |
 
 <!-- | **Header**       | **Value** | **Required or Optional** | -->
-<!-- |:---------------|:--------|:--------| -->
 <!-- |:---------------|:--------|:--------| -->
 <!-- | X-IOTA-API-Version | 1 | Required | -->
 <!-- | Content-Type | application/json | Optional | -->
@@ -1055,11 +1055,10 @@ IOTAトークンを使用済みのアドレスから未使用のアドレスに�
 <!-- Transfer IOTA tokens from a spent address to an unspent one. -->
 
 :::info:
-このエンドポイントを使用するには、[`--RecoverFunds_enabled`フラグ](../references/command-line-flags.md#recoverFunds)を指定してハブを実行する必要があります。
+このエンドポイントを使用するには、[`--RecoverFunds_enabled`フラグ](../references/command-line-options.md#recoverFunds)を指定してハブを実行する必要があります。
 :::
 <!-- :::info: -->
-<!-- To use this endpoint, you must run Hub with the [`--RecoverFunds_enabled` flag](../references/command-line-flags.md#recoverFunds). -->
-<!-- To use this endpoint, you must run Hub with the [`--RecoverFunds_enabled` flag](../references/command-line-flags.md#recoverFunds). -->
+<!-- To use this endpoint, you must run Hub with the [`--RecoverFunds_enabled` flag](../references/command-line-options.md#recoverFunds). -->
 <!-- ::: -->
 
 :::info:
@@ -1199,11 +1198,10 @@ curl http://localhost:50051 \
 <!-- For an example of how to use this endpoint, follow our guide to [build a bundle and sign it with Hub](../how-to-guides/recover-tokens.md). -->
 
 :::info:
-このエンドポイントを使用するには、[`--SignBundle_enabled`フラグ](../references/command-line-flags.md#signBundle)を指定してハブを実行する必要があります。
+このエンドポイントを使用するには、[`--SignBundle_enabled`フラグ](../references/command-line-options.md#signBundle)を指定してハブを実行する必要があります。
 :::
 <!-- :::info: -->
-<!-- To use this endpoint, you must run Hub with the [`--SignBundle_enabled` flag](../references/command-line-flags.md#signBundle). -->
-<!-- To use this endpoint, you must run Hub with the [`--SignBundle_enabled` flag](../references/command-line-flags.md#signBundle). -->
+<!-- To use this endpoint, you must run Hub with the [`--SignBundle_enabled` flag](../references/command-line-options.md#signBundle). -->
 <!-- ::: -->
 
 ### パラメーター
@@ -1213,18 +1211,19 @@ curl http://localhost:50051 \
 | :----------- | :----------- | :--- | :----- |
 | `address`          | 必須 | 取り出したいユーザーの預け入れアドレス（チェックサムを含む場合があります） | string |
 | `bundleHash`       | 必須 | 署名が必要なバンドルハッシュ | string |
-| `authentication`   | 任意 | エンドポイントの認証トークン | string |
+| `authentication`   | 任意 | エンドポイントのHMACキー | string |
 | `validateChecksum` | 任意 | アドレスを検証するかどうか。`address`フィールドが90トライアドレス（チェックサム付き）の場合、このフィールドを`true`に設定します。 |
 
 <!-- |**Parameters** |**Required or Optional**|**Description** |**Type**| -->
 <!-- |--|--|--|--| -->
 <!-- | `address`          |The user's deposit address that you want to withdraw from (may include a checksum) |string| -->
 <!-- | `bundleHash`       | The bundle hash that needs signing   |string| -->
-<!-- | `authentication`   |Optional |Authentication token for the endpoint |string| -->
+<!-- | `authentication`   |Optional |HMAC key for the endpoint |string| -->
 <!-- | `validateChecksum` |Whether to validate the address. Set this field to `true` if the `address` field is a 90-tryte address (with checksum) -->
 
 ### 例
 <!-- ### Examples -->
+
 --------------------
 ### Python
 ```python

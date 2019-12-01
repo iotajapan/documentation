@@ -17,17 +17,6 @@
 - nRF52シリーズマイクロコントローラー
 <!-- - An nRF52 series microcontroller -->
 
-:::info:
-nRF52シリーズマイクロコントローラーをフラッシュするための安価なオプションが必要な場合は、J-Linkオンボード（OB）クローンの購入を検討してください。
-
-標準のJ-Linkプログラマーは、マイクロプロセッサーでも使用できるため、より高価です。
-:::
-<!-- :::info: -->
-<!-- If you want a cheap option for flashing an nRF52 series microcontroller, consider buying a J-Link on-board (OB) clone. -->
-
-<!-- The standard J-link programmers are more expensive because they can also be used on microprocessors. -->
-<!-- ::: -->
-
 ---
 
 1. プログラマーを開発ボードに接続します。

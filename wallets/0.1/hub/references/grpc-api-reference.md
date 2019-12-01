@@ -4,14 +4,11 @@
 **ハブには、タングルおよびハブデータベースへの接続を簡素化するgRPC APIがあります。このAPIリファレンスを使用して、メソッドを見つけ、メソッドが行うことを学びます。**
 <!-- **Hub has a gRPC API that simplifies connections to the Tangle and the Hub database. Use this API reference to find methods and learn what they do.** -->
 
-このドキュメントは、gRPCをすでに理解していることを前提に書かれています。
-<!-- This documentation is written assuming you already have an understanding of gRPC. -->
-
 :::info:
-gRPCとprotobufに慣れていない場合は、[gRPCクイックスタートガイド](https://grpc.io/docs/quickstart/)に従うことをお勧めします。
+gRPCとprotobufに慣れていない場合は、[gRPCクイックスタートガイド](https://grpc.io/docs/quickstart/)に従うことをお勧めします。または、[RESTful APIを使用](../references/restful-api-reference.md)することができます。
 :::
 <!-- :::info: -->
-<!-- If you’re not familiar with gRPC and protobuf, we recommend following the [gRPC quickstart guide](https://grpc.io/docs/quickstart/). -->
+<!-- If you’re not familiar with gRPC and protobuf, we recommend following the [gRPC quickstart guide](https://grpc.io/docs/quickstart/). Or, you can [use the RESTful API](../references/restful-api-reference.md). -->
 <!-- ::: -->
 
 <a name="hub.proto"></a>
@@ -188,9 +185,8 @@ gRPCとprotobufに慣れていない場合は、[gRPCクイックスタートガ
 
 ### RecoverFundsRequest
 
-このメソッドを使用するには、[`--RecoverFunds_enabled`フラグ](../references/command-line-flags.md#recoverFunds)を指定してハブを実行する必要があります。
-<!-- To use this method, you must run Hub with the [`--RecoverFunds_enabled` flag](../references/command-line-flags.md#recoverFunds). -->
-<!-- To use this method, you must run Hub with the [`--RecoverFunds_enabled` flag](../references/command-line-flags.md#recoverFunds). -->
+このメソッドを使用するには、[`--RecoverFunds_enabled`フラグ](../references/command-line-options.md#recoverFunds)を指定してハブを実行する必要があります。
+<!-- To use this method, you must run Hub with the [`--RecoverFunds_enabled` flag](../references/command-line-options.md#recoverFunds). -->
 
 <a name="hub.rpc.RecoverFundsRequest"></a>
 
@@ -210,9 +206,8 @@ gRPCとprotobufに慣れていない場合は、[gRPCクイックスタートガ
 
 ### SignBundleRequest
 
-このメソッドを使用するには、[`--SignBundle_enabled`フラグ](../references/command-line-flags.md#signBundle)を指定してハブを実行する必要があります。
-<!-- To use this method, you must run Hub with the [`--SignBundle_enabled` flag](../references/command-line-flags.md#signBundle). -->
-<!-- To use this method, you must run Hub with the [`--SignBundle_enabled` flag](../references/command-line-flags.md#signBundle). -->
+このメソッドを使用するには、[`--SignBundle_enabled`フラグ](../references/command-line-options.md#signBundle)を指定してハブを実行する必要があります。
+<!-- To use this method, you must run Hub with the [`--SignBundle_enabled` flag](../references/command-line-options.md#signBundle). -->
 
 | **フィールド** | **タイプ** | **ルール** | **説明** |
 | -------------- | ---------- | ---------- | -------- |

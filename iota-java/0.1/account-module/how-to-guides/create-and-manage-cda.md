@@ -13,10 +13,10 @@ CDAを作成するときに、`timeoutAt`フィールドを指定して、アク
 次の推奨フィールドのいずれかを指定することもできます。
 <!-- You can also specify one of the following recommended fields: -->
 
-* **multiUse（推奨）：**アドレスが複数の預け入れを受け取ることができるかどうかを指定するブール値。
-<!-- * **multiUse (recommended):** A boolean that specifies if the address may receive more than one deposit. -->
-* **expectedAmount（推奨）：**アドレスが受け取ると予想されるIOTAトークンの量。アドレスにこの金額が含まれている場合、期限切れと見なされます。この条件を指定することをお勧めします。
-<!-- * **expectedAmount (recommended):** The amount of IOTA tokens that the address is expected to receive. When the address contains this amount, it's considered expired. We recommend specifying this condition. -->
+- **multiUse（推奨）：**アドレスが複数の預け入れを受け取ることができるかどうかを指定するブール値。
+<!-- - **multiUse (recommended):** A boolean that specifies if the address may receive more than one deposit. -->
+- **expectedAmount（推奨）：**アドレスが受け取ると予想されるIOTAトークンの量。アドレスにこの金額が含まれている場合、期限切れと見なされます。この条件を指定することをお勧めします。
+<!-- - **expectedAmount (recommended):** The amount of IOTA tokens that the address is expected to receive. When the address contains this amount, it's considered expired. We recommend specifying this condition. -->
 
 :::info:
 同じCDAで`expected_amount`と`multi_use`フィールドを指定することはできません。CDA条件に関する詳細なアドバイスについては、[FAQ](../references/cda-advice.md)を参照してください。
@@ -84,10 +84,10 @@ CDAはアカウント内でのみ使用でき、汎用クライアントライ�
     ```
 
     :::info:
-    このサンプルコードを無料のテストトークンでテストしたい場合は、[Devnet蛇口](root://getting-started/0.1/tutorials/receive-test-tokens.md)からテストトークンを取得します。
+    このサンプルコードを無料のテストトークンでテストしたい場合は、[Devnet蛇口からテストトークンを取得](root://getting-started/0.1/how-to-guides/get-test-tokens.md)します。
     :::
     <!-- :::info -->
-    <!-- If you want to test this sample code with free test tokens, [request some from the Devnet faucet](root://getting-started/0.1/tutorials/receive-test-tokens.md). -->
+    <!-- If you want to test this sample code with free test tokens, [request some from the Devnet faucet](root://getting-started/0.1/how-to-guides/get-test-tokens.md). -->
     <!-- ::: -->
 
     :::info:

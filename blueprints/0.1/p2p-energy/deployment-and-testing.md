@@ -13,23 +13,23 @@ P2Pエネルギーグリッドアプリケーションをデプロイするに�
 ### ハードウェア
 <!-- ### Hardware -->
 
-* 電力源、生産者、および消費者はRaspberry Pi（ラズパイ）で実行できます
-<!-- * The sources, producers, and consumers can run on Raspberry Pis (RPi) -->
+- 電力源、生産者、および消費者はRaspberry Pi（ラズパイ）で実行できます
+<!-- - The sources, producers, and consumers can run on Raspberry Pis (RPi) -->
 * グリッドは、Web API、データベースストレージ、およびバックグラウンドタスクが可能なサーバーで実行する必要があります。
-<!-- * The grid must be run on a server that's capable of web APIs, database storage and background tasks -->
+<!-- - The grid must be run on a server that's capable of web APIs, database storage and background tasks -->
 
 ### ソフトウェア
 <!-- ### Software -->
 
-* [Node.js](https://nodejs.org/)
+- [Node.js](https://nodejs.org/)
 
-* [MAM（マスクされた認証済みメッセージング）](https://github.com/iotaledger/mam.client.js)
-<!-- * [MAM (Masked Authenticated Messaging)](https://github.com/iotaledger/mam.client.js) -->
+- [MAM（マスクされた認証済みメッセージング）](https://github.com/iotaledger/mam.client.js)
+<!-- - [MAM (Masked Authenticated Messaging)](https://github.com/iotaledger/mam.client.js) -->
 
 次のいずれかのクラウドサービスまたはローカルサーバーから選択します。
 <!-- Choose from one of the following cloud services or a local server: -->
 
-* Amazon
+- Amazon
     * [Webサーバー](https://aws.amazon.com/s3/)
     <!-- * [Web server](https://aws.amazon.com/s3/) -->
     * [APIサーバー](https://aws.amazon.com/api-gateway/)
@@ -39,7 +39,7 @@ P2Pエネルギーグリッドアプリケーションをデプロイするに�
     * [バックグラウンドタスク](https://aws.amazon.com/lambda/)
     <!-- * [Background tasks](https://aws.amazon.com/lambda/) -->
 
-* ローカルサーバー
+- ローカルサーバー
   <!-- * Local server -->
     * ストレージ：ローカルファイルシステム
     <!-- * Storage: local file system -->
@@ -52,17 +52,17 @@ P2Pエネルギーグリッドアプリケーションをデプロイするに�
     * バックグラウンドタスク：Node.jsタスクを実行するタスクスケジューラ
     <!-- * Background tasks: Task scheduler running Node.js tasks -->
 
-### プログラミング言語
+### プログラミング知識
 <!-- ### Programming knowledge -->
 
-* JavaScript/TypeScript
-* HTML/CSS
-* [Reactフレームワーク](https://github.com/facebook/create-react-app)
-<!-- * [React framework](https://github.com/facebook/create-react-app) -->
-* 必要なサードパーティライセンス
-<!-- * Required third-party licenses -->
-* クラウドサービス
-<!-- * Cloud services -->
+- JavaScript/TypeScript
+- HTML/CSS
+- [Reactフレームワーク](https://github.com/facebook/create-react-app)
+<!-- - [React framework](https://github.com/facebook/create-react-app) -->
+- 必要なサードパーティライセンス
+<!-- - Required third-party licenses -->
+- クラウドサービス
+<!-- - Cloud services -->
 
 ### IOTA知識
 <!-- ### IOTA knowledge -->
@@ -85,31 +85,31 @@ MAMチャネルの理解
 
 ラズパイ上で実行されている電力源には以下が必要です。
 <!-- Sources running on RPi need the following: -->
-* グリッドへのローカルエリアネットワーク（LAN）またはワイドエリアネットワーク（WAN）接続
-<!-- * Local area network (LAN) or wide area network (WAN) connection to the grid -->
-* IOTAノードへの接続（内蔵することもできます）
-<!-- * Connection to an IOTA node (can be internal) -->
-* [Node.js](https://github.com/audstanley/NodeJs-Raspberry-Pi)
+- グリッドへのローカルエリアネットワーク（LAN）またはワイドエリアネットワーク（WAN）接続
+<!-- - Local area network (LAN) or wide area network (WAN) connection to the grid -->
+- IOTAノードへの接続（内蔵することもできます）
+<!-- - Connection to an IOTA node (can be internal) -->
+- [Node.js](https://github.com/audstanley/NodeJs-Raspberry-Pi)
 
 ラズパイ上で実行されている生産者には以下が必要です。
 <!-- Producers running on RPi need the following: -->
-* グリッドへのローカルエリアネットワーク（LAN）またはワイドエリアネットワーク（WAN）接続
-<!-- * Local area network (LAN) or wide area network (WAN) connection to the grid -->
-* IOTAノードへの接続（内蔵することもできます）
-<!-- * Connection to an IOTA node (can be internal) -->
-* [Node.js](https://github.com/audstanley/NodeJs-Raspberry-Pi)
+- グリッドへのローカルエリアネットワーク（LAN）またはワイドエリアネットワーク（WAN）接続
+<!-- - Local area network (LAN) or wide area network (WAN) connection to the grid -->
+- IOTAノードへの接続（内蔵することもできます）
+<!-- - Connection to an IOTA node (can be internal) -->
+- [Node.js](https://github.com/audstanley/NodeJs-Raspberry-Pi)
 
 ラズパイ上で実行されている消費者には以下が必要です。
 <!-- Consumers running on RPi need the following: -->
-* グリッドへのローカルエリアネットワーク（LAN）またはワイドエリアネットワーク（WAN）接続
-<!-- * Local area network (LAN) or wide area network (WAN) connection to the grid -->
-* IOTAノードへの接続（内蔵することもできます）
-<!-- * Connection to an IOTA node (can be internal) -->
-* [Node.js](https://github.com/audstanley/NodeJs-Raspberry-Pi)
+- グリッドへのローカルエリアネットワーク（LAN）またはワイドエリアネットワーク（WAN）接続
+<!-- - Local area network (LAN) or wide area network (WAN) connection to the grid -->
+- IOTAノードへの接続（内蔵することもできます）
+<!-- - Connection to an IOTA node (can be internal) -->
+- [Node.js](https://github.com/audstanley/NodeJs-Raspberry-Pi)
 
 クラウドまたはローカルサーバー上で実行されているグリッドには、次のものが必要です。
 <!-- Grids running in the cloud or on a local server need the following: -->
-* WAN接続
-<!-- * WAN connection -->
-* IOTAノードへの接続
-<!-- * Connection to an IOTA node -->
+- WAN接続
+<!-- - WAN connection -->
+- IOTAノードへの接続
+<!-- - Connection to an IOTA node -->

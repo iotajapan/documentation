@@ -1,8 +1,8 @@
 # GoShimmerノードを実行する
 <!-- # Run a GoShimmer node -->
 
-**GoShimmerソフトウェアを実行すると、デバイスがプロトタイプネットワークのノードになります。ノードを実行することにより、ネットワークをテストし、定期的な変更を最新の状態に保つことができます。すべてのモジュールが使用可能になると、このネットワークはコーディサイドテストネットになり、次のIOTAプロトコルのリリース候補となります。**
-<!-- **When you run the GoShimmer software, your device becomes a node in the prototype network. By running a node, you can test the network and keep up to date with regular changes. When all the modules become available, this network will become the Coordicide testnet, which is a release candidate for the next IOTA protocol.** -->
+**GoShimmerソフトウェアを実行すると、デバイスがプロトタイプネットワークのノードになります。ノードを実行することにより、ネットワークをテストし、定期的な変更を最新の状態に保つことができます。すべてのモジュールが使用可能になると、このネットワークは、次のIOTAプロトコルのリリース候補となります。**
+<!-- **When you run the GoShimmer software, your device becomes a node in the prototype network. By running a node, you can test the network and keep up to date with regular changes. When all the modules become available, this network will become a release candidate for the next IOTA protocol.** -->
 
 ノードを実行する方法は2つあります。Dockerコンテナ内でサービスとしてノードを実行することも、ソースからノードをビルドすることもできます。
 <!-- You have two options for running a node. You either can run the node as a service in a Docker container, or you can build the node from source. -->
@@ -16,12 +16,12 @@ Dockerコンテナでノードを実行すると、軽量の仮想マシンで�
 Dockerコンテナ内でノードを実行することには、次のような利点があります。
 <!-- Some of the advantages of running a node in a Docker container include the following: -->
 
-* コンパイラやGoプログラミング言語など、ノードに必要なすべてのツールや依存関係をインストールする必要がありません。
-<!-- * You don't need to install all the tools and dependencies that the node needs such as a compiler and the Go programming language -->
-* ノードは、サポートされているシステムアーキテクチャ上で同じように動作します。
-<!-- * The node runs in the same way on any supported system architecture -->
-* ノードをバックグラウンドで実行し、停止し、ログを確認する方が簡単です。
-<!-- * It's easier to run the node in the background, to stop it, and to see the logs -->
+- コンパイラやGoプログラミング言語など、ノードに必要なすべてのツールや依存関係をインストールする必要がありません。
+<!-- - You don't need to install all the tools and dependencies that the node needs such as a compiler and the Go programming language -->
+- ノードは、サポートされているシステムアーキテクチャ上で同じように動作します。
+<!-- - The node runs in the same way on any supported system architecture -->
+- ノードをバックグラウンドで実行し、停止し、ログを確認する方が簡単です。
+<!-- - It's easier to run the node in the background, to stop it, and to see the logs -->
 
 ### 前提条件
 <!-- ### Prerequisites -->
@@ -29,19 +29,19 @@ Dockerコンテナ内でノードを実行することには、次のような�
 このガイドを完成するには、次のものが必要です。
 <!-- To complete this guide, you need the following: -->
 
-* [Git](https://git-scm.com/downloads)
-* ノードを実行しているデバイスに[ポート14626（TCP/UDP）と14666（TCP）を転送する](root://general/0.1/how-to-guides/expose-your-local-device.md)。
-<!-- * [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node -->
-* パブリックIPアドレス
-<!-- * A public IP address -->
-* [Dockerがサポートするシステムアーキテクチャ](https://docs.docker.com/install/#supported-platforms)
-<!-- * [A system architecture that Docker supports](https://docs.docker.com/install/#supported-platforms) -->
+- [Git](https://git-scm.com/downloads)
+- ノードを実行しているデバイスに[ポート14626（TCP/UDP）と14666（TCP）を転送する](root://general/0.1/how-to-guides/expose-your-local-device.md)。
+<!-- - [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node -->
+- パブリックIPアドレス
+<!-- - A public IP address -->
+- [Dockerがサポートするシステムアーキテクチャ](https://docs.docker.com/install/#supported-platforms)
+<!-- - [A system architecture that Docker supports](https://docs.docker.com/install/#supported-platforms) -->
 
 Dockerコンテナは、以下のオペレーティングシステムに適しています。
 <!-- The Docker container is suitable for the following operating systems: -->
-* Linux
-* macOS
-* Windows
+- Linux
+- macOS
+- Windows
 
 :::info:
 Debianベースのオペレーティングシステムを使用している場合は、以下のタスクのすべてのコマンドの前に`sudo`を追加します。
@@ -178,16 +178,16 @@ GoShimmerノードを実行しています。
 ステータススクリーンの右上隅に次の統計情報が表示されます。
 <!-- The status screen displays the following statistics in the top-right corner: -->
 
-* **TPS：** 1秒あたりのトランザクション数。2つのカテゴリに分けられます。**received**トランザクションは、ノードがその台帳に追加したばかりのトランザクションです。 **new**トランザクションは凝固トランザクションです。
-<!-- * **TPS:** The number of transactions per second, which are separated into two categories. The **received** transactions are those that the node has just appended to its ledger. The **new** transactions are solid transactions. -->
-* **Node ID：** 固有のIDを付与するノードの公開鍵。
-<!-- * **Node ID:** The node's public key that gives it a unique identity -->
-* **Neighbors：** ノードが接続している隣接ノードの数。すべてのノードは最大8つの隣接ノードを持つことができます。各ノードは接続する4つの隣接ノードを選択し、自分を選択した他の4つの隣接ノードからの着信接続を受け入れます。
-<!-- * **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accepts incoming connections from 4 other neighbors that chose it. -->
-* **Known peers：** ネットワーク内のノードの総数。現時点では、**neighbor**ノードの数は**total**ノードの数と同じです。ネットワークがシャーディングを許可すると、**neighbor**ノードはシャード内にあるノードになります。
-<!-- * **Known peers:** The total number of nodes in the network. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard. -->
-* **Uptime：** ノードが稼働していた合計時間。
-<!-- * **Uptime:** The total amount of time during which the node has been running -->
+- **TPS：** 1秒あたりのトランザクション数。2つのカテゴリに分けられます。**received**トランザクションは、ノードがその台帳に追加したばかりのトランザクションです。 **new**トランザクションは凝固トランザクションです。
+<!-- - **TPS:** The number of transactions per second, which are separated into two categories. The **received** transactions are those that the node has just appended to its ledger. The **new** transactions are solid transactions. -->
+- **Node ID：** 固有のIDを付与するノードの公開鍵。
+<!-- - **Node ID:** The node's public key that gives it a unique identity -->
+- **Neighbors：** ノードが接続している隣接ノードの数。すべてのノードは最大8つの隣接ノードを持つことができます。各ノードは接続する4つの隣接ノードを選択し、自分を選択した他の4つの隣接ノードからの着信接続を受け入れます。
+<!-- - **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accepts incoming connections from 4 other neighbors that chose it. -->
+- **Known peers：** ネットワーク内のノードの総数。現時点では、**neighbor**ノードの数は**total**ノードの数と同じです。ネットワークがシャーディングを許可すると、**neighbor**ノードはシャード内にあるノードになります。
+<!-- - **Known peers:** The total number of nodes in the network. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard. -->
+- **Uptime：** ノードが稼働していた合計時間。
+<!-- - **Uptime:** The total amount of time during which the node has been running -->
 
 :::info:
 `accepted`隣接ノードがない場合は、`autopeering`TCP/UDPポート（14626）をデバイスに転送していることを確認します。
@@ -208,21 +208,21 @@ GoShimmerノードを実行しています。
 このガイドを完成するには、次のものが必要です。
 <!-- To complete this guide, you need the following: -->
 
-* Goプログラミング言語の少なくともバージョン1.12（最新バージョンをお勧めします）
-<!-- * At least version 1.12 of the Go programming language (we recommend the latest version) -->
-* GCC：macOSの場合は、[Homebrew](https://brew.sh/)（`brew install gcc`）を使ってGCCをインストールすることができます。Windowsの場合は、[TDM-GCCでインストールできます](http://tdm-gcc.tdragon.net/download)。Linux（Ubuntu 18.04）の場合は、[`build-essential`パッケージ](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/)からGCCをインストールできます。
-<!-- * GCC: For macOS, you can install GCC using [Homebrew](https://brew.sh/) (`brew install gcc`). For Windows, you can [install TDM-GCC](http://tdm-gcc.tdragon.net/download). For Linux (Ubuntu 18.04), you can [install GCC from the `build-essential` package](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/). -->
-* [Git](https://git-scm.com/downloads)
-* ノードを実行しているデバイスに[ポート14626（TCP/UDP）と14666（TCP）を転送します](root://general/0.1/how-to-guides/expose-your-local-device.md)。
-<!-- * [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node -->
-* パブリックIPアドレス
-<!-- * A public IP address -->
+- Goプログラミング言語の少なくともバージョン1.12（最新バージョンをお勧めします）
+<!-- - At least version 1.12 of the Go programming language (we recommend the latest version) -->
+- GCC：macOSの場合は、[Homebrew](https://brew.sh/)（`brew install gcc`）を使ってGCCをインストールすることができます。Windowsの場合は、[TDM-GCCでインストールできます](http://tdm-gcc.tdragon.net/download)。Linux（Ubuntu 18.04）の場合は、[`build-essential`パッケージ](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/)からGCCをインストールできます。
+<!-- - GCC: For macOS, you can install GCC using [Homebrew](https://brew.sh/) (`brew install gcc`). For Windows, you can [install TDM-GCC](http://tdm-gcc.tdragon.net/download). For Linux (Ubuntu 18.04), you can [install GCC from the `build-essential` package](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/). -->
+- [Git](https://git-scm.com/downloads)
+- ノードを実行しているデバイスに[ポート14626（TCP/UDP）と14666（TCP）を転送します](root://general/0.1/how-to-guides/expose-your-local-device.md)。
+<!-- - [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node -->
+- パブリックIPアドレス
+<!-- - A public IP address -->
 
 ### 手順1. コードをダウンロードする
 <!-- ### Step 1. Download the code -->
 
-1. コマンドプロンプトで、`GOPATH`環境変数を確認します。
-  <!-- 1. In the command prompt, check your `GOPATH` environment variable -->
+1. コマンドラインインターフェイスで、`GOPATH`環境変数を確認します。
+  <!-- 1. In the command-line interface, check your `GOPATH` environment variable -->
 
     ```bash
     go env GOPATH
@@ -268,10 +268,12 @@ GoShimmerノードを実行しています。
 3. オペレーティングシステムに応じて、`shimmer`ファイルを実行します。
   <!-- 3. Execute the `shimmer` file, according to your operating system: -->
 
-* **LinuxとmacOS：** `./shimmer --enable-node-plugins "spammer zeromq dashboard"`
-<!-- * **Linux and macOS:** `./shimmer --enable-node-plugins "spammer zeromq dashboard"` -->
-* **Windows：** ファイルの名前を`shimmer.exe`に変更してから、コマンドプロンプトで`.\shimmer --node-enable-plugins "spammer zeromq dashboard"`を実行します。
-<!-- * **Windows:** Rename the file to `shimmer.exe`, then execute it by doing `.\shimmer --node-enable-plugins "spammer zeromq dashboard"` in the command prompt -->
+- **LinuxとmacOS：** `./shimmer --enable-node-plugins "spammer zeromq dashboard"`
+<!-- - **Linux and macOS:** `./shimmer --enable-node-plugins "spammer zeromq dashboard"` -->
+- **Windows：** ファイルの名前を`shimmer.exe`に変更してから、コマンドラインインターフェイスで`.\shimmer --node-enable-plugins "spammer zeromq dashboard"`を実行します。
+<!-- - **Windows:** Rename the file to `shimmer.exe`, then execute it by doing `.\shimmer --node-enable-plugins "spammer zeromq dashboard"` in the command-line interface -->
+<!-- - **Windows:** Rename the file to `shimmer.exe`, then execute it by doing `.\shimmer --node-enable-plugins "spammer zeromq dashboard"` in the command-line interface -->
+
 
 ここでは、ノードをバックグラウンドで実行し、[コマンドラインフラグ](../references/command-line-flags.md)を使用してスパマー、ZMQ、およびダッシュボードプラグインを有効にします。これらのプラグインを使用すると、スパムトランザクションを自分のノードに送信したり、着信トランザクションを監視したり、Webダッシュボードで処理中のトランザクションの総数を表示したりできます。
 <!-- Here, we run the run the node in the background, and use the [command-line flags](../references/command-line-flags.md) to enable the spammer, ZMQ, and dashboard plugins. These plugins allow you to send spam transactions to your node, monitor it for incoming transactions, and view the total number of transactions that it's processing in a web dashboard. -->
@@ -295,16 +297,16 @@ GoShimmerノードを実行しています。
 ステータススクリーンの右上隅に次の統計情報が表示されます。
 <!-- The status screen displays the following statistics in the top-right corner: -->
 
-* **TPS：** 1秒あたりのトランザクション数。2つのカテゴリに分けられます。**received**トランザクションは、ノードがその台帳に追加したばかりのトランザクションです。 **new**トランザクションは凝固トランザクションです。
-<!-- * **TPS:** The number of transactions per second, which are separated into two categories. The **received** transactions are those that the node has just appended to its ledger. The **new** transactions are solid transactions. -->
-* **Node ID：** 固有のIDを付与するノードの公開鍵。
-<!-- * **Node ID:** The node's public key that gives it a unique identity -->
-* **Neighbors：** ノードが接続している隣接ノードの数。すべてのノードは最大8つの隣接ノードを持つことができます。各ノードは接続する4つの隣接ノードを選択し、自分を選択した他の4つの隣接ノードからの着信接続を受け入れます。
-<!-- * **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accepts incoming connections from 4 other neighbors that chose it. -->
-* **Known peers：** ネットワーク内のノードの総数。現時点では、**neighbor**ノードの数は**total**ノードの数と同じです。ネットワークがシャーディングを許可すると、**neighbor**ノードはシャード内にあるノードになります。
-<!-- * **Known peers:** The total number of nodes in the network. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard. -->
-* **Uptime：** ノードが稼働していた合計時間。
-<!-- * **Uptime:** The total amount of time during which the node has been running -->
+- **TPS：** 1秒あたりのトランザクション数。2つのカテゴリに分けられます。**received**トランザクションは、ノードがその台帳に追加したばかりのトランザクションです。 **new**トランザクションは凝固トランザクションです。
+<!-- - **TPS:** The number of transactions per second, which are separated into two categories. The **received** transactions are those that the node has just appended to its ledger. The **new** transactions are solid transactions. -->
+- **Node ID：** 固有のIDを付与するノードの公開鍵。
+<!-- - **Node ID:** The node's public key that gives it a unique identity -->
+- **Neighbors：** ノードが接続している隣接ノードの数。すべてのノードは最大8つの隣接ノードを持つことができます。各ノードは接続する4つの隣接ノードを選択し、自分を選択した他の4つの隣接ノードからの着信接続を受け入れます。
+<!-- - **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accepts incoming connections from 4 other neighbors that chose it. -->
+- **Known peers：** ネットワーク内のノードの総数。現時点では、**neighbor**ノードの数は**total**ノードの数と同じです。ネットワークがシャーディングを許可すると、**neighbor**ノードはシャード内にあるノードになります。
+<!-- - **Known peers:** The total number of nodes in the network. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard. -->
+- **Uptime：** ノードが稼働していた合計時間。
+<!-- - **Uptime:** The total amount of time during which the node has been running -->
 
 :::info:
 受け入れた隣接ノードがない場合は、`autopeering`TCP/UDPポート（14626）をデバイスに転送していることを確認します。

@@ -1,32 +1,46 @@
 # Index
-[序説/分散型台帳技術とは？](/introduction/what-is-dlt.md)
+[序説/IOTA概要](/introduction/overview.md)
 
-[序説/IOTAとは？](/introduction/what-is-iota.md)
+[序説/三進法](/introduction/ternary.md)
 
-[序説/ノードとは？](/introduction/what-is-a-node.md)
+[クイックスタート/開発入門](/how-to-guides/get-started.md)
 
-[序説/タングルとは？](/introduction/what-is-the-tangle.md)
+[クイックスタート/Dockerで自分自身のIRIを実行する](/how-to-guides/run-your-own-iri-node.md)
 
-[序説/シードとは？](/introduction/what-is-a-seed.md)
+[ネットワーク/IOTAネットワーク](/network/iota-networks.md)
 
-[序説/トランザクションとは？](/introduction/what-is-a-transaction.md)
+[ネットワーク/ノード](/network/nodes.md)
 
-[序説/バンドルとは？](/introduction/what-is-a-bundle.md)
+[ネットワーク/最小重量値](/network/minimum-weight-magnitude.md)
 
-[チュートリアル/開発入門](/tutorials/get-started.md)
+[ネットワーク/タングル](/network/the-tangle.md)
 
-[チュートリアル/初めてのデータトランザクションを送信する（Node.js）](/tutorials/send-a-zero-value-transaction-with-nodejs.md)
+[ネットワーク/コーディネーター](/network/the-coordinator.md)
 
-[チュートリアル/無料のテストトークンを受け取る](/tutorials/receive-test-tokens.md)
+[クライアント/シード](/clients/seeds.md)
 
-[チュートリアル/テストトークンを送信する （Node.js）](/tutorials/send-iota-tokens.md)
+[クライアント/IOTAトークン](/clients/token.md)
 
-[チュートリアル/自分のIRIノードを走らせる（Docker）](/tutorials/run-your-own-iri-node.md)
+[クライアント/アドレス](/clients/addresses.md)
 
-[チュートリアル/初めてのデータトランザクションを送信する（トリニティ）](/tutorials/send-a-zero-value-transaction-with-the-trinity-wallet.md)
+[クライアント/チェックサム](/clients/checksums.md)
+
+[クライアント/セキュリティレベル](/clients/security-levels.md)
+
+[クライアント/署名](/clients/signatures.md)
+
+[トランザクション/トランザクション](/transactions/transactions.md)
+
+[トランザクション/バンドル](/transactions/bundles.md)
+
+[トランザクション/プルーフオブワーク](/transactions/proof-of-work.md)
+
+[トランザクション/深さ](/transactions/depth.md)
+
+[トランザクション/再添付、再ブロードキャスト、促進](/transactions/reattach-rebroadcast-promote.md)
+
+[トランザクション/マスクされた認証済みメッセージング](/transactions/masked-authenticated-messaging.md)
 
 [参考文献/開発者ハンドブック](/references/quickstart-dev-handbook.md)
 
-[参考文献/IOTAネットワーク](/references/iota-networks.md)
-
-[参考文献/ユースケース](/references/use-cases.md)
+[参考文献/用語集](/references/glossary.md)

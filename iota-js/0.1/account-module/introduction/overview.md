@@ -7,10 +7,10 @@
 アカウントはIOTAプロトコルの複雑さを抽象化し、支払いに集中できるようにします。アカウントでは、支払いは次の2つのタイプのいずれかになります。
 <!-- Accounts abstract the complexity of the IOTA protocol and allow you to focus on making payments. In accounts, a payment can be one of two types: -->
 
-* **入金：**アカウントにIOTAトークンを預け入れるバンドル
-* **支払：**アカウントからIOTAトークンを取り出すバンドル
-<!-- * **Incoming payment:** A bundle that deposits IOTA tokens into an account -->
-<!-- * **Outgoing payment:** A bundle that withdraws IOTA tokens from an account -->
+- **入金：**アカウントにIOTAトークンを預け入れるバンドル
+<!-- - **Incoming payment:** A bundle that deposits IOTA tokens into an account -->
+- **支払：**アカウントからIOTAトークンを取り出すバンドル
+<!-- - **Outgoing payment:** A bundle that withdraws IOTA tokens from an account -->
 
 :::warning:ベータソフトウェアです！
 クライアントライブラリは2019年現在ベータ版であり、運用環境では使用しないでください。
@@ -22,8 +22,8 @@
 ## 対象読者
 <!-- ## Audience -->
 
-このドキュメントは、JavaScriptプログラミング言語とオブジェクト指向プログラミングの概念に精通している開発者向けです。また、[バンドル、トランザクション](root://dev-essentials/0.1/concepts/bundles-and-transactions.md)、[アドレスから一度だけIOTAトークンを取り出す理由](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse)などのIOTAの基本概念にも精通している必要があります。
-<!-- This documentation is for developers who are familiar with the JavaScript programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [bundles, transactions](root://dev-essentials/0.1/concepts/bundles-and-transactions.md), and [why you should withdraw from addresses only once](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse). -->
+このドキュメントは、JavaScriptプログラミング言語とオブジェクト指向プログラミングの概念に精通している開発者向けです。また、[バンドル](root://getting-started/0.1/transactions/bundles.md)、[トランザクション](root://getting-started/0.1/transactions/transactions.md)、[シード](root://getting-started/0.1/clients/seeds.md)や[アドレス](root://getting-started/0.1/clients/addresses.md)などの[基本的なIOTAの概念](root://getting-started/0.1/introduction/overview.md)にも精通している必要があります。
+<!-- This documentation is for developers who are familiar with the JavaScript programming language and object-oriented programming concepts. You should also be familiar with [basic IOTA concepts](root://getting-started/0.1/introduction/overview.md) such as [bundles](root://getting-started/0.1/transactions/bundles.md), [transactions](root://getting-started/0.1/transactions/transactions.md), [seeds](root://getting-started/0.1/clients/seeds.md), and [addresses](root://getting-started/0.1/clients/addresses.md). -->
 
 ## 前提条件
 <!-- ## Prerequisites -->

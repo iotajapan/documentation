@@ -4,8 +4,8 @@
 **誰でも読むことができるチャネルにメッセージを発行したい場合は、パブリックチャネルを使用できます。パブリックチャネルは、すべてのユーザーに対して開かれているトランザクションのアドレスを使用して、すべてのユーザーがメッセージを見つけて復号化できるように開いています。パブリックチャネルは、データをイミュータブルにする公示またはパブリックソーシャルメディアアプリケーションに役立ちます。**
 <!-- **If you want to publish messages to a channel that anyone can read, you can use a public channel. These channels are open for any user to find and decrypt the messages, using the address of the transaction that it's in. This type of channel is useful for public announcements or public social media applications that want the data to be immutable.** -->
 
-ここで、テストに使用できる[IOTAネットワーク](root://getting-started/0.1/references/iota-networks.md)の1つであるDevnetのノードに接続します。Devnetは、トークンが無料であることを除いて、Mainnetに似ています。
-<!-- Here, we connect to a node on the Devnet, which is one of the [IOTA networks](root://getting-started/0.1/references/iota-networks.md) that you can use for testing. The Devnet is similar to the Mainnet, except the tokens are free. -->
+ここで、テストに使用できる[IOTAネットワーク](root://getting-started/0.1/network/iota-networks.md)の1つであるDevnetのノードに接続します。Devnetは、トークンが無料であることを除いて、Mainnetに似ています。
+<!-- Here, we connect to a node on the Devnet, which is one of the [IOTA networks](root://getting-started/0.1/network/iota-networks.md) that you can use for testing. The Devnet is similar to the Mainnet, except the tokens are free. -->
 
 1. パッケージを`require`します。
   <!-- 1. Require the packages -->

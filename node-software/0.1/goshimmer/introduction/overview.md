@@ -9,10 +9,10 @@
 GoShimmerノードは、以下のコーディサイドモジュールを含むプロトタイプソフトウェアを実行します。
 <!-- GoShimmer nodes run the prototype software that includes the following Coordicide modules: -->
 
-* **自動ピアリング：** ネットワーク上の新しい各ノードは、4つの隣接ノードへの接続を試み、さらに4つの隣接ノードからの接続を受け入れます。
-<!-- * **Auto-peering:** Each new node on the network tries to connect to four neighbors and accepts connections from a further four neighbors -->
-* **ノードID：** 各ノードは、固有の公開/秘密鍵ペアを作成します。公開鍵は、自動ピアリング中にノードを識別するために使用されます。将来、これらのIDはノードがマナを受け取ることを可能にするでしょう。
-<!-- * **Node identities:** Each node creates a unique public/private key pair. The public key is used to identify nodes during auto-peering. In the future, these identities will allow nodes to receive mana. -->
+- **自動ピアリング：** ネットワーク上の新しい各ノードは、4つの隣接ノードへの接続を試み、さらに4つの隣接ノードからの接続を受け入れます。
+<!-- - **Auto-peering:** Each new node on the network tries to connect to four neighbors and accepts connections from a further four neighbors -->
+- **ノードID：** 各ノードは、固有の公開/秘密鍵ペアを作成します。公開鍵は、自動ピアリング中にノードを識別するために使用されます。将来、これらのIDはノードがマナを受け取ることを可能にするでしょう。
+<!-- - **Node identities:** Each node creates a unique public/private key pair. The public key is used to identify nodes during auto-peering. In the future, these identities will allow nodes to receive mana. -->
 
 すべてのモジュールが使用可能になると、GoShimmerノードがコーディサイドテストネットになります。これは、次のIOTAプロトコルのリリース候補です。
 <!-- When all the modules become available, the GoShimmer nodes will become the Coordicide testnet, which is a release candidate for the next IOTA protocol. -->

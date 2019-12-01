@@ -61,24 +61,25 @@ APIは2つのメソッドを実装します。
 APIを使用してファイルを保存するために、クライアントは次のことを行います。
 <!-- To store a file using the API, the client does the following: -->
 
-* アップロードするファイルを選択します。
-<!-- * Select the file to upload -->
-* ファイルの内容のSHA256ハッシュを生成します。
-<!-- * Generate SHA256 hash of the file content -->
-* 追加のファイルメタデータをキャプチャします。
-<!-- * Capture additional file meta data -->
-* メタデータ、SHA256ハッシュ、およびファイルの内容をIPFSノードに送信します（POST /ipfs）。
-<!-- * Send the meta data, SHA256 hash, and file contents to the IPFS node (POST /ipfs) -->
+- アップロードするファイルを選択します。
+<!-- - Select the file to upload -->
+- ファイルの内容のSHA256ハッシュを生成します。
+<!-- - Generate SHA256 hash of the file content -->
+- 追加のファイルメタデータをキャプチャします。
+<!-- - Capture additional file meta data -->
+- メタデータ、SHA256ハッシュ、およびファイルの内容をIPFSノードに送信します（POST /ipfs）。
+<!-- - Send the meta data, SHA256 hash, and file contents to the IPFS node (POST /ipfs) -->
+
 
 舞台裏では、APIは次のことを行います。
 <!-- Behind the scenes, the API does the following: -->
 
-* ファイルの内容をIPFSにアップロードします。IPFSはIPFSハッシュを返します。
-<!-- * Upload the file content to IPFS, which returns the IPFS hash -->
-* メタデータ、SHA256、およびIPFSハッシュをタングルに保存します。これはトランザクションハッシュを返します。
-<!-- * Store the metadata, SHA256 and IPFS hash on the Tangle, which returns a transaction hash -->
-* タングルトランザクションハッシュをクライアントに返します。
-<!-- * Return the Tangle transaction hash to the client -->
+- ファイルの内容をIPFSにアップロードします。IPFSはIPFSハッシュを返します。
+<!-- - Upload the file content to IPFS, which returns the IPFS hash -->
+- メタデータ、SHA256、およびIPFSハッシュをタングルに保存します。これはトランザクションハッシュを返します。
+<!-- - Store the metadata, SHA256 and IPFS hash on the Tangle, which returns a transaction hash -->
+- タングルトランザクションハッシュをクライアントに返します。
+<!-- - Return the Tangle transaction hash to the client -->
 
 ![Data Storage PoC - IOTA/IPFS - Store File](../images/data-storage-store.png)
 
@@ -171,14 +172,14 @@ const bundle = await iota.sendTrytes(trytes, config.depth, config.mwm);
 ファイルを取得してその内容を検証するために、クライアントは次のことを行います。
 <!-- To retrieve a file and validate its contents the client does the following: -->
 
-* API（GET /ipfs）からのトランザクションハッシュを使用してメタデータ、SHA256ハッシュおよびIPFSハッシュをリクエストします。
-<!-- * Request the metadata, SHA256 and IPFS hash using the transaction hash from the API (GET /ipfs) -->
-* IPFSハッシュを使ってIPFSからファイルの内容を取得します。
-<!-- * Get the file contents from IPFS using the IPFS hash -->
-* 取得したファイルの内容に対してSHA256を実行します。
-<!-- * Perform a SHA256 on the retrieved file content -->
-* 計算したSHA256ハッシュをAPIから返されたSHA256ハッシュと比較します。
-<!-- * Compare the calculated SHA256 with the one returned from the API -->
+- API（GET /ipfs）からのトランザクションハッシュを使用してメタデータ、SHA256ハッシュおよびIPFSハッシュをリクエストします。
+<!-- - Request the metadata, SHA256 and IPFS hash using the transaction hash from the API (GET /ipfs) -->
+- IPFSハッシュを使ってIPFSからファイルの内容を取得します。
+<!-- - Get the file contents from IPFS using the IPFS hash -->
+- 取得したファイルの内容に対してSHA256を実行します。
+<!-- - Perform a SHA256 on the retrieved file content -->
+- 計算したSHA256ハッシュをAPIから返されたSHA256ハッシュと比較します。
+<!-- - Compare the calculated SHA256 with the one returned from the API -->
 
 ![Data Storage PoC - IOTA/IPFS - Retrieve File](../images/data-storage-retrieve.png)
 

@@ -8,7 +8,7 @@
 <!-- You can integrate Hub into an application in many ways. This guide uses integration option 2, which is the easiest way to store all users' IOTA tokens outside of Hub. -->
 
 ハブ統合オプションの詳細については、[統合ガイド](../how-to-guides/integrate-hub.md)を参照してください。
-<!-- For details about Hub integration options, see [our integrations guide](../how-to-guides/integrate-hub.md). -->
+<!-- For details about Hub integration options, see the [integrations guide](../how-to-guides/integrate-hub.md). -->
 
 [このガイドのソースコード](https://github.com/fijter/fakexchange)はGitHubで入手できます。`master`ブランチは、ハブと統合されていないブランチです。
 <!-- The [source code for this guide](https://github.com/fijter/fakexchange) is available on GitHub. The `master` branch is the one without the Hub integration. -->
@@ -24,10 +24,10 @@
 このガイドを完了するには、次のものが必要です。
 <!-- To complete this guide, you need the following: -->
 
-* Devnetノードに接続され、公開されたRESTful APIサーバーを持つハブのインスタンス
-<!-- * An instance of Hub that's connected to a Devnet node and that has an exposed RESTful API server -->
-* Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server)サーバー。WindowsまたはMacオペレーティングシステムを使用している場合は、[仮想マシンでLinuxサーバーを作成](root://general/0.1/how-to-guides/set-up-virtual-machine.md)できます。
-<!-- * A Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server) server. If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md). -->
+- Devnetノードに接続され、公開されたRESTful APIサーバーを持つハブのインスタンス
+<!-- - An instance of Hub that's connected to a Devnet node and that has an exposed RESTful API server -->
+- Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server)サーバー。WindowsまたはMacオペレーティングシステムを使用している場合は、[仮想マシンでLinuxサーバーを作成](root://general/0.1/how-to-guides/set-up-virtual-machine.md)できます。
+<!-- - A Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server) server. If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md). -->
 
 ## 手順1. 取引所サーバーをセットアップする
 <!-- ## Step 1. Set up the exchange server -->
@@ -182,7 +182,7 @@ IOTAトークンの預け入れと取り出しを行う前に、取引所のユ�
 <!-- At the moment, the exchange doesn't allow you to deposit or withdraw IOTA tokens. To add this functionality, you can make calls to the Hub RESTful API endpoints. -->
 
 ユーザーがIOTAトークンを預け入れるたびに、[`GetDepositAddress`](../references/restful-api-reference.md#GetDepositAddress)エンドポイントを使用して新しい預け入れアドレスを作成することをお勧めします。
-<!-- Each time users wants to deposit IOTA tokens, it's best practice to create a new deposit address for them with the [`GetDepositAddress`](../references/restful-api-reference.md#GetDepositAddress) endpoint. -->
+<!-- Each time users wants to deposit IOTA tokens, it's best practice to create a new deposit address for them, using the [`GetDepositAddress`](../references/restful-api-reference.md#GetDepositAddress) endpoint. -->
 
 1. `exchange`ディレクトリで、`iota.py`ファイルを作成します。
   <!-- 1. In the `exchange` directory, create an `iota.py` file -->
@@ -326,8 +326,8 @@ IOTAトークンを取引所アカウントに預け入れるには、このア�
 現時点では、預け入れアドレスにIOTAトークンを送信しても、ユーザーの取引所アカウントの残高は更新されません。
 <!-- At the moment, if you send IOTA tokens to the deposit address, the balance in the user's exchange account doesn't update. -->
 
-この残高が最新であることを確認するために、[`BalanceSubscription`](../references/restful-api-reference.md#BalanceSubscription)エンドポイントで残高の変更についてハブユーザーアドレスを監視できます。
-<!-- To make sure this balance is kept up to date, you can monitor Hub user addresses for balance changes with the [`BalanceSubscription`](../references/restful-api-reference.md#BalanceSubscription) endpoint -->
+この残高が最新であることを確認するために、[`BalanceSubscription`](../references/restful-api-reference.md#BalanceSubscription)エンドポイントを使用して、残高の変更についてハブユーザーアドレスを監視できます。
+<!-- To make sure this balance is kept up to date, you can monitor Hub user addresses for balance changes, using the [`BalanceSubscription`](../references/restful-api-reference.md#BalanceSubscription) endpoint -->
 
 1. `exchange`ディレクトリで、`models.py`ファイルを開きます。
   <!-- 1. In the `exchange` directory, open the `models.py` file -->
@@ -434,8 +434,8 @@ IOTAトークンを取引所アカウントに預け入れるには、このア�
 8. サーバーを起動し、新しい預け入れアドレスをリクエストします。
   <!-- 8. Start the server, and request a new deposit address -->
 
-9. Devnetの蛇口を使用して[預け入れアドレスにテストIOTAトークンを送信](root://getting-started/0.1/tutorials/send-iota-tokens.md)します。
-  <!-- 9. Use the Devnet faucet to [send some test IOTA tokens to your deposit address](root://getting-started/0.1/tutorials/send-iota-tokens.md) -->
+9. Devnetの蛇口を使用して[預け入れアドレスにテストIOTAトークンを送信](root://iota-js/0.1/workshop/transfer-iota-tokens.md)します。
+  <!-- 9. Use the Devnet faucet to [send some test IOTA tokens to your deposit address](root://iota-js/0.1/workshop/transfer-iota-tokens.md) -->
 
     :::info:
     このガイドで、`receiveAddress`変数を預け入れアドレスに置き換えます。
@@ -481,14 +481,8 @@ Gave 500 iota to user user-1 after deposit
 ## 手順5. ホットウォレットとしてハブユーザーを作成する
 <!-- ## Step 5. Create a Hub user as a hot wallet -->
 
-デフォルトでは、ハブはユーザーの残高の記録を保持し、スウィープ中にIOTAトークンをハブ所有者のアカウントに転送します。
-<!-- By default, Hub keeps a record of user balances and it transfers any tokens to the Hub owner's account during a sweep. -->
-
-しかし、取引を行うために、取引所はしばしば自身のデータベースで残高を追跡する必要があり、セキュリティを強化するためにコールドウォレット（オフラインウォレット）にIOTAトークンを保存することがよくあります。
-<!-- But, to action trades, exchanges often need to keep track of balances in their own database and they often want to store the tokens in a cold wallet (an offline wallet) for increased security. -->
-
-これを行うには、通常のハブユーザーを作成し、残高変更イベントが発生したときにすべてのIOTAトークンをそのハブユーザーに転送します。
-<!-- To do this, you can create a normal Hub user and transfer all IOTA tokens to that user when a balance change event occurs. -->
+トークンをコールドウォレット（オフラインウォレット）に保存するには、通常のハブユーザーを作成し、残高変更イベントが発生したときにすべてのIOTAトークンをそのユーザーに転送します。
+<!-- To store the tokens in a cold wallet (an offline wallet), you can create a normal Hub user and transfer all IOTA tokens to that user when a balance change event occurs. -->
 
 1. `iota.py`ファイルで、ハブデータベースを更新する関数を作成し、すべての預け入れが取引所所有者の`hot-wallet`ユーザーに追加されるようにします。
   <!-- 1. In the `iota.py` file, create a function to update the Hub database so that all incoming deposits are added to the exchange owner's `hot-wallet` user -->
@@ -550,8 +544,8 @@ Gave 500 iota to user user-1 after deposit
 アカウントからIOTAトークンを取り出すには、ユーザーはハブからの取り出すをリクエストする必要があります。
 <!-- To withdraw IOTA tokens from their accounts, users need to request a withdrawal from Hub. -->
 
-1. `iota.py`ファイルで、`UserWithdraw`エンドポイントでIOTAトークンを取り出す関数を作成します。
-  <!-- 1. In the `iota.py` file, create a function to withdraw IOTA tokens with the `UserWithdraw` endpoint -->
+1. `iota.py`ファイルで、`UserWithdraw`エンドポイントを使用して、IOTAトークンを取り出す関数を作成します。
+  <!-- 1. In the `iota.py` file, create a function to withdraw IOTA tokens, using the `UserWithdraw` endpoint  -->
 
     ```py
     def withdraw(self, user_id, amount, address, validate_checksum=True, tag='FAKEXCHANGE'):
@@ -607,8 +601,5 @@ Gave 500 iota to user user-1 after deposit
 ## 次のステップ
 <!-- ## Next steps -->
 
-このガイドでは、統合オプション2を使用してIOTAをデモ取引所に統合する方法を示しました。
-<!-- This guide has shown you how to integrate IOTA into a demo exchange using integration option 2. -->
-
-さらに機能を追加することにより、このデモ統合を改善し続けることができます。
-<!-- You can continue to improve this demo integration by adding more functionality. -->
+さらに機能を追加して、このデモ統合の改善を続けてください。たとえば、チェックしたい場合があります。
+<!-- Continue to improve this demo integration by adding more functionality. For example, you might want to check -->

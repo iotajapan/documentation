@@ -6,10 +6,10 @@
 
 ハードウェアウォレットは次のことを行います。
 <!-- Hardware wallets do the following: -->
-* シードを作成して保管します。
-<!-- * Creates and stores seeds -->
-* バリュートランザクションに署名します。
-<!-- * Signs value transactions -->
+- シードを作成して保管します。
+<!-- - Creates and stores seeds -->
+- バリュートランザクションに署名します。
+<!-- - Signs value transactions -->
 
 ハードウェアウォレットは、セキュリティの追加層です。[ハードウェアウォレットでトリニティアカウントを作成した](https://trinity.iota.org/hardware)場合、ハードウェアウォレットがないとトランザクションを送信できません。
 <!-- Hardware wallets are an extra layer of security. If you [create a Trinity account with a hardware wallet](https://trinity.iota.org/hardware), you can't send transactions without it. -->
@@ -53,12 +53,12 @@
 ## シナリオ例
 <!-- ### Example scenario -->
 
-* **アドレス0：** 200 Mi
-<!-- * **Address 0:** 200 Mi -->
-* **アドレス1：** 400 Mi
-<!-- * **Address 1:** 400 Mi -->
-* **アドレス3：** 50 Mi
-<!-- * **Address 3:** 50 Mi -->
+- **アドレス0：** 200 Mi
+<!-- - **Address 0:** 200 Mi -->
+- **アドレス1：** 400 Mi
+<!-- - **Address 1:** 400 Mi -->
+- **アドレス3：** 50 Mi
+<!-- - **Address 3:** 50 Mi -->
 
 Ledger Nano Sを使用して、トリニティから650 Miを送信しようとします。このトランザクションでは、3つのアドレスから取り出すバンドルが必要になるため、有効ではないので送信されません。
 <!-- You try to send 650 Mi from Trinity, using a Ledger Nano S. This transaction would require a bundle that withdraws from three addresses, so it won't be valid and won't send. -->

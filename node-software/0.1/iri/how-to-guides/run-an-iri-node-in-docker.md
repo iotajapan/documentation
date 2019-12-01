@@ -4,28 +4,19 @@
 **Dockerコンテナ内でIRIを実行すると、デバイスはIRIノード用のLinuxサーバになり、タングルに直接アクセスできるようになります。 IRIノードを実行することで、台帳の数を増やし、隣接IRIノードのトランザクションを検証することで、IOTAネットワークをより分散させることができます。**
 <!-- **When you run the IRI in a Docker container, your device becomes a Linux server for an IRI node, which gives you direct access to the Tangle. By running an IRI node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbor IRI node's transactions.** -->
 
-IRI Dockerコンテナは、以下のオペレーティングシステムに適しています。
-<!-- The IRI Docker container is suitable for the following operating systems: -->
-* Linux
-* Mac
-* Windows
-
-Linuxオペレーティングシステムを使用している場合は、このガイドのコマンドの前に`sudo`を追加します。
-<!-- If you're using a Linux operating system, add `sudo` before the commands in this guide. -->
-
 ## 前提条件
 <!-- ## Prerequisites -->
 
 このガイドを完成するには、次のものが必要です。
 <!-- To complete this guide, you need the following: -->
 
-* 4GB RAM
-* 64ビットプロセッサ
-<!-- * 64-bit processor -->
-* 静的な、または[duckdns.org](https://www.duckdns.org)などの動的DNSサービスに接続されている[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)
-<!-- * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org) -->
-* ノードを実行しているデバイスに[次のポートを転送します](root://general/0.1/how-to-guides/expose-your-local-device.md)。
-  <!-- * [Forward the following ports](root://general/0.1/how-to-guides/expose-your-local-device.md) to the device that's running the node: -->
+- 4GB RAM
+- 64ビットプロセッサ
+<!-- - 64-bit processor -->
+- 静的な、または[duckdns.org](https://www.duckdns.org)などの動的DNSサービスに接続されている[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)
+<!-- - A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org) -->
+- ノードを実行しているデバイスに[次のポートを転送します](root://general/0.1/how-to-guides/expose-your-local-device.md)。
+  <!-- - [Forward the following ports](root://general/0.1/how-to-guides/expose-your-local-device.md) to the device that's running the node: -->
 
     * **TCP隣接ノードのピアリングポート：** 15600
     <!-- * **TCP neighbor peering port:** 15600 -->
@@ -34,9 +25,9 @@ Linuxオペレーティングシステムを使用している場合は、この
 
 Dockerコンテナは、以下のオペレーティングシステムに適しています。
 <!-- The Docker container is suitable for the following operating systems: -->
-* Linux
-* macOS
-* Windows
+- Linux
+- macOS
+- Windows
 
 :::info:
 Linuxオペレーティングシステムを使用している場合は、以下のタスクのすべてのコマンドの前に`sudo`を追加します。
@@ -103,10 +94,10 @@ IRI Dockerコンテナには、IRIを実行するために必要なソフトウ�
 
 IRI Dockerコンテナをダウンロードする方法は2つあります。
 <!-- You have two options for downloading the IRI Docker container: -->
-* [ビルド済みのDockerコンテナをダウンロードする](#download-the-pre-built-iri-docker-container)（最速のオプション）。
-<!-- * [Download the pre-built Docker container](#download-the-pre-built-iri-docker-container)(quickest option) -->
-* [ソースコードからDockerコンテナをビルドする](#build-the-iri-docker-container-from-the-source-code)。
-<!-- * [Build the Docker container from the source code](#build-the-iri-docker-container-from-the-source-code) -->
+- [ビルド済みのDockerコンテナをダウンロードする](#download-the-pre-built-iri-docker-container)（最速のオプション）。
+<!-- - [Download the pre-built Docker container](#download-the-pre-built-iri-docker-container)(quickest option) -->
+- [ソースコードからDockerコンテナをビルドする](#build-the-iri-docker-container-from-the-source-code)。
+<!-- - [Build the Docker container from the source code](#build-the-iri-docker-container-from-the-source-code) -->
 
 <a name="download-the-pre-built-iri-docker-container"></a>
 ### ビルド済みのIRI Dockerコンテナをダウンロードする
@@ -125,10 +116,10 @@ docker pull iotaledger/iri:latest
 
 ビルド済みのDockerコンテナをダウンロードする代わりに、次のいずれかの理由でソースコードからファイルをビルドすることをお勧めします。
 <!-- Instead of downloading the pre-built Docker container, you may want to build the file from the source code for any of the following reasons: -->
-* 実行するコードがソースコードと同じであることを確認したい場合。
-<!-- * You want to be sure that the code you run is the same as the source code -->
-* IRIを実行する前にコードを修正したい場合。
-<!-- * You want to modify the code before you run it -->
+- 実行するコードがソースコードと同じであることを確認したい場合。
+<!-- - You want to be sure that the code you run is the same as the source code -->
+- IRIを実行する前にコードを修正したい場合。
+<!-- - You want to modify the code before you run it -->
 
 1. [Gitをインストールします](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
   <!-- 1. [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) -->
@@ -157,30 +148,31 @@ docker pull iotaledger/iri:latest
 ## 手順3. IRIを実行する
 <!-- ## Step 2. Run the IRI -->
 
-`run`コマンドに[設定オプション](../references/iri-configuration-options.md)をフラグとして渡すことでノードの設定ができます。
-<!-- You can configure the node by passing [configuration options](../references/iri-configuration-options.md) to the `run` command as flags. -->
+`run`コマンドに[設定オプション](../references/iri-configuration-options.md)を渡すことでノードの設定ができます。
+<!-- You can configure the node by passing [configuration options](../references/iri-configuration-options.md) to the `run` command. -->
 
-1. APIポートを指定するために`-p`フラグを指定してIRIを実行します。
-  <!-- 1. Run the IRI with the `-p` flag to specify the API port -->
+1. APIポートを指定するために`-p`オプションを指定してIRIを実行します。
+  <!-- 1. Run the IRI with the `-p` option to specify the API port -->
 
     ```bash
     docker run --name iri iotaledger/iri:latest --remote true -p 14265
     ```
 
-    設定オプションをIRI設定ファイルに保存したい場合は、IRI設定ファイルへのパスを`-c`フラグと一緒に渡す必要があります。たとえば、Dockerホストの`/path/to/conf/config.ini`にconfig.iniファイルを保存した場合は、DOCKER RUNコマンドに`-c /path/to/conf/config.ini`を追加します。
-    <!-- If you want to save your configuration options in an IRI configuration file, you must pass the path to that file along with the `-c` flag. For example, if you save a config.ini file in the `/path/to/conf/config.ini` on your Docker host, then add `-c /path/to/conf/config.ini` to the DOCKER RUN command. -->
+    設定オプションをIRI設定ファイルに保存したい場合は、IRI設定ファイルへのパスを`-c`フラグと一緒に渡す必要があります。たとえば、Dockerホストの`/path/to/conf/config.ini`に`config.ini`ファイルを保存した場合は、DOCKER RUNコマンドに`-c /path/to/conf/config.ini`を追加します。
+    <!-- If you want to save your configuration options in an IRI configuration file, you must pass the path to that file along with the `-c` flag. For example, if you save a `config.ini` file in the `/path/to/conf/config.ini` on your Docker host, then add `-c /path/to/conf/config.ini` to the `docker run` command. -->
 
     :::info:
-    ソースコードからIRI Dockerコンテナをビルドした場合は、`-name`フラグの値を`iri iri：latest`に変更する必要があります。
+    Dockerコンテナをソースからビルドした場合、 `-name`オプションの値を`iri iri:latest`に変更する必要があります。
     :::
     <!-- :::info: -->
-    <!-- If you built the IRI Docker container from the source code, you must change the value of the `-name` flag to `iri iri:latest`. -->
+    <!-- If you built the Docker container from source, you must change the value of the `-name` option to `iri iri:latest`. -->
     <!-- ::: -->
+
     :::info:
-    Dockerホストの再起動のたびにIRI Dockerコンテナも再起動するには、DOCKER RUNコマンドに`--restart = always`フラグを追加します。
+    Dockerホストの再起動のたびにIRI Dockerコンテナも再起動するには、`docker run`コマンドに`--restart = always`フラグを追加します。
     :::
     <!-- :::info: -->
-    <!-- To have the IRI Docker container restart on every reboot, add the `--restart=always` flag to the DOCKER RUN command. -->
+    <!-- To have the IRI Docker container restart on every reboot, add the `--restart=always` flag to the `docker run` command. -->
     <!-- ::: -->
 
 2. [getNodeInfo](../references/api-reference.md#getnodeinfo)エンドポイントを呼び出して、IRIノードに関する一般情報をリクエストします。
@@ -219,14 +211,14 @@ docker pull iotaledger/iri:latest
     }
     ```
 
-    標準出力には、`neighbors`フィールドの値が0であることがわかります。IRIノードはまだIOTAネットワークに接続されていません。IOTAネットワークへの接続を行うには、[隣接IRIノード](../concepts/neighbor-iri-node.md)に接続する必要があります。
-    <!-- You'll notice in the output that the value of the `neighbors` field is 0. The IRI node is not yet connected to an IOTA network. To do so, you need to connect to [neighbor IRI nodes](../concepts/neighbor-iri-node.md). -->
+    標準出力には、`neighbors`フィールドの値が0であることがわかります。IRIノードはまだIOTAネットワークに接続されていません。IOTAネットワークへの接続を行うには、隣接IRIノードに接続する必要があります。
+    <!-- You'll notice in the output that the value of the `neighbors` field is 0. The IRI node is not yet connected to an IOTA network. To do so, you need to connect to neighbor IRI nodes. -->
 
-3. [隣接ノードを見つけて](../how-to-guides/find-neighbor-iri-nodes.md)、隣接ノードのURLまたはIPアドレスをconfig.iniファイルに追加します。
-  <!-- 3. [Find neighbors](../how-to-guides/find-neighbor-iri-nodes.md) and add their URL or IP addresses to your config.ini file -->
+3. [隣接ノードを見つけて](../how-to-guides/find-neighbor-iri-nodes.md)、隣接ノードのURLまたはIPアドレスを`config.ini`ファイルに追加します。
+  <!-- 3. [Find neighbors](../how-to-guides/find-neighbor-iri-nodes.md) and add their URL or IP addresses to your `config.ini` file -->
 
-ノードが稼働しているので、[ノードの台帳がIOTAネットワークとの同期](../concepts/the-ledger.md#ledger-synchronization)を開始します。ノードに同期する時間を与えるか、IRIノードが同期していない場合はトラブルシューティングガイドをお読みください。
-<!-- Now that your node is up and running, it'll start to [synchronize its ledger with the network](../concepts/the-ledger.md#ledger-synchronization). Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing. -->
+ノードが稼働しているので、ノードの台帳がIOTAネットワークとの同期を開始します。ノードに同期する時間を与えるか、IRIノードが同期していない場合はトラブルシューティングガイドをお読みください。
+<!-- Now that your node is up and running, it'll start to synchronize its ledger with the network. Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing. -->
 
 ## 手順4. ノードが同期していることを確認する
 <!-- ## Step 3. Check that the node is synchronized -->
@@ -266,7 +258,5 @@ IRIが同期するまでに時間がかかることがあります。問題が�
 ## 次のステップ
 <!-- ## Next steps -->
 
-* [IRIノードと対話する](../how-to-guides/interact-with-an-iri-node.md)。
-<!-- * [Interact with an IRI node](../how-to-guides/interact-with-an-iri-node.md) -->
-* [IRIノードのイベントを購読する](../how-to-guides/subscribe-to-events-in-an-iri-node.md)。
-<!-- * [Subscribe to events in an IRI node](../how-to-guides/subscribe-to-events-in-an-iri-node.md) -->
+[自分のIRIノードと対話する](../how-to-guides/interact-with-an-iri-node.md)。
+<!-- [Interact with your node](../how-to-guides/interact-with-an-iri-node.md). -->

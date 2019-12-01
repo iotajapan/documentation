@@ -23,8 +23,8 @@
 金額またはメッセージを指定する場合は、次のクエリパラメータを使用できます。
 <!-- If you want to specify an amount or message, you can use the following query parameters: -->
 
-* `amount`
-* `message`
+- `amount`
+- `message`
 
 例（以下のリンクをクリックするとテストが開きます）：
 <!-- For example (you can click this link to test it): -->

@@ -1,8 +1,8 @@
 # ワンコマンドプライベートタングル
 <!-- # One-command private Tangle -->
 
-**このアプリケーションを使用すると、単一の[Docker](https://www.docker.com/why-docker)コマンドを使用して独自のIOTAネットワークを設定できます。このコマンドを実行すると、独自のIOTAテストネットワークと[2.7Pi](root://dev-essentials/0.1/references/units-of-iota-tokens.md)（最大量）のテストIOTAトークンを使用できます。いかなる金銭的価値も危険にさらすことなく自分のアイデアやアプリケーションをテストするためにこのアプリケーションを使うことができます。**
-<!-- **This application allows you to set up your own IOTA network by using a single [Docker](https://www.docker.com/why-docker) command. When you run this command, you'll have your own IOTA test network and [2.7Pi](root://dev-essentials/0.1/references/units-of-iota-tokens.md) (the maximum amount) of test IOTA tokens to use. You can use this application to test your ideas and applications without risking any monetary value.** -->
+**このアプリケーションを使用すると、単一の[Docker](https://www.docker.com/why-docker)コマンドを使用して独自のIOTAネットワークを設定できます。このコマンドを実行すると、独自のIOTAテストネットワークと2.7Pi（最大量）のテスト[IOTAトークン](root://getting-started/0.1/clients/token.md)が作成されます。このアプリケーションを使用して、金銭的価値を危険にさらすことなく、アイデアやアプリケーションをテストできます。**
+**This application allows you to set up your own IOTA network by using a single [Docker](https://www.docker.com/why-docker) command. When you run this command, you'll have your own IOTA test network and 2.7Pi (the maximum amount) of test [IOTA tokens](root://getting-started/0.1/clients/token.md). You can use this application to test your ideas and applications without risking any monetary value.**
 
 :::info:GitHubにアクセスする
 クイックスタートの手順やソースコードを読むには、[GitHubリポジトリ](https://github.com/iota-community/one-command-tangle)にアクセスしてください。
@@ -21,8 +21,8 @@
 ## なぜこのアプリケーションを使うのか？
 <!-- ## Why use this application? -->
 
-テストを行うために、パブリックネットワークの1つにテストデータを公開したくないかもしれません。代わりに、[IOTA Mainnet](root://getting-started/0.1/references/iota-networks.md#mainnet)と同じテストトークンの総供給量で独自のプライベートネットワークを運営することができます。このようにして、ネットワーク外の誰かがテストデータのトランザクションを見ることなくデータとIOTAトークンを転送するアプリケーションを作成できます。
-<!-- For testing, you may not want to publish test data on one of the public networks. Instead, you can run your own private network with the same total supply of test tokens as those in the [IOTA Mainnet](root://getting-started/0.1/references/iota-networks.md#mainnet). This way, you can create applications that transfer data and value without anyone outside of your network seeing those transactions. -->
+テストを行うために、パブリックネットワークの1つにテストデータを公開したくないかもしれません。代わりに、[IOTA Mainnet](root://getting-started/0.1/network/iota-networks.md#mainnet)と同じテストトークンの総供給量で独自のプライベートネットワークを運営することができます。このようにして、ネットワーク外の誰かがテストデータのトランザクションを見ることなくデータとIOTAトークンを転送するアプリケーションを作成できます。
+<!-- For testing, you may not want to publish test data on one of the public networks. Instead, you can run your own private network with the same total supply of test tokens as those in the [IOTA Mainnet](root://getting-started/0.1/network/iota-networks.md#mainnet). This way, you can create applications that transfer data and value without anyone outside of your network seeing those transactions. -->
 
 Mainnet上でアプリケーションを使用する準備が整ったら、アプリケーションをプライベートIRIノードから切断して、Mainnetに接続することができます。
 <!-- When you're ready to use your application on the Mainnet, you can disconnect it from your private IRI node and connect it to one on the Mainnet. -->
@@ -36,8 +36,8 @@ Mainnet上でアプリケーションを使用する準備が整ったら、ア�
 IRIノードはトランザクションを受け取り、トランザクションを検証し、そしてユーザーの残高の最新の記録を保持します。
 <!-- The IRI node receives transactions, validates them, and keeps an up-to-date record of users' balances. -->
 
-一定の間隔で、コンパスはIRIノードへ他のトランザクションを参照する[マイルストーン](root://dev-essentials/0.1/concepts/the-tangle.md#milestones)と呼ばれるゼロトークントランザクションを送信します。マイルストーンによって参照されるトランザクションはすべて確定済みと見なされます。この時点で、ノードは確定済みトランザクションの影響を受けた残高をすべて更新します。
-<!-- At regular intervals, Compass sends the IRI node zero-value transactions called [milestones](root://dev-essentials/0.1/concepts/the-tangle.md#milestones) that reference other transactions. Any transaction that's referenced by a milestone is considered confirmed. At this point, the node updates any balances that were affected by the confirmed transaction. -->
+一定の間隔で、コンパスはIRIノードへ他のトランザクションを参照する[マイルストーン](root://getting-started/0.1/network/the-tangle.md#milestones)と呼ばれるゼロトークントランザクションを送信します。マイルストーンによって参照されるトランザクションはすべて確定済みと見なされます。この時点で、ノードは確定済みトランザクションの影響を受けた残高をすべて更新します。
+<!-- At regular intervals, Compass sends the IRI node zero-value transactions called [milestones](root://getting-started/0.1/network/the-tangle.md#milestones) that reference other transactions. Any transaction that's referenced by a milestone is considered confirmed. At this point, the node updates any balances that were affected by the confirmed transaction. -->
 
 トークンの総供給量は、次のシードの最初のアドレスに格納されています。
 ```bash
@@ -58,11 +58,11 @@ SEED9999999999999999999999999999999999999999999999999999999999999999999999999999
 このアプリケーションを使用するには、以下が必要です。
 <!-- To use this application, you need the following: -->
 
-* 4GB以上の空きRAM
-<!-- * At least 4GB of free RAM -->
-* [DockerとDocker Compose](https://docs.docker.com/compose/install/)
-<!-- * [Docker and Docker Compose](https://docs.docker.com/compose/install/) -->
-* [Git](https://git-scm.com/downloads)
+- 4GB以上の空きRAM
+<!-- - At least 4GB of free RAM -->
+- [DockerとDocker Compose](https://docs.docker.com/compose/install/)
+<!-- - [Docker and Docker Compose](https://docs.docker.com/compose/install/) -->
+- [Git](https://git-scm.com/downloads)
 
 ## 手順1. アプリケーションを実行する
 <!-- ## Step 1. Run the application -->
@@ -90,11 +90,11 @@ SEED9999999999999999999999999999999999999999999999999999999999999999999999999999
   ![Compass and IRI node logs](../images/cli.gif)
 
   :::info:
-  コンパスは、深さ20の事前にビルドされた（`layer`ディレクトリ内の）[マークル木](root://dev-essentials/0.1/concepts/the-tangle.md#milestones)を使用します。このマークル木は、コンパスが1年以上30秒間隔でマイルストーンを送信するのに十分な大きさです。
+  コンパスは、深さ20の事前にビルドされた（`layer`ディレクトリ内の）マークル木を使用します。このマークル木は、コンパスが1年以上30秒間隔でマイルストーンを送信するのに十分な大きさです。
   :::
-  <!-- :::info: -->
-  <!-- Compass uses a pre-built [Merkle tree](root://dev-essentials/0.1/concepts/the-tangle.md#milestones) (in the `layers` directory) with a depth of 20. This Merkle tree is large enough for Compass to send milestones for over a year at 30-second intervals. -->
-  <!-- ::: -->
+<!--  :::info: -->
+<!--  Compass uses a pre-built Merkle tree (in the `layers` directory) with a depth of 20. This Merkle tree is large enough for Compass to send milestones for over a year at 30-second intervals. -->
+<!--  ::: -->
 
 ### プライベートタングル用のオプションのユーティリティWebサイトをホストする
 <!-- ### Host an optional utilities website for your private Tangle -->
@@ -111,14 +111,14 @@ SEED9999999999999999999999999999999999999999999999999999999999999999999999999999
 ユーティリティWebサイトのすべての機能を使用する場合は、次の設定認証情報が必要です。
 <!-- If you want to use all the functionalities of the utilities website, you need the following configuration credentials: -->
 
-* [タングルエクスプローラ](https://utils.iota.org/)には、[Amazon DynamoDB認証情報](https://aws.amazon.com/dynamodb/)が必要です。
-<!-- * For the [Tangle explorer](https://utils.iota.org/), you need [Amazon DynamoDB credentials](https://aws.amazon.com/dynamodb/) -->
+- [タングルエクスプローラ](https://utils.iota.org/)には、[Amazon DynamoDB認証情報](https://aws.amazon.com/dynamodb/)が必要です。
+<!-- - For the [Tangle explorer](https://utils.iota.org/), you need [Amazon DynamoDB credentials](https://aws.amazon.com/dynamodb/) -->
 
-* [通貨換算](https://utils.iota.org/currency-conversion)には、[Fixer APIキー](https://rapidapi.com/fixer/api/fixer-currency)と[CoinMarketCap APIキー](https://coinmarketcap.com/api/)が必要です。
-<!-- * For the [currency converter](https://utils.iota.org/currency-conversion), you need a [Fixer API key](https://rapidapi.com/fixer/api/fixer-currency) and a [CoinMarketCap API key](https://coinmarketcap.com/api/) -->
+- [通貨換算](https://utils.iota.org/currency-conversion)には、[Fixer APIキー](https://rapidapi.com/fixer/api/fixer-currency)と[CoinMarketCap APIキー](https://coinmarketcap.com/api/)が必要です。
+<!-- - For the [currency converter](https://utils.iota.org/currency-conversion), you need a [Fixer API key](https://rapidapi.com/fixer/api/fixer-currency) and a [CoinMarketCap API key](https://coinmarketcap.com/api/) -->
 
-* [IOTAエリアコードマップ](https://utils.iota.org/area-codes)には、[Google Maps APIキー](https://developers.google.com/maps/documentation/javascript/get-api-key)が必要です。
-<!-- * For the [IOTA area codes map](https://utils.iota.org/area-codes), you need a [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key) -->
+- [IOTAエリアコードマップ](https://utils.iota.org/area-codes)には、[Google Maps APIキー](https://developers.google.com/maps/documentation/javascript/get-api-key)が必要です。
+<!-- - For the [IOTA area codes map](https://utils.iota.org/area-codes), you need a [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key) -->
 
 ---
 
@@ -147,8 +147,6 @@ SEED9999999999999999999999999999999999999999999999999999999999999999999999999999
 --------------------
 ### GetBalances
 Node.jsで[JavaScriptクライアントライブラリ](root://client-libraries/0.1/introduction/overview.md)を使用すると、[`getBalances`](root://node-software/0.1/iri/references/api-reference.md#getbalances)エンドポイントを呼び出してシードの合計残高を取得できます。
-
-これまでにIOTAクライアントライブラリを使用したことがない場合は、[入門チュートリアル](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を完了することをお勧めします。
 
  ```js
  var request = require('request');
@@ -216,10 +214,10 @@ Node.jsで[JavaScriptクライアントライブラリ](root://client-libraries/
 使用できるウォレットは2つあります。
 <!-- We have two wallets that you can use: -->
 
-* **ライトウォレット：** IRIノードをインターネットに公開せずにプライベートタングルに接続できます。
-<!-- * **Light wallet:** You can connect to your private Tangle without exposing your IRI node to the Internet -->
-* **トリニティ：** HTTPS接続を介してIRIノードをインターネットに公開する必要があります。
-<!-- * **Trinity:** You must expose your IRI node to the Internet through an HTTPS connection -->
+- **ライトウォレット：** IRIノードをインターネットに公開せずにプライベートタングルに接続できます。
+<!-- - **Light wallet:** You can connect to your private Tangle without exposing your IRI node to the Internet -->
+- **トリニティ：** HTTPS接続を介してIRIノードをインターネットに公開する必要があります。
+<!-- - **Trinity:** You must expose your IRI node to the Internet through an HTTPS connection -->
 
 ### ライトウォレットに接続する
 <!-- ### Connect to the light wallet -->
@@ -246,8 +244,8 @@ Node.jsで[JavaScriptクライアントライブラリ](root://client-libraries/
 ### トリニティに接続する
 <!-- ### Connect to Trinity -->
 
-[トリニティ](root://wallets/0.1/trinity/introduction/overview.md)は、macOS、Windows、Linux、iOS、およびAndroid用の公式IOTAウォレットです。このウォレットを使用すると、HTTPSプロトコルをサポートしているノードにのみ接続できます。
-<!-- [Trinity](root://wallets/0.1/trinity/introduction/overview.md) is the official IOTA  wallet for macOS, Windows, Linux, iOS, and Android. This wallet allows you to connect only to nodes that support the HTTPS protocol. -->
+[トリニティ](root://wallets/0.1/trinity/introduction/overview.md)は、macOS、Windows、Linux、iOS、およびAndroid用の公式IOTAウォレットです。トリニティを使用すると、HTTPSをサポートしているノードにのみ接続できます。
+<!-- [Trinity](root://wallets/0.1/trinity/introduction/overview.md) is the official IOTA  wallet for macOS, Windows, Linux, iOS, and Android. This wallet allows you to connect only to nodes that support the HTTPS. -->
 
 トリニティに接続するには、Let's Encrypt SSL証明書を使用する安全なCaddyプロキシサーバを起動するようにワンコマンドタングルのDockerコンテナを構築します。
 <!-- To connect to Trinity, you can configure the one-command Tangle's Docker container to start a secure Caddy proxy server that uses Let's Encrypt SSL certificates. -->
@@ -265,11 +263,11 @@ Node.jsで[JavaScriptクライアントライブラリ](root://client-libraries/
 以下のものが必要です。
 <!-- You need the following: -->
 
-* [A-record](https://support.dnsimple.com/articles/a-record/)がパブリックIPアドレスを指しているドメイン名。
-<!-- * A domain name whose [A-record](https://support.dnsimple.com/articles/a-record/) points to your public IP address -->
+- [A-record](https://support.dnsimple.com/articles/a-record/)がパブリックIPアドレスを指しているドメイン名。
+<!-- - A domain name whose [A-record](https://support.dnsimple.com/articles/a-record/) points to your public IP address -->
 
-* ポート80と443をインターネットに公開しているワンコマンドタングルを実行しているデバイス（ポートを転送する必要があるかもしれません）。
-<!-- * A device that's running the one-command Tangle, which is exposed to the Internet on ports 80 and 443 (you may need to forward ports) -->
+- ポート80と443をインターネットに公開しているワンコマンドタングルを実行しているデバイス（ポートを転送する必要があるかもしれません）。
+<!-- - A device that's running the one-command Tangle, which is exposed to the Internet on ports 80 and 443 (you may need to forward ports) -->
 
 ---
 

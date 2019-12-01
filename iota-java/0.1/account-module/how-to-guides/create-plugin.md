@@ -13,10 +13,10 @@
 プラグインクラスを作成するには、次のいずれかを実行します。
 <!-- To create a plugin class you can do one of the following: -->
 
-* `AccountPlugin`クラスを拡張する
-<!-- * Extend the `AccountPlugin` class -->
-* `Plugin`インターフェースを実装する
-<!-- * Implement the `Plugin` interface -->
+- `AccountPlugin`クラスを拡張する
+<!-- - Extend the `AccountPlugin` class -->
+- `Plugin`インターフェースを実装する
+<!-- - Implement the `Plugin` interface -->
 
 ### AccountPluginクラスを拡張する
 <!-- ### Extend the AccountPlugin class -->

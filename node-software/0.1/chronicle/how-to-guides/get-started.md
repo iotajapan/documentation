@@ -134,12 +134,12 @@ Chronicleを実行するには、次のコマンドを実行します。
 SECRET_KEY_BASE=theGenerated64-byteSecretString PORT=4000 HOST=localhost MIX_ENV=prod elixir --name app@hostname --cookie "MySecretChronicleCookie" -S mix run --no-halt
 ```
 
-* `SECRET_KEY_BASE`：手順2.2のフェニックスシークレット
-<!-- * `SECRET_KEY_BASE`: Your Phoenix secret from step 2.2 -->
-* `PORT`：APIサーバーがリッスンするポート
-<!-- * `PORT`: The port that you want the API server to listen to -->
-* `HOST`：APIがリッスンするホスト名またはIPアドレス
-<!-- * `HOST`: The hostname or IP address that you want the API to listen to -->
+- `SECRET_KEY_BASE`：手順2.2のフェニックスシークレット
+<!-- - `SECRET_KEY_BASE`: Your Phoenix secret from step 2.2 -->
+- `PORT`：APIサーバーがリッスンするポート
+<!-- - `PORT`: The port that you want the API server to listen to -->
+- `HOST`：APIがリッスンするホスト名またはIPアドレス
+<!-- - `HOST`: The hostname or IP address that you want the API to listen to -->
 
 :::info:
 ホストがlocalhostの場合、`--name`フラグの値は`Chronicle@localhost`になります。それ以外の場合は、localhostをホスト名に置き換えます。
@@ -180,8 +180,8 @@ Chronicleが起動すると、`imported the last dmp 'milestone' file`メッセ�
 1. [thetangle.org](https://thetangle.org/)にアクセスし、トランザクションハッシュをクリップボードにコピーします。
   <!-- 1. Go to [thetangle.org](https://thetangle.org/) and copy a transaction hash to your clipboard -->
 
-2. コマンドプロンプトで、クロニクルAPIの`getTrytes`エンドポイントへのcURLリクエストを作成します。トランザクションハッシュを`hashes`配列に貼り付け、URLを`http://localhost:4000/api`などのクロニクルノードのURLに置き換えます。
-  <!-- 2. In the command prompt create a cURL request to the `getTrytes` endpoint of the Chronicle API. Paste your transaction hash into the `hashes` array, and replace the URL with the URL of your Chronicle node such as http://localhost:4000/api -->
+2. コマンドラインインターフェイスで、クロニクルAPIの`getTrytes`エンドポイントへのcURLリクエストを作成します。トランザクションハッシュを`hashes`配列に貼り付け、URLを`http://localhost:4000/api`などのクロニクルノードのURLに置き換えます。
+<!-- 2. In the command-line interface create a cURL request to the `getTrytes` endpoint of the Chronicle API. Paste your transaction hash into the `hashes` array, and replace the URL with the URL of your Chronicle node such as http://localhost:4000/api -->
 
     ```bash
     curl http://host:port/api \

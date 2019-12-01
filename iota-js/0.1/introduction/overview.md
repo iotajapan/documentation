@@ -1,8 +1,8 @@
 # JavaScriptクライアントライブラリ
 <!-- # JavaScript client library -->
 
-**JavaScriptクライアントライブラリを使用すると、サポートされているパッケージを使用して、タングルと対話するクライアントまたはサーバーとして機能するアプリケーションを作成できます。**
-<!-- **The JavaScript client library allows you to use any of the supported packages to write applications that act as a client or a server to interact with the Tangle.** -->
+**JavaScriptクライアントライブラリを使用すると、サポートされているパッケージを使用して、タングルと対話するアプリケーションを作成できます。**
+<!-- **The JavaScript client library allows you to use any of the supported packages to write applications that interact with the Tangle.** -->
 
 -------------------------
 ![Core](../images/core.png)

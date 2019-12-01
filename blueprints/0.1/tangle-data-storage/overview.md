@@ -16,10 +16,10 @@
 ほとんどすべてのユースケースまたはアプリケーションに共通の要件は、後で使用するためにデータを保存する必要があることです。次に例を示します。
 <!-- A common requirement for nearly all use cases or applications is that data must be stored for later use, for example: -->
 
-* **サプライチェーン：** 配送文書または画像は、イベントの永久記録を形成するために保存する必要があります。
-<!-- * **Supply chain:** Shipping documents or images must be stored to form a permanent record of events -->
-* **車両のデジタルツイン：** 走行距離計の読み取り値、メンテナンス記録、所有権の変更などのすべてのデータを保存して、車両のライフサイクル全体の恒久的な記録を作成する必要があります。
-<!-- * **Digital twin of a vehicle:** All data such as the odometer readings, maintenance record, and ownership change should be stored to form a permanent record of the entire lifecycle of the vehicle -->
+- **サプライチェーン：** 配送文書または画像は、イベントの永久記録を形成するために保存する必要があります。
+<!-- - **Supply chain:** Shipping documents or images must be stored to form a permanent record of events -->
+- **車両のデジタルツイン：** 走行距離計の読み取り値、メンテナンス記録、所有権の変更などのすべてのデータを保存して、車両のライフサイクル全体の恒久的な記録を作成する必要があります。
+<!-- - **Digital twin of a vehicle:** All data such as the odometer readings, maintenance record, and ownership change should be stored to form a permanent record of the entire lifecycle of the vehicle -->
 
 しかし、タングルはデータベースではありません。 タングルはイミュータブルな分散型台帳で、データのハッシュ値とサードパーティのデータストレージに保存したデータへのポインタを保存できます。
 <!-- However, the Tangle is not a database. The Tangle is an immutable, distributed ledger which allows you to store a hash of data and a pointer to its location in third-party data storage. -->

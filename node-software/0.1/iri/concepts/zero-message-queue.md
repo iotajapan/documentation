@@ -1,7 +1,7 @@
 # ゼロメッセージキュー
 <!-- # Zero message queue -->
 
-** ゼロメッセージキュー（Zero message queue, ZMQ）は、クライアントがIRIで発生したイベントを購読することを可能にするオープンソースのリアルタイムメッセージングライブラリです。**
+**ゼロメッセージキュー（Zero message queue, ZMQ）は、クライアントがIRIで発生したイベントを購読することを可能にするオープンソースのリアルタイムメッセージングライブラリです。**
 <!-- **Zero message queue (ZMQ) is an open-source, real-time messaging library that allows clients to subscribe to events that happen in the IRI.** -->
 
 ZMQでは、IRIノードは特定のイベントが発生したときにキューにメッセージを追加することによって発行者として機能し、一方クライアントはキューからメッセージを取り出して処理することによって購読者として機能します。

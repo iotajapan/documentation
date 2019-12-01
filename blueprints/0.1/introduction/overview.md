@@ -7,12 +7,12 @@
 設計図は次のことを行うように設計されています。
 <!-- Blueprints are designed to do the following: -->
 
-* 問題と解決策を説明します。
-<!-- * Describe a problem and a solution -->
-* IOTAを使用して問題を解決する方法を示すアーキテクチャーを提示します。
-<!-- * Present an architecture that shows you how to solve the problem with IOTA -->
-* 設計図をテスト、編集、およびデプロイする方法を説明します。
-<!-- * Explain how you can test, edit, and deploy the blueprint -->
+- 問題と解決策を説明します。
+<!-- - Describe a problem and a solution -->
+- IOTAを使用して問題を解決する方法を示すアーキテクチャーを提示します。
+<!-- - Present an architecture that shows you how to solve the problem with IOTA -->
+- 設計図をテスト、編集、およびデプロイする方法を説明します。
+<!-- - Explain how you can test, edit, and deploy the blueprint -->
 
 -------------------------
 ![Data Marketplace](../images/data-marketplace-thumbnail.png)

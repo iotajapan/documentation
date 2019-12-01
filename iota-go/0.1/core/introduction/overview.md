@@ -14,8 +14,8 @@
 ## 対象読者
 <!-- ## Audience -->
 
-このドキュメントは、Goプログラミング言語とオブジェクト指向プログラミングの概念に精通している開発者向けに設計されています。また、[アドレスの再利用](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse)、[バンドル、トランザクション](root://dev-essentials/0.1/concepts/bundles-and-transactions.md)などのIOTAの基本的な概念にも精通している必要があります。
-<!-- This documentation is designed for developers who are familiar with the Go programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [address reuse](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse), [bundles, and transactions](root://dev-essentials/0.1/concepts/bundles-and-transactions.md). -->
+このドキュメントは、Goプログラミング言語とオブジェクト指向プログラミングの概念に精通している開発者向けです。また、[バンドル](root://getting-started/0.1/transactions/bundles.md)、[トランザクション](root://getting-started/0.1/transactions/transactions.md)、[シード](root://getting-started/0.1/clients/seeds.md)や[アドレス](root://getting-started/0.1/clients/addresses.md)などの[基本的なIOTAの概念](root://getting-started/0.1/introduction/overview.md)にも精通している必要があります。
+<!-- This documentation is for developers who are familiar with the Go programming language and object-oriented programming concepts. You should also be familiar with [basic IOTA concepts](root://getting-started/0.1/introduction/overview.md) such as [bundles](root://getting-started/0.1/transactions/bundles.md), [transactions](root://getting-started/0.1/transactions/transactions.md), [seeds](root://getting-started/0.1/clients/seeds.md), and [addresses](root://getting-started/0.1/clients/addresses.md). -->
 
 ## 前提条件
 <!-- ## Prerequisites -->

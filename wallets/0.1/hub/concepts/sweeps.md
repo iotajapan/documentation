@@ -1,65 +1,38 @@
 # スウィープ
 <!-- # Sweeps -->
 
-**スウィープは、ユーザーの取り出しと預け入れの残高のバンドルです。ユーザーがIOTAトークンをハブアドレスに預け入れるか、ハブアドレスから取り出すと、ハブはそれらの転送を1つのスウィープに結合します。取り出しの合計が預け入れの合計よりも少ない場合、ハブは残りの残高をハブ所有者に属する新しいアドレスに転送します。預け入れの合計が取り出しの合計よりも少ない場合、ハブはハブ所有者のアドレスのIOTAトークンを使用して、残りの取り出しの残高を満たします。**
-<!-- **A sweep is a bundle that balances users' withdrawals and deposits. When users deposit IOTA tokens into a Hub address or when users withdraw them from one, Hub combines those transfers into a sweep. If the total amount of withdrawals is less than the total amount of deposits, then Hub transfers the remaining balance to a new address that belongs to the Hub owner. If the total amount of deposits is less than the total amount of withdrawals, Hub uses the tokens in the Hub owner's addresses to fulfill the remaining withdrawal balance.** -->
-
-スウィープは、ハブ所有者に属する安全なアドレスに預け入れたIOTAトークンが確実に転送されるようにするオプションの安全機能です。
-<!-- Sweeps are an optional safety feature that ensures that deposited tokens are transferred to a secure address that belongs to the Hub owner. -->
+**スウィープは、ユーザーの取り出しと預け入れの残高の[バンドル](root://getting-started/0.1/transactions/bundles.md)です。ユーザーがIOTAトークンをアドレスに預け入れると、ハブはそれらのIOTAトークンを使用して取り出しリクエストを処理しようとします。**
+<!-- **A sweep is a [bundle](root://getting-started/0.1/transactions/bundles.md) that balances users' withdrawals and deposits. When a user deposits IOTA tokens into an address, Hub tries to use those IOTA tokens to fulfill withdrawal requests.** -->
 
 ## スウィープの理由
 <!-- ## The reason for sweeps -->
 
-IOTAはWinternitzワンタイム署名スキームを使用して署名を作成します。その結果、各署名は秘密鍵の約半分を公開してしまいます。秘密鍵を使用してバンドルに1回署名することは安全です。同じ秘密鍵で異なるバンドルに署名すると、攻撃者が秘密鍵を総当たり攻撃し、アドレスからIOTAトークンを盗む可能性があります。そのため、ユーザーがアドレスから取り出すと、そのアドレスは`使用済み`とみなされ、2度と取り出してはいけません。
-<!-- IOTA uses the Winternitz one-time signature scheme to create signatures. As a result, each signature exposes around half of the private key. Signing a bundle once with the a private key is safe. Signing a different bundle with the same private key may allow attackers to brute force the private key and steal IOTA tokens from the address. So, when a user withdraws from an address, that address is considered 'spent' and must never be withdrawn from again. -->
-
-ハブは、定期的にユーザーの預け入れアドレスからハブ所有者のアドレスにIOTAトークンを転送することにより、ユーザーが同じアドレスから2回以上取り出すリスクを減らします。
-<!-- Hub reduces the risk of a user withdrawing from the same address more than once by transferring IOTA tokens from users' deposit addresses to a Hub owner's address at regular intervals. -->
-
-:::danger:
-交換所のフロントエンドで、ユーザーの預け入れアドレスが1回限りのものであることを明確にする必要があります。
-:::
-<!-- :::danger: -->
-<!-- You must make it clear on the exchange frontend that users' deposit addresses are for one-time use. -->
-<!-- ::: -->
-
-:::info:
-[使用済みアドレスの詳細](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse)と、アドレスから2回以上取り出してはならない理由を参照します。
-:::
-<!-- :::info: -->
-<!-- [Discover the details about spent addresses](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse) and why you must never withdraw from an address more than once. -->
-<!-- ::: -->
+ハブは、定期的にユーザーの預け入れアドレスからハブ所有者のアドレスにIOTAトークンを転送することにより、ユーザーが[使用済みアドレス](root://getting-started/0.1/clients/addresses.md#spent-addresses)から取り出すリスクを減らします。
+<!-- Hub reduces the risk of a user withdrawing from a [spent address](root://getting-started/0.1/clients/addresses.md#spent-addresses) by transferring IOTA tokens from users' deposit addresses to a Hub owner's address at regular intervals. -->
 
 ## スウィープの仕組み
 <!-- ## How sweeps work -->
 
-スウィープを行うために、ハブは定期的な間隔で[`--monitorInterval`および`--sweepInterval`](../references/command-line-flags.md#monitorInterval)フラグで定義された次のことを行います。
-<!-- To do a sweep, Hub does the following at regular intervals that are defined by the [`--monitorInterval` and `--sweepInterval`](../references/command-line-flags.md#monitorInterval) flags: -->
+ハブは、残高がゼロではなく、ペンディング中のスウィープに含まれていないすべての預け入れアドレスを検索します。
+<!-- Hub finds all deposit address that have a non-zero balance and that are not included in any pending sweeps. -->
 
-1. 残高がゼロではないすべての預け入れアドレスを検索します。
-  <!-- 1. Find all deposit address that have a non-zero balance -->
+![Monitor interval](../images/monitorInterval.png)
 
-2. これらの預け入れアドレスがペンディング中のスウィープにあるかどうかを確認します。ペンディング中のスウィープにある預け入れアドレスは、新しいスウィープには含まれません。
-  <!-- 2. Check whether those deposit addresses are in any pending sweeps. Any deposit addresses that are in pending sweeps aren't included in a new sweep. -->
+次に、ハブはペンディング中の取り出しリクエストをチェックします。
+<!-- Then, Hub checks for pending withdrawal requests. -->
 
-3. ペンディング中のユーザーの取り出しリクエストを確認します。
-  <!-- 3. Check for pending user withdrawal requests -->
+この情報を使用して、ハブはすべての預け入れられたIOTAトークンを選択された取り出しアドレスに転送するスウィープを作成します。
+<!-- Using this information, Hub creates a sweep that transfers any deposited IOTA tokens to the chosen withdrawal addresses. -->
 
-4. ハブ所有者の新しいアドレスを作成します。
-  <!-- 4. Create a new address for the Hub owner -->
+取り出しリクエストのIOTAトークンの合計量が、預け入れられたIOTAトークンの合計量よりも少ない場合、ハブは出力[トランザクション](root://getting-started/0.1/transactions/transactions.md)を作成し、残りの残高を安全に保管するためにハブ所有者に属する新しいアドレスに預けます。
+<!-- If the total amount of IOTA tokens in withdrawal requests is less than the total amount of deposited IOTA tokens, Hub creates an output [transaction](root://getting-started/0.1/transactions/transactions.md) to deposit the remaining balance into a new address that belongs to the Hub owner for safe keeping. -->
 
-5. すべての預け入れIOTAトークンを選択した取り出しアドレスに転送するスウィープを作成します。1回のスウィープで発行できる預け入れ/取り出しの数は、[`--sweep_max_deposit`および`--sweep_max_withdrawal`](../references/command-line-flags.md#sweepLimits)フラグによって制限されます。
-  <!-- 5. Create a sweep that transfers any deposited IOTA tokens to the chosen withdrawal addresses. The number of deposits and withdrawals that can be issued in a single sweep is limited by the [`--sweep_max_deposit` and `--sweep_max_withdrawal`](../references/command-line-flags.md#sweepLimits) flags. -->
+預け入れられたIOTAトークンの合計量が取り出しの合計量よりも少ない場合、ハブはハブ所有者のアドレスから十分なIOTAトークンを取り出し、残りの取り出し残高を満たす入力トランザクションを作成します。
+<!-- If the total amount of deposited IOTA tokens is less than the total amount of withdrawals, Hub creates an input transaction to withdraw enough IOTA tokens from the Hub owner's addresses to fulfill the remaining withdrawal balance. -->
 
-6. スウィープ内の末尾トランザクションの包含状態を確認して、確定されたかどうかを判断します。スウィープ内のトランザクションが確定されるまで、ハブは末尾トランザクションの[再添付と促進](root://dev-essentials/0.1/concepts/reattach-rebroadcast-promote.md)を行います。
-  <!-- 6. Check the inclusion state of the tail transaction in the sweep to determine if it's been confirmed. Hub [reattaches and promotes](root://dev-essentials/0.1/concepts/reattach-rebroadcast-promote.md) the tail transaction until the transactions in the sweep are confirmed. -->
+![Sweep interval](../images/sweepInterval.png)
 
-7. スウィープのトランザクションが確定されたら、データベーステーブルのユーザーの残高を更新します。
-  <!-- 7. Update the users' balances in the database tables when the transactions in the sweep are confirmed -->
+ハブがスウィープをノードに送信した後、ハブは確定のために末尾トランザクションを監視し、確定されるまで[再添付および促進](root://getting-started/0.1/transactions/reattach-rebroadcast-promote.md)を行います。
+<!-- After Hub sends the sweep to a node, Hub monitors the tail transaction for confirmation and [reattaches and promotes](root://getting-started/0.1/transactions/reattach-rebroadcast-promote.md) it until it's confirmed. -->
 
-    :::info:包含状態について詳しく知る
-    [トランザクションが確定されたかどうかを確認する](root://dev-essentials/0.1/how-to-guides/check-transaction-confirmation.md)方法を参照します。
-    :::
-    <!-- :::info:Want to learn more about inclusion states? -->
-    <!-- Find out how to [check if a transaction is confirmed](root://dev-essentials/0.1/how-to-guides/check-transaction-confirmation.md). -->
-    <!-- ::: -->
+![Reattachment interval](../images/reattachmentInterval.png)

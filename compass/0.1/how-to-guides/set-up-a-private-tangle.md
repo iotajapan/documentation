@@ -4,8 +4,8 @@
 **プライベートタングルは運用者がコントロールするもので、運用者が知っているノードだけを含みます。パブリックタングル内のトランザクションを見ることができるMainnetやDevnetなどのパブリックIOTAネットワークを使用せずにアプリケーションをテストしたい場合は、プライベートタングルを設定します。**
 <!-- **A private Tangle is one that you control and that contains only nodes that you know. You may want to set up a private Tangle if you want to test an application without using a public IOTA network such as the Mainnet or the Devnet where everyone can see your transactions in the public Tangle.** -->
 
-この基本設定では、[Devnet](root://getting-started/0.1/references/iota-networks.md)と同じ構成設定を使用して、IRIノードとコンパスを同じサーバーまたは仮想マシンにインストールします。
-<!-- For this basic setup, you'll install an IRI node and Compass on the same server or virtual machine with the same configuration settings as the [Devnet](root://getting-started/0.1/references/iota-networks.md). -->
+この基本設定では、[Devnet](root://getting-started/0.1/network/iota-networks.md)と同じ構成設定を使用して、IRIノードとコンパスを同じサーバーまたは仮想マシンにインストールします。
+<!-- For this basic setup, you'll install an IRI node and Compass on the same server or virtual machine with the same configuration settings as the [Devnet](root://getting-started/0.1/network/iota-networks.md). -->
 
 ![Single-node private Tangle](../images/single-node-tangle.svg)
 
@@ -26,14 +26,14 @@
 以下の最小要件を満たすLinuxサーバー。WindowsまたはmacOSオペレーティングシステムを使用している場合は、[仮想マシンにLinuxサーバーを作成](root://general/0.1/how-to-guides/set-up-virtual-machine.md)できます。
 <!-- A Linux server with the following minimum requirements. If you are on a Windows or macOS operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md). -->
 
-* Ubuntu 18.04サーバー/仮想マシンの新規インストール
-<!-- * A new installation of an Ubuntu 18.04 Server / Virtual Machine -->
-* 最低8GBのRAM
-<!-- * At least 8GB RAM -->
-* できれば4 CPUコア。コアが多いほど、マークル木の生成が速くなります。
-<!-- * Preferably 4+ CPU cores, the more cores the faster the Merkle tree will be generated. -->
-* 10GB以上のSSD
-<!-- * At least a 10GB SSD -->
+- Ubuntu 18.04サーバー/仮想マシンの新規インストール
+<!-- - A new installation of an Ubuntu 18.04 Server / Virtual Machine -->
+- 最低8GBのRAM
+<!-- - At least 8GB RAM -->
+- できれば4 CPUコア。コアが多いほど、マークル木の生成が速くなります。
+<!-- - Preferably 4+ CPU cores, the more cores the faster the Merkle tree will be generated. -->
+- 10GB以上のSSD
+<!-- - At least a 10GB SSD -->
 
 ## 手順1. 依存関係をインストールする
 <!-- ## Step 1. Install the dependencies -->
@@ -99,8 +99,8 @@
 ## 手順2. マークル木を計算する
 <!-- ## Step 2. Compute the Merkle tree -->
 
-このガイドでは、[depth](../references/compass-configuration-options.md)16の[マークル木](root://dev-essentials/0.1/concepts/the-tangle.md#milestones)を使用します。これにより、コンパスはマイルストーン送信の間隔に応じて、約45日間マイルストーンを送信できます。
-<!-- For this guide, we use a [Merkle tree](root://dev-essentials/0.1/concepts/the-tangle.md#milestones) with a [depth](../references/compass-configuration-options.md) of 16, which allows Compass to send milestones for around 45 days, depending on the interval between them. -->
+このガイドでは、[depth](../references/compass-configuration-options.md)16の[マークル木](root://getting-started/0.1/network/the-tangle.md#milestones)を使用します。これにより、コンパスはマイルストーン送信の間隔に応じて、約45日間マイルストーンを送信できます。
+<!-- For this guide, we use a [Merkle tree](root://getting-started/0.1/network/the-tangle.md#milestones) with a [depth](../references/compass-configuration-options.md) of 16, which allows Compass to send milestones for around 45 days, depending on the interval between them. -->
 
 :::info:
 `depth`パラメータがマークル木を計算するのにかかる時間と総ネットワーク稼働時間の両方にどのように影響するかを示す[サンプルのマークル木計算時間](../references/merkle-tree-compute-times.md)をご覧ください。
@@ -273,30 +273,29 @@ FJHSSHBZTAKQNDTIKJYCZBOZDGSZANCZSWCNWUOCZXFADNOQSYAHEJPXRLOVPNOQFQXXGEGVDGICLMOX
     ```
 
     :::info:
-    隣接ノードがあなたのノードに自動的に接続することを許可する場合は、`02_run_iri.sh`ファイルを編集して`--auto-tethering-enabled true`フラグを他のフラグのリストに追加します。
+    隣接ノードがあなたのノードに自動的に接続できるようしたい場合は、`02_run_iri.sh`ファイルを編集し、他のフラグのリストに`--auto-tethering-enabled true`フラグを追加します。
 
-    独自のプライベートタングルに合わせてIRIをカスタマイズするために変更できる[他のフラグ](root://node-software/0.1/iri/references/iri-configuration-options.md)を調べる。
+    独自のプライベートタングルに合わせてIRIをカスタマイズするために変更できる[他のフラグ](root://node-software/0.1/iri/references/iri-configuration-options.md)を確認してください。
     :::
+	<!-- :::info: -->
+	<!-- If you want to allow neighbors to automatically connect to your node, edit the `02_run_iri.sh` file and add the `--auto-tethering-enabled true` flag to the list of other flags. -->
 
-    <!-- :::info: -->
-    <!-- If you want to allow neighbors to automatically connect to your node, edit the `02_run_iri.sh` file and add the `--auto-tethering-enabled true` flag to the list of other flags. -->
-    <!--  -->
-    <!-- Find out which [other flags](root://node-software/0.1/iri/references/iri-configuration-options.md) you can change to customize the IRI for your own private Tangle. -->
-    <!-- ::: -->
+	<!-- Find out which [other flags](root://node-software/0.1/iri/references/iri-configuration-options.md) you can change to customize the IRI for your own private Tangle. -->
+	<!-- ::: -->
 
     :::info:
-    `malformed snapshot state file`エラーが発生した場合は、`snapshot.txt`ファイルを調べて、行の先頭に改行が含まれていないことを確認してください。
+    `malformed snapshot state file`エラーが発生した場合は、`snapshot.txt`ファイルを確認し、行末に改行が含まれていないことを確認してください。
 
-    `NumberFormatException`エラーまたは`IllegalArgumentException`エラーが発生した場合は、セミコロンの前後にスペース文字がないことを確認してください。
+    `NumberFormatException`エラーまたは`IllegalArgumentException`エラーが発生した場合は、セミコロンの両側にスペース文字がないことを確認してください。
     :::
-    <!-- :::info: -->
-    <!-- If you see a `malformed snapshot state file` error, check the snapshot.txt file and make sure that you didn't include a line break at the en of the line. -->
-    <!--  -->
-    <!-- If you see a `NumberFormatException` error or an `IllegalArgumentException` error, check that no space characters are either side of the semicolon. -->
-    <!-- ::: -->
+	<!-- :::info: -->
+	<!-- If you see a `malformed snapshot state file` error, check the snapshot.txt file and make sure that you didn't include a line break at the end of the line. -->
 
-4. コマンドプロンプトで**Ctrl** + **C**を押します。IRIはバックグラウンドで実行を続けます。
-  <!-- 4. Press **Ctrl** + **C** in the command prompt. IRI will continue to run in the background. -->
+	<!-- If you see a `NumberFormatException` error or an `IllegalArgumentException` error, check that no space characters are either side of the semicolon. -->
+	<!-- ::: -->
+
+4. コマンドラインインターフェイスで**Ctrl** + **C**を押します。IRIはバックグラウンドで実行を続けます。
+  <!-- 4. Press **Ctrl** + **C** in the command-line interface. IRI will continue to run in the background. -->
 
 :::danger:重要
 コンパスが接続しているIRIノードが危険にさらされると、攻撃者はコンパスを操作して自身に有利なように操作する可能性があります。考えられるシナリオは次のとおりです。
@@ -378,7 +377,7 @@ APIエンドポイントの一覧については、[IRI APIリファレンス](r
 
 --------------------
 ### getBalances
-[`getBalances`](root://node-software/0.1/iri/references/api-reference.md#getbalances)エンドポイントを呼び出してシードの総残高を取得します。以前にIOTAクライアントライブラリを使用したことがない場合は、[入門チュートリアル](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を完了することをお勧めします。
+[`getBalances`](root://node-software/0.1/iri/references/api-reference.md#getbalances)エンドポイントを呼び出してシードの総残高を取得します。
 
  ```js
  var request = require('request');
@@ -469,10 +468,7 @@ APIエンドポイントの一覧については、[IRI APIリファレンス](r
 ## 次のステップ
 <!-- ## Next steps -->
 
-* [ノードのイベントを購読し](root://node-software/0.1/iri/how-to-guides/subscribe-to-events-in-an-iri-node.md)、確定されたトランザクションに関する情報を受け取る。
-<!-- * [Subscribe to events on your node](root://node-software/0.1/iri/how-to-guides/subscribe-to-events-in-an-iri-node.md) and receive information about confirmed transactions. -->
-
-* [Devnet](root://getting-started/0.1/references/iota-networks.md)に似たアーキテクチャを作るために独自のネットワークに複数のノードを追加する。
-<!-- * Try adding multiple nodes to your network to make a similar architecture to the [Devnet](root://getting-started/0.1/references/iota-networks.md) -->
+- [Devnet](root://getting-started/0.1/network/iota-networks.md)に似たアーキテクチャを作るために独自のネットワークに複数のノードを追加する。
+<!-- - Try adding multiple nodes to your network to make a similar architecture to the [Devnet](root://getting-started/0.1/network/iota-networks.md) -->
 
 ![Multi-node private Tangle](../images/multi-node-tangle.svg)

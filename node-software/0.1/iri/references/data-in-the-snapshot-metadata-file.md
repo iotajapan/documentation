@@ -1,4 +1,4 @@
-# スナップショットメタデータファイルのデータ
+# スナップショットメタデータファイルのデータ構造
 <!-- # Data in the snapshot metadata file -->
 
 **この表には、[ローカルスナップショット](../concepts/local-snapshot.md)中にsnapshot.metaファイルに追加されるデータが含まれています。**

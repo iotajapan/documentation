@@ -1,5 +1,4 @@
 [IOTA入門](/getting-started)
-[IOTA必須事項](/dev-essentials)
 [CLライブラリ](/client-libraries)
 [ノードSW](/node-software)
 [私用タングル](/compass)
@@ -10,6 +9,6 @@
 [Goライブラリ](/iota-go)
 [Javaライブラリ](/iota-java)
 [JSライブラリ](/iota-js)
-[スマートシティ](/smartcity)
+[AstroPiOTA](/smartcity)
 [一般](/general)
 [貢献](/contribution)

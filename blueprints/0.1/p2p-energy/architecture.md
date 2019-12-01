@@ -44,14 +44,14 @@ IOTAテクノロジーは、データをタングルに格納するエンティ�
 グリッドは通常、大部分の作業を行います。これは、マシン上でローカルに実行することも、クラウド内のより広いインフラストラクチャに外部委託することもできます。
 <!-- The grid usually does the majority of the work, which could be performed locally on the machine or outsourced to a wider infrastructure in the cloud:: -->
 
-* データベースを整備します。
-<!-- * Maintaining a database -->
-* ポータルでWebサーバーを実行します。
-<!-- * Running a web server with a portal -->
-* APIを提供します。
-<!-- * Provisioning APIs -->
-* バックグラウンドタスクを実行して情報を処理します。
-<!-- * Running background tasks to process information -->
+- データベースを整備します。
+<!-- - Maintaining a database -->
+- ポータルでWebサーバーを実行します。
+<!-- - Running a web server with a portal -->
+- APIを提供します。
+<!-- - Provisioning APIs -->
+- バックグラウンドタスクを実行して情報を処理します。
+<!-- - Running background tasks to process information -->
 
 グリッドは自身のIRIノードを維持しているため、タングルが動作しているP2Pネットワーク内の近隣ノードと通信できます。グリッドが自身のIRIノードを実行することで、残りのエンティティはLANネットワーク内に存在でき、グリッドのみが同期のために残りのタングルへのWANアクセスを必要とします。代替手段は、すべてのエンティティがタングル上のIRIノードに直接WANアクセスできるようにすることです。
 <!-- The grid maintains its own IRI node, which enables it to communicate with neighbours in the peer-to-peer network on which the Tangle operates. By running your own IRI node, the rest of the entities can live in a LAN network, with only the grid requiring WAN access to the rest of the Tangle for syncing. The alternative is for all entities to have WAN access directly to an IRI node on Tangle. -->

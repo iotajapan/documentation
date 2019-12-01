@@ -23,12 +23,12 @@
 クロニクルアンブレラプロジェクトには、Scyllaスウォームと通信して次のことを行うコアアプリが含まれています。
 <!-- The Chronicle umbrella project includes a core app that communicates with the Scylla swarm to do the following: -->
 
-* データベースの変更を管理する。
-<!-- * Manage database changes -->
-* 変更をスウォームに転送する。
-<!-- * Forward the changes to the swarm -->
-* クラスタースーパーバイザーを監視する。
-<!-- * Monitor cluster supervisors -->
+- データベースの変更を管理する。
+<!-- - Manage database changes -->
+- 変更をスウォームに転送する。
+<!-- - Forward the changes to the swarm -->
+- クラスタースーパーバイザーを監視する。
+<!-- - Monitor cluster supervisors -->
 
 他のアプリはコアアプリを使用して、IPCを介してScyllaスウォームと通信します。これらのアプリは、コアアプリと対話する必要があるビジネスルールを保持できます。
 <!-- Other apps use the core app to communicate with the Scylla swarm through IPC. These apps can hold the business rules that need to interact with the core app. -->

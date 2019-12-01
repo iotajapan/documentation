@@ -14,8 +14,8 @@
 ## 対象読者
 <!-- ## Audience -->
 
-このドキュメントは、Javaプログラミング言語とオブジェクト指向プログラミングの概念に精通している開発者向けに設計されています。 また、[アドレスの再利用](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse)、[バンドル、トランザクション](root://dev-essentials/0.1/concepts/bundles-and-transactions.md)などのIOTAの基本的な概念にも精通している必要があります。
-<!-- This documentation is designed for developers who are familiar with the Java programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [address reuse](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse), [bundles, and transactions](root://dev-essentials/0.1/concepts/bundles-and-transactions.md). -->
+このドキュメントは、Javaプログラミング言語とオブジェクト指向プログラミングの概念に精通している開発者向けです。また、[バンドル](root://getting-started/0.1/transactions/bundles.md)、[トランザクション](root://getting-started/0.1/transactions/transactions.md)、[シード](root://getting-started/0.1/clients/seeds.md)や[アドレス](root://getting-started/0.1/clients/addresses.md)などの[基本的なIOTAの概念](root://getting-started/0.1/introduction/overview.md)にも精通している必要があります。
+<!-- This documentation is for developers who are familiar with the Java programming language and object-oriented programming concepts. You should also be familiar with [basic IOTA concepts](root://getting-started/0.1/introduction/overview.md) such as [bundles](root://getting-started/0.1/transactions/bundles.md), [transactions](root://getting-started/0.1/transactions/transactions.md), [seeds](root://getting-started/0.1/clients/seeds.md), and [addresses](root://getting-started/0.1/clients/addresses.md). -->
 
 ## 前提条件
 <!-- ## Prerequisites -->
@@ -27,7 +27,7 @@
 <!-- ## Install the library -->
 
 IOTA Javaクライアントライブラリは[JitPack](https://jitpack.io/)で入手できます。
-<!-- The IOTA Java client library is available on [JitPack][https://jitpack.io/]. -->
+<!-- The IOTA Java client library is available on [JitPack](https://jitpack.io/). -->
 
 ### 依存関係
 <!-- ### Dependencies -->
@@ -35,21 +35,21 @@ IOTA Javaクライアントライブラリは[JitPack](https://jitpack.io/)で�
 Javaライブラリは、次のサードパーティライブラリを使用します。
 <!-- The Java library uses the following third-party libraries: -->
 
-* [Retrofit 2](https://square.github.io/retrofit/) type-safe HTTP client: `2.3.0`
-* [Simple Logging Facade for Java](http://www.slf4j.org/): `1.7.25`
-* [Apache Commons Lang](http://commons.apache.org/proper/commons-lang/): `3.6`
-* [Apache Commons IO](http://commons.apache.org/proper/commons-io/): `2.5`
-* [Legion of the Bouncy Castle](https://www.bouncycastle.org/java.html) Java cryptography APIs: `1.58`
+- [Retrofit 2](https://square.github.io/retrofit/) type-safe HTTP client: `2.3.0`
+- [Simple Logging Facade for Java](http://www.slf4j.org/): `1.7.25`
+- [Apache Commons Lang](http://commons.apache.org/proper/commons-lang/): `3.6`
+- [Apache Commons IO](http://commons.apache.org/proper/commons-io/): `2.5`
+- [Legion of the Bouncy Castle](https://www.bouncycastle.org/java.html) Java cryptography APIs: `1.58`
 
 IOTA Javaクライアントライブラリとその依存関係をダウンロードするには、次のオプションのいずれかを使用できます。
 <!-- To download the IOTA Java client library and its dependencies, you can use one of the following options: -->
 
-* [Gradleでライブラリをダウンロードする](#install-the-library-with-gradle)
-<!-- * Download the library with Gradle -->
-* [Mavenでライブラリをダウンロードする](#install-the-library-with-maven)
-<!-- * Download the library with Maven -->
-* [ライブラリを手動でダウンロードする](#install-the-library-manually)
-<!-- * Download the library manually -->
+- [Gradleでライブラリをダウンロードする](#install-the-library-with-gradle)
+<!-- - Download the library with Gradle -->
+- [Mavenでライブラリをダウンロードする](#install-the-library-with-maven)
+<!-- - Download the library with Maven -->
+- [ライブラリを手動でダウンロードする](#install-the-library-manually)
+<!-- - Download the library manually -->
 
 <a name="install-the-library-with-gradle"></a>
 ### Gradleでライブラリをダウンロードする

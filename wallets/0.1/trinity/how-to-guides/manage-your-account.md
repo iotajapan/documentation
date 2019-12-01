@@ -7,12 +7,12 @@
 アカウントごとに、次のことを実行できます。
 <!-- For each of your accounts, you can do the following: -->
 
-* シードにアクセスします（ハードウェアウォレットを使う場合は利用できません）。
-<!-- * Access your seed (not available if you use a hardware wallet) -->
-* アドレスとその残高を確認します。
-<!-- * View your addresses and their available balance -->
-* アカウントの名前を変更します。
-<!-- * Change the name of an account -->
+- シードにアクセスします（ハードウェアウォレットを使う場合は利用できません）。
+<!-- - Access your seed (not available if you use a hardware wallet) -->
+- アドレスとその残高を確認します。
+<!-- - View your addresses and their available balance -->
+- アカウントの名前を変更します。
+<!-- - Change the name of an account -->
 
 これらのタスクを実行する前に、管理する正しいアカウントを必ず選択してください。
 <!-- Make sure that you select the correct account to manage before completing any of these tasks. -->
@@ -44,10 +44,10 @@
 <!-- To view the addresses that you've generated, go to Account management, and click **View addresses**. -->
 
 :::info:
-アドレスの中心を通る赤い線は、そのアドレスからIOTAトークンが取り出されたことを意味します。トリニティは使用済みアドレスからIOTAトークンを取り出すことを止めさせます。そしてあなたは使用済みアドレスにIOTAトークンを絶対に預け入れてはいけません。その理由を知るために、[署名がどのように作成されるか](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse)を学びましょう。
+アドレスの中心を通る赤い線は、そのアドレスからIOTAトークンが取り出されたことを意味します。トリニティは使用済みアドレスからIOTAトークンを取り出すことを止めさせます。そしてあなたは[使用済みアドレス](root://getting-started/0.1/clients/addresses.md#spent-addresses)にIOTAトークンを絶対に預け入れてはいけません。
 :::
 <!-- :::info: -->
-<!-- A red line through the center of an address means that the address has been spent. Trinity stops you from withdrawing IOTA tokens from spent addresses, so you must never deposit IOTA tokens into them. To find out why, [learn how signatures are created](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse). -->
+<!-- A red line through the center of an address means that the address has been spent. Trinity stops you from withdrawing IOTA tokens from [spent addresses](root://getting-started/0.1/clients/addresses.md#spent-addresses), so you must never deposit IOTA tokens into them. -->
 <!-- ::: -->
 
 ## アカウント名を変更する

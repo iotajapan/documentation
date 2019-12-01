@@ -27,10 +27,10 @@
 
 トリニティで開発するには、コンピュータに以下のものが必要です。
 <!-- To develop on Trinity, your computer must have the following: -->
-* [Node.jsのLTS版](https://nodejs.org/en/)（バージョン10.15.3を推奨）
-<!-- * [An LTS version of Node.js](https://nodejs.org/en/) (we recommend version 10.15.3) -->
-* [Yarn](https://yarnpkg.com/lang/en/docs/install/)
-* [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [Node.jsのLTS版](https://nodejs.org/en/)（バージョン10.15.3を推奨）
+<!-- - [An LTS version of Node.js](https://nodejs.org/en/) (we recommend version 10.15.3) -->
+- [Yarn](https://yarnpkg.com/lang/en/docs/install/)
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 :::info:
 これらのプログラムをインストールした後にコンピュータを再起動してください。
@@ -145,8 +145,8 @@ yum install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev libusbx-de
 4. これで、実行可能ファイルをコンパイルすることも、開発モードでトリニティを実行することもできます。
   <!-- 4. Now, you can either compile an executable file, or run Trinity in development mode -->
 
-* 実行可能ファイルが必要な場合は、トリニティをコンパイルします。
-  <!-- * If you want an executable file, compile Trinity -->
+- 実行可能ファイルが必要な場合は、トリニティをコンパイルします。
+  <!-- - If you want an executable file, compile Trinity -->
 
     ```bash
     npm run compile:mac
@@ -162,8 +162,8 @@ yum install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev libusbx-de
     トリニティがコンパイルされると、実行可能ファイルとインストールファイルは`src/desktop/out/`ディレクトリに配置されます。
     <!-- When Trinity is compiled, the executable file and the installation files will be located in the `src/desktop/out/` directory. -->
 
-* 開発モードでトリニティを実行したい場合は、アプリを起動します。
-  <!-- * If you want to run Trinity in development mode, start the app -->
+- 開発モードでトリニティを実行したい場合は、アプリを起動します。
+  <!-- - If you want to run Trinity in development mode, start the app -->
 
     ```bash
     npm start

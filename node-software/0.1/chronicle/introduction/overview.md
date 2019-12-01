@@ -13,8 +13,8 @@
 ## Chronicle を実行する理由
 <!-- ## Why run Chronicle? -->
 
-IOTAはパーミッションレスネットワークです。誰でも自由に任意の量のデータをタングルに保存できます（トランザクションごとに少量の[プルーフオブワーク](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)は必要です）。
-<!-- IOTA is a permissionless network. Anyone can store any amount of data on the Tangle for free (just a small amount of [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) per transaction). -->
+IOTAはパーミッションレスネットワークです。誰でも自由に任意の量のデータをタングルに保存できます（トランザクションごとに少量の[プルーフオブワーク](root://getting-started/0.1/transactions/proof-of-work.md)は必要です）。
+<!-- IOTA is a permissionless network. Anyone can store any amount of data on the Tangle for free (just a small amount of [proof of work](root://getting-started/0.1/transactions/proof-of-work.md) per transaction). -->
 
 時間が経つにつれて、IRIノードの台帳は多くのトランザクションを蓄積します。これにより、ノードの利用可能なメモリよりも大きくなることがよくあります。台帳が大きくなりすぎるのを防ぐために、これらのノードは古いトランザクションを整理する[ローカルスナップショット](root://node-software/0.1/iri/concepts/local-snapshot.md)を頻繁に実行します。
 <!-- Over time, the ledger of an IRI node accumulates many transactions, which often cause it to become larger than the node's available memory. To stop the ledger from becoming too large, these nodes often do [local snapshots](root://node-software/0.1/iri/concepts/local-snapshot.md) that prune old transactions. -->
@@ -62,8 +62,8 @@ Elixirは、Web開発ツールと組み込みソフトウェア開発ツール�
 [ScyllaDB](https://docs.scylladb.com/using-scylla/)は、高スループットと低遅延を特徴とするリアルタイムのビッグデータデータベースです。
 <!-- [ScyllaDB](https://docs.scylladb.com/using-scylla/) is a real-time, big data database featuring high throughput and low latency. -->
 
-データは、[プライマリキー、パーティションキー、およびクラスタリングキー](http://sudotutorials.com/tutorials/cassandra/cassandra-primary-key-cluster-key-partition-key.html)を使用して、テーブル内の行と列に編成されます。
-<!-- Data is organized into rows and columns in a table, using the [primary key, the partition key, and the clustering key](http://sudotutorials.com/tutorials/cassandra/cassandra-primary-key-cluster-key-partition-key.html). -->
+データは、[プライマリキー、パーティションキー、およびクラスタリングキー](http://sudotutorials.com/how-to-guides/cassandra/cassandra-primary-key-cluster-key-partition-key.html)を使用して、テーブル内の行と列に編成されます。
+<!-- Data is organized into rows and columns in a table, using the [primary key, the partition key, and the clustering key](http://sudotutorials.com/how-to-guides/cassandra/cassandra-primary-key-cluster-key-partition-key.html). -->
 
 プライマリキーは、テーブル内の各行の一意の識別子です。パーティションキーは、データの行を保存するノードを示します。クラスタリングキーは、データをパーティションにソートし、列の順序付けに影響します。
 <!-- The primary key is a unique identifier for each row in a table. A partition key indicates which nodes store a row of data. Clustering keys sort data into a partition and affect how columns are ordered. -->

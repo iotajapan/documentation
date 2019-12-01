@@ -29,8 +29,8 @@ Arduino Unoなどの一部のマイクロコントローラーは、PCまたはS
 マイクロコントローラーには、フラッシュに使用される以下のインターフェースがあります。
 <!-- Microcontrollers have the following interfaces that are used for flashing: -->
 
-* [Serial Wire Debug](http://www.ti.com/lit/wp/spmy004/spmy004.pdf)
-* [JTAG](https://en.wikipedia.org/wiki/JTAG)
+- [Serial Wire Debug](http://www.ti.com/lit/wp/spmy004/spmy004.pdf)
+- [JTAG](https://en.wikipedia.org/wiki/JTAG)
 
 これらのインターフェースは両方とも同じプロトコルを使用しますが、ピン数が異なります。
 <!-- Both of these interfaces use the same protocol, but have different pin counts. -->

@@ -10,14 +10,11 @@
 ## 条件付き預け入れアドレス
 <!-- ## Conditional deposit addresses -->
 
-IOTAプロトコルでは、IOTAトークンは[シード](root://getting-started/0.1/introduction/what-is-a-seed.md)から派生した[アドレス](root://dev-essentials/0.1/concepts/addresses-and-signatures.md)に送信する必要があります。これらのアドレスは一度だけIOTAトークンを取り出すことができます。そのため、IOTAトークンを一度取り出したアドレスにIOTAトークンを再度預け入れないことが重要です。しかし、あなたがアドレスから取り出すする前に、誰かがあなたのアドレスにIOTAトークンを預け入れようとしているのかどうかを知ることは困難です。
-<!-- In the IOTA protocol, IOTA tokens must be sent to [addresses](root://dev-essentials/0.1/concepts/addresses-and-signatures.md), which are derived from your [seed](root://getting-started/0.1/introduction/what-is-a-seed.md). These addresses may be withdrawn from only once. As a result, it's important that no one deposits IOTA tokens into a withdrawn address. But, it's difficult to know when or if someone is going to deposit IOTA tokens into your address before you withdraw from it. -->
+アカウントでは、アドレスには、入力および出力トランザクションで使用される条件を指定できる追加機能が付属しています。これらのアドレスは、条件付き預け入れアドレス（CDA）と呼ばれます。
+<!-- In accounts, addresses come with extra features that allow you to specify the conditions in which they may be used in input and output transactions. These addresses are called conditional deposit addresses (CDA). -->
 
-アカウントでは、アドレスには、支払いで使用される条件を指定できる追加機能があります。これらのアドレスは、条件付き預け入れアドレス（CDA）と呼ばれます。
-<!-- In accounts, addresses come with extra features that allow you to specify the conditions in which they may be used in payments. These addresses are called conditional deposit addresses (CDA). -->
-
-アカウントはCDAを使用して、[使用済みアドレスからの取り出しリスク](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse)を軽減します。誰かにIOTAトークンを要求すると、一定期間アクティブなCDAを作成できます。このようにして、その時間後にのみそのCDAからIOTAトークンを取り出すつもりであることを送信者に知らせます。その結果、送信者は、CDAに残っている時間に応じて、IOTAトークンの預け入れを行うかどうかを決定できます。
-<!-- Accounts use CDAs to help reduce the [risk of withdrawing from spent addresses](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#address-reuse). When you request IOTA tokens from someone, you can create a CDA that's active for a certain period of time. This way, you let the sender know that you intend to withdraw from that address only after that time. As a result, the sender can decide whether to make a deposit, depending on how much time is left on a CDA. -->
+アカウントはCDAを使用して、[使用済みアドレスからの取り出しリスク](root://getting-started/0.1/clients/addresses.md#spent-addresses)を軽減します。誰かにIOTAトークンを要求すると、一定期間アクティブなCDAを作成できます。このようにして、その時間後にのみそのCDAからIOTAトークンを取り出すつもりであることを送信者に知らせます。その結果、送信者は、CDAに残っている時間に応じて、IOTAトークンの預け入れを行うかどうかを決定できます。
+<!-- Accounts use CDAs to help reduce the [risk of withdrawing from [spent addresses](root://getting-started/0.1/clients/addresses.md#spent-addresses). When you request IOTA tokens from someone, you can create a CDA that's active for a certain period of time. This way, you let the sender know that you intend to withdraw from that address only after that time. As a result, the sender can decide whether to make a deposit, depending on how much time is left on a CDA. -->
 
 ## シードステート
 <!-- ## Seed state -->
@@ -50,25 +47,25 @@ IOTAプロトコルでは、IOTAトークンは[シード](root://getting-starte
 このチュートリアルを完了するには、次のものが必要です。
 <!-- To complete this tutorial, you need the following: -->
 
-* コマンドプロンプトへのアクセス
-<!-- * Access to a command prompt -->
-* [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディタ
-<!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
-* [入門ガイド](../introduction/overview.md)に従っている
-<!-- * Follow our [Getting started guide](../introduction/overview.md) -->
+- コマンドラインインターフェイスへのアクセス
+<!-- - Access to a command-line interface -->
+- [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディタ
+<!-- - A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
+- [入門ガイド](../introduction/overview.md)に従っている
+<!-- - Follow our [Getting started guide](../introduction/overview.md) -->
 
 :::warning: 新しいシードを作成する
-これまでにアカウントを作成したことがない場合は、既存のシードステートが不明であるため、[新しいシードを作成する](root://getting-started/0.1/tutorials/get-started.md)必要があります。
+これまでにアカウントを作成したことがない場合は、既存のシードステートが不明であるため、[新しいシードを作成する](root://getting-started/0.1/how-to-guides/get-started.md)必要があります。
 :::
 <!-- :::warning: Create a new seed -->
-<!-- If you have never created an account before, you must [create a new seed](root://getting-started/0.1/tutorials/get-started.md) because existing seed states are unknown. -->
+<!-- If you have never created an account before, you must [create a new seed](root://getting-started/0.1/how-to-guides/get-started.md) because existing seed states are unknown. -->
 <!-- ::: -->
 
 ## アカウントを作成する
 <!-- ## Create a new account -->
 
-この例では、[Devnetノード](root://getting-started/0.1/references/iota-networks.md#devnet)に接続します。Devnetは、トークンが無料であること以外はMainnetとほぼ同じです。Devnetに送信したトランザクションは、Mainnetのような他のネットワークには存在しません。
-<!-- In this example, we connect to a [Devnet node](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
+この例では、[Devnetノード](root://getting-started/0.1/network/iota-networks.md#devnet)に接続します。Devnetは、トークンが無料であること以外はMainnetとほぼ同じです。Devnetに送信したトランザクションは、Mainnetのような他のネットワークには存在しません。
+<!-- In this example, we connect to a [Devnet node](root://getting-started/0.1/network/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
 
 1. 必要なパッケージをインポートします。
   <!-- 1. Import the required packages -->

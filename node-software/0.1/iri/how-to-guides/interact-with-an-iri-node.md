@@ -10,12 +10,12 @@
 このガイドのコードサンプルを使用するには、次のものが必要です。
 <!-- To use the code samples in this guide, you must have the following: -->
 
-* [Node.js (8+)](https://nodejs.org/en/)または[Python (3+)](https://www.python.org/downloads/)と[PIP](https://pip.pypa.io/en/stable/installing/)
-<!-- * [Node.js (8+)](https://nodejs.org/en/) or [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/) -->
-* [Visual Studio Code](https://code.visualstudio.com/Download)のようなコードエディタ
-<!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
-* コマンドプロンプトへのアクセス
-<!-- * Access to a command prompt -->
+- [Node.js (8+)](https://nodejs.org/en/)または[Python (3+)](https://www.python.org/downloads/)と[PIP](https://pip.pypa.io/en/stable/installing/)
+<!-- - [Node.js (8+)](https://nodejs.org/en/) or [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/) -->
+- [Visual Studio Code](https://code.visualstudio.com/Download)のようなコードエディタ
+<!-- - A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
+- コマンドラインインターフェイスへのアクセス
+<!-- - Access to a command-line interface -->
 
 ## ノードに関する情報をリクエストする
 <!-- ## Request information about the node -->
@@ -110,6 +110,7 @@ print(json.dumps(results, indent=1, sort_keys=True))
 
 出力は次のようになります。
 <!-- The output should display something like the following: -->
+
 ```json
 {
   "appName":"IRI Testnet",

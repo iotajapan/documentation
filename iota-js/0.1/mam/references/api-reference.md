@@ -1,4 +1,4 @@
-# マスクされた認証メッセージング（MAM）API
+# マスクされた認証済みメッセージング（MAM）API
 <!-- # Masked Authentication Messaging (MAM) API -->
 
 これは、IOTAバインディングリポジトリのWASM/ASM.js出力用のラッパーライブラリです。

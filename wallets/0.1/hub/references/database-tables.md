@@ -1,8 +1,8 @@
 # データベーステーブル
 <!-- # Database tables -->
 
-**ハブは、預け入れアドレスや取り出しリクエストなどの情報をデータベーステーブルに記録することによって、ユーザーのIOTAトークンを管理します。この情報は、gRPC APIを使用するか、データベースサーバーに問い合わせることによって見つけることができます。**
-<!-- **Hub manages users' IOTA tokens by recording information such as deposit addresses and withdrawal requests in database tables. You can find this information by using the gRPC API or by querying the database server.** -->
+**ハブは、預け入れアドレスや取り出しリクエストなどの情報をデータベーステーブルに記録することによって、ユーザーのIOTAトークンを管理します。この情報は、APIを使用するか、データベースサーバーに問い合わせることによって見つけることができます。**
+<!-- **Hub manages users' IOTA tokens by recording information such as deposit addresses and withdrawal requests in database tables. You can find this information by using the API or by querying the database server.** -->
 
 
 | **テーブル** | **説明** |
@@ -79,7 +79,7 @@
 | :------------- | :------- | :--------------- |
 | `hash`       | スウィープの81トライトの末尾トランザクションハッシュ | NULL |
 | `sweep`      | 末尾トランザクションがバンドルに含まれているスウィープのID。このIDは`sweep`テーブルにあります。 | NULL |
-| `confirmed`  | スウィープが確定されたかどうか。0=ペンディング中。 | 0 |
+| `confirmed`  | スウィープが確定されたかどうか。 | 0（ペンディング中） |
 | `created_at` | テーブルが`YYYY-MM-DD HH:MM:SS`の形式で作成された日時。 | 現在の日時 |
 
 ## User_account
@@ -151,7 +151,7 @@
 | `user_id`        | `user_account`テーブル内のユーザーアカウントのID | NULL |
 | `amount`         | 取り出しの総数 | NULL |
 | `payout_address` | トークンの送信先の出力アドレス | NULL |
-| `tag`            | 出力トランザクションの[`tag`フィールド](root://dev-essentials/0.1/references/structure-of-a-transaction.md)の値 | NULL |
-| `sweep`          | 取り出しを実行したスウィープのID。このIDは`sweep`テーブルにあります。 | NULL |
+| `tag`            | 出力トランザクションの`tag`フィールドの値 | NULL |
+| `sweep`          | 取り出しを実行したスウィープのID。 | NULL |
 | `requested_at`   | ユーザーが`YYYY-MM-DD HH:MM:SS`の形式で取り出しをリクエストした日時。 | 現在の日時 |
 | `cancelled_at`   | `YYYY-MM-DD HH:MM:SS`の形式で取り出しがキャンセルされた日時。 | NULL |

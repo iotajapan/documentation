@@ -13,15 +13,15 @@ IACを使用することで、トランザクションにエリアをタグ付�
 ## IACについて
 <!-- ## About IACs -->
 
-IACは[Open Location Code](https://en.wikipedia.org/wiki/Open_Location_Code)（OLC）のクローンです。IACには、[トライエンコーディング](root://dev-essentials/0.1/concepts/trinary.md)との互換性を持たせるためのいくつかの小さな変更が含まれています。
-<!-- IACs are a clone of [Open Location Codes](https://en.wikipedia.org/wiki/Open_Location_Code) (OLC), which includes some minor changes to make them compatible with [tryte encoding](root://dev-essentials/0.1/concepts/trinary.md): -->
+IACは[Open Location Code](https://en.wikipedia.org/wiki/Open_Location_Code)（OLC）のクローンです。IACには、[トライエンコーディング](root://getting-started/0.1/introduction/ternary.md)との互換性を持たせるためのいくつかの小さな変更が含まれています。
+<!-- IACs are a clone of [Open Location Codes](https://en.wikipedia.org/wiki/Open_Location_Code) (OLC), which includes some minor changes to make them compatible with [tryte encoding](root://getting-started/0.1/introduction/ternary.md): -->
 
-* コードを構成する数字と文字は_トライト_と呼ばれ、`FGHJKLMNOPQRSTUVXWYZ`が含まれます。
-<!-- * The numbers and letters that make up a code are called _trytes_, which include the following: `FGHJKLMNOPQRSTUVXWYZ` -->
-* IACの8番目のトライトの後に来る区切り文字は、`+`ではなく`9`です。
-<!-- * The separator that comes after the eighth tryte in an IAC is a `9` instead of a `+` -->
-* IACをパディングするために`0`の代わりに`A`トライトが使用されます。
-<!-- * The `A` tryte is used for padding IACs instead of a `0` -->
+- コードを構成する数字と文字は_トライト_と呼ばれ、`FGHJKLMNOPQRSTUVXWYZ`が含まれます。
+<!-- - The numbers and letters that make up a code are called _trytes_, which include the following: `FGHJKLMNOPQRSTUVXWYZ` -->
+- IACの8番目のトライトの後に来る区切り文字は、`+`ではなく`9`です。
+<!-- - The separator that comes after the eighth tryte in an IAC is a `9` instead of a `+` -->
+- IACをパディングするために`0`の代わりに`A`トライトが使用されます。
+<!-- - The `A` tryte is used for padding IACs instead of a `0` -->
 
 ## IACを読む
 <!-- ## Reading IACs -->
@@ -57,7 +57,6 @@ IACは以下の3つの部分で構成されています（区切り文字`9`を�
 
 <!-- | **IAC length (trytes)**   | **Approximate area**| -->
 <!-- |:--------------|:---------------------| -->
-<!-- |:--------------|:---------------------| -->
 <!-- |2       |2200 km | -->
 <!-- |4      | 110 km | -->
 <!-- |6          | 5.5 km     | -->
@@ -88,21 +87,14 @@ IACの詳細については、[ブログの投稿](https://blog.iota.org/iota-ar
 このチュートリアルを完了するには、次のものが必要です。
 <!-- To complete this tutorial, you need the following: -->
 
-* Node.js 8、またはNode.js 10以上。[最新のLTS](https://nodejs.org/en/download/)をお勧めします。
-<!-- * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
-* [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディタ
-<!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
-* コマンドプロンプトへのアクセス
-<!-- * Access to a command prompt -->
-* [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md)パッケージと[`@iota/area-codes`](https://github.com/iotaledger/iota-area-codes)パッケージ
-<!-- * The [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md) and [`@iota/area-codes`](https://github.com/iotaledger/iota-area-codes) packages -->
-
-:::info:
-これまでにIOTAクライアントライブラリを使用したことがない場合は、[入門チュートリアル](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を完了することをお勧めします。
-:::
-<!-- :::info: -->
-<!-- If you've never used the IOTA client libraries before, we recommend completing [the getting started tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md) -->
-<!-- ::: -->
+- Node.js 8、またはNode.js 10以上。[最新のLTS](https://nodejs.org/en/download/)をお勧めします。
+<!-- - Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
+- [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディタ
+<!-- - A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
+- コマンドラインインターフェイスへのアクセス
+<!-- - Access to a command-line interface -->
+- [`@iota/core`](root://getting-started/0.1/how-to-guides/get-started.md)パッケージと[`@iota/area-codes`](https://github.com/iotaledger/iota-area-codes)パッケージ
+<!-- - The [`@iota/core`](root://getting-started/0.1/how-to-guides/get-started.md) and [`@iota/area-codes`](https://github.com/iotaledger/iota-area-codes) packages -->
 
 ### 手順1. 座標を探す
 <!-- ### Step 1. Find some coordinates -->
@@ -130,8 +122,8 @@ IACの詳細については、[ブログの投稿](https://blog.iota.org/iota-ar
 トランザクションをいくつかの座標でタグ付けするには、座標をIACとしてエンコードする必要があります。
 <!-- To tag a transaction with some coordinates, you need to encode them as an IAC. -->
 
-この例では、[IAC API](https://github.com/iotaledger/iota-area-codes/blob/master/docs/api.md)を使用して座標からIACを作成し、トランザクションの`tag`フィールドにIACを追加して[Devnet](root://getting-started/0.1/references/iota-networks.md#devnet)に送信します。Devnetは、トークンが無料であること以外は、Mainnetほとんど同じです。Devnetに送信するトランザクションは、Mainnetなどの他のネットワークには存在しません。
-<!-- In this example, we use the [IAC API](https://github.com/iotaledger/iota-area-codes/blob/master/docs/api.md) to create an IAC from coordinates, then we add the IAC to the `tag` field of a transaction and send it to the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
+この例では、[IAC API](https://github.com/iotaledger/iota-area-codes/blob/master/docs/api.md)を使用して座標からIACを作成し、トランザクションの`tag`フィールドにIACを追加して[Devnet](root://getting-started/0.1/network/iota-networks.md#devnet)に送信します。Devnetは、トークンが無料であること以外は、Mainnetほとんど同じです。Devnetに送信するトランザクションは、Mainnetなどの他のネットワークには存在しません。
+<!-- In this example, we use the [IAC API](https://github.com/iotaledger/iota-area-codes/blob/master/docs/api.md) to create an IAC from coordinates, then we add the IAC to the `tag` field of a transaction and send it to the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
 
 1. IOTAクライアントライブラリを必要とします。
   <!-- 1. Require the IOTA client libraries -->

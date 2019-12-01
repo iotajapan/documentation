@@ -1,9 +1,16 @@
 # アカウントを作成する
 <!-- # Create an account -->
 
-**トリニティアカウントはパスワードで保護されており、シードをモバイル端末やコンピュータに安全に保管することができます。**
-<!-- **Trinity accounts are password-protected to secure and store your seeds on your mobile device or computer.** -->
+**トリニティアカウントはパスワードで保護されており、シードをモバイル端末やコンピュータに安全に保管することができます。シードごとに1つのアカウントを作成できます。**
+<!-- **Trinity accounts are password-protected to secure and store your seeds on your mobile device or computer. You can create one account for each of your seeds.** -->
 
+## 前提条件
+<!-- ## Prerequisites -->
+
+このガイドを完了するには、デバイスに[Trinity](https://trinity.iota.org/)がインストールされている必要があります。
+<!-- To complete this guide you must have [Trinity](https://trinity.iota.org/) installed on your device. -->
+
+---
 1. トリニティを開きます。
   <!-- 1. Open Trinity -->
 
@@ -40,3 +47,9 @@
     <!-- :::info: -->
     <!-- You can choose to add extra account security in the [Security settings](../how-to-guides/manage-your-security-settings.md) -->
     <!-- ::: -->
+
+## 次のステップ
+<!-- ## Next steps -->
+
+[トランザクションを送信する](../how-to-guides/send-a-transaction.md)。
+<!-- [Send a transaction](../how-to-guides/send-a-transaction.md). -->

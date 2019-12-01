@@ -1,8 +1,8 @@
 # LinuxサーバでIRIノードを実行する
 <!-- # Run an IRI node on a Linux server -->
 
-**IRIソフトウェアを実行すると、お使いのデバイスがタングルに直接アクセス可能なノードになります。ノードを実行することで、台帳の数を増やし、隣接ノードのトランザクションを検証することで、IOTAネットワークがより分散されるようになります。**
-<!-- **When you run the IRI software, your device becomes a node that gives you direct access to the Tangle. By running a node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbors' transactions.** -->
+**IRIノードソフトウェアを実行すると、お使いのデバイスがタングルに直接アクセス可能なノードになります。ノードを実行することで、台帳の数を増やし、隣接ノードのトランザクションを検証することで、IOTAネットワークがより分散されるようになります。**
+<!-- **When you run the IRI node software, your device becomes a node that gives you direct access to the Tangle. By running a node, you help the IOTA network to become more distributed by adding to the number of ledgers and validating your neighbors' transactions.** -->
 
 ## 前提条件
 <!-- ## Prerequisites -->
@@ -10,19 +10,19 @@
 このガイドを完成するには、次のものが必要です。
 <!-- To complete this guide, you need the following: -->
 
-* 4GB RAM
-* 64ビットプロセッサ
-<!-- * 64-bit processor -->
-* Linuxサーバ（このガイドでは[Ubuntu 18.04](http://releases.ubuntu.com/18.04)でテストされています）
-<!-- * A Linux server (this guide has been tested on [Ubuntu 18.04](http://releases.ubuntu.com/18.04)) -->
-* 静的な、または[duckdns.org](https://www.duckdns.org)などの動的DNSサービスに接続されている[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)
-<!-- * A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org) -->
-* ノードを実行しているデバイスに[次のポートを転送します](root://general/0.1/how-to-guides/expose-your-local-device.md)。
-  <!-- * [Forward the following ports](root://general/0.1/how-to-guides/expose-your-local-device.md) to the device that's running the node: -->
+- 4GB RAM
+- 64ビットプロセッサ
+<!-- - 64-bit processor -->
+- Linuxサーバ（このガイドでは[Ubuntu 18.04](http://releases.ubuntu.com/18.04)でテストされています）
+<!-- - A Linux server (this guide has been tested on [Ubuntu 18.04](http://releases.ubuntu.com/18.04)) -->
+- 静的な、または[duckdns.org](https://www.duckdns.org)などの動的DNSサービスに接続されている[パブリックIPアドレス](root://general/0.1/how-to-guides/expose-your-local-device.md)
+<!-- - A [public IP address](root://general/0.1/how-to-guides/expose-your-local-device.md) that's either static or connected to a dynamic DNS service such as [duckdns.org](https://www.duckdns.org) -->
+- ノードを実行しているデバイスに[次のポートを転送します](root://general/0.1/how-to-guides/expose-your-local-device.md)。
+<!-- - [Forward the following ports](root://general/0.1/how-to-guides/expose-your-local-device.md) to the device that's running the node: -->
 
     * **TCP隣接ノードのピアリングポート：** 15600
-    * **TCPのAPIポート：** 14265
     <!-- * **TCP neighbor peering port:** 15600 -->
+    * **TCPのAPIポート：** 14265
     <!-- * **TCP API port:** 14265 -->
 
 ## 手順.1 IRI Javaファイルをダウンロードする
@@ -33,10 +33,10 @@ IRIはJavaソフトウェアなので、Javaランタイム環境（JRE）で実
 
 最新のIRIソフトウェアをダウンロードする方法は2つあります。
 <!-- You have two options for downloading the latest IRI software: -->
-* [GitHubからビルド済みJavaファイルをダウンロードする](#download-the-pre-built-iri-java-file)。（最速オプション）
-<!-- * Download the pre-built Java file from GitHub (quickest option) -->
-* [GitHub上のソースコードからJavaファイルをビルドする](#build-the-iri-java-file-from-the-source-code)。
-<!-- * Build the Java file from the source code on GitHub -->
+- [GitHubからビルド済みJavaファイルをダウンロードする](#download-the-pre-built-iri-java-file)。（最速オプション）
+<!-- - Download the pre-built Java file from GitHub (quickest option) -->
+- [GitHub上のソースコードからJavaファイルをビルドする](#build-the-iri-java-file-from-the-source-code)。
+<!-- - Build the Java file from the source code on GitHub -->
 
 <a name="download-the-pre-built-iri-java-file"></a>
 ### ビルド済みのIRI Javaファイルをダウンロードする
@@ -53,18 +53,18 @@ IRIはJavaソフトウェアなので、Javaランタイム環境（JRE）で実
     sudo apt-get upgrade -y
     ```
 
-2. IRI Javaファイルをダウンロードするディレクトリを作成します。`jake`をご自身のLinuxユーザー名に変更してください。
-  <!-- 2. Make a directory in which to download the IRI Java file. Change `jake` to your Linux username. -->
+2. IRI Javaファイルをダウンロードするディレクトリを作成します。`jake`を自分のユーザー名に変更します。
+  <!-- 2. Make a directory in which to download the IRI Java file. Replace `jake` with your username. -->
 
     ```bash
     mkdir /home/jake/node
     ```
 
     :::info:
-    標準出力に「mkdir：ディレクトリを作成できません...」と表示された場合は、おそらくjakeをご自分のLinuxユーザー名に変更せずにコマンドをコピーアンドペーストしたはずです。
+    標準出力に`mkdir：ディレクトリを作成できません...`と表示されている場合、「jake」をLinuxユーザー名に変更せずにコマンドをコピーして貼り付けている可能性があります。
     :::
     <!-- :::info: -->
-    <!-- If you see 'mkdir: cannot create directory...' in the output, you probably copied and pasted the command without changing `jake` to your Linux username. -->
+    <!-- If you see 'mkdir: cannot create directory...' in the output, you may have copied and pasted the command without changing `jake` to your Linux username. -->
     <!-- ::: -->
 
 3. Java 8 OpenJDKをダウンロードしてインストールします。
@@ -78,14 +78,14 @@ IRIはJavaソフトウェアなので、Javaランタイム環境（JRE）で実
     ```
 
     :::info:
-    Javaがインストールされていることを確認するには、`java -version`を実行します。標準出力にバージョン番号が表示されます。
+    Javaがインストールされていることを確認するには、コマンドラインに`java -version`と入力します。標準出力にバージョン番号が表示されます。
     :::
     <!-- :::info: -->
-    <!-- To check that Java is installed, enter `java -version`. You should see a version number in the output. -->
+    <!-- To check that Java is installed, enter `java -version` in the command line. You should see a version number in the output. -->
     <!-- ::: -->
 
-4. 最新のIRI Javaファイルを自分の`node`ディレクトリにダウンロードします。 `jake`をご自身のLinuxユーザー名に変更して、`${VERSION}`変数を[最新バージョン](https://github.com/iotaledger/iri/releases)のIRIに置き換えます。
-  <!-- 4. Download the latest IRI Java file into your `node` directory. Change `jake` to your Linux username and replace the `${VERSION}` variable with the [latest version](https://github.com/iotaledger/iri/releases) of the IRI. -->
+4. 最新のIRI Javaファイルを自分の`node`ディレクトリにダウンロードします。`jake`を自分のユーザー名に置き換えて、`${VERSION}`変数を[最新バージョン](https://github.com/iotaledger/iri/releases)のIRIに置き換えます。
+<!-- 4. Download the latest IRI Java file into your `node` directory. Replace `jake` with your username and replace the `${VERSION}` variable with the [latest version](https://github.com/iotaledger/iri/releases) of the IRI. -->
 
     ```bash
     sudo wget -O /home/jake/node/iri-${VERSION}.jar https://github.com/iotaledger/iri/releases/download/v${VERSION}/iri-${VERSION}.jar
@@ -125,11 +125,12 @@ HTTP request sent, awaiting response ... 200 OK
 <!-- ### Build the IRI Java file from the source code -->
 
 ビルド済みのIRI Javaファイルをダウンロードする代わりに、次のいずれかの理由でソースコードからファイルをビルドすることをお勧めします。
-<!-- Instead of downloading the pre-built IRI Java file, you may want to build the file from the source code the any of the following reasons: -->
-* 実行するコードがソースコードと同じであることを確認したい場合。
-<!-- * You want to be sure that the code you run is the same as the source code -->
-* IRIを実行する前にコードを修正したい場合。
-<!-- * You want to modify the code before you run it -->
+<!-- Instead of downloading the pre-built IRI Java file, you may want to build the file from the source code for any of the following reasons: -->
+
+- 実行するコードがソースコードと同じであることを確認したい場合。
+<!-- - You want to be sure that the code you run is the same as the source code -->
+- IRIを実行する前にコードを修正したい場合。
+<!-- - You want to modify the code before you run it -->
 
 1. Java 8 OpenJDKをダウンロードしてインストールします。
   <!-- 1. Download and install the Java 8 OpenJDK -->
@@ -208,8 +209,8 @@ HTTP request sent, awaiting response ... 200 OK
 IRIはJava仮想マシンで動作します。したがって、IRIを実行する前に、いくつかのJava変数を設定する必要があります。
 <!-- The IRI runs in a Java virtual machine. Therefore, before you run the IRI, you need to set up some Java variables. -->
 
-1. Java仮想マシンでIRIを実行するために使用されるJava変数を作成します。
-  <!-- 1. Create the Java variables that'll be used to run the IRI in the Java virtual machine -->
+1. Java仮想マシンを最適化するためにいくつかのJava変数を定義します。
+  <!-- 1. Define some Java variables to optimize the Java virtual machine -->
 
     ```bash
     export JAVA_OPTIONS="-XX:+UnlockExperimentalVMOptions -XX:+DisableAttachMechanism -XX:InitiatingHeapOccupancyPercent=60 -XX:G1MaxNewSizePercent=75 -XX:MaxGCPauseMillis=10000 -XX:+UseG1GC"
@@ -218,7 +219,7 @@ IRIはJava仮想マシンで動作します。したがって、IRIを実行す�
     ```
 
     **JAVA_OPTIONS：** Java仮想マシンを最適化するコマンド
-    <!-- **JAVA_OPTIONS:** Commands that optimise the Java virtual machine -->
+    <!-- **JAVA_OPTIONS:** Commands that optimize the Java virtual machine -->
 
     **JAVA_MIN_MEMORY：** Java仮想マシンの初期メモリ割り当て
     <!-- **JAVA_MIN_MEMORY:** The initial memory allocation for the Java virtual machine -->
@@ -226,8 +227,8 @@ IRIはJava仮想マシンで動作します。したがって、IRIを実行す�
     **JAVA_MAX_MEMORY：** Java仮想マシンの最大メモリ割り当て
     <!-- **JAVA_MAX_MEMORY:** the maximum memory allocation for the Java virtual machine -->
 
-2. IRI Javaファイルと同じディレクトリにIRI設定ファイルを作成します。`jake`をご自身のLinuxユーザー名に変更してください。
-  <!-- 2. Create an IRI configuration file in the same directory as your IRI Java file. Change `jake` to your Linux username. -->
+2. IRI Javaファイルと同じディレクトリにIRI設定ファイルを作成します。`jake`を自分のユーザー名に置き換えます。
+  <!-- 2. Create an IRI configuration file in the same directory as your IRI Java file. Replace `jake` with your Linux username. -->
 
     ```bash
     nano /home/jake/node/config.ini
@@ -258,42 +259,13 @@ Devnetノードを実行する場合は、`TESTNET`設定オプションを`true
 次のDevnetノードは自動ピアリングを有効にしているので、自動的に隣接ノードとしてあなたのノードを追加します。
 <!-- The following Devnet nodes have auto-peering enabled, so they will automatically add you as neighbors: -->
 
-* tcp://p101.testnet.iota.cafe:14666
+- tcp://p101.testnet.iota.cafe:14666
 
-* tcp://p102.testnet.iota.cafe:14666
+- tcp://p102.testnet.iota.cafe:14666
 
-* tcp://p103.testnet.iota.cafe:14666
+- tcp://p103.testnet.iota.cafe:14666
 
-* tcp://p104.testnet.iota.cafe:14666
-
-### Spamnetノードを設定する
-<!-- ### Configure a Spamnet node -->
-
-Spamnetノードを実行したい場合は、設定ファイルに以下の設定パラメータのみを含める必要があります。
-<!-- If you want to run a Spamnet node, you must include only the following configuration parameters in your configuration file: -->
-
-```bash
-[IRI]
-ZMQ_ENABLED = TRUE
-TESTNET = TRUE
-DB_PATH = spamnetdb
-DB_LOG_PATH = spamnetdb.log
-MWM = 7
-SNAPSHOT_FILE = spamnet.txt
-COORDINATOR = H9FXUMSYAWNZPVFINVTXOTYKFZXR9OBKA9KSTVWXTWHIZZRISFYZMXIMOQFXDXXQHNAJXAZFP9IHSFXRH
-NUMBER_OF_KEYS_IN_A_MILESTONE = 20
-SNAPSHOT_TIME = 1535760000
-MILESTONE_START_INDEX = 2
-DONT_VALIDATE_TESTNET_MILESTONE_SIG = true
-NEIGHBORS = tcp://p101.spamnet.iota.cafe:15600 tcp://p102.spamnet.iota.cafe:15600
-```
-
-Spamnet上のトークンの総供給量を含むアドレスを定義するためのスナップショットファイルも作成しなければなりません。このファイルの場所は、`SNAPSHOT_FILE`設定パラメータで設定する必要があります。
-<!-- You must also create a snapshot file to define an address that contains the entire supply of tokens on the Spamnet. The location of this file must be set in the `SNAPSHOT_FILE` configuration parameter. -->
-
-```bash
-WYF9OOFCQJRTLTRMREDWPOBQ9KNDMFVZSROZVXACAWKUMXAIYTFQCPAYZHNGKIWZZGKCSHSSTRDHDAJCW;2779530283277761
-```
+- tcp://p104.testnet.iota.cafe:14666
 
 <a name="run-the-iri"></a>
 ## 手順3. IRIを実行する
@@ -302,8 +274,8 @@ WYF9OOFCQJRTLTRMREDWPOBQ9KNDMFVZSROZVXACAWKUMXAIYTFQCPAYZHNGKIWZZGKCSHSSTRDHDAJC
 IRIをダウンロードして設定したら、実行します。
 <!-- When you've downloaded, and configured the IRI, it's time to run it. -->
 
-1. データベースとIXI（IOTA交換インターフェースフォルダ）を保存するディレクトリを作成します。`jake`をご自身のLinuxユーザー名に変更してください。
-  <!-- 1. Make a directory to keep the database and the IXI (IOTA exchange interface folders). Change `jake` to your Linux username. -->
+1. データベースとIXI（IOTA交換インターフェース）を保存するディレクトリを作成します。`jake`を自分のユーザー名に置き換えます。
+  <!-- 1. Make a directory to keep the database and the IXI (IOTA exchange interface) modules. Change `jake` to your Linux username. -->
 
     ```bash
     mkdir -p /home/jake/node/data
@@ -341,7 +313,7 @@ IRIをダウンロードして設定したら、実行します。
     <!-- ::: -->
 
 3. Linuxサーバで新しいターミナルウィンドウを開き、CurlとJQをインストールします。CurlはREST APIリクエストをIRIノードに送信するために使用します。JQは、JSONデータを読みやすい形式で表示するコマンドラインプロセッサです。
-  <!-- 3. Open a new terminal window on your Linux server, and install Curl and JQ. Curl is used to send REST API requests to your IRI node. JQ is a command-line processor that displays JSON data in an easy-to-read format. -->
+  <!-- 3. Open a new terminal window on your Linux server and install Curl and JQ. Curl is used to send REST API requests to your IRI node. JQ is a command-line processor that displays JSON data in an easy-to-read format. -->
 
     ```bash
     sudo apt install curl jq
@@ -383,8 +355,9 @@ IRIをダウンロードして設定したら、実行します。
     }
     ```
 
-    標準出力には、`neighbors`フィールドの値が0であることがわかります。IRIノードはまだIOTAネットワークに接続されていません。IOTAネットワークに接続するには、[隣接IRIノード](../concepts/neighbor-iri-node.md)に接続する必要があります。
-    <!-- You'll notice in the output that the value of the `neighbors` field is 0. The IRI node is not yet connected to an IOTA network. To do so, you need to connect to [neighbor IRI nodes](../concepts/neighbor-iri-node.md). -->
+
+    標準出力には、`neighbors`フィールドの値が0であることがわかります。IRIノードはまだIOTAネットワークに接続されていません。IOTAネットワークに接続するには、隣接IRIノードに接続する必要があります。
+    <!-- You'll notice in the output that the value of the `neighbors` field is 0. The IRI node is not yet connected to an IOTA network. To do so, you need to connect to neighbor IRI nodes. -->
 
 5. [隣接ノードを見つけて](../how-to-guides/find-neighbor-iri-nodes.md)、隣接ノードのURLまたはIPアドレスをconfig.iniファイルに追加します。
   <!-- 5. [Find neighbors](../how-to-guides/find-neighbor-iri-nodes.md) and add their URL or IP addresses to your config.ini file -->
@@ -396,8 +369,8 @@ IRIをダウンロードして設定したら、実行します。
     <!-- We recommend [setting up a reverse proxy](../how-to-guides/set-up-a-reverse-proxy.md) for your IRI node so that you can have more control over the requests that are made to it. -->
     <!-- ::: -->
 
-ノードが起動して実行されているので、[IOTAネットワークを使い台帳の同期](../concepts/the-ledger.md#ledger-synchronization)を開始します。ノードに同期をとる時間を与えます。IRIノードが同期していない場合は、[トラブルシューティングガイド](../references/troubleshooting.md)をお読みください。
-<!-- Now that your node is up and running, it'll start to [synchronize its ledger with the network](../concepts/the-ledger.md#ledger-synchronization). Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing. -->
+ノードが起動して実行されているので、IOTAネットワークを使い台帳の同期を開始します。ノードに同期をとる時間を与えるか、IRIノードが同期していない場合は、トラブルシューティングガイドをお読みください。
+<!-- Now that your node is up and running, it'll start to synchronize its ledger with the network. Give your node some time to synchronize, or read our troubleshooting guide if your IRI node isn't synchronizing. -->
 
 <a name="check-that-the-iri-is-synchronized"></a>
 ## 手順4. ノードが同期していることを確認する
@@ -438,5 +411,5 @@ IRIが同期するまでに時間がかかることがあります。問題が�
 ## 次のステップ
 <!-- ## Next steps -->
 
-[IRIノードのイベントを購読する](../how-to-guides/subscribe-to-events-in-an-iri-node.md)。
-<!-- * [Subscribe to events in an IRI node](../how-to-guides/subscribe-to-events-in-an-iri-node.md) -->
+[自分のIRIノードと対話する](../how-to-guides/interact-with-an-iri-node.md)
+<!-- [Interact with your node](../how-to-guides/interact-with-an-iri-node.md). -->

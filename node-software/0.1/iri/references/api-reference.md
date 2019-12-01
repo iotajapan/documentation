@@ -145,18 +145,17 @@ curl http://localhost:14265 \
 
 ## attachToTangle
 
-与えられたトランザクショントライトについてノード上で[プルーフオブワーク](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)を行います。
-<!-- Do [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) on a node for the given transaction trytes. -->
-
- ### パラメータ
+### パラメータ
+与えられたトランザクショントライトについてノード上で[プルーフオブワーク](root://getting-started/0.1/transactions/proof-of-work.md)を行います。
+<!-- Do [proof of work](root://getting-started/0.1/transactions/proof-of-work.md) on a node for the given transaction trytes. -->
 
  `branchTransaction`および`trunkTransaction`パラメーターは、[`getTransactionsToApprove`](#getTransactionsToApprove)エンドポイントから返されます。
 <!--  The `branchTransaction` and  `trunkTransaction` parameters are returned from the [`getTransactionsToApprove`](#getTransactionsToApprove) endpoint. -->
 
 | **パラメータ** | **必須または任意** | **説明** | **タイプ** |
-|--|--|--|--|
-| `trunkTransaction` | 必須 | [トランクトランザクション](root://dev-essentials/0.1/references/structure-of-a-transaction.md)ハッシュ | string |
-| `branchTransaction` | 必須 | [ブランチトランザクション](root://dev-essentials/0.1/references/structure-of-a-transaction.md)ハッシュ | string |
+| :--------- | :------------- | :--- | :----- |
+| `trunkTransaction` | 必須 | トランクトランザクションハッシュ | string |
+| `branchTransaction` | 必須 | ブランチトランザクションハッシュ | string |
 | `minWeightMagnitude` | 必須 | [最小重量値](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) | integer |
 | `trytes` | 必須 | トランザクショントライトの文字列 | stringの配列 |
 
@@ -382,12 +381,12 @@ curl http://localhost:14265 \
 
 トランザクションの整合性を確認します。整合性のあるトランザクションとは、次のことが当てはまるトランザクションです。
 <!-- Check the consistency of transactions. A consistent transaction is one where the following statements are true: -->
-* ノードにトランザクションのブランチまたはトランクトランザクションが欠落していない。
-<!-- * The node isn't missing the transaction's branch or trunk transactions -->
-* トランザクションのバンドルが有効。
-<!-- * The transaction's bundle is valid -->
-* トランザクションのブランチおよびトランクトランザクションが有効。
-<!-- * The transaction's branch and trunk transactions are valid -->
+- ノードにトランザクションのブランチまたはトランクトランザクションが欠落していない。
+<!-- - The node isn't missing the transaction's branch or trunk transactions -->
+- トランザクションのバンドルが有効。
+<!-- - The transaction's bundle is valid -->
+- トランザクションのブランチおよびトランクトランザクションが有効。
+<!-- - The transaction's branch and trunk transactions are valid -->
 
 ### パラメータ
 
@@ -720,12 +719,12 @@ The [configuration settings](../references/iri-configuration-options.md) that th
 :::info:
 このAPIエンドポイントは、ノードが同期している場合にのみデータを返します。
 
-[ノードが同期しているかどうかを確認する方法をご確認ください](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request)。
+[ノードが同期しているかどうかを確認する方法をご確認ください](root://getting-started/0.1/how-to-guides/get-started.md#step-3-make-a-test-api-request)。
 :::
 <!-- :::info: -->
 <!-- This API endpoint returns data only if the node is synchronized. -->
 
-<!-- [Find out how to check if a node is synchronized](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request). -->
+<!-- [Find out how to check if a node is synchronized](root://getting-started/0.1/how-to-guides/get-started.md#step-3-make-a-test-api-request). -->
 <!-- ::: -->
 
 ### パラメータ
@@ -858,12 +857,12 @@ curl http://localhost:14265 \
 :::info:
 このエンドポイントは、ノードが同期している場合にのみデータを返します。
 
-[ノードが同期しているかどうかを確認する方法をご確認ください](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request)。
+[ノードが同期しているかどうかを確認する方法をご確認ください](root://getting-started/0.1/how-to-guides/get-started.md#step-3-make-a-test-api-request)。
 :::
 <!-- :::info: -->
 <!-- This endpoint returns data only if the node is synchronized. -->
 
-<!-- [Find out how to check if a node is synchronized](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request). -->
+<!-- [Find out how to check if a node is synchronized](root://getting-started/0.1/how-to-guides/get-started.md#step-3-make-a-test-api-request). -->
 <!-- ::: -->
 
 
@@ -1405,12 +1404,12 @@ curl http://localhost:14265 \
 :::info:
 このエンドポイントは、ノードが同期している場合にのみデータを返します。
 
-[ノードが同期しているかどうかを確認する方法をご確認ください](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request)。
+[ノードが同期しているかどうかを確認する方法をご確認ください](root://getting-started/0.1/how-to-guides/get-started.md#step-3-make-a-test-api-request)。
 :::
 <!-- :::info: -->
 <!-- This endpoint returns data only if the node is synchronized. -->
 
-<!-- [Find out how to check if a node is synchronized](root://getting-started/0.1/tutorials/get-started.md#step-3-make-a-test-api-request). -->
+<!-- [Find out how to check if a node is synchronized](root://getting-started/0.1/how-to-guides/get-started.md#step-3-make-a-test-api-request). -->
 <!-- ::: -->
 
 ### パラメータ

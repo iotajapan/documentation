@@ -1,8 +1,8 @@
 # ハブデータベースをクエリする
 <!-- # Query the Hub database -->
 
-**ユーザーデータを追跡するために、ハブはユーザーデータをデータベーステーブルに保存します。これらのテーブルのデータの一部は、APIに公開されていません。たとえば、アドレスのシードUUIDを見つけて、シードを再作成できます。このガイドでは、ハブデータベーステーブルのクエリを開始するための基本を示します。**
-<!-- **To keep track of user data, Hub stores it in database tables. Some of the data in these tables isn't exposed to the APIs. For example, you may want to find out the seed UUID for an address so that you can recreate the seed. This guide shows you the basics to get started with querying the Hub database tables.** -->
+**ユーザーデータを追跡するために、ハブはユーザーデータをデータベーステーブルに保存します。これらのテーブルのデータの一部は、APIに公開されていません。たとえば、アドレスのシードUUIDを見つけて、シードを生成できます。このガイドでは、ハブデータベーステーブルのクエリを開始するための基本を示します。**
+<!-- **To keep track of user data, Hub stores it in database tables. Some of the data in these tables isn't exposed to the APIs. For example, you may want to find out the seed UUID for an address so that you can generate the seed. This guide shows you the basics to get started with querying the Hub database tables.** -->
 
 :::info:
 このガイドはMariaDBのようなMYSQLデータベースと一緒にハブをインストールしていると仮定します。
@@ -73,9 +73,8 @@
     QUIT
     ```
 
-:::info:
-MYSQLとさまざまなコマンドについて学ぶためには、[MYSQLのウェブサイト](https://dev.mysql.com/doc/refman/8.0/en/tutorial.html)を参照します。
-:::
-<!-- :::info: -->
-<!-- To learn about MYSQL and the different commands, [see their website](https://dev.mysql.com/doc/refman/8.0/en/tutorial.html). -->
-<!-- ::: -->
+## 次のステップ
+<!-- ## Next steps -->
+
+MYSQLおよびさまざまなコマンドについて学習するには、[MYSQLのドキュメント](https://dev.mysql.com/doc/refman/8.0/en/tutorial.html)を参照してください。
+<!-- To learn about MYSQL and the different commands, [see the MYSQL documentation](https://dev.mysql.com/doc/refman/8.0/en/tutorial.html). -->

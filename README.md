@@ -11,7 +11,7 @@
 コントリビューションをしてくださる方は以下をご覧ください．
 - [style guide](./contribution/0.1/style-guide.md)
 
-↓Original
+↓ Original
 ---
 # Documentation Markdown
 

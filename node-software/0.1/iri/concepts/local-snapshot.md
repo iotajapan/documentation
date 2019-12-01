@@ -17,8 +17,8 @@
 スナップショットファイルは、定期的にIRIノードの台帳の状態を保存します。
 <!-- Snapshot files store the state of an IRI node's ledger at regular intervals. -->
 
-IRIノードが[同期している](../concepts/the-ledger.md#ledger-synchronization)場合、[`LOCAL_SNAPSHOTS_INTERVAL_SYNCED`設定オプション](../references/iri-configuration-options.md#local-snapshots-interval-synced)で定義されているマイルストーン間隔でスナップショットファイルが作成されます。
-<!-- If an IRI node is [synchronized](../concepts/the-ledger.md#ledger-synchronization), it creates snapshot files at the milestone intervals that are defined in the [`LOCAL_SNAPSHOTS_INTERVAL_SYNCED`](../references/iri-configuration-options.md#local-snapshots-interval-synced) configuration option. -->
+IRIノードが同期している場合、[`LOCAL_SNAPSHOTS_INTERVAL_SYNCED`設定オプション](../references/iri-configuration-options.md#local-snapshots-interval-synced)で定義されているマイルストーン間隔でスナップショットファイルが作成されます。
+<!-- If an IRI node is synchronized, it creates snapshot files at the milestone intervals that are defined in the [`LOCAL_SNAPSHOTS_INTERVAL_SYNCED`](../references/iri-configuration-options.md#local-snapshots-interval-synced) configuration option. -->
 
 IRIノードが同期していない場合は、[`LOCAL_SNAPSHOTS_INTERVAL_UNSYNCED`設定オプション](../references/iri-configuration-options.md#local-snapshots-interval-unsynced)で定義されているマイルストーン間隔でスナップショットファイルが作成されます。
 <!-- If an IRI node isn't synchronized, it creates snapshot files at the milestone intervals that are defined in the [`LOCAL_SNAPSHOTS_INTERVAL_UNSYNCED`](../references/iri-configuration-options.md#local-snapshots-interval-unsynced) configuration option. -->
@@ -32,10 +32,10 @@ IRIノードが同期していない場合は、[`LOCAL_SNAPSHOTS_INTERVAL_UNSYN
 
 ローカルスナップショットにより、次のスナップショットファイルが作成されます。
 <!-- Local snapshots result in the following snapshot files: -->
-* **snapshot.meta：** [IRIが自身の台帳と隣接IRIノードとの同期を開始するために使用するトランザクションデータ](../references/data-in-the-snapshot-metadata-file.md)。
-<!-- * **snapshot.meta:** [Transaction data that the IRI uses to start synchronizing its ledger with neighbor IRI nodes](../references/data-in-the-snapshot-metadata-file.md) -->
-* **snapshot.state：** ローカルスナップショット時に0より大きい残高を持つすべてのアドレスの一覧。
-<!-- * **snapshot.state:** A list of all addresses that have a balance greater than 0 at the time of the local snapshot. -->
+- **snapshot.meta：** [IRIが自身の台帳と隣接IRIノードとの同期を開始するために使用するトランザクションデータ](../references/data-in-the-snapshot-metadata-file.md)。
+<!-- - **snapshot.meta:** [Transaction data that the IRI uses to start synchronizing its ledger with neighbor IRI nodes](../references/data-in-the-snapshot-metadata-file.md) -->
+- **snapshot.state：** ローカルスナップショット時に0より大きい残高を持つすべてのアドレスの一覧。
+<!-- - **snapshot.state:** A list of all addresses that have a balance greater than 0 at the time of the local snapshot. -->
 
 :::info:
 これらのファイルは [`LOCAL_SNAPSHOTS_BASE_PATH`](../references/iri-configuration-options.md#local-snapshots-base-path)設定オプションのパスにあります。
@@ -53,26 +53,26 @@ IRIノードが同期していない場合は、[`LOCAL_SNAPSHOTS_INTERVAL_UNSYN
 **設定パラメータ：**
 <!-- **Configuration parameter:** -->
 
-* `LOCAL_SNAPSHOTS_DEPTH` = 100
-* `LOCAL_SNAPSHOTS_INTERVAL_SYNCED` = 10
+- `LOCAL_SNAPSHOTS_DEPTH` = 100
+- `LOCAL_SNAPSHOTS_INTERVAL_SYNCED` = 10
 
 **現在のマイルストーンインデックス：**
 <!-- **Current milestone index:** -->
 
-* 990,100
+- 990, 100
 
 このシナリオでは、IRIノードは同期されています。したがって、マイルストーン990,110では、IRIノードは次のことを行います。
 <!-- In this scenario, the IRI node is synchronized. So, at milestone 990, 110, the node will do the following: -->
 
-* 前の100個のマイルストーンを取得し、それらを[seen milestones](../references/data-in-the-snapshot-metadata-file.md#seen-milestone)としてsnapshot.metaファイルに追加する。
-<!-- * Take the previous 100 milestones and add them to the snapshot.meta file as [seen milestones](../references/data-in-the-snapshot-metadata-file.md#seen-milestone) -->
-* 凝固トランザクションを見つけて、それらを[solid entry points](../references/data-in-the-snapshot-metadata-file.md#solid-entry-point)としてsnapshot.metaファイルに追加する。
-<!-- * Find the solid transactions and add them as [solid entry points](../references/data-in-the-snapshot-metadata-file.md#solid-entry-point) -->
-* すべてのアドレスとその残高のリストをsnapshot.stateファイルに追加する。
-<!-- * In the snapshot.state file, add a list of all addresses and their balances -->
+- 前の100個のマイルストーンを取得し、それらを[seen milestones](../references/data-in-the-snapshot-metadata-file.md#seen-milestone)としてsnapshot.metaファイルに追加する。
+<!-- - Take the previous 100 milestones and add them to the snapshot.meta file as [seen milestones](../references/data-in-the-snapshot-metadata-file.md#seen-milestone) -->
+- 凝固トランザクションを見つけて、それらを[solid entry points](../references/data-in-the-snapshot-metadata-file.md#solid-entry-point)としてsnapshot.metaファイルに追加する。
+<!-- - Find the solid transactions and add them as [solid entry points](../references/data-in-the-snapshot-metadata-file.md#solid-entry-point) -->
+- すべてのアドレスとその残高のリストをsnapshot.stateファイルに追加する。
+<!-- - In the snapshot.state file, add a list of all addresses and their balances -->
 
-IRIノードを再起動すると、スナップショットファイルをエントリポイントとして使用して[台帳を同期](../concepts/the-ledger.md#ledger-synchronization)できます。
-<!-- When the IRI node restarts, it can use the snapshot files as the entry point to [synchronize its ledger](../concepts/the-ledger.md#ledger-synchronization). -->
+IRIノードを再起動すると、スナップショットファイルをエントリポイントとして使用して台帳を同期できます。
+<!-- When the IRI node restarts, it can use the snapshot files as the entry point to synchronize its ledger. -->
 
 ## トランザクションの刈り取り
 <!-- ## Transaction pruning -->
@@ -89,13 +89,13 @@ IRIノードを再起動すると、スナップショットファイルをエ�
 **設定パラメータ：**
 <!-- **Configuration parameters:** -->
 
-* `LOCAL_SNAPSHOTS_PRUNING_DELAY` = 50,000
-* `LOCAL_SNAPSHOTS_DEPTH` = 100
+- `LOCAL_SNAPSHOTS_PRUNING_DELAY` = 50,000
+- `LOCAL_SNAPSHOTS_DEPTH` = 100
 
 **現在のマイルストーンインデックス：**
 <!-- **Current milestone index:** -->
 
-* 990,100
+- 990, 100
 
 このシナリオでは、`LOCAL_SNAPSHOTS_PRUNING_DELAY` + `LOCAL_SNAPSHOTS_DEPTH`の合計は50,100です。したがって、IRIノードは940,000（990,100 - 50,100）より小さいインデックスを持つマイルストーンによって確定されたトランザクションを刈り取ります。その結果、マイルストーン940,000と990,100の間のすべてのトランザクションが台帳に保持されます。
 <!-- In this scenario, the sum of `LOCAL_SNAPSHOTS_PRUNING_DELAY` + `LOCAL_SNAPSHOTS_DEPTH` is 50, 100. Therefore, an IRI node will prune transactions that were confirmed by any milestone with an index lower than 940, 000 (990, 100 - 50,100). As a result all transactions between milestones 940, 000 and 990, 100 will be kept in the ledger. -->

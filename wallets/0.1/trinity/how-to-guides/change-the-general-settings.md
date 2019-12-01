@@ -37,7 +37,7 @@
 トリニティには2つのモードがあります。
 <!-- Trinity has two modes: -->
 
-* **標準モード：** 標準ユーザーに最も関連性のある情報のみを表示します。
-* **上級モード：** 上級ユーザー向けのエラーログなどの技術情報を表示します。
-<!-- * **Standard mode:** Displays only the most relevant information for standard users -->
-<!-- * **Advanced mode:** Displays technical information, such as error logs, for advanced users -->
+- **標準モード：** 標準ユーザーに最も関連性のある情報のみを表示します。
+<!-- - **Standard mode:** Displays only the most relevant information for standard users -->
+- **上級モード：** 上級ユーザー向けのエラーログなどの技術情報を表示します。
+<!-- - **Advanced mode:** Displays technical information, such as error logs, for advanced users -->

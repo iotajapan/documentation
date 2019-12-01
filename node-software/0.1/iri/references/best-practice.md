@@ -38,16 +38,16 @@
 ### プルーフオブワーク
 <!-- ### Proof of work -->
 
-ノードを構築すると、ノードが[プルーフオブワーク](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)をすることを可能にするオプションがあります。この機能が有効になっているとき、クライアントアプリケーションは`attachToTangle`APIエンドポイントを呼び出すことによって、ノードにプルーフオブワークをするように頼むことができます。このオプションはリモートプルーフオブワークと呼ばれます。
-<!-- When you're setting up your nodes, you have the option to allow them to do [proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md). When this feature is enabled, client applications can ask your node to do proof of work by calling the `attachToTangle` API endpoint. This option is called remote proof of work. -->
+ノードを構築すると、ノードが[プルーフオブワーク](root://getting-started/0.1/transactions/proof-of-work.md)をすることを可能にするオプションがあります。この機能が有効になっているとき、クライアントアプリケーションは`attachToTangle`APIエンドポイントを呼び出すことによって、ノードにプルーフオブワークをするように頼むことができます。このオプションはリモートプルーフオブワークと呼ばれます。
+<!-- When you're setting up your nodes, you have the option to allow them to do [proof of work](root://getting-started/0.1/transactions/proof-of-work.md). When this feature is enabled, client applications can ask your node to do proof of work by calling the `attachToTangle` API endpoint. This option is called remote proof of work. -->
 
 ![Remote proof of work](../images/remote-pow.png)
 
 プルーフオブワークには時間がかかり、ノードの計算能力を使用します。そのため、ノードにトランザクションを送信する頻度によっては、[remote-limit-api](../references/iri-configuration-options.md#remote-limit-api)設定オプションでこの機能をデフォルトで無効にしておくことをお勧めします。
 <!-- Proof of work takes time and uses your node's computational power. So, depending on how often you send transactions to your nodes, you may want to keep this feature disabled by default in the [remote-limit-api](../references/iri-configuration-options.md#remote-limit-api) configuration option. -->
 
-このように、クライアントアプリケーションは自分自身でプルーフオブワークを実行（ローカルPoW）したり、PoWプロキシサーバにアウトソーシングするといった[プルーフオブワークのためのその他のオプション](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md#options-for-doing-proof-of-work)を使用できます。
-<!-- This way, client applications can use [other options for proof of work](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md#options-for-doing-proof-of-work) such as doing it themselves (local PoW) or outsourcing it to a PoW proxy server. -->
+このように、クライアントアプリケーションは自分自身でプルーフオブワークを実行（ローカルPoW）したり、PoWプロキシサーバにアウトソーシングするといった[プルーフオブワークのためのその他のオプション](root://getting-started/0.1/transactions/proof-of-work.md#minimum-weight-magnitude#options-for-doing-proof-of-work)を使用できます。
+<!-- This way, client applications can use [other options for proof of work](root://getting-started/0.1/transactions/proof-of-work.md#minimum-weight-magnitude#options-for-doing-proof-of-work) such as doing it themselves (local PoW) or outsourcing it to a PoW proxy server. -->
 
 ![Local proof of work](../images/local-pow.png)
 
@@ -69,10 +69,10 @@ APIエンドポイントを介してノードと通信するクライアント�
 <!-- For a client application that will communicate with your nodes through API endpoints, it's best to use one of the IOTA client libraries on an instance of a serverless architecture such as [AWS Lambda](https://aws.amazon.com/lambda/). This way, your application is not restricted by hardware and has a high availability. -->
 
 :::info:
-[IOTAクライアントライブラリを始める](root://getting-started/0.1/tutorials/get-started.md)。
+[IOTAクライアントライブラリを始める](root://getting-started/0.1/how-to-guides/get-started.md)。
 :::
 <!-- :::info: -->
-<!-- [Get started with the IOTA client libraries](root://getting-started/0.1/tutorials/get-started.md). -->
+<!-- [Get started with the IOTA client libraries](root://getting-started/0.1/how-to-guides/get-started.md). -->
 <!-- ::: -->
 
 ## ロードバランサ

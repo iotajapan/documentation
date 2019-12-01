@@ -13,8 +13,8 @@
 ### ハードウェア
 <!-- ### Hardware -->
 
-* 次のようなデータを生成するセンサーまたはデバイス
-    <!-- * A sensor or device that generates data such as the following: -->
+- 次のようなデータを生成するセンサーまたはデバイス
+    <!-- - A sensor or device that generates data such as the following: -->
     * [Netatmo Weather Station](https://www.netatmo.com/en-us/weather)
     * [Bosch XDK](https://xdk.bosch-connectivity.com/)
     * [Nordic Semiconductor Thingy:52](https://www.nordicsemi.com/Software-and-Tools/Development-Tools/Nordic-Thingy-52-App)
@@ -23,30 +23,30 @@
 ### ソフトウェア
 <!-- ### Software -->
 
-* [データマーケットプレイス](https://github.com/iotaledger/data-marketplace)
-<!-- * [Data Marketplace](https://github.com/iotaledger/data-marketplace) -->
+- [データマーケットプレイス](https://github.com/iotaledger/data-marketplace)
+<!-- - [Data Marketplace](https://github.com/iotaledger/data-marketplace) -->
 
-* [Node.js](https://nodejs.org/)
+- [Node.js](https://nodejs.org/)
 
-* [MAM（マスク認証メッセージング）](https://github.com/iotaledger/mam.client.js)
-<!-- * [MAM (masked authenticated messaging)](https://github.com/iotaledger/mam.client.js) -->
+- [MAM（マスク認証メッセージング）](https://github.com/iotaledger/mam.client.js)
+<!-- - [MAM (masked authenticated messaging)](https://github.com/iotaledger/mam.client.js) -->
 
 次のクラウドサービスのいずれかを選択してください。
 <!-- Choose from one of the following cloud services: -->
 
-* Google Cloud
+- Google Cloud
     * [Web server](https://firebase.google.com/docs/hosting/)
     * [Authentication service](https://firebase.google.com/docs/auth/)
     * [NoSQL database](https://firebase.google.com/docs/firestore/)
     * [Background tasks and API server](https://firebase.google.com/docs/functions)
 
-* Amazon
+- Amazon
     * [Web server](https://aws.amazon.com/s3/)
     * [API server](https://aws.amazon.com/api-gateway/)
     * [NoSQL database](https://aws.amazon.com/dynamodb/)
     * [Background tasks](https://aws.amazon.com/lambda/)
 
-* Azure
+- Azure
     * [Web server](https://azure.microsoft.com/en-us/services/storage/)
     * [API server](https://azure.microsoft.com/en-us/services/app-service/)
     * [NoSQL database](https://azure.microsoft.com/en-us/services/cosmos-db/)
@@ -55,14 +55,14 @@
 ### プログラミング言語
 <!-- ### Programming knowledge -->
 
-* JavaScript/TypeScript
-* HTML/CSS
-* [Reactフレームワーク](https://github.com/facebook/create-react-app)
-<!-- * [React framework](https://github.com/facebook/create-react-app) -->
-* 必要なサードパーティライセンス
-<!-- * Required third-party licenses -->
-* クラウドサービス
-<!-- * Cloud service -->
+- JavaScript/TypeScript
+- HTML/CSS
+- [Reactフレームワーク](https://github.com/facebook/create-react-app)
+<!-- - [React framework](https://github.com/facebook/create-react-app) -->
+- 必要なサードパーティライセンス
+<!-- - Required third-party licenses -->
+- クラウドサービス
+<!-- - Cloud service -->
 
 ### IOTAの知識
 <!-- ### IOTA knowledge -->

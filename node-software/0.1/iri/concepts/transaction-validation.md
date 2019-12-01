@@ -1,24 +1,15 @@
-# トランザクション検証
-<!-- # Transaction validation -->
+# IRIノードでのトランザクション検証
+<!-- # Transaction validation in IRI nodes -->
 
-**IOTAネットワーク内の各IRIノードは、偽造トランザクションが決して確定されないようにトランザクションを検証する責任があります。**
-<!-- **Each IRI node in an IOTA network is responsible for validating transactions to make sure that counterfeit transactions are never confirmed.** -->
-
-台帳の整合性を保護するために、IRIノードは有効なトランザクションのみをそれぞれの[台帳](../concepts/the-ledger.md)に追加します。
-<!-- To protect the integrity of the ledger, IRI nodes append only valid transaction to their [ledgers](../concepts/the-ledger.md). -->
-
-IRIノードは次の段階でトランザクションを検証します。
-<!-- IRI nodes validate transactions during the following stages: -->
-- 新規トランザクションを受信した時
+**IRIノードは、次の2つの段階でトランザクションを検証します。**
+<!-- **IRI nodes validate transactions during the following stages: On receipt of new transactions and during the tip selection process** -->
+- **新規トランザクションを受信した時**
 <!-- - On receipt of new transactions -->
-- チップ選択プロセスの実行中
+- **チップ選択プロセスの実行中**
 <!-- - During the tip selection process -->
 
-## 新規トランザクション受信時のトランザクション検証
-<!-- ## Transaction validation on receipt of new transactions -->
-
-IRIノードは、クライアントと隣接ノードの両方から新しいトランザクションを受信します。
-<!-- IRI nodes receive new transactions from both clients and neighbor nodes. -->
+## 新しいトランザクション
+<!-- ## New transactions -->
 
 IRIノードが新しいトランザクションを受信すると、トランザクションバリデータはトランザクションの以下のことをチェックします。
 <!-- When an IRI node receives a new transaction, the transaction validator checks it for the following: -->
@@ -32,11 +23,8 @@ IRIノードが新しいトランザクションを受信すると、トラン�
 - IOTAトークン移転用のトランザクションの場合、アドレスの最後のトリットが0である。
 <!-- - The last trit of an address is 0 for value transactions -->
 
-## チップ選択プロセス中の検証
-<!-- ## Validation during the tip selection process -->
-
-クライアントがチップトランザクションをIRIノードにリクエストすると、[チップ選択](../concepts/tip-selection.md)が行われます。
-<!-- When clients ask an IRI node for tip transactions, it does the [tip selection](../concepts/tip-selection.md). -->
+## チップ選択
+<!-- ## Tip selection -->
 
 チップ選択プロセス中にIRIノードが辿る各トランザクションのバンドルは、バンドルバリデータと台帳バリデータによってチェックされます。
 <!-- The bundles of each transaction that the IRI node traverses during the tip selection process are checked by the bundle validator and the ledger validator. -->
@@ -61,7 +49,7 @@ IRIノードが新しいトランザクションを受信すると、トラン�
 <!-- ### Ledger validator -->
 
 台帳バリデータは、二重支払いが確定されないようにします。
-<!-- The ledger validator makes sure that double-spends are never confirmed. -->
+<!-- The ledger validator makes sure that double spends are never confirmed. -->
 
 [重み付きランダムウォーク](../concepts/tip-selection.md)中に、台帳バリデータは、バンドル内のすべてのアドレスのIOTAトークンの量をチェックすることによって、各バンドルが二重支払いにつながらないことをチェックします。二重支払いが見つかった場合、重み付きランダムウォークは1つトランザクションを遡り、チップトランザクションへの別の経路を見つけます。
-<!-- During a [weighted random walk](../concepts/tip-selection.md), the ledger validator checks that each bundle does not lead to a double-spend by checking the values of all addresses in a bundle. If a double-spend is found, the weighted random walk steps back one transaction and finds another route to a tip transaction. -->
+<!-- During a [weighted random walk](../concepts/tip-selection.md), the ledger validator checks that each bundle does not lead to a double-spend by checking the values of all addresses in a bundle. If a double spend is found, the weighted random walk steps back one transaction and finds another route to a tip transaction. -->

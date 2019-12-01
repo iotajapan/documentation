@@ -1,8 +1,8 @@
 # ノードソフトウェア
 <!-- # Node software -->
 
-**IOTAネットワークは、相互に接続されたノードから構成されています。これらのノードは、同じノードソフトウェアを実行するコンピュータです。このソフトウェアは、ノードにタングルへの読み取り/書き込みアクセス権を付与し、ノードがトランザクションを検証してトランザクションを台帳に保存できるようにします。**
-<!-- **IOTA networks consist of interconnected nodes, which are computers that run the same node software. This software gives nodes read/write access to the Tangle and allows them to validate transactions and store them in their ledgers.** -->
+**IOTAネットワークは、同じノードソフトウェアを実行する相互接続されたノードで構成されます。このソフトウェアは、ノードにタングルへの読み取り/書き込みアクセスを許可し、トランザクションを検証し、ノードのローカル台帳にトランザクションを保存できるようにします。**
+<!-- **IOTA networks consist of interconnected nodes that run the same node software. This software gives nodes read/write access to the Tangle, allows them to validate transactions, and allows them to store transactions in their local ledgers.** -->
 
 -------------------------
 ![IRI](../images/IRI.png)

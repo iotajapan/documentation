@@ -4,8 +4,8 @@
 **許可されたユーザーのみが閲覧できるチャンネルに秘密のメッセージを公開したい場合は、制限付きチャネルを使用できます。制限付きチャネルはすべてのユーザーが検索できるように開いていますが、サイドキーを持つユーザーのみが復号化できます。このタイプのチャネルは、プライベート通信に役立ちます。**
 <!-- **If you want to publish secret messages to a channel that only permitted users can read, you can use a restricted channel. These channels are open for any user to find, but only those with the side key can decrypt it. This type of channel is useful for private communications.** -->
 
-ここで、テストに使用できる[IOTAネットワーク](root://getting-started/0.1/references/iota-networks.md)の1つであるDevnetのノードに接続します。Devnetは、トークンが無料であることを除いて、Mainnetに似ています。
-<!-- Here, we connect to a node on the Devnet, which is one of the [IOTA networks](root://getting-started/0.1/references/iota-networks.md) that you can use for testing. The Devnet is similar to the Mainnet, except the tokens are free. -->
+ここで、テストに使用できる[IOTAネットワーク](root://getting-started/0.1/network/iota-networks.md)の1つであるDevnetのノードに接続します。Devnetは、トークンが無料であることを除いて、Mainnetに似ています。
+<!-- Here, we connect to a node on the Devnet, which is one of the [IOTA networks](root://getting-started/0.1/network/iota-networks.md) that you can use for testing. The Devnet is similar to the Mainnet, except the tokens are free. -->
 
 1. パッケージを`require`します。
   <!-- 1. Require the packages -->

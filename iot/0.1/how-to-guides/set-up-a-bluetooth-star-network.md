@@ -51,7 +51,7 @@
 Bluetoothスターネットワークができたので、サンプルアプリケーションのいずれかを試す準備ができました。
 <!-- Now that you have a Bluetooth star network, you're ready to try one of our sample applications: -->
 
-* [センサーサーバーからのデータのリクエストする](../how-to-guides/run-an-environment-sensor-and-client.md)
-<!-- * [Request data from the sensor server](../how-to-guides/run-an-environment-sensor-and-client.md) -->
-* [センサーデータをタングルへ添付する](../how-to-guides/run-an-environment-to-tangle-app.md)
-<!-- * [Attach sensor data to the Tangle](../how-to-guides/run-an-environment-to-tangle-app.md) -->
+- [センサーサーバーからのデータのリクエストする](../how-to-guides/run-an-environment-sensor-and-client.md)
+<!-- - [Request data from the sensor server](../how-to-guides/run-an-environment-sensor-and-client.md) -->
+- [センサーデータをタングルへ添付する](../how-to-guides/run-an-environment-to-tangle-app.md)
+<!-- - [Attach sensor data to the Tangle](../how-to-guides/run-an-environment-to-tangle-app.md) -->

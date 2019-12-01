@@ -13,8 +13,8 @@
 **テクノロジーを探求する：** IOTAの使用経験がほとんどないかまったくない場合は、IOTAのテクノロジーと利点を理解するのに役立つプライベートタングルを設定できます。
 <!-- **Explore the technology:** If you have little or no experience with IOTA, you can set up your own private Tangle to help you understand the technology and how you can benefit from it. -->
 
-**より速いIOTAネットワークを設定する：** 開発するユースケースが現在のパブリックIOTAネットワークが提供しているネットワーク速度よりも速いネットワーク速度を必要とする場合、独自のタングルを設定して毎秒のトランザクション数を増やすことができます。たとえば、[最小重量値](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)の値を小さくして、プルーフオブワークをより速くすることができます。
-<!-- **Set up a faster IOTA network:** If your use cases need a faster network speed than the public IOTA networks can currently provide, you can set up your own private Tangle to increase the number of transactions per second. For example, you could lower the value of the [minimum weight magnitude](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) to make proof of work quicker. -->
+**より速いIOTAネットワークを設定する：** 開発するユースケースが現在のパブリックIOTAネットワークが提供しているネットワーク速度よりも速いネットワーク速度を必要とする場合、独自のタングルを設定して毎秒のトランザクション数を増やすことができます。たとえば、[最小重量値](root://getting-started/0.1/transactions/proof-of-work.md#minimum-weight-magnitude)の値を小さくして、プルーフオブワークをより速くすることができます。
+<!-- **Set up a faster IOTA network:** If your use cases need a faster network speed than the public IOTA networks can currently provide, you can set up your own private Tangle to increase the number of transactions per second. For example, you could lower the value of the [minimum weight magnitude](root://getting-started/0.1/transactions/proof-of-work.md#minimum-weight-magnitude) to make proof of work quicker. -->
 
 **アプリケーションの開発とテストを行う：** IOTA上でアプリケーションを開発またはテストしたい場合は、トランザクションが一般に公開されないように、プライベートタングル上で実行することができます。プライベートタングルを使用すると、ネットワークをリセットして同じ時点からすべてのテストを開始できるという利点もあります。
 <!-- **Develop and test an application:** If you want to develop or test an application on IOTA, you may want to do so on a private Tangle so that your transactions aren't visible to the public. Having a private Tangle also has the added benefit of being able to reset the network to start all tests from the same point. -->
@@ -28,8 +28,8 @@
 IOTAは、トランザクションを検証して、そのトランザクションを保存するノードの分散ネットワークです。ノードがアドレスの残高を更新する前に、更新された残高につながるすべてのトランザクションについて合意に達する必要があります。ノードがトランザクションに関して合意に達すると、それらのトランザクションは確定されます。
 <!-- IOTA is a distributed network of nodes that validate transactions and store them. Before nodes can update the balance of an address, they must reach a consensus on any transactions that lead to the updated balance. When nodes reach a consensus, on transactions, those transactions are confirmed. -->
 
-IOTA Mainnet上で、[コーディネーター](root://dev-essentials/0.1/concepts/the-tangle.md#the-coordinator)はマイルストーンを含むバンドルを作成、署名、および送信します。Mainnet上のノードは、合意に達するためにマイルストーンを使用します。マイルストーンによって参照され承認されたトランザクションはすべて確定されます。
-<!-- On the IOTA Mainnet, the [Coordinator](root://dev-essentials/0.1/concepts/the-tangle.md#the-coordinator) creates, signs, and sends bundles that contain milestones. The nodes on this network use these milestone to reach a consensus. Any transaction that's referenced and approved by a milestone is confirmed. -->
+IOTA Mainnet上で、[コーディネーター](root://getting-started/0.1/network/the-tangle.md#the-coordinator)はマイルストーンを含むバンドルを作成、署名、および送信します。Mainnet上のノードは、合意に達するためにマイルストーンを使用します。マイルストーンによって参照され承認されたトランザクションはすべて確定されます。
+<!-- On the IOTA Mainnet, the [Coordinator](root://getting-started/0.1/network/the-tangle.md#the-coordinator) creates, signs, and sends bundles that contain milestones. The nodes on this network use these milestone to reach a consensus. Any transaction that's referenced and approved by a milestone is confirmed. -->
 
 コンパスはコーディネーターのオープンソース実装です。コンパスを使用すると、自分のIOTAネットワーク内のノードが、コーディネーターのマイルストーンではなくコンパスのマイルストーンを使って合意に達することができます。
 <!-- Compass is an open-source implementation of the Coordinator. You can use Compass to allow the nodes in your own IOTA network to reach a consensus on Compass' milestones instead of the Coordinator's ones. -->

@@ -1,8 +1,8 @@
 # RESTful API入門
 <!-- # Get started with the RESTful API -->
 
-**ハブのRESTful APIサーバーを公開すると、HTTPエンドポイントを介してハブと対話できます。これらのエンドポイントを使用すると、ハブデータベースおよびIOTAノードと対話することにより、ユーザーのIOTAトークンを管理できます。このガイドでは、RESTful APIの基本を学習して、新しい預け入れアドレスを持つ新しいユーザーを作成します。**
-<!-- **When you expose Hub's RESTful API server, you can interact with it through HTTP endpoints. These endpoints allow you to manage users' tokens by interfacing with the Hub database and an IOTA node. In this guide, you learn the basics of the RESTful API to create a new user with some new deposit addresses.** -->
+**ハブのRESTful APIサーバーを公開すると、HTTPエンドポイントを介してハブと対話できます。これらのエンドポイントを使用すると、ハブデータベースおよびIOTA[ノード](root://getting-started/0.1/network/nodes.md)と対話することにより、ユーザーのIOTAトークンを管理できます。このガイドでは、RESTful APIの基本を学習して、新しい預け入れアドレスを持つ新しいユーザーを作成します。**
+<!-- **When you expose Hub's RESTful API server, you can interact with it through HTTP endpoints. These endpoints allow you to manage users' IOTA tokens by interfacing with the Hub database and a [node](root://getting-started/0.1/network/nodes.md). In this guide, you learn the basics of the RESTful API to create a new user with some new deposit addresses.** -->
 
 ## 前提条件
 <!-- ## Prerequisites -->
@@ -10,121 +10,86 @@
 このガイドのコードサンプルを使用するには、次のものが必要です。
 <!-- To use the code samples in this guide, you must have the following: -->
 
-* [Node.js（8以上）](https://nodejs.org/en/)または[Python（3以上）](https://www.python.org/downloads/)と[PIP](https://pip.pypa.io/en/stable/installing/)
-<!-- * [Node.js (8+)](https://nodejs.org/en/) or [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/) -->
-* [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディタ
-<!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
-* コマンドプロンプトへのアクセス
-<!-- * Access to a command prompt -->
+- [ハブのインスタンス](../how-to-guides/install-hub.md)
+<!-- - An [instance of Hub](../how-to-guides/install-hub.md) -->
+- [Node.js (8以上)](https://nodejs.org/en/)、[Python (3以上)](https://www.python.org/downloads/)と[PIP](https://pip.pypa.io/en/stable/installing/)もしくは[cURL](https://curl.haxx.se/download.html)
+<!-- - [Node.js (8+)](https://nodejs.org/en/), [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/), or [cURL](https://curl.haxx.se/download.html) -->
+- [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディター
+<!-- - A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
+- コマンドラインインターフェースへのアクセス
+<!-- - Access to a command-line interface -->
 
-:::info:
-エンドポイントはすべて[RESTful APIリファレンス](../references/restful-api-reference.md)に文書化されています。
-:::
-<!-- :::info: -->
-<!-- The endpoints are all documented in the [RESTful API reference](../references/restful-api-reference.md). -->
-<!-- ::: -->
+---
 
-## 手順1. ハブへの接続をセットアップする
-<!-- ## Step 1. Set up a connection to Hub -->
-
-1\. ライブラリをインストールします。
-<!-- 1\. Install the libraries -->
+1\. 新しいユーザーを作成します。`http://localhost:50051` URLを、ハブのセットアップ時に使用した`--listenAddress`フラグの値に置き換えます。
+<!-- 1\. Create a new user. Replace the `http://localhost:50051` URL with value of the `--listenAddress` flag that you used when you set up Hub. -->
 
 --------------------
-### Node.js
-
-```bash
-npm install request --save
-```
----
 ### Python
 
-```bash
-pip install urllib3
-```
---------------------
-
-2\. ライブラリをインポートします。
-<!-- 2\. Import the libraries -->
-
---------------------
-### Node.js
-
-```bash
-var request = require('request');
-```
----
-### Python
-
-```bash
+```python
+import urllib2
 import json
-import urllib3
-```
---------------------
 
-3\. リクエストボディを設定します。`http://127.0.0.1:50051`URLを、ハブのセットアップ時に使用した`--listenAddress`フラグの値に置き換えます。
-<!-- 3\. Set up the request body. Replace the `http://127.0.0.1:50051` URL with value of the `--listenAddress` flag that you used when you set up Hub. -->
-<!-- 3\. Set up the request body. Replace the `http://127.0.0.1:50051` URL with value of the `--listenAddress` flag that you used when you set up Hub. -->
+command = {
+	"command": "CreateUser",
+	"userId": "Jake"
+}
 
---------------------
-### Node.js
+stringified = json.dumps(command)
 
-```bash
-var options = {
-url: 'http://127.0.0.1:50051',
-method: 'POST',
-headers: {
-    'Content-Type': 'application/json',
-    'X-IOTA-API-Version': '1',
-    'Content-Length': Buffer.byteLength(JSON.stringify(command))
-},
-json: command
-};
+headers = {
+	'content-type': 'application/json',
+	'X-IOTA-API-Version': '1'
+}
 
-request(options, function (error, response, data) {
-    if (!error && response.statusCode == 200) {
-        console.log(JSON.stringify(data));
-    }
-});
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
+returnData = urllib2.urlopen(request).read()
+
+jsonData = json.loads(returnData)
+
+print jsonData
 ```
 ---
-### Python
-
-```bash
-http = urllib3.PoolManager()
-
-response = http.request('POST', 'http://127.0.0.1:50051',
-                 headers={'Content-Type': 'application/json', 'X-IOTA-API-Version': '1'},
-                 body=command)
-
-results = json.loads(response.data.decode('utf-8'))
-print(json.dumps(results, indent=1, sort_keys=True))
-```
---------------------
-
-## 手順2. ハブへIOTAトークンを預け入れる
-<!-- ## Step 2. Deposit IOTA tokens into Hub -->
-
-1\. 新しいユーザーを作成する
-<!-- 1\. Create a new user -->
-
---------------------
 ### Node.js
 
-```bash
+```js
+var request = require('request');
+
 command = {
   "command": "CreateUser",
   "userId": "Jake"
 }
+
+var options = {
+  url: 'http://localhost:50051',
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'X-IOTA-API-Version': '1',
+    'Content-Length': Buffer.byteLength(JSON.stringify(command))
+  },
+  json: command
+};
+
+request(options, function (error, response, data) {
+  if (!error && response.statusCode == 200) {
+    console.log(data);
+  }
+});
 ```
 ---
-### Python
+### cURL
 
 ```bash
-command = json.dumps({
+curl http://localhost:50051 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{
   "command": "CreateUser",
   "userId": "Jake"
-})
+}'
 ```
 --------------------
 
@@ -138,59 +103,87 @@ command = json.dumps({
 <!-- You can see this user in the Hub database by [querying the `user_account` table](../how-to-guides/query-the-database.md). -->
 <!-- ::: -->
 
-2\. ユーザーの預け入れアドレスを作成します。
-<!-- 2\. Create a new deposit address for the user -->
+2\. [チェックサム](root://getting-started/0.1/clients/checksums.md)を付随して新しい預け入れアドレスを作成します。
+<!-- 2\. Create a new deposit address with a [checksum](root://getting-started/0.1/clients/checksums.md) -->
 
 --------------------
-### Node.js
-
-```bash
-command = {
-  "command": "GetDepositAddress",
-  "userId": "Jake"
-}
-```
----
 ### Python
 
-```bash
-command = json.dumps({
-  "command": "GetDepositAddress",
-  "userId": "Jake"
-})
-```
---------------------
+```python
+import urllib2
+import json
 
-コンソールに新しい預け入れアドレスが表示されます。
-<!-- You should see a new deposit address in the console. -->
-
-3\. チェックサム付きの新しい預け入れアドレスを作成します。
-<!-- 3\. Create a new deposit address with the checksum -->
-
---------------------
-### Node.js
-
-```bash
 command = {
-  "command": "GetDepositAddress",
-  "includeChecksum": true,
-  "userId": "Jake"
+	"Command": "GetDepositAddress",
+	"userId": "Jake",
+	"includeChecksum": "true"
 }
+
+stringified = json.dumps(command)
+
+headers = {
+	'content-type': 'application/json',
+	'X-IOTA-API-Version': '1'
+}
+
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
+returnData = urllib2.urlopen(request).read()
+
+jsonData = json.loads(returnData)
+
+print jsonData
 ```
 ---
-### Python
+### Node.js
+
+```js
+var request = require('request');
+
+command = {
+  "command": "GetDepositAddress",
+  "userId": "Jake",
+  "includeChecksum": "true"
+}
+
+var options = {
+  url: 'http://localhost:50051',
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'X-IOTA-API-Version': '1',
+    'Content-Length': Buffer.byteLength(JSON.stringify(command))
+  },
+  json: command
+};
+
+request(options, function (error, response, data) {
+  if (!error && response.statusCode == 200) {
+    console.log(data);
+  }
+});
+```
+---
+### cURL
 
 ```bash
-command = json.dumps({
+curl http://localhost:50051 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{
   "command": "GetDepositAddress",
-  "includeChecksum": true,
-  "userId": "Jake"
-})
+  "userId": "Jake",
+  "includeChecksum": "true"
+}'
 ```
 --------------------
 
-これで、ユーザーには2つの異なる`seeduuid`フィールドから作成された2つのアドレスがあります。[`user_address`テーブルのクエリ](../how-to-guides/query-the-database.md)によってデータベース内のこのデータを見ることができます。
-<!-- Now, the user has two addresses that were created from two different `seeduuid` fields. You can see this data in the database by [querying the `user_address` table](../how-to-guides/query-the-database.md). -->
+標準出力には、90トライトの預け入れアドレスが表示されます。
+<!-- In the output, you should see a 90-tryte deposit address. -->
+
+```bash
+"address": "RDZVDZKRBX9T9L9XXONXDVJDRKYPAABWMQLORGCDCWHDDTSOPRZPCQB9AIZZWZAQ9NBZNVUUUSPQHRGWDYZUVP9WSC"
+```
 
 :::info:
 データベースでは、アドレスは常にチェックサムなしで保存されます。
@@ -199,49 +192,98 @@ command = json.dumps({
 <!-- In the database, addresses are always saved without the checksum. -->
 <!-- ::: -->
 
-4\. ユーザーの預け入れアドレスのいずれかにIOTAトークンを送信します。
-<!-- 4\. Send some IOTA tokens to one of the user's deposit addresses -->
+3\. ユーザーの預け入れアドレスにIOTAトークンを送信します。
+<!-- 3\. Send some IOTA tokens to the user's deposit addresses -->
 
 :::info:
-[Trinity](root://wallets/0.1/trinity/introduction/overview.md)は公式のIOTAウォレットであり、IOTAトークンを簡単に送信できます。
+[公式トリニティウォレット](root://wallets/0.1/trinity/introduction/overview.md)を使用してIOTAトークンを送信できます。
 :::
 <!-- :::info: -->
-<!-- [Trinity](root://wallets/0.1/trinity/introduction/overview.md) is the official IOTA wallet, which makes it easy to send IOTA tokens. -->
+<!-- You can use the [official Trinity wallet](root://wallets/0.1/trinity/introduction/overview.md) to send IOTA tokens. -->
 <!-- ::: -->
 
-5\. ユーザーの残高と履歴を取得します。
-<!-- 5\. Get the balance and history for the user -->
+4\. ユーザーの残高と履歴を取得します。
+<!-- 4\. Get the balance and history for the user -->
 
 --------------------
+### Python
+
+```python
+import urllib2
+import json
+
+command = {
+	"command": "GetBalance",
+	"userId": "Jake"
+}
+
+stringified = json.dumps(command)
+
+headers = {
+	'content-type': 'application/json',
+	'X-IOTA-API-Version': '1'
+}
+
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
+returnData = urllib2.urlopen(request).read()
+
+jsonData = json.loads(returnData)
+
+print jsonData
+```
+---
 ### Node.js
 
-```bash
+```js
+var request = require('request');
+
 command = {
   "command": "GetBalance",
   "userId": "Jake"
 }
+
+var options = {
+  url: 'http://localhost:50051',
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'X-IOTA-API-Version': '1',
+    'Content-Length': Buffer.byteLength(JSON.stringify(command))
+  },
+  json: command
+};
+
+request(options, function (error, response, data) {
+  if (!error && response.statusCode == 200) {
+    console.log(data);
+  }
+});
 ```
 ---
-### Python
+### cURL
 
 ```bash
-command = json.dumps({
+curl http://localhost:50051 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{
   "command": "GetBalance",
   "userId": "Jake"
-})
+}'
 ```
 --------------------
 
-手順4でIOTAトークンを預け入れアドレスに送信した場合、出力には次のように表示されます。
-<!-- If you sent IOTA tokens to the deposit address in step 4, the output should display something like the following: -->
+IOTAトークンを預け入れアドレスに送信した場合、標準出力には次のように表示されます。
+<!-- If you sent IOTA tokens to the deposit address, the output should display something like the following: -->
 
 ```shell
 10 i available for 'Jake'
 History:
 events {
-	timestamp: 1540856214000
-	type: DEPOSIT
-	amount: 10
+    timestamp: 1540856214000
+    type: DEPOSIT
+    amount: 10
 }
 ```
 
@@ -249,10 +291,10 @@ events {
 <!-- If you look at the deposit address history in a Tangle explorer such as [thetangle.org](https://thetangle.org/), you will see that Hub moved the funds away from the deposit address and into another address (Hub owner's address where funds are aggregated until a user requests a withdrawal). This process is called a [sweep](../concepts/sweeps.md). -->
 
 :::success:おめでとうございます:tada:
-新しいユーザーを正常に作成し、ハブがIOTAトークンの預け入れを処理する方法をテストしました。
+新しいユーザーを正常に作成し、ハブが預け入れを処理する方法をテストしました。
 :::
 <!-- :::success:Congratulations :tada: -->
-<!-- You've successfully created a new user and tested how Hub handles deposits of IOTA tokens. -->
+<!-- You've successfully created a new user and tested how Hub handles deposits. -->
 <!-- ::: -->
 
 ## 次のステップ
@@ -261,5 +303,5 @@ events {
 [デモ取引所のセットアップ](../how-to-guides/create-a-demo-exchange.md)を行い、ハブの統合をテストする。
 <!-- [Set up a demo exchange](../how-to-guides/create-a-demo-exchange.md) to test an integration of Hub. -->
 
-[取引所にハブを統合する](../how-to-guides/integrate-hub.md)。
-<!-- [Integrate Hub into your exchange](../how-to-guides/integrate-hub.md). -->
+[統合オプションをご覧ください](../how-to-guides/integrate-hub.md)。
+<!-- [See our integration options](../how-to-guides/integrate-hub.md). -->

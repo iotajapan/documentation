@@ -1,18 +1,17 @@
-# スウィープアドレスからIOTAトークンをリカバーする
-<!-- # Recover IOTA tokens from a swept address -->
+# 使用済みアドレスからIOTAトークンをリカバーする
+<!-- # Recover IOTA tokens from a spent address -->
 
-**ユーザーは、既にスウィープされた使用済みの預け入れアドレスにIOTAトークンを送信する場合があります。この場合、攻撃者が署名をブルートフォースしてIOTAトークンを盗もうとするリスクがあります。スウィープされたアドレスからIOTAトークンを回復するために、潜在的な攻撃者ができる前にIOTAトークンを新しいアドレスに転送しようとすることができます。これを行うと、アドレスの秘密鍵がより多く公開されますが、IOTAトークンを安全なアドレスに転送するためには仕方がありません。**
-<!-- **Sometimes users send IOTA tokens to spent deposit addresses that have already been swept. In this case, the address is at risk of an attacker trying to brute force its signature to steal its tokens. To recover the tokens from the swept address, you can try to transfer them to a new address before a potential attacker can. Doing so exposes more of the address's private key, but this is inevitable to transfer the tokens to a safe address.** -->
+**ユーザーが[スウィープ](../concepts/sweeps.md)に既に含まれている[使用済みアドレス](root://getting-started/0.1/clients/addresses.md#spent-addresses)にIOTAトークンを預け入れる場合があります。この場合、攻撃者が署名をブルートフォースしてIOTAトークンを盗もうとするリスクがあります。使用済みアドレスからIOTAトークンをリカバーするために、潜在的な攻撃者ができる前にIOTAトークンを新しいアドレスに転送しようとすることができます。これにより、アドレスの秘密鍵がより多く公開されますが、IOTAトークンを安全なアドレスに転送するためには避けられません。**
+<!-- **Sometimes users deposit IOTA tokens into [spent addresses](root://getting-started/0.1/clients/addresses.md#spent-addresses) that have already been included in a [sweep](../concepts/sweeps.md). In this case, the address is at risk of an attacker trying to brute force its signature to steal its tokens. To recover the tokens from the spent address, you can try to transfer them to a new address before a potential attacker can. Doing so exposes more of the address's private key, but this is inevitable to transfer the IOTA tokens to a safe address.** -->
+
+このガイドでは、`signBundle()` gRPCメソッドを使用して、使用済みアドレスからIOTAトークンをリカバーします。この方法は、使用済みアドレスの合計残高を1つ以上の出力アドレスに預け入れるカスタムバンドルを作成するのに役立ちます。
+<!-- In this guide, we use the `signBundle()` gRPC method to recover IOTA tokens from a spent address. This method is useful for creating a custom bundle that deposits any amount of the spent address's total balance into one or more output addresses. -->
 
 :::info:
-このガイドでは、使用済みアドレスからIOTAトークンをリカバーするために、`signBundle()` gRPC API呼び出しを使用します。このメソッドは、使用済みアドレスの合計残高を1つ以上の出力アドレスに預け入れるカスタムバンドルを作成するのに役立ちます。
-
-使用済みアドレスの合計残高を単一の出力アドレスに転送するには、[`recoverFunds()`メソッド](../references/grpc-api-reference.md#hub.rpc.RecoverFundsRequest)を使用する方が簡単です。
+使用済みアドレスの合計残高を単一の出力アドレスに転送するには、`recoverFunds()`メソッドを使用する方が簡単です。
 :::
 <!-- :::info: -->
-<!-- In this guide, we use the `signBundle()` gRPC API call to recover IOTA tokens from a spent address. This method is useful for creating a custom bundle that deposits any amount of the spent address's total balance into one or more output addresses. -->
-
-<!-- To transfer the total balance of a spent address into a single output address, it's easier to use the [`recoverFunds()` method](../references/grpc-api-reference.md#hub.rpc.RecoverFundsRequest). -->
+<!-- To transfer the total balance of a spent address into a single output address, it's easier to use the `recoverFunds()` API call. -->
 <!-- ::: -->
 
 ## 前提条件
@@ -21,23 +20,14 @@
 このガイドを完了するには、次のものが必要です。
 <!-- To complete this guide, you need the following: -->
 
-* Node.js 8、またはNode.js 10以降。 [最新のLTS](https://nodejs.org/en/download/)をお勧めします。
-<!-- * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
-* [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディター
-<!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
-* コマンドプロンプトへのアクセス
-<!-- * Access to a command prompt -->
-* [`@iota/bundle`](https://github.com/iotaledger/iota.js/tree/next/packages/bundle), [`@iota/core`](https://github.com/iotaledger/iota.js/tree/next/packages/core), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), および[`@iota/transaction`](https://github.com/iotaledger/iota.js/tree/next/packages/transaction)パッケージ
-<!-- * The [`@iota/bundle`](https://github.com/iotaledger/iota.js/tree/next/packages/bundle), [`@iota/core`](https://github.com/iotaledger/iota.js/tree/next/packages/core), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/transaction`](https://github.com/iotaledger/iota.js/tree/next/packages/transaction) packages -->
-* ハブの[`SignBundle_enabled`フラグ](../references/command-line-flags.md#signBundle)が`true`に設定されていることを確認します。
-<!-- * Make sure that Hub's [`SignBundle_enabled` flag](../references/command-line-flags.md#signBundle) is set to `true`. -->
-
-:::info:
-IOTAクライアントライブラリを使用したことがない場合は、[入門チュートリアル](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を完了することをお勧めします。
-:::
-<!-- :::info: -->
-<!-- If you've never used the IOTA client libraries before, we recommend completing [the getting started tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md) -->
-<!-- ::: -->
+- [ハブのインスタンス](../how-to-guides/install-hub.md)
+<!-- - An [instance of Hub](../how-to-guides/install-hub.md) -->
+- [Node.jsの開発者環境](root://iota-js/0.1/workshop/set-up-a-developer-environment.md)
+<!-- - [A Node.js developer environment](root://iota-js/0.1/workshop/set-up-a-developer-environment.md) -->
+- [`@iota/bundle`](https://github.com/iotaledger/iota.js/tree/next/packages/bundle), [`@iota/core`](https://github.com/iotaledger/iota.js/tree/next/packages/core), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), および[`@iota/transaction`](https://github.com/iotaledger/iota.js/tree/next/packages/transaction)パッケージ
+<!-- - The [`@iota/bundle`](https://github.com/iotaledger/iota.js/tree/next/packages/bundle), [`@iota/core`](https://github.com/iotaledger/iota.js/tree/next/packages/core), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/transaction`](https://github.com/iotaledger/iota.js/tree/next/packages/transaction) packages -->
+- [`SignBundle_enabled` flag](../references/command-line-options.md#signBundle)を`true`に設定します。
+<!-- - The [`SignBundle_enabled` flag](../references/command-line-options.md#signBundle) set to `true`. -->
 
 ## 手順1. 未署名のバンドルを作成する
 <!-- ## Step 1. Create an unsigned bundle -->
@@ -52,18 +42,8 @@ IOTAクライアントライブラリを使用したことがない場合は、[
 <!-- <!-- In this guide, we use the JavaScript client library to create and send the bundle, but we also have other [official and community libraries](root://client-libraries/0.1/introduction/overview.md), including Go, Java, and Python. --> -->
 <!-- ::: -->
 
-1. パッケージを要求します。
-  <!-- 1. Require the packages -->
-
-    ```js
-    const Iota = require('@iota/core');
-    const Bundle = require('@iota/bundle');
-    const Transaction = require('@iota/transaction');
-    const Converter = require('@iota/converter');
-    ```
-
-2. 署名されていないバンドルを作成し、ファイルに保存する関数を作成します。
-  <!-- 2. Write a function that creates an unsigned bundle and saves it to a file -->
+1. 署名されていないバンドルを作成してファイルに保存する関数を作成します。
+  <!-- 1. Write a function that creates an unsigned bundle and saves it to a file -->
 
     ```js
     async function createUnsignedBundle({ outputAddress, inputAddress, securityLevel, value }) {
@@ -101,28 +81,28 @@ IOTAクライアントライブラリを使用したことがない場合は、[
     }
     ```
 
-3. ハブから次の値を取得し、それらを`parameters`オブジェクトに追加します。
-  <!-- 3. Get the following values from Hub and add them to the `parameters` object: -->
+2. ハブから次の値を取得し、それらを`parameters`オブジェクトに追加します。
+  <!-- 2. Get the following values from Hub and add them to the `parameters` object: -->
 
     | **フィールド** | **説明** | **メモ** |
     | :------------- | :------- | :------- |
-    | `outputAddress` | スウィープアドレス上のIOTAトークンを転送する新しい81トライトのアドレス（チェックサムなし） | このアドレスは、ハブアドレスである必要はありません。たとえば、IOTAトークンをハードウェアウォレットのアドレスに送信できます。 |
-    | `inputAddress` | 回復する必要があるIOTAトークンを含む、スウィープした81トライトのアドレス（チェックサムなし） | [`balanceSubscription()`メソッド](../references/grpc-api-reference.md#hub.rpc.BalanceSubscriptionRequest)を使用して、受信アドレスへの預け入れをチェックすることをお勧めします。[`getUserHistory()`メソッド](../references/grpc-api-reference.md#hub.rpc.GetUserHistoryRequest)を使用して、どの使用済みアドレスに正のバランスがあるかを確認することもできます。 |
-    | `securityLevel` | スウィープアドレスのセキュリティレベル | デフォルトのセキュリティレベルは2です。[`keySecLevel`コマンドラインフラグ](../references/command-line-flags.md#keySec)のセキュリティレベルを変更した場合は、必ずそれを使用します。 |
-    | `value` | `inputAddress`フィールドのスウィープアドレスの合計残高 | [thetangle.org](https://thetangle.org/)などのタングルエクスプローラーでアドレスの残高を確認できます。 |
+    | `outputAddress` | 使用済みアドレスからIOTAトークンを転送する新しい81トライトのアドレス（チェックサムなし） | このアドレスは、ハブアドレスである必要はありません。たとえば、IOTAトークンをハードウェアウォレットのアドレスに送信できます。 |
+    | `inputAddress` | リカバーする必要があるIOTAトークンを含む、81トライトの使用済みアドレス（チェックサムなし） | [`balanceSubscription()`メソッド](../references/grpc-api-reference.md#hub.rpc.BalanceSubscriptionRequest)を使用して、受信アドレスへの預け入れをチェックすることをお勧めします。[`getUserHistory()`メソッド](../references/grpc-api-reference.md#hub.rpc.GetUserHistoryRequest)を使用して、どの使用済みアドレスに正の残高があるかを確認することもできます。 |
+    | `securityLevel` | 使用済みアドレスのセキュリティレベル | デフォルトのセキュリティレベルは2です。[`keySecLevel`コマンドラインオプション](../references/command-line-options.md#keySecLevel)のセキュリティレベルを変更した場合は、必ず`securityLevel`を使用してください。 |
+    | `value` | `inputAddress`フィールドの使用済みアドレスの合計残高 | [thetangle.org](https://thetangle.org/)などのタングルエクスプローラーでアドレスの残高を確認できます。 |
 
-    <!-- |**Field**|**Description**|**Notes**| -->
-    <!-- |:----|:----------|:-----------| -->
-    <!-- |`outputAddress`|The new 81-tryte address (without a checksum) to which you want to transfer the tokens on the swept address|This address does not need to be a Hub address. For example, you may want to send the tokens to an address on a hardware wallet. | -->
-    <!-- |`inputAddress`|The swept 81-tryte address (without a checksum) that contains the IOTA tokens that you need to recover|It's best practice to use the [`balanceSubscription()` method](../references/grpc-api-reference.md#hub.rpc.BalanceSubscriptionRequest) to check for incoming deposits into swept addresses. You can also use the [`getUserHistory()` method](../references/grpc-api-reference.md#hub.rpc.GetUserHistoryRequest) to check which spent addresses have a positive balance.| -->
-    <!-- |`securityLevel`| The security level of the swept address|The default security level is 2. If you changed the security level in the [`keySecLevel` command-line flag](../references/command-line-flags.md#keySec), make sure you use that one. | -->
-    <!-- |`value`|The total balance of the swept address in the `inputAddress` field|You can check the balance of any address on a Tangle explorer such as [thetangle.org](https://thetangle.org/) | -->
+    |**Field**|**Description**|**Notes**|
+    |:----|:----------|:-----------|
+    |`outputAddress`|The new 81-tryte address (without a checksum) to which you want to transfer the IOTA tokens from the spent address|This address does not need to be a Hub address. For example, you may want to send the tokens to an address on a hardware wallet. |
+    |`inputAddress`|The spent 81-tryte address (without a checksum) that contains the IOTA tokens that you need to recover|It's best practice to use the [`balanceSubscription()` method](../references/grpc-api-reference.md#hub.rpc.BalanceSubscriptionRequest) to check for incoming deposits into spent addresses. You can also use the [`getUserHistory()` method](../references/grpc-api-reference.md#hub.rpc.GetUserHistoryRequest) to check which spent addresses have a positive balance.|
+    |`securityLevel`| The security level of the spent address|The default security level is 2. If you changed the security level in the [`keySecLevel` command-line option](../references/command-line-options.md#keySecLevel), make sure you use that one. |
+    |`value`|The total balance of the spent address in the `inputAddress` field|You can check the balance of any address on a Tangle explorer such as [thetangle.org](https://thetangle.org/) |
 
     :::info:
-    `createUnsignedBundle()`関数が[signature fragment](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#signatures)を追加できる十分なゼロトークントランザクションを作成できるように、スウィープアドレスのセキュリティレベルが必要です。
+    `createUnsignedBundle()`関数が`signature fragment`を追加できる十分なゼロトークントランザクションを作成できるように、スウィープアドレスのセキュリティレベルが必要です。
     :::
     <!-- :::info: -->
-    <!-- You need the security level of the swept address so that the `createUnsignedBundle()` function can create enough zero-value transactions to which you can add the [signature fragments](root://dev-essentials/0.1/concepts/addresses-and-signatures.md#signatures). -->
+    <!-- You need the security level of the spent address so that the `createUnsignedBundle()` function can create enough zero-value transactions to which you can add the signature fragments. -->
     <!-- ::: -->
 
     ```js
@@ -137,8 +117,8 @@ IOTAクライアントライブラリを使用したことがない場合は、[
     }
     ```
 
-2. `createUnsignedBundle()`関数を呼び出し、ハブから取得したパラメーターを渡します。
-  <!-- 2. Call the `createUnsignedBundle()` function, and pass it the parameters you got from Hub -->
+3. `createUnsignedBundle()`関数を呼び出し、ハブから取得したパラメーターを渡します。
+  <!-- 3. Call the `createUnsignedBundle()` function, and pass it the parameters you got from Hub -->
 
     ```js
     createUnsignedBundle(parameters);
@@ -147,24 +127,17 @@ IOTAクライアントライブラリを使用したことがない場合は、[
     この関数は、現在のディレクトリにある`bundle`と呼ばれるバイナリファイルに未署名のバンドルを保存します。
     <!-- This function saves the unsigned bundle to a binary file called `bundle` in your current directory. -->
 
-3. ファイルを実行し、未署名のバンドルハッシュをコンソールからクリップボードにコピーします。ハブは、署名を作成するためにこのバンドルハッシュを必要とします。
-  <!-- 3. Execute the file, then copy the unsigned bundle hash from the console to the clipboard. Hub needs this bundle hash to create the signature. -->
+4. ファイルを実行し、未署名のバンドルハッシュをコンソールからクリップボードにコピーします。ハブは、署名を作成するためにこのバンドルハッシュを必要とします。
+  <!-- 4. Execute the file, then copy the unsigned bundle hash from the console to the clipboard. Hub needs this bundle hash to create the signature. -->
 
 ## 手順2. ハブを使用して未署名のバンドルに署名する
 <!-- ## Step 2. Use Hub to sign the unsigned bundle -->
 
-Hubには`signBundle()`gRPCメソッドがあり、ハブユーザーのアドレスから取り出しバンドルに署名できます。
-<!-- Hub has a `signBundle()` gRPC method that allows you to sign bundles that withdraw from a Hub user's address. -->
-
-:::info:
-`signBundle()`メソッドを使用する前に、ハブの[`SignBundle_enabled`フラグ](../references/command-line-flags.md#signBundle)が`true`に設定されていることを確認します。
-:::
-<!-- :::info: -->
-<!-- Before you use the `signBundle()` method, make sure that Hub's [`SignBundle_enabled` flag](../references/command-line-flags.md#signBundle) is set to `true`. -->
-<!-- ::: -->
+ハブには`signBundle()` gRPCメソッドがあり、ユーザーの預け入れアドレスからIOTAトークンを取り出すバンドルに署名できます。
+<!-- Hub has a `signBundle()` gRPC method, which allows you to sign bundles that withdraw from a user's deposit address. -->
 
 1. ハブで、未署名のバンドルハッシュとスウィープしたアドレスを`signBundle()`メソッドに渡します。
-  <!-- 1. In Hub, pass the unsigned bundle hash and the swept address to the `signBundle()` method -->
+  <!-- 1. In Hub, pass the unsigned bundle hash and the spent address to the `signBundle()` method -->
 
     ```bash
     Hub@localhost:50051> client.signBundle({address:'ADDRESS...',bundleHash:'BUNDLEHASH...',authentication:'',validateChecksum:false},pr)
@@ -231,24 +204,6 @@ Hubには`signBundle()`gRPCメソッドがあり、ハブユーザーのアド�
     const minWeightMagnitude = 14;
     ```
 
-    :::info:Depth
-    `depth`引数は[チップ選択](root://node-software/0.1/iri/concepts/tip-selection.md)に影響します。`depth`が大きいほど、タングルの奥に戻り、重み付きランダムウォークが始まります。
-    :::
-    <!-- :::info:Depth -->
-    <!-- The `depth` argument affects [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md). The greater the depth, the farther back in the Tangle the weighted random walk starts. -->
-    <!-- ::: -->
-
-    :::info:最小重量値（Minimum weight magnitude）
-    [`最小重量値`](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md)（MWM）引数は、プルーフオブワーク（PoW）の難易度に影響します。MWMが大きいほど、PoWは難しくなります。
-
-    すべてのIOTAネットワークは、独自のMWMを強制します。Devnetでは、MWMは9です。しかし、Mainnetでは、MWMは14です。小さすぎるMWMを使用すると、トランザクションは有効にならず、確定されません。
-    :::
-    <!-- :::info:Minimum weight magnitude -->
-    <!-- The [`minimum weight magnitude`](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) (MWM) argument affects the difficulty of proof of work (PoW). The greater the MWM, the more difficult the PoW. -->
-    <!--  -->
-    <!-- Every IOTA network enforces its own MWM. On the Devnet, the MWM is 9. But, on the Mainnet the MWM is 14. If you use a MWM that's too small, your transactions won't be valid and will never be confirmed. -->
-    <!-- ::: -->
-
 4. バンドルのトランザクショントライトをノードに送信します。
   <!-- 4. Send the bundle's transaction trytes to the node -->
 
@@ -270,28 +225,28 @@ Hubには`signBundle()`gRPCメソッドがあり、ハブユーザーのアド�
     <!-- ::: -->
 
 :::success:おめでとうございます:tada:
-スウィープしたアドレスからIOTAトークンを安全なアドレスに預け入れしてリカバーする署名付きバンドルを送信しました。
+使用済みアドレスからIOTAトークンを安全なアドレスに預け入れしてリカバーする署名付きバンドルを送信しました。
 :::
 <!-- :::success: -->
-<!-- You've sent a signed bundle that recovers IOTA tokens from a swept address by depositing them into a safe one. -->
+<!-- You've sent a signed bundle that recovers IOTA tokens from a spent address by depositing them into a safe one. -->
 <!-- ::: -->
 
 :::warning:
 バンドルが確定されるまで、IOTAトークンは攻撃者によって取り出される危険性があります。
 
-バンドルが確定される可能性を高めるには、[促進と再添付](root://dev-essentials/0.1/how-to-guides/confirm-pending-bundle.md)を行います。
+バンドルが確定される可能性を高めるには、[促進と再添付](root://iota-js/0.1/core/how-to-guides/confirm-pending-bundle.md)を行います。
 :::
 <!-- :::warning: -->
 <!-- Until the bundle is confirmed, the tokens are still at risk of being withdrawn by an attacker. -->
 <!--  -->
-<!-- To increase the chances of your bundle being confirmed, you can [promote and reattach it](root://dev-essentials/0.1/how-to-guides/confirm-pending-bundle.md). -->
+<!-- To increase the chances of your bundle being confirmed, you can [promote and reattach it](root://iota-js/0.1/core/how-to-guides/confirm-pending-bundle.md). -->
 <!-- ::: -->
 
 ## サンプルコード
 <!-- ## Sample code -->
 
-これは、このチュートリアルのテストに使用したスウィープアドレスの例のコードです。
-<!-- This is the code for an example swept address that we used to test this tutorial. -->
+これは、このチュートリアルのテストに使用した使用済みアドレスの例のコードです。
+<!-- This is the code for an example spent address that we used to test this tutorial. -->
 
 タングルエクスプローラーで[このアドレスの履歴を表示](https://thetangle.org/address/LIQJBJRBSTGYWHYRPCLLCZUMP9SLHCBBWGQ9YRFWYDFF9FMXIAELYLTTBXCPVIDWWZYIOJIFLUFYVZIBD)できます。
 <!-- You can [see the history of this address](https://thetangle.org/address/LIQJBJRBSTGYWHYRPCLLCZUMP9SLHCBBWGQ9YRFWYDFF9FMXIAELYLTTBXCPVIDWWZYIOJIFLUFYVZIBD) on a Tangle explorer. -->
@@ -344,15 +299,13 @@ let outputAddress = Converter.trytesToTrits('LYRGKMBCVZMTPRRMPDNNRXFVKIXTZCJTZDO
 let inputAddress = Converter.trytesToTrits('LIQJBJRBSTGYWHYRPCLLCZUMP9SLHCBBWGQ9YRFWYDFF9FMXIAELYLTTBXCPVIDWWZYIOJIFLUFYVZIBD');
 
 const params = {
-  // Address in trits to send the tokens from the swept address (without checksum)
-  // スウィープされるアドレスからIOTAトークンを送信するためのトライトのアドレス（チェックサムなし）
+  // 使用済みアドレスからIOTAトークンを送信する先のトライトのアドレス（チェックサムなし）
   outputAddress: outputAddress,
-  // スウィープされるアドレスのトライト（チェックサムなし）
+  // 使用済みアドレスのトライト（チェックサムなし）
   inputAddress: inputAddress,
-  // スウィープされるアドレスのセキュリティレベル
+  // 使用済みアドレスのセキュリティレベル
   securityLevel: 2,
-  // Total amount of IOTA tokens to withdraw from the swept address
-  // スウィープされるアドレスから取り出されるIOTAトークンの合計量
+  // 使用済みアドレスから取り出されるIOTAトークンの合計量
   value: 1
 }
 

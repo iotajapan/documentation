@@ -10,14 +10,14 @@
 次のことを行う方法を知っておく必要があります。
 <!-- You must know how to do the following: -->
 
-* [Firebaseサーバーをデプロイする方法](https://firebase.google.com/)
-<!-- * [Deploy a Firebase server](https://firebase.google.com/) -->
+- [Firebaseサーバーをデプロイする方法](https://firebase.google.com/)
+<!-- - [Deploy a Firebase server](https://firebase.google.com/) -->
 
-* [IRIノードに接続する方法](root://node-software/0.1/iri/how-to-guides/interact-with-an-iri-node.md)
-<!-- * [Connect to an IRI node](root://node-software/0.1/iri/how-to-guides/interact-with-an-iri-node.md) -->
+- [IRIノードに接続する方法](root://node-software/0.1/iri/how-to-guides/interact-with-an-iri-node.md)
+<!-- - [Connect to an IRI node](root://node-software/0.1/iri/how-to-guides/interact-with-an-iri-node.md) -->
 
-* MAMチャネルを作成し、[JavaScriptクライアントライブラリ](https://github.com/iotaledger/mam.client.js )を使用してMAMチャネルを通してメッセージを送信する方法
-<!-- * Create a MAM channel and send messages through it using the [JavaScript client library](https://github.com/iotaledger/mam.client.js ) -->
+- MAMチャネルを作成し、[JavaScriptクライアントライブラリ](https://github.com/iotaledger/mam.client.js )を使用してMAMチャネルを通してメッセージを送信する方法
+<!-- - Create a MAM channel and send messages through it using the [JavaScript client library](https://github.com/iotaledger/mam.client.js ) -->
 
 ---
 

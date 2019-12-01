@@ -13,8 +13,8 @@
 ## ゼロトークントランザクションを圧縮して保存する
 <!-- ## Compress and store a zero-value transaction -->
 
-この例では、[Devnet](root://getting-started/0.1/references/iota-networks.md#devnet)でトランザクションを作成して送信します。Devnetは、トークンが無料であること以外は、ほとんどMainnetと同じです。Devnetに送信するトランザクションは、Mainnetなどの他のネットワークには存在しません。
-<!-- In this example, we create and send a transaction on the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
+この例では、[Devnet](root://getting-started/0.1/network/iota-networks.md#devnet)でトランザクションを作成して送信します。Devnetは、トークンが無料であること以外は、ほとんどMainnetと同じです。Devnetに送信するトランザクションは、Mainnetなどの他のネットワークには存在しません。
+<!-- In this example, we create and send a transaction on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet). The Devnet is similar to the Mainnet, except the tokens are free. Any transactions that you send to the Devnet do not exist on other networks such as the Mainnet. -->
 
 次に、[トライトコンプレッサーAPI](https://github.com/iotaledger/tryte-compress-js/blob/master/docs/api.md)を使用して、トランザクションのトライトを圧縮し、ローカルデバイスのバイナリファイルに保存します。
 <!-- Then, we use the [trytes compressor API](https://github.com/iotaledger/tryte-compress-js/blob/master/docs/api.md) to compress the transaction trytes and store them in a binary file on the local device. -->
@@ -25,21 +25,14 @@
 このチュートリアルを完了するには、次のものが必要です。
 <!-- To complete this tutorial, you need the following: -->
 
-* Node.js 8、またはNode.js 10以上。 [最新のLTS](https://nodejs.org/en/download/)をお勧めします。
-<!-- * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
-* [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディタ
-<!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
-* コマンドラインへのアクセス
-<!-- * Access to a command prompt -->
-* [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md)、[`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter)、および[`@iota/tryte-compress`](https://github.com/iotaledger/tryte-compress-js)パッケージ
-<!-- * The [`@iota/core`](root://getting-started/0.1/tutorials/get-started.md), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/tryte-compress`](https://github.com/iotaledger/tryte-compress-js) packages -->
-
-:::info:
-IOTAクライアントライブラリを使用したことがない場合は、[入門チュートリアル](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md)を完了することをお勧めします。
-:::
-<!-- :::info: -->
-<!-- If you've never used the IOTA client libraries before, we recommend completing [the getting started tutorial](root://getting-started/0.1/tutorials/send-a-zero-value-transaction-with-nodejs.md) -->
-<!-- ::: -->
+- Node.js 8、またはNode.js 10以上。 [最新のLTS](https://nodejs.org/en/download/)をお勧めします。
+<!-- - Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
+- [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディタ
+<!-- - A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
+- コマンドラインインターフェイスへのアクセス
+<!-- - Access to a command-line interface -->
+* [`@iota/core`](root://getting-started/0.1/how-to-guides/get-started.md)、[`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter)、および[`@iota/tryte-compress`](https://github.com/iotaledger/tryte-compress-js)パッケージ
+<!-- - The [`@iota/core`](root://getting-started/0.1/how-to-guides/get-started.md), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/tryte-compress`](https://github.com/iotaledger/tryte-compress-js) packages -->
 
 ### 手順1. サンプルをセットアップする
 <!-- ### Step 1. Set up the sample -->
@@ -221,7 +214,6 @@ iota.prepareTransfers(seed, transfers)
     // エラーを処理します
     console.log(error);
 });
-
 
 function storeTailTransaction (transactionHash, bundleTrytes) {
 

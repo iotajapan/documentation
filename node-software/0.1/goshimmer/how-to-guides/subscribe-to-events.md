@@ -25,12 +25,12 @@
 このガイドのサンプルコードを使用するには、次のものが必要です。
 <!-- To use the sample code in this guide, you must have the following: -->
 
-* [Node.js 8以上](https://nodejs.org/en/)か[Python（3以上）](https://www.python.org/downloads/)と[PIP](https://pip.pypa.io/en/stable/installing/)
-<!-- * [Node.js (8+)](https://nodejs.org/en/) or [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/) -->
-* [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディタ
-<!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
-* コマンドプロンプトへのアクセス
-<!-- * Access to a command prompt -->
+- [Node.js 8以上](https://nodejs.org/en/)か[Python（3以上）](https://www.python.org/downloads/)と[PIP](https://pip.pypa.io/en/stable/installing/)
+<!-- - [Node.js (8+)](https://nodejs.org/en/) or [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/) -->
+- [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディタ
+<!-- - A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
+- コマンドラインインターフェイスへのアクセス
+<!-- - Access to a command-line interface -->
 
 ## トランザクションイベントを購読する
 <!-- ## Subscribe to the transaction event -->

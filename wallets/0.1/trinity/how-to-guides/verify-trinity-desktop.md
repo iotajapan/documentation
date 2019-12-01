@@ -13,8 +13,8 @@
 ### SHA256ハッシュを検証する
 <!-- ### Verify the SHA256 hash -->
 
-1. コマンドプロンプトを開きます。
-  <!-- 1. Open a command prompt -->
+1. コマンドラインインターフェイスを開きます。
+  <!-- 1. Open a command-line interface -->
 
 2. トリニティデスクトップの`.exe`ファイルのSHA256ハッシュを計算します。パスをトリニティの`.exe`ファイルへのパスに置き換えます。
   <!-- 2. Create a SHA256 hash of the Trinity Desktop `.exe` file. Replace the path with the path to your Trinity `.exe` file. -->

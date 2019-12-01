@@ -14,8 +14,8 @@
 <!-- - An nRF52 series microcontroller -->
 - LinuxベースのPC
 <!-- - A Linux-based PC -->
-- J-Link、J-Linkオンボードクローン、またはDAPLink [プログラマー](https://www.engineersgarage.com/tutorials/microcontroller-programmer-burner)
-<!-- - A J-Link, J-Link on-board clone, or DAPLink [programmer](https://www.engineersgarage.com/tutorials/microcontroller-programmer-burner) -->
+- J-Link、J-Linkオンボードクローン、またはDAPLink [プログラマー](https://www.engineersgarage.com/how-to-guides/microcontroller-programmer-burner)
+<!-- - A J-Link, J-Link on-board clone, or DAPLink [programmer](https://www.engineersgarage.com/how-to-guides/microcontroller-programmer-burner)  -->
 - USB-UARTコネクター
 <!-- - A USB-to-UART connector -->
 

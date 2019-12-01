@@ -133,17 +133,17 @@
 
 To complete this guide, you need the following:
 
-* Administrator access to your router
-* A [static IP address on your local network](#get-a-static-ip-address-on-your-local-network).
-* A static IP address for your router, or if it has a dynamic IP address, a [domain name from a dynamic DNS service](#get-a-domain-name-for-your-router)
+- Administrator access to your router
+- A [static IP address on your local network](#get-a-static-ip-address-on-your-local-network).
+- A static IP address for your router, or if it has a dynamic IP address, a [domain name from a dynamic DNS service](#get-a-domain-name-for-your-router)
 
 ---
 
 すべてのルーターは異なります。このガイドでは、ルーターは`BT Hub 6`であるため、このガイドの手順はルーターによって異なる場合がありますが、概念は同じです。
 <!-- All routers are different. In this guide, the router is a BT Hub 6, as a result the steps in this guide may be different for your router, but the concepts are the same. -->
 
-1. Webブラウザで、ルーターのIPアドレスを入力します。このIPアドレスはルーターに表示されているはずです。表示されない場合は、コマンドプロンプトで見つけます。あなたのルーターのIPアドレスは`Gateway`カラムの下に現れます。
-  <!-- 1. In a web browser, enter the IP address of your router. This IP address should be displayed on your router. If you can't see it, find it in the command prompt. You'll see your router's IP address under the `Gateway` column. -->
+1. Webブラウザで、ルーターのIPアドレスを入力します。このIPアドレスはルーターに表示されているはずです。表示されない場合は、コマンドラインインターフェイスで見つけます。あなたのルーターのIPアドレスは`Gateway`カラムの下に現れます。
+  <!-- 1. In a web browser, enter the IP address of your router. This IP address should be displayed on your router. If you can't see it, find it in the command-line interface. You'll see your router's IP address under the `Gateway` column. -->
 
     ```bash
     route -n

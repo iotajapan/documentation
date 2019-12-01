@@ -33,9 +33,9 @@ nRF52シリーズのマイクロコントローラーは、ウェアラブル、
 2\. 統合されたプログラマー（デバッガーとも呼ばれる）を持っていないマイクロコントローラーを購入する場合は、統合されたプログラマーを購入して[マイクロコントローラーに接続](../how-to-guides/connect-programmer.md)してください。
 <!-- 2\. If you buy a microcontroller that doesn't have an integrated programmer (sometimes called a debugger), buy one and [connect it](../how-to-guides/connect-programmer.md). -->
 
-プログラマーを使用して、コードをマイクロコントローラーにフラッシュします。プログラマーの詳細については[こちら](https://www.engineersgarage.com/tutorials/microcontroller-programmer-burner)を参照してください。
+プログラマーを使用して、コードをマイクロコントローラーにフラッシュします。プログラマーの詳細については[こちら](https://www.engineersgarage.com/how-to-guides/microcontroller-programmer-burner)を参照してください。
 <!-- A programmer is used to flash the code onto the microcontroller. -->
-<!-- [Read more about what a programmer is.](https://www.engineersgarage.com/tutorials/microcontroller-programmer-burner) -->
+<!-- [Read more about what a programmer is.](https://www.engineersgarage.com/how-to-guides/microcontroller-programmer-burner) -->
 
 :::info:
 nRF52シリーズマイクロコントローラーをフラッシュするための安価なオプションが必要な場合は、J-Linkオンボード（OB）クローンの購入を検討してください。

@@ -1,19 +1,25 @@
 # トランザクションを送信する
 <!-- # Send a transaction -->
 
-**トリニティには、ボタンをクリックするだけで複数のトランザクションを送信できるユーザーインターフェースがあります。**
-<!-- **Trinity has a user interface that allows you to send multiple transactions at the click of a button.** -->
+**トリニティのユーザーインターフェイスを使用すると、ボタンをクリックするだけでトランザクションを送信できます。**
+<!-- **Trinity's user interface allows you to send transactions at the click of a button.** -->
 
-トリニティウォレットに複数のアカウントがある場合は、必ずドロップダウンメニューから正しいアカウントを選択してください。
-<!-- If you have multiple accounts in your Trinity wallet, make sure that you select the correct account from the dropdown menu. -->
+## 前提条件
+<!-- ## Prerequisites -->
+
+このガイドを完了するには、次のものが必要です。
+<!-- To complete this guide, you need the following: -->
+
+- トリニティのアカウント
+<!-- - A Trinity account -->
+- トランザクションに含めるアドレス
+<!-- - An address to include in the transaction -->
 
 :::info:
-トリニティのアドレスに送信するには、9トライトのチェックサムを含める必要があります。トリニティで新しいアドレスを生成した場合、そのアドレスには既にチェックサムが含まれています。
+Addresses must include the 9-tryte [checksum](root://getting-started/0.1/clients/checksums.md). If you generated a new address in Trinity, that address will already include the checksum.
 :::
-<!-- :::info: -->
-<!-- To send to an address in Trinity, it must include the 9-tryte checksum. If you generated a new address in Trinity, that address will already include the checksum. -->
-<!-- ::: -->
 
+---
 1. **送金**をクリックします。
   <!-- 1. Click **Send** -->
 
@@ -31,21 +37,17 @@
   <!-- 3. Enter either a message, or an amount of IOTA tokens, or both -->
 
     :::info:
-    送金する金額は、IOTA単位または[選択した通貨](../how-to-guides/change-the-general-settings.md)で入力できます。送金している[IOTA単位](root://dev-essentials/0.1/references/units-of-iota-tokens.md)（i、Mi、Gi）に細心の注意を払ってください。
+    送金する金額は、[IOTAトークンの単位](root://getting-started/0.1/clients/token.md#units-of-iota-tokens)または[選択した通貨](../how-to-guides/change-the-general-settings.md)で入力できます。送信する金額に注意してください。
     :::
     <!-- :::info: -->
-    <!-- The amount to send can be entered in units of IOTA or in the [currency of your choice](../how-to-guides/change-the-general-settings.md). Pay close attention to the [IOTA units](root://dev-essentials/0.1/references/units-of-iota-tokens.md) (i, Mi, Gi,) that you're sending. -->
+    <!-- The amount to send can be entered in [units of IOTA tokens](root://getting-started/0.1/clients/token.md#units-of-iota-tokens) or in the [currency of your choice](../how-to-guides/change-the-general-settings.md). Pay close attention to the amount that you're sending. -->
     <!-- ::: -->
 
     :::info:
-    ハードウェアウォレットにリンクされているアカウントは、メッセージ付きのバリュートランザクションを送信できません。
-
-    ハードウェアウォレットを使用している場合は、IOTAトークンまたはメッセージの片方を送信できますが、両方を送信することはできません。
+    アカウントがハードウェアウォレットにリンクされている場合、IOTAトークンまたはメッセージのいずれかを送信できますが、両方は送信できません。
     :::
     <!-- :::info: -->
-    <!-- Accounts that are linked to hardware wallets can't send value transactions with a message. -->
-    <!--  -->
-    <!-- If you're using a hardware wallet, you can send either IOTA tokens or a message, but not both. -->
+    <!-- If your account is linked to a hardware wallet, you can send either IOTA tokens or a message, but not both. -->
     <!-- ::: -->
 
     ![IOTA units](../images/sending-value-highlighted.jpg)

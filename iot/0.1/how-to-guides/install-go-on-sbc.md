@@ -11,7 +11,7 @@
 <!-- To complete this guide, you must have the following -->
 
 - ARMシステムアーキテクチャ（32ビットまたは64ビット）を使用するシングルボードコンピュータ
-<!-- - A single board computer that uses an ARM system architecture (32-bit or 64-bit) -->
+<!-- - A single-board computer that uses an ARM system architecture (32-bit or 64-bit) -->
 - Linuxベースのオペレーティングシステム
 <!-- - Linux-based operating system -->
 

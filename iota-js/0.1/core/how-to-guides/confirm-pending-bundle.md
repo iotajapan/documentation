@@ -1,22 +1,8 @@
-# ペンディング中のバンドルを確定させる
-<!-- # Confirm a pending bundle -->
+# バンドルが確定されるようにする
+<!-- # Help a bundle to become confirmed -->
 
-**マイルストーンによって承認されるためには、チップ選択時にトランザクションが選択される必要があります。これは、古いトランザクションよりも新しいトランザクションを優先します。したがって、バンドルがペンディング状態に長く固執しているほど、確定される可能性は低くなります。バンドルが確定される可能性を高めるには、状況に応じて末尾トランザクションを再添付したり、促進したりすることが必要です。**
-<!-- **To be approved by a milestone, a transaction must be selected during tip selection, which favors new transactions over old ones. Therefore, the longer a bundle is stuck in a pending state, the less likely it is to be confirmed. To increase the chances of a bundle being confirmed, you can reattach and promote its tail transaction, depending on the circumstances.** -->
-
-:::info:クライアントライブラリを初めて使用されますか？
-公式クライアントライブラリを使い始めるための[クイックスタートガイド](root://getting-started/0.1/tutorials/get-started.md)をお試してください。
-:::
-<!-- :::info:First time using a client library? -->
-<!-- [Try our quickstart guide](root://getting-started/0.1/tutorials/get-started.md) for getting started with the official client libraries. -->
-<!-- ::: -->
-
-:::info:
-再添付、再ブロードキャスト、または促進という用語に慣れていない場合は、[再添付、再ブロードキャスト、促進](../concepts/reattach-rebroadcast-promote.md)を読むことをお勧めします。
-:::
-<!-- :::info: -->
-<!-- If you're unfamiliar with the terms reattach, rebroadcast, or promote, we recommend that you [read about these concepts](../concepts/reattach-rebroadcast-promote.md). -->
-<!-- ::: -->
+**あるトランザクションが[マイルストーン](root://getting-started/0.1/network/the-coordinator.md)によって参照されるためには、チップ選択時にそのトランザクションが選択される必要があります。これにより、古いトランザクションよりも新しいトランザクションが優先されます。[バンドル](root://getting-started/0.1/transactions/bundles.md)が[ペンディング状態](root://getting-started/0.1/network/the-tangle.md#transaction-states)に留まる時間が長いほど、確定される可能性は低くなります。バンドルが確定される可能性を高めるために、末尾トランザクションの再添付や促進を行うことができます。**
+<!-- **To be referenced by a [milestone](root://getting-started/0.1/network/the-coordinator.md), a transaction must be selected during tip selection, which favors new transactions over old ones. Therefore, the longer a [bundle](root://getting-started/0.1/transactions/bundles.md) is stuck in a [pending state](root://getting-started/0.1/network/the-tangle.md#transaction-states), the less likely it is to be confirmed. To increase the chances of a bundle being confirmed, you can reattach and promote its tail transaction.** -->
 
 ## 前提条件
 <!-- ## Prerequisites -->
@@ -24,57 +10,54 @@
 このガイドを完成するには、次のものが必要です。
 <!-- To complete this guide, you need the following: -->
 
-* Node.js 8、またはNode.js 10以上。[最新のLTS](https://nodejs.org/en/download/)をお勧めします。
-<!-- * Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
-* [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディタ
-<!-- * A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
+- [開発者環境](../../workshop/set-up-a-developer-environment.md)
+<!-- - [A developer environment](../../workshop/set-up-a-developer-environment.md) -->
+- [`core`パッケージと`converter`パッケージと`signing`パッケージ](../../workshop/install-packages.md)
+<!-- - [The `core`, `converter`, and `signing` packages](../../workshop/install-packages.md) -->
+- 末尾トランザクションハッシュ
+<!-- - A tail transaction hash -->
 
-* ペンディング中のバンドルの末尾トランザクションのハッシュ（[`currentIndex` 0](../references/structure-of-a-bundle.md)）。[ゼロトークントランザクションのバンドルを送信する](../how-to-guides/send-bundle.md)の記事に従って作成することもできます。
-<!-- * A tail transaction hash ([`currentIndex` 0](../references/structure-of-a-bundle.md)) from any pending bundle. You can create one by following the ['Send a bundle of zero-value transactions' guide](../how-to-guides/send-bundle.md) -->
+## IOTAネットワーク
+<!-- ## IOTA network -->
 
-## ペンディング中のバンドルを確定させる
-<!-- ## Confirm a pending bundle -->
+このガイドでは、次のネットワーク設定で[Devnet](root://getting-started/0.1/network/iota-networks.md#devnet)上のノードに接続します。
+<!-- In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) with the following network settings: -->
 
-末尾トランザクションがチップ選択中に選択されるには古すぎる場合や、二重支払い(矛盾したサブタングル)のような無効な状態にあるタングルの一部に添付されている場合など、さまざまな理由でバンドルがペンディング状態のままになることがあります。
-<!-- A bundle can be stuck in a pending state for many reasons, for example if its tail transaction is too old to be selected during tip selection or if it's attached to a part of the Tangle that leads to an invalid state such as a double-spend (inconsistent subtangle). -->
+- **[最小重量値](root://getting-started/0.1/network/minimum-weight-magnitude.md)**: 9
+<!-- - **[Minimum weight magnitude](root://getting-started/0.1/network/minimum-weight-magnitude.md)**: 9 -->
 
-このガイドでは、30秒ごとに次のことを行うスクリプトを作成します。
-<!-- In this guide, you'll create a script that does the following every 30 seconds: -->
-
-* [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet)上の末尾トランザクションが確定されたかどうかを確認する。
-<!-- * Check if a tail transaction on the [Devnet](root://getting-started/0.1/references/iota-networks.md#devnet) has been confirmed -->
-* 末尾トランザクションがまだペンディング中の場合は、促進または再添付を行う。
-<!-- * If the tail transaction is still pending, promote or reattach it -->
+- **[深さ](root://getting-started/0.1/transactions/depth.md)**: 3
+<!-- - **[Depth](root://getting-started/0.1/transactions/depth.md)**: 3 -->
 
 ### 手順 1. タイマー関数を作成する
 <!-- ### Step 1. Create a timer function -->
 
-バンドルの確定にかかる時間を知りたい場合は、タイマー関数を作成します。
-<!-- If you want to know how long it took for a bundle to be confirmed, create a timer function. -->
+バンドルの確定に費やす時間を長く保つには、タイマー機能を作成します。
+<!-- To keep a counter of long it took for a bundle to be confirmed, create a timer function. -->
 
-1. `pending-to-confirmed.js`ファイルでは、IOTAライブラリが必要です。
-  <!-- 1. In the pending-to-confirmed.js file, require the IOTA library -->
-
-    ```js
-    const Iota = require('@iota/core');
-    ```
-
-2. 確定したいペンディング中のバンドルの末尾トランザクションハッシュと再添付された時のバンドルの末尾トランザクションハッシュを格納するための配列変数を作成します。
-  <!-- 2. Create a variable to store the tail transaction hash of the pending bundle that you want to confirm as well as the tail transaction hashes of any future reattached bundles -->
+1. 確定するペンディング中のバンドルの末尾トランザクションハッシュを定義します。
+  <!-- 1. Define the tail transaction hash of the pending bundle that you want to confirm -->
 
     ```js
     const tails = ["tail transaction hash"];
     ```
 
-3. タイマーの秒数を格納するための変数を作成します。
-  <!-- 3. Create a variable to store the number of seconds for the timer -->
+    :::info:
+    再添付バンドルの末尾トランザクションも、チェックのためにこの配列に追加されます。
+    :::
+    <!-- :::info: -->
+    <!-- The tail transactions of any reattachment bundles will also be appended to this array for checking. -->
+    <!-- ::: -->
+
+2. タイマーの秒数を格納するための変数を作成します。
+  <!-- 2. Create a variable to store the number of seconds for the timer -->
 
     ```js
     var seconds = 0;
     ```
 
-4. バンドルが確定されたかを測定するためのタイマーを設定します。毎秒、タイマーは`seconds`変数を1ずつ増やします。
-  <!-- 4. Set the timer to measure how long it takes for the bundle to be confirmed. Every second, the timer will increment the `seconds` variable by one. -->
+3. バンドルが確定されたかを測定するためのタイマーを設定します。毎秒、タイマーは`seconds`変数を1ずつ増やします。
+  <!-- 3. Set the timer to measure how long it takes for the bundle to be confirmed. Every second, the timer will increment the `seconds` variable by one. -->
 
     ```js
     var timer = setInterval(stopWatch, 1000);
@@ -169,18 +152,21 @@ console.log(tails);
 ## コードを実行する
 <!-- ## Run the code -->
 
-このガイドのサンプルコードを実行してWebブラウザに結果を表示するには、緑色のボタンをクリックします。
-<!-- Click the green button to run the sample code in this guide and see the results in the web browser. -->
+[REPL.itツール](https://repl.it)を使用して、ブラウザーでJavaScriptクライアントライブラリからサンプルコードを実行できるようにします。
+<!-- We use the [REPL.it tool](https://repl.it) to allow you to run sample code from the JavaScript client library in the browser. -->
 
-<!-- Before you run this sample code, find a pending tail transaction hash and store it in the `tails` array. -->
+このガイドのサンプルコードを実行してウィンドウに結果を表示するには、緑色のボタンをクリックします。
+<!-- Click the green button to run the sample code in this guide and see the results in the window. -->
+
 このサンプルコードを実行する前に、ペンディング中の末尾トランザクションハッシュを見つけ、それを`tails`配列に格納します。
+<!-- Before you run this sample code, find a pending tail transaction hash and store it in the `tails` array. -->
 
-  :::info:ペンディング中のトランザクションが見つかりませんか?
-  [devnet.thetangle.org](https://devnet.thetangle.org)に行き、`Latest transactions`欄でトランザクションハッシュをクリックします。このトランザクションはチップなので、ペンディング状態にあります。
-  :::
-  <!-- :::info:Can't find a pending transaction? -->
-  <!-- Go to [devnet.thetangle.org](https://devnet.thetangle.org) and click a transaction hash in the Latest transactions box. This transaction is a tip, so it is in a pending state. -->
-  <!-- ::: -->
+:::info:ペンディング中のトランザクションが見つかりませんか?
+[devnet.thetangle.org](https://devnet.thetangle.org)に行き、`Latest transactions`欄でトランザクションハッシュをクリックします。このトランザクションはチップなので、ペンディング状態にあります。
+:::
+<!-- :::info:Can't find a pending transaction? -->
+<!-- Go to [devnet.thetangle.org](https://devnet.thetangle.org) and click a transaction hash in the Latest transactions box. This transaction is a tip, so it is in a pending state. -->
+<!-- ::: -->
 
 <iframe height="500px" width="100%" src="https://repl.it/@jake91/Confirm-pending-bundle?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 

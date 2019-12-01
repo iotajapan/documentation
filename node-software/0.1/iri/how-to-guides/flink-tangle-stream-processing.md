@@ -137,8 +137,8 @@ ZMQイベントストリームのデータを使用して、過去1時間で最�
 ## 前提条件
 <!-- ## Prerequisites -->
 
-Flinkに慣れていない場合は、[このドキュメント](https://ci.apache.org/projects/flink/flink-docs-release-1.8/tutorials/datastream_api.html)をお読みください。
-<!-- If you are not familiar with Flink, you should read [this documentation](https://ci.apache.org/projects/flink/flink-docs-master/tutorials/datastream_api.html#writing-a-flink-program). -->
+Flinkに慣れていない場合は、[このドキュメント](https://ci.apache.org/projects/flink/flink-docs-master/how-to-guides/datastream_api.html#writing-a-flink-program)をお読みください。
+<!-- If you are not familiar with Flink, you should read [this documentation](https://ci.apache.org/projects/flink/flink-docs-master/how-to-guides/datastream_api.html#writing-a-flink-program). -->
 
 [ライブラリをダウンロードしてインストール](#ライブラリをダウンロードしてインストールする)しておく必要があります。
 <!-- You must have [downloaded and installed the libraries](#download-and-install-the-libraries). -->

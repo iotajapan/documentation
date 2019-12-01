@@ -1,20 +1,8 @@
 # マスクされた認証済みメッセージング入門
 <!-- # Get started with Masked Authenticated Messaging -->
 
-**マスクされた認証済みメッセージング（Masked Authenticated Messaging, MAM）は、タングルでチャネルと呼ばれる暗号化されたデータストリームでメッセージを発行および取得できるデータ通信プロトコルです。MAMパッケージを使用して、暗号化および認証されたメッセージをチャネルに発行できます。**
-<!-- **Masked Authenticated Messaging (MAM) is a data communication protocol that allows you to publish and fetch messages in encrypted data streams, called channels, on the Tangle. You can use the MAM package to publish encrypted and authenticated messages to channels.** -->
-
-タングルにはゼロトークントランザクションを添付できますが、ゼロトークントランザクションは署名されておらず、またはノードによって署名をチェックされず、真正性を確認できません。
-<!-- The Tangle allows you to attach zero-value transactions to it, but these transactions are not signed or checked by nodes to verify their authenticity. -->
-
-MAMでは、すべてのメッセージはシードの所有者によって署名されます。このようにして、[channel](../concepts/channels.md)にアクセスできる人は、署名を検証し、メッセージを復号化できます。
-<!-- With MAM, all messages are signed by the owner of a seed. This way, those with access to a [channel](../concepts/channels.md) can verify the signature and decrypt the messages. -->
-
-[データマーケットプレイス](root://blueprints/0.1/data-marketplace/overview.md)などの多くのユースケースでは、MAMを使用して、ユーザーがチャネルへのアクセス料金を支払い、メッセージを復号化できるようにします。
-<!-- Many use cases such as the [Data Marketplace](root://blueprints/0.1/data-marketplace/overview.md) use MAM to allow users to pay for access to channels and decrypt the messages. -->
-
-[このブログ投稿のMAMの詳細について](https://medium.com/coinmonks/iota-mam-eloquently-explained-d7505863b413)をご覧ください。
-<!-- You can [learn more about the details of MAM](https://medium.com/coinmonks/iota-mam-eloquently-explained-d7505863b413) in this blog post. -->
+**[マスクされた認証済みメッセージング](root://getting-started/0.1/transactions/masked-authenticated-messaging.md)（Masked Authenticated Messaging, MAM）は、タングルでチャネルと呼ばれる暗号化されたデータストリームでメッセージを発行および取得できるデータ通信プロトコルです。MAMパッケージを使用して、暗号化および認証されたメッセージをチャネルに発行できます。**
+**[Masked Authenticated Messaging](root://getting-started/0.1/transactions/masked-authenticated-messaging.md) (MAM) is a data communication protocol that allows you to publish and fetch messages in encrypted data streams, called channels, on the Tangle. You can use the MAM package to publish encrypted and authenticated messages to channels.**
 
 :::warning:データソフトウェアです！
 クライアントライブラリは2019年現在ベータ版であり、運用環境では使用しないでください。
@@ -26,8 +14,8 @@ MAMでは、すべてのメッセージはシードの所有者によって署�
 ## 対象読者
 <!-- ## Audience -->
 
-このドキュメントは、JavaScriptプログラミング言語とオブジェクト指向プログラミングの概念に精通している開発者向けに設計されています。また、[バンドル、トランザクション](root://dev-essentials/0.1/concepts/bundles-and-transactions.md)、[署名](root://dev-essentials/0.1/concepts/addresses-and-signatures.md)などの基本的なIOTAの概念にも精通している必要があります。
-<!-- This documentation is designed for developers who are familiar with the JavaScript programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [bundles, transactions](root://dev-essentials/0.1/concepts/bundles-and-transactions.md), and [signatures](root://dev-essentials/0.1/concepts/addresses-and-signatures.md). -->
+このドキュメントは、JavaScriptプログラミング言語とオブジェクト指向プログラミングの概念に精通している開発者向けです。また、[バンドル](root://getting-started/0.1/transactions/bundles.md)、[トランザクション](root://getting-started/0.1/transactions/transactions.md)、[シード](root://getting-started/0.1/clients/seeds.md)や[アドレス](root://getting-started/0.1/clients/addresses.md)などの[基本的なIOTAの概念](root://getting-started/0.1/introduction/overview.md)にも精通している必要があります。
+<!-- This documentation is for developers who are familiar with the JavaScript programming language and object-oriented programming concepts. You should also be familiar with [basic IOTA concepts](root://getting-started/0.1/introduction/overview.md) such as [bundles](root://getting-started/0.1/transactions/bundles.md), [transactions](root://getting-started/0.1/transactions/transactions.md), [seeds](root://getting-started/0.1/clients/seeds.md), and [addresses](root://getting-started/0.1/clients/addresses.md). -->
 
 ## 前提条件
 <!-- ## Prerequisites -->
@@ -46,8 +34,8 @@ MAMでは、すべてのメッセージはシードの所有者によって署�
 <!-- - [npm](https://www.npmjs.com/) (Included in Node.js [downloads](https://nodejs.org/en/download/)) -->
 - [Yarn](https://yarnpkg.com/)
 
-`package.json`ファイルも必要です。コマンドプロンプトで[`npm init`](https://docs.npmjs.com/cli/init)または[`yarn init`](https://yarnpkg.com/lang/en/docs/cli/init/)を実行して生成します。
-<!-- You must also have a `package.json` file. Generate one by doing [`npm init`](https://docs.npmjs.com/cli/init) or [`yarn init`](https://yarnpkg.com/lang/en/docs/cli/init/) in the command prompt. -->
+`package.json`ファイルも必要です。コマンドラインインターフェイスで[`npm init`](https://docs.npmjs.com/cli/init)または[`yarn init`](https://yarnpkg.com/lang/en/docs/cli/init/)を実行して生成します。
+<!-- You must also have a `package.json` file. Generate one by doing [`npm init`](https://docs.npmjs.com/cli/init) or [`yarn init`](https://yarnpkg.com/lang/en/docs/cli/init/) in the command-line interface. -->
 
 ## パッケージをインストールする
 <!-- ## Install the package -->

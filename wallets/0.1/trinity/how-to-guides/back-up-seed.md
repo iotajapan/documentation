@@ -14,12 +14,12 @@
 アカウントを作成すると（または[アカウント設定ページからシードにアクセスする](../how-to-guides/manage-your-account.md)と）、次のいずれかの方法でシードをバックアップできます。
 <!-- When you create an account (or [access your seed from the account management page](../how-to-guides/manage-your-account.md)) you can back up your seed, using one of the following options: -->
 
-* シード金庫へ書き出す（最も安全）
-<!-- * SeedVault file (most secure) -->
-* 手書きで紙に保存する
-<!-- * Paper copy -->
-* 印刷する（最低限の安全）
-<!-- * Printed copy (least secure) -->
+- シード金庫へ書き出す（最も安全）
+<!-- - SeedVault file (most secure) -->
+- 手書きで紙に保存する
+<!-- - Paper copy -->
+- 印刷する（最低限の安全）
+<!-- - Printed copy (least secure) -->
 
 シードをバックアップした後、トリニティは正しいシードを確実にバックアップしたことを確認するためにシードを再入力するように求めてきます。
 <!-- After backing up your seed, Trinity asks you to re-enter your seed to make sure that you backed up the correct one. -->

@@ -1,19 +1,32 @@
 # 署名サーバーをインストールする
 <!-- # Install the signing server -->
 
-**ハブのセキュリティを向上させるために、バンドル署名操作とソルト（シードの作成に使用）をハブだけが接続できる署名サーバーに移動できます。このガイドでは、SSL暗号化接続を介してハブに接続する署名サーバーをインストールして実行します。**
-<!-- **To improve the security of Hub, you can move the bundle signing operation and the salt (used to create seeds) to a signing server that only Hub can connect to. In this guide, you'll install and run a signing server that connects to Hub over an SSL-encrypted connection.** -->
+**ハブのセキュリティを向上させるために、バンドル署名操作とソルト（シードの生成に使用）をハブだけが接続できる署名サーバーに移動できます。このガイドでは、SSL暗号化接続を介してハブに接続する署名サーバーをインストールして実行します。**
+<!-- **To improve the security of Hub, you can move the bundle signing operation and the salt (used to generate seeds) to a signing server that only Hub can connect to. In this guide, you'll install and run a signing server that connects to Hub over an SSL-encrypted connection.** -->
 
-このガイドでは、[Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server)の新規インストールが必要です。
-<!-- For this guide, you'll need a new installation of [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server). -->
+:::info:
+セキュリティを最大限に高めるには、署名サーバーをリモートの場所で実行するのがベストプラクティスです。このように、ハブが侵害された場合、攻撃者は署名サーバーにアクセスせずにIOTAトークンを盗むことはできません。
+:::
+<!-- :::info: -->
+<!-- For maximum security, it's best practice to run the signing server in a remote location. This way, if Hub is compromised, attackers can't steal IOTA tokens without access to the signing server. -->
+<!-- ::: -->
 
-![IOTA Hub architecture](../images/iota_hub.png)
+## 前提条件
+<!-- ## Prerequisites -->
+
+このガイドを完了するには、次のものが必要です。
+<!-- To complete this guide, you need the following: -->
+
+- [ハブのインスタンス](../how-to-guides/install-hub.md)
+<!-- - An [instance of Hub](../how-to-guides/install-hub.md) -->
+- Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server)サーバー。WindowsまたはMacオペレーティングシステムを使用している場合、[Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server)の新規インストールで[仮想マシン上にLinuxサーバーを作成できます](root://general/0.1/how-to-guides/set-up-virtual-machine.md)。
+<!-- - A Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server) server. If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md).a new installation of [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server). -->
 
 ## 手順1. 依存関係をインストールする
 <!-- ## Step 1. Install the dependencies -->
 
-署名サーバーは依存関係を使用してソースからコンパイルする必要があります。
-<!-- The signing server needs to be compiled from source using the dependencies. -->
+署名サーバーを構築して実行するには、コンパイラ、Python、およびGitをインストールする必要があります。
+<!-- To build and run the signing server, you need to install a compiler, Python, and Git. -->
 
 1. ローカルの`apt`リポジトリが最新でマルチバースリポジトリを含んでいることを確認します。
   <!-- 1. Make sure that the local apt repository is up to date and contains the multiverse repository -->
@@ -48,25 +61,35 @@
   <!-- 5. Make sure that you can execute the installer script -->
 
     ```bash
-    chmod +x bazel-0.29.0-installer-linux-x86_64.sh
+    chmod +x bazel-0.29.1-installer-linux-x86_64.sh
     ```
 
-6. アクティブなユーザーの下に`--user`フラグを使用してBazelをインストールします。
-  <!-- 6. Install Bazel under your active user using the `--user` flag: -->
+6. Bazelをインストールします。
+  <!-- 6. Install Bazel -->
 
     ```bash
-    ./bazel-0.18.0-installer-linux-x86_64.sh --user
+    ./bazel-0.29.1-installer-linux-x86_64.sh --user
     ```
 
-7. Python用の`pyparsing`パッケージをインストールします。
-  <!-- 7. Install the `pyparsing` package for Python -->
+    `--user`フラグはBazelを`$HOME/bin`ディレクトリにインストールします。
+    <!-- The `--user` flag installs Bazel in the `$HOME/bin` directory. -->
+
+7. `$HOME/bin`ディレクトリを`$PATH`変数に追加します。
+  <!-- 7. Add the `$HOME/bin` directory to your `$PATH` variable -->
+
+    ```BASH
+    PATH="$PATH:$HOME/bin"
+    ```
+
+8. Python用の`pyparsing`パッケージをインストールします。
+  <!-- 8. Install the `pyparsing` package for Python -->
 
     ```bash
     sudo apt install -y python-pyparsing
     ```
 
-8. Gitをインストールします。
-  <!-- 8. Install Git -->
+9. Gitをインストールします。
+  <!-- 9. Install Git -->
 
     ```bash
     sudo apt install -y git
@@ -90,14 +113,14 @@
     ```
 
 3. ソースコードから署名サーバーをビルドします。
-  <!-- 3. Build Hub from the source code: -->
+  <!-- 3. Build the signing server from the source code -->
 
     ```bash
     bazel build -c opt //signing_server
     ```
 
 ハードウェアまたは仮想マシンによっては、このプロセスにはしばらく時間がかかります。
-<!-- This process can take a while, depending on the hardware or virtual machine. -->
+<!-- This process can take a while, depending on your hardware or virtual machine. -->
 
 ビルドが完了すると、標準出力に次のように表示されます。
 <!-- After the build is complete, the output should display something like the following: -->
@@ -113,78 +136,79 @@ INFO: Build completed successfully, 1412 total actions
 ## 手順3. 自己署名SSL証明書を生成する
 <!-- ## Step 3. Generate self-signed SSL certificates -->
 
-SSL証明書は、ハブと署名サーバー間の安全な通信に使用されます。ハブリポジトリには証明書を生成するためのスクリプトがいくつか含まれています。
-<!-- SSL certificates are used for secure communication between your Hub and the signing server. The Hub repository includes some scripts to generate the certificates. -->
+SSL証明書は、ハブと署名サーバー間の通信を保護するために使用されます。ハブリポジトリには、テスト目的で自己署名証明書を生成するスクリプトが含まれています。
+<!-- SSL certificates are used to secure the communication between Hub and the signing server. The Hub repository includes scripts that generate self-signed certificates for testing purposes. -->
 
-1. `generate_ca.sh`ファイルを開きます。
-  <!-- 1. Open the generate_ca.sh file -->
+:::info:
+実稼働環境でSSL証明書を使用する場合は、専用の認証局（CA）を実行する必要があります。
+:::
+<!-- :::info: -->
+<!-- If you want to use SSL certificates in a production environment, you should run a dedicated Certificate authority (CA). -->
+<!-- ::: -->
+
+1. `01_generate_ca.sh`ファイルを開きます。
+  <!-- 1. Open the `01_generate_ca.sh` file -->
 
     ```bash
-    nano docs/ssl/01_generate_ca.sh
+    nano docs/ssl/grpc/01_generate_ca.sh
     ```
 
-    CA証明書の有効期間は365日に設定されています。すぐ期限切れにならないように、9999日にアップグレードしましょう。
-    <!-- The validity for the CA certificate is set to 365 days. Let's upgrade that to 9999 days so it won't expire anytime soon: -->
+2. 証明書の有効期限を9999日に増やすには、`-days 365`を`-days 9999`に置き換えます。
+  <!-- 2. To increase the expiry date of the certificate to 9999 days, replace `-days 365` with `-days 9999` -->
 
-2. 証明書の有効期限を長くするには、`-days 365`を`-days 9999`に置き換え、ファイルを保存します。
-  <!-- 2. To increase the expiry date of the certificate, replace `-days 365` with `-days 9999`. Save the file -->
+3. `-subj`スイッチの共通名をデバイスのホスト名に置き換え、ファイルを保存します。たとえば、ホスト名が`signer`の場合、`CN=localhost`を`CN=signer`に置き換えます。
+  <!-- 3. Replace the common name in the `-subj` switch with the hostname of your device and save the file. For example, if your hostname is `signer`, replace `CN=localhost` with `CN=signer`. -->
 
-3. 署名サーバーのホスト名を確認します。この例では、ホスト名は`signer`です。シェルで`hostname`コマンドを実行して、自分のホスト名が何であるかを確認します。
-  <!-- 3. Check the hostname for the signing server. In the example the hostname is `signer`. You can check what your hostname is by executing the `hostname` command in your shell. -->
+    :::info:
+    ホスト名を確認するには、コマンドラインで`hostname`コマンドを入力します。
+    :::
+    <!-- :::info: -->
+    <!-- To find out your hostname, enter the `hostname` command in the command line. -->
+    <!-- ::: -->
 
-4. `generate_server.sh`ファイルを開きます。
-  <!-- 4. Open the generate-server file -->
+4. `02_generate-server.sh`ファイルを開きます。
+  <!-- 4. Open the `02_generate-server.sh` file -->
 
     ```bash
-    nano docs/ssl/02_generate_server.sh
+    nano docs/ssl/grpc/02_generate_server.sh
     ```
 
 5. `-days 365`を`-days 9999`に置き換えます。
   <!-- 5. Replace `-days 365` with `-days 9999` -->
 
-6. `CN=localhost`部分に署名サーバーのホスト名が含まれるように`-subj`パラメーターを変更し（例えば、`CN=signer`）、ファイルを保存します。
-  <!-- 6. Change the `-subj` parameter so that the `CN=localhost` part contains the hostname of the signing server, for example `CN=signer`. Save the file. -->
+6. `-subj`スイッチの共通名をデバイスのホスト名に置き換え、ファイルを保存します。
+  <!-- 6. Replace the common name in the `-subj` switch with the hostname of your device and save the file -->
 
-    `openssl req`コマンドは次のような出力をするはずです。
-    <!-- The `openssl req` command should output something like the following: -->
-
-    ```bash
-    openssl req -passin pass:1234 -new -key server.key -out server.csr -subj "/C=DE/ST=Berlin/L=Berlin/O=HUB/OU=Server/CN=signer"
-    ```
-
-7. generate_client.shファイルを開きます。
-  <!-- 7. Open the generate_client file -->
+7. `03_generate_client.sh`ファイルを開きます。
+  <!-- 7. Open the `03_generate_client.sh` file -->
 
     ```bash
-    nano docs/ssl/03_generate_client.sh
+    nano docs/ssl/grpc/03_generate_client.sh
     ```
 
 8. `-days 365`を`-days 9999`に置き換えます。
   <!-- 8. Replace `-days 365` with `-days 9999` -->
 
-9. `CN=localhost`の部分に署名サーバーのホスト名が含まれるように`-subj`パラメーターを変更し（例えば、`CN=signer`）、ファイルを保存します。
-  <!-- 9. Change the `-subj` parameter so that the `CN=localhost` part contains the hostname of the signing server, for example `CN=signer`. Save the file. -->
+9. `-subj`スイッチの共通名をデバイスのホスト名に置き換え、ファイルを保存します。
+<!-- 9. Replace the common name in the `-subj` switch with the hostname of your device and save the file -->
 
 10. 3つすべてのスクリプトを実行します。
   <!-- 10. Execute all three scripts -->
 
     ```bash
-    ./docs/ssl/01_generate_ca.sh
-    ./docs/ssl/02_generate_server.sh
-    ./docs/ssl/03_generate_client.sh
+    ./docs/ssl/grpc/01_generate_ca.sh
+    ./docs/ssl/grpc/02_generate_server.sh
+    ./docs/ssl/grpc/03_generate_client.sh
     ```
 
-これでSSLサーバーとクライアントの証明書を使用する準備が整いました！
-<!-- You should now have some SSL server and client certificates ready to use! -->
+これで、SSLサーバーとクライアントの証明書ファイルがいくつか作成されました。
+<!-- You should now have some SSL server and client certificate files. -->
 
 ## 手順4. 署名サーバーを実行する
 <!-- ## Step 4. Run the signing server -->
 
-署名サーバーを実行するには、ビルドプロセス中に作成されたバイナリファイルを実行する必要があります。このバイナリファイルは`./bazel-bin/signing_server/signing_server`ディレクトリにあります。
-<!-- To run the signing server, you need to execute the binary file that was created during the build process. This binary file is located in the `./bazel-bin/signing_server/signing_server` directory. -->
-
-バイナリファイルを実行する前に、バイナリファイルを設定する必要があります。
-<!-- Before you can run the binary file, you need to configure it. -->
+署名サーバーを実行するには、ビルドプロセス中に作成されたバイナリファイルを実行する必要があります。
+<!-- To run the signing server, you need to execute the binary file that was created during the build process. -->
 
 1. start.shというシェルスクリプトを作成します。
   <!-- 1. Create a shell script called start.sh -->
@@ -193,30 +217,29 @@ SSL証明書は、ハブと署名サーバー間の安全な通信に使用さ�
     nano start.sh
     ```
 
-2. start.shファイルに、署名サーバーを実行するためのコマンドを、使用したい[コマンドラインフラグ](../references/command-line-flags.md)とともに追加します。
-  <!-- 2. In the start.sh file, add the command for running the signing server with any [command line flags](../references/command-line-flags.md) that you want to use: -->
+2. `start.sh`ファイルで、使用する[コマンドラインフラグ](../references/command-line-options.md)を使用して署名サーバーを実行するためのコマンドを追加します。パスをSSLファイルへの絶対パスに置き換えます。
+<!-- 2. In the start.sh file, add the command for running the signing server with any [command line flags](../references/command-line-options.md) that you want to use. Replace the paths with the absolute paths to your SSL files. -->
 
-    ```shell
+    ```bash
     #!/bin/bash
 
     ./bazel-bin/signing_server/signing_server \
-    --salt CHANGETHIS \
+    --salt CHANGETHISTOSOMETHINGMORESECURE \
     --authMode ssl \
-    --sslKey docs/ssl/server.key \
-    --sslCert docs/ssl/server.crt \
-    --sslCA docs/ssl/ca.crt \
-    --listenAddress 0.0.0.0:50051
+    --sslKey /home/jake/hub/docs/ssl/grpc/server.key \
+    --sslCert /home/jake/hub/docs/ssl/grpc/server.crt \
+    --sslCA /home/jake/hub/docs/ssl/grpc/ca.crt \
     ```
 
     :::warning:警告
-    [ハブ設定](../how-to-guides/install-hub.md#run-hub)で使用したものと同じソルトを使用してください。
+    ハブ設定で使用したものと同じソルトを使用してください。
     :::
     <!-- :::warning:Warning -->
-    <!-- Use the same salt as the one you used in the [Hub configuration](../how-to-guides/install-hub.md#run-hub). -->
+    <!-- Use the same salt as the one you used in the Hub configuration. -->
     <!-- ::: -->
 
-3. `start.sh`ファイルを実行可能にします。
-  <!-- 3. Make the `start.sh` file executable -->
+3. 現在のユーザーに`start.sh`ファイルを実行する許可を与えます。
+  <!-- 3. Give the current user permission to execute the `start.sh` file -->
 
     ```bash
     chmod a+x start.sh
@@ -230,18 +253,19 @@ SSL証明書は、ハブと署名サーバー間の安全な通信に使用さ�
     ```
 
     :::success:おめでとうございます:tada:
-    これで、署名サーバーがコンピューター上で稼働しています！ハブがスウィープを作成するたびに、ハブは署名サーバーがバンドルに署名して署名を返すように依頼します。
+    現在署名サーバーは実行中です。
+    ハブがバンドルを作成するたびに、署名サーバーに署名して署名を返すように要求します。
     :::
-    <!-- :::success:Congratulations:tada: -->
-    <!-- The signing server is now running on your computer! -->
-    <!-- Whenever Hub creates a sweep, it will ask the signing server to sign the bundle and return the signature. -->
+    <!-- :::success:Congratulations :tada: -->
+    <!-- The signing server is now running. -->
+    <!-- Whenever Hub creates a bundle, it will ask the signing server to sign it and to return the signature. -->
     <!-- ::: -->
 
     シェルセッションで署名サーバーを実行しています。このセッションを閉じると、署名サーバーは停止します。したがって、署名サーバーをscreen/tmuxセッション、system-wideサービス、またはスーパーバイザープロセスで実行することを検討する必要があります。
     <!-- You're running the signing server in your shell session. If you close this session, the server will stop. Therefore, you might want to consider running the signing server in a screen/tmux session, a system-wide service, or a supervised process. -->
 
-    このチュートリアルでは、スーパーバイザーを使用して、署名サーバーが常に実行され、再起動またはクラッシュ後に自動的に再起動するようにします。
-    <!-- For this tutorial, you'll use supervisor to make sure the signing server always runs and automatically restarts after a reboot or a crash. -->
+    このガイドでは、スーパーバイザーを使用して、署名サーバーが常に実行され、再起動またはクラッシュ後に自動的に再起動するようにします。
+	<!-- For this guide, you'll use supervisor to make sure the signing server always runs and automatically restarts after a reboot or a crash. -->
 
 5. スーパーバイザーをインストールします（`CTRL+C`を押して現在のシェルセッションを終了します）。
   <!-- 5. Install supervisor (press `CTRL+C` to exit the current shell session): -->
@@ -258,7 +282,7 @@ SSL証明書は、ハブと署名サーバー間の安全な通信に使用さ�
     ```
 
 7. 次の行を`signing.conf`ファイルに追加します。`user`フィールドの値をユーザー名に置き換え、`command`、`directory`、`stderr_logfile`、`stdout_logfile`フィールドのパスが正しいことを確認します。
-  <!-- 7. Add the following lines to the signing.conf file. Replace the value of the `user` field with your username, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` field are correct. -->
+  <!-- 7. Add the following lines to the `signing.conf` file. Replace the value of the `user` field with your username, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` field are correct. -->
 
     ```shell
     [program:hub]
@@ -271,8 +295,8 @@ SSL証明書は、ハブと署名サーバー間の安全な通信に使用さ�
     stdout_logfile=/home/dave/hub/info.log
     ```
 
-8. signing.confファイルを保存してスーパーバイザーをリロードします。
-  <!-- 8. Save the signing.conf file and reload supervisor -->
+8. `signing.conf`ファイルを保存してスーパーバイザーをリロードします。
+  <!-- 8. Save the `signing.conf` file and reload supervisor -->
 
     ```bash
     sudo supervisorctl reload
@@ -301,11 +325,11 @@ signing RUNNING pid 11740, uptime 0:00:02
 ### 手順5. ハブを署名サーバーに接続する
 <!-- ### Step 5. Connect Hub to the signing server -->
 
-ハブサーバーに生成されたSSL証明書をインポートし、SSL証明書を使用するようにstart.shスクリプトを編集する必要があります。
-<!-- In the Hub server, you need to import the generated SSL certificates and edit the start.sh script to use them. -->
+ハブサーバーで、SSL証明書をインポートし、それらを使用するように`start.sh`スクリプトを編集する必要があります。
+<!-- On the Hub server, you need to import the SSL certificates and edit the `start.sh` script to use them. -->
 
-1. 証明書ファイル（client.crt、client.key、およびca.crt）をハブサーバーにコピーします。この例では、`scp`コマンドを使用してSSH経由で送信します。192.168.2.212をハブサーバーのURLまたはIPアドレスに変更します。`/home/dave/hub/`ディレクトリをハブがインストールされているパスに置き換えます。
-  <!-- 1. Copy the certificate files ( client.crt, client.key, and ca.crt) to the hub server. You can do this in any way you prefer. For this example, send them over SSH, using the `scp` command. Change 192.168.2.212 to the URL or IP address of your Hub server. Replace the `/home/dave/hub/` directory with the path where your Hub is installed. -->
+1. 証明書ファイル（`client.crt`、`client.key`、および `ca.crt`）をハブサーバーにコピーします。これは任意の方法で実行できます。この例では、`scp`コマンドを使用してSSHで送信します。`192.168.2.212`IPアドレスを、ハブサーバーのURLまたはIPアドレスに置き換えます。次に、`/home/dave/hub/`ディレクトリを`hub`ディレクトリへの絶対パスに置き換えます。
+  <!-- 1. Copy the certificate files ( `client.crt`, `client.key`, and `ca.crt`) to the Hub server. You can do this in any way you prefer. In this example, we send them over SSH, using the `scp` command. Replace the 192.168.2.212 IP address with the URL or IP address of your Hub server. Then, replace the `/home/dave/hub/` directory with the absolute path to your `hub` directory. -->
 
     ```bash
     scp client.crt client.key ca.crt 192.168.2.212:/home/dave/hub/
@@ -327,8 +351,8 @@ signing RUNNING pid 11740, uptime 0:00:02
     sudo nano /etc/hosts
     ```
 
-3. このファイルで、署名サーバーのホスト名を署名サーバーのIPアドレスにマップします。`192.168.2.210`を署名サーバーのIPアドレスに変更します。`signer`を署名サーバーのホスト名に変更します。
-  <!-- 3. In this file, map the hostname of the signing server to its IP address. Change 192.168.2.210 to the IP address of your signing server. Change `signer` to the hostname of your signing server. -->
+3. 署名サーバーのホスト名をそのIPアドレスにマップします。`192.168.2.210`IPアドレスを署名サーバーのIPアドレスに置き換えます。次に、`signer`を署名サーバーのホスト名に置き換えます。
+  <!-- 3. Map the hostname of the signing server to its IP address. Replace the 192.168.2.210 IP address with the IP address of your signing server. Then, replace `signer` with the hostname of your signing server. -->
 
     ```shell
     192.168.2.210   signer
@@ -341,19 +365,21 @@ signing RUNNING pid 11740, uptime 0:00:02
     nano start.sh
     ```
 
-5. `--salt`パラメーターを削除します。署名サーバーが持っているので、`--salt`パラメーターはもう必要ありません。署名サーバー（`signer:50051`）と使用するSSL証明書も参照する必要があります。
-  <!-- 5. Remove the `--salt` parameter. This parameter is not needed here anymore because the signing server has it. You should also reference the signing server (`signer:50051`) and the SSL certificates to use. -->
+5. `--salt`パラメーターを削除します。署名サーバーが`salt`を持っているので、`--salt`パラメーターはもう必要ありません。次に、`--signingMode`、`--signingProviderAddress`、`--signingServerChainCert`、`--signingServerKeyCert`、および`--signingServerSslCert`オプションを設定します。
+  <!-- 5. Remove the `--salt` parameter. This parameter is not needed here anymore because the signing server has it. Then, configure the `--signingMode`, `--signingProviderAddress`, `--signingServerChainCert`, `--signingServerKeyCert`, and `--signingServerSslCert` options. -->
+
+    :::info:
+    `salt`とは別に、既存のコマンドラインオプションをすべて保持してください。
+    :::
+    <!-- :::info: -->
+    <!-- Apart from the salt, make sure you keep any existing command-line options. -->
+    <!-- ::: -->
 
     ```shell
     #!/bin/bash
 
     ./bazel-bin/hub/hub \
-    --db hub \
-    --dbUser root \
-    --dbPassword myrootpassword \
-    --apiAddress 127.0.0.1:14265 \
-    --minWeightMagnitude 14 \
-    --listenAddress 127.0.0.1:50051 \
+    # Keep any existing command-line options
     --signingMode remote \
     --signingProviderAddress signer:50051 \
     --signingServerChainCert client.crt \
@@ -368,15 +394,23 @@ signing RUNNING pid 11740, uptime 0:00:02
     sudo supervisorctl restart hub
     ```
 
-:::success:成功
-すべてうまくいけば、ハブは署名サーバーに接続されます。ソルトはハブと同じサーバーにはもう存在しません！
+:::success:成功です！
+すべてがうまくいけば、ハブは署名サーバーに接続されます。`salt`はハブと同じサーバー上にないため、署名プロセスがより安全になります。
 :::
 <!-- :::success:Success -->
-<!-- If everything went well, Hub will be connected to your signing server. The salt is no longer on the same server as your Hub! -->
+<!-- If everything went well, Hub will be connected to your signing server. The salt is no longer on the same server as Hub, making the signing process more secure. -->
 <!-- ::: -->
 
 ## 次のステップ
 <!-- ## Next steps -->
 
-署名サーバーにファイアウォールホワイトリストがあることを確認します。公開する外部サービスが少ないほど、署名サーバーの脆弱性は少なくなります。
-<!-- Make sure that your signing server has a firewall whitelist. The fewer external services you expose, the less vulnerable the signing server is. -->
+[署名サーバーが安全であることを確認してください](https://hostadvice.com/how-to/how-to-harden-your-ubuntu-18-04-server/)。
+<!-- [Make sure that your signing server is secure](https://hostadvice.com/how-to/how-to-harden-your-ubuntu-18-04-server/). -->
+
+ハブの起動方法に応じて、gRPC APIサーバーまたはRESTful APIサーバーのいずれかを公開して、ユーザーと対話できるようにします。
+<!-- Depending on how you started Hub, it exposes either a gRPC API server or a RESTful API server for you to interact with: -->
+
+- [gRPC API入門](../how-to-guides/get-started-with-the-grpc-api.md)
+<!-- - [Get started with the gRPC API](../how-to-guides/get-started-with-the-grpc-api.md) -->
+- [RESTful API入門](../how-to-guides/get-started-with-the-grpc-api.md)
+<!-- - [Get started with the RESTful API](../how-to-guides/get-started-with-the-grpc-api.md) -->

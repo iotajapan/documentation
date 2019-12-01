@@ -11,7 +11,7 @@ This section is about the open-source Coordinator called Compass.
 
     - [Set up a private Tangle](how-to-guides/set-up-a-private-tangle.md)
 
-  
+
 - Concepts
     - [About Compass](concepts/about-compass.md)
     - [Security considerations](concepts/security-considerations.md)

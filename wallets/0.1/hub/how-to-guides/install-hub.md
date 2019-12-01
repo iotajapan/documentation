@@ -1,22 +1,246 @@
 # ハブを実行する
 <!-- # Run Hub -->
 
-**Hubは、新しいユーザーを作成し、IOTAトークンの預け入れと取り出しを管理するために使用できるウォレット管理システムです。ハブを独自のアプリケーションまたは取引所に統合するために使用できるgRPC APIまたはRESTful APIを公開するオプションがあります。**
-<!-- **Hub is a wallet management system that you can use to create new users, and manage their deposits and withdrawals of IOTA tokens. You have the option to expose either a gRPC API or a RESTful API that you can use to integrate Hub into your own applications or exchanges.** -->
+**ハブを実行することにより、アプリケーションがユーザーのアカウントを管理するために使用できるAPIを公開します。このガイドでは、ハブのインスタンスをインストールして実行します。**
+<!-- **By running Hub, you expose an API that your application can use to manage users' accounts. In this guide, you install and run an instance of Hub.** -->
 
-![IOTA Hub architecture](../images/iota_hub.png)
+ハブを実行するには、2つのオプションがあります。
+<!-- You have two options for running Hub: -->
 
-## 前提条件
-<!-- ## Prerequisites -->
+- Dockerコンテナでハブを実行する
+<!-- - Run Hub in a Docker container -->
+- Linux Ubuntuサーバーでハブをビルドして実行する
+<!-- - Build and run Hub on a Linux Ubuntu server -->
 
-Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server)サーバー。WindowsまたはMacオペレーティングシステムを使用している場合は、[仮想マシンにLinuxサーバーを作成します](root://general/0.1/how-to-guides/set-up-virtual-machine.md)。
-<!-- A Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server) server. If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md). -->
+## Dockerコンテナでハブを実行する
+<!-- ## Run Hub in a Docker container -->
 
-## 手順1. 依存関係をインストールする
-<!-- ## Step 1. Install the dependencies -->
+このガイドでは、Hub Dockerイメージをダウンロードし、Dockerコンテナで実行します。
+<!-- In this guide, you download the Hub Docker image and run it in a Docker container. -->
 
-ハブをコンパイルするには、依存関係をインストールする必要があります。
-<!-- To compile Hub, you need to install the dependencies. -->
+### 前提条件
+<!-- ### Prerequisites -->
+
+このガイドを完了するには、次のものが必要です。
+<!-- To complete this guide, you need the following: -->
+
+- [Git](https://git-scm.com/downloads)
+- [Docker](https://docs.docker.com/install/#supported-platforms)
+
+:::info:
+Debianベースのオペレーティングシステムを使用している場合は、次のタスクのすべてのコマンドの前に`sudo`を追加します。
+:::
+<!-- :::info: -->
+<!-- If you're using a Debian-based operating system, add `sudo` before all the commands in the following tasks. -->
+<!-- ::: -->
+
+### 手順1. データベースサーバーを実行する
+<!-- ### Step 1. Run the database server -->
+
+デフォルトでは、Hubは[MariaDB 10.2.1+](https://mariadb.com/)を使用します。これは、テーブルに追加できるデータを制限するCHECK制約をサポートしているためです。
+<!-- By default, Hub uses [MariaDB 10.2.1+](https://mariadb.com/) because it supports CHECK constraints, which restrict the data you can add to the tables. -->
+
+DockerでMariaDBを使用する最も簡単な方法は、MariaDBイメージを選択し、コンテナを作成することです。
+<!-- The easiest way to use MariaDB on Docker is choosing a MariaDB image and creating a container. -->
+
+1. ハブとデータベースサーバーのDockerネットワークを作成します。
+  <!-- 1. Create a Docker network for Hub and the database server -->
+
+    ```bash
+    docker network create hub
+    ```
+
+2. MariaDB Dockerイメージをダウンロードし、コンテナで実行します。
+  <!-- 2. Download the MariaDB Docker image and run it in a container -->
+
+    ```bash
+    docker run \
+    -d \
+    --name mariadb \
+    --rm \
+    --hostname mariadb.local \
+    --net=hub \
+    -e MYSQL_ROOT_PASSWORD=myrootpassword \
+    -e MYSQL_USER=hubuser \
+    -e MYSQL_PASSWORD=hubpassword \
+    -e MYSQL_DATABASE=hubdb \
+    -v ~/db-conf:/conf \
+    -v ~/db-data:/var/lib/mysql \
+    mariadb/server:10.3
+    ```
+
+    :::info:
+    詳細については、[MariaDBのインストールとDockerの使用](https://mariadb.com/kb/en/library/installing-and-using-mariadb-via-docker/)を参照してください。
+    :::
+    <!-- :::info: -->
+    <!-- For more details, see [Installing and using MariaDB with Docker](https://mariadb.com/kb/en/library/installing-and-using-mariadb-via-docker/). -->
+    <!-- ::: -->
+
+### 手順2. データベーステーブルを作成する
+<!-- ### Step 2. Create the database tables -->
+
+ハブのインストール後、ハブのデータを保存するデータベーステーブルを作成できます。
+<!-- After Hub is installed, you can create the database tables that store Hub's data. -->
+
+:::info:
+これらのコマンドで、`myrootpassword`プレースホルダーをMariaDBコンテナの起動時に選択したパスワードに置き換えてください。
+:::
+<!-- :::info: -->
+<!-- In these commands, make sure to replace the `myrootpassword` placeholder with the password you chose when you started the MariaDB container. -->
+<!-- ::: -->
+
+1. ハブのGitHubリポジトリをクローンします。
+  <!-- 1. Clone the Hub GitHub repository -->
+
+    ```bash
+    git clone https://github.com/iotaledger/hub.git
+    ```
+
+2. Copy the `schema.sql` and `triggers.mariadb.sql` files from the `hub/schema` directory to the `db-conf` directory
+
+3. Open a shell session inside the MariaDB Docker container
+
+	```bash
+	docker exec -it mariadb /bin/bash
+	```
+
+4. Load the database schema into the database
+
+	```bash
+	mysql -h127.0.0.1 -uroot -pmyrootpassword hubdb < conf/schema.sql
+	```
+
+5. Import the database triggers
+
+	```bash
+	mysql -h127.0.0.1 -uroot -pmyrootpassword hubdb < conf/triggers.mariadb.sql
+	```
+
+### Step 3. Run Hub
+
+To run Hub, you download and run the Hub Docker image and connect it to MariaDB.
+
+1\. [Plan your Hub configuration](../how-to-guides/configure-hub.md)
+
+2\. Download the Hub Docker image and run it with the [command line options](../references/command-line-options.md) that you want to use
+
+These are some example configurations.
+
+--------------------
+### gRPC API
+
+This command connects to a local Mainnet node on port 14265, and exposes the gRPC API server on port 50051 of the local host.
+
+```bash
+docker run \
+-d \
+--rm \
+--name hub \
+--net hub \
+--hostname hub.local \
+-p 50051:50051 \
+--expose 50051 \
+iotacafe/hub:9ccb094 \
+--salt REPLACEWITHYOURSAFESALT \
+--apiAddress 127.0.0.1:14265  \
+--db hubdb \
+--dbHost mariadb \
+--dbPort 3306 \
+--dbUser hubuser \
+--dbPassword hubpassword \
+--minWeightMagnitude 14 \
+--listenAddress 0.0.0.0:50051 \
+```
+---
+
+### RESTful API
+
+This command connects to a local Mainnet node on port 14265, and exposes the RESTful API server on port 50051 of the localhost.
+
+```shell
+docker run \
+-d \
+--rm \
+--name hub \
+--net hub \
+--hostname hub.local \
+-p 50051:50051 \
+--expose 50051 \
+iotacafe/hub:9ccb094 \
+--salt REPLACEWITHYOURSAFESALT \
+--apiAddress 127.0.0.1:14265  \
+--db hubdb \
+--dbHost mariadb \
+--dbPort 3306 \
+--dbUser hubuser \
+--dbPassword hubpassword \
+--minWeightMagnitude 14 \
+--listenAddress 0.0.0.0:50051 \
+--serverType http
+```
+---
+
+### HTTPS Devnet node
+
+For testing purposes, you may want to connect to a remote [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) node. Most remote nodes use an HTTPS connection, so this command has the [`--useHttpsIRI` flag](../references/command-line-options.md#useHttpsIRI) set to `true`.
+
+```shell
+docker run \
+-d \
+--rm \
+--name hub \
+--net hub \
+--hostname hub.local \
+-p 50051:50051 \
+--expose 50051 \
+iotacafe/hub:9ccb094 \
+--salt REPLACEWITHYOURSAFESALT \
+--apiAddress nodes.devnet.iota.org:443  \
+--db hubdb \
+--dbHost mariadb \
+--dbPort 3306 \
+--dbUser hubuser \
+--dbPassword hubpassword \
+--listenAddress 0.0.0.0:50051 \
+--useHttpsIRI true
+```
+--------------------
+
+:::warning:Warning
+Replace the value of the `salt` flag with a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret.
+:::
+
+3\. Check that Hub and MariaDB are running
+
+```bash
+docker ps
+```
+
+You should see something like the following in the output:
+
+```
+CONTAINER ID        IMAGE                  COMMAND                  CREATED             STATUS              PORTS                      NAMES
+0a7fe9d77bfb        iotacafe/hub:9ccb094   "/app/hub/hub --salt…"   18 minutes ago      Up 18 minutes       0.0.0.0:50051->50051/tcp   hub
+cdd1be234729        mariadb/server:10.3    "docker-entrypoint.s…"   25 minutes ago      Up 25 minutes       3306/tcp                   mariadb
+```
+
+When the **STATUS** column shows a status of **Up**, the containers are running and listening on the port specified in the **PORTS** column.
+
+:::success:Congratulations :tada:
+Hub is running in the background! Now, you can use its API to start creating user accounts.
+:::
+
+## Install and run Hub on a Linux Ubuntu server
+
+In this guide, you install Hub on Ubuntu 18.04 and manage it in a supervisor process.
+
+### Prerequisites
+
+To complete this guide, you need an [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server) server. If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md).
+
+### Step 1. Install the dependencies
+
+To build and run Hub, you need to install a compiler, Python, and Git.
 
 1. ローカルの`apt`リポジトリが最新であることを確認します。
   <!-- 1. Make sure that your local `apt` repository is up to date -->
@@ -71,7 +295,7 @@ Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server)サーバー。W
     ```
 
     `--user`フラグは、Bazelをシステムの`$HOME/bin`ディレクトリにインストールします。
-    <!-- The `--user` flag installs Bazel to the `$HOME/bin` directory on your system. -->
+    <!-- The `--user` flag installs Bazel in the `$HOME/bin` directory on your system. -->
 
 7. `$HOME/bin`ディレクトリを`$PATH`変数に追加します。
   <!-- 7. Add the `$HOME/bin` directory to your `$PATH` variable -->
@@ -94,14 +318,11 @@ Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server)サーバー。W
     sudo apt install -y git
     ```
 
-## 手順2. データベースサーバーをインストールする
-<!-- ## Step 2. Install the database server -->
+### 手順2. データベースサーバーをインストールする
+<!-- ### Step 2. Install the database server -->
 
-ハブは、ユーザーID、アドレス、残高などのデータをデータベースに保存します。
-<!-- Hub stores data such as user IDs, addresses, and balances in a database. -->
-
-CHECK制約をサポートしているため、デフォルトではハブは[MariaDB 10.2.1](https://mariadb.com/)を使用します。CHECK制約はテーブルに追加できるデータを制限します。無効なデータを列に挿入しようとすると、MariaDBはエラーを投げます。
-<!-- By default, Hub uses [MariaDB 10.2.1+](https://mariadb.com/) because it supports CHECK constraints. A CHECK constraint restricts the data you can add to the table. If you attempt to insert invalid data in a column, MariaDB throws an error. -->
+デフォルトでは、Hubは[MariaDB 10.2.1+](https://mariadb.com/)を使用します。これは、テーブルに追加できるデータを制限するCHECK制約をサポートしているためです。
+<!-- By default, Hub uses [MariaDB 10.2.1+](https://mariadb.com/) because it supports CHECK constraints, which restrict the data you can add to the tables. -->
 
 Ubuntu 18.04 LTS用のデフォルトリポジトリはデータベースに使用できるパッケージを提供していません。代わりに、公式のMariaDBリポジトリ用にカスタムのPersonal Package Archive（PPA）をインストールすることができます。
 <!-- The default repositories for Ubuntu 18.04 LTS don't provide a package that can be used for the database. Instead, you can install a custom Personal Package Archive (PPA) for the official MariaDB repository. -->
@@ -156,11 +377,11 @@ mysql  Ver 15.1 Distrib 10.3.10-MariaDB, for debian-linux-gnu (x86_64) using rea
 これで、MariaDB 10.3.10がインストールされていることがわかります。これは、最小の10.2.1より新しいバージョンです。
 <!-- Here, you can see that MariaDB 10.3.10 is installed, which is a later version than the minimum of 10.2.1. -->
 
-## 手順3. ハブをビルドする
-<!-- ## Step 3. Build Hub -->
+### 手順3. ハブをビルドする
+<!-- ### Step 3. Build Hub -->
 
-これらすべての依存関係を設定したら、Hubをインストールします。
-<!-- After setting up all these dependencies it's time to install Hub. -->
+これらすべての依存関係をセットアップしたら、Hubをインストールしてビルドできます。
+<!-- After setting up all these dependencies, you can install and build Hub. -->
 
 1. GitHubリポジトリをクローンします。
   <!-- 1. Clone the GitHub repository -->
@@ -177,49 +398,37 @@ mysql  Ver 15.1 Distrib 10.3.10-MariaDB, for debian-linux-gnu (x86_64) using rea
     ```
 
 3. ソースコードからHubをビルドします。
-  <!-- 3. Build Hub from the source code: -->
+  <!-- 3. Build Hub from the source code -->
 
     ```bash
     bazel build -c opt //hub:hub
     ```
 
-ハードウェアまたは仮想マシンによっては、このプロセスにはしばらく時間がかかります。
-<!-- This process can take a while, depending on the hardware or virtual machine. -->
+    ハードウェアまたは仮想マシンの設定によっては、このプロセスに時間がかかる場合があります。
+    <!-- This process can take a while, depending on your hardware or your virtual machine settings. -->
 
-:::success:成功
-ビルドが完了すると、標準出力に次のように表示されます。
-:::
+    ビルドが完了すると、次のような出力が表示されます。
+    <!-- After the build is complete, the output should display something like the following: -->
 
-```shell
-Target //hub:hub up-to-date:
-    bazel-bin/hub/hub
-INFO: Elapsed time: 1531.342s, Critical Path: 208.27s
-INFO: 1377 processes: 1377 linux-sandbox.
-INFO: Build completed successfully, 1811 total actions
-```
-<!-- :::success:Success -->
-<!-- After the build is complete, the output should display something like the following: -->
+    ```shell
+    Target //hub:hub up-to-date:
+        bazel-bin/hub/hub
+    INFO: Elapsed time: 1531.342s, Critical Path: 208.27s
+    INFO: 1377 processes: 1377 linux-sandbox.
+    INFO: Build completed successfully, 1811 total actions
+    ```
 
-<!-- ```shell -->
-<!-- Target //hub:hub up-to-date: -->
-<!--    bazel-bin/hub/hub -->
-<!-- INFO: Elapsed time: 1531.342s, Critical Path: 208.27s -->
-<!-- INFO: 1377 processes: 1377 linux-sandbox. -->
-<!-- INFO: Build completed successfully, 1811 total actions -->
-<!-- ``` -->
-<!-- ::: -->
+### 手順4. データベースを作成する
+<!-- ### Step 4. Create the database -->
 
-## 手順4. データベースを作成する
-<!-- ## Step 4. Create the database -->
-
-ハブをインストールしたら、ハブのデータを格納するデータベーステーブルを作成する必要があります。
-<!-- After Hub is installed, you need to create the database tables that store Hub's data. -->
+ハブのインストール後、ハブのデータを保存するデータベーステーブルを作成できます。
+<!-- After Hub is installed, you can create the database tables that store Hub's data. -->
 
 :::info:
-これらのコマンドで、`myrootpassword`プレースホルダーをMariaDBのインストール時に選択したrootパスワードに置き換えてください。
+これらのコマンドで、`myrootpassword`プレースホルダーをMariaDBデータベースのインストール時に選択したパスワードに置き換えてください。
 :::
 <!-- :::info: -->
-<!-- In these commands, make sure to replace the `myrootpassword` placeholder with the root password you chose when you installed MariaDB. -->
+<!-- In these commands, make sure to replace the `myrootpassword` placeholder with the password you chose when you installed the MariaDB database. -->
 <!-- ::: -->
 
 1. `hub`と言う名のデータベースを作成します。
@@ -243,30 +452,34 @@ INFO: Build completed successfully, 1811 total actions
     mysql -h127.0.0.1 -uroot -pmyrootpassword hub < schema/triggers.mariadb.sql
     ```
 
-## 手順5. ハブを実行する
-<!-- ## Step 5. Run Hub -->
+### 手順5. ハブを実行する
+<!-- ### Step 5. Run Hub -->
 
-ハブを実行するには、ビルドプロセス中に作成されたバイナリファイルを実行する必要があります。このバイナリファイルは`./bazel-bin/hub/hub`ディレクトリにあります。
-<!-- To run Hub, you need to execute the binary file that was created during the build process. This binary file is located in the `./bazel-bin/hub/hub` directory. -->
+ハブを実行するには、ビルドプロセス中に作成されたバイナリファイルを実行します。
+<!-- To run Hub, you execute the binary file that was created during the build process. -->
 
-バイナリファイルを実行する前に、バイナリファイルを設定する必要があります。
-<!-- Before you can run the binary file, you need to configure it. -->
+1\. [ハブ構成を計画します](../how-to-guides/configure-hub.md)。
+<!-- 1\. [Plan your Hub configuration](../how-to-guides/configure-hub.md) -->
 
-1\. `start.sh`というシェルスクリプトファイルを作成します。
-  <!-- 1\. Create a shell script file called `start.sh` -->
+2\. `start.sh`というシェルスクリプトファイルを作成します。
+  <!-- 2\. Create a shell script file called `start.sh` -->
 
 ```bash
 nano start.sh
 ```
 
-2\. `start.sh`ファイルに、使用する[コマンドラインフラグ](../references/command-line-flags.md)を付けてハブを実行するためのコマンドを追加します。
-  <!-- 2\. In the start.sh file, add the command for running hub with the [command line flags](../references/command-line-flags.md) that you want to use -->
+3\. `start.sh`ファイルに、使用する[コマンドラインオプション](../references/command-line-options.md)を付けてハブを実行するためのコマンドを追加します。
+  <!-- 3\. In the start.sh file, add the command for running hub with the [command line options](../references/command-line-options.md) that you want to use -->
 
-### ベストプラクティス
-<!-- ### Best practice -->
+:::info:
+コンソールでログを表示するには、Googleログライブラリを使用します。たとえば、次のコマンドを使用できます：`GLOG_logtostderr=1 GLOG_v=7`。
+:::
+<!-- :::info: -->
+<!-- To see the logs in the console, use the Google logging library. For example, you could use the following command: `GLOG_logtostderr=1 GLOG_v=7`. -->
+<!-- ::: -->
 
-ハブを制御するローカルMainnetノードに接続することをお勧めします。ローカルMainnetノードがない場合は、[IRIノードソフトウェアについて](root://node-software/0.1/iri/introduction/overview.md)を参照してセットアップします。
-<!-- We recommend connecting Hub to a local Mainnet node that you control. If you don't have a local Mainnet node, [read about the IRI node software](root://node-software/0.1/iri/introduction/overview.md) for guides on setting one up. -->
+これらはいくつかの設定例です。
+<!-- These are some example configurations. -->
 
 --------------------
 ### gRPC API
@@ -277,7 +490,7 @@ nano start.sh
 #!/bin/bash
 
 ./bazel-bin/hub/hub \
-	--salt CHANGETHIS \
+	--salt CHANGETHISTOSOMETHINGMORESECURE \
 	--db hub \
 	--dbUser root \
 	--dbPassword myrootpassword \
@@ -295,7 +508,7 @@ nano start.sh
 #!/bin/bash
 
 ./bazel-bin/hub/hub \
-	--salt CHANGETHIS \
+	--salt CHANGETHISTOSOMETHINGMORESECURE \
 	--db hub \
 	--dbUser root \
 	--dbPassword myrootpassword \
@@ -308,18 +521,17 @@ nano start.sh
 
 ### HTTPSのDevnetノード
 
-テストの目的で、リモートの[Devnet](root://getting-started/0.1/references/iota-networks.md#devnet)ノードに接続できます。ほとんどのリモートノードはHTTPS接続を使用するため、このコマンドには[`--useHttpsIRI`フラグ](../references/command-line-flags.md#useHttpsIRI)が`true`に設定されています。
+テストの目的で、リモート[Devnet](root://getting-started/0.1/network/iota-networks.md#devnet)ノードに接続することができます。ほとんどのリモートノードはHTTPS接続を使用するため、このコマンドの[`--useHttpsIRI`フラグ](../references/command-line-options.md#useHttpsIRI)は`true`に設定されています。
 
 ```shell
 #!/bin/bash
 
 ./bazel-bin/hub/hub \
-	--salt CHANGETHIS \
+	--salt CHANGETHISTOSOMETHINGMORESECURE \
 	--db hub \
 	--dbUser root \
 	--dbPassword myrootpassword \
 	--apiAddress nodes.devnet.iota.org:443 \
-	--minWeightMagnitude 9 \
 	--listenAddress 127.0.0.1:50051 \
 	--useHttpsIRI true
 ```
@@ -327,74 +539,47 @@ nano start.sh
 
 :::warning:警告！
 `salt`フラグの値を少なくとも20文字の文字列で置き換えます。この値は、ハブがシードを作成するために使用するため、秘密にしてください。
-
-`salt`を保護するには、[署名サーバーのインストール](../how-to-guides/install-the-signing-server.md)をお勧めします。
 :::
 <!-- :::warning:Warning -->
 <!-- Replace the value of the `salt` flag with a string of at least 20 characters. This value is used by Hub to create seeds, so keep it secret. -->
-
-<!-- To secure the salt, we recommend [installing a signing server](../how-to-guides/install-the-signing-server.md). -->
 <!-- ::: -->
 
-:::info:
-ハブで使用可能な[コマンドラインフラグ](../references/command-line-flags.md)を表示するには、次の操作も実行できます。
-
-```bash
-./bazel-bin/hub/hub --help
-```
-:::
-<!-- :::info: -->
-<!-- To view the available [command line flags](../references/command-line-flags.md) in Hub, you can also do the following: -->
-
-<!-- ```bash -->
-<!-- ./bazel-bin/hub/hub --help -->
-<!-- ./bazel-bin/hub/hub --help -->
-<!-- ``` -->
-<!-- ::: -->
-
-3\. スクリプトを実行する許可を自分に与えます。
-<!-- 3\. Give yourself permission to execute the script -->
+4\. スクリプトを実行する許可を自分に与えます。
+<!-- 4\. Give yourself permission to execute the script -->
 
 ```bash
 chmod a+x start.sh
 ```
 
-4\. シェルスクリプトを実行してハブを起動します。
-<!-- 4\. Run the shell script to start Hub -->
+5\. シェルスクリプトを実行してハブを起動します。
+<!-- 5\. Run the shell script to start Hub -->
 
 ```bash
 ./start.sh
 ```
 
-:::success:おめでとうございます:tada:
-ハブが稼働中です。
-:::
-<!-- :::success:Congratulations -->
-<!-- :tada: Hub is now running! -->
-<!-- ::: -->
+シェルセッションでハブを実行しています。このセッションを閉じると、ハブは停止します。ハブをバックグラウンドで実行し続けるには、screen/tmuxセッション、システム全体のサービス、または監視プロセスを使用できます。
+<!-- You're running Hub in your shell session. If you close this session, Hub will stop. To keep Hub running in the background, you can use a screen/tmux session, a system-wide service, or a supervised process. -->
 
-シェルセッションでハブを実行しています。このセッションを閉じると、ハブは停止します。そのため、ハブをscreen/tmuxセッション、system-wideサービス、またはスーパーバイザープロセスで実行することを検討してください。
-<!-- You're running Hub in your shell session. If you close this session, Hub will stop. Therefore, you might want to consider running Hub in a screen/tmux session, a system-wide service, or a supervised process. -->
+このガイドでは、スーパーバイザープロセスを使用して、ハブが常に実行され、再起動またはクラッシュ後に自動的に再起動するようにします。
+<!-- In this guide, you use a supervisor process to make sure that Hub always runs and automatically restarts after a reboot or a crash. -->
 
-このチュートリアルでは、スーパーバイザープロセスを使用して、ハブが常に実行され、再起動またはクラッシュ後に自動的に再起動するようにします。
-<!-- For this tutorial, you'll use a supervisor process to make sure that Hub always runs and automatically restarts after a reboot or a crash.  -->
-
-5\. `supervisor`パッケージをインストールします（`CTRL+C`を押して現在のシェルセッションを終了します）。
-  <!-- 5\. Install the `supervisor` package (press `CTRL+C` to exit the current shell session): -->
+6\. `supervisor`パッケージをインストールします（`CTRL+C`を押して現在のシェルセッションを終了します）。
+  <!-- 6\. Install the `supervisor` package (press `CTRL+C` to exit the current shell session): -->
 
 ```bash
 sudo apt install -y supervisor
 ```
 
-6\. スーパーバイザープロセス用の設定ファイルを作成します。
-  <!-- 6\. Create a configuration file for the supervised process -->
+7\. スーパーバイザープロセス用の設定ファイルを作成します。
+  <!-- 7\. Create a configuration file for the supervised process -->
 
 ```bash
 sudo nano /etc/supervisor/conf.d/hub.conf
 ```
 
-7\. hub.confファイルに次の行を追加します。 `user`フィールドの値をユーザー名に置き換え、`command`、`directory`、`stderr_logfile`、`stdout_logfile`フィールドのパスがユーザーに対して正しいことを確認します。
-<!-- 7\. Add the following lines to the hub.conf file. Replace the value of the `user` field with your username, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` fields are correct for your user. -->
+8\. `hub.conf`ファイルに次の行を追加します。`user`フィールドの値をユーザー名に置き換え、`command`、`directory`、`stderr_logfile`、`stdout_logfile`フィールドのパスがユーザーに対して正しいことを確認します。
+<!-- 8\. Add the following lines to the `hub.conf` file. Replace the value of the `user` field with your username, and make sure that the paths in the `command`, `directory`, `stderr_logfile`, and `stdout_logfile` fields are correct for your user. -->
 
 ```shell
 [program:hub]
@@ -407,8 +592,8 @@ stderr_logfile=/home/dave/hub/err.log
 stdout_logfile=/home/dave/hub/info.log
 ```
 
-8\. hub.confファイルを保存してスーパーバイザーをリロードします。
-  <!-- 8\. Save the hub.conf file and reload supervisor -->
+9\. hub.confファイルを保存してスーパーバイザーをリロードします。
+  <!-- 9\. Save the hub.conf file and reload supervisor -->
 
 ```bash
 sudo supervisorctl reload
@@ -417,26 +602,25 @@ sudo supervisorctl reload
 ハブはバックグラウンドで実行され、サーバの再起動後またはクラッシュ後に自動的に再起動します。
 <!-- Hub should now be running in the background and should automatically start again after a server reboot or a crash. -->
 
-9\. スーパーバイザーステータスを確認します。
-  <!-- 9\. Check the supervisor status -->
+10\. スーパーバイザーステータスを確認します。
+  <!-- 10\. Check the supervisor status -->
 
 ```bash
 sudo supervisorctl status
 ```
 
-:::success:成功です！
 出力には、次のようなものが表示されるはずです。
+<!-- The output should display something like the following: -->
 
 ```shell
 hub RUNNING pid 9983, uptime 0:01:22
 ```
-:::
-<!-- :::success:Success -->
-<!-- The output should display something like the following: -->
 
-<!-- ```shell -->
-<!-- hub RUNNING pid 9983, uptime 0:01:22 -->
-<!-- ``` -->
+:::success:成功です！
+ハブはバックグラウンドで実行されています！これで、そのAPIを使用してユーザーアカウントの作成を開始できます。
+:::
+<!-- :::success:Congratulations :tada: -->
+<!-- Hub is running in the background! Now, you can use its API to start creating user accounts. -->
 <!-- ::: -->
 
 ## 次のステップ
@@ -445,10 +629,16 @@ hub RUNNING pid 9983, uptime 0:01:22
 ハブの起動方法に応じて、gRPC APIサーバーまたはRESTful APIサーバーのいずれかを公開して、ユーザーと対話できるようにします。
 <!-- Depending on how you started Hub, it exposes either a gRPC API server or a RESTful API server for you to interact with: -->
 
-* [gRPC API入門](../how-to-guides/get-started-with-the-grpc-api.md)
-<!-- * [Get started with the gRPC API](../how-to-guides/get-started-with-the-grpc-api.md) -->
-* [RESTful API入門](../how-to-guides/get-started-with-the-grpc-api.md)
-<!-- * [Get started with the RESTful API](../how-to-guides/get-started-with-the-grpc-api.md) -->
+- [gRPC API入門](../how-to-guides/get-started-with-the-grpc-api.md)
+<!-- - [Get started with the gRPC API](../how-to-guides/get-started-with-the-grpc-api.md) -->
+- [RESTful API入門](../how-to-guides/get-started-with-the-grpc-api.md)
+<!-- - [Get started with the RESTful API](../how-to-guides/get-started-with-the-grpc-api.md) -->
+
+[APIを保護する](../how-to-guides/secure-hub-api.md)ために、SSLプロトコルを使用できます。
+<!-- To [secure the API](../how-to-guides/secure-hub-api.md), you can use the SSL protocol. -->
 
 ハブのセキュリティを向上させるには、ハブを[署名サーバー](../how-to-guides/install-the-signing-server.md)に接続する。
-<!-- To improve the security of your Hub, connect it to a [signing server](../how-to-guides/install-the-signing-server.md). -->
+<!-- To improve the security of Hub, connect it to a [signing server](../how-to-guides/install-the-signing-server.md). -->
+
+[Hubサーバーが安全であることを確認してください](https://hostadvice.com/how-to/how-to-harden-your-ubuntu-18-04-server/)。
+<!-- [Make sure that your Hub server is secure](https://hostadvice.com/how-to/how-to-harden-your-ubuntu-18-04-server/). -->
