@@ -102,7 +102,7 @@ Dockerコンテナをビルドするには、Docker 17.05（マルチステー�
 <!-- ### Step 2. Run the node -->
 
 ノードを実行すると、IOTA財団が実行しているエントリノードとの自動ピアリングによってネットワークに参加します。IOTA財団のエントリノードと自動ピアするには、自動ピアリングポートとゴシップポートがノードに転送されていることを確認する必要があります。デフォルトでは、これらのポートは14666と14626です。これらのポートを転送しなくても、ノードにトランザクションを送信することはできますが、どの隣接ノードとも接続できません。
-<!-- When you run the node, it joins the network by autopeering with the entry node that's run by us at the IOTA Foundation. To autopeer with this entry node, you must make sure that the autopeering and gossip ports are forwarded to your node. By default, these ports are 14666 and 14626. If you don't forward these ports, you can still send transaction to your node, but it won't be able to connect to any neighbors. -->
+<!-- When you run the node, it joins the network by autopeering with the entry node that's run by the IOTA Foundation. To autopeer with this entry node, you must make sure that the autopeering and gossip ports are forwarded to your node. By default, these ports are 14666 and 14626. If you don't forward these ports, you can still send transaction to your node, but it won't be able to connect to any neighbors. -->
 
 1. `goshimmer`リポジトリをクローンします。
   <!-- 1. Clone the `goshimmer` repository -->
@@ -129,7 +129,7 @@ Dockerコンテナをビルドするには、Docker 17.05（マルチステー�
   <!-- 4. Run the Docker image -->
 
     ここでは、Dockerイメージをバックグラウンドで実行し、ホストデバイスからDockerコンテナにポートを転送し、[コマンドラインフラグ](../references/command-line-flags.md)を使用してスパマー、ZMQ、およびダッシュボードプラグインを有効にします。これらのプラグインを使用すると、スパムトランザクションを自分のノードに送信したり、着信トランザクションを監視したり、Webダッシュボードで処理中のトランザクションの総数を表示したりできます。
-    <!-- Here, we run the Docker image in the background, forward the ports from your host device to the Docker container, and and use the [command-line flags](../references/command-line-flags.md) to enable the spammer, ZMQ, and dashboard plugins. These plugins allow you to send spam transactions to your node, monitor it for incoming transactions, and view the total number of transactions that it's processing in a web dashboard. -->
+    <!-- Here, we run the Docker image in the background, forward the ports from your host device to the Docker container, and use the [command-line flags](../references/command-line-flags.md) to enable the spammer, ZMQ, and dashboard plugins. These plugins allow you to send spam transactions to your node, monitor it for incoming transactions, and view the total number of transactions that it's processing in a web dashboard. -->
 
     :::info:
     [Docker Compose](https://docs.docker.com/compose/)があれば、`docker-compose up -d`コマンドを使うこともできます。
@@ -139,7 +139,7 @@ Dockerコンテナをビルドするには、Docker 17.05（マルチステー�
     <!-- ::: -->
 
     ```bash
-    sudo docker run -d --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -p 8081:8081 -it -v mainnetdb:/app/mainnetdb goshimmer --node-enable-plugins "spammer zeromq dashboard"
+    sudo docker run -d --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -p 8081:8081 -it -v mainnetdb:/app/mainnetdb goshimmer --node.enablePlugins "spammer zeromq dashboard"
     ```
 
     コンテナIDがコンソールに表示されます。
@@ -268,12 +268,10 @@ GoShimmerノードを実行しています。
 3. オペレーティングシステムに応じて、`shimmer`ファイルを実行します。
   <!-- 3. Execute the `shimmer` file, according to your operating system: -->
 
-- **LinuxとmacOS：** `./shimmer --enable-node-plugins "spammer zeromq dashboard"`
-<!-- - **Linux and macOS:** `./shimmer --enable-node-plugins "spammer zeromq dashboard"` -->
-- **Windows：** ファイルの名前を`shimmer.exe`に変更してから、コマンドラインインターフェイスで`.\shimmer --node-enable-plugins "spammer zeromq dashboard"`を実行します。
-<!-- - **Windows:** Rename the file to `shimmer.exe`, then execute it by doing `.\shimmer --node-enable-plugins "spammer zeromq dashboard"` in the command-line interface -->
-<!-- - **Windows:** Rename the file to `shimmer.exe`, then execute it by doing `.\shimmer --node-enable-plugins "spammer zeromq dashboard"` in the command-line interface -->
-
+- **LinuxとmacOS：** `./shimmer --node.enablePlugins "spammer zeromq dashboard"`
+<!-- - **Linux and macOS:** `./shimmer --node.enablePlugins "spammer zeromq dashboard"` -->
+- **Windows：** ファイルの名前を`shimmer.exe`に変更してから、コマンドラインインターフェイスで`.\shimmer --node.enablePlugins "spammer zeromq dashboard"`を実行します。
+<!-- - **Windows:** Rename the file to `shimmer.exe`, then execute it by doing `.\shimmer --node.enablePlugins "spammer zeromq dashboard"` in the command-line interface -->
 
 ここでは、ノードをバックグラウンドで実行し、[コマンドラインフラグ](../references/command-line-flags.md)を使用してスパマー、ZMQ、およびダッシュボードプラグインを有効にします。これらのプラグインを使用すると、スパムトランザクションを自分のノードに送信したり、着信トランザクションを監視したり、Webダッシュボードで処理中のトランザクションの総数を表示したりできます。
 <!-- Here, we run the run the node in the background, and use the [command-line flags](../references/command-line-flags.md) to enable the spammer, ZMQ, and dashboard plugins. These plugins allow you to send spam transactions to your node, monitor it for incoming transactions, and view the total number of transactions that it's processing in a web dashboard. -->

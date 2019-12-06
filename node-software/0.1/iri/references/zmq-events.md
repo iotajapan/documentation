@@ -7,38 +7,10 @@
 すべてのイベントは、スペースで区切られたデータを含む1つ以上のバッファーオブジェクトを返します。 バッファの最初の項目は常にイベントの名前です。返されたデータ列の情報は、バッファが文字列に変換され、スペース文字で配列に分割されたかのように表示されます。
 <!-- All events return one or more buffer objects, which contain space-separated data. The first item in the buffer is always the name of the event. The information in the Returned data column is displayed as though the buffer had been converted to a string and split on a space character into an array. -->
 
-[IRIのバグ](https://github.com/iotaledger/iri/issues/1597)により、現在、バージョン1.8.0以降では次のイベントは利用できません。
-<!-- Due to [a bug in the IRI](https://github.com/iotaledger/iri/issues/1597), the following events are currently unavailable in version 1.8.0 or later: -->
-
-- `dnscv`
-- `dnscc`
-- `dnscu`
-- `hmr`
-- `antn`
-- `rntn`
-- `rstat`
-- `rtl`
-
 | **イベントと説明** | **返ってくるデータ** |
 | :----------------- | :------------------- |
 | `mctn` |
 | チップ選択中に通過したトランザクションの数 | <ul><li>**インデックス 1：** チップ選択中に辿ったトランザクションの総数</li></ul> |
-| `dnscv` |
-| 隣接ノードのDNS検証 | <ul><li>**インデックス 1：** 隣接ノードのホスト名</li><li>**インデックス 2：** 隣接ノードのIPアドレス</li></ul> |
-| `dnscc` |
-| 隣接ノードのDNS確認 | <ul><li>**インデックス 1：** 隣接ノードのホスト名</li></ul> |
-| `dnscu` |
-| 隣接ノードのIPアドレスに更新する | <ul><li>**インデックス 1：** 隣接ノードのホスト名</li></ul> |
-| `hmr` |
-| IRIノードがキャッシュに保存（ヒット）した受信トランザクションと、IRIノードがランダムに削除（ミス）した受信トランザクションの比率 | <ul><li>**インデックス 1：** ヒット数</li><li>**インデックス 2：** ミス数</li></ul> |
-| `antn` |
-| 追加された非連結隣接ノードに関する情報（testnetネットワーク上でのみ利用可能） | <ul><li>**インデックス 1：** 非連結隣接ノードのURL</li></ul> |
-| `rntn` |
-| 拒否された非連結隣接ノードに関する情報（testnetネットワークでのみ利用可能） | <ul><li>**インデックス 1：** 隣接ノードのURL</li><li>**インデックス 2：** IRI設定オプションで指定されているピアの最大数</li></ul> |
-| `rstat` |
-| チップトランザクションリクエスターに関する情報 |<ul><li>**インデックス 1：** IRIノードがまだ処理していない受信チップトランザクションの数</li><li>**インデックス 2：** IRIノードが隣接ノードにまだブロードキャストしていないチップトランザクションの数</li><li>**インデックス 3：** IRIノードが隣接ノードにまだリクエストしていないチップトランザクションの数</li><li>**インデックス 4：** IRIノードが隣接ノードへの応答としてまだ送信していないリクエストされたチップトランザクションの数</li><li>**インデックス 5：** 台帳に保存されているトランザクションの数</li></ul> |
-| `rtl` |
-| IRIノードがリクエストキューからランダムに削除したトランザクション| <ul><li>**インデックス 1：** 削除されたトランザクションハッシュ</li></ul> |
 | `lmi` |
 | 最新のマイルストーンインデックス |<ul><li>**インデックス 1：** 前のマイルストーンインデックス</li><li>**インデックス 2：** 最新のマイルストーンインデックス</li></ul> |
 | `lmsi` |

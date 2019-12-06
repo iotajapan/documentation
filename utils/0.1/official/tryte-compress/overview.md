@@ -31,8 +31,8 @@
 <!-- - A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
 - コマンドラインインターフェイスへのアクセス
 <!-- - Access to a command-line interface -->
-* [`@iota/core`](root://getting-started/0.1/how-to-guides/get-started.md)、[`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter)、および[`@iota/tryte-compress`](https://github.com/iotaledger/tryte-compress-js)パッケージ
-<!-- - The [`@iota/core`](root://getting-started/0.1/how-to-guides/get-started.md), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/tryte-compress`](https://github.com/iotaledger/tryte-compress-js) packages -->
+- `@iota/core`パッケージと`@iota/converter`パッケージと`@iota/tryte-compress`パッケージ
+<!-- - The `@iota/core`, `@iota/converter`, and `@iota/tryte-compress` packages -->
 
 ### 手順1. サンプルをセットアップする
 <!-- ### Step 1. Set up the sample -->

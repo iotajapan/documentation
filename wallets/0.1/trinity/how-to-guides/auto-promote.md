@@ -19,3 +19,10 @@
 <!-- :::info: -->
 <!-- Auto-promotion is available on mobile devices only when Trinity is in the foreground. -->
 <!-- ::: -->
+:::
+
+## 次のステップ
+<!-- ## Next steps -->
+
+[IOTAトークンの残高を確認する](../how-to-guides/read-your-balance.md)。
+<!-- [Check your balance of IOTA tokens](../how-to-guides/read-your-balance.md). -->

@@ -17,8 +17,8 @@ IOTAトランザクションにジオロケーションのタグを付け、同�
 <!-- Tag an IOTA transaction with a geo-location, and find others with the same tag. -->
 ---
 
-#### **存在の証明プロバイダー** ####
-[Link](../official/proof-of-existance/overview.md)
+#### **存在証明プロバイダー** ####
+[Link](../official/proof-of-existence/overview.md)
 
 ファイルが変更されていないことを証明し、すべての関係者がそれを信頼するようにします。
 <!-- Prove that a file is unchanged so that all parties that trust it. -->

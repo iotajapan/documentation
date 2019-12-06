@@ -1,8 +1,8 @@
 # 一般設定を変更する
 <!-- # Change the general settings -->
 
-**一般設定を使用して、ユーザーインターフェイスの要素の変更、パスワードの変更、トリニティが接続するノードの変更などができます。**
-<!-- **You can use the general settings to change elements of the user interface, change your password, and change the nodes to which Trinity connects.** -->
+**一般設定では、ユーザーインターフェースの要素の変更、パスワードの変更、トリニティの接続先ノードの変更が可能です。**
+<!-- **The general settings allow you to change elements of the user interface, change your password, and change the nodes to which Trinity connects.** -->
 
 トリニティで、**設定**に移動して**一般設定**をカスタマイズします。
 <!-- In Trinity, go to **Settings** to customize general settings. -->

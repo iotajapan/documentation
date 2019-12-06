@@ -434,8 +434,8 @@ IOTAトークンを取引所アカウントに預け入れるには、このア�
 8. サーバーを起動し、新しい預け入れアドレスをリクエストします。
   <!-- 8. Start the server, and request a new deposit address -->
 
-9. Devnetの蛇口を使用して[預け入れアドレスにテストIOTAトークンを送信](root://iota-js/0.1/workshop/transfer-iota-tokens.md)します。
-  <!-- 9. Use the Devnet faucet to [send some test IOTA tokens to your deposit address](root://iota-js/0.1/workshop/transfer-iota-tokens.md) -->
+9. Devnetの蛇口を使用して[預け入れアドレスにテストIOTAトークンを送信](root://client-libraries/0.1/how-to-guides/js/transfer-iota-tokens.md)します。
+  <!-- 9. Use the Devnet faucet to [send some test IOTA tokens to your deposit address](root://client-libraries/0.1/how-to-guides/js/transfer-iota-tokens.md) -->
 
     :::info:
     このガイドで、`receiveAddress`変数を預け入れアドレスに置き換えます。

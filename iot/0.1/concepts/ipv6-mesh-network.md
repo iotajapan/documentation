@@ -3,19 +3,38 @@
 **6LoWPANは、最新バージョンのインターネットプロトコル（IPv6）と低電力ワイヤレスパーソナルエリアネットワーク（LoWPAN）を組み合わせたネットワークシステムです。6LoWPANを使用すると、処理能力に制限のある小さなデバイスで、ワイヤレスセンサーネットワークを含むさまざまなアプリケーションのインターネットプロトコルを使用してワイヤレスで情報を送信できます。**
 <!-- **6LoWPAN is a networking system that combines the latest version of the Internet Protocol (IPv6) and Low-power Wireless Personal Area Networks (LoWPAN). 6LoWPAN, allows small devices with limited processing ability to transmit information wirelessly using an internet protocol for a variety of applications including wireless sensor networks.** -->
 
-## ネットワークスタック
-<!-- ## Network stack -->
+All devices in the Internet of Things must be uniquely identifiable, so that other devices can communicate with them.
 
-### IPv6 over Bluetooth Low Energy
-
-![IPv6 over Bluetooth Low Energy network stack](../images/ipv6onnrf51.png)
+With 6LoWPAN, each IoT device can directly communicate with other devices, using their IPv6 address. In addition, all applications can use standard protocols such as MQTT, CoAP, and HTTP to communicate, which means that wired and wireless devices can communicate in a common language.
 
 ### 6LoWPAN
 
+To conform to the IEEE 802.15.4 protocol, which allows for a packet size of up to 127 bytes, 6LoWPAN uses header compression to reduce the size of local IPv6 addresses from 1280 bytes.
+
+The 6LoWPAN layer uses transparent packet fragmentation to combine the IEEE 802.15.4 packets.
+
+[IEEE 802.15.4](https://standards.ieee.org/standard/802_15_4-2015.html) is the PHY and MAC layer for the 6LoWPAN network.
+
+The Direct Sequence Spread Spectrum modulation used in IEEE 802.15.4
+interferes less with other protocol on the same frequency.
+
+The standard is defined in the following documents:
+[RFC 8025](https://datatracker.ietf.org/doc/rfc8025/),
+[RFC 6775](https://datatracker.ietf.org/doc/rfc6775/),
+[RFC 6282](https://datatracker.ietf.org/doc/rfc6282/),
+[RFC 8066](https://datatracker.ietf.org/doc/rfc8066/)
+
 ![6LoWPAN network stack](../images/6LoWPAN.png)
 
-## ネットワークトポロジー
-<!-- ## Network topology -->
+### 6LoWPAN over Bluetooth Low Energy
+
+The 6LoWPAN over Bluetooth Low Energy protocol uses 6LoWPAN techniques to enable IPv6 packets over Bluetooth Low Energy. The standard is described in [RFC7668](https://datatracker.ietf.org/doc/rfc7668/), which uses the [IPSP characteristics](https://www.bluetooth.org/docman/handlers/DownloadDoc.ashx?doc_id=296307) in Bluetooth >= 4.1.
+
+The complete IP standard for Bluetooth is defined in the [Bluetooth 4.2 specification](https://www.bluetooth.org/DocMan/handlers/DownloadDoc.ashx?doc_id=286439).
+
+![6LoWPAN over Bluetooth Low Energy network stack](../images/ipv6onnrf51.png)
+
+## Network topologies
 
 6LoWPANには、スターツリーとメッシュツリーの2種類のネットワークトポロジが含まれています。
 <!-- 6LoWPAN includes two types of network topologies: Star and mesh tree. -->
@@ -59,19 +78,16 @@
 ![Mesh tree network topology](../images/mesh.png)
 
 ## 命名規則
-<!-- ## Naming convention -->
+<!-- ## Naming conventions -->
 
-6LoWPANメッシュネットワークを記述するために、次の命名規則が使用されます。
-<!-- The following naming conventions are used to describe 6LoWPAN mesh networks. -->
+6LoWPANネットワークを記述するために、次の命名規則が使用されます。
+<!-- The following naming conventions are used to describe 6LoWPAN networks. -->
 
 ### LLN
-
-LLNは、`low power and lossy networks`（低電力で損失の多いネットワーク）の略です。一部のデバイスが常時利用できない可能性があるネットワークのタイプについて説明します。たとえば、デバイスが特定の間隔でのみ起動する場合。また、信頼できないデバイスが原因でパケットが失われる可能性のあるネットワークについても説明します。ラジオレンジもそれに影響を与えます。
+LLNは、`low power and lossy networks`（低電力で損失の多いネットワーク）の略です。
 <!-- LLN stands for low power and lossy networks. -->
-<!-- It describes a type of network where some devices might be not be available all the time. -->
-<!-- For example when a device only wakes up in a certain interval. -->
-<!-- It also describes a network where a packet might get lost, due to unreliable devices. -->
-<!-- The range of the radio can also play a role in it. -->
+
+In this type of network, devices may not always be available. For example, some devices may be set up to be available only during certain intervals.
 
 ### ホスト
 <!-- ### Host -->
@@ -128,16 +144,22 @@ Bluetoothの完全なIP標準は、[Bluetooth 4.2仕様](https://www.bluetooth.o
 <!-- ### RPL (IPv6 Routing Protocol for Low-Power and Lossy Networks) -->
 
 RPLは、6LoWPANに使用されるルーティングプロトコルです。
-<!-- RPL is a routing protocol used for 6LoWPAN. -->
+<!-- RPL is the routing protocol that's used for 6LoWPAN. -->
 
 標準は[RFC 6550](https://datatracker.ietf.org/doc/rfc6550/)で定義されています。
 <!-- The standard is defined in [RFC 6550](https://datatracker.ietf.org/doc/rfc6550/). -->
 
-[このビデオシリーズ](https://www.youtube.com/watch?v=6AP7p0sbBro&t=45s)は、詳細を理解するための優れたリソースです。
-<!-- [This video series](https://www.youtube.com/watch?v=6AP7p0sbBro&t=45s) is a good resource for understanding the details. -->
+[このビデオシリーズ](https://www.youtube.com/watch?v=6AP7p0sbBro&t=45s)は、このプロトコルの詳細を理解するための優れたリソースです。
+<!-- [This video series](https://www.youtube.com/watch?v=6AP7p0sbBro&t=45s) is a good resource for understanding the details of this protocol. -->
 
-### 6LoWPAN境界ルーター
-<!-- ### 6LoWPAN border router -->
+#### ルーターのタイプ
+<!-- #### Types of router -->
+
+6LoWPANネットワークには2種類のルーターがあります。
+<!-- A 6LoWPAN network can have two types of router. -->
+
+#### 6LoWPAN境界ルーター
+<!-- #### 6LoWPAN border router -->
 
 境界ルーター（エッジルーターとも呼ばれます）は、6LoWPANをIPv6ネットワークに接続します。
 <!-- Border routers (sometimes known as edge routers) connect the 6LoWPAN with an IPv6 network. -->
@@ -145,8 +167,8 @@ RPLは、6LoWPANに使用されるルーティングプロトコルです。
 境界ルーターは、ネットワークをインターネットまたはプライベートネットワークに接続します。
 <!-- The border router connects the network to either the Internet or a private network. -->
 
-### 6LoWPANルーター
-<!-- ### 6LoWPAN router -->
+#### 6LoWPANルーター
+<!-- #### 6LoWPAN router -->
 
 6LoWPANルーターは、パケットをホストまたは他のルーターにルーティングします。ルーターと境界ルーターの唯一の違いは、境界ルーターがインターネットに接続されていることです。
 <!-- A 6LoWPAN router routes the packets to hosts or other routers. The only difference between a router and a border router is that the border router is connected to the Internet. -->

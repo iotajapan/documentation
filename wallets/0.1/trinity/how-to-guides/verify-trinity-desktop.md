@@ -219,3 +219,9 @@
     ```bash
     gpg: Good signature from "IOTA Foundation (IOTA Foundation Identity) <contact@iota.org>"
     ```
+
+## 次のステップ
+<!-- ## Next steps -->
+
+[トリニティアカウントを作成する](../how-to-guides/create-an-account.md)。
+<!-- [Create a Trinity account](../how-to-guides/create-an-account.md). -->

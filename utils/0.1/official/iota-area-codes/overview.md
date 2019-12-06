@@ -93,8 +93,8 @@ IACの詳細については、[ブログの投稿](https://blog.iota.org/iota-ar
 <!-- - A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
 - コマンドラインインターフェイスへのアクセス
 <!-- - Access to a command-line interface -->
-- [`@iota/core`](root://getting-started/0.1/how-to-guides/get-started.md)パッケージと[`@iota/area-codes`](https://github.com/iotaledger/iota-area-codes)パッケージ
-<!-- - The [`@iota/core`](root://getting-started/0.1/how-to-guides/get-started.md) and [`@iota/area-codes`](https://github.com/iotaledger/iota-area-codes) packages -->
+- `@iota/core`パッケージと`@iota/area-codes`パッケージ
+<!-- - The `@iota/core` and `@iota/area-codes` packages -->
 
 ### 手順1. 座標を探す
 <!-- ### Step 1. Find some coordinates -->

@@ -57,7 +57,7 @@
 <!-- Read the code and some quickstart instructions to test this blueprint. -->
 ---
 #### iota.jsクライアントライブラリ ####
-[Link](root://iota-js/0.1/introduction/overview.md)
+[Link](root://client-libraries/0.1/getting-started/js-quickstart.md)
 
 iota.jsクライアントライブラリを使ってトランザクションを作成、送信、受信する方法を学びます。
 <!-- Learn how to use the iota.js client library to create, send, and receive transactions. -->

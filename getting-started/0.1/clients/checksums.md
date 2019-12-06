@@ -9,7 +9,7 @@ The length of a checksum depends on whether it's for an address or a seed. Addre
 ||**Without checksum**|**With checksum**|
 |:--|:---|:---|
 |**Seed**|PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX|PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX**XTY**|
-|**Address**|GWQQYWCUFLDR9LIWDITVHTPYYO9BAMOADFLNBIHYLIFDTORUCFCOGRQFK9IXEHVEMDVZH9RYOXAFIVUOA|GWQQYWCUFLDR9LIWDITVHTPYYO9BAMOADFLNBIHYLIFDTORUCFCOGRQFK9IXEHVEMDVZH9RYOXAFIVUOA**DAYDSMFZW**| 
+|**Address**|GWQQYWCUFLDR9LIWDITVHTPYYO9BAMOADFLNBIHYLIFDTORUCFCOGRQFK9IXEHVEMDVZH9RYOXAFIVUOA|GWQQYWCUFLDR9LIWDITVHTPYYO9BAMOADFLNBIHYLIFDTORUCFCOGRQFK9IXEHVEMDVZH9RYOXAFIVUOA**DAYDSMFZW**|
 
 :::info:
 As a security precaution, some applications such as [Trinity](root://wallets/0.1/trinity/introduction/overview.md) allow you to enter only addresses that include a checksum.
@@ -20,3 +20,7 @@ As a security precaution, some applications such as [Trinity](root://wallets/0.1
 First, the address or the seed is converted to trits and hashed, using the [Kerl](https://github.com/iotaledger/kerl) [hash function](https://en.wikipedia.org/wiki/Hash_function).
 
 Then, the last 9 or 3 trytes of the resulting hash are appended to the end of the address or seed.
+
+## Related guides
+
+[Generate an address in JavaScript](root://client-libraries/0.1/how-to-guides/js/generate-an-address.md).

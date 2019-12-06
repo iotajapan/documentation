@@ -54,3 +54,9 @@ IOTAでは、データは1、0、または-1で構成される平衡三進法で
 
 - [ストレージのトライトを圧縮](https://utils.iota.org/compress)
 <!-- - [Compress trytes for storage](https://utils.iota.org/compress) -->
+
+## 関連ガイド
+<!-- ## Related guides -->
+
+[JavaScriptを用いてデータをトライトへ、トライトをデータへ変換する](root://client-libraries/0.1/how-to-guides/js/convert-data-to-trytes.md)。
+<!-- [Convert data to/from trytes in JavaScript](root://client-libraries/0.1/how-to-guides/js/convert-data-to-trytes.md) -->

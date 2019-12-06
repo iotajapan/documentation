@@ -28,13 +28,6 @@
 これらのノードをホストするには、ホストデバイスが確実に動作するのに十分な計算能力を持っていることを確認するのが最善です。たとえば、16GBのRAMと2つの仮想CPUを備えた[Amazon Webサービス（AWS）R5ラージサーバ](https://aws.amazon.com/ec2/instance-types/r5/)などの仮想プライベートサーバのインスタンスで各ノードを実行することをお勧めします。
 <!-- To host these nodes it's best to make sure that the host device has enough computational power to run reliably. For example, a good benchmark is to run each node on an instance of a virtual private server such as an [Amazon Web Services (AWS) R5 Large server](https://aws.amazon.com/ec2/instance-types/r5/) with 16 GB RAM and two virtual CPUs. -->
 
-:::info:
-[Linuxでノードを実行する](../how-to-guides/run-an-iri-node-on-linux.md)、または[Dockerコンテナでノードを実行する](../how-to-guides/run-an-iri-node-in-docker.md)ガイドを参照する。
-:::
-<!-- :::info: -->
-<!-- Read our guide on [running a node on Linux](../how-to-guides/run-an-iri-node-on-linux.md), or on [running a node in a Docker container](../how-to-guides/run-an-iri-node-in-docker.md). -->
-<!-- ::: -->
-
 ### プルーフオブワーク
 <!-- ### Proof of work -->
 
@@ -67,13 +60,6 @@
 
 APIエンドポイントを介してノードと通信するクライアントアプリケーションの場合、[AWS Lambda](https://aws.amazon.com/lambda/)などのサーバレスアーキテクチャのインスタンスで、IOTAクライアントライブラリの1つを使用するのが最善です。このようにして、アプリケーションはハードウェアに制限されず、高い可用性を持ちます。
 <!-- For a client application that will communicate with your nodes through API endpoints, it's best to use one of the IOTA client libraries on an instance of a serverless architecture such as [AWS Lambda](https://aws.amazon.com/lambda/). This way, your application is not restricted by hardware and has a high availability. -->
-
-:::info:
-[IOTAクライアントライブラリを始める](root://getting-started/0.1/how-to-guides/get-started.md)。
-:::
-<!-- :::info: -->
-<!-- [Get started with the IOTA client libraries](root://getting-started/0.1/how-to-guides/get-started.md). -->
-<!-- ::: -->
 
 ## ロードバランサ
 <!-- ## Load balancer -->

@@ -31,5 +31,5 @@ IRIはトランザクションを受信して台帳に記録しますが、ト�
 ## 次のステップ
 <!-- ## Next steps -->
 
-[Linux](../how-to-guides/run-an-iri-node-on-linux.md)または[Docker](../how-to-guides/run-an-iri-node-in-docker.md)でIRIノードを実行して、トランザクションの検証と保存を開始します。
-<!-- Run an IRI node on [Linux](../how-to-guides/run-an-iri-node-on-linux.md) or [Docker](../how-to-guides/run-an-iri-node-in-docker.md) to get started with validating and storing transactions. -->
+[IRIノードを実行して](../how-to-guides/install-iri.md)、トランザクションの検証と保存を開始します。
+<!-- [Run an IRI node](../how-to-guides/install-iri.md)to get started with validating and storing transactions. -->

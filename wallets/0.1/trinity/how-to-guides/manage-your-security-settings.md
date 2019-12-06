@@ -9,8 +9,10 @@
 
 1. **生体認証**をクリックします。
 <!-- 1. Click **Biometric authentication** -->
+
 2. **有効**をクリックします。
 <!-- 2. Click **Enable** -->
+
 3. **完了**をクリックします。
 <!-- 3. Click **Done** -->
 

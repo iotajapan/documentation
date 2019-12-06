@@ -718,13 +718,9 @@ The [configuration settings](../references/iri-configuration-options.md) that th
 
 :::info:
 このAPIエンドポイントは、ノードが同期している場合にのみデータを返します。
-
-[ノードが同期しているかどうかを確認する方法をご確認ください](root://getting-started/0.1/how-to-guides/get-started.md#step-3-make-a-test-api-request)。
 :::
 <!-- :::info: -->
 <!-- This API endpoint returns data only if the node is synchronized. -->
-
-<!-- [Find out how to check if a node is synchronized](root://getting-started/0.1/how-to-guides/get-started.md#step-3-make-a-test-api-request). -->
 <!-- ::: -->
 
 ### パラメータ
@@ -856,13 +852,9 @@ curl http://localhost:14265 \
 
 :::info:
 このエンドポイントは、ノードが同期している場合にのみデータを返します。
-
-[ノードが同期しているかどうかを確認する方法をご確認ください](root://getting-started/0.1/how-to-guides/get-started.md#step-3-make-a-test-api-request)。
 :::
 <!-- :::info: -->
 <!-- This endpoint returns data only if the node is synchronized. -->
-
-<!-- [Find out how to check if a node is synchronized](root://getting-started/0.1/how-to-guides/get-started.md#step-3-make-a-test-api-request). -->
 <!-- ::: -->
 
 
@@ -1403,13 +1395,9 @@ curl http://localhost:14265 \
 
 :::info:
 このエンドポイントは、ノードが同期している場合にのみデータを返します。
-
-[ノードが同期しているかどうかを確認する方法をご確認ください](root://getting-started/0.1/how-to-guides/get-started.md#step-3-make-a-test-api-request)。
 :::
 <!-- :::info: -->
 <!-- This endpoint returns data only if the node is synchronized. -->
-
-<!-- [Find out how to check if a node is synchronized](root://getting-started/0.1/how-to-guides/get-started.md#step-3-make-a-test-api-request). -->
 <!-- ::: -->
 
 ### パラメータ

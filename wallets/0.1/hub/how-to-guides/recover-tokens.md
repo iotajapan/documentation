@@ -22,8 +22,8 @@
 
 - [ハブのインスタンス](../how-to-guides/install-hub.md)
 <!-- - An [instance of Hub](../how-to-guides/install-hub.md) -->
-- [Node.jsの開発者環境](root://iota-js/0.1/workshop/set-up-a-developer-environment.md)
-<!-- - [A Node.js developer environment](root://iota-js/0.1/workshop/set-up-a-developer-environment.md) -->
+- [Node.jsの開発者環境](root://client-libraries/0.1/getting-started/js-quickstart.md)
+<!-- - [A Node.js developer environment](root://client-libraries/0.1/getting-started/js-quickstart.md) -->
 - [`@iota/bundle`](https://github.com/iotaledger/iota.js/tree/next/packages/bundle), [`@iota/core`](https://github.com/iotaledger/iota.js/tree/next/packages/core), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), および[`@iota/transaction`](https://github.com/iotaledger/iota.js/tree/next/packages/transaction)パッケージ
 <!-- - The [`@iota/bundle`](https://github.com/iotaledger/iota.js/tree/next/packages/bundle), [`@iota/core`](https://github.com/iotaledger/iota.js/tree/next/packages/core), [`@iota/converter`](https://github.com/iotaledger/iota.js/tree/next/packages/converter), and [`@iota/transaction`](https://github.com/iotaledger/iota.js/tree/next/packages/transaction) packages -->
 - [`SignBundle_enabled` flag](../references/command-line-options.md#signBundle)を`true`に設定します。
@@ -234,12 +234,12 @@
 :::warning:
 バンドルが確定されるまで、IOTAトークンは攻撃者によって取り出される危険性があります。
 
-バンドルが確定される可能性を高めるには、[促進と再添付](root://iota-js/0.1/core/how-to-guides/confirm-pending-bundle.md)を行います。
+バンドルが確定される可能性を高めるには、[促進と再添付](root://client-libraries/0.1/how-to-guides/js/confirm-pending-bundle.md)を行います。
 :::
 <!-- :::warning: -->
 <!-- Until the bundle is confirmed, the tokens are still at risk of being withdrawn by an attacker. -->
 <!--  -->
-<!-- To increase the chances of your bundle being confirmed, you can [promote and reattach it](root://iota-js/0.1/core/how-to-guides/confirm-pending-bundle.md). -->
+<!-- To increase the chances of your bundle being confirmed, you can [promote and reattach it](root://client-libraries/0.1/how-to-guides/js/confirm-pending-bundle.md). -->
 <!-- ::: -->
 
 ## サンプルコード

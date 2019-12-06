@@ -1,13 +1,20 @@
 # Index
+
 [序説/IOTA概要](/introduction/overview.md)
 
 [序説/三進法](/introduction/ternary.md)
 
-[クイックスタート/開発入門](/how-to-guides/get-started.md)
+[クイックスタート/開発者向け入門](root://client-libraries/0.1/getting-started/quickstart.md)
 
-[クイックスタート/Dockerで自分自身のIRIを実行する](/how-to-guides/run-your-own-iri-node.md)
+[クイックスタート/取引所向け入門](root://wallets/0.1/hub/how-to-guides/quickstart.md)
 
-[ネットワーク/IOTAネットワーク](/network/iota-networks.md)
+[クイックスタート/トリニティ入門](root://wallets/0.1/trinity/how-to-guides/quickstart.md)
+
+[クイックスタート/ノード入門](root://node-software/0.1/iri/how-to-guides/quickstart.md)
+
+[クイックスタート/シードを作成する](/tutorials/create-a-seed.md)
+
+[クイックスタート/テストIOTAトークンを入手する](/tutorials/get-test-tokens.md)
 
 [ネットワーク/ノード](/network/nodes.md)
 
@@ -38,8 +45,6 @@
 [トランザクション/深さ](/transactions/depth.md)
 
 [トランザクション/再添付、再ブロードキャスト、促進](/transactions/reattach-rebroadcast-promote.md)
-
-[トランザクション/マスクされた認証済みメッセージング](/transactions/masked-authenticated-messaging.md)
 
 [参考文献/開発者ハンドブック](/references/quickstart-dev-handbook.md)
 

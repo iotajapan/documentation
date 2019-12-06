@@ -11,7 +11,7 @@ IOTAネットワークは、すべてのノードがタングルのコピーを�
 <!-- An IOTA network is a collection of interconnected nodes that each store a copy of the Tangle. In each IOTA network, the Tangle contains different transactions, so the distribution of IOTA tokens is different in each one. -->
 
 IOTA財団は、誰でもがノードを実行でき、ノードに接続でき、トランザクションの読み取り/書き込みができる2つの参加に許可を必要としない（パーミッションレス）ネットワークを維持しています。
-<!-- The IOTA Foundation maintains three permissionless networks, where anyone can run a node, connect to them, and read/write transactions. -->
+<!-- The IOTA Foundation maintains two permissionless networks, where anyone can run a node, connect to them, and read/write transactions. -->
 
 パーミッションレスネットワークは公開されているため、トランザクションで送信するデータは誰でも閲覧できます。ただし、暗号化とMAMチャネルの使用により、トランザクション内のデータをいつでも保護できます。
 <!-- Permissionless networks are public, so any data you send in a transaction is open to anyone. But, you can always protect the data in transactions through encryption and the use of MAM channels. -->
@@ -38,40 +38,6 @@ IOTAはオープンソーステクノロジーであるため、誰でも自由�
 
 プライベートタングルのIOTAトークンはIOTA Mainnetでは無効であるため、価値がありません。
 <!-- Any IOTA tokens on a private Tangle are not valid on the IOTA Mainnet, and as such, they do not have any value. -->
-
-### 自分に最適なIOTAネットワークはどれか？
-<!-- ### Which IOTA network is best for me? -->
-
-アプリケーションに最適なIOTAネットワークは、そのステータスとニーズによって異なります。
-The best IOTA network for your application will depend on its status and your needs.
-
-:::info:
-IOTAプロトコルはベータ版の開発中であるため、将来、いくつかの重大な変更が発生する可能性があります。
-:::
-<!-- :::info: -->
-<!-- The IOTA protocol is in beta development, so in the future some breaking changes may occur. -->
-<!-- ::: -->
-
-これらすべてのネットワークについて、次のスキルが必要です。
-<!-- For all of these networks, you need the following skills: -->
-
-- サポートされている[クライアントライブラリ](root://client-libraries/0.1/introduction/overview.md)の1つでの経験を持つソフトウェア開発者（リクエストをノードに送信するため）
-<!-- - Software developer, with experience in one of the supported [client libraries](root://client-libraries/0.1/introduction/overview.md) (for sending requests to a node) -->
-
-- サーバーのメンテナンスに関する知識（Mainnet上でノードを実行するため）
-<!-- - Knowledge of maintaining servers (for running a node on the Mainnet) -->
-
-|**自分のニーズ**|**アプリケーションのステータス**|**ネットワーク**|
-|:---------|:-----------------------------|:---------------|
-|IOTAトークンを転送するトランザクションをテストしたいが、IOTAトークンを購入したくない場合。また、トランザクションを検証または保存するIOTAノードを誰が所有するかを気にしない場合。|開発中|Devnet|
-|ネットワークのパフォーマンス、ノードの種類、およびタングルにアクセスできるクライアントを制御したい場合。Mainnetでの価値のあるIOTAトークンを使用することに興味がない場合。|開発中|プライベートタングル|
-|価値のあるIOTAトークンを使用したい場合。トランザクションを検証または保存するIOTAノードの所有者を気にしない場合。|生産準備完了|Mainnet|
-
-<!-- |**Your needs**|**Application status**|**Network**| -->
-<!-- |:------|:-------|:-----------------| -->
-<!-- |You want to test transactions that transfer IOTA tokens, but you don't want to buy any. You also don't mind who owns the IOTA nodes that validate or store your transactions.|Under development |Devnet| -->
-<!-- |You want to control the performance of the network, who the nodes are, and which clients can access the Tangle. You are not interested in using the valuable IOTA tokens on the Mainnet.|Under development|Private Tangle| -->
-<!-- |You want to use the valuable IOTA token and you don't mind who owns the IOTA nodes that validate or store your transactions|Production ready|Mainnet| -->
 
 ### IOTA Mainnetを使用するコストはどのくらいか？
 <!-- ### What is the cost of using the IOTA Mainnet? -->
@@ -160,31 +126,6 @@ iota.prepareTransfers(seed, transfers)
     });
 ```
 
-#### メインネット上でサードパーティのノードを使用する際の考慮事項
-<!-- #### Things to consider when using third-party nodes on the Mainnet -->
-
-サードパーティのノードへの接続は便利ですが、信頼できるサービスが必要な場合は不利になります。例えば：
-<!-- Connecting to third-party nodes is convenient, but comes at a disadvantage if you need a reliable service. For example: -->
-
-- トランザクションは、ノードが受信する他のトランザクションと競合し、ノードが決定する優先度で処理されます。
-<!-- - Your transactions will compete with other transactions that the node receives and will be processed with a priority that the node decides -->
-- 高速PoW計算への支払い、またはPoWを含むトランザクションの提供を要求される場合があります。
-<!-- - You might be requested to pay for fast PoW computation or to provide a transaction that includes PoW -->
-- トランザクションのコピーは、ノードによって決定された限られた時間だけノードに保持される場合があります。
-<!-- - A copy of your transactions might be kept only for a limited time that's decided by the node -->
-- パーマノードオプション（トランザクションの永久保存など）には手数料が必要な場合があります。
-<!-- - A permanode option (permanent storage of your transactions) might require a fee -->
-
-これらの欠点を克服するには、自分自身のノードを実行し、アプリケーションを接続してタングルに直接アクセスすることをお勧めします。自分自身のノードを使用すると、トランザクションがタングルに添付される速度をより詳細に制御でき、トランザクションを永続的に保存できます。
-<!-- To overcome these disadvantages, we recommend that you run your own node and connect your application to it for direct access to the Tangle. Your own node gives you more control on how fast your transactions are attached to the Tangle and allows you to store them permanently. -->
-
-:::info:
-[Dockerコンテナでノードを実行する](root://node-software/0.1/iri/how-to-guides/run-an-iri-node-in-docker.md)または[Linuxサーバーでダウンロードして実行する](root://node-software/0.1/iri/how-to-guides/run-an-iri-node-on-linux.md)をご覧ください。
-:::
-<!-- :::info: -->
-<!-- You can [run a node in a Docker container](root://node-software/0.1/iri/how-to-guides/run-an-iri-node-in-docker.md) or [download and run it on a Linux server](root://node-software/0.1/iri/how-to-guides/run-an-iri-node-on-linux.md). -->
-<!-- ::: -->
-
 ### アプリでDevnetを使用するにはどうすればよいか？
 <!-- ### How do I use the Devnet in my app? -->
 
@@ -240,14 +181,14 @@ IOTAの目標は、モノのインターネット（IoT）上のデバイスが�
 ## マスクされた認証済みメッセージングに関するメモ
 <!-- ## A note on Masked Authenticated Messaging -->
 
-[MAM（マスクされた認証済みメッセージング）](../transactions/masked-authenticated-messaging.md)は、IOTAタングルで暗号化されたデータストリームを作成して読み取ることができるセカンドレイヤーの通信プロトコルです。
-<!-- [MAM (Masked Authenticated Messaging)](../transactions/masked-authenticated-messaging.md) is a second layer communication protocol that allows you to create and read encrypted data streams on the IOTA Tangle. -->
+MAM（マスクされた認証済みメッセージング）は、IOTAタングルで暗号化されたデータストリームを作成して読み取ることができるセカンドレイヤーの通信プロトコルです。
+<!-- MAM (Masked Authenticated Messaging) is a second layer communication protocol that allows you to create and read encrypted data streams on the IOTA Tangle. -->
 
 MAMは、タングルで機密データをストリーミングするのに特に適しています。
 <!-- MAM is particularly suitable for streaming sensitive data on the Tangle. -->
 
-現在、[JavaScript MAMライブラリ](root://iota-js/0.1/mam/introduction/overview.md)があります。このライブラリを使用するには、次のいずれかが必要です。
-<!-- Currently, we have a [JavaScript MAM library](root://iota-js/0.1/mam/introduction/overview.md). To use this library, you need one of the following: -->
+現在、[JavaScript MAMライブラリ](root://client-libraries/0.1/mam/introduction/overview.md)があります。このライブラリを使用するには、次のいずれかが必要です。
+Currently, we have a [JavaScript MAM library](root://client-libraries/0.1/mam/introduction/overview.md). To use this library, you need one of the following:
 
 - Raspberry PiなどのNode.jsを実行できるIoTデバイス
 <!-- - An IoT device that can run Node.js such as a Raspberry Pi -->

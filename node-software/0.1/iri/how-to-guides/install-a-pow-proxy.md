@@ -138,13 +138,6 @@ PoWプロキシサーバは、IOTAミドルウェアを使用する[Caddy](https
 8. ローカルのPoWプロキシサーバにトランザクションを送信します。
   <!-- 8. Send a transaction to your local PoW proxy server -->
 
-    :::info:
-    初めてトランザクションを送信する場合は、[Node.jsの入門ガイド](root://getting-started/0.1/how-to-guides/get-started.md)を参照します。
-    :::
-    <!-- :::info: -->
-    <!-- If this is your first time sending a transaction, follow our [getting started guide with Node.js](root://getting-started/0.1/how-to-guides/get-started.md). -->
-    <!-- ::: -->
-
     ```js
     // Require the packages
     const Iota = require('@iota/core');

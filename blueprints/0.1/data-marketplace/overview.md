@@ -114,7 +114,7 @@ REST APIを介してデータマーケットプレイスと対話します。
 この設計図をテストするには、コードとクイックスタートの手順を読んでください。
 ---
 #### iota.jsクライアントライブラリ ####
-[Link](root://iota-js/0.1/introduction/overview.md)
+[Link](root://client-libraries/0.1/getting-started/js-quickstart.md)
 
 iota.jsクライアントライブラリを使ってトランザクションを作成、送信、受信する方法を学びます。
 ---

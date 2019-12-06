@@ -4,36 +4,26 @@
 
 [概念/フラッシュ](/concepts/flashing.md)
 
-[概念/IPv6メッシュメットワーク](/concepts/ipv6-mesh-network.md)
+[概念/IPv6メッシュネットワーク](/concepts/ipv6-mesh-network.md)
 
-[ハウツーガイド/マイクロコントローラー入門](/how-to-guides/get-started-with-microcontrollers.md)
+[ESP32/序説/ESP32入門](/esp32/introduction/get-started.md)
 
-[ハウツーガイド/nRF52マイクロコントローラーをセットアップする](/how-to-guides/set-up-nrf52-microcontroller.md)
+[nRF52/序説/nRF52入門](/nrf52/introduction/get-started.md)
 
-[ハウツーガイド/ARM GCCツールチェーンをインストールする](/how-to-guides/install-arm-gcc-toolchain.md)
+[nRF52/セットアップガイド/ARM GCCツールチェーンをインストールする](/nrf52/setup-guides/install-arm-gcc-toolchain.md)
 
-[ハウツーガイド/シングルボードコンピューターをセットアップする](/how-to-guides/setup-sbc.md)
+[nRF52/セットアップガイド/マイクロコントローラーにセンサーを接続する](/nrf52/setup-guides/connect-bosch-sensor.md)
 
-[ハウツーガイド/GoをSBCにインストールする](/how-to-guides/install-go-on-sbc.md)
+[nRF52/セットアップガイド/マイクロコントローラーにプログラマーを接続する](/nrf52/setup-guides/connect-programmer.md)
 
-[ハウツーガイド/マイクロコントローラーからセンサーデータを読み取る](/how-to-guides/read-sensor-data.md)
+[nRF52/セットアップガイド/マイクロコントローラーにシリアルインターフェースを接続する](/nrf52/setup-guides/connect-to-serial-interface.md)
 
-[ハウツーガイド/境界ルーターをセットアップする](/how-to-guides/set-up-a-ble-ipv6-border-router.md)
+[nRF52/ハウツーガイド/マイクロコントローラーからセンサーデータを読み取る](/nrf52/how-to-guides/read-sensor-data.md)
 
-[ハウツーガイド/センサーサーバーをセットアップする](/how-to-guides/set-up-ipv6-ble-host-example.md)
+[nRF52/ハウツーガイド/Bluetoothスターネットワークをセットアップする](/nrf52/how-to-guides/set-up-a-bluetooth-star-network.md)
 
-[ハウツーガイド/センサーサーバーとクライアントを実行する](/how-to-guides/run-an-environment-sensor-and-client.md)
+[nRF52/IOTAプロジェクト/センサーデータをタングルに添付する](/nrf52/iota-projects/run-an-environment-to-tangle-app.md)
 
-[ハウツーガイド/Bluetoothスターネットワークをセットアップする](/how-to-guides/set-up-a-bluetooth-star-network.md)
+[SBC/序説/SBC入門](/sbc/introduction/get-started.md)
 
-[ハウツーガイド/センサーデーターをタングルに添付する](/how-to-guides/run-an-environment-to-tangle-app.md)
-
-[ハウツーガイド/ボッシュセンサーを接続する](/how-to-guides/connect-bosch-bme-280-bmp-280.md)
-
-[ハウツーガイド/プログラマーを接続する](/how-to-guides/connect-programmer.md)
-
-[ハウツーガイド/シリアルインターフェイスに接続する](/how-to-guides/connect-to-serial-interface.md)
-
-[ハウツーガイド/I2Cセンサーを接続する](/how-to-guides/connect-a-I2C-sensor.md)
-
-[参考文献/トラブルシューティング](/references/troubleshooting.md)
+[SBC/ハウツーガイド/SBCにGoをインストールする](/sbc/how-to-guides/install-go-on-sbc.md)

@@ -4,18 +4,9 @@
 **トリニティアカウントはパスワードで保護されており、シードをモバイル端末やコンピュータに安全に保管することができます。シードごとに1つのアカウントを作成できます。**
 <!-- **Trinity accounts are password-protected to secure and store your seeds on your mobile device or computer. You can create one account for each of your seeds.** -->
 
-## 前提条件
-<!-- ## Prerequisites -->
+1. [Download Trinity](https://trinity.iota.org/) and open it
 
-このガイドを完了するには、デバイスに[Trinity](https://trinity.iota.org/)がインストールされている必要があります。
-<!-- To complete this guide you must have [Trinity](https://trinity.iota.org/) installed on your device. -->
-
----
-1. トリニティを開きます。
-  <!-- 1. Open Trinity -->
-
-2. トリニティでシードを作成するには、**はい、シードが必要です**をクリックします。既にシードを持っている場合、またはトリニティの外部でシードを作成した場合は、**いいえ、持っています**をクリックします。
-  <!-- 2. To create a seed in Trinity, click **Yes, I need a seed**. If you already have a seed, or if you created a seed outside of Trinity, click **No, I have one**. -->
+2. Select whether you have a seed
 
     :::info:
     [ハードウェアウォレット](../concepts/hardware-wallet.md)をお持ちの場合は、ハードウェアウォレットを接続して画面の指示に従います。ハードウェアウォレットを使う場合は、シードをバックアップする必要はありません。
