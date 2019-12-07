@@ -78,7 +78,7 @@
 
 [アカウントモジュール/Go/イベントをリッスンする](/account-module/go/listen-to-events.md)
 
-[アカウントモジュール/Go/残高を結合する](/account-module/go/combine-balance.md)
+[アカウントモジュール/Go/複数の残高を結合する](/account-module/go/combine-balance.md)
 
 [アカウントモジュール/Java/Javaアカウントモジュール入門](/account-module/java/get-started.md)
 
@@ -90,13 +90,21 @@
 
 [アカウントモジュール/Java/イベントをリッスンする](/account-module/java/listen-to-events.md)
 
-[アカウントモジュール/JavaScript/JSアカウントモジュール入門](/account-module/java/get-started.md)
+[アカウントモジュール/JavaScript/JSアカウントモジュール入門](/account-module/js/get-started.md)
 
 [アカウントモジュール/JavaScript/アカウントを作成する](/account-module/js/create-account.md)
 
 [アカウントモジュール/JavaScript/イベントをリッスンする](/account-module/js/listen-to-events.md)
 
 [アカウントモジュール/JavaScript/支払いを作成する](/account-module/js/make-payment.md)
+
+[アカウントモジュール/JavaScript/CDAを作成する](/account-module/js/generate-cda.md)
+
+[アカウントモジュール/JavaScript/支払いを作成する](/account-module/js/make-payment.md)
+
+[アカウントモジュール/JavaScript/シードステートをエクスポートする](/account-module/js/export-seed-state.md)
+
+[アカウントモジュール/JavaScript/複数の残高を統合する](/account-module/js/combine-balance.md)
 
 [MAM/序説/概要](/mam/introduction/overview.md)
 
