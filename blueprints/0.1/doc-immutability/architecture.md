@@ -184,7 +184,7 @@
 ### 3 - タングルからフェッチする
 <!-- ### 3 - Fetch from Tangle -->
 
-そしてタングルからハッシュ値を取得します。レスポンスは以下に類似したものになるでしょう：
+そしてタングルからハッシュ値を取得します。レスポンスは以下に類似したものになるでしょう。
 <!-- Then we fetch the Hash from the Tangle, the response will be something similar to this: -->
 
 ```json
@@ -233,7 +233,7 @@
 - BLAKE2s - 2<sup>128</sup>
 - BLAKE2b - 2<sup>256</sup>
 
-詳しくは[こちら](https://en.wikipedia.org/wiki/Hash_function_security_summary)
+詳しくは[こちら](https://en.wikipedia.org/wiki/Hash_function_security_summary)。
 <!-- Read more [here](https://en.wikipedia.org/wiki/Hash_function_security_summary) -->
 
 ## シーケンス図

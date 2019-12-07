@@ -88,34 +88,22 @@ APIを使用してファイルを保存するために、クライアントは�
 
 ```javascript
 IPFSStoreRequest {
-   /**
-    * The name of the file.
-    */
+   /* ファイル名 */
    name: string;
 
-   /**
-    * The description of the file.
-    */
+   /* ファイルの説明 */
    description: string;
 
-   /**
-    * The size of the file.
-    */
+   /* ファイルサイズ */
    size: number;
 
-   /**
-    * The modified date of the file.
-    */
+   /* ファイルの変更日 */
    modified: Date;
 
-   /**
-    * The sha256 hash of the file.
-    */
+   /* ファイルのsha256のハッシュ値 */
    sha256: string;
 
-   /**
-    * The file data encoded in base64.
-    */
+   /* base64でエンコードされたファイルデータ */
    data: string;
 }
 ```

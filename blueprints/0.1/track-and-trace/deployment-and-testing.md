@@ -1,7 +1,7 @@
 # トラック&トレースアプリをデプロイしてテストする
 <!-- # Deploy and test the track and trace app -->
 
-**タングルでデータの追跡を開始するには、アプリケーションをデプロイし、IOTA財団のGUIを使用して資産を検索してアップロードします。**
+**タングルでデータの追跡を開始するには、アプリケーションをデプロイし、IOTA財団のGUIを使用してアセットを検索してアップロードします。**
 <!-- **To start tracking data on the Tangle, deploy the application and use our graphical user interface to search for and upload assets.** -->
 
 ## 前提条件
