@@ -16,6 +16,8 @@
 
 [クイックスタート/テストIOTAトークンを入手する](/tutorials/get-test-tokens.md)
 
+[ネットワーク/IOTAネットワーク](/network/iota-networks.md)
+
 [ネットワーク/ノード](/network/nodes.md)
 
 [ネットワーク/最小重量値](/network/minimum-weight-magnitude.md)

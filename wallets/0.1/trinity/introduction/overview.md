@@ -30,7 +30,7 @@
 <!-- To use Trinity, you must enter your seed. Therefore, to ensure the security of your IOTA tokens, Trinity has been audited by external parties. -->
 
 脆弱性を見つけて報告した場合、[バグ報奨金](https://bugcrowd.com/iota)から金銭的報酬を受け取れます。
-If you find a vulnerability and you report it to us, you'll receive a monetary reward through our [bug bounty](https://bugcrowd.com/iota).
+<!-- If you find a vulnerability and you report it to us, you'll receive a monetary reward through our [bug bounty](https://bugcrowd.com/iota). -->
 
 ## 制限事項
 <!-- ## Limitations -->
