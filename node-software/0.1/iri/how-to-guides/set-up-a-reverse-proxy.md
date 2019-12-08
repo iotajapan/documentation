@@ -1,13 +1,13 @@
-# リバースプロキシサーバを設定する
+# リバースプロキシサーバーを設定する
 <!-- # Set up a reverse proxy server -->
 
-**クライアントは、APIリクエストをスパミングすることによって、IRIノードのオープンAPIポートを悪用することができます。IPアドレスでAPIリクエストを制限したり、APIリクエストの数を制限したりするには、IRIノードをリバースプロキシサーバに接続します。**
+**クライアントは、APIリクエストをスパミングすることによって、IRIノードのオープンAPIポートを悪用することができます。IPアドレスでAPIリクエストを制限したり、APIリクエストの数を制限したりするには、IRIノードをリバースプロキシサーバーに接続します。**
 <!-- **Clients can abuse the open API port of an IRI node by spamming API requests to it. To restrict API requests by IP address or to limit the number of API requests, you can connect your IRI node to a reverse proxy server.** -->
 
-多くの[リバースプロキシサーバ](https://en.wikipedia.org/wiki/Reverse_proxy)が存在します。このガイドでは、[Nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)をIRIノードと同じLinuxサーバにインストールします。
+多くの[リバースプロキシサーバー](https://en.wikipedia.org/wiki/Reverse_proxy)が存在します。このガイドでは、[Nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)をIRIノードと同じLinuxサーバーにインストールします。
 <!-- Many [reverse proxy servers](https://en.wikipedia.org/wiki/Reverse_proxy) exist. In this guide, you'll install [Nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/) on the same Linux server as your IRI node. -->
 
-1. Linuxサーバで、ターミナルウィンドウを開いて、Nginxをインストールします。
+1. Linuxサーバーで、ターミナルウィンドウを開いて、Nginxをインストールします。
   <!-- 1. On your Linux server, open a terminal window, and install Nginx -->
 
     ```bash
@@ -41,7 +41,7 @@
     <!-- ``` -->
     <!-- ::: -->
 
-2. Nginxサーバが稼働していることを確認します。
+2. Nginxサーバーが稼働していることを確認します。
   <!-- 2. Check that the Nginx server is running -->
 
     ```bash
@@ -60,10 +60,10 @@
             └─12858 nginx: worker process
     ```
 
-3. Webブラウザを開き、アドレスバーにLinuxサーバのIPアドレスを入力します。
+3. Webブラウザを開き、アドレスバーにLinuxサーバーのIPアドレスを入力します。
   <!-- 3. Go to a web browser and enter the IP address of your Linux server in the address bar -->
 
-    NginxのWebページが表示されます。このページはNginxに含まれており、サーバが稼働していることを示しています。次に、IRIノードのリバースプロキシとしてNginxを設定する必要があります。
+    NginxのWebページが表示されます。このページはNginxに含まれており、サーバーが稼働していることを示しています。次に、IRIノードのリバースプロキシとしてNginxを設定する必要があります。
     <!-- You'll see the Nginx webpage. This page is included with Nginx to show you that the server is running. Now, you need to configure Nginx as a reverse proxy for your IRI node. -->
 
 4. `iri.conf`というカスタム設定ファイルを作成します。
@@ -100,7 +100,7 @@
     ```
 
     :::info:localhostの外からNginxに接続したいですか？
-    Nginxサーバでポート5000を開きます。
+    Nginxサーバーでポート5000を開きます。
     :::
     <!-- :::info:Want to connect to Nginx from outside localhost? -->
     <!-- Open port 5000 on your Nginx server. -->
@@ -235,5 +235,5 @@ Nginxが複数のリクエストを受信すると、`upstream`ブロックデ�
 ## 次のステップ
 <!-- ## Next steps -->
 
-[HTTPSプロキシサーバを設定](https://nginx.org/en/docs/http/configuring_https_servers.html)したい場合は、Nginxにサーバ証明書と秘密鍵ファイルの場所を指定する必要があります。
+[HTTPSプロキシサーバーを設定](https://nginx.org/en/docs/http/configuring_https_servers.html)したい場合は、Nginxにサーバー証明書と秘密鍵ファイルの場所を指定する必要があります。
 <!-- If you want to [configure an HTTPS proxy server](https://nginx.org/en/docs/http/configuring_https_servers.html), you need to give Nginx the location of your server certificate and private key files. -->

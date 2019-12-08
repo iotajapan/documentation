@@ -19,7 +19,7 @@
 アドレスのセキュリティレベルは、署名を含めるために必要なトランザクション数と同じ数になります。
 <!-- The security level of an address corresponds to the same number of transactions that are needed to contain the signature. -->
 
-たとえば、アドレスのセキュリティレベルが3の場合、その署名は6,561トライトになりますが、単一トランザクションの[`signatureMessageFragment`フィールド](../transactions/transactions.md#structure-of-a-transaction)には2,187トライトの署名しか入りません。その結果、セキュリティレベルが3の場合、[バンドル](../transactions/bundles.md)内の2つの追加のゼロ価値トランザクションで、残りの署名の4,374トライトをフラグメント化する必要があります。
+たとえば、アドレスのセキュリティレベルが3の場合、その署名は6,561トライトになりますが、単一トランザクションの[`signatureMessageFragment`フィールド](../transactions/transactions.md#structure-of-a-transaction)には2,187トライトの署名しか入りません。その結果、セキュリティレベルが3の場合、[バンドル](../transactions/bundles.md)内の2つの追加のゼロトークントランザクションで、残りの署名の4,374トライトをフラグメント化する必要があります。
 <!-- For example, when an address has a security level of 3, its signature is 6,561 trytes long, but the [`signatureMessageFragment` field](../transactions/transactions.md#structure-of-a-transaction) of a single transaction can contain only 2,187 trytes. As a result, you would need fragment the other 4,374 trytes of the signature over 2 additional zero-value transactions in the [bundle](../transactions/bundles.md). -->
 
 ## セキュリティレベルを選ぶ際のアドバイス

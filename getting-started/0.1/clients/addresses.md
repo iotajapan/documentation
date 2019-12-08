@@ -52,6 +52,7 @@ IOTAプロトコルは[ワンタイム署名](../clients/signatures.md)を使用
 使用済みアドレスにさらにIOTAトークンをデポジットしてしまうと、秘密鍵の[総当たり攻撃](https://en.wikipedia.org/wiki/Brute-force_attack)で盗まれる危険があります。
 <!-- If more IOTA tokens are later deposited into a spent address, they are at risk of being stolen in a [brute-force attack](https://en.wikipedia.org/wiki/Brute-force_attack) on the private key. -->
 
+<a name="how-addresses-are-generated"></a>
 ## アドレスの生成方法
 <!-- ## How addresses are generated -->
 
@@ -68,14 +69,14 @@ Kerl(seed + index)
 サブシードは、各セキュリティレベルに応じて[スポンジ関数](https://keccak.team/sponge_duplex.html)で27回吸収および撹拌されます。
 <!-- The subseed is then absorbed and squeezed in a [sponge function](https://keccak.team/sponge_duplex.html) 27 times for each security level. -->
 
-スポンジ機能の結果は、セキュリティレベルに応じて長さが変化する秘密鍵です。
+スポンジ関数の結果は、セキュリティレベルに応じて長さが変化する秘密鍵です。セキュリティレベル1で2,187トライト、セキュリティレベル2で4,374トライト、セキュリティレベル3で6,561トライトの秘密鍵になります。
 <!-- The result of the sponge function is a private key whose length varies, depending on the security level. -->
 
 アドレスを生成するために、秘密鍵は81トライトの複数のセグメントに分割されます。次に、各セグメントが26回ハッシュされます。
 <!-- To generate an address, the private key is split into 81-tryte segments. Then, each segment is hashed 26 times. -->
 
 :::info:
-27個のハッシュセグメントのグループはキーフラグメントと呼ばれ、秘密鍵にはセキュリティレベルごとに1つのキーフラグメントが存在します。たとえば、セキュリティレベル1の秘密鍵は、2,187個のトライトで構成されます。これは、`27 x 81`トライトセグメントまたは1つのキーフラグメントです。
+27個のハッシュセグメントのグループはキーフラグメントと呼ばれ、秘密鍵にはセキュリティレベルごとに1つのキーフラグメントが存在します。たとえば、セキュリティレベル1の秘密鍵は、2,187トライトで構成されます。これは、`27 x 81=2,187`（トライト）のセグメントまたは1つのキーフラグメントです。
 :::
 <!-- :::info: -->
 <!-- A group of 27 hashed segments is called a key fragment, and a private key has one key fragment for each security level. For example, a private key with security level 1 consists of 2,187 trytes, which is 27 x 81-tryte segments or one key fragment. -->
