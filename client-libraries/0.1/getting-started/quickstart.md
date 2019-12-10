@@ -1,6 +1,8 @@
-# Get started with the client libraries
+# クライアントライブラリ入門
+<!-- # Get started with the client libraries -->
 
-**To start your IOTA development journey, complete a quickstart guide in one of our official languages.**
+**IOTA開発の旅を始めるには、公式サポート言語の1つでクイックスタートガイドを完了してください。**
+<!-- **To start your IOTA development journey, complete a quickstart guide in one of our official languages.** -->
 
 ---------------
 #### **Go** ####
@@ -16,7 +18,10 @@
 [Link](root://client-libraries/0.1/getting-started/python-quickstart.md)
 ---------------
 
-:::info:Not a developer?
-Use the [official Trinity wallet](root://wallets/0.1/trinity/introduction/overview.md) to create and store your seed, send and receive transactions, and more.
+:::info:非開発者の場合
+[公式トリニティウォレット](root://wallets/0.1/trinity/introduction/overview.md)を使用して、シードの作成と保存、トランザクションの送受信などを行います。
 :::
+<!-- :::info:Not a developer? -->
+<!-- Use the [official Trinity wallet](root://wallets/0.1/trinity/introduction/overview.md) to create and store your seed, send and receive transactions, and more. -->
+<!-- ::: -->
 

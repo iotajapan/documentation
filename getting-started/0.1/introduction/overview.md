@@ -124,7 +124,7 @@ IOTAのいくつかのアプリケーションは次のとおりです。
 ## IOTAを使う出発点
 <!-- ## Where do I start? -->
 
-**非開発者：**[公式Trinityウォレット](root://wallets/0.1/trinity/introduction/overview.md)を使用して、シードの作成と保存、トランザクションの送受信などを行います。
+**非開発者：**[公式Trinityウォレット](root://wallets/0.1/trinity/introduction/overview.md)を使用して、シードの作成と保存、トランザクションの送受信などを行う。
 <!-- **Non-developers:** Use the [official Trinity wallet](root://wallets/0.1/trinity/introduction/overview.md) to create and store your seed, send and receive transactions, and more. -->
 
 **開発者：**[クライアントライブラリの1つを使用する](root://client-libraries/0.1/getting-started/quickstart.md)か[自分自身のノードを実行してIOTAネットワークに参加する](root://node-software/0.1/iri/how-to-guides/quickstart.md)。
