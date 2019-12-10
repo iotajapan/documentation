@@ -26,6 +26,20 @@
 
 [ハウツーガイド/Go/タングル上のライブトランザクションをリッスンする](/how-to-guides/go/listen-for-transactions.md)
 
+[ハウツーガイド/Java/Javaライブラリ入門](/how-to-guides/java/get-started.md)
+
+[ハウツーガイド/Java/"hello world"トランザクションを送信する](/how-to-guides/java/send-your-first-bundle.md)
+
+[ハウツーガイド/Java/タングル上のトランザクションを読む](/how-to-guides/java/read-transactions.md)
+
+[ハウツーガイド/Java/新しいアドレスを生成する](/how-to-guides/java/generate-an-address.md)
+
+[ハウツーガイド/Java/アドレスの残高を確認する](/how-to-guides/java/check-balance.md)
+
+[ハウツーガイド/Java/テストIOTAトークンを送信する](/how-to-guides/java/transfer-iota-tokens.md)
+
+[ハウツーガイド/Java/タングル上のライブトランザクションをリッスンする](/how-to-guides/java/listen-for-transactions.md)
+
 [ハウツーガイド/JavaScript/JSライブラリ入門](/how-to-guides/js/get-started.md)
 
 [ハウツーガイド/JavaScript/"hello world"トランザクションを送信する](/how-to-guides/js/send-your-first-bundle.md)
@@ -86,9 +100,15 @@
 
 [アカウントモジュール/Java/イベントプラグインを作成する](/account-module/java/create-plugin.md)
 
+[アカウントモジュール/Java/CDAを作成する](/account-module/java/generate-cda.md)
+
 [アカウントモジュール/Java/支払いを作成する](/account-module/java/make-payment.md)
 
+[アカウントモジュール/Java/シードステートをエクスポートする](/account-module/java/export-seed-state.md)
+
 [アカウントモジュール/Java/イベントをリッスンする](/account-module/java/listen-to-events.md)
+
+[アカウントモジュール/Java/複数の残高を結合する](/account-module/java/combine-balance.md)
 
 [アカウントモジュール/JavaScript/JSアカウントモジュール入門](/account-module/js/get-started.md)
 

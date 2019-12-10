@@ -20,7 +20,11 @@ yarn add @iota/account ntp-client
 
 ## IOTA network
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
+In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) with the following network settings:
+
+- **[Minimum weight magnitude](root://getting-started/0.1/network/minimum-weight-magnitude.md)**: 9
+
+- **[Depth](root://getting-started/0.1/transactions/depth.md)**: 3
 
 ## Code walkthrough
 
@@ -53,7 +57,7 @@ $b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).
 const seed = 'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
 ```
 
-2\. Define your network settings
+3\. Define your network settings
 
 ```js
 // The node to connect to
@@ -62,14 +66,14 @@ const provider = 'https://nodes.devnet.iota.org:443';
 // How far back in the Tangle to start the tip selection
 const depth = 3;
 
-// The minimum weight magnitude is 9 on the Devnet
+// The minimum weight magnitude for the Devnet
 const minWeightMagnitude = 9;
 
-// How long to wait before the next attachment round
+// How long to wait between each reattachment round
 const delay = 1000 * 30;
 
 // The depth at which transactions are no longer promotable
-// Those transactions are automatically re-attached
+// and are automatically reattached
 const maxDepth = 6;
 ```
 
@@ -96,10 +100,16 @@ const account = createAccount({
 By default, the account includes a plugin that reattaches and promotes the tail transactions of any pending bundles that your account sends.
 
 :::info:
-You can customize the behavior of these plugins by changing the network settings or you can build your own.
+The default security level for CDAs is 2. You can change this setting by passing the account a `security` field.
 :::
 
-5\. Check your account's balance
+6\. Start the account and any plugins, and open the database
+
+```js
+account.start();
+```
+
+7\. Check your account's balance
 
 ```js
 account.getAvailableBalance()

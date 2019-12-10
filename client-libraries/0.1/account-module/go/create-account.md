@@ -16,7 +16,11 @@ go get github.com/iotaledger/iota.go/trinary
 
 ## IOTA network
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
+In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) with the following network settings:
+
+- **[Minimum weight magnitude](root://getting-started/0.1/network/minimum-weight-magnitude.md)**: 9
+
+- **[Depth](root://getting-started/0.1/transactions/depth.md)**: 3
 
 ## Code walkthrough
 
@@ -98,7 +102,7 @@ Every 30 seconds, the `transfer-poller` plugin checks whether withdrawals have b
 The `promoter-reattacher` plugin [promotes or reattaches](root://getting-started/0.1/transactions/reattach-rebroadcast-promote.md) any pending withdrawal transactions that the `transfer-poller` finds.
 
 :::info:
-You can customize the behavior of these plugins or build your own.
+The default security level for CDAs is 2. You can change this setting by passing a new security level to the `WithSecurityLevel()` method.
 :::
 
 7\. Start the account and the plugins
@@ -117,8 +121,6 @@ handleErr(err)
 fmt.Println("Total available balance: ")
 fmt.Println(balance)
 ```
-
-You should see your balance.
 
 :::success:Congratulations! :tada:
 You've created an account that will automatically promote and reattach transactions as well as manage the state of your seed.

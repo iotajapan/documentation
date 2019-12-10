@@ -1,5 +1,5 @@
-# アカウントのイベントをリッスンする
-<!-- # Listen to events in an account -->
+# Javaを用いてアカウントのイベントをリッスンする
+<!-- # Listen to events in an account in Java -->
 
 **アカウントオブジェクトは、イベントが発生するとイベントを発行します。イベントの例は、支払いを行うか受け取る場合です。このガイドでは、支払いを行ったり、受け取ったりするイベントをリッスンし、コンソールにログします。**
 <!-- **An account object emits events when they happen. An example of an event is when you make or receive a payment. In this guide, you listen for these events and log them to the console.** -->
