@@ -192,126 +192,165 @@ go: downloading github.com/iotaledger/iota.go v1.0.0-beta.10
 <!-- You've confirmed your connection to a synchronized node. -->
 <!-- ::: -->
 
-## Run the code
+## コードを実行する
+<!-- ## Run the code -->
 
-We use the [REPL.it tool](https://repl.it) to allow you to run sample code in the browser.
+[REPL.itツール](https://repl.it)を使用して、ブラウザーでサンプルコードを実行できるようにします。
+<!-- We use the [REPL.it tool](https://repl.it) to allow you to run sample code in the browser. -->
 
-Click the green button to run the code and see the results in the window.
+緑色のボタンをクリックしてコードを実行し、ウィンドウで結果を確認します。
+<!-- Click the green button to run the code and see the results in the window. -->
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/Connect-to-a-node-Go?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-## Support the project
+## プロジェクトをサポートする
+<!-- ## Support the project -->
 
-If the Go library has been useful to you and you feel like contributing, consider posting a [bug report](https://github.com/iotaledger/iota.go/issues/new-issue), feature request or a [pull request](https://github.com/iotaledger/iota.go/pulls/). 
+Goライブラリが役に立ち、貢献したいと思う場合は、[バグレポート](https://github.com/iotaledger/iota.go/issues/new-issue)、機能リクエスト、または[プルリクエスト](https://github.com/iotaledger/iota.go/pulls/)の投稿を検討してください。
+<!-- If the Go library has been useful to you and you feel like contributing, consider posting a [bug report](https://github.com/iotaledger/iota.go/issues/new-issue), feature request or a [pull request](https://github.com/iotaledger/iota.go/pulls/). -->
 
-We thank everyone for their contributions. In order for your pull requests to be accepted, they must fulfill the following criteria:
+皆様の貢献に感謝します。プルリクエストが受け入れるには、次の基準を満たしている必要があります。
+<!-- We thank everyone for their contributions. In order for your pull requests to be accepted, they must fulfill the following criteria: -->
+- Ginkgoで追加するテストを作成する必要があります。
 - You must write tests for your additions with Ginkgo
-- You must write example code that describes the parameters and the functionality of your additions 
-- Your pull request must pass the continuous integration configuration
+- 追加のパラメーターと機能を説明するサンプルコードを記述する必要があります。
+<!-- - You must write example code that describes the parameters and the functionality of your additions -->
+- プルリクエストは継続的インテグレーション設定に合格する必要があります。
+<!-- - Your pull request must pass the continuous integration configuration -->
 
-### Writing tests with Ginkgo
+### Ginkgoでテストを書く
+<!-- ### Writing tests with Ginkgo -->
 
-Before your pull requests can be accepted, you must test your code in Ginkgo.
+プルリクエストが受け入れる前に、Ginkgoでコードをテストする必要があります。
+<!-- Before your pull requests can be accepted, you must test your code in Ginkgo. -->
 
-1. Download Ginkgo
+1. Ginkgoをダウンロードします。
+  <!-- 1. Download Ginkgo -->
 
-	```bash
-	go get github.com/onsi/ginkgo/ginkgo
-	go get github.com/onsi/gomega/...
-	```
+    ```bash
+    go get github.com/onsi/ginkgo/ginkgo
+    go get github.com/onsi/gomega/...
+    ```
 
-2. If you've written a new package, generate a corresponding test-suite file
+2. 新しいパッケージを作成した場合は、対応するテストスイートファイルを生成します。
+  <!-- 2. If you've written a new package, generate a corresponding test-suite file -->
 
-	```bash
-	cd <dir-of-your-package>
-	ginkgo bootstrap
-	```
+    ```bash
+    cd <dir-of-your-package>
+    ginkgo bootstrap
+    ```
 
-3. Generate a new testing file
+3. 新しいテストファイルを生成します。
+  <!-- 3. Generate a new testing file -->
 
-	```bash
-	ginkgo generate <package-name>
-	```
+    ```bash
+    ginkgo generate <package-name>
+    ```
 
-After creating a testing file, you'll have following two files:
+テストファイルを作成すると、次の2つのファイルが作成されます。
+<!-- After creating a testing file, you'll have following two files: -->
 
 - `<package-name>_suite_test.go`
 - `<package-name>_test.go`
 
 :::info:
-You can use the existing tests as a reference on how to write Ginkgo tests or
-you can [read the documentation](https://onsi.github.io/ginkgo/).
+Ginkgoテストの作成方法に関するリファレンスとして既存のテストを使用するか、[ドキュメントを読む](https://onsi.github.io/ginkgo/)こともできます。
 :::
+<!-- :::info: -->
+<!-- You can use the existing tests as a reference on how to write Ginkgo tests or you can [read the documentation](https://onsi.github.io/ginkgo/). -->
+<!-- ::: -->
 
-4. Run your tests
-	```bash
-	go test -v
-	=== RUN   TestAddress
-	Running Suite: Address Suite
-	============================
-	Random Seed: 1542616006
-	Will run 11 of 11 specs
+4. テストを実行します。
+  <!-- 4. Run your tests -->
 
-	•••••••••••
-	Ran 11 of 11 Specs in 0.261 seconds
-	SUCCESS! -- 11 Passed | 0 Failed | 0 Pending | 0 Skipped
-	--- PASS: TestAddress (0.26s)
-	PASS
-	ok  	github.com/iotaledger/iota.go/address	0.264s
-	```
+    ```bash
+    go test -v
+    === RUN   TestAddress
+    Running Suite: Address Suite
+    ============================
+    Random Seed: 1542616006
+    Will run 11 of 11 specs
 
-### Updating the documentation
+    •••••••••••
+    Ran 11 of 11 Specs in 0.261 seconds
+    SUCCESS! -- 11 Passed | 0 Failed | 0 Pending | 0 Skipped
+    --- PASS: TestAddress (0.26s)
+    PASS
+    ok  	github.com/iotaledger/iota.go/address	0.264s
+    ```
 
-If your changes affect the documentation, please update it.
+### ドキュメントの更新
+<!-- ### Updating the documentation -->
 
-1. If non existent, add a `.examples` directory in your newly created package
+変更内容がドキュメントに影響する場合は、ドキュメントを更新してください。
+<!-- If your changes affect the documentation, please update it. -->
 
-2. Create a new file with the following convention: `<package-name>_examples_test.go` inside
-the `.examples` directory
+1. 存在しない場合、新しく作成したパッケージに `.examples`ディレクトリを追加します。
+<!-- 1. If non existent, add a `.examples` directory in your newly created package -->
 
-3. Write examples in the following schema:
-	```
-	// i req: s, The ASCII string to convert to Trytes.
-	// o: Trytes, The Trytes representation of the input ASCII string.
-	// o: error, Returned for non ASCII string inputs.
-	func ExampleASCIIToTrytes() {
-		trytes, err := converter.ASCIIToTrytes("IOTA")
-		if err != nil {
-			// handle error
-			return
-		}
-		fmt.Println(trytes) // output: "SBYBCCKB"
-	}
-	```
+2. 次の規則で新しいファイルを作成します。`.examples`ディレクトリ内に`&lt;package-name&gt;_examples_test.go`を作成します。
+<!-- 2. Create a new file with the following convention: `<package-name>_examples_test.go` inside the `.examples` directory -->
 
-| **Symbol**     | **Description** |
-|:---------------|:--------|
-| i req | Describes a parameter to the function. |
-| i | Describes an optional parameter to the function. |
-| o | Describes a return value of the function. |
+3. 次のスキーマで例を作成します。
+  <!-- 3. Write examples in the following schema: -->
 
-Syntax:
+    ```go
+    // i req: s, トライトへ変換するASCII文字列。
+    // o: Trytes, 入力ASCII文字列のトライト表現。
+    // o: error, 非ASCII文字列入力に対して返されます。
+    func ExampleASCIIToTrytes() {
+        trytes, err := converter.ASCIIToTrytes("IOTA")
+        if err != nil {
+            // エラーを処理します。
+            return
+        }
+        fmt.Println(trytes) // output: "SBYBCCKB"
+    }
+    ```
 
-- For parameters: `<symbol>: <parameter_name>, <description>.`  
-- For return values: `<symbol>: <type>, <description>.`
-- Example function: `Example<OriginFunctionName>`
+| **シンボル** | **説明**                                       |
+| :----------- | :--------------------------------------------- |
+| i req        | 関数へのパラメーターを記述します。             |
+| i            | 関数へのオプションのパラメーターを記述します。 |
+| o            | 関数の戻り値を記述します。                     |
 
-## Get involved
+構文：
+<!-- Syntax: -->
 
-[Join our Discord channel](https://discord.iota.org) where you can:
+- パラメーターの場合： `&lt;symbol&gt;: &lt;parameter_name&gt;, &lt;description&gt;.`
+<!-- - For parameters: `<symbol>: <parameter_name>, <description>.` -->
+- 返り値の場合： `&lt;symbol&gt;: &lt;type&gt;, &lt;description&gt;.`
+<!-- - For return values: `<symbol>: <type>, <description>.` -->
+- Example関数： `Example&lt;OriginFunctionName&gt;`
+<!-- - Example function: `Example<OriginFunctionName>` -->
 
-- Take part in discussions with IOTA developers and the community
-- Ask for help
-- Share your knowledge to help others
+## 参加する
+<!-- ## Get involved -->
 
-We have many channels, including the following:
+[Discordチャンネル](https://discord.iota.org)では、次のことができます。
+<!-- [Join our Discord channel](https://discord.iota.org) where you can: -->
 
-- `-dev`: These channels are read-only and are where developers discuss topics with each other and where you can see any code updates from GitHub.
+- IOTA開発者およびコミュニティとの議論に参加することができます。
+<!-- - Take part in discussions with IOTA developers and the community -->
+- 助けを求めることができます。
+<!-- - Ask for help -->
+- 他の人を助けるためにあなたの知識を共有することができます。
+<!-- - Share your knowledge to help others -->
 
-- `-discussion`: These channels are where you can participate.
+次のような多くのチャネルがあります。
+<!-- We have many channels, including the following: -->
 
-## Next steps
+- `*-dev`：これらのチャンネルは読み取り専用であり、開発者が互いにトピックを議論したり、GitHubからのコードの更新を確認したりできます。
+<!-- - `-dev`: These channels are read-only and are where developers discuss topics with each other and where you can see any code updates from GitHub. -->
 
-Continue learning with our [Go workshop](../how-to-guides/go/get-started.md).
+- `*-discussion`：これらのチャンネルはあなたが参加できる場所です。
+<!-- - `-discussion`: These channels are where you can participate. -->
 
-Read our [developer's handbook](root://getting-started/0.1/references/quickstart-dev-handbook.md) for guidance on whether you should run your own node, whether you need a private IOTA network, and what you need to consider for both.
+## 次のステップ
+<!-- ## Next steps -->
+
+[Goワークショップ](../how-to-guides/go/get-started.md)で学習を続ける。
+<!-- Continue learning with our [Go workshop](../how-to-guides/go/get-started.md). -->
+
+[開発者ハンドブック](root://getting-started/0.1/references/quickstart-dev-handbook.md)を読んで、自分自身のノードを実行する必要があるかどうか、プライベートIOTAネットワークが必要かどうか、および両方について考慮する必要があるかについてのガイダンスを参照してください。
+<!-- Read our [developer's handbook](root://getting-started/0.1/references/quickstart-dev-handbook.md) for guidance on whether you should run your own node, whether you need a private IOTA network, and what you need to consider for both. -->
