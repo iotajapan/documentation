@@ -1,27 +1,17 @@
 # プルーフオブワークを外部委託する
 <!-- # Outsource proof of work -->
 
-**トランザクションを送信する前に、[プルーフオブワーク](root://getting-started/0.1/transactions/proof-of-work.md)を含める必要があります。プルーフオブワークには、エネルギーを使用して計算を行うコンピューターが必要です。デフォルトでは、トリニティを実行しているコンピューターでプルーフオブワークが行われます。**
-<!-- **Before you send a transaction, it must include a [proof of work](root://getting-started/0.1/transactions/proof-of-work.md). Proof of work requires a computer to use energy to do computations. By default proof of work is done on the computer that is running Trinity.** -->
+**デフォルトで[プルーフオブワーク](root://getting-started/0.1/transactions/proof-of-work.md)は、トリニティを実行しているコンピューターで実行されます。このガイドでは、接続しているノードの1つにプルーフオブワークを行うように依頼する方法を学習します。**
+<!-- **By default [proof of work](root://getting-started/0.1/transactions/proof-of-work.md) is done on the computer that is running Trinity. In this guide, you learn how to ask one of the connected nodes to do proof of work instead.** -->
 
-**プルーフオブワークの外部委託**オプションを使用して、特定のノードにトランザクションのプルーフオブワークを行うように依頼できます。
-<!-- You can use the **Outsource proof of work** option to ask a specific node to do the proof of work for your transactions. -->
-
-:::info:
-トリニティのすべてのノードは、HTTPSを介して通信する必要があります。
-:::
-<!-- :::info: -->
-<!-- All nodes in Trinity must communicate over HTTPS. -->
-<!-- ::: -->
-
-1. [**設定**] > [**ノード**] > [**カスタムノードを追加**]に移動し、追加するノードのURLまたはIPアドレスを入力します。
-  <!-- 1. Go to **Settings** > **Node** > **Add custom nodes**,  and enter the URL or IP address of the nodes you want to add -->
+1. [**設定**] > [**ノード**] > [**カスタムノードを追加**]に移動し、追加する1つ以上のノードの URL または IP アドレスを入力します。
+  <!-- 1. Go to **Settings** > **Node** > **Add custom nodes**,  and enter the URL or IP address of one or more nodes that you want to add -->
 
     :::info:
-    クォーラムのカスタムノードに接続するには、複数のノードを追加します。
+    トリニティのすべてのノードは、HTTPSを介して通信する必要があります。
     :::
     <!-- :::info: -->
-    <!-- To connect to a quorum of custom nodes, add more than one. -->
+    <!-- All nodes in Trinity must communicate over HTTPS. -->
     <!-- ::: -->
 
 2. **プルーフオブワークの外部委託**オプションを有効にします。
@@ -46,3 +36,9 @@
 <!-- :::success:Congratulations! :tada: -->
 <!-- Whenever you send a transaction, the proof of work is done by your custom proof-of-work node. -->
 <!-- ::: -->
+
+## 次のステップ
+<!-- ## Next steps -->
+
+[トランザクションを送信する](../how-to-guides/send-a-transaction.md)
+<!-- [Send a transaction](../how-to-guides/send-a-transaction.md) -->

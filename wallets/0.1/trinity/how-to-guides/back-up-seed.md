@@ -1,7 +1,8 @@
 # シードをバックアップする
 <!-- # Back up your seed -->
 
-**Trinity secures and stores your [seed](root://getting-started/0.1/clients/seeds.md) on your device. As a result, if you were to ever lose your mobile device or computer, your seed would be lost. To avoid losing your seed (and your IOTA tokens), you must back it up and keep the backup in a safe place. In this guide, you learn how to back up your seed.**
+**トリニティは、デバイス上の[シード](root://getting-started/0.1/clients/seeds.md)を保護および保存します。その結果、モバイルデバイスまたはコンピューターを紛失した場合、シードは失われます。シード（および IOTA トークン）が失われないようにするには、シードをバックアップし、バックアップを安全な場所に保管する必要があります。このガイドでは、シードをバックアップする方法を学びます。**
+<!-- **Trinity secures and stores your [seed](root://getting-started/0.1/clients/seeds.md) on your device. As a result, if you were to ever lose your mobile device or computer, your seed would be lost. To avoid losing your seed (and your IOTA tokens), you must back it up and keep the backup in a safe place. In this guide, you learn how to back up your seed.** -->
 
 アカウントを作成すると（または[アカウント設定ページからシードにアクセスする](../how-to-guides/manage-your-account.md)と）、次のいずれかの方法でシードをバックアップできます。
 <!-- When you create an account (or [access your seed from the account management page](../how-to-guides/manage-your-account.md)) you can back up your seed, using one of the following options: -->
@@ -22,10 +23,10 @@
 シードをシード金庫ファイルにエクスポートするのが最も安全な方法です（[ハードウェアウォレット](../concepts/hardware-wallet.md)を使用するのとは別として）。
 <!-- Exporting your seed to a SeedVault file is the most secure option (apart from using a [hardware wallet](../concepts/hardware-wallet.md)). -->
 
-シード金庫は、[kdbxファイルフォーマット](https://keepass.info/help/kb/kdbx_4.html)を使用するパスワード暗号化ファイルです。このフォーマットは[KeePass](https://keepass.info/)パスワードマネージャによっても使用されています。
+シード金庫は、[kdbx ファイルフォーマット](https://keepass.info/help/kb/kdbx_4.html)を使用するパスワード暗号化ファイルです。このフォーマットは [KeePass](https://keepass.info/) パスワードマネージャによっても使用されています。
 <!-- SeedVault is a password-encrypted file that uses the [kdbx file format](https://keepass.info/help/kb/kdbx_4.html). This format is also used by the [KeePass](https://keepass.info/) password manager. -->
 
-シードをシード金庫またはKeePassパスワードマネージャーにエクスポートして保存できます。
+シードをシード金庫または KeePass パスワードマネージャーにエクスポートして保存できます。
 <!-- You can export and store your seed in SeedVault or in the KeePass password manager. -->
 
 ## シードを手書きで紙に保存する
@@ -56,8 +57,15 @@
 - 公共のプリンターや公共のWiFiに接続されたプリンターでシードを印刷すること。
 <!-- - Print your seed from a public printer or one that's connected to WiFi -->
 
+:::success:
+これで、シードのバックアップができました。トリニティのパスワードを忘れた場合は、シードバックアップを使用してトリニティにログインできます。
+:::
+<!-- :::success: -->
+<!-- Now you have a backup of your seed. If you ever forget your Trinity password, you can use your seed backup to log into Trinity. -->
+<!-- ::: -->
+
 ## 次のステップ
 <!-- ## Next steps -->
 
-[IOTAトークンの残高を読む](../how-to-guides/read-your-balance.md)。
-<!-- [Read your balance of IOTA tokens](../how-to-guides/read-your-balance.md). -->
+[IOTA トークンを購入する](../how-to-guides/buy-iota.md)
+<!-- [Buy IOTA tokens](../how-to-guides/buy-iota.md) -->

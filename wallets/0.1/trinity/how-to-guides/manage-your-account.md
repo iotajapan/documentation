@@ -1,8 +1,8 @@
 # アカウントを管理する
 <!-- # Manage your account -->
 
-**トリニティでは複数のアカウントを持つことができ、それぞれに固有のシードがあります。**
-<!-- **Trinity allows you to have multiple accounts, each of which has a unique seed.** -->
+**トリニティでは1つ以上のアカウントを持つことができ、それぞれに固有のシードがあります。**
+<!-- **Trinity allows you to have more than one account, each of which has a unique seed.** -->
 
 アカウントごとに、次のことを実行できます。
 <!-- For each of your accounts, you can do the following: -->
@@ -70,3 +70,9 @@
 
 モバイル端末のログインパスワードを変更するには、**設定** > **セキュリティ設定** > **パスワード変更**に移動します。
 <!-- To change the login password on a mobile device, go to **Settings** > **Security settings** > **Change password**. -->
+
+## 次のステップ
+<!-- ## Next steps -->
+
+[IOTAトークンを購入する](../how-to-guides/buy-iota.md)
+<!-- [Buy IOTA tokens](../how-to-guides/buy-iota.md) -->

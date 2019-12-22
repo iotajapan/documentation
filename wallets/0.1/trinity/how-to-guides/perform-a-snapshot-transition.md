@@ -11,10 +11,10 @@
 <!-- Trinity is stateful, which means that it stores a local copy of your transaction history on your device. As a result, you can still see your transaction history after a global snapshot. -->
 <!-- ::: -->
 
-**アカウント設定** > **ツール** > **スナップショットの移行**に移動します。
-<!-- Go to Account management > **Tools** > **Transition**. -->
+1. **アカウント設定** > **ツール** > **スナップショットの移行**に移動します。
+<!-- 1. Go to Account management > **Tools** > **Transition**. -->
 
-モバイル端末のアカウント設定にアクセスするには、**設定** > **アカウント設定**に移動します。デスクトップでアカウント設定にアクセスするには、**バーガーメニュー** > **アカウント** > **アカウント設定**に移動します。
-To access Account management on a mobile device, go to **Settings** > **Account management**. To access Account management on a desktop, go to the burger menu >  **Account** > **Account management**.
+2. モバイル端末のアカウント設定にアクセスするには、**設定** > **アカウント設定**に移動します。デスクトップでアカウント設定にアクセスするには、**バーガーメニュー** > **アカウント** > **アカウント設定**に移動します。
+<!-- 2. To access Account management on a mobile device, go to **Settings** > **Account management**. To access Account management on a desktop, go to the burger menu >  **Account** > **Account management**. -->
 
 ![photo of snapshot transition](../images/transition.jpg)

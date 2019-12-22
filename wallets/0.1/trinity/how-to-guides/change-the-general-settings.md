@@ -1,11 +1,8 @@
 # 一般設定を変更する
 <!-- # Change the general settings -->
 
-**一般設定では、ユーザーインターフェースの要素の変更、パスワードの変更、トリニティの接続先ノードの変更が可能です。**
-<!-- **The general settings allow you to change elements of the user interface, change your password, and change the nodes to which Trinity connects.** -->
-
-トリニティで、**設定**に移動して**一般設定**をカスタマイズします。
-<!-- In Trinity, go to **Settings** to customize general settings. -->
+**一般設定では、ユーザーインターフェースの要素の変更、パスワードの変更、トリニティの接続先ノードの変更ができます。このガイドでは、一般設定を変更する方法を学びます。**
+<!-- **The general settings allow you to change elements of the user interface, change your password, and change the nodes to which Trinity connects. In this guide, you learn how to change the general settings.** -->
 
 ## ディスプレイ言語を変更する
 <!-- ## Change the display language -->
@@ -41,3 +38,6 @@
 <!-- - **Standard mode:** Displays only the most relevant information for standard users -->
 - **上級モード：** 上級ユーザー向けのエラーログなどの技術情報を表示します。
 <!-- - **Advanced mode:** Displays technical information, such as error logs, for advanced users -->
+
+## 次のステップ
+<!-- ## Next steps -->

@@ -1,8 +1,11 @@
-# Command-line options
+# コマンドラインオプション
+<!-- # Command-line options -->
 
-**When you start Hub or the signing server, you can use the command-line options to override the default settings.**
+**ハブまたは署名サーバーを起動すると、コマンドラインオプションを使用してデフォルト設定を上書きできます。**
+<!-- **When you start Hub or the signing server, you can use the command-line options to override the default settings.** -->
 
-To make it easier to find the options you want to change, we've separated them into the following categories:
+変更するオプションを見つけやすくするために、オプションを次のカテゴリに分けました。
+<!-- To make it easier to find the options you want to change, we've separated them into the following categories: -->
 
 - **Database:** Configure the database settings
 - **Argon2 hash function:** Configure the settings for the Argon2 hash function that Hub uses to generate seeds
@@ -30,7 +33,7 @@ If you've downloaded Hub, you can also run it with the `--help` flag to see a li
 |`--salt`| Salt that is hashed together with a seed UUID to generate a new seed for each deposit address  | string of at least 20 characters|  ""    ||
 
 ## Argon2 hash function
- 
+
 | **Option** |   **Description**|**Accepted argument** | **Default**|**Notes** |
 | :------------------------ | :--------------- | :--------|:---|:---|
 |`--argon2MCost`|Memory cost of Argon2 in bytes| integer|1 << 17|For a discussion about this option, [see this Stack Exchange topic](https://crypto.stackexchange.com/questions/48954/questions-about-the-argon2-options) |

@@ -4,6 +4,15 @@
 **トリニティでは、[アドレス](root://getting-started/0.1/clients/addresses.md)、メッセージ、または[IOTAトークン](root://getting-started/0.1/clients/token.md)の量を入力することにより、[ノード](root://getting-started/0.1/network/nodes.md)にトランザクションを送信できます。このガイドでは、トリニティでトランザクションを送信する方法を学習します。**
 <!-- **In Trinity, you can send a transaction to a [node](root://getting-started/0.1/network/nodes.md) by entering an [address](root://getting-started/0.1/clients/addresses.md), a message, and/or an amount of [IOTA tokens](root://getting-started/0.1/clients/token.md). In this guide, you learn how to send a transaction in Trinity.** -->
 
+![A received transaction](../images/trinity-receive-message.png)
+
+:::info:
+アドレスフィールドは、[上級モード](../how-to-guides/change-the-general-settings.md)でのみ表示されます。
+:::
+<!-- :::info: -->
+<!-- The Addresses field is displayed only in [Advanced mode](../how-to-guides/change-the-general-settings.md). -->
+<!-- ::: -->
+
 ## 手順1. IOTAネットワークを選択する
 <!-- ## Step 1. Choose an IOTA network -->
 
@@ -53,12 +62,12 @@ IOTAをテストしている場合は、[Devnetノードに接続する](../how-
     <!-- If your account is linked to a hardware wallet, you can send either IOTA tokens or a message, but not both. -->
     <!-- ::: -->
 
-    ![IOTA units](../images/sending-value-highlighted.jpg)
+    ![IOTA units](../images/sending-value-highlighted.png)
 
 4. **送金**をクリックします。
   <!-- 4. Click **Send** -->
 
-    ![Sending IOTA tokens](../images/send.jpg)
+    ![Sending IOTA tokens](../images/send.png)
 
     :::info:
     トリニティモバイルを最小化すると、送信プロセスはアプリを再開するまで一時停止します。
@@ -67,23 +76,15 @@ IOTAをテストしている場合は、[Devnetノードに接続する](../how-
     <!-- If you minimize Trinity Mobile, the sending process pauses until you reopen it. -->
     <!-- ::: -->
 
+:::success:
 送信されたトランザクションはトランザクション履歴に保存され、そこでステータスなどの情報を確認できます。
-<!-- Sent transactions are saved in the transaction history, where you can see information such as their status. -->
-
-![A received transaction](../images/trinity-receive-message.png)
-
-:::info:
-アドレスフィールドは、[上級モード](../how-to-guides/change-the-general-settings.md)でのみ表示されます。
 :::
-<!-- :::info: -->
-<!-- The Addresses field is displayed only in [Advanced mode](../how-to-guides/change-the-general-settings.md). -->
+<!-- :::success: -->
+<!-- Sent transactions are saved in the transaction history, where you can see information such as their status. -->
 <!-- ::: -->
 
 ## 次のステップ
 <!-- ## Next steps -->
-
-[残高を読む](../how-to-guides/read-your-balance.md)。
-<!-- [Read you balance](../how-to-guides/read-your-balance.md). -->
 
 [トランザクションを受信する](../how-to-guides/receive-a-transaction.md)。
 <!-- [Receive a transaction](../how-to-guides/receive-a-transaction.md). -->

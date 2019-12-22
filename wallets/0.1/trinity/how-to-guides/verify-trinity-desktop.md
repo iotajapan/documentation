@@ -1,8 +1,8 @@
 # デスクトップ版のダウンロードを検証する
-<!-- # Verify your Trinity Desktop download -->
+<!-- # Verify your Trinity desktop download -->
 
-**トリニティデスクトップをダウンロードした時は、その信頼性を検証して、IOTA財団のGitHubリポジトリから正しいものをダウンロードしたことを確認することをお勧めします。**
-<!-- **When you download Trinity Desktop, you may want to verify its authenticity to make sure that you downloaded the correct one from the IOTA Foundation GitHub repository.** -->
+**トリニティのデスクトップ版をダウンロードするとき、IOTA 財団の GitHub リポジトリから正しいものをダウンロードしたことを確認するために、トリニティのデスクトップ版の信頼性を検証することができます。このガイドでは、トリニティのデスクトップ版のダウンロードを検証する方法を学びます。**
+<!-- **When you download Trinity Desktop, you may want to verify its authenticity to make sure that you downloaded the correct one from the IOTA Foundation GitHub repository. In this guide, you learn how to verify Trinity desktop downloads.** -->
 
 トリニティデスクトップの信頼性を検証するために、SHA256ハッシュおよびコード署名を使用できます。これら2つの手順の説明は、オペレーティングシステムによって異なります。
 <!-- To verify the authenticity of Trinity Desktop, you can use the SHA256 hash and code signature. Instructions for both of these steps differ, depending on your operating system. -->

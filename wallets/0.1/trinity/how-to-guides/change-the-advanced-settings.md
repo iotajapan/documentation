@@ -1,7 +1,7 @@
 # 詳細設定を変更する
 <!-- # Change the advanced settings -->
 
-**詳細設定は、トリニティの機能に影響します。IOTAの仕組みに慣れている場合は、詳細設定を変更します。**
+**詳細設定は、トリニティの機能に影響します。IOTA の仕組みに慣れている場合は、詳細設定を変更します。**
 <!-- **Advanced settings affect the functionality of Trinity. Change the advanced settings if you're familiar with how IOTA works.** -->
 
 ## プルーフオブワークの設定を変更する
@@ -10,7 +10,7 @@
 トランザクションを送信する前に、トランザクションを有効にするためにプルーフオブワークを行う必要があります。プルーフオブワークには、計算を行うためにエネルギーを消費するコンピュータが必要です。デフォルトでは、プルーフオブワークはトリニティを実行しているコンピュータ上で行われます。
 <!-- Before you send a transaction, proof of work must be done to make it valid. Proof of work requires a computer to use energy to do computations. By default proof of work is done on the computer that is running Trinity. -->
 
-トリニティが接続しているIRIノードによってプルーフオブワークが行われるようにするには、この設定を**リモート**に変更します。
+トリニティが接続している IRI ノードによってプルーフオブワークが行われるようにするには、この設定を**リモート**に変更します。
 <!-- To have the proof of work be done by the IRI node that Trinity is connected to, change this setting to **Remote**. -->
 
 ## 自動促進の設定を変更する
