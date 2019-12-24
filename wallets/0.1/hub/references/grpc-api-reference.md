@@ -20,11 +20,12 @@ gRPCとprotobufに慣れていない場合は、[gRPCクイックスタートガ
 ### Hub
 
 | **メソッド名** | **リクエストタイプ** | **レスポンスタイプ** | **説明** |
-| ---------- | ---------------- | ---------------- | ---- |
+| -------------- | -------------------- | -------------------- | -------- |
 | CreateUser | [CreateUserRequest](#hub.rpc.CreateUserRequest) | [CreateUserReply](#hub.rpc.CreateUserRequest) | ハブに新しいユーザーを作成します。 |
 | GetAddressInfo | [GetAddressInfoRequest](#hub.rpc.GetAddressInfoRequest) | [GetAddressInfoReply](#hub.rpc.GetAddressInfoRequest) | 預け入れアドレスを所有しているユーザーのIDを取得します。 |
 | GetBalance | [GetBalanceRequest](#hub.rpc.GetBalanceRequest) | [GetBalanceReply](#hub.rpc.GetBalanceRequest) | ユーザーの利用可能残高を取得します。 |
 | GetDepositAddress | [GetDepositAddressRequest](#hub.rpc.GetDepositAddressRequest) | [GetDepositAddressReply](#hub.rpc.GetDepositAddressRequest) | ユーザーの新しい預け入れアドレスを作成します。 |
+| GetSeedForAddress | [GetSeedForAddressRequest](#hub.rpc.GetSeedForAddressRequest) | [GetSeedForAddressReply](#hub.rpc.GetSeedForAddressReply)  | 特定の預け入れアドレスの生成に使用されたシードを取得します。 |
 | GetStats | [StatsRequest](#hub.rpc.StatsRequest) | [StatsReply](#hub.rpc.StatsRequest) | ハブが現在管理しているすべてのユーザーの合計残高を取得します。 |
 | GetUserHistory | [GetUserHistoryRequest](#hub.rpc.GetUserHistoryRequest) | [GetUserHistoryReply](#hub.rpc.GetUserHistoryRequest) | ユーザーの残高履歴を取得します。 |
 | ProcessTransferBatch | [ProcessTransferBatchRequest](#hub.rpc.ProcessTransferBatchRequest) | [ProcessTransferBatchReply](#hub.rpc.ProcessTransferBatchRequest) | 取引所からの買い/売りのバッチを処理します。このバッチの合計金額は0でなければならないことに注意してください。 |
@@ -124,6 +125,25 @@ gRPCとprotobufに慣れていない場合は、[gRPCクイックスタートガ
 | **フィールド** | **タイプ** | **ルール** | **説明** |
 | -------------- | ---------- | ---------- | -------- |
 | address | [string](#string) | singular | 新しい預け入れアドレス |
+
+<a name="hub.rpc.GetSeedForAddressRequest"></a>
+
+### GetSeedForAddressRequest
+
+To use this method, you must run Hub with the [`--GetSeedForAddress_enabled` flag](../references/command-line-options.md#signBundle).
+
+|**Field**|**Type**|**Rules**|**Description**|
+| --------------- | ----------------- | ----- | ----------- |
+| userId          | [string](#string) |   singular    |  The ID of the user that owns the deposit address|
+| address | [string](#string)   |   singular    | The deposit address whose seed you want to generate          |
+
+<a name="hub.rpc.GetSeedForAddressReply"></a>
+
+### GetSeedForAddressReply
+
+|**Field**|**Type**|**Rules** |**Description**|
+| ------- | ----------------- | ----- | ----------------------------- |
+| seed | [string](#string) |  singular     | A new deposit address |
 
 <a name="hub.rpc.GetUserHistoryRequest"></a>
 

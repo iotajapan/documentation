@@ -36,7 +36,7 @@ RESTful APIを使用する場合は、`--serverType http`コマンドライン�
 ## CreateUser
 
 ハブで新しいユーザーを作成します。
-<!-- Create a new user on Hub. -->
+<!-- Creates a new user on Hub. -->
 
 ### パラメーター
 <!-- ### Parameters -->
@@ -142,7 +142,7 @@ curl http://localhost:50051 \
 ## GetAddressInfo
 
 与えられた預け入れアドレスを所有しているユーザーのIDを取得します。
-<!-- Get the ID of the user that owns a given deposit address. -->
+<!-- Gets the ID of the user that owns a given deposit address. -->
 
 ### パラメーター
 <!-- ### Parameters -->
@@ -256,7 +256,7 @@ curl http://localhost:50051 \
 ## GetBalance
 
 ユーザーの利用可能な残高を取得します。
-<!-- Get a user's available balance. -->
+<!-- Gets a user's available balance. -->
 
 ### パラメーター
 <!-- ### Parameters -->
@@ -369,7 +369,7 @@ curl http://localhost:50051 \
 ## GetDepositAddress
 
 与えられたユーザーの新しい預け入れアドレスを作成します。
-<!-- Create a new deposit address for a given user. -->
+<!-- Creates a new deposit address for a given user. -->
 
 ### パラメーター
 <!-- ### Parameters -->
@@ -481,10 +481,120 @@ curl http://localhost:50051 \
 <!-- |--|--| -->
 <!-- | `address` | A new 81-tryte deposit address (without checksum) | -->
 
+## GetSeedForAddress
+
+Gets the seed that was used to generate a given deposit address.
+
+This endpoint is useful if you want to store the seed outside of Hub.
+
+:::info:
+To use this endpoint, you must run Hub with the [`--GetSeedForAddress_enabled` flag](../references/command-line-options.md#signBundle).
+:::
+
+### Parameters
+
+|**Parameter** | **Required or Optional**|**Description** |**Type**
+|--|--|--|--|
+| `userId` |Required| The ID of the user that owns the deposit address| string|
+|`address`|Required|The deposit address whose seed you want to generate|string
+
+### Examples
+--------------------
+### Python
+```python
+import urllib2
+import json
+
+command = {
+  "command": "GetSeedForAddress", 
+  "userId": "user-1",
+  "address": "PHWYPQECJDVEZYQFIDNMEDFGETLTRUFUERVUYQQLZHOHKQZU9QLLCGLNANXNGGXNTZLBUAALRLH9PIGHF"
+}
+
+stringified = json.dumps(command)
+
+headers = {
+    'content-type': 'application/json',
+    'X-IOTA-API-Version': '1'
+}
+
+request = urllib2.Request(url="http://localhost:50051", data=stringified, headers=headers)
+returnData = urllib2.urlopen(request).read()
+
+jsonData = json.loads(returnData)
+
+print jsonData
+```
+---
+### Node.js
+```js
+var request = require('request');
+
+var command = {
+  "command": "GetSeedForAddress",
+  "userId": "user-1",
+  "address": "PHWYPQECJDVEZYQFIDNMEDFGETLTRUFUERVUYQQLZHOHKQZU9QLLCGLNANXNGGXNTZLBUAALRLH9PIGHF"
+};
+
+var options = {
+  url: 'http://localhost:50051',
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+		'X-IOTA-API-Version': '1',
+    'Content-Length': Buffer.byteLength(JSON.stringify(command))
+  },
+  json: command
+};
+
+request(options, function (error, response, data) {
+  if (!error && response.statusCode == 200) {
+    console.log(data);
+  }
+});
+```
+---
+### cURL
+```bash
+curl http://localhost:50051 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{
+  "command": "GetSeedForAddress",
+  "userId": "user-1",
+  "address": "PHWYPQECJDVEZYQFIDNMEDFGETLTRUFUERVUYQQLZHOHKQZU9QLLCGLNANXNGGXNTZLBUAALRLH9PIGHF"
+}'
+```
+--------------------
+
+### Response examples
+--------------------
+### 200
+```json
+{
+  "seed": "AUVEOUEVFHKZBKCSVWDQ9PJPDJZPZ9APNBLYCFLFLEBHMJUJYXEBSZFGTFDASHHGEKOHHEHIMUXKZWUTD"
+}
+```
+---
+### 400
+```json
+{
+  "error": "'command' parameter has not been specified"
+}
+```
+--------------------
+
+### Results
+
+|**Return field** | **Description** |
+|--|--|
+| `seed` | The seed that was used to generate the deposit address |
+
 ## GetStats
 
 ハブに保存されているIOTAトークンの合計量を取得します。
-<!-- Get the total amount of IOTA tokens that are stored in Hub. -->
+<!-- Gets the total amount of IOTA tokens that are stored in Hub. -->
 
 ### 例
 <!-- ### Examples -->
@@ -584,7 +694,7 @@ curl http://localhost:50051 \
 ## GetUserHistory
 
 ユーザーの残高の履歴を取得します。
-<!-- Get the history of a user's balance. -->
+<!-- Gets the history of a user's balance. -->
 
 ### パラメーター
 <!-- ### Parameters -->
@@ -730,7 +840,7 @@ curl http://localhost:50051 \
 ## ProcessTransferBatch
 
 取引所からの購入/販売のバッチを処理します。
-<!-- Process a batch of buys/sells from the exchange. -->
+<!-- Processes a batch of buys/sells from the exchange. -->
 
 :::info:
 バッチの合計額は0になる必要があります。
@@ -852,7 +962,7 @@ curl http://localhost:50051 \
 ## BalanceSubscription
 
 特定の時間以降の残高の変化のストリームを監視します。
-<!-- Monitor a stream of balance changes since a given time. -->
+<!-- Monitors a stream of balance changes since a given time. -->
 
 ### パラメーター
 <!-- ### Parameters -->
@@ -1052,7 +1162,7 @@ curl http://localhost:50051 \
 ## RecoverFunds
 
 IOTAトークンを使用済みのアドレスから未使用のアドレスに転送します。
-<!-- Transfer IOTA tokens from a spent address to an unspent one. -->
+<!-- Transfers IOTA tokens from a spent address to an unspent one. -->
 
 :::info:
 このエンドポイントを使用するには、[`--RecoverFunds_enabled`フラグ](../references/command-line-options.md#recoverFunds)を指定してハブを実行する必要があります。
@@ -1185,8 +1295,8 @@ curl http://localhost:50051 \
 
 ## SignBundle
 
-署名を取得して、未署名のバンドルに追加します。
-<!-- Get a signature to add to an unsigned bundle. -->
+指定されたバンドルの署名を返します。
+<!-- Returns a signature for a given bundle. -->
 
 このエンドポイントは、使用済みの預け入れアドレスから2つ以上の未使用アドレスにIOTAトークンを転送するビルド済みバンドルに署名するのに役立ちます。
 <!-- This endpoint is useful for signing pre-built bundles that transfer IOTA tokens from a spent deposit address to two or more unspent addresses. -->
@@ -1328,7 +1438,7 @@ curl http://localhost:50051 \
 ## SweepDetail
 
 スイープに関する情報（確定ステータス、トランザクショントライト、および再添付）を取得します。
-<!-- Get information about a sweep (confirmation status, transaction trytes, and reattachments). -->
+<!-- Gets information about a sweep (confirmation status, transaction trytes, and reattachments). -->
 
 ### パラメーター
 
@@ -1584,7 +1694,7 @@ curl http://localhost:50051 \
 ## SweepSubscription
 
 与えられた時間以降のすべてのスウィープのストリームを監視します。
-<!-- Monitor a stream of all sweeps since a given time. -->
+<!-- Monitors a stream of all sweeps since a given time. -->
 
 ### パラメーター
 <!-- ### Parameters -->
@@ -1713,8 +1823,8 @@ curl http://localhost:50051 \
 
 ## UserWithdraw
 
-与えられたユーザーのアカウントから取り出しリクエストを送信します。リクエストが成功した場合、ハブは次のスウィープに取り出しを含めます。
-<!-- Submit a withdrawal request from a given user's account. If request is successful, Hub includes the withdrawal in the next sweep. -->
+特定のユーザーのアカウントから取り出しリクエストを作成します。リクエストが成功した場合、ハブは次のスイープに取り出しを含めます。
+<!-- Creates a withdrawal request from a given user's account. If request is successful, Hub includes the withdrawal in the next sweep. -->
 
 ### パラメーター
 <!-- ### Parameters -->
@@ -1840,8 +1950,8 @@ curl http://localhost:50051 \
 
 ## UserWithdrawCancel
 
-取り出しをキャンセルするリクエストを送信します。
-<!-- Submit a request to cancel a withdrawal. -->
+取り出しをキャンセルするリクエストを作成します。
+<!-- Creates a request to cancel a withdrawal. -->
 
 :::info:
 取り消しは、取り出しがスウィープに含まれていない場合にのみ可能です。
@@ -1960,8 +2070,8 @@ curl http://localhost:50051 \
 
 ## WasAddressSpentFrom
 
-預け入れアドレスがすでに取り出されているどうかを調べます。
-<!-- Find out if a deposit address has already been withdrawn from. -->
+特定の預け入れアドレスからすでに取り出しが行われているかどうかを調べます。
+<!-- Finds out whether a given deposit address has already been withdrawn from. -->
 
 このエンドポイントが`true`を返す場合、これ以上IOTAトークンを預け入れないでください。
 <!-- If this endpoint returns true, you should not deposit any more IOTA tokens into it. -->
@@ -2080,7 +2190,7 @@ curl http://localhost:50051 \
 ## WasWithdrawalCancelled
 
 キャンセルされた取り出しのステータスを取得します。
-<!-- Get the status of a canceled withdrawal. -->
+<!-- Gets the status of a canceled withdrawal. -->
 
 ### パラメーター
 <!-- ### Parameters -->
