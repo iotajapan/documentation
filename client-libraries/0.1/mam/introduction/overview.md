@@ -43,7 +43,7 @@ MAMメッセージは、ゼロトークントランザクションの`signatureM
 購読者がMAMストリームからメッセージを取得すると、署名を検証し、署名がマークル木のリーフの1つに属していることを確認することにより、メッセージが最初に認証されます。署名の検証が失敗した場合、メッセージ全体が無効と見なされます。
 <!-- When a subscriber fetches messages from a MAM stream, the message is first authenticated by validating the signature and verifying that the signature belongs to one of the Merkle tree's leaves. If the signature verification fails, the entire message is considered invalid. -->
 
-### チャンネルタイプ
+### チャネルタイプ
 <!-- ### Channel types -->
 
 次のチャネルモードのいずれかにメッセージを公開できます。

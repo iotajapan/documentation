@@ -1,7 +1,7 @@
 # Chronicle 概要
 <!-- # Chronicle overview -->
 
-**Chronicle は、[IRIノード](root://node-software/0.1/iri/introduction/overview.md)に到達するすべてのトランザクションを安全で拡張性の高い分散データベースに保存できるパーマノードソリューションです。**
+**Chronicle は、[IRI ノード](root://node-software/0.1/iri/introduction/overview.md)に到達するすべてのトランザクションを安全で拡張性の高い分散データベースに保存できるパーマノードソリューションです。**
 <!-- **Chronicle is a permanode solution that allows you to store all transactions that reach an [IRI node](root://node-software/0.1/iri/introduction/overview.md) in a distributed database that's secure and that scales well.** -->
 
 ## ハーマノードとは？
