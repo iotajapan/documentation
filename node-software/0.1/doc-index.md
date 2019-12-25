@@ -4,7 +4,7 @@
 [IRI/序説/概要](/iri/introduction/overview.md)
 [IRI/概念/トランザクション検証](/iri/concepts/transaction-validation.md)
 [IRI/概念/ローカルスナップショット](/iri/concepts/local-snapshot.md)
-[IRI/概念/チップ洗濯](/iri/concepts/tip-selection.md)
+[IRI/概念/チップ選択](/iri/concepts/tip-selection.md)
 [IRI/ハウツーガイド/IRI 入門](/iri/how-to-guides/quickstart.md)
 [IRI/ハウツーガイド/IRI ノードを実行する](/iri/how-to-guides/install-iri.md)
 [IRI/ハウツーガイド/リバースプロキシサーバーをセットアップする](/iri/how-to-guides/set-up-a-reverse-proxy.md)
