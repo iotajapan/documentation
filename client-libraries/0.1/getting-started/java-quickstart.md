@@ -246,7 +246,7 @@ java -cp .;jota-[VERSION]-jar-with-dependencies.jar ConnectToNode
 }
 ```
 
-### レスポンスオブジェクトの読み取り
+### レスポンスオブジェクトの内容
 <!-- ### Reading the response object -->
 
 レスポンスオブジェクトの `latestMilestoneIndex` フィールドが Discord から取得した `latestMilestoneIndex` フィールドと `latestSolidSubtangleMilestoneIndex` フィールドに等しい場合、ノードは同期しています。

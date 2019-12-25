@@ -4,15 +4,15 @@
 
 [入門/クイックスタート](/getting-started/quickstart.md)
 
-[入門/Goクイックスタート](/getting-started/go-quickstart.md)
+[入門/Go クイックスタート](/getting-started/go-quickstart.md)
 
-[入門/Javaクイックスタート](/getting-started/java-quickstart.md)
+[入門/Java クイックスタート](/getting-started/java-quickstart.md)
 
-[入門/JavaScriptクイックスタート](/getting-started/js-quickstart.md)
+[入門/JavaScript クイックスタート](/getting-started/js-quickstart.md)
 
-[入門/Pythonクイックスタート](/getting-started/python-quickstart.md)
+[入門/Python クイックスタート](/getting-started/python-quickstart.md)
 
-[ハウツーガイド/Go/Goライブラリ入門](/how-to-guides/go/get-started.md)
+[ハウツーガイド/Go/Go ライブラリ入門](/how-to-guides/go/get-started.md)
 
 [ハウツーガイド/Go/"hello world"トランザクションを送信する](/how-to-guides/go/send-your-first-bundle.md)
 
@@ -22,11 +22,11 @@
 
 [ハウツーガイド/Go/アドレスの残高を確認する](/how-to-guides/go/check-balance.md)
 
-[ハウツーガイド/Go/テストIOTAトークンを転送する](/how-to-guides/go/transfer-iota-tokens.md)
+[ハウツーガイド/Go/テスト IOTA トークンを転送する](/how-to-guides/go/transfer-iota-tokens.md)
 
 [ハウツーガイド/Go/タングル上のライブトランザクションをリッスンする](/how-to-guides/go/listen-for-transactions.md)
 
-[ハウツーガイド/Java/Javaライブラリ入門](/how-to-guides/java/get-started.md)
+[ハウツーガイド/Java/Java ライブラリ入門](/how-to-guides/java/get-started.md)
 
 [ハウツーガイド/Java/"hello world"トランザクションを送信する](/how-to-guides/java/send-your-first-bundle.md)
 
@@ -36,11 +36,11 @@
 
 [ハウツーガイド/Java/アドレスの残高を確認する](/how-to-guides/java/check-balance.md)
 
-[ハウツーガイド/Java/テストIOTAトークンを送信する](/how-to-guides/java/transfer-iota-tokens.md)
+[ハウツーガイド/Java/テスト IOTA トークンを送信する](/how-to-guides/java/transfer-iota-tokens.md)
 
 [ハウツーガイド/Java/タングル上のライブトランザクションをリッスンする](/how-to-guides/java/listen-for-transactions.md)
 
-[ハウツーガイド/JavaScript/JSライブラリ入門](/how-to-guides/js/get-started.md)
+[ハウツーガイド/JavaScript/JS ライブラリ入門](/how-to-guides/js/get-started.md)
 
 [ハウツーガイド/JavaScript/"hello world"トランザクションを送信する](/how-to-guides/js/send-your-first-bundle.md)
 
@@ -50,7 +50,7 @@
 
 [ハウツーガイド/JavaScript/アドレスの残高を確認する](/how-to-guides/js/check-balance.md)
 
-[ハウツーガイド/JavaScript/テストIOTAトークンを転送する](/how-to-guides/js/transfer-iota-tokens.md)
+[ハウツーガイド/JavaScript/テスト IOTA トークンを転送する](/how-to-guides/js/transfer-iota-tokens.md)
 
 [ハウツーガイド/JavaScript/タングル上のライブトランザクションをリッスンする](/how-to-guides/js/listen-for-transactions.md)
 
@@ -62,7 +62,7 @@
 
 [ハウツーガイド/JavaScript/秘密鍵からアドレスを導出する](/how-to-guides/js/convert-data-to-trytes.md)
 
-[ハウツーガイド/Python/Pythonライブラリ入門](/how-to-guides/python/get-started.md)
+[ハウツーガイド/Python/Python ライブラリ入門](/how-to-guides/python/get-started.md)
 
 [ハウツーガイド/Python/"hello world"トランザクションを送信する](/how-to-guides/python/send-your-first-bundle.md)
 
@@ -72,19 +72,19 @@
 
 [ハウツーガイド/Python/アドレスの残高を確認する](/how-to-guides/python/check-balance.md)
 
-[ハウツーガイド/Python/テストIOTAトークンを転送する](/how-to-guides/python/transfer-iota-tokens.md)
+[ハウツーガイド/Python/テスト IOTA トークンを転送する](/how-to-guides/python/transfer-iota-tokens.md)
 
 [ハウツーガイド/Python/タングル上のライブトランザクションをリッスンする](/how-to-guides/python/listen-for-transactions.md)
 
 [アカウントモジュール/序説/概要](/account-module/introduction/overview.md)
 
-[アカウントモジュール/Go/Goアカウントモジュール入門](/account-module/go/get-started.md)
+[アカウントモジュール/Go/Go アカウントモジュール入門](/account-module/go/get-started.md)
 
 [アカウントモジュール/Go/アカウントを作成する](/account-module/go/create-account.md)
 
 [アカウントモジュール/Go/イベントプラグインを作成する](/account-module/go/create-plugin.md)
 
-[アカウントモジュール/Go/CDAを生成する](/account-module/go/generate-cda.md)
+[アカウントモジュール/Go/CDA を生成する](/account-module/go/generate-cda.md)
 
 [アカウントモジュール/Go/支払いを作成する](/account-module/go/make-payment.md)
 
@@ -94,13 +94,13 @@
 
 [アカウントモジュール/Go/複数の残高を結合する](/account-module/go/combine-balance.md)
 
-[アカウントモジュール/Java/Javaアカウントモジュール入門](/account-module/java/get-started.md)
+[アカウントモジュール/Java/Java アカウントモジュール入門](/account-module/java/get-started.md)
 
 [アカウントモジュール/Java/アカウントを作成する](/account-module/java/create-account.md)
 
 [アカウントモジュール/Java/イベントプラグインを作成する](/account-module/java/create-plugin.md)
 
-[アカウントモジュール/Java/CDAを作成する](/account-module/java/generate-cda.md)
+[アカウントモジュール/Java/CDA を作成する](/account-module/java/generate-cda.md)
 
 [アカウントモジュール/Java/支払いを作成する](/account-module/java/make-payment.md)
 
@@ -110,7 +110,7 @@
 
 [アカウントモジュール/Java/複数の残高を結合する](/account-module/java/combine-balance.md)
 
-[アカウントモジュール/JavaScript/JSアカウントモジュール入門](/account-module/js/get-started.md)
+[アカウントモジュール/JavaScript/JS アカウントモジュール入門](/account-module/js/get-started.md)
 
 [アカウントモジュール/JavaScript/アカウントを作成する](/account-module/js/create-account.md)
 
@@ -118,7 +118,7 @@
 
 [アカウントモジュール/JavaScript/支払いを作成する](/account-module/js/make-payment.md)
 
-[アカウントモジュール/JavaScript/CDAを作成する](/account-module/js/generate-cda.md)
+[アカウントモジュール/JavaScript/CDA を作成する](/account-module/js/generate-cda.md)
 
 [アカウントモジュール/JavaScript/支払いを作成する](/account-module/js/make-payment.md)
 
@@ -134,7 +134,7 @@
 
 [MAM/JavaScript/ウェブページにメッセージを表示する](/mam/js/create-mam-webpage.md)
 
-[MAM/API reference/MAM APIリファレンス](/mam/api-reference/mam-api-reference.md)
+[MAM/API reference/MAM API リファレンス](/mam/api-reference/mam-api-reference.md)
 
 [APIリファレンス/Go](https://github.com/iotaledger/iota.go/tree/master/.docs/iota.go/reference)
 
