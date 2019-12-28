@@ -218,7 +218,7 @@ java -cp .;jota-[VERSION]-jar-with-dependencies.jar ConnectToNode
 ```
 --------------------
 
-ノードは次を返します。
+ノードは次のオブジェクトを返します。
 <!-- The node returns the following: -->
 
 ```json
@@ -283,13 +283,13 @@ Java ライブラリが役に立ち、貢献したいと思うなら、[バグ�
 変更内容がドキュメントに影響する場合は、ドキュメントを更新してください。
 <!-- If your changes affect the documentation, please update it. -->
 
-## 参加する
+## 議論に参加する
 <!-- ## Get involved -->
 
-[Discordチャンネル](https://discord.iota.org)では、次のことができます。
+[Discord チャンネル](https://discord.iota.org)では、次のことができます。
 <!-- [Join our Discord channel](https://discord.iota.org) where you can: -->
 
-- IOTA開発者およびコミュニティとの議論に参加することができます。
+- IOTA 開発者およびコミュニティとの議論に参加することができます。
 <!-- - Take part in discussions with IOTA developers and the community -->
 - 助けを求めることができます。
 <!-- - Ask for help -->
@@ -299,7 +299,7 @@ Java ライブラリが役に立ち、貢献したいと思うなら、[バグ�
 次のような多くのチャネルがあります。
 <!-- We have many channels, including the following: -->
 
-- `*-dev`：これらのチャンネルは読み取り専用であり、開発者が互いにトピックを議論したり、GitHubからのコードの更新を確認したりできます。
+- `*-dev`：これらのチャンネルは読み取り専用であり、開発者が互いにトピックを議論したり、GitHub からのコードの更新を確認したりできます。
 <!-- - `-dev`: These channels are read-only and are where developers discuss topics with each other and where you can see any code updates from GitHub. -->
 
 - `*-discussion`：これらのチャンネルはあなたが参加できる場所です。

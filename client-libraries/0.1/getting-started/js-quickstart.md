@@ -208,7 +208,7 @@ found 0 vulnerabilities
 ## コードを実行する
 <!-- ## Run the code -->
 
-[REPL.itツール](https://repl.it)を使用して、ブラウザーでサンプルコードを実行できるようにします。
+[REPL.it ツール](https://repl.it)を使用して、ブラウザーでサンプルコードを実行できるようにします。
 <!-- We use the [REPL.it tool](https://repl.it) to allow you to run sample code in the browser. -->
 
 緑色のボタンをクリックしてコードを実行し、ウィンドウで結果を確認します。
@@ -240,13 +240,13 @@ npm run test
 変更がドキュメントに影響する場合は、[`JSDoc`](http://usejsdoc.org) アノテーションを編集し、ルートディレクトリから `npm run docs` を実行してドキュメントを更新してください。
 <!-- If your changes affect the documentation, please update it by editing the [`JSDoc`](http://usejsdoc.org) annotations and running `npm run docs` from the root directory. -->
 
-## 参加する
+## 議論に参加する
 <!-- ## Get involved -->
 
-[Discordチャンネル](https://discord.iota.org)では、次のことができます。
+[Discord チャンネル](https://discord.iota.org)では、次のことができます。
 <!-- [Join our Discord channel](https://discord.iota.org) where you can: -->
 
-- IOTA開発者およびコミュニティとの議論に参加することができます。
+- IOTA 開発者およびコミュニティとの議論に参加することができます。
 <!-- - Take part in discussions with IOTA developers and the community -->
 - 助けを求めることができます。
 <!-- - Ask for help -->
@@ -256,7 +256,7 @@ npm run test
 次のような多くのチャネルがあります。
 <!-- We have many channels, including the following: -->
 
-- `*-dev`：これらのチャンネルは読み取り専用であり、開発者が互いにトピックを議論したり、GitHubからのコードの更新を確認したりできます。
+- `*-dev`：これらのチャンネルは読み取り専用であり、開発者が互いにトピックを議論したり、GitHub からのコードの更新を確認したりできます。
 <!-- - `-dev`: These channels are read-only and are where developers discuss topics with each other and where you can see any code updates from GitHub. -->
 
 - `*-discussion`：これらのチャンネルはあなたが参加できる場所です。

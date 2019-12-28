@@ -1,4 +1,4 @@
-# Goクイックスタート
+# Go クイックスタート
 <!-- # Go quickstart -->
 
 **このクイックスタートでは、開発環境の設定からタングル上のライブトランザクションのリッスンまで、GoでのIOTA開発の基本を学びます。**
@@ -139,7 +139,7 @@ go: downloading github.com/iotaledger/iota.go v1.0.0-beta.10
     go run connectToANode.go
     ```
 
-ノードは次を返します。
+ノードは次のオブジェクトを返します。
 <!-- The node returns the following: -->
 
 ```json
@@ -195,7 +195,7 @@ go: downloading github.com/iotaledger/iota.go v1.0.0-beta.10
 ## コードを実行する
 <!-- ## Run the code -->
 
-[REPL.itツール](https://repl.it)を使用して、ブラウザーでサンプルコードを実行できるようにします。
+[REPL.it ツール](https://repl.it)を使用して、ブラウザーでサンプルコードを実行できるようにします。
 <!-- We use the [REPL.it tool](https://repl.it) to allow you to run sample code in the browser. -->
 
 緑色のボタンをクリックしてコードを実行し、ウィンドウで結果を確認します。
@@ -324,13 +324,13 @@ Ginkgoテストの作成方法に関するリファレンスとして既存の�
 - Example関数： `Example&lt;OriginFunctionName&gt;`
 <!-- - Example function: `Example<OriginFunctionName>` -->
 
-## 参加する
+## 議論に参加する
 <!-- ## Get involved -->
 
-[Discordチャンネル](https://discord.iota.org)では、次のことができます。
+[Discord チャンネル](https://discord.iota.org)では、次のことができます。
 <!-- [Join our Discord channel](https://discord.iota.org) where you can: -->
 
-- IOTA開発者およびコミュニティとの議論に参加することができます。
+- IOTA 開発者およびコミュニティとの議論に参加することができます。
 <!-- - Take part in discussions with IOTA developers and the community -->
 - 助けを求めることができます。
 <!-- - Ask for help -->
@@ -340,7 +340,7 @@ Ginkgoテストの作成方法に関するリファレンスとして既存の�
 次のような多くのチャネルがあります。
 <!-- We have many channels, including the following: -->
 
-- `*-dev`：これらのチャンネルは読み取り専用であり、開発者が互いにトピックを議論したり、GitHubからのコードの更新を確認したりできます。
+- `*-dev`：これらのチャンネルは読み取り専用であり、開発者が互いにトピックを議論したり、GitHub からのコードの更新を確認したりできます。
 <!-- - `-dev`: These channels are read-only and are where developers discuss topics with each other and where you can see any code updates from GitHub. -->
 
 - `*-discussion`：これらのチャンネルはあなたが参加できる場所です。
