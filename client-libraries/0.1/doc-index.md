@@ -14,7 +14,7 @@
 
 [ハウツーガイド/Go/Go ライブラリ入門](/how-to-guides/go/get-started.md)
 
-[ハウツーガイド/Go/"hello world"トランザクションを送信する](/how-to-guides/go/send-your-first-bundle.md)
+[ハウツーガイド/Go/"hello world" トランザクションを送信する](/how-to-guides/go/send-your-first-bundle.md)
 
 [ハウツーガイド/Go/タングル上のトランザクションを読む](/how-to-guides/go/read-transactions.md)
 
@@ -28,7 +28,7 @@
 
 [ハウツーガイド/Java/Java ライブラリ入門](/how-to-guides/java/get-started.md)
 
-[ハウツーガイド/Java/"hello world"トランザクションを送信する](/how-to-guides/java/send-your-first-bundle.md)
+[ハウツーガイド/Java/"hello world" トランザクションを送信する](/how-to-guides/java/send-your-first-bundle.md)
 
 [ハウツーガイド/Java/タングル上のトランザクションを読む](/how-to-guides/java/read-transactions.md)
 
@@ -42,7 +42,7 @@
 
 [ハウツーガイド/JavaScript/JS ライブラリ入門](/how-to-guides/js/get-started.md)
 
-[ハウツーガイド/JavaScript/"hello world"トランザクションを送信する](/how-to-guides/js/send-your-first-bundle.md)
+[ハウツーガイド/JavaScript/"hello world" トランザクションを送信する](/how-to-guides/js/send-your-first-bundle.md)
 
 [ハウツーガイド/JavaScript/タングル上のトランザクションを読む](/how-to-guides/js/read-transactions.md)
 
@@ -64,7 +64,7 @@
 
 [ハウツーガイド/Python/Python ライブラリ入門](/how-to-guides/python/get-started.md)
 
-[ハウツーガイド/Python/"hello world"トランザクションを送信する](/how-to-guides/python/send-your-first-bundle.md)
+[ハウツーガイド/Python/"hello world" トランザクションを送信する](/how-to-guides/python/send-your-first-bundle.md)
 
 [ハウツーガイド/Python/タングル上のトランザクションを読む](/how-to-guides/python/read-transactions.md)
 

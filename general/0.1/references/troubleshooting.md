@@ -3,7 +3,7 @@
 
 ## This kernel requires an x86-64 CPU
 
-VirtualBoxで64ビットバージョンのUbuntuを選択していることを確認します。
+VirtualBox で64ビットバージョンの Ubuntu を選択していることを確認します。
 <!-- Make sure that you selected a 64-bit version of Ubuntu in VirtualBox. -->
 
 ## 疑問があるとき
