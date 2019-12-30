@@ -1,10 +1,14 @@
-# Read transactions on the Tangle in Go
+# Go でタングル上のトランザクションを読む
+<!-- # Read transactions on the Tangle in Go -->
 
-**In this guide, you get [transactions](root://getting-started/0.1/transactions/transactions.md) from the Tangle by connecting to a [node](root://getting-started/0.1/network/nodes.md) and asking it to filter them by their bundle hash. Then, you decode the message in the transaction and print it to the console.**
+**このガイドでは、[ノード](root://getting-started/0.1/network/nodes.md)に接続し、バンドルハッシュでフィルタリングするようにリクエストすることで、[トランザクション](root://getting-started/0.1/transactions/transactions.md)をタングルから取得します。次に、トランザクション内のメッセージをデコードして、コンソールに出力します。**
+<!-- **In this guide, you get [transactions](root://getting-started/0.1/transactions/transactions.md) from the Tangle by connecting to a [node](root://getting-started/0.1/network/nodes.md) and asking it to filter them by their bundle hash. Then, you decode the message in the transaction and print it to the console.** -->
 
-## Packages
+## パッケージ
+<!-- ## Packages -->
 
-To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages):
+このガイドを完了するには、次のパッケージをインストールする必要があります（Go モジュールを使用している場合は、これらのパッケージを参照するだけです）。
+<!-- To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages): -->
 
 ```bash
 go get github.com/iotaledger/iota.go/api
@@ -12,13 +16,17 @@ go get github.com/iotaledger/iota.go/trinary
 go get github.com/iotaledger/iota.go/transaction
 ```
 
-## IOTA network
+## IOTA ネットワーク
+<!-- ## IOTA network -->
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
+このガイドでは、[デブネット](root://getting-started/0.1/network/iota-networks.md#devnet)上のノードに接続します。
+<!-- In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet). -->
 
-## Code walkthrough
+## コードウォークスルー
+<!-- ## Code walkthrough -->
 
-1. Import the packages
+1. パッケージをインポートします。
+  <!-- 1. Import the packages -->
 
     ```go
     package main
@@ -30,7 +38,9 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
         "fmt"
     )
     ```
-2. Connect to a node
+
+2. ノードに接続します。
+  <!-- 2. Connect to a node -->
 
     ```go
     var node = "https://nodes.devnet.thetangle.org"
@@ -38,13 +48,15 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     must(err)
     ```
 
-3. Define the bundle hash that you want to use to filter transactions
+3. トランザクションのフィルタリングに使用するバンドルハッシュを定義します。
+  <!-- 3. Define the bundle hash that you want to use to filter transactions -->
 
     ```go
     const bundle = trinary.Trytes("MKCJ9DXTBOVZJVYZXHFPRXUULIRTRM9SEBLIHUHY9ZABRGYIBZSREEUENDKRVIYFKHBTTKWGHXZZJPZYA")
     ```
 
-4. Use the [`FindTransactionObjects()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_find_transaction_objects.md) method to get transactions by the value of their `bundle` field. Then, use the [`ExtractJSON()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/transaction_extract_j_s_o_n.md) method to try to decode the JSON message in the `signatureMessageFragment` fields of the transactions and print it to the console
+4. [`FindTransactionObjects()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_find_transaction_objects.md) メソッドを使用して、`bundle` フィールドの値でトランザクションを取得します。次に、[`ExtractJSON()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/transaction_extract_j_s_o_n.md) メソッドを使用して、トランザクションの `signatureMessageFragment` フィールドの JSON メッセージをデコードし、コンソールに出力します
+  <!-- 4. Use the [`FindTransactionObjects()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_find_transaction_objects.md) method to get transactions by the value of their `bundle` field. Then, use the [`ExtractJSON()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/transaction_extract_j_s_o_n.md) method to try to decode the JSON message in the `signatureMessageFragment` fields of the transactions and print it to the console -->
 
     ```go
     var query = FindTransactionsQuery{Bundles: trinary.Hashes{bundle}}
@@ -56,25 +68,33 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     fmt.Println(jsonMsg)
     ```
 
-    In the console, you should see your JSON message:
+    コンソールに、JSON メッセージが表示されます。
+    <!-- In the console, you should see your JSON message: -->
 
     ```json
     {"message": "Hello world"}
     ```
 
-:::success:Congratulations :tada:
-You've just found and read a transaction on the Tangle.
+:::success:おめでとうございます:tada:
+タングル上のトランザクションを見つけて読み取りました。
 :::
+<!-- :::success:Congratulations :tada: -->
+<!-- You've just found and read a transaction on the Tangle. -->
+<!-- ::: -->
 
-## Run the code
+## コードを実行する
+<!-- ## Run the code -->
 
-We use the [REPL.it tool](https://repl.it) to allow you to run sample code in the browser.
+[REPL.it ツール](https://repl.it)を使用して、ブラウザーでサンプルコードを実行できます。
+<!-- We use the [REPL.it tool](https://repl.it) to allow you to run sample code in the browser. -->
 
-Click the green button to run the sample code in this guide and see the results in the window.
+緑色のボタンをクリックして、このガイドのサンプルコードを実行し、ウィンドウで結果を確認できます。
+<!-- Click the green button to run the sample code in this guide and see the results in the window. -->
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/Read-a-transaction-on-the-Tangle?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-## Next steps
+## 次のステップ
+<!-- ## Next steps -->
 
-[Generate a new address](../go/generate-an-address.md).
-
+[アドレスを生成する](../go/generate-an-address.md)
+<!-- [Generate a new address](../go/generate-an-address.md). -->

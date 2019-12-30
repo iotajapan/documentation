@@ -20,7 +20,7 @@ go get github.com/iotaledger/iota.go/trinary
 ## IOTA ネットワーク
 <!-- ## IOTA network -->
 
-このガイドでは、以下のネットワーク設定で[Devnet](root://getting-started/0.1/network/iota-networks.md#devnet)の[node](root://getting-started/0.1/network/nodes.md)に接続します。
+このガイドでは、以下のネットワーク設定で[デブネット](root://getting-started/0.1/network/iota-networks.md#devnet)の[ノード](root://getting-started/0.1/network/nodes.md)に接続します。
 <!-- In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.md) on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) with the following network settings: -->
 
 - **[最小重量値(MWM)](root://getting-started/0.1/network/minimum-weight-magnitude.md)**: 9
