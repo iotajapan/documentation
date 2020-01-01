@@ -1,10 +1,14 @@
-# Generate an address in Node.js
+# Node.js でアドレスを生成する
+<!-- # Generate an address in Node.js -->
 
-**In this guide, you learn how to generate a new address for a [seed](root://getting-started/0.1/clients/seeds.md) with a given [security level](root://getting-started/0.1/clients/security-levels.md).**
+**このガイドでは、[セキュリティレベル](root://getting-started/0.1/clients/security-levels.md)を指定して[シード](root://getting-started/0.1/clients/seeds.md)の新しいアドレスを生成する方法を学習します。**
+<!-- **In this guide, you learn how to generate a new address for a [seed](root://getting-started/0.1/clients/seeds.md) with a given [security level](root://getting-started/0.1/clients/security-levels.md).** -->
 
-## Packages
+## パッケージ
+<!-- ## Packages -->
 
-To complete this guide, you need to install the following package:
+このガイドを完了するには、次のパッケージをインストールする必要があります。
+<!-- To complete this guide, you need to install the following package: -->
 
 --------------------
 ### npm
@@ -18,19 +22,24 @@ yarn add @iota/core
 ```
 --------------------
 
-## IOTA network
+## IOTA ネットワーク
+<!-- ## IOTA network -->
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
+このガイドでは、[デブネット](root://getting-started/0.1/network/iota-networks.md#devnet)の[ノード](root://getting-started/0.1/network/nodes.md)に接続します。
+<!-- In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet). -->
 
-## Code walkthrough
+## コードウォークスルー
+<!-- ## Code walkthrough -->
 
-1. Require the packages
+1. パッケージをリクワイアします。
+  <!-- 1. Require the packages -->
 
     ```js
     const Iota = require('@iota/core');
     ```
 
-2. Connect to a node
+2. ノードに接続します。
+  <!-- 2. Connect to a node -->
 
     ```js
     const iota = Iota.composeAPI({
@@ -38,20 +47,23 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     });
     ```
 
-3. Define the security level that you want to use for your address
+3. アドレスに使用するセキュリティレベルを定義します。
+  <!-- 3. Define the security level that you want to use for your address -->
 
     ```js
     const securityLevel = 2;
     ```
 
-4. Define a seed for which to generate an address
+4. アドレスを生成するためのシードを定義します。
+  <!-- 4. Define a seed for which to generate an address -->
 
     ```js
     const seed =
     'PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX';
     ```
 
-5. Use the [`getNewAddress()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getNewAddress) method to generate an unspent address
+5. [`getNewAddress()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getNewAddress) メソッドを使用して、未使用の住所を生成します。
+  <!-- 5. Use the [`getNewAddress()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getNewAddress) method to generate an unspent address -->
 
     ```js
     iota.getNewAddress(seed, { index: 0, securityLevel: securityLevel, total: 1 })
@@ -63,36 +75,51 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
         });
     ```
 
-Starting from the given index, the connected node checks the following:
+指定されたインデックスから開始して、接続されたノードは次をチェックします。
+<!-- Starting from the given index, the connected node checks the following: -->
 
-- If any input transactions (pending or confirmed) in its view of the Tangle withdraw from the address
-- If the address is in the node's list of spent addresses (addresses that were withdrawn from in confirmed transactions)
+- ノード内のタングルの概観内の全入力トランザクション（ペンディング中または確定済み）がアドレスから取り出されているかどうか
+<!-- - If any input transactions (pending or confirmed) in its view of the Tangle withdraw from the address -->
+- アドレスがノードの使用済みアドレス（確定済みのトランザクションで取り出されたアドレス）のリストにあるかどうか
+<!-- - If the address is in the node's list of spent addresses (addresses that were withdrawn from in confirmed transactions) -->
 
-If an address with the given index is spent, the index is incremented until the node finds one that isn't spent.
+指定されたインデックスのアドレスが使用されていると、ノードは使用されていないアドレスを見つけるまでインデックスを増分します。
+<!-- If an address with the given index is spent, the index is incremented until the node finds one that isn't spent. -->
 
 :::warning:
-This way of generating addresses replies on the node to return valid data about your addresses. To have more control over your addresses, we recommend using the [account module](../../account-module/introduction/overview.md) to keep track of spent addresses in your own local database.
+ノードでアドレス応答を生成するこの方法は、アドレスに関する有効なデータを返します。アドレスをより細かく制御するには、[アカウントモジュール](../../account-module/introduction/overview.md)を使用して、ローカルデータベース内に保存した使用済みアドレスを追跡することをお勧めします。
 :::
+<!-- :::warning: -->
+<!-- This way of generating addresses replies on the node to return valid data about your addresses. To have more control over your addresses, we recommend using the [account module](../../account-module/introduction/overview.md) to keep track of spent addresses in your own local database. -->
+<!-- ::: -->
 
-In the console, you should see an address.
+コンソールにアドレスが表示されます。
+<!-- In the console, you should see an address. -->
 
-```
+```bash
 Your address is: WKJDF9LVQCVKEIVHFAOMHISHXJSGXWBJFYEQPOQKSVGZZFLTUUPBACNQZTAKXR9TFVKBGYSNSPHRNKKHA
 ```
 
-:::success:Congratulations :tada:
-You've just generated a new address. You can share this address with anyone who wants to send you a transaction.
+:::success:おめでとうございます:tada:
+新しいアドレスが生成されました。このアドレスは、トランザクションを送信したい人と共有できます。
 :::
+<!-- :::success:Congratulations :tada: -->
+<!-- You've just generated a new address. You can share this address with anyone who wants to send you a transaction. -->
+<!-- ::: -->
 
-## Run the code
+## コードを実行する
+<!-- ## Run the code -->
 
-We use the [REPL.it tool](https://repl.it) to allow you to run sample code in the browser.
+[REPL.it ツール](https://repl.it)を使用して、ブラウザーでサンプルコードを実行できます。
+<!-- We use the [REPL.it tool](https://repl.it) to allow you to run sample code in the browser. -->
 
-Click the green button to run the sample code in this guide and see the results in the window.
+このガイドのサンプルコードを実行してウィンドウに結果を表示するには、緑色のボタンをクリックします。
+<!-- Click the green button to run the sample code in this guide and see the results in the window. -->
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/Generate-an-address?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-## Next steps
+## 次のステップ
+<!-- ## Next steps -->
 
-[Send test IOTA tokens to your new address](../js/transfer-iota-tokens.md).
-
+[新しいアドレスにテスト IOTA トークンを送信する](../js/transfer-iota-tokens.md)。
+<!-- [Send test IOTA tokens to your new address](../js/transfer-iota-tokens.md). -->

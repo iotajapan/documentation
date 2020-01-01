@@ -4,9 +4,11 @@
 **秘密鍵から[アドレス](root://getting-started/0.1/clients/addresses.md)を導出することにより、アドレス、秘密鍵、およびセキュリティレベル間の関係をより深く理解できます。**
 <!-- **By deriving [addresses](root://getting-started/0.1/clients/addresses.md) from private keys, you can gain a better understanding of the relationship among addresses, private keys, and security levels.** -->
 
-## Packages
+## パッケージ
+<!-- ## Packages -->
 
-To complete this guide, you need to install the following packages:
+このガイドを完了するには、次のパッケージをインストールする必要があります。
+<!-- To complete this guide, you need to install the following packages: -->
 
 --------------------
 ### npm
@@ -23,10 +25,10 @@ yarn add @iota/core @iota/converter @iota/signing
 ## 手順1. 秘密鍵を生成する
 <!-- ## Step 1. Generate private keys -->
 
-この例では、[`signing`パッケージ](https://github.com/iotaledger/iota.js/tree/next/packages/signing)を使用して、シード、インデックス0、およびすべてのセキュリティレベルから秘密鍵を導出します。
-In this example, we use the [`signing` package](https://github.com/iotaledger/iota.js/tree/next/packages/signing) to derive private keys from a seed, index 0, and all security levels.
+この例では、[`signing` パッケージ](https://github.com/iotaledger/iota.js/tree/next/packages/signing)を使用して、シード、インデックス0、およびすべてのセキュリティレベルから秘密鍵を導出します。
+<!-- In this example, we use the [`signing` package](https://github.com/iotaledger/iota.js/tree/next/packages/signing) to derive private keys from a seed, index 0, and all security levels. -->
 
-1. `subseed()`メソッドに、トライトに変換したシードとインデックスを渡してサブシードを生成します。
+1. `subseed()` メソッドに、トライトに変換したシードとインデックスを渡してサブシードを生成します。
   <!-- 1. Generate a subseed by passing a seed in trits and an index to the `subseed()` method -->
 
     ```js
@@ -35,7 +37,7 @@ In this example, we use the [`signing` package](https://github.com/iotaledger/io
     var subseed = Sign.subseed(Converter.trytesToTrits(seed), 0 /*index*/);
     ```
 
-2. `key`メソッドに同じサブシードと異なるセキュリティレベルを渡して、3つのセキュリティレベルそれぞれに対して1つの秘密鍵を生成します。
+2. `key` メソッドに同じサブシードと異なるセキュリティレベルを渡して、3つのセキュリティレベルそれぞれに対して1つの秘密鍵を生成します。
   <!-- 2. Generate one private key for each of the three security levels by passing the same subseed and a different security level to the `key()` method -->
 
     ```js
@@ -69,7 +71,7 @@ In this example, we use the [`signing` package](https://github.com/iotaledger/io
 手順1で秘密鍵ができました。秘密鍵からアドレスを導出できます。
 <!-- Now you have private keys, you can derive addresses from them. -->
 
-1. `digests()`メソッドに各秘密鍵を渡すことにより、各秘密鍵のキーダイジェストを生成します。
+1. `digests()` メソッドに各秘密鍵を渡すことにより、各秘密鍵のキーダイジェストを生成します。
   <!-- 1. Generate the key digests for each private key by passing each one to the `digests()` method -->
 
     ```js
@@ -97,7 +99,7 @@ In this example, we use the [`signing` package](https://github.com/iotaledger/io
     Total key digests for security level 3: 3
     ```
 
-2. これらのキーダイジェストを`address()`メソッドに渡して、各秘密鍵のアドレスを生成します。
+2. これらのキーダイジェストを `address()` メソッドに渡して、各秘密鍵のアドレスを生成します。
   <!-- 2. Generate an address for each private key by passing the digests to the `address()` method -->
 
     ```js
@@ -123,7 +125,7 @@ In this example, we use the [`signing` package](https://github.com/iotaledger/io
     Address with security level 3: LJGSYD9N9JEAQ9AVN9BJCAOW9LFVZGFHOXFVFVLQEBKVZFGBIDJJIRK9FBJUKRS9VMUXTCXBRIOOEMQJ9
     ```
 
-3. 同じアドレスが`core`パッケージから返されることを確認するために、以下を実行します。
+3. 同じアドレスが `core` パッケージから返されることを確認するために、以下を実行します。
   <!-- 3. To check that the same addresses would be returned from the `core` package, do the following: -->
 
     ```js
@@ -136,7 +138,7 @@ In this example, we use the [`signing` package](https://github.com/iotaledger/io
     <!-- You should see the same addresses in the output. -->
 
 :::success:おめでとうございます:tada:
-IOTAコアライブラリの裏で、アドレスが特定のインデックスとセキュリティレベルを持つ秘密鍵から派生していることを証明しました。
+IOTA コアライブラリの裏で、アドレスが特定のインデックスとセキュリティレベルを持つ秘密鍵から派生していることを証明しました。
 :::
 <!-- :::success:Congratulations :tada: -->
 <!-- You've proven that, under the hood of the IOTA core library, addresses are derived from private keys with a certain index and security level. -->
@@ -145,7 +147,7 @@ IOTAコアライブラリの裏で、アドレスが特定のインデックス�
 ## コードを実行する
 <!-- ## Run the code -->
 
-[REPL.itツール](https://repl.it)を使用して、ブラウザーでJavaScriptクライアントライブラリからサンプルコードを実行できるようにします。
+[REPL.it ツール](https://repl.it)を使用して、ブラウザーで JavaScript クライアントライブラリからサンプルコードを実行できます。
 <!-- We use the [REPL.it tool](https://repl.it) to allow you to run sample code from the JavaScript client library in the browser. -->
 
 このガイドのサンプルコードを実行してウィンドウに結果を表示するには, 緑色のボタンをクリックしてください。
