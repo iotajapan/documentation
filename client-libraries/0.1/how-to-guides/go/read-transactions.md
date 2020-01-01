@@ -96,5 +96,5 @@ go get github.com/iotaledger/iota.go/transaction
 ## 次のステップ
 <!-- ## Next steps -->
 
-[アドレスを生成する](../go/generate-an-address.md)
+[アドレスを生成する](../go/generate-an-address.md)。
 <!-- [Generate a new address](../go/generate-an-address.md). -->

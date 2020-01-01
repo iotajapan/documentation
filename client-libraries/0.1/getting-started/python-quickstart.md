@@ -235,7 +235,7 @@ Successfully installed certifi-2019.9.11 cffi-1.13.2 chardet-3.0.4 class-registr
 ## 次のステップ
 <!-- ## Next steps -->
 
-[Python ワークショップ](../how-to-guides/python/get-started.md)で学習を続けてください。
+[Python ワークショップ](../how-to-guides/python/get-started.md)で学習を続ける。
 <!-- Continue learning with our [Python workshop](../how-to-guides/python/get-started.md). -->
 
 [開発者ハンドブック](root://getting-started/0.1/references/quickstart-dev-handbook.md)を読んで、自分自身のノードを実行するかどうか、プライベートIOTAネットワークが必要かどうか、および両方が必要かどうかの参考にしてください。

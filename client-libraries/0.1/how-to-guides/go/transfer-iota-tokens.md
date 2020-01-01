@@ -189,7 +189,7 @@ $b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).
 ## 次のステップ
 <!-- ## Next steps -->
 
-[アドレスの残高を確認する](../go/check-balance.md)
+[アドレスの残高を確認する](../go/check-balance.md)。
 <!-- [Check the balance of your address](../go/check-balance.md). -->
 
 今回のシナリオでは、バンドルの作成と送信にかかる時間の間にアドレスが使用されるかどうかを事前に知ることができません。

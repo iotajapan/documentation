@@ -265,7 +265,7 @@ npm run test
 ##  次のステップ
 <!-- ## Next steps -->
 
-[JavaScript ワークショップ](../how-to-guides/js/get-started.md)で学習を続ける
+[JavaScript ワークショップ](../how-to-guides/js/get-started.md)で学習を続ける。
 <!-- Continue learning with our [JavaScript workshop](../how-to-guides/js/get-started.md). -->
 
 [開発者ハンドブック](root://getting-started/0.1/references/quickstart-dev-handbook.md)を読んで、自分自身のノードを実行するかどうか、プライベートIOTAネットワークが必要かどうか、および両方が必要かどうかの参考にしてください。

@@ -1,7 +1,7 @@
-# コンパス設定オプション
+# コンパス構成オプション
 <!-- # Compass configuration options -->
 
-**コンパス設定オプションを使用すると、ニーズに応じてプライベートタングルをカスタマイズできます。たとえば、特定のテスト用に軽量のプライベートタングルを作成したり、Mainnetに似た、よりリソース集約型のプライベートタングルを作成したりすることができます。**
+**コンパス構成オプションを使用すると、ニーズに応じてプライベートタングルをカスタマイズできます。たとえば、特定のテスト用に軽量のプライベートタングルを作成したり、メインネットに似た、よりリソース集約型のプライベートタングルを作成したりすることができます。**
 <!-- **The Compass configuration options allow you to customize your private Tangle, depending on your needs. For example, you could create a lightweight private Tangle for a specific test, or create a more resource intensive one that's similar to the Mainnet.** -->
 
 | **パラメータ** | **説明** | **メモ** |

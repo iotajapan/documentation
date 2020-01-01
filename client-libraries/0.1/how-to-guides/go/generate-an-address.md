@@ -116,5 +116,5 @@ Your address is: WKJDF9LVQCVKEIVHFAOMHISHXJSGXWBJFYEQPOQKSVGZZFLTUUPBACNQZTAKXR9
 ## 次のステップ
 <!-- ## Next steps -->
 
-[新しいアドレスにテスト IOTA トークンを送信する](../go/transfer-iota-tokens.md)
+[新しいアドレスにテスト IOTA トークンを送信する](../go/transfer-iota-tokens.md)。
 <!-- [Send test IOTA tokens to your new address](../go/transfer-iota-tokens.md). -->

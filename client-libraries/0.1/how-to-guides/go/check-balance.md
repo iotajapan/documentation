@@ -90,7 +90,7 @@ go get github.com/iotaledger/iota.go/trinary
 ## 次のステップ
 <!-- ## Next steps -->
 
-[タングル上のライブトランザクションをリッスンする](../go/listen-for-transactions.md)
+[タングル上のライブトランザクションをリッスンする](../go/listen-for-transactions.md)。
 <!-- [Listen for live transactions on the Tangle](../go/listen-for-transactions.md). -->
 
 [タングルエクスプローラー](https://utils.iota.org)などのユーティリティを使用して、アドレスの残高を確認することもできます。
