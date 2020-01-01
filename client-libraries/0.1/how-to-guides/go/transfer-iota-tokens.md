@@ -31,7 +31,7 @@ go get github.com/iotaledger/iota.go/trinary
 ## 手順1. テスト IOTA トークンを取得する
 <!-- ## Step 1. Get test IOTA tokens -->
 
-テスト IOTA トークンをデブネットで送信するには、ノードはシードに属するアドレスの1つについて0より大きい残高のレコードを持っている必要があります。デブネットで使用するテスト IOTA トークンを取得するには、デブネット蛇口を使用できます。
+テスト IOTA トークンをデブネットで送信するには、ノードはシードに属するアドレスの1つにおいて0より大きい残高のレコードを持っている必要があります。デブネットで使用するテスト IOTA トークンを取得するには、デブネット蛇口を使用できます。
 <!-- To send test IOTA tokens on the Devnet, the nodes must have a record of a greater than 0 balance for one of the addresses that belongs to your seed. To get test IOTA tokens to use on the Devnet, you can use the Devnet faucet. -->
 
 1\. 新しいシードを作成し、シードをバックアップします。
@@ -107,7 +107,7 @@ $b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).
     ```
 
     :::info:
-    このバンドルは IOTA トークンを転送するため、シードを使用してバンドルに署名します。したがって、このシードのアドレスには少なくとも1つの IOTA トークンが含まれている必要があります。
+    このバンドルは IOTA トークンを転送するため、シードを使用してバンドルに署名します。したがって、このシードのアドレスの1つには少なくとも1つの IOTA トークンが含まれている必要があります。
     :::
     <!-- :::info: -->
     <!-- Because this bundle transfers IOTA tokens, the seed is used to sign it. Therefore, this seed's addresses must contain at least 1 IOTA token. -->

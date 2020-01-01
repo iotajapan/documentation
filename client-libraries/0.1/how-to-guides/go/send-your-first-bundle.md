@@ -105,7 +105,7 @@ go get github.com/iotaledger/iota.go/trinary
     <!-- We encode the message in JSON to make it easier to read the message when we get the transaction from the Tangle in the next guide. -->
 
     :::info:
-    `AsciiToTrytes()` メソッドは[基本 ASCII 文字](https://en.wikipedia.org/wiki/ASCII#Printable_characters)のみをサポートします。その結果、アクセントやウムラウトなどの発音区別記号はサポートされず、`INVALID_ASCII_CHARS` エラーが発生します。
+    `AsciiToTrytes()` メソッドは[基本的な ASCII 文字](https://en.wikipedia.org/wiki/ASCII#Printable_characters)のみをサポートします。その結果、日本語やアクセントやウムラウトなどの発音区別記号はサポートされず、`INVALID_ASCII_CHARS` エラーが発生します。
     :::
     <!-- :::info: -->
     <!-- The `AsciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error. -->
@@ -141,7 +141,7 @@ go get github.com/iotaledger/iota.go/trinary
     <!-- In the console, you should see the bundle hash of the transaction you just sent. -->
 
 :::success:おめでとうございます:tada:
-最初のゼロトークントランザクションを送信しました。トランザクションはタングルにアタッチされ、ネットワークの残りの部分に転送されます。このトランザクションはイミュータブルであり、バンドルハッシュがある限り、タングルで読み取ることができます。
+最初のゼロトークントランザクションを送信しました。トランザクションはタングルにアタッチされ、ネットワークの残りの部分に転送されます。このトランザクションはイミュータブルであり、バンドルハッシュがある限り、タングル上で読み取ることができます。
 :::
 <!-- :::success:Congratulations :tada: -->
 <!-- You've just sent your first zero-value transaction. Your transaction is attached to the Tangle, and will be forwarded to the rest of the network. This transaction is now immutable, and as long as you have its bundle hash, you can read it on the Tangle. -->
