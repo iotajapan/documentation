@@ -17,7 +17,7 @@ go get github.com/pebbe/zmq4
 ## IOTA ネットワーク
 <!-- ## IOTA network -->
 
-このガイドでは、[デブネット](root://getting-started/0.1/network/iota-networks.md#devnet)上のノードに接続します。
+このガイドでは、[デブネット](root://getting-started/0.1/network/iota-networks.md#devnet)の[ノード](root://getting-started/0.1/network/nodes.md)に接続します。
 <!-- In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet). -->
 
 ## コードウォークスルー
