@@ -108,7 +108,7 @@ $b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).
     String address = "ZLGVEQ9JUZZWCZXLWVNTHBDX9G9KZTJP9VEERIIFHY9SIQKYBVAHIMLHXPQVE9IXFDDXNHQINXJDRPFDXNYVAPLZAW";
     ```
 
-6. 転送する IOTA トークンの量と IOTA トークンの送信先のアドレスを指定する `transfers` オブジェクトを作成します。
+6. 転送する IOTA トークンの量と送信先のアドレスを指定する `transfers` オブジェクトを作成します。
   <!-- 6. Create a `Transfers` object that specifies the amount of IOTA tokens you want to transfer and the address to send the tokens to -->
 
     ```java

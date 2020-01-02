@@ -93,9 +93,9 @@
     ```
 
     :::info:
-    `AsciiToTrytes()` メソッドは[基本的な ASCII 文字](https://en.wikipedia.org/wiki/ASCII#Printable_characters)のみをサポートします。その結果、日本語やアクセントやウムラウトなどの発音区別記号はサポートされず、`INVALID_ASCII_CHARS` エラーが発生します。
+    `AsciiToTrytes()` メソッドは[基本的な ASCII 文字](https://en.wikipedia.org/wiki/ASCII#Printable_characters)のみをサポートします。その結果、アクセントやウムラウトなどの発音区別記号や日本語はサポートされず、`INVALID_ASCII_CHARS` エラーが発生します。
     :::
-    :::info:
+    <!-- :::info: -->
     <!-- The `AsciiToTrytes()` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error. -->
     <!-- ::: -->
 
