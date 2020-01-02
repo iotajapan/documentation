@@ -64,7 +64,7 @@ $b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).
 <!-- 2\. [Generate a new address for your seed](../js/generate-an-address.md) -->
 
 3\. アドレスをコピーし、[デブネット蛇口](https://faucet.devnet.iota.org)にペーストし、テスト IOTA トークンがアドレスに転送されるのを待ちます。
-3\. Copy and paste your address into the [Devnet faucet](https://faucet.devnet.iota.org), then wait for the tokens to be transferred to your address
+<!-- 3\. Copy and paste your address into the [Devnet faucet](https://faucet.devnet.iota.org), then wait for the tokens to be transferred to your address -->
 
 ## 手順2. 転送バンドルを作成し、送信する
 <!-- ## Step 2. Create and send a transfer bundle -->

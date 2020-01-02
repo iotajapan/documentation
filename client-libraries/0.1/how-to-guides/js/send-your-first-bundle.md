@@ -111,7 +111,7 @@ yarn add @iota/core @iota/converter
     <!-- ::: -->
 
 7. メッセージをアドレスに送信するゼロトークントランザクションを定義します。
-<!-- 7. Define a zero-value transaction that sends the message to the address -->
+  <!-- 7. Define a zero-value transaction that sends the message to the address -->
 
     ```js
     const transfers = [

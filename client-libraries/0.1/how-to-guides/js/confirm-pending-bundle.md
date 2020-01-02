@@ -1,4 +1,4 @@
-# バンドルが確定されるようにする
+# バンドルが確定するのを助ける
 <!-- # Help a bundle to become confirmed -->
 
 **あるトランザクションが[マイルストーン](root://getting-started/0.1/network/the-coordinator.md)によって参照されるためには、チップ選択時にそのトランザクションが選択される必要があります。これにより、古いトランザクションよりも新しいトランザクションが優先されます。[バンドル](root://getting-started/0.1/transactions/bundles.md)が[ペンディング状態](root://getting-started/0.1/network/the-tangle.md#transaction-states)に留まる時間が長いほど、確定される可能性は低くなります。バンドルが確定される可能性を高めるために、末尾トランザクションの再添付や促進を行うことができます。**

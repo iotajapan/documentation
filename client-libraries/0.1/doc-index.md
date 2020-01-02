@@ -58,9 +58,9 @@
 
 [ハウツーガイド/JavaScript/バンドルが確定するのを助ける](/how-to-guides/js/confirm-pending-bundle.md)
 
-[ハウツーガイド/JavaScript/データをトライトへ、トライトをデータへ変換する](/how-to-guides/js/derive-addresses-from-private-keys.md)
+[ハウツーガイド/JavaScript/秘密鍵からアドレスを導出する](/how-to-guides/js/derive-addresses-from-private-keys.md)
 
-[ハウツーガイド/JavaScript/秘密鍵からアドレスを導出する](/how-to-guides/js/convert-data-to-trytes.md)
+[ハウツーガイド/JavaScript/データをトライトへ、トライトをデータへ変換する](/how-to-guides/js/convert-data-to-trytes.md)
 
 [ハウツーガイド/Python/Python ライブラリ入門](/how-to-guides/python/get-started.md)
 
