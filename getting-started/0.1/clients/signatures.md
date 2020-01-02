@@ -7,7 +7,7 @@
 ## 署名スキーム
 <!-- ## Signature scheme -->
 
-IOTAはWinternitz[ワンタイム署名スキーム](https://en.wikipedia.org/wiki/Hash-based_cryptography#One-time_signature_schemes)（W-OTS）を使用して[デジタル署名](https://en.wikipedia.org/wiki/Digital_signature)を生成します。この署名方式は量子ロバストです。つまり、署名は量子コンピューターからの攻撃に対して耐性があります。ただし、このスキームは、秘密鍵の未知の量を公開してしまいます。その結果、アドレスから一度だけIOTAトークンを取り出すことは安全です。その後、IOTAトークンを取り出されたアドレスは[使用済みアドレス](../clients/addresses.md#spent-addresses)になります。
+IOTA は Winternitz [ワンタイム署名スキーム](https://en.wikipedia.org/wiki/Hash-based_cryptography#One-time_signature_schemes)（W-OTS）を使用して[デジタル署名](https://en.wikipedia.org/wiki/Digital_signature)を生成します。この署名方式は量子ロバストです。つまり、署名は量子コンピューターからの攻撃に対して耐性があります。ただし、このスキームは、秘密鍵の未知の量を公開してしまいます。その結果、アドレスから一度だけ IOTA トークンを取り出すことは安全です。その後、IOTA トークンを取り出されたアドレスは[使用済みアドレス](../clients/addresses.md#spent-addresses)になります。
 <!-- IOTA uses the Winternitz [one-time signature scheme](https://en.wikipedia.org/wiki/Hash-based_cryptography#One-time_signature_schemes) (W-OTS) to generate [digital signatures](https://en.wikipedia.org/wiki/Digital_signature). This signature scheme is quantum robust, meaning that signatures are resistant to attacks from quantum computers. But, the scheme also reveals an unknown amount of the private key. As a result, it's safe to withdraw from an address only once, after which it is a [spent address](../clients/addresses.md#spent-addresses). -->
 
 ### 署名の生成方法
@@ -26,7 +26,7 @@ IOTAはWinternitz[ワンタイム署名スキーム](https://en.wikipedia.org/wi
 13 - 10進数の値
 ```
 
-この計算の結果は、[Kerl](https://github.com/iotaledger/kerl)[ハッシュ関数](https://en.wikipedia.org/wiki/Hash_function)を使用して、秘密鍵内の27個のセグメントのそれぞれがハッシュされる回数です。
+この計算の結果は、[Kerl](https://github.com/iotaledger/kerl) [ハッシュ関数](https://en.wikipedia.org/wiki/Hash_function)を使用して、秘密鍵内の27個のセグメントのそれぞれがハッシュされる回数です。
 <!-- The result of this calculation is the number of times that each of the 27 segments in the private key are hashed, using the [Kerl](https://github.com/iotaledger/kerl) [hash function](https://en.wikipedia.org/wiki/Hash_function). -->
 
 27個のセグメントの各ハッシュは、合わさって2,187（81*27）トライトからなる署名フラグメントとなります。

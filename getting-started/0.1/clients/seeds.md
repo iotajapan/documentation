@@ -1,7 +1,7 @@
 # シード
 <!-- # Seeds -->
 
-**シードとは、[アドレス](../clients/addresses.md)に保持されているメッセージや[IOTAトークン](../clients/token.md)の所有権を証明できる一意のパスワードです。**
+**シードとは、[アドレス](../clients/addresses.md)に保持されているメッセージや [IOTA トークン](../clients/token.md)の所有権を証明できる一意のパスワードです。**
 <!-- **A seed is a unique password that gives you the ability to prove your ownership of either messages and/or any [IOTA tokens](../clients/token.md) that are held on your [addresses](../clients/addresses.md).** -->
 
 ## シードの形式
@@ -26,13 +26,13 @@ PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPD
 自分自身のシードを作成する必要があります。シードを失った場合、回復することはできません。
 <!-- You are responsible for creating your own seed. If you lose your seed, you can't recover it. -->
 
-シードにアクセスできる人は誰でもトランザクションに署名できるため、シードのアドレスに属するIOTAトークンにアクセスできます。
+シードにアクセスできる人は誰でもトランザクションに署名できるため、シードのアドレスに属する IOTA トークンにアクセスできます。
 <!-- Anyone who has access to a seed is able to sign transactions and therefore has access to any IOTA tokens that belong to the seed's addresses. -->
 
 ## ユーティリティ
 <!-- ## Utilities -->
 
-シードの保護、トランザクションの送信、残高管理などのプロセスを簡素化するために、IOTA財団によって管理されている[公式のオープンソースウォレット](root://wallets/0.1/introduction/overview.md)のいずれかを使用できます。
+シードの保護、トランザクションの送信、残高管理などのプロセスを簡素化するために、IOTA 財団によって管理されている[公式のオープンソースウォレット](root://wallets/0.1/introduction/overview.md)のいずれかを使用できます。
 <!-- To simplify the process of securing your seed, sending transactions, and managing your balance, you can use one of the [official open-source wallets](root://wallets/0.1/introduction/overview.md), which are maintained by the IOTA Foundation. -->
 
 :::warning:
@@ -45,5 +45,5 @@ PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPD
 ## 関連ガイド
 <!-- ## Related guides -->
 
-[シードを作成する](../tutorials/create-a-seed.md)
+[シードを作成する](../tutorials/create-a-seed.md)。
 <!-- [Create a seed](../tutorials/create-a-seed.md). -->

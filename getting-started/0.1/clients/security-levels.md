@@ -28,10 +28,10 @@
 セキュリティレベルを選択するときは、次の質問を考慮する必要があります。
 <!-- When choosing a security level, you should consider the following questions. -->
 
-### 使用済みアドレスにIOTAトークンを受け取る確率がどのくらいか？
+### 使用済みアドレスに IOTA トークンを受け取る確率がどのくらいか？
 <!-- ### What is the probability that the address will be spent and still receive IOTA tokens? -->
 
-ユーザーがIOTAに慣れていないアプリケーションを構築していて、使用済みアドレスへのデポジットが心配な場合は、予防策としてセキュリティレベル3を使用できます。
+ユーザーが IOTA に慣れていないアプリケーションを構築していて、使用済みアドレスへのデポジットが心配な場合は、予防策としてセキュリティレベル3を使用できます。
 <!-- If you're building an application where your users aren't familiar with IOTA and you are concerned about them depositing into spent addresses, you may want to use security level 3 as a precaution. -->
 
 ### トランザクションに署名できるようになるにはどれくらいの速さが必要か？
@@ -43,11 +43,11 @@
 ### プルーフオブワークやトランザクションの署名を行っているデバイスがどれくらい強力か？
 <!-- ### How powerful is the device that is doing proof of work and/or signing transactions? -->
 
-モノのインターネット上のデバイスなどは、多くの場合、電力が制限されています。アプリケーションがこれらのデバイスのいずれかで実行されており、アドレスに少量のIOTAトークンしか含まれていない場合は、セキュリティレベル2を使用して、プルーフオブワークとトランザクションの署名に必要なエネルギー量を削減することができます。
+モノのインターネット上のデバイスなどは、多くの場合、電力が制限されています。アプリケーションがこれらのデバイスのいずれかで実行されており、アドレスに少量の IOTA トークンしか含まれていない場合は、セキュリティレベル2を使用して、プルーフオブワークとトランザクションの署名に必要なエネルギー量を削減することができます。
 <!-- Devices such as those on the Internet of Things are often power-constrained. If your application is running on one of these devices and the addresses contain only small amounts of IOTA tokens, you may want to use security level 2 to reduce the amount of energy needed to do proof of work and to sign transactions. -->
 
 ## 関連ガイド
 <!-- ## Related guides -->
 
-[JavaScriptでアドレスを生成する](root://client-libraries/0.1/how-to-guides/js/generate-an-address.md)
+[JavaScript でアドレスを生成する](root://client-libraries/0.1/how-to-guides/js/generate-an-address.md)。
 <!-- [Generate an address in JavaScript](root://client-libraries/0.1/how-to-guides/js/generate-an-address.md). -->

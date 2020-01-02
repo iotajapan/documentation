@@ -1,7 +1,7 @@
 # アドレス
 <!-- # Addresses -->
 
-**アドレスは、[シード](../clients/seeds.md)に属し、[IOTAトークン](../clients/token.md)の残高が0以上のアカウントのようなものです。アドレスは、[公開/秘密鍵ペア](https://en.wikipedia.org/wiki/Public-key_cryptography)の公開半分です。IOTAトークンをあるアドレスから別のアドレスに転送するには、秘密鍵でトランザクションに署名し、所有していることを[ノード](../network/nodes.md)に証明します。そのため、シード所有者のみが秘密鍵を知っているため、誰とでもアドレスを共有できます。**
+**アドレスは、[シード](../clients/seeds.md)に属し、[IOTA トークン](../clients/token.md)の残高が0以上のアカウントのようなものです。アドレスは、[公開/秘密鍵ペア](https://en.wikipedia.org/wiki/Public-key_cryptography)の公開半分です。IOTA トークンをあるアドレスから別のアドレスに転送するには、秘密鍵でトランザクションに署名し、所有していることを[ノード](../network/nodes.md)に証明します。そのため、シード所有者のみが秘密鍵を知っているため、誰とでもアドレスを共有できます。**
 <!-- **An address is like an account that belongs to a [seed](../clients/seeds.md) and that has a 0 or greater balance of [IOTA tokens](../clients/token.md). Addresses are the public half of a [public/private key pair](https://en.wikipedia.org/wiki/Public-key_cryptography). To transfer IOTA tokens from one address to another, you sign a transaction with the private key to prove to [nodes](../network/nodes.md) that you own it. As such you can share addresses with anyone because only the seed owner knows the private key.** -->
 
 ## アドレスの形式
@@ -46,17 +46,17 @@ OGMMQJUDMNNYSOAXMJWAMNAJPHWMGVAY9UWBXRGTXXVEDIEWSNYRNDQY99NDJQB9QQBPCRRNFAIUPGPL
 ## 使用済みアドレス
 <!-- ## Spent addresses -->
 
-IOTAプロトコルは[ワンタイム署名](../clients/signatures.md)を使用するため、IOTAトークンがアドレスから取り出された後、アドレスは使用済みになり、再び使用することはできません。
+IOTA プロトコルは[ワンタイム署名](../clients/signatures.md)を使用するため、IOTA トークンがアドレスから取り出された後、アドレスは使用済みになり、再び使用することはできません。
 <!-- Because the IOTA protocol uses [one-time signatures](../clients/signatures.md), after IOTA tokens have been withdrawn from an address, it is spent and must never be used again. -->
 
-使用済みアドレスにさらにIOTAトークンをデポジットしてしまうと、秘密鍵の[総当たり攻撃](https://en.wikipedia.org/wiki/Brute-force_attack)で盗まれる危険があります。
+使用済みアドレスにさらに IOTA トークンをデポジットしてしまうと、秘密鍵の[総当たり攻撃](https://en.wikipedia.org/wiki/Brute-force_attack)で盗まれる危険があります。
 <!-- If more IOTA tokens are later deposited into a spent address, they are at risk of being stolen in a [brute-force attack](https://en.wikipedia.org/wiki/Brute-force_attack) on the private key. -->
 
 <a name="how-addresses-are-generated"></a>
 ## アドレスの生成方法
 <!-- ## How addresses are generated -->
 
-すべてのアドレスは、[Kerl](https://github.com/iotaledger/kerl)[ハッシュ関数](https://en.wikipedia.org/wiki/Hash_function)を使用して生成されます。これは、シード、インデックス、およびセキュリティレベルから秘密鍵を生成することから始まります。
+すべてのアドレスは、[Kerl](https://github.com/iotaledger/kerl) [ハッシュ関数](https://en.wikipedia.org/wiki/Hash_function)を使用して生成されます。これは、シード、インデックス、およびセキュリティレベルから秘密鍵を生成することから始まります。
 <!-- All addresses are generated using the [Kerl](https://github.com/iotaledger/kerl) [hash function](https://en.wikipedia.org/wiki/Hash_function), which starts by generating a private key from a seed, an index, and a security level. -->
 
 まず、シードとインデックスがトリットに変換され、次にそれらが組み合わされてハッシュされて、243トリットのサブシードが生成されます。
@@ -90,13 +90,13 @@ Kerl(seed + index)
 ## ユーティリティ
 <!-- ## Utilities -->
 
-次のIOTA Tangleユーティリティをアドレスで使用できます。
+次の IOTA タングルユーティリティをアドレスで使用できます。
 <!-- You can use the following IOTA Tangle Utilities with addresses: -->
 
-- [アドレスをQRコードに変換する](https://utils.iota.org/qr-create)
+- [アドレスを QR コードに変換する](https://utils.iota.org/qr-create)
 <!-- * [Convert an address into a QR code](https://utils.iota.org/qr-create) -->
 
-- [QRコードからアドレスを読む](https://utils.iota.org/qr-scan)
+- [QR コードからアドレスを読む](https://utils.iota.org/qr-scan)
 <!-- * [Read an address from a QR code](https://utils.iota.org/qr-scan) -->
 
 - [アドレスを含むトランザクションを検索する](https://utils.iota.org/)
@@ -105,11 +105,11 @@ Kerl(seed + index)
 ## 関連ガイド
 <!-- ## Related guides -->
 
-[JavaScriptでアドレスを生成する](root://client-libraries/0.1/how-to-guides/js/generate-an-address.md)
+[JavaScript でアドレスを生成する](root://client-libraries/0.1/how-to-guides/js/generate-an-address.md)。
 <!-- [Generate an address in JavaScript](root://client-libraries/0.1/how-to-guides/js/generate-an-address.md). -->
 
-[トリニティでアドレスを生成する](root://wallets/0.1/trinity/how-to-guides/receive-a-transaction.md)
+[トリニティでアドレスを生成する](root://wallets/0.1/trinity/how-to-guides/receive-a-transaction.md)。
 <!-- [Generate an address in Trinity](root://wallets/0.1/trinity/how-to-guides/receive-a-transaction.md). -->
 
-[JavaScriptで秘密鍵からアドレスを導出する](root://client-libraries/0.1/how-to-guides/js/derive-addresses-from-private-keys.md)
+[JavaScript で秘密鍵からアドレスを導出する](root://client-libraries/0.1/how-to-guides/js/derive-addresses-from-private-keys.md)。
 <!-- [Derive addresses from private keys in JavaScript](root://client-libraries/0.1/how-to-guides/js/derive-addresses-from-private-keys.md) -->
