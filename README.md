@@ -35,6 +35,7 @@
 | Output transaction     | 出力トランザクション         |
 | Tail transaction       | 末尾トランザクション         |
 | Tip transaction        | チップトランザクション       |
+| Solid                  | ソリッド・凝固済み           |
 | Spent address          | 使用済みアドレス             |
 | Withdraw               | 取り出し                     |
 | Zero-value transaction | ゼロトークントランザクション |
