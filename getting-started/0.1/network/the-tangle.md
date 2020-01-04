@@ -63,13 +63,14 @@
 <!-- If transaction 6 were a milestone, then transaction 5, 3, 2, and 1 would all be confirmed. -->
 <!-- ::: -->
 
-<a name="tip-transactions></a>
-## チップ選択
+<a name="tip-transactions"></a>
+## チップトランザクション
 <!-- ## Tip transactions -->
 
 チップトランザクションは、他のトランザクションによってまだ参照されていないトランザクションです。チップトランザクションは、チップ選択中にノードによって選択されるのを待ち、チップ選択中にチップトランザクションの履歴が検証され、新しいチップトランザクションによって参照されます。
 <!-- Tip transactions are those that are not yet referenced by others. These transactions wait to be chosen by nodes during tip selection, at which point their history will be validated and they will referenced by a new tip transaction. -->
 
+<a name="inconsistent-subtangle"></a>
 ## 一貫性のないサブタングル
 <!-- ## Inconsistent subtangle -->
 

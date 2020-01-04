@@ -11,6 +11,34 @@
 コントリビューションをしてくださる方は以下をご覧ください．
 - [style guide](./contribution/0.1/style-guide.md)
 
+## 重要単語の英日対訳表
+
+| English                | 日本語                       |
+|:-----------------------|:-----------------------------|
+| Body transaction       | ボディトランザクション       |
+| confirmed              | 確定                         |
+| Decode                 | デコード、復号化             |
+| Deposit                | デポジット、預け入れ         |
+| Depth                  | 深度、深さ                   |
+| Devnet                 | デブネット                   |
+| Fragment               | フラグメント、断片           |
+| Head transaction       | 先頭トランザクション         |
+| Immutable              | イミュータブルな             |
+| Input transaction      | 入力トランザクション         |
+| Ledger                 | 台帳                         |
+| Mainnet                | メインネット                 |
+| Nonce                  | ナンス                       |
+| Promote                | プロモート、促進             |
+| Proof-of-work          | プルーフオブワーク、PoW      |
+| Reattach               | 再アタッチ、再添付           |
+| Rebroadcast            | 再ブロードキャスト           |
+| Output transaction     | 出力トランザクション         |
+| Tail transaction       | 末尾トランザクション         |
+| Tip transaction        | チップトランザクション       |
+| Spent address          | 使用済みアドレス             |
+| Withdraw               | 取り出し                     |
+| Zero-value transaction | ゼロトークントランザクション |
+
 ↓ Original
 ---
 # Documentation Markdown

@@ -44,9 +44,9 @@
 
 [トランザクション/プルーフオブワーク](/transactions/proof-of-work.md)
 
-[トランザクション/深さ](/transactions/depth.md)
+[トランザクション/深度](/transactions/depth.md)
 
-[トランザクション/再添付、再ブロードキャスト、促進](/transactions/reattach-rebroadcast-promote.md)
+[トランザクション/再アタッチ、再ブロードキャスト、プロモート](/transactions/reattach-rebroadcast-promote.md)
 
 [参考文献/開発者ハンドブック](/references/quickstart-dev-handbook.md)
 

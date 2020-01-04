@@ -1,29 +1,45 @@
-# Bundles
+# バンドル
+<!-- # Bundles -->
 
-**A bundle is a group of [transactions](../transactions/transactions.md) that rely on each other's validity. For example, a transaction that deposits [IOTA tokens](../clients/token.md) into an [address](../clients/addresses.md) relies on another transaction to withdraw those IOTA tokens from another address. Therefore, those transactions must be in the same bundle.**
+**バンドルは、互いの有効性に依存する[トランザクション](../transactions/transactions.md)のグループです。たとえば、[IOTA トークン](../clients/token.md)を[アドレス](../clients/addresses.md) A へデポジットするトランザクションは、アドレス B から IOTA トークンを取り出すトランザクションに依存しています。したがって、これらのトランザクションは同じバンドル内にある必要があります。**
+<!-- **A bundle is a group of [transactions](../transactions/transactions.md) that rely on each other's validity. For example, a transaction that deposits [IOTA tokens](../clients/token.md) into an [address](../clients/addresses.md) relies on another transaction to withdraw those IOTA tokens from another address. Therefore, those transactions must be in the same bundle.** -->
 
-## Structure of a bundle
+## バンドルの構造
+<!-- ## Structure of a bundle -->
 
-A bundle consists of a head, a body, and a tail, where the tail transaction is the one with a 0 in the `currentIndex` field (the first transaction in the bundle), and the head transaction is the one with the largest value in the `lastIndex` field (the last transaction in the bundle).
+バンドルは、先頭トランザクション、ボディトランザクション、末尾トランザクションで構成されます。末尾トランザクションは、`currentIndex` フィールドに0を持つトランザクション（バンドル内の最初のトランザクション）であり、先頭トランザクションは`lastIndex` フィールドに最大値を持つトランザクション（バンドル内の最後のトランザクション）です。。
+<!-- A bundle consists of a head, a body, and a tail, where the tail transaction is the one with a 0 in the `currentIndex` field (the first transaction in the bundle), and the head transaction is the one with the largest value in the `lastIndex` field (the last transaction in the bundle). -->
 
-All transactions in a bundle, except the head, are connected to each other through their `trunkTransaction` fields. These connections allow [nodes](../network/nodes.md) to find all transactions in the same bundle and validate them.
+先頭トランザクションを除くバンドル内のすべてのトランザクションは、`trunkTransaction` フィールドを介して相互に接続されます。これらの接続により、[ノード](../network/nodes.md)は同じバンドル内のすべてのトランザクションを検索して検証できます。
+<!-- All transactions in a bundle, except the head, are connected to each other through their `trunkTransaction` fields. These connections allow [nodes](../network/nodes.md) to find all transactions in the same bundle and validate them. -->
 
-The other `branchTransaction` and `trunkTransaction` fields reference the tail transactions of two existing bundles in the [Tangle](../network/the-tangle.md).
+全トランザクションの `branchTransaction` フィールドおよび先頭トランザクションの `trunkTransaction` フィールドは、[タングル](../network/the-tangle.md)内の2つの既存のバンドルの末尾トランザクションを参照します。
+<!-- The other `branchTransaction` and `trunkTransaction` fields reference the tail transactions of two existing bundles in the [Tangle](../network/the-tangle.md). -->
 
 ![Connections in a bundle](../images/bundle-structure.png)
 
-| **Current index**|**Trunk transaction**| **Branch transaction**| **Description**   |
+| **現在のインデックス**|**トランクトランザクション**| **ブランチトランザクション**| **説明** |
 | :----------------------------- | :------ |:---|:---|
-| 0| Transaction index 1 in this bundle| Transaction hash of an existing transaction in the Tangle|This transaction is called the **tail transaction** |
-|1 | Transaction index 2 in this bundle| The same branch transaction hash as transaction index 0|This transaction is linked to transaction index 0 and 2 through the `trunkTransaction` field |
-|2 | Transaction index 3 in this bundle| The same branch transaction hash as transaction index 0 and 1|This transaction is linked to transaction index 1 and 3 through the `trunkTransaction` field |
-|3 | The same branch transaction hash as all other transactions in this bundle| Transaction hash of an existing transaction in the Tangle| This transaction is called the **head transaction** |
+|0| このバンドルのトランザクションインデックス1| タングル内の既存のトランザクションのトランザクションハッシュ|このトランザクションは**末尾トランザクション**と呼ばれます |
+|1 | このバンドルのトランザクションインデックス2| トランザクションインデックス0と同じブランチトランザクションハッシュ| このトランザクションは、`trunkTransaction` フィールドを介してトランザクションインデックス0および2にリンクされます|
+|2 | このバンドルのトランザクションインデックス3| トランザクションインデックス0, 1と同じブランチトランザクションハッシュ|このトランザクションは、`trunkTransaction` フィールドを介してトランザクションインデックス1および3にリンクされます|
+|3 | このバンドル内の他のすべてのトランザクションと同じブランチトランザクションハッシュ| タングル内の既存のトランザクションのトランザクションハッシュ| このトランザクションは**先頭トランザクション**と呼ばれます |
 
-## Bundle hash
+<!-- | **Current index**|**Trunk transaction**| **Branch transaction**| **Description**   | -->
+<!-- | :----------------------------- | :------ |:---|:---| -->
+<!-- | 0| Transaction index 1 in this bundle| Transaction hash of an existing transaction in the Tangle|This transaction is called the **tail transaction** | -->
+<!-- |1 | Transaction index 2 in this bundle| The same branch transaction hash as transaction index 0|This transaction is linked to transaction index 0 and 2 through the `trunkTransaction` field | -->
+<!-- |2 | Transaction index 3 in this bundle| The same branch transaction hash as transaction index 0 and 1|This transaction is linked to transaction index 1 and 3 through the `trunkTransaction` field | -->
+<!-- |3 | The same branch transaction hash as all other transactions in this bundle| Transaction hash of an existing transaction in the Tangle| This transaction is called the **head transaction** | -->
 
-All transactions in the same bundle have the same bundle hash in their `bundle` field to tie them all together.
+## バンドルハッシュ
+<!-- ## Bundle hash -->
 
-This hash is derived from the **bundle essence**, which is a hash of the values of the following transaction fields:
+同じバンドル内のすべてのトランザクションは、`バンドル`フィールドに同じバンドルハッシュを持ち、バンドル内のトランザクションをすべて結び付けます。
+<!-- All transactions in the same bundle have the same bundle hash in their `bundle` field to tie them all together. -->
+
+このハッシュは、次のトランザクションフィールドの値のハッシュである**バンドルエッセンス**から導出されます。
+<!-- This hash is derived from the **bundle essence**, which is a hash of the values of the following transaction fields: -->
 
 - `address`
 - `value`
@@ -32,34 +48,48 @@ This hash is derived from the **bundle essence**, which is a hash of the values 
 - `lastIndex`
 - `timestamp`
 
-As a result, if the values of any of these transaction fields were to change, the bundle hash would change, invalidating all transactions in the bundle.
+その結果、これらのトランザクションフィールドのいずれかの値が変更されると、バンドルハッシュが変更され、バンドル内のすべてのトランザクションが無効になります。
+<!-- As a result, if the values of any of these transaction fields were to change, the bundle hash would change, invalidating all transactions in the bundle. -->
 
-## Bundle types
+## バンドルとライト
+<!-- ## Bundle types -->
 
-Bundles can be one of the following types:
+バンドルは、次のタイプのいずれかです。
+<!-- Bundles can be one of the following types: -->
 
-- Transfer bundles
+- 転送バンドル
+<!-- - Transfer bundles -->
 
-- Zero-value bundles
+- ゼロトークンバンドル
+<!-- - Zero-value bundles -->
 
-### Transfer bundles
+### 転送バンドル
+<!-- ### Transfer bundles -->
 
-Transfer bundles contain at least one input transaction and one output transaction, and can also contain zero-value transactions.
+転送バンドルには、少なくとも1つの入力トランザクションと1つの出力トランザクションが含まれ、ゼロトークントランザクションも含まれる場合があります。
+<!-- Transfer bundles contain at least one input transaction and one output transaction, and can also contain zero-value transactions. -->
 
 :::warning:
-To avoid leaving IOTA tokens in a spent address, you should always withdraw the total balance of the address in the input transaction.
+IOTAトークンが使用済みアドレスに残らないようにするには、常に入力トランザクション内のアドレスの合計残高を取り出す必要があります。
 
-If you don't want to deposit the entire balance into a single address, you can create one or more output transactions to deposit the remaining amount.
+残高全体を1つのアドレスにデポジットしたくない場合は、2つ以上の出力トランザクションを作成して、残高を分けてデポジットできます。
 :::
+<!-- :::warning: -->
+<!-- To avoid leaving IOTA tokens in a spent address, you should always withdraw the total balance of the address in the input transaction. -->
 
-The total value of a transfer bundle must always be equal to 0.
+<!-- If you don't want to deposit the entire balance into a single address, you can create one or more output transactions to deposit the remaining amount. -->
+<!-- ::: -->
 
-For example, this bundle transfers 1 i from an address with a security level of 2.
+転送バンドルの合計値は常に0に等しくなければなりません。
+<!-- The total value of a transfer bundle must always be equal to 0. -->
+
+たとえば、以下のバンドルは、セキュリティレベル2のアドレスから1 i を転送します。
+<!-- For example, this bundle transfers 1 i from an address with a security level of 2. -->
 
 --------------------
-### Tail transaction
+### 末尾トランザクション
 
-This transaction deposits 1 i into an address.
+このトランザクションはアドレスに1 i をデポジットします。
 
 ```json
 {
@@ -82,11 +112,11 @@ This transaction deposits 1 i into an address.
 }
 ```
 ---
-### Transaction index 1
+### トランザクションインデックス1
 
-This transaction withdraws 80 i from an address, and contains the signature to prove ownership of its private key.
+このトランザクションは、アドレスから1 i を取り出し、その秘密鍵の所有権を証明するための署名を含みます。
 
-Because this address has a security level of 2, only the first fragment of the signature can fit into the `signatureMessageFragment` field.
+このアドレスのセキュリティレベルは2であるため、署名の最初のフラグメントのみが `signatureMessageFragment` フィールドに収まります。
 
 ```json
 {
@@ -109,9 +139,9 @@ Because this address has a security level of 2, only the first fragment of the s
 }
 ```
 ---
-### Head transaction
+### 先頭トランザクション
 
-This transaction contains the rest of the signature for the address in transaction index 1.
+このトランザクションには、トランザクションインデックス1のアドレスの署名の残りが含まれます。
 
 ```json
 {
@@ -135,11 +165,14 @@ This transaction contains the rest of the signature for the address in transacti
 ```
 --------------------
 
-### Zero-value bundle
+### ゼロトークンバンドル
+<!-- ### Zero-value bundle -->
 
-A zero-value bundle consists of zero-value transactions that contain either messages, signatures or both.
+ゼロトークンバンドルは、メッセージ、署名、またはその両方を含むゼロトークントランザクションで構成されます。
+<!-- A zero-value bundle consists of zero-value transactions that contain either messages, signatures or both. -->
 
-For example, this bundle contains one transaction that has a tryte-encoded message in its `signatureMessageFragment` field.
+たとえば、以下のバンドルには、`signatureMessageFragment` フィールドにトライトエンコードされたメッセージがある1つのトランザクションが含まれています。
+<!-- For example, this bundle contains one transaction that has a tryte-encoded message in its `signatureMessageFragment` field. -->
 
 ```json
 {
@@ -162,16 +195,23 @@ For example, this bundle contains one transaction that has a tryte-encoded messa
 }
 ```
 
-## Utilities
+## ユーティリティ
+<!-- ## Utilities -->
 
-You can use the following IOTA Tangle Utilities with bundles:
+次のIOTA タングルユーティリティをバンドルで使用できます。
+<!-- You can use the following IOTA Tangle Utilities with bundles: -->
 
-[Search for transactions in a given bundle](https://utils.iota.org/) by their bundle hash.
+バンドルハッシュから[指定されたバンドル内のトランザクションを検索するユーティリティ](https://utils.iota.org/)。
+<!-- [Search for transactions in a given bundle](https://utils.iota.org/) by their bundle hash. -->
 
-## Related guides
+## 関連ガイド
+<!-- ## Related guides -->
 
-[Send a "hello world" transaction in JavaScript](root://client-libraries/0.1/how-to-guides/js/send-your-first-bundle.md).
+[JavaScript で "hello world" トランザクションを送信する](root://client-libraries/0.1/how-to-guides/js/send-your-first-bundle.md)。
+<!-- [Send a "hello world" transaction in JavaScript](root://client-libraries/0.1/how-to-guides/js/send-your-first-bundle.md). -->
 
-[Transfer IOTA tokens in JavaScript](root://client-libraries/0.1/how-to-guides/js/transfer-iota-tokens.md).
+[JavaScript で IOTA トークンを転送する](root://client-libraries/0.1/how-to-guides/js/transfer-iota-tokens.md)。
+<!-- [Transfer IOTA tokens in JavaScript](root://client-libraries/0.1/how-to-guides/js/transfer-iota-tokens.md). -->
 
-[Send a transaction in Trinity](root://wallets/0.1/trinity/how-to-guides/send-a-transaction.md).
+[トリニティでトランザクションを送信する](root://wallets/0.1/trinity/how-to-guides/send-a-transaction.md)。
+<!-- [Send a transaction in Trinity](root://wallets/0.1/trinity/how-to-guides/send-a-transaction.md). -->
