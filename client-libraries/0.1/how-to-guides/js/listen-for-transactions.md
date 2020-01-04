@@ -46,7 +46,7 @@ yarn add zeromq
     sock.connect('tcp://zmq.devnet.iota.org:5556');
     ```
 
-3. スクリプトを追加の引数なしで実行する場合、[`tx`](root://node-software/0.1/iri/references/zmq-events.md) イベントにサブスクライブしてすべてのトランザクションを表示します。それ以外の場合は、アドレスイベントをサブスクライブして、そのアドレスに送信されたトランザクションのみを表示します。
+3. スクリプトを追加の引数なしで実行する場合、[`tx`](root://node-software/0.1/iri/references/zmq-events.md) イベントをサブスクライブしてすべてのトランザクションを表示します。それ以外の場合は、アドレスイベントをサブスクライブして、アドレスに送信されたトランザクションのみを表示します。
   <!-- 3. If the script is executed with no additional arguments, subscribe to the [`tx`](root://node-software/0.1/iri/references/zmq-events.md) event to see all transactions, otherwise subscribe to the address event to see only transactions that were sent to that address -->
 
     ```js

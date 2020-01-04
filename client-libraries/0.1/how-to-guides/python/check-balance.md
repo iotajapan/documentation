@@ -23,7 +23,7 @@ pip install pyota
 ## コードウォークスルー
 <!-- ## Code walkthrough -->
 
-1. パッケージをインストールします。
+1. パッケージをインポートします。
   <!-- 1. Import the packages -->
 
     ```python

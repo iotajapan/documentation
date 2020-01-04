@@ -13,7 +13,7 @@
 - **[最小重量値](root://getting-started/0.1/network/minimum-weight-magnitude.md)**: 9
 <!-- - **[Minimum weight magnitude](root://getting-started/0.1/network/minimum-weight-magnitude.md)**: 9 -->
 
-- **[深さ](root://getting-started/0.1/transactions/depth.md)**: 3
+- **[深度](root://getting-started/0.1/transactions/depth.md)**: 3
 <!-- - **[Depth](root://getting-started/0.1/transactions/depth.md)**: 3 -->
 
 ## コードウォークスルー

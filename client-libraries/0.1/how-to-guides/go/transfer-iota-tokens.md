@@ -143,7 +143,7 @@ $b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).
     <!-- This method asks the node to check the balance of your seed's addresses. If your addresses have enough IOTA tokens to complete the transfer, the method creates input transactions to withdraw the full balance from enough of your addresses to fulfill the transfer. Then, the method adds those transactions to the transfer bundle and signs the bundle with the private keys of any withdrawn addresses. -->
 
     :::info:
-    シードがデバイスから離れることはありません。ライブラリはアドレスを生成し、アドレスをノードに送信します。
+    シードがデバイスから離れることはありません。ライブラリはアドレスを生成し、アドレスのみをノードに送信します。
     :::
     <!-- :::info: -->
     <!-- Your seed never leaves your device. The library generates addresses and sends them to the node. -->
