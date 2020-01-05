@@ -13,38 +13,41 @@
 
 ## 重要単語の英日対訳表
 
-| English                | 日本語                       |
-|:-----------------------|:-----------------------------|
-| Attach                 | アタッチ、添付               |
-| Body transaction       | ボディトランザクション       |
-| confirmed              | 確定                         |
-| Decode                 | デコード、復号化             |
-| Deposit                | デポジット、預け入れ         |
-| Depth                  | 深度、深さ                   |
-| Device                 | デバイス、端末               |
-| Devnet                 | デブネット                   |
-| Fragment               | フラグメント、断片           |
-| Head transaction       | 先頭トランザクション         |
-| Immutable              | イミュータブル、不変         |
-| Input transaction      | 入力トランザクション         |
-| Ledger                 | 台帳                         |
-| Mainnet                | メインネット                 |
-| Micropayment           | マイクロペイメント、少額決済 |
-| Nonce                  | ナンス                       |
-| Pending                | ペンディング中、保留中       |
-| Promote                | プロモート、促進             |
-| Proof-of-work          | プルーフオブワーク、PoW      |
-| Prune                  | プルーニング、刈り取り       |
-| Reattach               | 再アタッチ、再添付           |
-| Rebroadcast            | 再ブロードキャスト           |
-| Output transaction     | 出力トランザクション         |
-| Tail transaction       | 末尾トランザクション         |
-| Tip seleciton          | チップ選択                   |
-| Tip transaction        | チップトランザクション       |
-| Solid                  | ソリッド・凝固済み           |
-| Spent address          | 使用済みアドレス             |
-| Withdraw               | 取り出し                     |
-| Zero-value transaction | ゼロトークントランザクション |
+| English                       | 日本語                                               |
+|:------------------------------|:-----------------------------------------------------|
+| Attach                        | アタッチ、添付                                       |
+| Body transaction              | ボディトランザクション                               |
+| Build                         | ビルド、構築                                         |
+| Conditional deposit addresses | 条件付きデポジットアドレス、条件付き預け入れアドレス |
+| confirmed                     | 確定                                                 |
+| Decode                        | デコード、復号化                                     |
+| Deposit                       | デポジット、預け入れ                                 |
+| Depth                         | 深度、深さ                                           |
+| Device                        | デバイス、端末                                       |
+| Devnet                        | デブネット                                           |
+| Fragment                      | フラグメント、断片                                   |
+| Head transaction              | 先頭トランザクション                                 |
+| Immutable                     | イミュータブル、不変                                 |
+| Input transaction             | 入力トランザクション                                 |
+| Ledger                        | 台帳                                                 |
+| Mainnet                       | メインネット                                         |
+| Micropayment                  | マイクロペイメント、少額決済                         |
+| Nonce                         | ナンス                                               |
+| Pending                       | ペンディング中、保留中                               |
+| Promote                       | プロモート、促進                                     |
+| Proof-of-work                 | プルーフオブワーク、PoW                              |
+| Prune                         | プルーニング、刈り取り                               |
+| Reattach                      | 再アタッチ、再添付                                   |
+| Rebroadcast                   | 再ブロードキャスト                                   |
+| Output transaction            | 出力トランザクション                                 |
+| Seed state                    | シードステート、シード状態                           |
+| Solid                         | ソリッド、凝固済み                                   |
+| Spent address                 | 使用済みアドレス                                     |
+| Tail transaction              | 末尾トランザクション                                 |
+| Tip seleciton                 | チップ選択                                           |
+| Tip transaction               | チップトランザクション                               |
+| Withdraw                      | 取り出し                                             |
+| Zero-value transaction        | ゼロトークントランザクション                         |
 
 ↓ Original
 ---

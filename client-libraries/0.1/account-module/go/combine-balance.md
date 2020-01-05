@@ -1,10 +1,14 @@
-# Combine your balance into one CDA in Go
+# Go で残高を1つの CDA にまとめる
+<!-- # Combine your balance into one CDA in Go -->
 
-**You may want to keep the majority of your balance on as few CDAs as possible. This way, making payments is faster and requires fewer transactions. In this guide, you transfer your entire available balance to a new CDA.**
+**残高の大半をできるだけ少ない CDA に保持することをお勧めします。これにより、支払いがより高速になり、必要なトランザクションが少なくなります。このガイドでは、利用可能な残高全体を新しいCDAに移行します。**
+<!-- **You may want to keep the majority of your balance on as few CDAs as possible. This way, making payments is faster and requires fewer transactions. In this guide, you transfer your entire available balance to a new CDA.** -->
 
-## Packages
+## パッケージ
+<!-- ## Packages -->
 
-To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages):
+このガイドを完了するには、次のパッケージをインストールする必要があります（Go モジュールを使用している場合は、これらのパッケージを参照するだけです）。
+<!-- To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages): -->
 
 ```bash
 go get github.com/iotaledger/iota.go/account/builder
@@ -16,22 +20,26 @@ go get github.com/iotaledger/iota.go/account/timesrc
 go get github.com/iotaledger/iota.go/api
 ```
 
+## IOTA ネットワーク
 ## IOTA network
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
+このガイドでは、[デブネット](root://getting-started/0.1/network/iota-networks.md#devnet)の[ノード](root://getting-started/0.1/network/nodes.md)に接続します。
+<!-- In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet). -->
 
-## Code walkthrough
+## コードウォークスルー
+<!-- ## Code walkthrough -->
 
-1. Create a CDA that expects your account's available balance
+1. アカウントの利用可能残高を期待する CDA を作成します。
+  <!-- 1. Create a CDA that expects your account's available balance -->
 
     ```go
-    // Get the current time
+    // 現在の時刻を取得します
     now, err := timesource.Time()
     handleErr(err)
 
     now = now.Add(time.Duration(24) * time.Hour)
 
-    // Specify the conditions
+    // 条件を指定します
     conditions := &deposit.Conditions{TimeoutAt: &now, MultiUse: false, ExpectedAmount: account.AvailableBalance() }
 
     cda, err := account.AllocateDepositAddress(conditions)
@@ -39,40 +47,53 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     ```
 
     :::info:
-    Available balance is the total balance of all expired CDAs, which are safe to withdraw from.
+    使用可能な残高は、期限切れとなったすべての CDA の合計残高であり、取り出しても安全です。
 
-    Your account's total balance includes CDAs that are still active and so cannot be withdrawn from.
+    アカウントの合計残高には、まだアクティブな CDA が含まれているため、取り出しできません。
     :::
+    <!-- :::info: -->
+    <!-- Available balance is the total balance of all expired CDAs, which are safe to withdraw from. -->
 
-2. Use the oracle to make sure that the CDA is still active, then send a deposit to it
+    <!-- Your account's total balance includes CDAs that are still active and so cannot be withdrawn from. -->
+    <!-- ::: -->
+
+2. オラクルを使用して CDA がまだアクティブであることを確認してから、デポジットを送信します。
+  <!-- 2. Use the oracle to make sure that the CDA is still active, then send a deposit to it -->
 
     ```go
-    // Ask the oracle if the CDA is OK to send to
-	ok, rejectionInfo, err := sendOracle.OkToSend(cda)
-	handleErr(err)
-	if !ok {
-		fmt.Println("Won't send transaction: ", rejectionInfo)
-		return
-	}
+    // CDA を送信してもよいかどうかをオラクルに確認します
+    ok, rejectionInfo, err := sendOracle.OkToSend(cda)
+    handleErr(err)
+    if !ok {
+        fmt.Println("Won't send transaction: ", rejectionInfo)
+        return
+    }
 
-	// Create and send the bundle
-	bundle, err := account.Send(cda.AsTransfer())
-	handleErr(err)
+    // バンドルを作成し、送信します
+    bundle, err := account.Send(cda.AsTransfer())
+    handleErr(err)
 
-	fmt.Printf("Sent deposit to %s in the bundle with the following tail transaction hash %s\n", cda.Address, bundle[len(bundle)-1].Hash)
+    fmt.Printf("Sent deposit to %s in the bundle with the following tail transaction hash %s\n", cda.Address, bundle[len(bundle)-1].Hash)
     ```
 
 :::success:
-Now your total available balance is in a single address.
+現在、利用可能な合計残高は単一のアドレスにあります。
 :::
+<!-- :::success: -->
+<!-- Now your total available balance is in a single address. -->
+<!-- ::: -->
 
-## Run the code
+## コードを実行する
+<!-- ## Run the code -->
 
-To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
+開始するには、デバイスに [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) がインストールされている必要があります。
+<!-- To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device. -->
 
-If you don't have a Go development environment, or if this is your first time using the Go client library, complete our [getting started guide](../../getting-started/go-quickstart.md).
+Go 開発環境がない場合、または Go クライアントライブラリを初めて使用する場合は、[スタートガイド](../../getting-started/go-quickstart.md)を完了してください。
+<!-- If you don't have a Go development environment, or if this is your first time using the Go client library, complete our [getting started guide](../../getting-started/go-quickstart.md). -->
 
-In the command-line, do the following:
+コマンドラインで、次を実行します。
+<!-- In the command-line, do the following: -->
 
 ```bash
 git clone https://github.com/JakeSCahill/iota-samples.git
@@ -80,10 +101,14 @@ cd iota-samples/go/account-module
 go mod download
 go run combine-balance/combine-balance.go
 ```
-You should see that the deposit was sent.
+デポジットが送信されたことがわかります。
+<!-- You should see that the deposit was sent. -->
 
-Your seed state will contain this pending bundle until it is confirmed.
+シードステートには、確定されるまでこのペンディング中のバンドルが含まれます。
+<!-- Your seed state will contain this pending bundle until it is confirmed. -->
 
-## Next steps
+## 次のステップ
+<!-- ## Next steps -->
 
-[Try exporting your seed state so you back it up or import it onto another device](../go/export-seed-state.md).
+[シードステートをエクスポートして、バックアップするか、別のデバイスにインポートする](../go/export-seed-state.md)。
+<!-- [Try exporting your seed state so you back it up or import it onto another device](../go/export-seed-state.md). -->

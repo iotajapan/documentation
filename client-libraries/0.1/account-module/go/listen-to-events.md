@@ -1,12 +1,17 @@
-# Listen to account events in Go
+# Go でアカウントイベントをリッスンする
+<!-- # Listen to account events in Go -->
 
-**An account object emits events when they happen. An example of an event is when you make or receive a payment. In this guide, you listen for these events and log them to the console.**
+**アカウントオブジェクトは、イベントが発生するとイベントを発行します。イベントの例は、支払いを行うか支払いを受け取る場合です。このガイドでは、これらのイベントをリッスンし、コンソールに記録します。**
+<!-- **An account object emits events when they happen. An example of an event is when you make or receive a payment. In this guide, you listen for these events and log them to the console.** -->
 
-Accounts have two types of listeners: One that uses channels and one that uses callbacks. In this guide, we use callback listeners. If you're interested in using a channel listener, see our guide for [creating an event-listener plugin](../go/create-plugin.md).
+アカウントには、チャネルを使用するリスナーとコールバックを使用するリスナーの2種類のリスナーがあります。このガイドでは、コールバックリスナーを使用します。チャネルリスナーの使用に興味がある場合は、[イベントリスナープラグインの作成](../go/create-plugin.md)のガイドをご覧ください。
+<!-- Accounts have two types of listeners: One that uses channels and one that uses callbacks. In this guide, we use callback listeners. If you're interested in using a channel listener, see our guide for [creating an event-listener plugin](../go/create-plugin.md). -->
 
-## Packages
+## パッケージ
+<!-- ## Packages -->
 
-To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages):
+このガイドを完了するには、次のパッケージをインストールする必要があります（Go モジュールを使用している場合は、これらのパッケージを参照するだけです）。
+<!-- To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages): -->
 
 ```bash
 go get github.com/iotaledger/iota.go/api
@@ -17,27 +22,31 @@ go get github.com/iotaledger/iota.go/trinary
 go get github.com/iotaledger/iota.go/account
 ```
 
-## IOTA network
+## IOTA ネットワーク
+<!-- ## IOTA network -->
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
+このガイドでは、[デブネット](root://getting-started/0.1/network/iota-networks.md#devnet)の[ノード](root://getting-started/0.1/network/nodes.md)に接続します。
+<!-- In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet). -->
 
-## Code walkthrough
+## コードウォークスルー
+<!-- ## Code walkthrough -->
 
-1. Build and start an account that has an `EventMachine` object
+1. `EventMachine` オブジェクトを持つアカウントをビルドして開始します。
+  <!-- 1. Build and start an account that has an `EventMachine` object -->
 
     ```go
     account, err = builder.NewBuilder().
-        // Connect to a node
-		WithAPI(iotaAPI).
-		// Create the database
-		WithStore(store).
-		WithSeed(seed).
-		// Set the minimum weight magnitude for the Devnet
-		WithMWM(9).
-		WithTimeSource(timesource).
-        // Load the EventMachine
+        // ノードに接続します
+        WithAPI(iotaAPI).
+        // データベースを作成します
+        WithStore(store).
+        WithSeed(seed).
+        // デブネット用の最小重量値をセットします
+        WithMWM(9).
+        WithTimeSource(timesource).
+        // イベントマシンをロードします
         WithEvents(em)
-        // Load the default plugins that enhance the functionality of the account
+        // アカウントの機能を強化するデフォルトのプラグインをロードします
         WithDefaultPlugins().
         Build()
     handleErr(err)
@@ -45,7 +54,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     handleErr(account.Start())
     ```
 
-2. 入金と出金を待機する新しい`CallbackEventListener`オブジェクトを作成します。
+2. 入金と出金を待機する新しい `CallbackEventListener` オブジェクトを作成します。
   <!-- 2. Create a new `CallbackEventListener` object that listens for incoming and outgoing payments -->
 
     ```go
@@ -80,7 +89,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     })
     ```
 
-:::success:おめでとうございます！:tada:
+:::success:おめでとうございます:tada:
 アカウントはリッスンして行動することができるイベントを発信しています。
 :::
 <!-- :::success:Congratulations! :tada: -->
@@ -90,5 +99,5 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
 ## 次のステップ
 <!-- ## Next steps -->
 
-イベントリスナを作ったので、これをテストするために[アカウントとの間で支払いを行います](../go/make-payment.md)。
+イベントリスナーを作ったので、これをテストするために[アカウントとの間で支払いを行う](../go/make-payment.md)。
 <!-- Now that you have an event listener, start [making payments to/from your account](../go/make-payment.md) to test it. -->

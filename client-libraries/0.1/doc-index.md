@@ -116,8 +116,6 @@
 
 [アカウントモジュール/JavaScript/イベントをリッスンする](/account-module/js/listen-to-events.md)
 
-[アカウントモジュール/JavaScript/支払いを作成する](/account-module/js/make-payment.md)
-
 [アカウントモジュール/JavaScript/CDA を作成する](/account-module/js/generate-cda.md)
 
 [アカウントモジュール/JavaScript/支払いを作成する](/account-module/js/make-payment.md)

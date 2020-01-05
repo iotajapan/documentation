@@ -1,10 +1,14 @@
-# Create an account plugin in Go
+# Go でアカウントプラグインを作成する
+<!-- # Create an account plugin in Go -->
 
-**Plugins extend the functionality of an account. In this guide, you create a plugin that prints your account's events to the console.**
+**プラグインはアカウントの機能を拡張します。このガイドでは、アカウントのイベントをコンソールに出力するプラグインを作成します。**
+<!-- **Plugins extend the functionality of an account. In this guide, you create a plugin that prints your account's events to the console.** -->
 
-## Packages
+## パッケージ
+<!-- ## Packages -->
 
-To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages):
+このガイドを完了するには、次のパッケージをインストールする必要があります（Go モジュールを使用している場合は、これらのパッケージを参照するだけです）。
+<!-- To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages): -->
 
 ```bash
 go get github.com/iotaledger/iota.go/api
@@ -17,15 +21,20 @@ go get github.com/iotaledger/iota.go/account/event
 go get github.com/iotaledger/iota.go/account/event/listener
 ```
 
-## IOTA network
+## IOTA ネットワーク
+<!-- ## IOTA network -->
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
+このガイドでは、[デブネット](root://getting-started/0.1/network/iota-networks.md#devnet)の[ノード](root://getting-started/0.1/network/nodes.md)に接続します。
+<!-- In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet). -->
 
-## Step 1. Create the event logger
+## 手順1. エベントロガーを作成する
+<!-- ## Step 1. Create the event logger -->
 
-1. Create a new file called `eventLogger.go`
+1. `eventLogger.go` という新しいファイルを作成します。
+<!-- 1. Create a new file called `eventLogger.go` -->
 
-2. Create a function that takes an `EventMachine` object as an argument and returns an `account.Plugin` object
+2. `EventMachine` オブジェクトを引数として取り、`account.Plugin` オブジェクトを返す関数を作成します。
+  <!-- 2. Create a function that takes an `EventMachine` object as an argument and returns an `account.Plugin` object -->
 
     ```go
     // NewLogPlugin ...
@@ -40,7 +49,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     }
     ```
 
-4. プラグインの名前を返す`Name()`関数を作成します。
+4. プラグインの名前を返す `Name()` 関数を作成します。
   <!-- 4. Create a `Name()` function that returns the name of the plugin -->
 
     ```go
@@ -50,13 +59,13 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     ```
 
     :::info:
-    `account`オブジェクトは、デバッグに役立つようにエラーメッセージでこの名前を使用します。
+    `account` オブジェクトは、デバッグに役立つようにエラーメッセージでこの名前を使用します。
     :::
     <!-- :::info: -->
     <!-- The `account` object uses this name in error messages to help with debugging. -->
     <!-- ::: -->
 
-5. アカウントの開始時に呼び出される`Start()`関数を作成します。
+5. アカウントの開始時に呼び出される `Start()` 関数を作成します。
   <!-- 5. Create a `Start()` function that will be called when the account starts -->
 
     ```go
@@ -68,13 +77,13 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     ```
 
     :::info:
-    すべてのプラグインは独自のGoルーチンで実行され、アカウントと共に起動およびシャットダウンします。
+    すべてのプラグインは独自の Go ルーチンで実行され、アカウントと共に起動およびシャットダウンします。
     :::
     <!-- :::info: -->
     <!-- All plugins run in their own goroutine and start and shut down together with an account. -->
     <!-- ::: -->
 
-6. アカウントと同時にプラグインをシャットダウンする`Shutdown()`関数を作成します。
+6. アカウントと同時にプラグインをシャットダウンする`Shutdown()` 関数を作成します。
   <!-- 6. Create a `Shutdown()` function that shuts down the plugin at the same time as the account -->
 
     ```go
@@ -84,7 +93,7 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     }
     ```
 
-7. イベント発生時にすべてのイベントをスクリーンに出力する`log()`関数を作成します。
+7. イベント発生時にすべてのイベントをスクリーンに出力する `log()` 関数を作成します。
   <!-- 7. Create the `log()` function that will print all events to the screen when they happen -->
 
     ```go
@@ -136,41 +145,44 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
 8. ファイルを保存します。
   <!-- 8. Save the file -->
 
-## Step 2. Start your account with the event logger
+## 手順2. イベントロガーとともにアカウントを起動する
+<!-- ## Step 2. Start your account with the event logger -->
 
-1. `account.go`という新しいファイルを作成します。
+1. `account.go` という新しいファイルを作成します。
   <!-- 1. Create a new file called `account.go` -->
 
-2. Initialize an event machine
+2. イベントマシンを初期化します。
+  <!-- 2. Initialize an event machine -->
 
     ```go
     em := event.NewEventMachine()
     ```
 
-3. Build your account with the `NewEventLoggerPlugin()` function
+3. `NewEventLoggerPlugin()` 関数を使用してアカウントをビルドします。
+  <!-- 3. Build your account with the `NewEventLoggerPlugin()` function -->
 
     ```go
     account, err = builder.NewBuilder().
-        // Load the IOTA API to use
+        // IOTA API をロードします
         WithAPI(iotaAPI).
-        // Load the database onject to use
+        // データベースオブジェクトをロードします
         WithStore(store).
-        // Load the seed of the account
+        // アカウントのシードをロードします
         WithSeed(seed).
-        // Use the minimum weight magnitude for the Devnet
+        // デブネット用の最小重量値を使用します
         WithMWM(9).
-        // Load the time source to use during input selection
+        // 入力選択中に使用するタイムソースをロードします
         WithTimeSource(timesource).
-        // Load the EventMachine
+        // イベントマシンをロードします
         WithEvents(em)
-        // Load the default plugins that enhance the functionality of the account
+        // アカウントの機能を強化するデフォルトのプラグインをロードします
         WithDefaultPlugins().
-        // Load your custom plugin
+        // カスタムプラグインをロードします
 		Build( NewLogPlugin(em) )
     handleErr(err)
     ```
 
-:::success:おめでとうございます！:tada:
+:::success:おめでとうございます:tada:
 最初のプラグインを作成しました。
 
 今、アカウントが開始されると、イベントをリッスンするために何もする必要はありません。プラグインはイベントが起こるたびにコンソールにすべてのイベントを出力します。
@@ -181,13 +193,17 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
 <!-- Now, when your account starts, you don't have to do anything to listen to events. Your plugin will print all events to the console as they happen. -->
 <!-- ::: -->
 
-## Run the code
+## コードを実行する
+<!-- ## Run the code -->
 
-To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
+開始するには、デバイスに [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) がインストールされている必要があります。
+<!-- To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device. -->
 
-If you don't have a Go development environment, or if this is your first time using the Go client library, complete our [getting started guide](../../getting-started/go-quickstart.md).
+Go 開発環境がない場合、または Go クライアントライブラリを初めて使用する場合は、[スタートガイド](../../getting-started/go-quickstart.md)を完了してください。
+<!-- If you don't have a Go development environment, or if this is your first time using the Go client library, complete our [getting started guide](../../getting-started/go-quickstart.md). -->
 
-In the command-line, do the following:
+コマンドラインで、次を実行します。
+<!-- In the command-line, do the following: -->
 
 ```bash
 git clone https://github.com/JakeSCahill/iota-samples.git
@@ -195,8 +211,11 @@ cd iota-samples/go/account-module
 go mod download
 go run create-plugin/account.go create-plugin/eventLogger.go
 ```
-You should see that the event logger starts when your account does.
+アカウントが開始されると、イベントロガーが開始されることがわかります。
+<!-- You should see that the event logger starts when your account does. -->
 
-## Next steps
+## 次のステップ
+<!-- ## Next steps -->
 
-[Generate a conditional deposit address](../go/generate-cda.md).
+[条件付きデポジットアドレスを生成する](../go/generate-cda.md)。
+<!-- [Generate a conditional deposit address](../go/generate-cda.md). -->
