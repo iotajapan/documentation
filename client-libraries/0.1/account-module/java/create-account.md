@@ -1,4 +1,5 @@
-# Create an account
+# Java でアカウントを作成する
+<!-- # Create an account -->
 
 **In this guide, you create an account to keep track of your seed state in a local database.**
 
