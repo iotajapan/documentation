@@ -1,8 +1,8 @@
 # Index
 
-[序説/概要](/introduction/overview.md)
+[序説/ライブラリ概要](/introduction/overview.md)
 
-[入門/クイックスタート](/getting-started/quickstart.md)
+[ライブラリ入門/ライブラリクイックスタート](/getting-started/quickstart.md)
 
 [ライブラリ入門/C クイックスタート](/getting-started/c-quickstart.md)
 
