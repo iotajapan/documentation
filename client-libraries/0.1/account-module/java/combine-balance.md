@@ -56,6 +56,9 @@
 ## コードを実行する
 <!-- ## Run the code -->
 
+これらのコードサンプルは[GitHub](https://github.com/iota-community/account-module) でホストされています。
+<!-- These code samples are hosted on [GitHub](https://github.com/iota-community/account-module). -->
+
 開始するには、デバイスに [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) がインストールされている必要があります。
 <!-- To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device. -->
 
@@ -68,16 +71,16 @@
 --------------------
 ### Linux and macOS
 ```bash
-git clone https://github.com/JakeSCahill/iota-samples.git
-cd iota-samples/java/account-module
+git clone https://github.com/iota-community/account-module.git
+cd account-module/java/account-module
 mvn clean install
 mvn exec:java -Dexec.mainClass="com.iota.CombineBalance"
 ```
 ---
 ### Windows
 ```bash
-git clone https://github.com/JakeSCahill/iota-samples.git
-cd iota-samples/java/account-module
+git clone https://github.com/iota-community/account-module.git
+cd account-module/java/account-module
 mvn clean install
 mvn exec:java -D"exec.mainClass"="com.iota.CombineBalance"
 ```

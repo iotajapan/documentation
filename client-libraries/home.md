@@ -3,6 +3,9 @@
 [クライアントライブラリ概要](/0.1/introduction/overview.md)
 ## クライアントライブラリとは何か、ライブラリがなぜ有用なのか、そしてどのプロジェクトで使われているかを学びます。
 
+[C クイックスタート](/0.1/getting-started/c-quickstart.md)
+## C クライアントライブラリ入門
+
 [Go クイックスタート](/0.1/getting-started/go-quickstart.md)
 ## Go クライアントライブラリ入門
 

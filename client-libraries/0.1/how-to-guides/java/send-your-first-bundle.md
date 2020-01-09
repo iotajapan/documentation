@@ -125,18 +125,36 @@
      }
     ```
 
-    コンソールに、送信したばかりのトランザクションが表示されます。
-    <!-- In the console, you should see the transaction that you just sent. -->
+    コンソールに、送信したばかりの末尾トランザクションが表示されます。
+    <!-- In the console, you should see the tail transaction that you just sent. -->
 
 :::success:おめでとうございます:tada:
-最初のゼロバリュートランザクションを送信しました。トランザクションはタングルにアタッチされ、ネットワークの残りの部分に転送されます。このトランザクションはイミュータブルであり、バンドルハッシュがある限り、タングル上で読み取ることができます。
+最初のゼロトークンランザクションを送信しました。トランザクションはタングルにアタッチされ、ネットワークの残りの部分に転送されます。
+
+この末尾トランザクションハッシュを使用して、タングルからトランザクションを読み取ることができます。
 :::
 <!-- :::success:Congratulations :tada: -->
-<!-- You've just sent your first zero-value transaction. Your transaction is attached to the Tangle, and will be forwarded to the rest of the network. This transaction is now immutable, and as long as you have its bundle hash, you can read it on the Tangle. -->
+<!-- You've just sent your first zero-value transaction. Your transaction is attached to the Tangle, and will be forwarded to the rest of the network. -->
+
+<!-- You can use this tail transaction hash to read the transaction from the Tangle. -->
 <!-- ::: -->
+
+:::warning:
+ノードは、タングルのローカルコピーから古いトランザクションを削除できます。したがって、ノードからトランザクションをリクエストするときが来るかもしれませんが、ノードは古いトランザクションをもう持っていないかもしれません。
+
+長期間タングルにデータを保存する場合は、[自分自身のノードの実行](root://node-software/0.1/iri/how-to-guides/quickstart.md)または[クロニクル](root://node-software/0.1/chronicle/introduction/overview.md)などのパーマノードの実行をお勧めします。
+:::
+<!-- :::warning: -->
+<!-- Nodes can delete old transactions from their local copies of the Tangle. Therefore, a time may come where you request your transaction from a node, but the node doesn't have it anymore. -->
+
+<!-- If you want to store data on the Tangle for extended periods of time, we recommend either [running your own node](root://node-software/0.1/iri/how-to-guides/quickstart.md) or running a permanode such as [Chronicle](root://node-software/0.1/chronicle/introduction/overview.md). -->
+:::
 
 ## コードを実行する
 <!-- ## Run the code -->
+
+これらのコードサンプルは [GitHub](https://github.com/JakeSCahill/java-iota-workshop) でホストされています。
+<!-- These code samples are hosted on [GitHub](https://github.com/JakeSCahill/java-iota-workshop). -->
 
 開始するには、デバイスに [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) がインストールされている必要があります。
 <!-- To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device. -->
@@ -165,14 +183,14 @@ mvn exec:java -D"exec.mainClass"="com.iota.SendData"
 ```
 --------------------
 
-コンソールに、送信したばかりのトランザクションのバンドルハッシュが表示されます。
-<!-- In the console, you should see the bundle hash of the transaction you just sent. -->
+コンソールに、送信したバンドルの末尾トランザクションハッシュが表示されます。
+<!-- In the console, you should see the tail transaction hash of the bundle you just sent. -->
 
 ## 次のステップ
 <!-- ## Next steps -->
 
-[タングル上のトランザクションデータを読み取る](../java/read-transactions.md)ことができるように、バンドルハッシュを書き留めます。
-<!-- Make a note of the bundle hash so you can [read the transaction data on the Tangle](../java/read-transactions.md). -->
+トランザクションのハッシュをメモして、[タングルからトランザクションを読み取る](../java/read-transactions.md)ことでメッセージを確認できるようにします。
+<!-- Make a note of the transaction's hash so you can [read the transaction from the Tangle](../java/read-transactions.md) to see your message. -->
 
 [タングルエクスプローラー](https://utils.iota.org)などのユーティリティを使用して、トランザクションを読み取ることができます。
 <!-- You can also read your transaction, using a utility such as the [Tangle explorer](https://utils.iota.org). -->

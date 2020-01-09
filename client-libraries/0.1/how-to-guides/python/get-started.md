@@ -20,8 +20,8 @@
 1. ["hello world" トランザクションを送信する](../python/send-your-first-bundle.md)。
 <!-- 1. [Send a "hello world" transaction](../python/send-your-first-bundle.md) -->
 
-2. [タングル上のトランザクションを読む](../python/read-transactions.md)。
-<!-- 2. [Read transactions on the Tangle](../python/read-transactions.md) -->
+2. [タングルからトランザクションを読み取る](../python/read-transactions.md)。
+<!-- 2. [Read transactions from the Tangle](../python/read-transactions.md) -->
 
 3. [アドレスを生成する](../python/generate-an-address.md)。
 <!-- 3. [Generate an address](../python/generate-an-address.md) -->

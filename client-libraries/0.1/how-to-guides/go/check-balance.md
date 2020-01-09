@@ -7,8 +7,8 @@
 ## パッケージ
 <!-- ## Packages -->
 
-このガイドを完了するには、次のパッケージをインストールする必要があります（Go モジュールを使用している場合は、これらのパッケージを参照するだけです）。
-<!-- To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages): -->
+このガイドを完了するには、以下のパッケージをインストールする必要があります（Go モジュールを使用している場合は、以下のパッケージを参照するだけです）。
+<!-- To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference them): -->
 
 ```bash
 go get github.com/iotaledger/iota.go/api

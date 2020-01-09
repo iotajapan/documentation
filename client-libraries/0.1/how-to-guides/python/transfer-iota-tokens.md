@@ -139,10 +139,14 @@ print(seed)
     <!-- This method asks the node to check the balance of your seed's addresses. If your addresses have enough IOTA tokens to complete the transfer, the method creates input transactions to withdraw the full balance from enough of your addresses to fulfill the transfer. Then, the library adds those transactions to the transfer bundle and signs the bundle with the private keys of any withdrawn addresses. -->
 
     :::info:
-    シードがデバイスから離れることはありません。ライブラリはアドレスを生成し、アドレスのみをノードに送信します。
+    シードがデバイスから離れることはありません。
+
+    ライブラリはアドレスを生成し、アドレスのみをノードに送信します。
     :::
     <!-- :::info: -->
-    <!-- Your seed never leaves your device. The library generates addresses and sends them to the node. -->
+    <!-- Your seed never leaves your device. -->
+
+    <!-- The library generates addresses on your local device and sends them to the node. -->
     <!-- ::: -->
 
     転送する金額が IOTA トークンを取り出すアドレスの残高より少ない場合、メソッドは別の出力トランザクションを作成して、残りをシードに属する未使用アドレスに転送します。

@@ -7,8 +7,8 @@
 ## パッケージ
 <!-- ## Packages -->
 
-このガイドを完了するには、次のパッケージをインストールする必要があります（Go モジュールを使用している場合は、これらのパッケージを参照するだけです）。
-<!-- To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages): -->
+このガイドを完了するには、以下のパッケージをインストールする必要があります（Go モジュールを使用している場合は、以下のパッケージを参照するだけです）。
+<!-- To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference them): -->
 
 ```bash
 go get github.com/iotaledger/iota.go/api
@@ -196,6 +196,9 @@ go get github.com/iotaledger/iota.go/account/event/listener
 ## コードを実行する
 <!-- ## Run the code -->
 
+これらのコードサンプルは [GitHub](https://github.com/iota-community/account-module) でホストされています。
+<!-- These code samples are hosted on [GitHub](https://github.com/iota-community/account-module). -->
+
 開始するには、デバイスに [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) がインストールされている必要があります。
 <!-- To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device. -->
 
@@ -206,8 +209,8 @@ Go 開発環境がない場合、または Go クライアントライブラリ�
 <!-- In the command-line, do the following: -->
 
 ```bash
-git clone https://github.com/JakeSCahill/iota-samples.git
-cd iota-samples/go/account-module
+git clone https://github.com/iota-community/account-module.git
+cd account-module/go/account-module
 go mod download
 go run create-plugin/account.go create-plugin/eventLogger.go
 ```

@@ -1,8 +1,8 @@
-# Java でタングル上のトランザクションを読む
-<!-- # Read transactions on the Tangle in Java -->
+# Java でタングルからトランザクションを読み取る
+<!-- # Read transactions from the Tangle in Java -->
 
-**このガイドでは、[ノード](root://getting-started/0.1/network/nodes.md)に接続し、バンドルハッシュでフィルタリングするようにリクエストすることで、[トランザクション](root://getting-started/0.1/transactions/transactions.md)をタングルから取得します。次に、トランザクション内のメッセージをデコードして、コンソールに出力します。**
-<!-- **In this guide, you get [transactions](root://getting-started/0.1/transactions/transactions.md) from the Tangle by connecting to a [node](root://getting-started/0.1/network/nodes.md) and asking it to filter them by their bundle hash. Then, you decode the message in the transaction and print it to the console.** -->
+**このガイドでは、[ノード](root://getting-started/0.1/network/nodes.md)に末尾トランザクションハッシュを与えることで、タングルから "hello world" [トランザクション](root://getting-started/0.1/transactions/transactions.md)を読み取ります。**
+<!-- **In this guide, you read your "hello world" [transaction](root://getting-started/0.1/transactions/transactions.md) from the Tangle by giving a [node](root://getting-started/0.1/network/nodes.md) your tail transaction hash.** -->
 
 ## IOTA ネットワーク
 <!-- ## IOTA network -->
@@ -40,19 +40,26 @@
             .build();
     ```
 
-3. トランザクションのフィルタリングに使用するバンドルハッシュを定義します。
-  <!-- 3. Define the bundle hash that you want to use to filter transactions -->
+3. バンドルの末尾トランザクションハッシュを定義します。
+<!-- 3. Define the tail transaction hash of the bundle -->
 
     ```java
-    String bundleHash = "HGRGBSAQSKSBCDCX9IFUKDWYTJDKEMHAKWH9LJ9JCBL9EWHLSZQZYQXDZKVICNZKWKKUNTD9OSLVVEGFA";
+    String tailTransactionHash = "GUQXLBNYXSEVNAPNJ9L9ADZIHBHRVEH9VZURPUHGQEVAFCWIDKQWTKYPOFALYZNOWGRJQURNQBGFGQDM9";
     ```
 
-4. `findTransactionObjectsByBundle()` メソッドを使用して、`bundle` フィールドの値でトランザクションを取得します。次に、最初のトランザクションの `signatureMessageFragment` フィールド内にあるメッセージを取得し、そのメッセージをデコードしてコンソールに出力します。
-  <!-- 4. Use the `findTransactionObjectsByBundle()` method to get transactions by the value of their `bundle` field. Then, get the message in the first transaction's `signatureMessageFragment` field, decode it, and print it to the console -->
+    :::info:
+    [バンドルハッシュ](root://getting-started/0.1/transactions/bundles.md#bundle-hash)とは異なり、`signatureMessageFragment` フィールドはハッシュの一部であるため、末尾トランザクションハッシュを使用します。したがって、トランザクション内のメッセージはイミュータブルです。
+    :::
+    <!-- :::info: -->
+    <!-- We use the tail transaction hash because, unlike the [bundle hash](root://getting-started/0.1/transactions/bundles.md#bundle-hash), the `signatureMessageFragment` field is part of the hash. Therefore, the message in the transaction is immutable. -->
+    <!-- ::: -->
+
+4. `getBundle()`メソッドを使用して、末尾トランザクションのバンドル内のすべてのトランザクションを取得します。次に、最初のトランザクションの `signatureMessageFragment` フィールドでメッセージを取得し、デコードして、コンソールに出力します
+  <!-- 4. Use the `getBundle()` method to get all transactions in the tail transaction's bundle. Then, get the message in the first transaction's `signatureMessageFragment` field, decode it, and print it to the console -->
 
     ```java
     try {
-        List<Transaction> response = api.findTransactionObjectsByBundle(bundleHash);
+        GetBundleResponse response = api.getBundle("GUQXLBNYXSEVNAPNJ9L9ADZIHBHRVEH9VZURPUHGQEVAFCWIDKQWTKYPOFALYZNOWGRJQURNQBGFGQDM9");
         System.out.println(TrytesConverter.trytesToAscii(response.get(0).getSignatureFragments().substring(0,2186)));
     } catch (ArgumentException e) {
         // エラーを処理します
@@ -68,14 +75,17 @@
     ```
 
 :::success:おめでとうございます:tada:
-タングル上のトランザクションを見つけて読み取りました。
+タングルからトランザクションを見つけて読み取りました。
 :::
 <!-- :::success:Congratulations :tada: -->
-<!-- You've just found and read a transaction on the Tangle. -->
+<!-- You've just found and read a transaction from the Tangle. -->
 <!-- ::: -->
 
 ## コードを実行する
 <!-- ## Run the code -->
+
+これらのコードサンプルは [GitHub](https://github.com/JakeSCahill/java-iota-workshop) でホストされています。
+<!-- These code samples are hosted on [GitHub](https://github.com/JakeSCahill/java-iota-workshop). -->
 
 開始するには、デバイスに [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) がインストールされている必要があります。
 <!-- To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device. -->

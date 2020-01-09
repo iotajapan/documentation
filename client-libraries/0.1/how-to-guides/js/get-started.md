@@ -20,8 +20,8 @@
 1. ["hello world" トランザクションを送信する](../js/send-your-first-bundle.md)。
 <!-- 1. [Send a "hello world" transaction](../js/send-your-first-bundle.md) -->
 
-2. [タングル上のトランザクションを読む](../js/read-transactions.md)。
-<!-- 2. [Read transactions on the Tangle](../js/read-transactions.md) -->
+2. [タングルからトランザクションを読み取る](../js/read-transactions.md)
+<!-- 2. [Read transactions from the Tangle](../js/read-transactions.md) -->
 
 3. [アドレスを生成する](../js/generate-an-address.md)。
 <!-- 3. [Generate an address](../js/generate-an-address.md) -->

@@ -4,25 +4,39 @@
 
 [入門/クイックスタート](/getting-started/quickstart.md)
 
-[入門/Go クイックスタート](/getting-started/go-quickstart.md)
+[ライブラリ入門/C クイックスタート](/getting-started/c-quickstart.md)
 
-[入門/Java クイックスタート](/getting-started/java-quickstart.md)
+[ライブラリ入門/Go クイックスタート](/getting-started/go-quickstart.md)
 
-[入門/JavaScript クイックスタート](/getting-started/js-quickstart.md)
+[ライブラリ入門/Java クイックスタート](/getting-started/java-quickstart.md)
 
-[入門/Python クイックスタート](/getting-started/python-quickstart.md)
+[ライブラリ入門/JavaScript クイックスタート](/getting-started/js-quickstart.md)
+
+[ライブラリ入門/Python クイックスタート](/getting-started/python-quickstart.md)
+
+[ハウツーガイド/C/C ライブラリ入門](/how-to-guides/c/get-started.md)
+
+[ハウツーガイド/C/"hello world" トランザクションを送信する](/how-to-guides/c/send-your-first-bundle.md)
+
+[ハウツーガイド/C/タングルからトランザクションを読み取る](/how-to-guides/c/read-transactions.md)
+
+[ハウツーガイド/C/新しいアドレスを生成する](/how-to-guides/c/generate-an-address.md)
+
+[ハウツーガイド/C/IOTA トークンを転送する](/how-to-guides/c/transfer-iota-tokens.md)
+
+[ハウツーガイド/C/アドレスの残高を確認する](/how-to-guides/c/check-balance.md)
 
 [ハウツーガイド/Go/Go ライブラリ入門](/how-to-guides/go/get-started.md)
 
 [ハウツーガイド/Go/"hello world" トランザクションを送信する](/how-to-guides/go/send-your-first-bundle.md)
 
-[ハウツーガイド/Go/タングル上のトランザクションを読む](/how-to-guides/go/read-transactions.md)
+[ハウツーガイド/Go/タングルからトランザクションを読み取る](/how-to-guides/go/read-transactions.md)
 
 [ハウツーガイド/Go/新しいアドレスを生成する](/how-to-guides/go/generate-an-address.md)
 
-[ハウツーガイド/Go/アドレスの残高を確認する](/how-to-guides/go/check-balance.md)
-
 [ハウツーガイド/Go/テスト IOTA トークンを転送する](/how-to-guides/go/transfer-iota-tokens.md)
+
+[ハウツーガイド/Go/アドレスの残高を確認する](/how-to-guides/go/check-balance.md)
 
 [ハウツーガイド/Go/タングル上のライブトランザクションをリッスンする](/how-to-guides/go/listen-for-transactions.md)
 
@@ -30,13 +44,13 @@
 
 [ハウツーガイド/Java/"hello world" トランザクションを送信する](/how-to-guides/java/send-your-first-bundle.md)
 
-[ハウツーガイド/Java/タングル上のトランザクションを読む](/how-to-guides/java/read-transactions.md)
+[ハウツーガイド/Java/タングルからトランザクションを読み取る](/how-to-guides/java/read-transactions.md)
 
 [ハウツーガイド/Java/新しいアドレスを生成する](/how-to-guides/java/generate-an-address.md)
 
-[ハウツーガイド/Java/アドレスの残高を確認する](/how-to-guides/java/check-balance.md)
-
 [ハウツーガイド/Java/テスト IOTA トークンを送信する](/how-to-guides/java/transfer-iota-tokens.md)
+
+[ハウツーガイド/Java/アドレスの残高を確認する](/how-to-guides/java/check-balance.md)
 
 [ハウツーガイド/Java/タングル上のライブトランザクションをリッスンする](/how-to-guides/java/listen-for-transactions.md)
 
@@ -44,13 +58,13 @@
 
 [ハウツーガイド/JavaScript/"hello world" トランザクションを送信する](/how-to-guides/js/send-your-first-bundle.md)
 
-[ハウツーガイド/JavaScript/タングル上のトランザクションを読む](/how-to-guides/js/read-transactions.md)
+[ハウツーガイド/JavaScript/タングルからトランザクションを読み取る](/how-to-guides/js/read-transactions.md)
 
 [ハウツーガイド/JavaScript/新しいアドレスを生成する](/how-to-guides/js/generate-an-address.md)
 
-[ハウツーガイド/JavaScript/アドレスの残高を確認する](/how-to-guides/js/check-balance.md)
-
 [ハウツーガイド/JavaScript/テスト IOTA トークンを転送する](/how-to-guides/js/transfer-iota-tokens.md)
+
+[ハウツーガイド/JavaScript/アドレスの残高を確認する](/how-to-guides/js/check-balance.md)
 
 [ハウツーガイド/JavaScript/タングル上のライブトランザクションをリッスンする](/how-to-guides/js/listen-for-transactions.md)
 
@@ -66,7 +80,7 @@
 
 [ハウツーガイド/Python/"hello world" トランザクションを送信する](/how-to-guides/python/send-your-first-bundle.md)
 
-[ハウツーガイド/Python/タングル上のトランザクションを読む](/how-to-guides/python/read-transactions.md)
+[ハウツーガイド/Python/タングルからトランザクションを読み取る](/how-to-guides/python/read-transactions.md)
 
 [ハウツーガイド/Python/新しいアドレスを生成する](/how-to-guides/python/generate-an-address.md)
 
@@ -132,14 +146,16 @@
 
 [MAM/JavaScript/ウェブページにメッセージを表示する](/mam/js/create-mam-webpage.md)
 
-[MAM/API reference/MAM API リファレンス](/mam/api-reference/mam-api-reference.md)
+[MAM/API リファレンス/MAM API リファレンス](/mam/api-reference/mam-api-reference.md)
 
-[APIリファレンス/Go](https://github.com/iotaledger/iota.go/tree/master/.docs/iota.go/reference)
+[API リファレンス/C](https://github.com/iotaledger/entangled/tree/develop/cclient/api)
 
-[APIリファレンス/Java](https://github.com/iotaledger/iota-java/tree/dev/docs/iota-java)
+[API リファレンス/Go](https://github.com/iotaledger/iota.go/tree/master/.docs/iota.go/reference)
 
-[APIリファレンス/JavaScript](https://github.com/iotaledger/iota.js/blob/next/api_reference.md)
+[API リファレンス/Java](https://github.com/iotaledger/iota-java/tree/dev/docs/iota-java)
 
-[APIリファレンス/Python](https://pyota.readthedocs.io/en/latest/)
+[API リファレンス/JavaScript](https://github.com/iotaledger/iota.js/blob/next/api_reference.md)
 
-[IoTでの試み/AstroPiOTA](root://smartcity/0.1/introduction/overview.md)
+[API リファレンス/Python](https://pyota.readthedocs.io/en/latest/)
+
+[IoT での試み/AstroPiOTA](root://smartcity/0.1/introduction/overview.md)

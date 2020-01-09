@@ -7,8 +7,8 @@
 ## パッケージ
 <!-- ## Packages -->
 
-このガイドを完了するには、次のパッケージをインストールする必要があります（Go モジュールを使用している場合は、これらのパッケージを参照するだけです）。
-<!-- To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages): -->
+このガイドを完了するには、以下のパッケージをインストールする必要があります（Go モジュールを使用している場合は、以下のパッケージを参照するだけです）。
+<!-- To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference them): -->
 
 ```bash
 go get github.com/iotaledger/iota.go/api
@@ -68,7 +68,7 @@ go get github.com/iotaledger/iota.go/trinary
   <!-- 4. Define an [address](root://getting-started/0.1/clients/addresses.md) to which you want to send a message -->
 
     ```go
-    address := trinary.Trytes("ZLGVEQ9JUZZWCZXLWVNTHBDX9G9KZTJP9VEERIIFHY9SIQKYBVAHIMLHXPQVE9IXFDDXNHQINXJDRPFDXNYVAPLZAW")
+    const address = trinary.Trytes("ZLGVEQ9JUZZWCZXLWVNTHBDX9G9KZTJP9VEERIIFHY9SIQKYBVAHIMLHXPQVE9IXFDDXNHQINXJDRPFDXNYVAPLZAW")
     ```
 
     :::info:
@@ -124,8 +124,8 @@ go get github.com/iotaledger/iota.go/trinary
     }
     ```
 
-8. `transfers` オブジェクトから転送バンドルを作成するには、`transfers` オブジェクトを [`PrepareTransfers()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_prepare_transfers.md) メソッドに渡します。次に、返されたバンドルトライトを [`SendTrytes()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_send_trytes.md) メソッドに渡します。[`SendTrytes()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_send_trytes.md) メソッドは[チップ選択](root://node-software/0.1/iri/concepts/tip-selection.md)、[リモートプルーフオブワーク](root://getting-started/0.1/transactions/proof-of-work.md)を処理し、バンドルをノードに送信します
-  <!-- 8. To create a transfer bundle from your `transfers` object, pass it to the [`PrepareTransfers()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_prepare_transfers.md) method. Then, pass the returned bundle trytes to the [`SendTrytes()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_send_trytes.md) method, which handles [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [remote proof of work](root://getting-started/0.1/transactions/proof-of-work.md), and sending the bundle to the node -->
+8. `transfers` オブジェクトからバンドルを作成するには、`transfers` オブジェクトを [`PrepareTransfers()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_prepare_transfers.md) メソッドに渡します。次に、返されたバンドルトライトを [`SendTrytes()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_send_trytes.md) メソッドに渡します。[`SendTrytes()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_send_trytes.md) メソッドは[チップ選択](root://node-software/0.1/iri/concepts/tip-selection.md)、[リモートプルーフオブワーク](root://getting-started/0.1/transactions/proof-of-work.md)を処理し、バンドルをノードに送信します。
+  <!-- 8. To create a bundle from your `transfers` object, pass it to the [`PrepareTransfers()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_prepare_transfers.md) method. Then, pass the returned bundle trytes to the [`SendTrytes()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_send_trytes.md) method, which handles [tip selection](root://node-software/0.1/iri/concepts/tip-selection.md), [remote proof of work](root://getting-started/0.1/transactions/proof-of-work.md), and sending the bundle to the node -->
 
     ```go
     trytes, err := api.PrepareTransfers(seed, transfers, PrepareTransfersOptions{})
@@ -134,17 +134,32 @@ go get github.com/iotaledger/iota.go/trinary
     myBundle, err := api.SendTrytes(trytes, depth, minimumWeightMagnitude)
     must(err)
 
-    fmt.Println("Bundle hash: " + myBundle[0].Bundle)
+    fmt.Println(bundle.TailTransactionHash(myBundle))
     ```
 
     コンソールに、送信したばかりのトランザクションのバンドルハッシュが表示されます。
     <!-- In the console, you should see the bundle hash of the transaction you just sent. -->
 
 :::success:おめでとうございます:tada:
-最初のゼロトークントランザクションを送信しました。トランザクションはタングルにアタッチされ、ネットワークの残りの部分に転送されます。このトランザクションはイミュータブルであり、バンドルハッシュがある限り、タングル上で読み取ることができます。
+最初のゼロトークントランザクションを送信しました。トランザクションはタングルにアタッチされ、ネットワークの残りの部分に転送されます。
+
+この末尾トランザクションハッシュを使用して、タングルからトランザクションを読み取ることができます。
 :::
 <!-- :::success:Congratulations :tada: -->
-<!-- You've just sent your first zero-value transaction. Your transaction is attached to the Tangle, and will be forwarded to the rest of the network. This transaction is now immutable, and as long as you have its bundle hash, you can read it on the Tangle. -->
+<!-- You've just sent your first zero-value transaction. Your transaction is attached to the Tangle, and will be forwarded to the rest of the network. -->
+
+<!-- You can use this tail transaction hash to read the transaction from the Tangle. -->
+<!-- ::: -->
+
+:::warning:
+ノードは、タングルのローカルコピーから古いトランザクションを削除できます。したがって、ノードからトランザクションをリクエストするときが来るかもしれませんが、ノードは古いトランザクションをもう持っていないかもしれません。
+
+長期間タングルにデータを保存する場合は、[自分自身のノードの実行](root://node-software/0.1/iri/how-to-guides/quickstart.md)または[クロニクル](root://node-software/0.1/chronicle/introduction/overview.md)などのパーマノードの実行をお勧めします。
+:::
+<!-- :::warning: -->
+<!-- Nodes can delete old transactions from their local copies of the Tangle. Therefore, a time may come where you request your transaction from a node, but the node doesn't have it anymore. -->
+
+<!-- If you want to store data on the Tangle for extended periods of time, we recommend either [running your own node](root://node-software/0.1/iri/how-to-guides/quickstart.md) or running a permanode such as [Chronicle](root://node-software/0.1/chronicle/introduction/overview.md). -->
 <!-- ::: -->
 
 ## コードを実行する
@@ -161,8 +176,8 @@ go get github.com/iotaledger/iota.go/trinary
 ## 次のステップ
 <!-- ## Next steps -->
 
-[タングル上のトランザクションデータを読み取る](../go/read-transactions.md)ことができるように、バンドルハッシュを書き留めます。
-<!-- Make a note of the bundle hash so you can [read the transaction data on the Tangle](../go/read-transactions.md). -->
+トランザクションのハッシュをメモして、[タングルからトランザクションを読み取る](../go/read-transactions.md)ことでメッセージを確認できるようにします。
+<!-- Make a note of the bundle hash so you can [read the transaction from the Tangle](../go/read-transactions.md) to see your message. -->
 
 [タングルエクスプローラー](https://utils.iota.org)などのユーティリティを使用して、トランザクションを読み取ることができます。
 <!-- You can also read your transaction, using a utility such as the [Tangle explorer](https://utils.iota.org). -->

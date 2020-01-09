@@ -68,11 +68,11 @@ pip install pyota
     指定されたインデックスから開始して、接続されたノードは、アドレスから取り出しを行う入力トランザクション（ペンディング中または確定済み）のタングルの概観を確認します。
     <!-- Starting from the given index, the connected node checks its view of the Tangle for any input transactions (pending or confirmed) that withdraw from the address. -->
 
-    指定されたインデックスのアドレスが使用済みになるか、タングル上で指定されたインデックスのアドレスに関連付けられた入力トランザクションがある場合、ノードが未使用アドレスを検出するまでインデックスがインクリメントされます。ローカルスナップショットのため、ノードは指定されたインデックスのアドレスに関する入力トランザクションを台帳からプルーニングした可能性があります。したがって、ノードの使用済みアドレスの記録も確認する必要があります。
-    <!-- If an address with the given index is spent or has any input transactions associated with it on the Tangle, the index is incremented until the node finds an unspent. Because of local snapshots, a node may have pruned these input transactions from its ledger. Therefore, we should also check the node's record of spent addresses. -->
+    指定されたインデックスのアドレスにタングル上で入力トランザクションが関連付けられている場合、ノードが使用されていないアドレスを見つけるまでインデックスがインクリメントされます。
+    <!-- If an address with the given index has any input transactions associated with it on the Tangle, the index is incremented until the node finds an unspent one. -->
 
-6. 接続されたノードに応じて、アドレスが使用されたことがあるかどうかを確認します。
-  <!-- 6. Check if the address has ever been spent, according to the connected node -->
+6. アドレスがノードの使用済みアドレスのリストにあるかどうかを確認します。
+  <!-- 6. Check if the address is in the node's list of spent addresses -->
 
     ```py
     is_spent = api.were_addresses_spent_from([address])['states'][0]
@@ -82,6 +82,10 @@ pip install pyota
     else:
         print('Your address is: %s' % address )
     ```
+
+    :::info:
+    We check this list because, unlike old transactions, nodes never delete it, so it's always available.
+    :::
 
     :::warning:
     ノードでアドレス応答を生成するこの方法は、アドレスに関する有効なデータを返します。アドレスをより細かく制御するには、使用済みアドレスの記録をローカルデータベースに保存することをお勧めします。

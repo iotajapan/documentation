@@ -1,8 +1,8 @@
-# Node.js でタングル上のトランザクションを読む
-<!-- # Read transactions on the Tangle in Node.js -->
+# Node.js でタングルからトランザクションを読み取る
+<!-- # Read transactions from the Tangle in Node.js -->
 
-**このガイドでは、[ノード](root://getting-started/0.1/network/nodes.md)に接続し、特定のバンドルハッシュを持つトランザクションのみを返すように要求することで、タングル上の "hello world" [トランザクション](root://getting-started/0.1/transactions/transactions.md)を読みます。**
-<!-- **In this guide, you read your "hello world" [transaction](root://getting-started/0.1/transactions/transactions.md) on the Tangle by connecting to a [node](root://getting-started/0.1/network/nodes.md) and asking it to return only transactions with a given bundle hash.** -->
+**このガイドでは、[ノード](root://getting-started/0.1/network/nodes.md)に末尾トランザクションハッシュを与えることで、タングルから "hello world" [トランザクション](root://getting-started/0.1/transactions/transactions.md)を読み取ります。**
+<!-- **In this guide, you read your "hello world" [transaction](root://getting-started/0.1/transactions/transactions.md) from the Tangle by giving a [node](root://getting-started/0.1/network/nodes.md) your tail transaction hash.** -->
 
 ## パッケージ
 <!-- ## Packages -->
@@ -48,19 +48,26 @@ yarn add @iota/core @iota/extract-json
     });
     ```
 
-3. トランザクションのフィルタリングに使用するバンドルハッシュを定義します。
-  <!-- 3. Define the bundle hash that you want to use to filter transactions -->
+3. バンドルの末尾トランザクションハッシュを定義します。
+<!-- 3. Define the tail transaction hash of the bundle -->
 
     ```js
-    const bundle =
-    'SIHQISXRUHFGZBCHOQLRYFXYTQBIERIJZHCHUUJZPAZC9YEQQVXAJFZNZKEBKPILI9GHYX9QCPAYGFWDD';
+    const tailTransactionHash =
+    'ZFICKFQXASUESAWLSFFIWHVOAJCSJHJNXMRC9AJSIOTNGNKEWOFLECHPULLJSNRCNJPYNZEC9VGOSV999';
     ```
 
-4. [`findTransactionObjects()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.findTransactionObjects) メソッドを使用して、`bundle` フィールドの値でトランザクションを取得します。次に、[`extractJSON()`](https://github.com/iotaledger/iota.js/tree/next/packages/extract-json) メソッドを使用して、トランザクションの `signatureMessageFragment` フィールドの JSON メッセージをデコードし、コンソールに出力します。
-  <!-- 4. Use the [`findTransactionObjects()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.findTransactionObjects) method to get transactions by the value of their `bundle` field. Then, use the [`extractJSON()`](https://github.com/iotaledger/iota.js/tree/next/packages/extract-json) method to try to decode the JSON message in the `signatureMessageFragment` fields of the transactions and print it to the console -->
+    :::info:
+    [バンドルハッシュ](root://getting-started/0.1/transactions/bundles.md#bundle-hash)とは異なり、`signatureMessageFragment` フィールドはハッシュの一部であるため、末尾トランザクションハッシュを使用します。したがって、トランザクション内のメッセージはイミュータブルです。
+    :::
+    <!-- :::info: -->
+    <!-- We use the tail transaction hash because, unlike the [bundle hash](root://getting-started/0.1/transactions/bundles.md#bundle-hash), the `signatureMessageFragment` field is part of the hash. Therefore, the message in the transaction is immutable. -->
+    <!-- ::: -->
+
+4. [`getBundle()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getBundle) メソッドを使用して、末尾トランザクションのバンドル内のすべてのトランザクションを取得します。次に、[`extractJSON()`](https://github.com/iotaledger/iota.js/tree/next/packages/extract-json) メソッドを使用して、バンドルのトランザクションの `signatureMessageFragment` フィールドの JSON メッセージをデコードし、コンソールに出力します。
+  <!-- 4. Use the [`getBundle()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getBundle) method to get all transactions in the tail transaction's bundle. Then, use the [`extractJSON()`](https://github.com/iotaledger/iota.js/tree/next/packages/extract-json) method to decode the JSON messages in the `signatureMessageFragment` fields of the bundle's transactions and print them to the console -->
 
     ```js
-    iota.findTransactionObjects({ bundles: [bundle] })
+    iota.getBundle(tailTransactionHash)
     .then(bundle => {
         console.log(JSON.parse(Extract.extractJson(bundle)));
     })
@@ -70,17 +77,17 @@ yarn add @iota/core @iota/extract-json
     ```
 
     コンソールに、JSON メッセージが表示されます。
-    In the console, you should see your JSON message:
+    <!-- In the console, you should see your JSON message: -->
 
     ```json
     {"message": "Hello world"}
     ```
 
 :::success:おめでとうございます:tada:
-タングル上のトランザクションを見つけて読み取りました。
+タングルからトランザクションを見つけて読み取りました。
 :::
 <!-- :::success:Congratulations :tada: -->
-<!-- You've just found and read a transaction on the Tangle. -->
+<!-- You've just found and read a transaction from the Tangle. -->
 <!-- ::: -->
 
 ## コードを実行する
@@ -92,7 +99,7 @@ yarn add @iota/core @iota/extract-json
 このガイドのサンプルコードを実行してウィンドウに結果を表示するには、緑色のボタンをクリックします。
 <!-- Click the green button to run the sample code in this guide and see the results in the window. -->
 
-<iframe height="600px" width="100%" src="https://repl.it/@jake91/Read-a-transaction-on-the-Tangle?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="600px" width="100%" src="https://repl.it/@jake91/Read-a-transaction-from-the-Tangle?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ## 次のステップ
 <!-- ## Next steps -->

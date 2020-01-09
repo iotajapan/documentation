@@ -66,6 +66,9 @@
 ## コードを実行する
 <!-- ## Run the code -->
 
+これらのコードサンプルは [GitHub](https://github.com/JakeSCahill/java-iota-workshop) でホストされています。
+<!-- These code samples are hosted on [GitHub](https://github.com/JakeSCahill/java-iota-workshop). -->
+
 開始するには、デバイスに [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) がインストールされている必要があります。
 <!-- To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device. -->
 
@@ -100,4 +103,4 @@ mvn exec:java -D"exec.mainClass"="com.iota.ListenToZMQ"
 <!-- ## Next steps -->
 
 インスピレーションについては、[アプリ設計図](root://blueprints/0.1/introduction/overview.md)をご覧ください。
-<!-- Take a look at our [app blueprints](root://blueprints/0.1/introduction/overview.md) for inspiration -->
+<!-- Take a look at our [app blueprints](root://blueprints/0.1/introduction/overview.md) for inspiration. -->

@@ -32,8 +32,8 @@
 <!-- |2 | Transaction index 3 in this bundle| The same branch transaction hash as transaction index 0 and 1|This transaction is linked to transaction index 1 and 3 through the `trunkTransaction` field | -->
 <!-- |3 | The same branch transaction hash as all other transactions in this bundle| Transaction hash of an existing transaction in the Tangle| This transaction is called the **head transaction** | -->
 
-## バンドルハッシュ
-<!-- ## Bundle hash -->
+## バンドルエッセンス
+<!-- ## Bundle essence -->
 
 同じバンドル内のすべてのトランザクションは、`バンドル`フィールドに同じバンドルハッシュを持ち、バンドル内のトランザクションをすべて結び付けます。
 <!-- All transactions in the same bundle have the same bundle hash in their `bundle` field to tie them all together. -->
@@ -48,8 +48,8 @@
 - `lastIndex`
 - `timestamp`
 
-その結果、これらのトランザクションフィールドのいずれかの値が変更されると、バンドルハッシュが変更され、バンドル内のすべてのトランザクションが無効になります。
-<!-- As a result, if the values of any of these transaction fields were to change, the bundle hash would change, invalidating all transactions in the bundle. -->
+その結果、バンドルエッセンスの値が変更されると、バンドルハッシュが変更され、バンドル内のすべてのトランザクションが無効になります。
+<!-- As a result, if any values of the bundle essence were to change, the bundle hash would change, invalidating all transactions in the bundle. -->
 
 ## バンドルとライト
 <!-- ## Bundle types -->

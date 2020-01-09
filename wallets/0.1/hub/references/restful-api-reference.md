@@ -1558,7 +1558,10 @@ curl http://localhost:50051 \
 
 ## SweepInfo
 
-スウィープに含まれていた取り出しUUIDのリストを取得するには、次のパラメーターを使用します。
+取り出しの UUID またはバンドルハッシュを取得します。
+<!-- Gets the withdrawal UUIDs or bundle hash of a sweep. -->
+
+スウィープに含まれていた取り出し UUID のリストを取得するには、次のパラメーターを使用します。
 <!-- To get a list of withdrawal UUIDs that were included in a sweep, use the following parameters: -->
 
 | **パラメーター** | **必須か任意か** | **説明** | **タイプ** |

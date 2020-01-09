@@ -7,7 +7,7 @@
 ## パッケージ
 <!-- ## Packages -->
 
-このガイドを完了するには、次のパッケージをインストールする必要があります（Go モジュールを使用している場合は、このパッケージを参照する必要があります）。
+このガイドを完了するには、以下のパッケージをインストールする必要があります（Go モジュールを使用している場合は、以下のパッケージを参照する必要があります）。
 <!-- To complete this guide, you need to install the following package (if you're using Go modules, you just need to reference this package): -->
 
 ```bash
@@ -136,4 +136,4 @@ func main() {
 <!-- ## Next steps -->
 
 インスピレーションについては、[アプリ設計図](root://blueprints/0.1/introduction/overview.md)をご覧ください。
-<!-- Take a look at our [app blueprints](root://blueprints/0.1/introduction/overview.md) for inspiration -->
+<!-- Take a look at our [app blueprints](root://blueprints/0.1/introduction/overview.md) for inspiration. -->

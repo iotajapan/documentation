@@ -7,8 +7,8 @@
 ## パッケージ
 <!-- ## Packages -->
 
-このガイドを完了するには、次のパッケージをインストールする必要があります（Go モジュールを使用している場合は、これらのパッケージを参照するだけです）。
-<!-- To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages): -->
+このガイドを完了するには、以下のパッケージをインストールする必要があります（Go モジュールを使用している場合は、以下のパッケージを参照するだけです）。
+<!-- To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference them): -->
 
 ```bash
 go get github.com/iotaledger/iota.go/api
@@ -70,13 +70,13 @@ go get github.com/iotaledger/iota.go/trinary
     fmt.Println("\nYour address is: ", addresses[0])
     ```
 
-指定されたインデックスから開始して、接続されたノードは以下をチェックします。
-<!-- Starting from the given index, the connected node checks the following: -->
+接続されたノードは、指定されたインデックスから開始して、次の操作を実行してアドレスが使用されているかどうかを確認します。
+<!-- Starting from the given index, the connected node checks if the address is spent by doing the following: -->
 
-- ノード内のタングルの概観内の全入力トランザクション（ペンディング中または確定済み）がアドレスから取り出されているかどうか
-<!-- - If any input transactions (pending or confirmed) in its view of the Tangle withdraw from the address -->
-- アドレスがノードの使用済みアドレス（確定済みのトランザクションで取り出されたアドレス）のリストにあるかどうか
-<!-- - If the address is in the node's list of spent addresses (addresses that were withdrawn from in confirmed transactions) -->
+- アドレスから IOTA トークンを取り出す入力トランザクションがタングルの概観内にあるかどうかを検索する。
+<!-- - Search its view of the Tangle for input transactions that withdraw from the address -->
+- 使用済みアドレスのリスト内にアドレスがあるかどうかを検索する。
+<!-- - Search for the address in the list of spent addresses -->
 
 指定されたインデックスのアドレスが使用されていると、ノードは使用されていないアドレスを見つけるまでインデックスを増分します。
 <!-- If an address with the given index is spent, the index is incremented until the node finds one that isn't spent. -->

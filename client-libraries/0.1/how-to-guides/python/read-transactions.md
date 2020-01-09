@@ -1,8 +1,8 @@
-# Python でタングル上のトランザクションを読む
-<!-- # Read transactions on the Tangle in Python -->
+# Python でタングルからトランザクションを読み取る
+<!-- # Read transactions from the Tangle in Python -->
 
-**このガイドでは、[ノード](root://getting-started/0.1/network/nodes.md)に接続し、バンドルハッシュでフィルタリングするように要求することで、[トランザクション](root://getting-started/0.1/transactions/transactions.md)をタングルから取得します。次に、トランザクション内のメッセージをデコードして、コンソールに出力します。**
-<!-- **In this guide, you get [transactions](root://getting-started/0.1/transactions/transactions.md) from the Tangle by connecting to a [node](root://getting-started/0.1/network/nodes.md) and asking it to filter them by their bundle hash. Then, you decode the message in the transaction and print it to the console.** -->
+**このガイドでは、[ノード](root://getting-started/0.1/network/nodes.md)に末尾トランザクションハッシュを与えることで、タングルから "hello world" [トランザクション](root://getting-started/0.1/transactions/transactions.md)を読み取ります。**
+<!-- **In this guide, you read your "hello world" [transaction](root://getting-started/0.1/transactions/transactions.md) from the Tangle by giving a [node](root://getting-started/0.1/network/nodes.md) your tail transaction hash.** -->
 
 ## パッケージ
 <!-- ## Packages -->
@@ -28,7 +28,6 @@ pip install pyota
 
     ```python
     from iota import Iota
-    from iota import Transaction
     ```
 
 2. ノードに接続します。
@@ -38,27 +37,32 @@ pip install pyota
     api = Iota('https://nodes.devnet.iota.org:443', testnet = True)
     ```
 
-3. トランザクションのフィルタリングに使用するバンドルハッシュを定義します。
-  <!-- 3. Define the bundle hash that you want to use to filter transactions -->
+3. バンドルの末尾トランザクションハッシュを定義します。
+  <!-- 3. Define the tail transaction hash of the bundle -->
 
     ```python
-    bundle = 'IYPHGPIAO99XFAIBRXB9BEQLTZBCXTAGHUXL9UUXGGHHNKEBVEANQIBOALKSO9KLHTEEZXXPB9IOBK9RB'
+    tail_transaction_hash = 'ZFICKFQXASUESAWLSFFIWHVOAJCSJHJNXMRC9AJSIOTNGNKEWOFLECHPULLJSNRCNJPYNZEC9VGOSV999'
     ```
 
-4. [`find_transaction_objects()`](https://pyota.readthedocs.io/en/latest/api.html#find-transaction-objects) メソッドを使用して、 `bundle` フィールドの値によってトランザクションを取得します。
-  <!-- 4. Use the [`find_transaction_objects()`](https://pyota.readthedocs.io/en/latest/api.html#find-transaction-objects) method to get transactions by the value of their `bundle` field -->
+    :::info:
+    [バンドルハッシュ](root://getting-started/0.1/transactions/bundles.md#bundle-hash)とは異なり、`signatureMessageFragment` フィールドはハッシュの一部であるため、末尾トランザクションハッシュを使用します。したがって、トランザクション内のメッセージはイミュータブルです。
+    :::
+    <!-- :::info: -->
+    <!-- We use the tail transaction hash because, unlike the [bundle hash](root://getting-started/0.1/transactions/bundles.md#bundle-hash), the `signatureMessageFragment` field is part of the hash. Therefore, the message in the transaction is immutable. -->
+    <!-- ::: -->
+
+4. [`get_bundles()`](https://pyota.readthedocs.io/en/latest/extended_api.html?highlight=getbundles#get-bundles) メソッドを使用して、末尾トランザクションのバンドル内のすべてのトランザクションを取得します。
+  <!-- 4. Use the [`get_bundles()`](https://pyota.readthedocs.io/en/latest/extended_api.html?highlight=getbundles#get-bundles) method to get all transactions in the tail transaction's bundle -->
 
     ```python
-    transactions = api.find_transaction_objects(bundles=[bundle])
+    bundle = api.get_bundles(tail_transaction_hash)
     ```
 
 5. バンドルの最初のトランザクションのメッセージを ASCII 文字に変換し、コンソールに出力します。
   <!-- 5. Convert the message in the bundle's first transaction to ASCII characters and print it to the console -->
 
     ```python
-    # python api は 'transactions' を含む python 辞書を返すことに注意してください
-    # キーとその値としてのトランザクションオブジェクトのリストです
-    message = transactions['transactions'][0].signature_message_fragment
+    message = bundle['bundles'][0].tail_transaction.signature_message_fragment
     print(message.decode())
     ```
 
@@ -70,10 +74,10 @@ pip install pyota
     ```
 
 :::success:おめでとうございます:tada:
-タングルでトランザクションを見つけて読み取りました。
+タングルからトランザクションを見つけて読み取りました。
 :::
 <!-- :::success:Congratulations :tada: -->
-<!-- You've just found and read a transaction on the Tangle. -->
+<!-- You've just found and read a transaction from the Tangle. -->
 <!-- ::: -->
 
 ## コードを実行する
@@ -85,7 +89,7 @@ pip install pyota
 緑色のボタンをクリックして、このガイドのサンプルコードを実行し、ウィンドウで結果を確認できます。
 <!-- Click the green button to run the sample code in this guide and see the results in the window. -->
 
-<iframe height="600px" width="100%" src="https://repl.it/@jake91/Read-a-transaction-on-the-Tangle-Python?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="600px" width="100%" src="https://repl.it/@jake91/Read-a-transaction-from-the-Tangle-Python?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ## 次のステップ
 <!-- ## Next steps -->

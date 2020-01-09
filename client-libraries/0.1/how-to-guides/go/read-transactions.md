@@ -1,14 +1,14 @@
-# Go でタングル上のトランザクションを読む
-<!-- # Read transactions on the Tangle in Go -->
+# Go でタングルからトランザクションを読み取る
+<!-- # Read transactions from the Tangle in Go -->
 
-**このガイドでは、[ノード](root://getting-started/0.1/network/nodes.md)に接続し、バンドルハッシュでフィルタリングするようにリクエストすることで、[トランザクション](root://getting-started/0.1/transactions/transactions.md)をタングルから取得します。次に、トランザクション内のメッセージをデコードして、コンソールに出力します。**
-<!-- **In this guide, you get [transactions](root://getting-started/0.1/transactions/transactions.md) from the Tangle by connecting to a [node](root://getting-started/0.1/network/nodes.md) and asking it to filter them by their bundle hash. Then, you decode the message in the transaction and print it to the console.** -->
+**このガイドでは、[ノード](root://getting-started/0.1/network/nodes.md)に末尾トランザクションハッシュを与えることで、タングルから "hello world" [トランザクション](root://getting-started/0.1/transactions/transactions.md)を読み取ります。**
+<!-- **In this guide, you read your "hello world" [transaction](root://getting-started/0.1/transactions/transactions.md) from the Tangle by giving a [node](root://getting-started/0.1/network/nodes.md) your tail transaction hash.** -->
 
 ## パッケージ
 <!-- ## Packages -->
 
-このガイドを完了するには、次のパッケージをインストールする必要があります（Go モジュールを使用している場合は、これらのパッケージを参照するだけです）。
-<!-- To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages): -->
+このガイドを完了するには、以下のパッケージをインストールする必要があります（Go モジュールを使用している場合は、以下のパッケージを参照するだけです）。
+<!-- To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference them): -->
 
 ```bash
 go get github.com/iotaledger/iota.go/api
@@ -48,22 +48,28 @@ go get github.com/iotaledger/iota.go/transaction
     must(err)
     ```
 
-3. トランザクションのフィルタリングに使用するバンドルハッシュを定義します。
-  <!-- 3. Define the bundle hash that you want to use to filter transactions -->
+3. トランザクションのフィルタリングに使用する末尾トランザクションハッシュを定義します。
+  <!-- 3. Define the tail transaction hash that you want to use to filter transactions -->
 
     ```go
-    const bundle = trinary.Trytes("MKCJ9DXTBOVZJVYZXHFPRXUULIRTRM9SEBLIHUHY9ZABRGYIBZSREEUENDKRVIYFKHBTTKWGHXZZJPZYA")
+    const tailTransactionHash = trinary.Trytes("RXPDFDAUJHMSYBSWUHHNJM9YTOACXYYIRSIEIVUOGQIRUUAHQFNXQBURQJHLXWYLZLWNRMVIABKC9C999")
     ```
 
-4. [`FindTransactionObjects()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_find_transaction_objects.md) メソッドを使用して、`bundle` フィールドの値でトランザクションを取得します。次に、[`ExtractJSON()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/transaction_extract_j_s_o_n.md) メソッドを使用して、トランザクションの `signatureMessageFragment` フィールドの JSON メッセージをデコードし、コンソールに出力します
-  <!-- 4. Use the [`FindTransactionObjects()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_find_transaction_objects.md) method to get transactions by the value of their `bundle` field. Then, use the [`ExtractJSON()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/transaction_extract_j_s_o_n.md) method to try to decode the JSON message in the `signatureMessageFragment` fields of the transactions and print it to the console -->
+    :::info:
+    [バンドルハッシュ](root://getting-started/0.1/transactions/bundles.md#bundle-hash)とは異なり、`signatureMessageFragment` フィールドはハッシュの一部であるため、末尾トランザクションハッシュを使用します。したがって、トランザクション内のメッセージはイミュータブルです。
+    :::
+    <!-- :::info: -->
+    <!-- We use the tail transaction hash because, unlike the [bundle hash](root://getting-started/0.1/transactions/bundles.md#bundle-hash), the `signatureMessageFragment` field is part of the hash. Therefore, the message in the transaction is immutable. -->
+    <!-- ::: -->
+
+4. [`GetBundle()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_get_bundle.md) メソッドを使用して、末尾トランザクションのバンドル内のすべてのトランザクションを取得します。次に、[`ExtractJSON()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/transaction_extract_j_s_o_n.md) メソッドを使用して、トランザクションの `signatureMessageFragment` フィールドの JSON メッセージをデコードし、コンソールに出力します。
+  <!-- 4. Use the [`GetBundle()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_get_bundle.md) method to get all transactions in the tail transaction's bundle. Then, use the [`ExtractJSON()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/transaction_extract_j_s_o_n.md) method to decode the JSON messages in the `signatureMessageFragment` fields of the transactions and print them to the console -->
 
     ```go
-    var query = FindTransactionsQuery{Bundles: trinary.Hashes{bundle}}
-    transactions, err := api.FindTransactionObjects(query)
+    bundle, err := api.GetBundle(tailTransactionHash)
     must(err)
 
-    jsonMsg, err := transaction.ExtractJSON(transactions)
+    jsonMsg, err := transaction.ExtractJSON(bundle)
     must(err)
     fmt.Println(jsonMsg)
     ```
@@ -76,10 +82,10 @@ go get github.com/iotaledger/iota.go/transaction
     ```
 
 :::success:おめでとうございます:tada:
-タングル上のトランザクションを見つけて読み取りました。
+タングルからトランザクションを見つけて読み取りました。
 :::
 <!-- :::success:Congratulations :tada: -->
-<!-- You've just found and read a transaction on the Tangle. -->
+<!-- You've just found and read a transaction from the Tangle. -->
 <!-- ::: -->
 
 ## コードを実行する
@@ -91,7 +97,7 @@ go get github.com/iotaledger/iota.go/transaction
 緑色のボタンをクリックして、このガイドのサンプルコードを実行し、ウィンドウで結果を確認できます。
 <!-- Click the green button to run the sample code in this guide and see the results in the window. -->
 
-<iframe height="600px" width="100%" src="https://repl.it/@jake91/Read-a-transaction-on-the-Tangle?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="600px" width="100%" src="https://repl.it/@jake91/Read-a-transaction-from-the-Tangle-Go?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ## 次のステップ
 <!-- ## Next steps -->

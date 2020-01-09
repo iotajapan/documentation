@@ -20,8 +20,8 @@
 1. ["hello world" トランザクションを送信する](../go/send-your-first-bundle.md)。
 <!-- 1. [Send a "hello world" transaction](../go/send-your-first-bundle.md) -->
 
-2. [タングル上のトランザクションを読む](../go/read-transactions.md)。
-<!-- 2. [Read transactions on the Tangle](../go/read-transactions.md) -->
+2. [タングルからトランザクションを読み取る](../go/read-transactions.md)。
+<!-- 2. [Read transactions from the Tangle](../go/read-transactions.md) -->
 
 3. [アドレスを生成する](../go/generate-an-address.md)。
 <!-- 3. [Generate an address](../go/generate-an-address.md) -->

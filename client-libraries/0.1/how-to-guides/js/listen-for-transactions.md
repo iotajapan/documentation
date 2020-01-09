@@ -155,4 +155,4 @@ yarn add zeromq
 <!-- [Start using Masked Authenticated Messaging](../../mam/introduction/overview.md) to send encrypted streams of data that others can subscribe to on the Tangle. -->
 
 インスピレーションについては、[アプリ設計図](root://blueprints/0.1/introduction/overview.md)をご覧ください。
-<!-- Take a look at our [app blueprints](root://blueprints/0.1/introduction/overview.md) for inspiration -->
+<!-- Take a look at our [app blueprints](root://blueprints/0.1/introduction/overview.md) for inspiration. -->

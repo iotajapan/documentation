@@ -152,8 +152,12 @@ found 0 vulnerabilities
     node index.js
     ```
 
+<<<<<<< HEAD
 ノードは次のオブジェクトを返します。
 <!-- The node returns the following: -->
+=======
+The node returns something like the following:
+>>>>>>> upstream/develop
 
 ```json
 {

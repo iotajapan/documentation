@@ -20,8 +20,8 @@
 1. ["hello world" トランザクションを送信する](../java/send-your-first-bundle.md)。
 <!-- 1. [Send a "hello world" transaction](../java/send-your-first-bundle.md) -->
 
-2. [タングル上のトランザクションを読む](../java/read-transactions.md)。
-<!-- 2. [Read transactions on the Tangle](../java/read-transactions.md) -->
+2. [タングルからトランザクションを読み取る](../java/read-transactions.md)。
+<!-- 2. [Read transactions from the Tangle](../java/read-transactions.md) -->
 
 3. [アドレスを生成する](../java/generate-an-address.md)。
 <!-- 3. [Generate an address](../java/generate-an-address.md) -->

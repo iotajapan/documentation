@@ -63,13 +63,13 @@
     }
     ```
 
-指定されたインデックスから開始して、接続されたノードは次をチェックします。
-<!-- Starting from the given index, the connected node checks the following: -->
+接続されたノードは、指定されたインデックスから開始して、次の操作を実行してアドレスが使用されているかどうかを確認します。
+<!-- Starting from the given index, the connected node checks if the address is spent by doing the following: -->
 
-- ノード内のタングルの概観内の全入力トランザクション（ペンディング中または確定済み）がアドレスから取り出されているかどうか
-<!-- - If any input transactions (pending or confirmed) in its view of the Tangle withdraw from the address -->
-- アドレスがノードの使用済みアドレス（確定済みのトランザクションで取り出されたアドレス）のリストにあるかどうか
-<!-- - If the address is in the node's list of spent addresses (addresses that were withdrawn from in confirmed transactions) -->
+- アドレスから IOTA トークンを取り出す入力トランザクションがタングルの概観内にあるかどうかを検索する。
+<!-- - Search its view of the Tangle for input transactions that withdraw from the address -->
+- 使用済みアドレスのリスト内にアドレスがあるかどうかを検索する。
+<!-- - Search for the address in the list of spent addresses -->
 
 指定されたインデックスのアドレスが使用されていると、ノードは使用されていないアドレスを見つけるまでインデックスを増分します。
 <!-- If an address with the given index is spent, the index is incremented until the node finds one that isn't spent. -->
@@ -97,6 +97,9 @@ Your address is: WKJDF9LVQCVKEIVHFAOMHISHXJSGXWBJFYEQPOQKSVGZZFLTUUPBACNQZTAKXR9
 
 ## コードを実行する
 <!-- ## Run the code -->
+
+これらのコードサンプルは [GitHub](https://github.com/JakeSCahill/java-iota-workshop) でホストされています。
+<!-- These code samples are hosted on [GitHub](https://github.com/JakeSCahill/java-iota-workshop). -->
 
 開始するには、デバイスに [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) がインストールされている必要があります。
 <!-- To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device. -->

@@ -5,10 +5,10 @@
 <!-- **To help you get started with the Go account module, this workflow guide walks you through the essentials from creating an account to making payments and exporting your seed state.** -->
 
 :::info:
-コードは [GitHub](https://github.com/JakeSCahill/iota-samples) でもホストされています。
+コードは [GitHub](https://github.com/iota-community/account-module) でもホストされています。
 :::
 <!-- :::info: -->
-<!-- The code is also hosted on [GitHub](https://github.com/JakeSCahill/iota-samples). -->
+<!-- The code is also hosted on [GitHub](https://github.com/iota-community/account-module). -->
 <!-- ::: -->
 
 1. [アカウントを作成する](../go/create-account.md)。

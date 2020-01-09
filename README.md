@@ -30,6 +30,7 @@
 | Immutable                     | イミュータブル、不変                                 |
 | Input transaction             | 入力トランザクション                                 |
 | Ledger                        | 台帳                                                 |
+| List                          | リスト、一覧                                         |
 | Mainnet                       | メインネット                                         |
 | Micropayment                  | マイクロペイメント、少額決済                         |
 | Nonce                         | ナンス                                               |
@@ -46,6 +47,7 @@
 | Tail transaction              | 末尾トランザクション                                 |
 | Tip seleciton                 | チップ選択                                           |
 | Tip transaction               | チップトランザクション                               |
+| View                          | 概観、ビュー                                         |
 | Withdraw                      | 取り出し                                             |
 | Zero-value transaction        | ゼロトークントランザクション                         |
 

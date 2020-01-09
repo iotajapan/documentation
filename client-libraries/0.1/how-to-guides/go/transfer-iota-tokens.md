@@ -7,8 +7,8 @@
 ## パッケージ
 <!-- ## Packages -->
 
-このガイドを完了するには、次のパッケージをインストールする必要があります（Go モジュールを使用している場合は、これらのパッケージを参照するだけです）。
-<!-- To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference these packages): -->
+このガイドを完了するには、以下のパッケージをインストールする必要があります（Go モジュールを使用している場合は、以下のパッケージを参照するだけです）。
+<!-- To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference them): -->
 
 ```bash
 go get github.com/iotaledger/iota.go/api
@@ -143,10 +143,14 @@ $b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).
     <!-- This method asks the node to check the balance of your seed's addresses. If your addresses have enough IOTA tokens to complete the transfer, the method creates input transactions to withdraw the full balance from enough of your addresses to fulfill the transfer. Then, the method adds those transactions to the transfer bundle and signs the bundle with the private keys of any withdrawn addresses. -->
 
     :::info:
-    シードがデバイスから離れることはありません。ライブラリはアドレスを生成し、アドレスのみをノードに送信します。
+    シードがデバイスから離れることはありません。
+
+    ライブラリは、ローカルデバイスでアドレスを生成し、アドレスをノードに送信します。
     :::
     <!-- :::info: -->
-    <!-- Your seed never leaves your device. The library generates addresses and sends them to the node. -->
+    <!-- Your seed never leaves your device. -->
+
+    <!-- The library generates addresses on your local device and sends them to the node. -->
     <!-- ::: -->
 
     転送する金額が取り出すアドレスの残高より少ない場合、メソッドは別の出力トランザクションを作成して、残りの IOTA トークンをシードに属する未使用のアドレスに転送します。
@@ -162,8 +166,9 @@ $b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).
     fmt.Println(myBundle)
     ```
 
-    コンソールに、トランザクションに関する情報が表示されます。
-    <!-- In the console, you'll see information about the transactions. -->
+
+    コンソールには、バンドル内のトランザクションに関する情報が表示されます。
+    <!-- In the console, you'll see information about the transactions in the bundle. -->
 
 :::success:おめでとうございます:tada:
 最初の転送バンドルを送信しました。トランザクションはタングルにアタッチされ、ネットワークの残りの部分に転送されます。これで、トランザクションが確定し、残高が更新されるのを待つだけです。
