@@ -37,7 +37,7 @@ go get github.com/iotaledger/iota.go/trinary
 <!-- 1\. Create a new seed and back it up -->
 
 :::info:
-既存のシードは、シードステートが不明であるため、使用しても安全ではありません。そのため、これらのシードは、アカウントが認識していない使用済みアドレスを持っている場合が有ります。
+既存のシードは、シードステートが不明であるため、使用することは安全ではありません。既存のシードは、アカウントが認識していない使用済みアドレスを持っている場合が有ります。
 :::
 <!-- :::info: -->
 <!-- Existing seeds are not safe to use because their state is unknown. As such, these seeds may have spent addresses that the account is not aware of. -->
