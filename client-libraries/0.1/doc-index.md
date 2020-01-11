@@ -90,7 +90,7 @@
 
 [ハウツーガイド/Python/タングル上のライブトランザクションをリッスンする](/how-to-guides/python/listen-for-transactions.md)
 
-[アカウントモジュール/序説/概要](/account-module/introduction/overview.md)
+[アカウントモジュール/序説/アカウントモジュール概要](/account-module/introduction/overview.md)
 
 [アカウントモジュール/Go/Go アカウントモジュール入門](/account-module/go/get-started.md)
 
@@ -102,7 +102,7 @@
 
 [アカウントモジュール/Go/支払いを作成する](/account-module/go/make-payment.md)
 
-[アカウントモジュール/Go/シードステートをエクスポートする](/account-module/go/export-seed-state.md)
+[アカウントモジュール/Go/シードステートをインポート/エクスポートする](/account-module/go/export-seed-state.md)
 
 [アカウントモジュール/Go/イベントをリッスンする](/account-module/go/listen-to-events.md)
 
@@ -118,7 +118,7 @@
 
 [アカウントモジュール/Java/支払いを作成する](/account-module/java/make-payment.md)
 
-[アカウントモジュール/Java/シードステートをエクスポートする](/account-module/java/export-seed-state.md)
+[アカウントモジュール/Java/シードステートをインポート/エクスポートする](/account-module/java/export-seed-state.md)
 
 [アカウントモジュール/Java/イベントをリッスンする](/account-module/java/listen-to-events.md)
 
@@ -134,11 +134,11 @@
 
 [アカウントモジュール/JavaScript/支払いを作成する](/account-module/js/make-payment.md)
 
-[アカウントモジュール/JavaScript/シードステートをエクスポートする](/account-module/js/export-seed-state.md)
+[アカウントモジュール/JavaScript/シードステートをインポート/エクスポートする](/account-module/js/export-seed-state.md)
 
 [アカウントモジュール/JavaScript/複数の残高を統合する](/account-module/js/combine-balance.md)
 
-[MAM/序説/概要](/mam/introduction/overview.md)
+[MAM/序説/MAM 概要](/mam/introduction/overview.md)
 
 [MAM/JavaScript/パブリックメッセージを発行する](/mam/js/create-public-channel.md)
 

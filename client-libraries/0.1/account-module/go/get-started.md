@@ -23,5 +23,5 @@
 4. [初めての支払いを行う](../go/make-payment.md)。
 <!-- 3. [Make your first payment](../go/make-payment.md) -->
 
-5. [シードステートのインポート・エクスポートを行う](../go/export-seed-state.md)。
+5. [シードステートのインポート/エクスポートを行う](../go/export-seed-state.md)。
 <!-- 4. [Learn how to import/export your seed state](../go/export-seed-state.md) -->

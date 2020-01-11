@@ -218,12 +218,8 @@ java -cp .;jota-[VERSION]-jar-with-dependencies.jar ConnectToNode
 ```
 --------------------
 
-<<<<<<< HEAD
-ノードは次のオブジェクトを返します。
-<!-- The node returns the following: -->
-=======
-The node returns something like the following:
->>>>>>> upstream/develop
+ノードは次のようなものを返します。
+<!-- The node returns something like the following: -->
 
 ```json
 {
@@ -275,22 +271,20 @@ The node returns something like the following:
 <!-- You've confirmed your connection to a synchronized node. -->
 <!-- ::: -->
 
-## プロジェクトをサポートする
-<!-- ## Support the project -->
+## コードを実行する
+<!-- ## Run the code -->
 
-<<<<<<< HEAD
-Java ライブラリが役に立ち、貢献したいと思うなら、[バグレポート](https://github.com/iotaledger/iota-java/issues/new-issue)、機能リクエスト、または[プルリクエスト](https://github.com/iotaledger/iota-java/pulls/)の投稿を検討してください。
-<!-- If the Java library has been useful to you and you feel like contributing, consider posting a [bug report](https://github.com/iotaledger/iota-java/issues/new-issue), feature request or a [pull request](https://github.com/iotaledger/iota-java/pulls/). -->
-=======
-## Run the code
+これらのコードサンプルは[GitHub](https://github.com/JakeSCahill/java-iota-workshop) でホストされています。
+<!-- These code samples are hosted on [GitHub](https://github.com/JakeSCahill/java-iota-workshop). -->
 
-These code samples are hosted on [GitHub](https://github.com/JakeSCahill/java-iota-workshop).
+開始するには、デバイスに [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) がインストールされている必要があります。
+<!-- To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device. -->
 
-To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
+また、[Maven](https://maven.apache.org/download.cgi) ビルドツールを使用する Java 開発環境も必要です。
+<!-- You also need a Java development environment that uses the [Maven](https://maven.apache.org/download.cgi) build tool. -->
 
-You also need a Java development environment that uses the [Maven](https://maven.apache.org/download.cgi) build tool.
-
-In the command-line, do the following:
+コマンドラインで、次を実行します。
+<!-- In the command-line, do the following: -->
 
 --------------------
 ### Linux and macOS
@@ -310,10 +304,14 @@ mvn exec:java -D"exec.mainClass"="com.iota.HelloWorld"
 ```
 --------------------
 
-In the console, you should see the response object.
+コンソールに、レスポンスオブジェクトが表示されます。
+<!-- In the console, you should see the response object. -->
 
-## Support the project
->>>>>>> upstream/develop
+## プロジェクトをサポートする
+<!-- ## Support the project -->
+
+Java ライブラリが役に立ち、貢献したいと思うなら、[バグレポート](https://github.com/iotaledger/iota-java/issues/new-issue)、機能リクエスト、または[プルリクエスト](https://github.com/iotaledger/iota-java/pulls/)の投稿を検討してください。
+<!-- If the Java library has been useful to you and you feel like contributing, consider posting a [bug report](https://github.com/iotaledger/iota-java/issues/new-issue), feature request or a [pull request](https://github.com/iotaledger/iota-java/pulls/). -->
 
 コードベースの安定性と一貫性を保つために、[基本的な貢献ガイドライン](https://github.com/iotaledger/iota-java/blob/dev/CONTRIBUTING.md)があります。
 <!-- We have some [basic contribution guidelines](https://github.com/iotaledger/iota-java/blob/dev/CONTRIBUTING.md) to keep our code base stable and consistent. -->
@@ -346,11 +344,8 @@ In the console, you should see the response object.
 ## 次のステップ
 <!-- ## Next steps -->
 
-<<<<<<< HEAD
+[Java ワークショップ](../how-to-guides/java/get-started.md)で学習を続ける。
+<!-- Continue learning with our [Java workshop](../how-to-guides/java/get-started.md). -->
+
 [開発者ハンドブック](root://getting-started/0.1/references/quickstart-dev-handbook.md)を読んで、自分自身のノードを実行するかどうか、プライベートIOTAネットワークが必要かどうか、および両方が必要かどうかの参考にしてください。
 <!-- Read our [developer's handbook](root://getting-started/0.1/references/quickstart-dev-handbook.md) for guidance on whether you should run your own node, whether you need a private IOTA network, and what you need to consider for both. -->
-=======
-Continue learning with our [Java workshop](../how-to-guides/java/get-started.md).
-
-Read our [developer's handbook](root://getting-started/0.1/references/quickstart-dev-handbook.md) for guidance on whether you should run your own node, whether you need a private IOTA network, and what you need to consider for both.
->>>>>>> upstream/develop

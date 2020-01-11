@@ -139,12 +139,8 @@ go: downloading github.com/iotaledger/iota.go v1.0.0-beta.10
     go run connectToANode.go
     ```
 
-<<<<<<< HEAD
-ノードは次のオブジェクトを返します。
-<!-- The node returns the following: -->
-=======
-The node returns something like the following:
->>>>>>> upstream/develop
+ノードは次のようなものを返します。
+<!-- The node returns something like the following: -->
 
 ```json
 {
