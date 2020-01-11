@@ -33,7 +33,7 @@ go get github.com/iotaledger/iota.go/trinary
 ## コードウォークスルー
 <!-- ## Code walkthrough -->
 
-1\. 新しいシードを作成し、シードをバックアップします。
+1\. 新しいシードを作成し、バックアップします。
 <!-- 1\. Create a new seed and back it up -->
 
 :::info:

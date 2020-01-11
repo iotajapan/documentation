@@ -1,14 +1,20 @@
-# C quickstart
+# C クイックスタート
+<!-- # C quickstart -->
 
-**In this quickstart, you learn the basics of IOTA development in C, from setting up a development environment to listening for live transaction on the Tangle.**
+**このクイックスタートでは、開発環境の設定からタングルでのライブトランザクションのリッスンまで、C での IOTA 開発の基本を学びます。**
+<!-- **In this quickstart, you learn the basics of IOTA development in C, from setting up a development environment to listening for live transaction on the Tangle.** -->
 
-In this quickstart, you will learn how to:
+このクイックスタートでは、次の方法を学習します。
+<!-- In this quickstart, you will learn how to: -->
 
-1. Set up a developer environment
+1. 開発環境をセットアップする
+<!-- 1. Set up a developer environment -->
 
-2. Install packages
+2. パッケージをインストールする
+<!-- 2. Install packages -->
 
-3. Connect to a node
+3. ノードに接続する
+<!-- 3. Connect to a node -->
 
 ## Step 1. Set up a developer environment
 

@@ -1,10 +1,14 @@
-# Combine your balance into one CDA in JavaScript
+# JavaScript で1つの CDA に残高をまとめる
+<!-- # Combine your balance into one CDA in JavaScript -->
 
-**You may want to keep the majority of your balance on as few CDAs as possible. This way, making payments is faster and requires fewer transactions. In this guide, you transfer your entire available balance to a new CDA.**
+**残高の大半をできるだけ少ない CDA に保持することをお勧めします。これにより、支払いがより高速になり、必要なトランザクションが少なくなります。このガイドでは、利用可能な残高全体を新しいCDAに移行します。**
+<!-- **You may want to keep the majority of your balance on as few CDAs as possible. This way, making payments is faster and requires fewer transactions. In this guide, you transfer your entire available balance to a new CDA.** -->
 
-## Packages
+## パッケージ
+<!-- ## Packages -->
 
-To complete this guide, you need to install the following packages:
+このガイドを完了するには、次のパッケージをインストールする必要があります。
+<!-- To complete this guide, you need to install the following packages: -->
 
 --------------------
 ### npm
@@ -18,13 +22,17 @@ yarn add @iota/account @iota/transaction-converter ntp-client
 ```
 --------------------
 
-## IOTA network
+## IOTA ネットワーク
+<!-- ## IOTA network -->
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
+このガイドでは、[デブネット](root://getting-started/0.1/network/iota-networks.md#devnet)の[ノード](root://getting-started/0.1/network/nodes.md)に接続します。
+<!-- In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet). -->
 
-## Code walkthrough
+## コードウォークスルー
+<!-- ## Code walkthrough -->
 
-1. Create a CDA that expects your account's available balance
+1. アカウントの利用可能残高を期待する CDA を作成します。
+  <!-- 1. Create a CDA that expects your account's available balance -->
 
     ```js
     account.getAvailableBalance()
@@ -36,12 +44,18 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
     ```
 
     :::info:
-    Available balance is the total balance of all expired CDAs, which are safe to withdraw from.
+    使用可能な残高は、期限切れとなったすべての CDA の合計残高であり、取り出しても安全です。
 
-    Your account's total balance includes CDAs that are still active and so cannot be withdrawn from.
+    アカウントの合計残高には、まだアクティブな CDA が含まれているため、アカウントの合計残高からは取り出しできません。
     :::
+    <!-- :::info: -->
+    <!-- Available balance is the total balance of all expired CDAs, which are safe to withdraw from. -->
 
-2. Send a deposit to your CDA
+    <!-- Your account's total balance includes CDAs that are still active and so cannot be withdrawn from. -->
+    <!-- ::: -->
+
+2. CDA にデポジットを送信します。
+  <!-- 2. Send a deposit to your CDA -->
 
     ```js
         .then(cda => {
@@ -50,9 +64,9 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
                     value: balance
                 })
                 .then(trytes => {
-                    
+
                     console.log(trytes)
-                    // Get the tail transaction and convert it to an object
+                    // 末尾トランザクションを取得し、オブジェクトへ変換します
                     let bundle = TransactionConverter.asTransactionObject(trytes[0]);
                     let bundleHash = bundle.bundle;
                     let address = bundle.address
@@ -62,30 +76,39 @@ In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/n
             })
         }).catch(error => {
         console.log(error);
-        // Close the database and stop any ongoing reattachments
+        // データベースを閉じ、進行中の再アタッチを停止します
         account.stop();
     });
     ```
 
-    You should see that how many IOTA tokens were sent to your address as well as the bundle hash:
+    バンドルハッシュと同様に、アドレスに送信された IOTA トークンの量を確認する必要があります。
+    <!-- You should see that how many IOTA tokens were sent to your address as well as the bundle hash: -->
 
-    ```
+    ```bash
     Sent 1000 to TIZJIRDCZPRJMMVKSGROPKE9VGIQKOLOUSX9MCUTOEQBBHPMLYBVKBPCXJKY9SDWX9FVMOZTWNMVVEYKX in bundle:  RXIA9CBEOASNY9IRIARZFGDLK9YNGW9ZHJGJLUXOUKVGCZLPNDKALFHZWHZKQQXFTIHEIJJPN9EURO9K9
     ```
 
 :::success:
-Now your total available balance is in a single address.
+現在、利用可能な合計残高は単一のアドレスにあります。
 :::
+<!-- :::success: -->
+<!-- Now your total available balance is in a single address. -->
+<!-- ::: -->
 
-## Run the code
+## コードを実行する
+<!-- ## Run the code -->
 
-These code samples are hosted on [GitHub](https://github.com/iota-community/account-module).
+これらのコードサンプルは [GitHub](https://github.com/iota-community/account-module) でホストされています。
+<!-- These code samples are hosted on [GitHub](https://github.com/iota-community/account-module). -->
 
-To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
+開始するには、デバイスに [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) がインストールされている必要があります。
+<!-- To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device. -->
 
-If you don't have a JavaScript development environment, or if this is your first time using the JavaScript client library, complete our [getting started guide](../../getting-started/js-quickstart.md).
+JavaScript 開発環境がない場合、または JavaScript クライアントライブラリを初めて使用する場合は、[スタートガイド](../../getting-started/js-quickstart.md)を完了してください。
+<!-- If you don't have a JavaScript development environment, or if this is your first time using the JavaScript client library, complete our [getting started guide](../../getting-started/js-quickstart.md). -->
 
-In the command-line, do the following:
+コマンドラインで、次を実行します。
+<!-- In the command-line, do the following: -->
 
 ```bash
 git clone https://github.com/iota-community/account-module.git
@@ -94,10 +117,14 @@ npm i
 node combine-balance/combine-balance.js
 ```
 
-You should see that the deposit was sent.
+デポジットが送信されたことがわかります。
+<!-- You should see that the deposit was sent. -->
 
-Your seed state will contain this pending bundle until its tail transaction is confirmed.
+末尾トランザクションが確定されるまで、シードステートにはこのペンディング中のバンドルに含まれます。
+<!-- Your seed state will contain this pending bundle until its tail transaction is confirmed. -->
 
-## Next steps
+## 次のステップ
+<!-- ## Next steps -->
 
-[Try exporting your seed state so you back it up or import it onto another device](../js/export-seed-state.md).
+[シードステートをエクスポートして、バックアップするか、別のデバイスにインポートする](../js/export-seed-state.md)。
+<!-- [Try exporting your seed state so you back it up or import it onto another device](../js/export-seed-state.md). -->

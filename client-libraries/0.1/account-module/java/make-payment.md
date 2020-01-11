@@ -53,7 +53,7 @@
     Sent deposit to DL9CSYICJVKQRUTWBFUCZJQZ9WNBSRJOA9MGOISQZGGHOCZTXVSKDIZN9HBORNGDWRBBAFTKXGEJIAHKDTMAUX9ILA in the bundle with the following tail transaction hash WZEATTRJYENRALJTWPVGDQZHETIDJXPUROUM9BBPS9RJEELDMU9YNZFBSDGPQHZHMXBVCKITSMDEEQ999
     ```
 
-アカウントは、確定されるまでバンドルを再アタッチしてプロモートします。
+アカウントは、確定されるまでバンドルの再アタッチとプロモートを実行します。
 <!-- Your account will reattach and promote your bundle until it's confirmed. -->
 
 ## コードを実行する

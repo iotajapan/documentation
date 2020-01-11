@@ -26,7 +26,7 @@
 | Device                        | デバイス、端末                                       |
 | Devnet                        | デブネット                                           |
 | Fragment                      | フラグメント、断片                                   |
-| Head transaction              | 先頭トランザクション                                 |
+| Head transaction              | ヘッドトランザクション、先頭トランザクション         |
 | Immutable                     | イミュータブル、不変                                 |
 | Input transaction             | 入力トランザクション                                 |
 | Ledger                        | 台帳                                                 |
@@ -44,7 +44,7 @@
 | Seed state                    | シードステート、シード状態                           |
 | Solid                         | ソリッド、凝固済み                                   |
 | Spent address                 | 使用済みアドレス                                     |
-| Tail transaction              | 末尾トランザクション                                 |
+| Tail transaction              | テールトランザクション、末尾トランザクション         |
 | Tip seleciton                 | チップ選択                                           |
 | Tip transaction               | チップトランザクション                               |
 | View                          | 概観、ビュー                                         |

@@ -1,10 +1,14 @@
-# Make payments with your account in JavaScript
+# JavaScript でアカウントで支払いを行う
+<!-- # Make payments with your account in JavaScript -->
 
-**In this guide, you use your account to deposit IOTA tokens into a pre-defined CDA.**
+**このガイドでは、アカウントを使用して IOTA トークンを事前定義された CDA にデポジットします。**
+<!-- **In this guide, you use your account to deposit IOTA tokens into a pre-defined CDA.** -->
 
-## Packages
+## パッケージ
+<!-- ## Packages -->
 
-To complete this guide, you need to install the following packages:
+このガイドを完了するには、次のパッケージをインストールする必要があります。
+<!-- To complete this guide, you need to install the following packages: -->
 
 --------------------
 ### npm
@@ -18,17 +22,23 @@ yarn add @iota/account @iota/cda @iota/transaction-converter ntp-client
 ```
 --------------------
 
-## IOTA network
+## IOTA ネットワーク
+<!-- ## IOTA network -->
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
+このガイドでは、[デブネット](root://getting-started/0.1/network/iota-networks.md#devnet)の[ノード](root://getting-started/0.1/network/nodes.md)に接続します。
+<!-- In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet). -->
 
-## Code walkthrough
+## コードウォークスルー
+<!-- ## Code walkthrough -->
 
-To make a payment, your account needs to have one or more CDAs that contains IOTA tokens.
+支払いを行うには、アカウントに IOTA トークンを含む1つ以上の CDA が必要です。
+<!-- To make a payment, your account needs to have one or more CDAs that contains IOTA tokens. -->
 
-1. If you dont have a CDA that contains IOTA tokens, follow this guide to [generate a CDA](../js/generate-cda.md) and send test IOTA tokens to it
+1. IOTA トークンを含む CDA がない場合は、[このガイド](../js/generate-cda.md)に従って CDA を生成し、テスト IOTA トークンを送信します。
+<!-- 1. If you dont have a CDA that contains IOTA tokens, follow this guide to [generate a CDA](../js/generate-cda.md) and send test IOTA tokens to it -->
 
-2. Use the `parseCDAMagnet()` method to deserialize the magnet link into a CDA
+2. `parseCDAMagnet()` メソッドを使用してマグネットリンクを CDA にデシリアライズします。
+<!-- 2. Use the `parseCDAMagnet()` method to deserialize the magnet link into a CDA -->
 
     ```js
     const magnetLink = "iota://BWNYWGULIIAVRYOOFWZTSDFXFPRCFF9YEHGVBOORLGCPCJSKTHU9OKESUGZGWZXZZDLESFPPTGEHVKTTXG9BQLSIGP/?timeout_at=5174418337&multi_use=1&expected_amount=0";
@@ -39,14 +49,18 @@ To make a payment, your account needs to have one or more CDAs that contains IOT
     ```
 
     :::info:
-    The given magent link is for an example CDA that expires in over 100 years.
-    If you want to make a payment to a different CDA, use that one instead.
+    指定されたマグネットリンクは、100年以上で期限切れになる CDA の例です。別の CDA に支払いを行う場合は、代わりにその CDA を使用してください。
     :::
+    <!-- :::info: -->
+    <!-- The given magent link is for an example CDA that expires in over 100 years. If you want to make a payment to a different CDA, use that one instead. -->
+    <!-- ::: -->
 
-3. Make sure that the CDA is still active
+3. CDA がまだアクティブであることを確認します。
+  <!-- 3. Make sure that the CDA is still active -->
 
     ```js
     // Get the current time to use to compare to the CDA's timeout
+    // CDA のタイムアウトと比較するために使用する現在の時間を取得します
     ntpClient.getNetworkTime("time.google.com", 123, function(err, date) {
         if(err) {
             console.error(err);
@@ -57,17 +71,18 @@ To make a payment, your account needs to have one or more CDAs that contains IOT
     });
     ```
 
-3. Send a deposit to the CDA
+3. CDA にデポジットを送信します。
+  <!-- 3. Send a deposit to the CDA -->
 
     ```js
-    // Send the payment only if the CDA is active
+    // CDA が有効な場合にのみ支払いを送信します
     if (isActive) {
         account.sendToCDA({
             ...cda,
             value: 1000
         })
         .then((trytes) => {
-            // Get the tail transaction and convert it to an object
+            // テールトランザクションを取得し、オブジェクトに変換します
             let bundle = TransactionConverter.asTransactionObject(trytes[trytes.length - 1]);
             let bundleHash = bundle.bundle;
             let address = bundle.address
@@ -76,29 +91,33 @@ To make a payment, your account needs to have one or more CDAs that contains IOT
         })
         .catch(error => {
             console.log(error);
-            // Close the database and stop any ongoing reattachments
+            // データベースを閉じ、すべての進行中の再アタッチを停止します
             account.stop();
         });
 
     } else {
         console.log('CDA is expired. Use an active CDA.');
-        // Close the database and stop any ongoing reattachments
+        // データベースを閉じ、すべての進行中の再アタッチを停止します
         account.stop();
         return;
     }
     ```
 
-    You should see that how many IOTA tokens were sent to your address as well as the bundle hash:
+    バンドルハッシュと同様に、アドレスに送信された IOTA トークンの量を確認する必要があります。
+    <!-- You should see that how many IOTA tokens were sent to your address as well as the bundle hash: -->
 
-    ```
+    ```bash
     Sent 1000 to TIZJIRDCZPRJMMVKSGROPKE9VGIQKOLOUSX9MCUTOEQBBHPMLYBVKBPCXJKY9SDWX9FVMOZTWNMVVEYKX in bundle:  RXIA9CBEOASNY9IRIARZFGDLK9YNGW9ZHJGJLUXOUKVGCZLPNDKALFHZWHZKQQXFTIHEIJJPN9EURO9K9
     ```
 
-Your account will reattach and promote your bundle until it's confirmed.
+アカウントは、確定されるまでバンドルの再アタッチとプロモートを実行します。
+<!-- Your account will reattach and promote your bundle until it's confirmed. -->
 
-You can stop the reattachment routine by calling the `stopAttaching()` method.
+`stopAttaching()` メソッドを呼び出すことで、再アタッチルーチンを停止できます。
+<!-- You can stop the reattachment routine by calling the `stopAttaching()` method. -->
 
-To restart the reattachment routine, call the `startAttaching()` method with your network settings.
+再アタッチルーチンを再起動するには、ネットワーク設定で `startAttaching()` メソッドを呼び出します。
+<!-- To restart the reattachment routine, call the `startAttaching()` method with your network settings. -->
 
 ```js
 account.stopAttaching();
@@ -111,15 +130,20 @@ account.startAttaching({
 });
 ```
 
-## Run the code
+## コードを実行する
+<!-- ## Run the code -->
 
-These code samples are hosted on [GitHub](https://github.com/iota-community/account-module).
+これらのコードサンプルは[GitHub](https://github.com/iota-community/account-module) でホストされています。
+<!-- These code samples are hosted on [GitHub](https://github.com/iota-community/account-module). -->
 
-To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
+開始するには、デバイスに [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) がインストールされている必要があります。
+<!-- To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device. -->
 
-If you don't have a JavaScript development environment, or if this is your first time using the JavaScript client library, complete our [getting started guide](../../getting-started/js-quickstart.md).
+JavaScript 開発環境がない場合、または JavaScript クライアントライブラリを初めて使用する場合は、[スタートガイド](../../getting-started/js-quickstart.md)を完了してください。
+<!-- If you don't have a JavaScript development environment, or if this is your first time using the JavaScript client library, complete our [getting started guide](../../getting-started/js-quickstart.md). -->
 
-In the command-line, do the following:
+コマンドラインで、次を実行します。
+<!-- In the command-line, do the following: -->
 
 ```bash
 git clone https://github.com/iota-community/account-module.git
@@ -128,10 +152,14 @@ npm i
 node make-payment/make-payment.js
 ```
 
-You should see that the deposit was sent.
+デポジットが送信されたことがわかります。
+<!-- You should see that the deposit was sent. -->
 
-Your seed state will contain this pending bundle until it is confirmed.
+シードステートには、確定されるまでこのペンディング中のバンドルが含まれます。
+<!-- Your seed state will contain this pending bundle until it is confirmed. -->
 
-## Next steps
+## 次のステップ
+<!-- ## Next steps -->
 
-[Try exporting your seed state so you back it up or import it onto another device](../js/export-seed-state.md).
+[シードステートをエクスポートして、バックアップするか、別のデバイスにインポートする](../js/export-seed-state.md)。
+<!-- [Try exporting your seed state so you back it up or import it onto another device](../js/export-seed-state.md). -->
