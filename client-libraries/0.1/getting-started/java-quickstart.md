@@ -64,7 +64,7 @@ IOTA Javaクライアントライブラリとその依存関係をインスト�
 - 手動でライブラリをインストールする
 <!-- - Install the library manually -->
 
-Java 統合開発環境（IDE）を使用してアプリケーションを構築している場合、依存関係のグループID、アーティファクトID、およびバージョン番号を指定できます。
+Java 統合開発環境（IDE）を使用してアプリケーションを構築している場合、依存関係のグループ ID、アーティファクト ID、およびバージョン番号を指定できます。
 <!-- If you are using a Java integrated development environment (IDE) to build your application, you can specify the group ID, artifact ID, and version number for your dependencies. -->
 
 使用しているパッケージマネージャーに関係なく、[JitPack](https://jitpack.io/#iotaledger/iota-java) ページにある Jota ライブラリの最新バージョンを指定することを忘れないでください。
