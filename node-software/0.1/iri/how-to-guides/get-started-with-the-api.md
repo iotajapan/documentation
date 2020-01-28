@@ -1,7 +1,7 @@
 # ノードにリクエストを送信する
 <!-- # Send requests to a node -->
 
-**ノードは、`PORT`設定パラメーターに設定されているAPIポートでクライアントからのトランザクションを受信します。このポートにHTTPリクエストを送信して、ノードのREST APIとやり取りすることができます。これにより、タングルに対してデータの読み書きを行うことができます。**
+**ノードは、`PORT` 構成パラメーターに設定されている API ポートでクライアントからのトランザクションを受信します。このポートに HTTP リクエストを送信して、ノードの REST API とやり取りすることができます。これにより、タングルに対してデータの読み書きを行うことができます。**
 <!-- **Nodes wait to receive transactions from clients on the API port that's set in the `PORT` configuration parameter. You can send HTTP requests to this port to interact with a node's REST API, which allows you to read/write data to the Tangle.** -->
 
 ## 前提条件
@@ -10,9 +10,9 @@
 このガイドのコードサンプルを使用するには、次のものが必要です。
 <!-- To use the code samples in this guide, you must have the following: -->
 
-- [Node.js (8+)](https://nodejs.org/en/)または[Python (3+)](https://www.python.org/downloads/)と[PIP](https://pip.pypa.io/en/stable/installing/)
+- [Node.js (8+)](https://nodejs.org/en/)または[Python (3+)](https://www.python.org/downloads/)と [PIP](https://pip.pypa.io/en/stable/installing/)
 <!-- - [Node.js (8+)](https://nodejs.org/en/) or [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/) -->
-- [Visual Studio Code](https://code.visualstudio.com/Download)のようなコードエディタ
+- [Visual Studio Code](https://code.visualstudio.com/Download) のようなコードエディタ
 <!-- - A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
 - コマンドラインインターフェイスへのアクセス
 <!-- - Access to a command-line interface -->
@@ -20,10 +20,10 @@
 ## ノードに関する情報をリクエストする
 <!-- ## Request information about the node -->
 
-[getNodeInfo](../references/api-reference.md#getnodeinfo)エンドポイントを呼び出して、ノードに関する一般情報をリクエストすることができます。
+[getNodeInfo](../references/api-reference.md#getnodeinfo) エンドポイントを呼び出して、ノードに関する一般情報をリクエストすることができます。
 <!-- You can call the [getNodeInfo](../references/api-reference.md#getnodeinfo) endpoint to request general information about the node. -->
 
-その他のエンドポイントについては、[APIリファレンス](../references/api-reference.md)を参照してください。
+その他のエンドポイントについては、[API リファレンス](../references/api-reference.md)を参照してください。
 <!-- For more endpoints, see the [API reference](../references/api-reference.md). -->
 
 1\. ライブラリをインストールします。
@@ -43,7 +43,7 @@ pip install urllib3
 ```
 --------------------
 
-2\. ライブラリをインポートし、`getNodeInfo`エンドポイントへのリクエストをエンコードします。
+2\. ライブラリをインポートし、`getNodeInfo` エンドポイントへのリクエストをエンコードします。
 <!-- 2\. Import the libraries and encode a request to the `getNodeInfo` endpoint -->
 
 --------------------
@@ -137,7 +137,7 @@ print(json.dumps(results, indent=1, sort_keys=True))
 ```
 
 :::info:これらのフィールドが何を意味するのか知りたいですか？
-[`getNodeInfo()` APIリファレンス](root://node-software/0.1/iri/references/api-reference.md#getnodeinfo)をご覧ください。
+[`getNodeInfo()` API リファレンス](root://node-software/0.1/iri/references/api-reference.md#getnodeinfo)をご覧ください。
 :::
 <!-- :::info:Want to know what these fields mean? -->
 <!-- [Take a look at the `getNodeInfo()` API reference](root://node-software/0.1/iri/references/api-reference.md#getnodeinfo). -->
@@ -146,7 +146,7 @@ print(json.dumps(results, indent=1, sort_keys=True))
 ## コードを実行する
 <!-- ## Run the code -->
 
-このガイドのサンプルコードを実行してWebブラウザに結果を表示するには、緑色のボタンをクリックします。
+このガイドのサンプルコードを実行して Web ブラウザに結果を表示するには、緑色のボタンをクリックします。
 <!-- Click the green button to run the sample code in this guide and see the results in the web browser. -->
 
 ### Node.js
@@ -160,5 +160,5 @@ print(json.dumps(results, indent=1, sort_keys=True))
 ## 次のステップ
 <!-- ## Next steps -->
 
-`command`変数を別の[APIエンドポイント](../references/api-reference.md)に変更して結果をご確認ください。
+`command` 変数を別の [API エンドポイント](../references/api-reference.md)に変更して結果を確認する。
 <!-- Change the `command` variable to a different [API endpoint](../references/api-reference.md) and see the results. -->

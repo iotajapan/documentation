@@ -1,7 +1,7 @@
 # 台帳
 <!-- # The ledger -->
 
-**ノードは、トランザクションを台帳と呼ばれるローカルの追加専用のRocksDBデータベースに追加することで、トランザクションをタングルに添付します。**
+**ノードは、トランザクションを台帳と呼ばれるローカルの追加専用の RocksDB データベースに追加することで、トランザクションをタングルに添付します。**
 <!-- **Nodes attach transactions to the Tangle by appending them to their local append-only RocksDB database called the ledger.** -->
 
 ノードが新しいトランザクションを受信すると、その新しいトランザクションの子トランザクション（履歴）を持っているかどうかを確認します。ノードが子トランザクションを持っていない場合は、ノードは凝固と呼ばれるプロセスを通して、新しく受け取ったトランザクションのために隣接ノードに尋ね始めます。
@@ -17,7 +17,7 @@
 <!-- When a node starts running, it starts to request the transactions that each milestone references (its history), starting from an **entry point milestone** and ending at the latest one. -->
 
 :::info:
-参照はトランザクションの[`branchTransaction`と`trunkTransaction`フィールド](root://dev-essentials/0.1/references/structure-of-a-transaction.md)で定義されています。
+参照はトランザクションの [`branchTransaction` と `trunkTransaction` フィールド](root://dev-essentials/0.1/references/structure-of-a-transaction.md)で定義されています。
 :::
 <!-- :::info: -->
 <!-- References are defined in a transaction's [`branchTransaction` and `trunkTransaction` fields](root://dev-essentials/0.1/references/structure-of-a-transaction.md). -->
@@ -32,20 +32,20 @@
 ## ノードはいつ同期するか？
 <!-- ## When is a node synchronized? -->
 
-IRIノードは、最新のマイルストーンまですべてのマイルストーンを凝固にした時点で同期したと見なされます。
+IRI ノードは、最新のマイルストーンまですべてのマイルストーンを凝固にした時点で同期したと見なされます。
 <!-- An IRI node is considered synchronized when it has solidified all the milestones up to the latest one. -->
 
-`latestMilestoneIndex`フィールドが`latestSolidSubtangleMilestoneIndex`フィールドと等しいことを確認することで、ノードが同期しているかどうかを調べることができます。
+`latestMilestoneIndex` フィールドが `latestSolidSubtangleMilestoneIndex` フィールドと等しいことを確認することで、ノードが同期しているかどうかを調べることができます。
 <!-- You can find out if a node is synchronized by checking that its `latestMilestoneIndex` field is equal to the `latestSolidSubtangleMilestoneIndex` field. -->
 
-`latestMilestoneIndex`フィールドは、IRIが近隣IRIノードから受け取った最新のマイルストーンのインデックスです。
+`latestMilestoneIndex` フィールドは、IRI が近隣 IRI ノードから受け取った最新のマイルストーンのインデックスです。
 <!-- The `latestMilestoneIndex` field is the index of the latest milestone that the IRI has received from its neighbors. -->
 
-`latestSolidSubtangleMilestoneIndex`フィールドは、IRIノードがマイルストーンを凝固（マイルストーンが直接および間接的に参照するすべてのトランザクションをIRIノードが持った状態）にした最新のマイルストーンのインデックスです。
+`latestSolidSubtangleMilestoneIndex` フィールドは、IRI ノードがマイルストーンを凝固（マイルストーンが直接および間接的に参照するすべてのトランザクションを IRI ノードが持った状態）にした最新のマイルストーンのインデックスです。
 <!-- The `latestSolidSubtangleMilestoneIndex` field is the index of the latest milestone for which the IRI node has all the transactions that the milestone directly and indirectly references. -->
 
 :::info:
-`getNodeInfo` APIエンドポイントは`latestMilestoneIndex`と`latestSolidSubtangleMilestoneIndex`の情報を返します。この情報を見るために[IRIノードと対話](../how-to-guides/interact-with-an-iri-node.md)してみてください。
+`getNodeInfo` API エンドポイントは `latestMilestoneIndex` と `latestSolidSubtangleMilestoneIndex` の情報を返します。この情報を見るために [IRI ノードと対話](../how-to-guides/interact-with-an-iri-node.md)してみてください。
 :::
 <!-- :::info: -->
 <!-- The `getNodeInfo` API endpoint returns this information. Try [interacting with an IRI node](../how-to-guides/interact-with-an-iri-node.md) to see this information. -->

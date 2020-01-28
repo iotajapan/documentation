@@ -48,8 +48,8 @@ IOTA メインネットは無料で使用できます。 IOTA ノードへの IO
 IOTA データトランザクションの送信には、クライアントが暗号資産（IOTA トークン）を所有する必要はありません。
 <!-- Sending IOTA data transactions does not require clients to own any cryptocurrency. -->
 
-https://thetangle.org などの一部のノード（パーマノード）は、すべてのトランザクションを永続的に保存するオプションをクライアントに提供します。通常、トランザクションは[ローカルスナップショット](root://node-software/0.1/iri/concepts/local-snapshot.md)の結果としてノードの台帳から削除されます。
-<!-- Some nodes (permanodes) such as https://thetangle.org might offer clients the option to permanently store all transactions. Transactions are usually deleted from the ledgers of nodes as a result of a [local snapshot](root://node-software/0.1/iri/concepts/local-snapshot.md). -->
+https://thetangle.org などの一部のノード（パーマノード）は、すべてのトランザクションを永続的に保存するオプションをクライアントに提供する場合があります。トランザクションは通常、[ローカルスナップショット](../network/nodes.md#local-snapshots)の結果としてノードの台帳から削除されます。
+<!-- Some nodes (permanodes) such as https://thetangle.org might offer clients the option to permanently store all transactions. Transactions are usually deleted from the ledgers of nodes as a result of a [local snapshot](../network/nodes.md#local-snapshots). -->
 
 通常、パーマノード接続への費用は月額料金として法定通貨で支払われます。
 <!-- This costs is usually requested as a monthly fee paid in fiat currency. -->

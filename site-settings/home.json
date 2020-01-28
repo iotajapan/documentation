@@ -18,16 +18,20 @@
             "name": "GitHub(en)"
         },
         {
+            "href": "https://roadmap.iota.org/",
+            "name": "roadmap"
+        },
+        {
             "href": "https://training.iota.org/",
             "name": "training"
         },
         {
-            "href": "https://utils.iota.org/",
-            "name": "utils"
-        },
-        {
             "href": "https://iota.org",
             "name": "iota.org"
+        },
+        {
+            "href": "https://utils.iota.org/",
+            "name": "utils"
         }
     ],
     "popularTopics": [

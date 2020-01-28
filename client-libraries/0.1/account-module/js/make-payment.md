@@ -1,8 +1,8 @@
 # JavaScript でアカウントで支払いを行う
 <!-- # Make payments with your account in JavaScript -->
 
-**このガイドでは、アカウントを使用して IOTA トークンを事前定義された CDA にデポジットします。**
-<!-- **In this guide, you use your account to deposit IOTA tokens into a pre-defined CDA.** -->
+**このガイドでは、アカウントを使用して IOTA トークンを事前定義された条件付きデポジットアドレス（CDA）にデポジットします。**
+<!-- **In this guide, you use your account to deposit IOTA tokens into a pre-defined conditional deposit address (CDA).** -->
 
 ## パッケージ
 <!-- ## Packages -->
@@ -65,6 +65,7 @@ yarn add @iota/account @iota/cda @iota/transaction-converter ntp-client
         if(err) {
             console.error(err);
             return;
+        // Compare the current time with the timeout of the CDA
         } else if (!(CDA.isAlive(date, cda))) {
             isActive = false
         }
@@ -103,15 +104,15 @@ yarn add @iota/account @iota/cda @iota/transaction-converter ntp-client
     }
     ```
 
-    バンドルハッシュと同様に、アドレスに送信された IOTA トークンの量を確認する必要があります。
-    <!-- You should see that how many IOTA tokens were sent to your address as well as the bundle hash: -->
+    アドレスに送信された IOTA トークンの量と、トランザクションのバンドルハッシュを確認する必要があります。
+    <!-- You should see how many IOTA tokens were sent to your address as well as the bundle hash for your transactions: -->
 
     ```bash
     Sent 1000 to TIZJIRDCZPRJMMVKSGROPKE9VGIQKOLOUSX9MCUTOEQBBHPMLYBVKBPCXJKY9SDWX9FVMOZTWNMVVEYKX in bundle:  RXIA9CBEOASNY9IRIARZFGDLK9YNGW9ZHJGJLUXOUKVGCZLPNDKALFHZWHZKQQXFTIHEIJJPN9EURO9K9
     ```
 
-アカウントは、確定されるまでバンドルの再アタッチとプロモートを実行します。
-<!-- Your account will reattach and promote your bundle until it's confirmed. -->
+アカウントは、確定されるまでバンドルの[再アタッチとプロモート](root://getting-started/0.1/transactions/reattach-rebroadcast-promote.md)を実行します。
+<!-- Your account will [reattach and promote](root://getting-started/0.1/transactions/reattach-rebroadcast-promote.md) your bundle until it's confirmed. -->
 
 `stopAttaching()` メソッドを呼び出すことで、再アタッチルーチンを停止できます。
 <!-- You can stop the reattachment routine by calling the `stopAttaching()` method. -->

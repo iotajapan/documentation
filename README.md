@@ -15,39 +15,46 @@
 
 | English                       | 日本語                                               |
 |:------------------------------|:-----------------------------------------------------|
-| Attach                        | アタッチ、添付                                       |
+| Attach                        | アタッチ，添付                                       |
 | Body transaction              | ボディトランザクション                               |
-| Build                         | ビルド、構築                                         |
-| Conditional deposit addresses | 条件付きデポジットアドレス、条件付き預け入れアドレス |
+| Build                         | ビルド，構築                                         |
+| Conditional deposit addresses | 条件付きデポジットアドレス，条件付き預け入れアドレス |
 | confirmed                     | 確定                                                 |
-| Decode                        | デコード、復号化                                     |
-| Deposit                       | デポジット、預け入れ                                 |
-| Depth                         | 深度、深さ                                           |
-| Device                        | デバイス、端末                                       |
+| Cumulative weight             | 累積荷重                                             |
+| Decode                        | デコード，復号化                                     |
+| Deposit                       | デポジット，預け入れ                                 |
+| Depth                         | 深度，深さ                                           |
+| Device                        | デバイス，端末                                       |
 | Devnet                        | デブネット                                           |
-| Fragment                      | フラグメント、断片                                   |
-| Head transaction              | ヘッドトランザクション、先頭トランザクション         |
-| Immutable                     | イミュータブル、不変                                 |
+| Fragment                      | フラグメント，断片                                   |
+| Future set                    | フューチャーセット，未来集合                         |
+| Head transaction              | ヘッドトランザクション，先頭トランザクション         |
+| Immutable                     | イミュータブル，不変                                 |
+| Inclusion states              | 包含状態                                             |
 | Input transaction             | 入力トランザクション                                 |
 | Ledger                        | 台帳                                                 |
-| List                          | リスト、一覧                                         |
+| List                          | リスト，一覧                                         |
 | Mainnet                       | メインネット                                         |
-| Micropayment                  | マイクロペイメント、少額決済                         |
+| Micropayment                  | マイクロペイメント，少額決済                         |
+| Neighbors                     | 隣接ノード，ネイバーノード                           |
 | Nonce                         | ナンス                                               |
-| Pending                       | ペンディング中、保留中                               |
-| Promote                       | プロモート、促進                                     |
-| Proof-of-work                 | プルーフオブワーク、PoW                              |
-| Prune                         | プルーニング、刈り取り                               |
-| Reattach                      | 再アタッチ、再添付                                   |
+| Pending                       | ペンディング中，保留中                               |
+| Permanodes                    | パーマノード                                         |
+| Promote                       | プロモート，促進                                     |
+| Proof-of-work                 | プルーフオブワーク，PoW                              |
+| Prune                         | プルーニング，刈り取り                               |
+| Reattach                      | 再アタッチ，再添付                                   |
 | Rebroadcast                   | 再ブロードキャスト                                   |
 | Output transaction            | 出力トランザクション                                 |
-| Seed state                    | シードステート、シード状態                           |
-| Solid                         | ソリッド、凝固済み                                   |
+| Seed state                    | シードステート，シード状態                           |
+| Solid                         | ソリッド，凝固済み                                   |
 | Spent address                 | 使用済みアドレス                                     |
-| Tail transaction              | テールトランザクション、末尾トランザクション         |
+| Ledger state                  | 台帳のステート                                       |
+| Subscribe                     | サブスクライブする，購読する                         |
+| Tail transaction              | テールトランザクション，末尾トランザクション         |
 | Tip seleciton                 | チップ選択                                           |
 | Tip transaction               | チップトランザクション                               |
-| View                          | 概観、ビュー                                         |
+| View                          | 概観，ビュー                                         |
 | Withdraw                      | 取り出し                                             |
 | Zero-value transaction        | ゼロトークントランザクション                         |
 

@@ -27,11 +27,11 @@ PoW を実行するには、次のオプションがあります。
 |ノードでリモート PoW を選択する|リモート PoW は、ノードにトランザクションの PoW を行うように要求する場合です。リモート PoW を行うには、[`attachToTangle` エンドポイント]を呼び出します。これにより、ローカルでの PoW の実行に必要な計算能力の使用を回避できます。|ノードの能力と受信するリクエストの数に応じて、タイムアウトし、PoW を完了できない場合があります。|
 |ローカルで PoW を実行する|ローカル PoW は、タングルにアタッチするトランザクションごとに PoW を行うときです。この方法では、PoW を行うために信頼できないノードに依存しません。|お使いのデバイスは、十分な時間で PoW を完了するのに十分なほど強力ではない場合があります。|
 |PoW を有料サービスに外注する|有料 PoW サービスは、IOTA トランザクションを受け入れ、PoW を完了し、それをお客様に返すサードパーティのサーバーです。PoW は、専用のサードパーティサーバーにより、より高速に、より確実に実行されます。そのようなサービスの例は [powsrv.io](https://powsrv.io/#quickstart) です。|このサービスを使用するには費用がかかり、使用者はサービスを制御することはできません。|
-|[PoW プロキシサーバーをインストールする](root://node-software/0.1/iri/how-to-guides/install-a-pow-proxy.md)|PoW は、自分自身の専用サーバーによってより速く、より確実に実行されます。|PoW プロキシサーバーを維持する必要があります。|
+|[PoW プロキシサーバーをインストールする](root://utils/0.1/official/proof-of-work-proxy/overview.md)|PoW は、自分自身の専用サーバーによってより速く、より確実に実行されます。|PoW プロキシサーバーを維持する必要があります。|
 
 <!-- |**Option**|**Advantages**|**Disadvantages**| -->
 <!-- |:-------|:---------|:------------| -->
 <!-- |Choose remote PoW on a node|Remote PoW is when you ask a node to do PoW for a transaction. You do this by calling the [`attachToTangle` endpoint](root://node-software/0.1/iri/references/api-reference.md#attachToTangle). This way, you can avoid using the computational power needed to do PoW.|Depending on how powerful the node is and how many requests it receives, it may time out and not complete the PoW | -->
 <!-- |Do local PoW|Local PoW is when you do PoW for each transaction that you want to attach to the Tangle. This way, you aren't reliant on unreliable nodes to do PoW.|Your device may not be powerful enough to complete PoW in a satisfactory amount of time| -->
 <!-- |Outsource PoW to a paid service|A paid PoW service is a third-party server that accepts IOTA transactions, completes PoW and returns it to you. PoW is done faster more more reliably by a dedicated third-party server. An example of such a service is [powsrv.io](https://powsrv.io/#quickstart)|It costs money to use the service and you don't have control over it| -->
-<!-- |[Install a PoW proxy server](root://node-software/0.1/iri/how-to-guides/install-a-pow-proxy.md)|PoW is done faster and more reliably by your own dedicated server|You need to maintain the PoW proxy server| -->
+<!-- |[Install a PoW proxy server](root://utils/0.1/official/proof-of-work-proxy/overview.md)|PoW is done faster and more reliably by your own dedicated server|You need to maintain the PoW proxy server| -->

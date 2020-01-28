@@ -1,6 +1,6 @@
 # Secure the Hub API
 
-**ハブとアプリケーション間のAPI接続を保護するために、SSL暗号化を使用するようにハブを構成できます。このガイドでは、接続が暗号化されるようにハブAPIを保護します。**
+**ハブとアプリケーション間のAPI接続を保護するために、SSL 暗号化を使用するようにハブを構成できます。このガイドでは、接続が暗号化されるようにハブAPIを保護します。**
 <!-- **To secure the API connection between Hub and your application, you can configure Hub to use SSL encryption. In this guide, you'll secure the Hub API so that the connection is encrypted.** -->
 
 Depending on which API type you configured Hub to expose, you should follow one of the following:

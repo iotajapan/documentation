@@ -1,18 +1,18 @@
-# RESTful APIリファレンス
+# RESTful API リファレンス
 <!-- # RESTful API reference -->
 
-**Hubには、タングルおよびハブデータベースへの接続を簡素化するRESTful APIがあります。このAPIリファレンスを使用して、エンドポイントを見つけ、それらの機能を学習します。**
+**ハブには，タングルおよびハブデータベースへの接続を簡素化する RESTful API があります．この API リファレンスを使用して，エンドポイントを見つけ，それらの機能を学習します．**
 <!-- **Hub has a RESTful API that simplifies connections to the Tangle and the Hub database. Use this API reference to find endpoints and learn what they do.** -->
 
 :::info:
-RESTful APIを使用する場合は、`--serverType http`コマンドラインフラグでハブを起動する必要があります。
+RESTful API を使用する場合は，`--serverType http` コマンドラインフラグでハブを起動する必要があります．
 :::
 <!-- :::info: -->
 <!-- If you want to use the RESTful API, you must start Hub with the `--serverType http` command-line flag. -->
 <!-- If you want to use the RESTful API, you must start Hub with the `--serverType http` command-line flag. -->
 <!-- ::: -->
 
-以下のコマンドには、HTTPヘッダーを含める必要があります。
+以下のコマンドには，HTTP ヘッダーを含める必要があります．
 <!-- All the following commands must include an HTTP header. -->
 <!-- The following commands must include an HTTP header. -->
 
@@ -27,7 +27,7 @@ RESTful APIを使用する場合は、`--serverType http`コマンドライン�
 <!-- | Content-Type | application/json | Optional | -->
 
 :::warning:
-このAPIはベータ版であり、変更される可能性があります。実稼働アプリケーションではこのAPIを使用しないことをお勧めします。
+この API はベータ版であり，変更される可能性があります．実稼働アプリケーションではこの API を使用しないことをお勧めします．
 :::
 <!-- :::warning: -->
 <!-- This API is in beta, and is subject to change. We recommend that you don't use this API in production applications. -->
@@ -35,7 +35,7 @@ RESTful APIを使用する場合は、`--serverType http`コマンドライン�
 
 ## CreateUser
 
-ハブで新しいユーザーを作成します。
+ハブで新しいユーザーを作成します．
 <!-- Creates a new user on Hub. -->
 
 ### パラメーター
@@ -43,7 +43,7 @@ RESTful APIを使用する場合は、`--serverType http`コマンドライン�
 
 | **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
 | :----------- | :----------- | :--- | :----- |
-| `userId` | 必須 | ユーザーの一意のID | string |
+| `userId` | 必須 | ユーザーの一意の ID | string |
 
 <!-- |**Parameter** | **Required or Optional**|**Description** | **Type**| -->
 <!-- |--|--|--|--| -->
@@ -136,12 +136,12 @@ curl http://localhost:50051 \
 ### 結果
 <!-- ### Results -->
 
-空のオブジェクトが成功した結果として返されます。
+空のオブジェクトが成功した結果として返されます．
 <!-- An empty object is returned in a successful result. -->
 
 ## GetAddressInfo
 
-与えられた預け入れアドレスを所有しているユーザーのIDを取得します。
+与えられたデポジットアドレスを所有しているユーザーの ID を取得します．
 <!-- Gets the ID of the user that owns a given deposit address. -->
 
 ### パラメーター
@@ -247,7 +247,7 @@ curl http://localhost:50051 \
 
 | **リターンフィールド** | **説明** |
 | :----------------- | :--- |
-| `userId` | 預け入れアドレスを所有するユーザーのID |
+| `userId` | デポジットアドレスを所有するユーザーの ID |
 
 <!-- |**Return field** | **Description** | -->
 <!-- |--|--| -->
@@ -255,7 +255,7 @@ curl http://localhost:50051 \
 
 ## GetBalance
 
-ユーザーの利用可能な残高を取得します。
+ユーザーの利用可能な残高を取得します．
 <!-- Gets a user's available balance. -->
 
 ### パラメーター
@@ -263,7 +263,7 @@ curl http://localhost:50051 \
 
 | **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
 | :----------- | :----------- | :--- | :----- |
-| `userId` | 必須 | ユーザーのID | string |
+| `userId` | 必須 | ユーザーの ID | string |
 
 <!-- |**Parameters** |**Required or Optional** |**Description** |**Type** -->
 <!-- |--|--|--|--| -->
@@ -360,7 +360,7 @@ curl http://localhost:50051 \
 
 | **リターンフィールド** | **説明** |
 | :----------------- | :--- |
-| `available` | ユーザーがハブで利用できるIOTAトークンの合計量 |
+| `available` | ユーザーがハブで利用できる IOTA トークンの合計量 |
 
 <!-- |**Return field**  |**Description** | -->
 <!-- |--|--| -->
@@ -368,7 +368,7 @@ curl http://localhost:50051 \
 
 ## GetDepositAddress
 
-与えられたユーザーの新しい預け入れアドレスを作成します。
+与えられたユーザーの新しいデポジットアドレスを作成します．
 <!-- Creates a new deposit address for a given user. -->
 
 ### パラメーター
@@ -376,7 +376,7 @@ curl http://localhost:50051 \
 
 | **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
 | :----------- | :----------- | :--- | :----- |
-| `userId` | 必須 | ユーザーのID | string |
+| `userId` | 必須 | ユーザーの ID | string |
 |`includeChecksum`| 任意 | アドレスの最後に9トライとのチェックサムを含めるかどうか | boolean |
 
 <!-- |**Parameter** | **Required or Optional**|**Description** |**Type** -->
@@ -475,7 +475,7 @@ curl http://localhost:50051 \
 
 | **リターンフィールド** | **説明** |
 | :----------------- | :--- |
-| `address` | 新しい81トライトの預け入れアドレス（チェックサム無し） |
+| `address` | 新しい81トライトのデポジットアドレス（チェックサム無し） |
 
 <!-- |**Return field** | **Description** | -->
 <!-- |--|--| -->
@@ -483,22 +483,34 @@ curl http://localhost:50051 \
 
 ## GetSeedForAddress
 
-Gets the seed that was used to generate a given deposit address.
+特定のデポジットアドレスの生成に使用されたシードを取得します．
+<!-- Gets the seed that was used to generate a given deposit address. -->
 
-This endpoint is useful if you want to store the seed outside of Hub.
+このエンドポイントは，ハブの外部にシードを保存する場合に役立ちます．
+<!-- This endpoint is useful if you want to store the seed outside of Hub. -->
 
 :::info:
-To use this endpoint, you must run Hub with the [`--GetSeedForAddress_enabled` flag](../references/command-line-options.md#signBundle).
+このエンドポイントを使用するには，[`--GetSeedForAddress_enabled` フラグ](../references/command-line-options.md#signBundle)を指定してハブを実行する必要があります．]
 :::
+<!-- :::info: -->
+<!-- To use this endpoint, you must run Hub with the [`--GetSeedForAddress_enabled` flag](../references/command-line-options.md#signBundle). -->
+<!-- ::: -->
 
-### Parameters
+### パラメーター
+<!-- ### Parameters -->
 
-|**Parameter** | **Required or Optional**|**Description** |**Type**
-|--|--|--|--|
-| `userId` |Required| The ID of the user that owns the deposit address| string|
-|`address`|Required|The deposit address whose seed you want to generate|string
+| **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
+| :----------- | :----------- | :--- | :----- |
+| `userId` |Required|デポジットアドレスを所有するユーザーの ID| string|
+|`address`|Required|シードを持つデポジットアドレス|string|
 
-### Examples
+<!-- |**Parameter** | **Required or Optional**|**Description** |**Type** -->
+<!-- |--|--|--|--| -->
+<!-- | `userId` |Required| The ID of the user that owns the deposit address| string| -->
+<!-- |`address`|Required|The deposit address whose seed you want to generate|string -->
+
+### 例
+<!-- ### Examples -->
 --------------------
 ### Python
 ```python
@@ -506,7 +518,7 @@ import urllib2
 import json
 
 command = {
-  "command": "GetSeedForAddress", 
+  "command": "GetSeedForAddress",
   "userId": "user-1",
   "address": "PHWYPQECJDVEZYQFIDNMEDFGETLTRUFUERVUYQQLZHOHKQZU9QLLCGLNANXNGGXNTZLBUAALRLH9PIGHF"
 }
@@ -568,7 +580,8 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
+<!-- ### Response examples -->
 --------------------
 ### 200
 ```json
@@ -585,15 +598,20 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-### Results
+### 結果
+<!-- ### Results -->
 
-|**Return field** | **Description** |
-|--|--|
-| `seed` | The seed that was used to generate the deposit address |
+| **リターンフィールド** | **説明** |
+| :----------------- | :--- |
+| `seed` |デポジットアドレスの生成に使用されたシード|
+
+<!-- |**Return field** | **Description** | -->
+<!-- |--|--| -->
+<!-- | `seed` | The seed that was used to generate the deposit address | -->
 
 ## GetStats
 
-ハブに保存されているIOTAトークンの合計量を取得します。
+ハブに保存されている IOTA トークンの合計量を取得します．
 <!-- Gets the total amount of IOTA tokens that are stored in Hub. -->
 
 ### 例
@@ -685,7 +703,7 @@ curl http://localhost:50051 \
 
 | **リターンフィールド** | **説明** |
 | :----------------- | :--- |
-| `totalBalance` | ハブ所有者のアカウントに保存されているIOTAトークンの合計量 |
+| `totalBalance` | ハブ所有者のアカウントに保存されている IOTA トークンの合計量 |
 
 <!-- |**Return field** | **Description** | -->
 <!-- |--|--| -->
@@ -693,7 +711,7 @@ curl http://localhost:50051 \
 
 ## GetUserHistory
 
-ユーザーの残高の履歴を取得します。
+ユーザーの残高の履歴を取得します．
 <!-- Gets the history of a user's balance. -->
 
 ### パラメーター
@@ -701,13 +719,13 @@ curl http://localhost:50051 \
 
 | **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
 | :----------- | :----------- | :--- | :----- |
-| `userId` | 必須 | ユーザーのID | string |
-| `newerThan` | 任意 | ユーザーの履歴を取得する日時。値が`0`の場合、ハブは履歴全体を取得します。 | Unix timestamp |
+| `userId` | 必須 | ユーザーの ID | string |
+| `newerThan` | 任意 | ユーザーの履歴を取得する日時．値が`0`の場合，ハブは履歴全体を取得します． | Unix ephoch |
 
 <!-- |**Parameter** | **Required or Optional**|**Description** |**Type** -->
 <!-- |--|--|--|--| -->
 <!-- | `userId` |Required| The ID of the user | string| -->
-<!-- | `newerThan` |Optional| The time and date from which to get the user's history. A `0` value means that Hub gets the entire history.|Unix timestamp -->
+<!-- | `newerThan` |Optional| The time and date from which to get the user's history. A `0` value means that Hub gets the entire history.|Unix epoch -->
 
 ### 例
 <!-- ### Examples -->
@@ -822,12 +840,12 @@ curl http://localhost:50051 \
 
 | **リターンフィールド** | **説明** |
 | :----------------- | :--- |
-| `userId` | アカウントの残高が変更されたユーザーのID |
+| `userId` | アカウントの残高が変更されたユーザーの ID |
 | `timestamp` | エポックからの残高変更が発生したミリ秒単位の時間 |
 | `reason` | [アカウント残高の変更を引き起こしたイベント](#balance-change-events-for-user-accounts)の種類 |
 | amount | 残高へと変更した量 |
-| `sweepBundleHash` | `DEPOSIT`イベントのバンドルハッシュが含まれます。 |
-| `withdrawalUuid` | `WITHDRAWAL`または`WITHDRAWAL_CANCELED`イベントの取り出しUUIDが含まれます。 |
+| `sweepBundleHash` | `DEPOSIT` イベントのバンドルハッシュが含まれます． |
+| `withdrawalUuid` | `WITHDRAWAL` または `WITHDRAWAL_CANCELED` イベントの取り出し UUID が含まれます． |
 
 <!-- |**Return field** | **Description** | -->
 <!-- | `userId`          | ID of the user whose account's balance changed | -->
@@ -839,18 +857,18 @@ curl http://localhost:50051 \
 
 ## ProcessTransferBatch
 
-取引所からの購入/販売のバッチを処理します。
+取引所からの購入/販売のバッチを処理します．
 <!-- Processes a batch of buys/sells from the exchange. -->
 
 :::info:
-バッチの合計額は0になる必要があります。
+バッチの合計額は0になる必要があります．
 :::
 <!-- :::info: -->
 <!-- The total amount of a batch must sum to 0. -->
 <!-- ::: -->
 
 :::info:
-このエンドポイントは、ハブデータベース内のユーザーの残高に影響します。トランザクションはタングルに送信されません。
+このエンドポイントは，ハブデータベース内のユーザーの残高に影響します．トランザクションはタングルに送信されません．
 :::
 <!-- :::info: -->
 <!-- This endpoint affects users' balances in the Hub database. No transactions are sent to the Tangle. -->
@@ -861,8 +879,8 @@ curl http://localhost:50051 \
 
 | **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
 | :----------- | :----------- | :--- | :----- |
-| `userId` | 必須 | 転送中に残高を更新するユーザーのID | string |
-| `amount` | 必須 | ユーザーの残高に加算または減算するIOTAトークンの量 | integer |
+| `userId` | 必須 | 転送中に残高を更新するユーザーの ID | string |
+| `amount` | 必須 | ユーザーの残高に加算または減算する IOTA トークンの量 | integer |
 
 <!-- |**Parameters** |**Required or Optional**|**Description** |**Type** -->
 <!-- |--|--|--|--| -->
@@ -956,12 +974,12 @@ curl http://localhost:50051 \
 ### 結果
 <!-- ### Results -->
 
-空のオブジェクトが成功した結果で返されます。
+空のオブジェクトが成功した結果で返されます．
 <!-- An empty object is returned in a successful result. -->
 
 ## BalanceSubscription
 
-特定の時間以降の残高の変化のストリームを監視します。
+特定の時間以降の残高の変化のストリームを監視します．
 <!-- Monitors a stream of balance changes since a given time. -->
 
 ### パラメーター
@@ -969,11 +987,11 @@ curl http://localhost:50051 \
 
 | **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
 | :----------- | :----------- | :--- | :----- |
-| `newerThan` | 必須 | バランスの変更を監視する開始日時。`0`値は、ハブがすべての残高変更を取得することを意味します。 | Unix timestamp |
+| `newerThan` | 必須 | バランスの変更を監視する開始日時．`0`値は，ハブがすべての残高変更を取得することを意味します． | Unix epoch |
 
 <!-- |**Parameters** |**Required or Optional**|**Description** |**Type**| -->
 <!-- |--|--|--|--| -->
-<!-- | `newerThan` |Required| The time and date from which to start monitoring balance changes. A `0` value means that Hub gets all balance changes.|Unix timestamp -->
+<!-- | `newerThan` |Required| The time and date from which to start monitoring balance changes. A `0` value means that Hub gets all balance changes.|Unix epoch -->
 
 ### 例
 <!-- ### Examples -->
@@ -1090,20 +1108,20 @@ curl http://localhost:50051 \
 ### 結果
 <!-- ### Results -->
 
-`type`フィールドの値に応じて、次のデータが返されます：
+`type` フィールドの値に応じて，次のデータが返されます：
 <!-- Depending on the value of the `type` field, the following data is returned: -->
 
 #### USER_ACCOUNT
 
 | **リターンフィールド** | **説明** |
 | :----------------- | :--- |
-| `type` | `USER_ACCOUNT`タイプは、ユーザーのアカウントの残高を変更するためのものです。 |
+| `type` | `USER_ACCOUNT` タイプは，ユーザーのアカウントの残高を変更するためのものです． |
 | `reason` | [アカウント残高の変更を引き起こしたイベント](#balance-change-events-for-user-accounts)の種類 |
-| `userId` | アカウントの残高が変更されたユーザーのID |
+| `userId` | アカウントの残高が変更されたユーザーの ID |
 | `timestamp` | エポックからの残高変更が発生したミリ秒単位の時間 |
 | amount | 残高に変更した量 |
-| `sweepBundleHash` | `DEPOSIT`イベントのバンドルハッシュが含まれます。 |
-| `withdrawalUuid` | `WITHDRAWAL`または`WITHDRAWAL_CANCELED`イベントの取り出しUUIDが含まれます。 |
+| `sweepBundleHash` | `DEPOSIT` イベントのバンドルハッシュが含まれます． |
+| `withdrawalUuid` | `WITHDRAWAL` または `WITHDRAWAL_CANCELED` イベントの取り出し UUID が含まれます． |
 
 <!-- |**Return field** | **Description** | -->
 <!-- | ----------- | ------------------------------------------------------------ | -->
@@ -1120,12 +1138,12 @@ curl http://localhost:50051 \
 
 | **リターンフィールド** | **説明** |
 | :----------------- | :--- |
-| `type` |`USER_ADDRESS`タイプは、ユーザーの預け入れアドレスの1つを変更するためのものです。 |
-| `userId` | アドレスの残高が変更されたユーザーのID |
+| `type` |`USER_ADDRESS` タイプは，ユーザーのデポジットアドレスの1つを変更するためのものです． |
+| `userId` | アドレスの残高が変更されたユーザーの ID |
 | `userAddress` | 残高が変更されたアドレス |
 | `amount` | 残高に変更した量 |
 | `reason` | [ユーザーのアドレスの残高の変更を引き起こしたイベント](#balance-change-events-for-user-addresses)のタイプ |
-| `hash` | `DEPOSIT`理由の末尾トランザクションハッシュまたは`SWEEP`理由のバンドルハッシュが含まれます。 |
+| `hash` | `DEPOSIT` 理由の末尾トランザクションハッシュまたは `SWEEP` 理由のバンドルハッシュが含まれます． |
 | timestamp | エポックからの残高変更が発生したミリ秒単位の時間 |
 
 <!-- |**Return Field**|**Description**| -->
@@ -1143,7 +1161,7 @@ curl http://localhost:50051 \
 
 | **リターンフィールド** | **説明** |
 | :----------------- | :--- |
-| `type` | `HUB_ADDRESS`タイプは、ハブの所有者のアドレスの1つを変更するためのものです。 |
+| `type` | `HUB_ADDRESS` タイプは，ハブの所有者のアドレスの1つを変更するためのものです． |
 | `hubAddress`      | ハブ所有者の81トライトのアドレス（チェックサムなし） |
 | `amount`          | 残高に変更した量 |
 | `reason`          | [ハブアドレスの残高の変化を引き起こしたイベント](#balance-change-events-for-hub-addresses)のタイプ |
@@ -1161,18 +1179,18 @@ curl http://localhost:50051 \
 
 ## RecoverFunds
 
-IOTAトークンを使用済みのアドレスから未使用のアドレスに転送します。
+IOTA トークンを使用済みのアドレスから未使用のアドレスに転送します．
 <!-- Transfers IOTA tokens from a spent address to an unspent one. -->
 
 :::info:
-このエンドポイントを使用するには、[`--RecoverFunds_enabled`フラグ](../references/command-line-options.md#recoverFunds)を指定してハブを実行する必要があります。
+このエンドポイントを使用するには，[`--RecoverFunds_enabled` フラグ](../references/command-line-options.md#recoverFunds)を指定してハブを実行する必要があります．
 :::
 <!-- :::info: -->
 <!-- To use this endpoint, you must run Hub with the [`--RecoverFunds_enabled` flag](../references/command-line-options.md#recoverFunds). -->
 <!-- ::: -->
 
 :::info:
-トークンの転送先をさらに制御したい場合は、[`SignBundle`エンドポイント](#SignBundle)を使用します。
+トークンの転送先をさらに制御したい場合は，[`SignBundle` エンドポイント](#SignBundle)を使用します．
 :::
 <!-- :::info: -->
 <!-- If you want more control over where the tokens are transferred, use the [`SignBundle` endpoint](#SignBundle). -->
@@ -1183,10 +1201,10 @@ IOTAトークンを使用済みのアドレスから未使用のアドレスに�
 
 | **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
 | :----------- | :----------- | :--- | :----- |
-| `userId` | 必須 | 使用済みアドレスから資金をリカバーしたいユーザーのID | string |
+| `userId` | 必須 | 使用済みアドレスから資金をリカバーしたいユーザーの ID | string |
 | `address` | 必須| ユーザーの使用済みアドレス（チェックサムなし） | string |
-| `validateChecksum` | 必須 | アドレスを検証するかどうか。`payoutAddress`フィールドが90トライアドレス（チェックサム付き）の場合、このフィールドを`true`に設定します。 | boolean |
-| `payoutAddress` | 必須 | `address`フィールドのアドレスの合計残高の転送先アドレス（チェックサムを含む場合があります） | string |
+| `validateChecksum` | 必須 | アドレスを検証するかどうか．`payoutAddress` フィールドが90トライアドレス（チェックサム付き）の場合，このフィールドを `true` に設定します． | boolean |
+| `payoutAddress` | 必須 | `address` フィールドのアドレスの合計残高の転送先アドレス（チェックサムを含む場合があります） | string |
 
 <!-- |**Parameters** |**Required or Optional**|**Description** |**Type**| -->
 <!-- |--|--|--|--| -->
@@ -1290,25 +1308,25 @@ curl http://localhost:50051 \
 ### 結果
 <!-- ### Results -->
 
-空のオブジェクトが成功した結果で返されます。
+空のオブジェクトが成功した結果で返されます．
 <!-- An empty object is returned in a successful result. -->
 
 ## SignBundle
 
-指定されたバンドルの署名を返します。
+指定されたバンドルの署名を返します．
 <!-- Returns a signature for a given bundle. -->
 
-このエンドポイントは、使用済みの預け入れアドレスから2つ以上の未使用アドレスにIOTAトークンを転送するビルド済みバンドルに署名するのに役立ちます。
+このエンドポイントは，使用済みのデポジットアドレスから2つ以上の未使用アドレスに IOTA トークンを転送するビルド済みバンドルに署名するのに役立ちます．
 <!-- This endpoint is useful for signing pre-built bundles that transfer IOTA tokens from a spent deposit address to two or more unspent addresses. -->
 
-使用済みアドレスのすべてのIOTAトークンを単一のアドレスに転送する場合は、[`RecoverFunds`エンドポイント](#RecoverFunds)を使用します。
+使用済みアドレスのすべての IOTA トークンを単一のアドレスに転送する場合は，[`RecoverFunds` エンドポイント](#RecoverFunds)を使用します．
 <!-- If you want to transfer all the IOTA tokens of a spent address into a single address, use the [`RecoverFunds` endpoint](#RecoverFunds). -->
 
-このエンドポイントの使用方法の例については、[バンドルを構築し、ハブでバンドルに署名する](../how-to-guides/recover-tokens.md)を参照してください。
+このエンドポイントの使用方法の例については，[バンドルを構築し，ハブでバンドルに署名する](../how-to-guides/recover-tokens.md)を参照してください．
 <!-- For an example of how to use this endpoint, follow our guide to [build a bundle and sign it with Hub](../how-to-guides/recover-tokens.md). -->
 
 :::info:
-このエンドポイントを使用するには、[`--SignBundle_enabled`フラグ](../references/command-line-options.md#signBundle)を指定してハブを実行する必要があります。
+このエンドポイントを使用するには，[`--SignBundle_enabled` フラグ](../references/command-line-options.md#signBundle)を指定してハブを実行する必要があります．
 :::
 <!-- :::info: -->
 <!-- To use this endpoint, you must run Hub with the [`--SignBundle_enabled` flag](../references/command-line-options.md#signBundle). -->
@@ -1319,10 +1337,10 @@ curl http://localhost:50051 \
 
 | **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
 | :----------- | :----------- | :--- | :----- |
-| `address`          | 必須 | 取り出したいユーザーの預け入れアドレス（チェックサムを含む場合があります） | string |
+| `address`          | 必須 | 取り出したいユーザーのデポジットアドレス（チェックサムを含む場合があります） | string |
 | `bundleHash`       | 必須 | 署名が必要なバンドルハッシュ | string |
-| `authentication`   | 任意 | エンドポイントのHMACキー | string |
-| `validateChecksum` | 任意 | アドレスを検証するかどうか。`address`フィールドが90トライアドレス（チェックサム付き）の場合、このフィールドを`true`に設定します。 |
+| `authentication`   | 任意 | エンドポイントの HMAC キー | string |
+| `validateChecksum` | 任意 | アドレスを検証するかどうか．`address` フィールドが90トライアドレス（チェックサム付き）の場合，このフィールドを `true` に設定します． |
 
 <!-- |**Parameters** |**Required or Optional**|**Description** |**Type**| -->
 <!-- |--|--|--|--| -->
@@ -1429,7 +1447,7 @@ curl http://localhost:50051 \
 
 | **リターンフィールド** | **説明** |
 | :----------------- | :--- |
-| `signature` | バンドル内の入力トランザクションの`signatureMessageFragment`フィールドに含める署名 |
+| `signature` | バンドル内の入力トランザクションの `signatureMessageFragment` フィールドに含める署名 |
 
 <!-- |**Return field**| **Description** | -->
 <!-- |--|--| -->
@@ -1437,7 +1455,7 @@ curl http://localhost:50051 \
 
 ## SweepDetail
 
-スイープに関する情報（確定ステータス、トランザクショントライト、および再添付）を取得します。
+スイープに関する情報（確定ステータス，トランザクショントライト，および再アタッチ）を取得します．
 <!-- Gets information about a sweep (confirmation status, transaction trytes, and reattachments). -->
 
 ### パラメーター
@@ -1547,8 +1565,8 @@ curl http://localhost:50051 \
 | **リターンフィールド** | **説明** |
 | :----------------- | :--- |
 | `confirmed` | スウィープの確定ステータス |
-| `trytes`    | 最初のバンドルから始まり、最新の再添付バンドルで終わるトランザクショントライト。 |
-| `tailHash`  | スウィープの末尾トランザクションハッシュ（再添付された各スウィープは、新しい末尾トランザクションハッシュになります） |
+| `trytes`    | 最初のバンドルから始まり，最新の再アタッチバンドルで終わるトランザクショントライト． |
+| `tailHash`  | スウィープの末尾トランザクションハッシュ（再アタッチされた各スウィープは，新しい末尾トランザクションハッシュになります） |
 
 <!-- |**Return field** | **Description** | -->
 <!-- |--|--| -->
@@ -1558,28 +1576,28 @@ curl http://localhost:50051 \
 
 ## SweepInfo
 
-取り出しの UUID またはバンドルハッシュを取得します。
+取り出しの UUID またはバンドルハッシュを取得します．
 <!-- Gets the withdrawal UUIDs or bundle hash of a sweep. -->
 
-スウィープに含まれていた取り出し UUID のリストを取得するには、次のパラメーターを使用します。
+スウィープに含まれていた取り出し UUID のリストを取得するには，次のパラメーターを使用します．
 <!-- To get a list of withdrawal UUIDs that were included in a sweep, use the following parameters: -->
 
 | **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
 | :----------- | :----------- | :--- | :----- |
-| `requestByUuid` | 必須 | 取り出しUUIDでこのエンドポイントを呼び出すかどうか | boolean |
-| `withdrawalUuid` | 必須 | スウィープへの包含を確認するための取り出しUUID | string |
+| `requestByUuid` | 必須 | 取り出し UUID でこのエンドポイントを呼び出すかどうか | boolean |
+| `withdrawalUuid` | 必須 | スウィープへの包含を確認するための取り出し UUID | string |
 
 <!-- |**Parameters** |**Required or Optional**|**Description** |**Type**| -->
 <!-- |--|--|--|--| -->
 <!-- |`requestByUuid`|Required|Whether you are calling this endpoint with a withdrawal UUID|boolean| -->
 <!-- | `withdrawalUuid`       | Required|The withdrawal UUID to check for inclusion in a sweep   |string| -->
 
-特定の取り出しを実行したスウィープのバンドルハッシュを取得するには、次のパラメーターを使用します。
+特定の取り出しを実行したスウィープのバンドルハッシュを取得するには，次のパラメーターを使用します．
 <!-- To get the bundle hash of the sweep that actioned a given withdrawal, use the following parameters: -->
 
 | **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
 | :----------- | :----------- | :--- | :----- |
-|`requestByUuid`| 必須 | 取り出しUUIDでこのエンドポイントを呼び出すかどうか | boolean |
+|`requestByUuid`| 必須 | 取り出し UUID でこのエンドポイントを呼び出すかどうか | boolean |
 | `bundleHash`     | 必須 | 取り出しを確認するスイープのバンドルハッシュ | string |
 
 <!-- |**Parameters** |**Required or Optional**|**Description** |**Type**| -->
@@ -1685,8 +1703,8 @@ curl http://localhost:50051 \
 | **リターンフィールド** | **説明** |
 | :----------------- | :--- |
 | `bundleHash` | スウィープのバンドルハッシュ |
-| `timestamp` | スウィープが作成されたときのUNIXタイムスタンプ |
-| `withdrawalUuid` | スウィープ内で実行された取り出しのUUID |
+| `timestamp` | スウィープが作成されたときの UNIX タイムスタンプ |
+| `withdrawalUuid` | スウィープ内で実行された取り出しの UUID |
 
 <!-- |**Return field**| **Description** | -->
 <!-- |--|--| -->
@@ -1696,19 +1714,20 @@ curl http://localhost:50051 \
 
 ## SweepSubscription
 
-与えられた時間以降のすべてのスウィープのストリームを監視します。
+与えられた時間以降のすべてのスウィープのストリームを監視します．
 <!-- Monitors a stream of all sweeps since a given time. -->
 
 ### パラメーター
 <!-- ### Parameters -->
 
+
 | **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
 | :----------- | :----------- | :--- | :----- |
-| `newerThan` | 必須 | スウィープの監視を開始する日時。値が`0`の場合、ハブはすべてのスウィープイベントを取得します。 | Unix timestamp |
+| `newerThan` | 必須 | スウィープの監視を開始する日時．値が`0`の場合，ハブはすべてのスウィープイベントを取得します． | Unix epoch |
 
 <!-- |**Parameters** |**Required or Optional**|**Description** |**Type**| -->
 <!-- |--|--|--|--| -->
-<!-- | `newerThan` |Required| The time and date from which to start monitoring sweeps . A `0` value means that Hub gets all sweep events.|Unix timestamp -->
+<!-- | `newerThan` |Required| The time and date from which to start monitoring sweeps . A `0` value means that Hub gets all sweep events.|Unix epoch -->
 
 ### 例
 <!-- ### Examples -->
@@ -1815,8 +1834,8 @@ curl http://localhost:50051 \
 | **リターンフィールド** | **説明** |
 | :----------------- | :--- |
 | `bundleHash` | スウィープのバンドルハッシュ |
-| `timestamp` | スウィープが作成されたときのUNIXタイムスタンプ |
-|`withdrawalUuid`| スウィープで実行された取り出しのUUID |
+| `timestamp` | スウィープが作成されたときの UNIX タイムスタンプ |
+|`withdrawalUuid`| スウィープで実行された取り出しの UUID |
 
 <!-- |**Return field**| **Description** | -->
 <!-- |--|--| -->
@@ -1826,7 +1845,7 @@ curl http://localhost:50051 \
 
 ## UserWithdraw
 
-特定のユーザーのアカウントから取り出しリクエストを作成します。リクエストが成功した場合、ハブは次のスイープに取り出しを含めます。
+特定のユーザーのアカウントから取り出しリクエストを作成します．リクエストが成功した場合，ハブは次のスイープに取り出しを含めます．
 <!-- Creates a withdrawal request from a given user's account. If request is successful, Hub includes the withdrawal in the next sweep. -->
 
 ### パラメーター
@@ -1834,11 +1853,11 @@ curl http://localhost:50051 \
 
 | **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
 | :----------- | :----------- | :--- | :----- |
-| `userId` | 必須 | IOTAトークンを取り出したいユーザーのID | string|
+| `userId` | 必須 | IOTA トークンを取り出したいユーザーの ID | string|
 | `amount` | 必須 | ユーザーのアカウントから取り出す量 | integer|
-| `payoutAddress` | 必須 | IOTAトークンの転送先アドレス（チェックサムを含む場合があります） | string|
-| `validateChecksum` | 必須 | アドレスを検証するかどうか。`payoutAddress`フィールドが90トライトアドレス（チェックサム付き）の場合、このフィールドを`true`に設定します。 | boolean |
-| `tag` | 任意 | バンドル内の入力トランザクションの`tag`フィールドに含める値 | string |
+| `payoutAddress` | 必須 | IOTA トークンの転送先アドレス（チェックサムを含む場合があります） | string|
+| `validateChecksum` | 必須 | アドレスを検証するかどうか．`payoutAddress` フィールドが90トライトアドレス（チェックサム付き）の場合，このフィールドを `true` に設定します． | boolean |
+| `tag` | 任意 | バンドル内の入力トランザクションの `tag` フィールドに含める値 | string |
 
 <!-- |**Parameters** |**Required or Optional**|**Description** |**Type** -->
 <!-- |--|--|--|--| -->
@@ -1945,7 +1964,7 @@ curl http://localhost:50051 \
 
 | **リターンフィールド** | **説明** |
 | :----------------- | :--- |
-| `uuid` | この取り出しリクエストの取り出しUUID |
+| `uuid` | この取り出しリクエストの取り出し UUID |
 
 <!-- |**Return field** |**Description**| -->
 <!-- |--|--| -->
@@ -1953,11 +1972,11 @@ curl http://localhost:50051 \
 
 ## UserWithdrawCancel
 
-取り出しをキャンセルするリクエストを作成します。
+取り出しをキャンセルするリクエストを作成します．
 <!-- Creates a request to cancel a withdrawal. -->
 
 :::info:
-取り消しは、取り出しがスウィープに含まれていない場合にのみ可能です。
+取り消しは，取り出しがスウィープに含まれていない場合にのみ可能です．
 :::
 <!-- :::info: -->
 <!-- A cancelation is possible only if the withdrawal isn't already included in a sweep. -->
@@ -1968,7 +1987,7 @@ curl http://localhost:50051 \
 
 | **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
 | :----------- | :----------- | :--- | :----- |
-| `uuid` | 必須 | キャンセルする取り出しUUID | string |
+| `uuid` | 必須 | キャンセルする取り出し UUID | string |
 
 <!-- |**Parameters** |**Required or Optional**|**Description** |**Type** -->
 <!-- |--|--|--|--| -->
@@ -2073,10 +2092,10 @@ curl http://localhost:50051 \
 
 ## WasAddressSpentFrom
 
-特定の預け入れアドレスからすでに取り出しが行われているかどうかを調べます。
+特定のデポジットアドレスからすでに取り出しが行われているかどうかを調べます．
 <!-- Finds out whether a given deposit address has already been withdrawn from. -->
 
-このエンドポイントが`true`を返す場合、これ以上IOTAトークンを預け入れないでください。
+このエンドポイントが `true` を返す場合，これ以上 IOTA トークンをデポジットしないでください．
 <!-- If this endpoint returns true, you should not deposit any more IOTA tokens into it. -->
 
 ### パラメーター
@@ -2084,8 +2103,8 @@ curl http://localhost:50051 \
 
 | **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
 | :----------- | :----------- | :--- | :----- |
-| `address`          | 必須 | 使用済みステータスを確認するユーザーの預け入れアドレス（チェックサムを含めることができます） | string |
-| `validateChecksum` | 任意 | アドレスを検証するかどうか。`address`フィールドが90トライトのアドレス（チェックサム付き）の場合、このフィールドを`true`に設定します。 | boolean |
+| `address`          | 必須 | 使用済みステータスを確認するユーザーのデポジットアドレス（チェックサムを含めることができます） | string |
+| `validateChecksum` | 任意 | アドレスを検証するかどうか．`address` フィールドが90トライトのアドレス（チェックサム付き）の場合，このフィールドを `true` に設定します． | boolean |
 
 <!-- |**Parameters** |**Required or Optional**|**Description** |**Type** -->
 <!-- |--|--|--|--| -->
@@ -2192,7 +2211,7 @@ curl http://localhost:50051 \
 
 ## WasWithdrawalCancelled
 
-キャンセルされた取り出しのステータスを取得します。
+キャンセルされた取り出しのステータスを取得します．
 <!-- Gets the status of a canceled withdrawal. -->
 
 ### パラメーター
@@ -2200,7 +2219,7 @@ curl http://localhost:50051 \
 
 | **パラメーター** | **必須か任意か** | **説明** | **タイプ** |
 | :----------- | :----------- | :--- | :----- |
-| `uuid` | 必須 | キャンセルステータスを確認する取り出しUUID | string |
+| `uuid` | 必須 | キャンセルステータスを確認する取り出し UUID | string |
 
 <!-- |**Parameters** |**Required or Optional**|**Description** |**Type** -->
 <!-- |--|--|--|--| -->
@@ -2304,16 +2323,16 @@ curl http://localhost:50051 \
 ## ユーザーアカウントの残高変更イベント
 <!-- ## Balance change events for user accounts -->
 
-ユーザーの残高履歴に関するデータをリクエストする場合、残高変更の理由は次のいずれかのイベントになります。
+ユーザーの残高履歴に関するデータをリクエストする場合，残高変更の理由は次のいずれかのイベントになります．
 <!-- When requesting data about a user's balance history, the reason for the balance change will be one of the following events. -->
 
 | **名前** | **説明** |
 | :--- | :--- |
-| `DEPOSIT`             | ユーザーは預け入れイベントを通じてトークンを受け取りました。 |
-| `BUY`                 | ユーザーはバッチ転送の一部としてトークンを取得しました。|
-| `WITHDRAWAL`          | ユーザーがトークンを取り出しました。 |
-| `WITHDRAWAL_CANCELED` | ユーザーが取り出しリクエストをキャンセルしました。 |
-| `SELL`                | ユーザーはバッチ転送の一部としてトークンを失いました。 |
+| `DEPOSIT`             | ユーザーはデポジットイベントを通じてトークンを受け取りました． |
+| `BUY`                 | ユーザーはバッチ転送の一部としてトークンを取得しました．|
+| `WITHDRAWAL`          | ユーザーがトークンを取り出しました． |
+| `WITHDRAWAL_CANCELED` | ユーザーが取り出しリクエストをキャンセルしました． |
+| `SELL`                | ユーザーはバッチ転送の一部としてトークンを失いました． |
 
 <!-- |**Name**|**Description**  | -->
 <!-- | :------------------- | :------------------------------------------------------------ | -->
@@ -2330,8 +2349,8 @@ curl http://localhost:50051 \
 | **名前** | **説明** |
 | :--- | :--- |
 | `UADD_UNKNOWN` | 不明 |
-| `UA_DEPOSIT`   | ユーザーのアドレスに新しい預け入れを受け取りました。 |
-| `UA_SWEEP`     | スウィープ中に、ユーザーのアドレスの合計残高がハブ所有者のアドレスの1つに転送されました。 |
+| `UA_DEPOSIT`   | ユーザーのアドレスに新しいデポジットを受け取りました． |
+| `UA_SWEEP`     | スウィープ中に，ユーザーのアドレスの合計残高がハブ所有者のアドレスの1つに転送されました． |
 
 <!-- |**Name**| **Description**             | -->
 <!-- | ------------ | ------ | ------------------------ | -->
@@ -2346,8 +2365,8 @@ curl http://localhost:50051 \
 | **名前** | **説明** |
 | :--- | :--- |
 | `HUB_UNKNOWN` | 不明 |
-| `INBOUND`     | IOTAトークンは、スウィープ中にハブアドレスに預け入れらました。 |
-| `OUTBOUND`    | IOTAトークンは、スウィープ中にハブアドレスから取り出されました。 |
+| `INBOUND`     | IOTA トークンは，スウィープ中にハブアドレスにデポジットされました． |
+| `OUTBOUND`    | IOTA トークンは，スウィープ中にハブアドレスから取り出されました． |
 
 <!-- |**Name**| **Description**             | -->
 <!-- | ------------ | ------ | -->

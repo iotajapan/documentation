@@ -80,6 +80,10 @@ Read the following blog posts about Hub:
 
 We have the following channels for Hub:
 
-- `hub-dev`: A read-only channel where developers discuss topics and where any GitHub updates are displayed
+- **#hub-dev:** A read-only channel where developers discuss topics and where any GitHub updates are displayed
 
+<<<<<<< HEAD
 - `hub-discussion`: An open channel where anyone is free to discuss Hub
+=======
+- **#hub-discussion:** An open channel where anyone is free to discuss Hub
+>>>>>>> upstream/develop

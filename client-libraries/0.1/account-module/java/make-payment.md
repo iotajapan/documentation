@@ -1,8 +1,8 @@
 # Java でアカウントで支払いを行う
 <!-- # Make payments with your account in Java -->
 
-**このガイドでは、アカウントを使用して IOTA トークンを事前定義された CDA にデポジットします。**
-<!-- **In this guide, you use your account to deposit IOTA tokens into a pre-defined CDA.** -->
+**このガイドでは、アカウントを使用して IOTA トークンを事前定義された条件付きデポジットアドレス（CDA）にデポジットします。**
+<!-- **In this guide, you use your account to deposit IOTA tokens into a pre-defined conditional deposit address (CDA).** -->
 
 ## IOTA ネットワーク
 <!-- ## IOTA network -->
@@ -53,8 +53,8 @@
     Sent deposit to DL9CSYICJVKQRUTWBFUCZJQZ9WNBSRJOA9MGOISQZGGHOCZTXVSKDIZN9HBORNGDWRBBAFTKXGEJIAHKDTMAUX9ILA in the bundle with the following tail transaction hash WZEATTRJYENRALJTWPVGDQZHETIDJXPUROUM9BBPS9RJEELDMU9YNZFBSDGPQHZHMXBVCKITSMDEEQ999
     ```
 
-アカウントは、確定されるまでバンドルの再アタッチとプロモートを実行します。
-<!-- Your account will reattach and promote your bundle until it's confirmed. -->
+アカウントは、確定されるまでバンドルの[再アタッチとプロモート](root://getting-started/0.1/transactions/reattach-rebroadcast-promote.md)を実行します。
+<!-- Your account will [reattach and promote](root://getting-started/0.1/transactions/reattach-rebroadcast-promote.md) your bundle until it's confirmed. -->
 
 ## コードを実行する
 <!-- ## Run the code -->

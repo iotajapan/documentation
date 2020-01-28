@@ -1,7 +1,7 @@
-# APIエラーメッセージ
+# API エラーメッセージ
 <!-- # API error messages -->
 
-**APIリクエストが失敗すると、レスポンスボディにHTTPエラーコードとJSONオブジェクトが返されます。**
+**API リクエストが失敗すると、レスポンスボディに HTTP エラーコードと JSON オブジェクトが返されます。**
 <!-- **If an API request fails you'll receive an HTTP error code and a JSON object in the response body.** -->
 
 ## 400: Invalid addresses input
@@ -14,13 +14,13 @@
 
 ## 400: Invalid depth input
 
-`depth`パラメータの値が数値（文字列ではない）であることを確認してください。
+`depth` パラメータの値が数値（文字列ではない）であることを確認してください。
 <!-- Make sure that the value of the `depth` parameter is a number (not a string). -->
 
-`depth`パラメータの値を減らします。IRIノードは最大許容値を制限することがあります。
+`depth` パラメータの値を減らします。IRI ノードは最大許容値を制限することがあります。
 <!-- Decrement the value of the `depth` parameter. The IRI node may limit the maximum accepted value. -->
 
-自分のIRIノードにリクエストを出している場合は、[`MAX-DEPTH`](../references/iri-configuration-options.md#maxdepth)設定オプションを確認してください。
+自分の IRI ノードにリクエストを出している場合は、[`MAX-DEPTH`](../references/iri-configuration-options.md#maxdepth) 構成オプションを確認してください。
 <!-- If you're making the request to your own IRI node, check the [`MAX-DEPTH`](../references/iri-configuration-options.md#maxdepth) configuration option. -->
 
 ## 400: Invalid parameters
@@ -33,16 +33,16 @@
 
 ## 400: One of the tips is absent
 
-IRIノードの台帳にチップトランザクションがありません。
+IRI ノードの台帳にチップトランザクションがありません。
 <!-- The IRI node doesn't have the tip transaction in its ledger. -->
 
-別のチップトランザクションをパラメータとして使用するか、または別のIRIノードにリクエストを出してみてください。
+別のチップトランザクションをパラメータとして使用するか、または別の IRI ノードにリクエストを出してみてください。
 <!-- Use a different tip transaction as a parameter, or try making the request to a different IRI node. -->
 
 ## 401: COMMAND is not available on this node
 
-別のIRIノードにリクエストを出してください。現在のIRIノードは、このエンドポイントへのリクエストを制限しています。
+別の IRI ノードにリクエストを出してください。現在の IRI ノードは、このエンドポイントへのリクエストを制限しています。
 <!-- Make the request to a different IRI node. The current IRI node has restricted requests to this endpoint. -->
 
-自分のIRIノードにリクエストを出している場合は、そのコマンドが[`REMOTE-LIMIT-API`](../references/iri-configuration-options.md#remote-limit-api)設定オプションにリストされているかどうかを確認してください。
+自分の IRI ノードにリクエストを出している場合は、そのコマンドが [`REMOTE-LIMIT-API`](../references/iri-configuration-options.md#remote-limit-api) 構成オプションにリストされているかどうかを確認してください。
 <!-- If you're making the request to your own IRI node, make sure that the command is not listed in the [`REMOTE-LIMIT-API`](../references/iri-configuration-options.md#remote-limit-api) configuration option. -->

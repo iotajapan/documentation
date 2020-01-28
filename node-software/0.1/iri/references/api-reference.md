@@ -1,10 +1,10 @@
-# APIリファレンス
+# API リファレンス
 <!-- # API reference -->
 
-**この一覧には、HTTP APIを介してノードと通信するためのコマンドが含まれています。**
+**この一覧には，HTTP API を介してノードと通信するためのコマンドが含まれています．**
 <!-- **This list contains the commands for communicating with a node through the HTTP API.** -->
 
-以下のすべてのコマンドにHTTPヘッダーを含める必要があります。
+以下のすべてのコマンドに HTTP ヘッダーを含める必要があります．
 <!-- All the following commands must include an HTTP header. -->
 
 | **ヘッダー** | **値** | **必須または任意** |
@@ -14,19 +14,19 @@
 | Authorization | Bearer {token} | 任意 |
 
 :::warning:
-このAPIはベータ版であり、変更される可能性があります。運用版アプリケーションではこのAPIを使用しないことをお勧めします。
+この API はベータ版であり，変更される可能性があります．運用版アプリケーションではこの API を使用しないことをお勧めします．
 :::
 <!-- :::warning: -->
-<!-- This API is in beta, and is subject to change. We recommend that you don't use this API in production applications. -->
+<!-- This API is in beta and subject to change. We recommend that you don't use this API in production applications. -->
 <!-- ::: -->
 
 ## addNeighbors
 
-ノードに一時的な隣接ノードのリストを追加します。
-<!-- Add a list of temporary neighbors to a node. -->
+ノードに一時的な隣接ノードのリストを追加します．
+<!-- Adds a list of temporary neighbors to a node. -->
 
 :::info:
-ノードが再起動すると、隣接ノードは削除されます。ノードに恒久的に隣接ノードを追加したい場合は、[`NEIGHBORS`](../references/iri-configuration-options.md#neighbors)設定オプションに隣接ノードのURIを追加してください。
+ノードが再起動すると，隣接ノードは削除されます．ノードに恒久的に隣接ノードを追加したい場合は，[`NEIGHBORS`](../references/iri-configuration-options.md#neighbors) 構成オプションに隣接ノードの URI を追加してください．
 :::
 <!-- :::info: -->
 <!-- The neighbors are removed if the node restarts. If you want to permanently add the neighbors to your own node, add their URIs to the [`NEIGHBORS`](../references/iri-configuration-options.md#neighbors) configuration option. -->
@@ -34,12 +34,12 @@
 
 ### パラメータ
 
-隣接ノードを追加するためのURIフォーマットは、`"tcp://IPADDRESS:PORT"`です。
+隣接ノードを追加するための URI フォーマットは，`"tcp://IPADDRESS:PORT"` です．
 <!-- The URI format for adding neighbors is `"tcp://IPADDRESS:PORT"`. -->
 
 | **パラメータ** | **必須または任意** | **説明** | **タイプ** |
 |--|--|--|--|
-| `uris` | 必須 | 追加する隣接ノードのURIの文字列 | stringの配列 |
+| `uris` | 必須 | 追加する隣接ノードの URI の文字列 | stringの配列 |
 
 ### 例
 --------------------
@@ -146,18 +146,18 @@ curl http://localhost:14265 \
 ## attachToTangle
 
 ### パラメータ
-与えられたトランザクショントライトについてノード上で[プルーフオブワーク](root://getting-started/0.1/transactions/proof-of-work.md)を行います。
-<!-- Do [proof of work](root://getting-started/0.1/transactions/proof-of-work.md) on a node for the given transaction trytes. -->
+与えられたトランザクショントライトについて[プルーフオブワーク](root://getting-started/0.1/transactions/proof-of-work.md)を行います．
+<!-- Does [proof of work](root://getting-started/0.1/transactions/proof-of-work.md) for the given transaction trytes. -->
 
- `branchTransaction`および`trunkTransaction`パラメーターは、[`getTransactionsToApprove`](#getTransactionsToApprove)エンドポイントから返されます。
+`branchTransaction` および `trunkTransaction` パラメーターは，[`getTransactionsToApprove`](#getTransactionsToApprove) エンドポイントから返されます．
 <!--  The `branchTransaction` and  `trunkTransaction` parameters are returned from the [`getTransactionsToApprove`](#getTransactionsToApprove) endpoint. -->
 
 | **パラメータ** | **必須または任意** | **説明** | **タイプ** |
 | :--------- | :------------- | :--- | :----- |
 | `trunkTransaction` | 必須 | トランクトランザクションハッシュ | string |
 | `branchTransaction` | 必須 | ブランチトランザクションハッシュ | string |
-| `minWeightMagnitude` | 必須 | [最小重量値](root://dev-essentials/0.1/concepts/minimum-weight-magnitude.md) | integer |
-| `trytes` | 必須 | トランザクショントライトの文字列 | stringの配列 |
+| `minWeightMagnitude` | 必須 | [最小重量値](root://getting-started/0.1/transactions/proof-of-work.md#minimum-weight-magnitude) | integer |
+| `trytes` | 必須 | トランザクショントライトの文字列．バンドルでトランザクションを送信する場合，バンドルの最後のトランザクションのトライトが配列のインデックス0にあることを確認してください． | string の配列 |
 
 ### 例
 --------------------
@@ -264,7 +264,7 @@ curl http://localhost:14265 \
 
 ### 結果
 
-戻り値の最後の243トライトは、以下のもので構成されています。
+戻り値の最後の243トライトは，以下のもので構成されています．
 <!-- The last 243 trytes of the return value consist of the following: -->
 
 `trunkTransaction` + `branchTransaction` + `nonce`.
@@ -275,17 +275,16 @@ curl http://localhost:14265 \
 
 ## broadcastTransactions
 
-トランザクショントライトをノードへブロードキャストします。
-<!-- Broadcast transaction trytes to a node. -->
-
 ### パラメータ
+ノードにトランザクショントライトを送信します．
+<!-- Sends transaction trytes to a node. -->
 
-このエンドポイントの`trytes`パラメータには、[`attachToTangle`](#attachToTangle)エンドポイントによって行われるプルーフオブワークを含める必要があります。
+このエンドポイントの `trytes` パラメータには，[`attachToTangle`](#attachToTangle) エンドポイントによって行われるプルーフオブワークを含める必要があります．
 <!-- The `trytes` parameter for this endpoint must include proof of work, which is done by the [`attachToTangle`](#attachToTangle) endpoint. -->
 
 | **パラメータ** | **必須または任意** | **説明** | **タイプ** |
 |--|--|--|--|
-| `trytes` | 必須 | 有効なトランザクショントライト | stringの配列 |
+| `trytes` | 必須 | 有効なトランザクショントライト | string の配列 |
 
 ### 例
 --------------------
@@ -379,20 +378,20 @@ curl http://localhost:14265 \
 
 ## checkConsistency
 
-トランザクションの整合性を確認します。整合性のあるトランザクションとは、次のことが当てはまるトランザクションです。
-<!-- Check the consistency of transactions. A consistent transaction is one where the following statements are true: -->
-- ノードにトランザクションのブランチまたはトランクトランザクションが欠落していない。
+トランザクションの整合性を確認します．整合性のあるトランザクションとは，次のことが当てはまるトランザクションです．
+<!-- Checks the consistency of transactions. A consistent transaction is one where the following statements are true: -->
+- ノードにトランザクションのブランチまたはトランクトランザクションが欠落していない．
 <!-- - The node isn't missing the transaction's branch or trunk transactions -->
-- トランザクションのバンドルが有効。
+- トランザクションのバンドルが有効．
 <!-- - The transaction's bundle is valid -->
-- トランザクションのブランチおよびトランクトランザクションが有効。
+- トランザクションのブランチおよびトランクトランザクションが有効．
 <!-- - The transaction's branch and trunk transactions are valid -->
 
 ### パラメータ
 
 | **パラメータ** | **必須または任意** | **説明** | **タイプ** |
 |--|--|--|--|
-| `tails` | 必須 | 確認するトランザクションハッシュ | stringの配列 |
+| `tails` | 必須 | 確認するトランザクションハッシュ | string の配列 |
 
 ### 例
 --------------------
@@ -493,27 +492,27 @@ curl http://localhost:14265 \
 
 | **リターンフィールド** | **説明** |
 |--|--|
-| `state` | `tails`パラメータ内で与えられたトランザクションの状態。`true`は、与えられたすべてのトランザクションに整合性があることを意味します。`false`は、与えられたトランザクションの一つ以上に整合性がないことを意味します。 |
-| `info` | `state`フィールドが`false`の場合、このフィールドにはトランザクションに整合性がない理由に関する情報が含まれます。 |
+| `state` | `tails` パラメータ内で与えられたトランザクションの状態．`true` は，与えられたすべてのトランザクションに整合性があることを意味します．`false` は，与えられたトランザクションの一つ以上に整合性がないことを意味します． |
+| `info` | `state` フィールドが `false` の場合，このフィールドにはトランザクションに整合性がない理由に関する情報が含まれます． |
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
 
 ## findTransactions
 
-トランザクションフィールドに与えられた値を含むトランザクションを見つけます。パラメータは、`bundles`、`addresses`、`tags`、`approvees`などの検索するトランザクションフィールドを定義します。
-<!-- Find transactions that contain the given values in their transaction fields. -->
+トランザクションフィールドに与えられた値を含むトランザクションを見つけます．パラメータは，`bundles`，`addresses`，`tags`，`approvees` などの検索するトランザクションフィールドを定義します．
+<!-- Finds transactions that contain the given values in their transaction fields. -->
 <!-- The parameters define the transaction fields to search for, including `bundles`, `addresses`, `tags`, and `approvees`. -->
 
-**複数のトランザクションフィールドを使用して、複数のトランザクションフィールドの値の交点部分でトランザクションハッシュを返します。**
+**複数のトランザクションフィールドを使用して，複数のトランザクションフィールドの値の交点部分でトランザクションハッシュを返します．**
 <!-- **Using multiple transaction fields, returns transactions hashes at the intersection of those values.** -->
 
 ### パラメータ
 
 | **パラメータ** | **説明** | **タイプ** |
 |--|--|--|
-| `bundles` | 検索するバンドルハッシュ | stringの配列 |
-| `addresses` | 検索するアドレス（チェックサムを含まない） | stringの配列 |
-| `tags` | 検索するタグ | stringの配列 |
-| `approvees` | 検索する子トランザクション | stringの配列 |
+| `bundles` | 検索するバンドルハッシュ | string の配列 |
+| `addresses` | 検索するアドレス（チェックサムを含まない） | string の配列 |
+| `tags` | 検索するタグ | string の配列 |
+| `approvees` | 検索する子トランザクション | string の配列 |
 
 ### 例
 --------------------
@@ -611,19 +610,20 @@ curl http://localhost:14265 \
 
 ### 結果
 
-トランザクションハッシュの配列は、すべての個々の要素に対して同じ順序で返されます。
+トランザクションハッシュの配列は，すべての個々の要素に対して同じ順序で返されます．
 <!-- An array of transaction hashes, is returned in the same order for all individual elements. -->
 
 | **リターンフィールド** | **説明** |
 |--|--|
-| `hashes` | 返されるトランザクションハッシュは入力によって異なります。`bundles`：与えられたバンドルハッシュを含むトランザクションハッシュの配列を返します。`addresses`：`address`フィールドに与えられたアドレスを含むトランザクションハッシュの配列を返します。`tags`：`tag`フィールドに与えられた値を含むトランザクションハッシュの配列を返します。`approvees`：`branchTransaction`フィールドまたは`trunkTransaction`フィールドに与えられたトランザクションを含むトランザクションハッシュの配列を返します。 |
+| `hashes` | 返されるトランザクションハッシュは入力によって異なります．`bundles`：与えられたバンドルハッシュを含むトランザクションハッシュの配列を返します．`addresses`：`address` フィールドに与えられたアドレスを含むトランザクションハッシュの配列を返します．`tags`：`tag` フィールドに与えられた値を含むトランザクションハッシュの配列を返します．`approvees`：`branchTransaction` フィールドまたは `trunkTransaction` フィールドに与えられたトランザクションを含むトランザクションハッシュの配列を返します． |
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
 
 ## getNodeAPIConfiguration
 
-Get a node's API configuration settings.
+ノードの API 構成設定を取得します．
+<!-- Gets a node's API configuration settings. -->
 
-### Examples
+### 例
 --------------------
 ### Python
 ```python
@@ -681,7 +681,7 @@ curl http://localhost:14265 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
 --------------------
 ### 200
 ```json
@@ -704,20 +704,21 @@ curl http://localhost:14265 \
 ```
 --------------------
 
-### Results
+### 結果
 
-The [configuration settings](../references/iri-configuration-options.md) that the node is using.
+ノードが使用している[構成設定](../references/iri-configuration-options.md)．
+<!-- The [configuration settings](../references/iri-configuration-options.md) that the node is using. -->
 
 ## getBalances
 
-確定済みのアドレスの残高を取得します。
-<!-- Get the confirmed balance of an address. -->
+確定済みのアドレスの残高を取得します．
+<!-- Gets the confirmed balance of an address. -->
 
-`tips`パラメータがない場合、返された残高は最新の確定済みマイルストーンの時点で正しいです。
+`tips` パラメーターがない場合，返された残高は最新の確定済みマイルストーンの時点で正しいです．
 <!-- If the `tips` parameter is missing, the returned balance is correct as of the latest confirmed milestone. -->
 
 :::info:
-このAPIエンドポイントは、ノードが同期している場合にのみデータを返します。
+この API エンドポイントは，ノードが同期している場合にのみデータを返します．
 :::
 <!-- :::info: -->
 <!-- This API endpoint returns data only if the node is synchronized. -->
@@ -728,9 +729,9 @@ The [configuration settings](../references/iri-configuration-options.md) that th
 
 |**パラメータ**|**必須または任意**|**説明**|**タイプ**|
 |---|---|---|---|
-|`addresses`|必須|残高を取得するアドレス（チェックサムを含まない）|stringの配列|
+|`addresses`|必須|残高を取得するアドレス（チェックサムを含まない）|string の配列|
 |`threshold`|必須|0から100までの確認しきい値|integer|
-|`tips`|任意|残高を見つけるためにトランザクションの履歴をたどるチップ|stringの配列|
+|`tips`|任意|残高を見つけるためにトランザクションの履歴をたどるチップ|string の配列|
 
 ### 例
 --------------------
@@ -834,24 +835,24 @@ curl http://localhost:14265 \
 
 | **リターンフィールド** | **説明** |
 |--|--|
-| `balances` | `addresses`パラメーターがエンドポイントに渡されたのと同じ順序での残高の配列 |
-| `references` | 参照しているチップ。`tips`パラメータがエンドポイントに渡されなかった場合、このフィールドには残高を確定した最新のマイルストーンのハッシュが含まれます。 |
+| `balances` | `addresses` パラメーターがエンドポイントに渡されたのと同じ順序での残高の配列 |
+| `references` | 参照しているチップ．`tips` パラメータがエンドポイントに渡されなかった場合，このフィールドには残高を確定した最新のマイルストーンのハッシュが含まれます． |
 | `milestoneIndex` | 最新の残高を確定したマイルストーンのインデックス |
 | `duration` | リクエストの処理にかかったミリ秒数 |
 
 ## getInclusionStates
 
-一連のトランザクションの包含状態を取得します。
-<!-- Get the inclusion states of a set of transactions. -->
+一連のトランザクションの包含状態を取得します．
+<!-- Gets the inclusion states of a set of transactions. -->
 
-このエンドポイントは、トランザクションがネットワークによって確定された（有効なマイルストーンによって参照された）かどうかを判別します。
+このエンドポイントは，トランザクションがネットワークによって確定された（有効なマイルストーンによって参照された）かどうかを判別します．
 <!-- This endpoint determines if a transaction is confirmed by the network (referenced by a valid milestone). -->
 
-過去の包含状態のトランザクションを取得するために、複数のチップ（つまりマイルストーン）を検索できます。
-<!-- You can search for multiple tips (and thus, milestones) to get past inclusion states of transactions. -->
+過去の包含状態のトランザクションを取得するために，複数のチップ（つまりマイルストーン）を検索できます．
+You can search for multiple tips (and thus, milestones) to get past inclusion states of transactions.
 
 :::info:
-このエンドポイントは、ノードが同期している場合にのみデータを返します。
+このエンドポイントは，ノードが同期している場合にのみデータを返します．
 :::
 <!-- :::info: -->
 <!-- This endpoint returns data only if the node is synchronized. -->
@@ -863,8 +864,8 @@ curl http://localhost:14265 \
 
 |**パラメータ**|**必須または任意**|**説明**|**タイプ**|
 |---|---|---|---|
-|`transactions`|必須|包含状態を取得したいトランザクションハッシュのリスト|stringの配列|
-|`tips`|必須(空も可)|検索したいチップトランザクションハッシュ（マイルストーンを含む）のリスト|stringの配列|
+|`transactions`|必須|包含状態を取得したいトランザクションハッシュのリスト|string の配列|
+|`tips`|必須(空も可)|検索したいチップトランザクションハッシュ（マイルストーンを含む）のリスト|string の配列|
 
 ### 例
 --------------------
@@ -976,14 +977,15 @@ curl http://localhost:14265 \
 
 | **リターンフィールド** | **説明** |
 |--|--|
-| `states` | `transactions`パラメータと同じ順序のブール値のリスト。`true`はトランザクションが確定されたことを意味します。 |
+| `states` | `transactions` パラメーターと同じ順序のブール値のリスト．`true` はトランザクションが確定されたことを意味します． |
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
 
 ## getMissingTransactions
 
-Get all transaction hashes that a node is currently requesting from its neighbors.
+ノードが現在隣接ノードへリクエストしているすべてのトランザクションハッシュを取得します．
+<!-- Gets all transaction hashes that a node is currently requesting from its neighbors. -->
 
-### Examples
+### 例
 --------------------
 ### Python
 ```python
@@ -1041,7 +1043,7 @@ curl http://localhost:14265 \
 ```
 --------------------
 
-### Response examples
+### レスポンス例
 --------------------
 ### 200
 ```json
@@ -1059,17 +1061,17 @@ curl http://localhost:14265 \
 ```
 --------------------
 
-### Results
+### 結果
 
-|**Return field** | **Description** |
+|**リターンフィールド** | **説明** |
 |--|--|
-| `hashes` |Array of missing transaction hashes |
-| `duration` | Number of milliseconds it took to complete the request |
+| `hashes` |ミッシングトランザクションハッシュの配列|
+| `duration` | リクエストの完了にかかったミリ秒数 |
 
 ## getNeighbors
 
-ノードの隣接ノードとその活動状況を取得します。
-<!-- Get a node's neighbors and their activity. -->
+ノードの隣接ノードとその活動状況を取得します．
+<!-- Gets a node's neighbors and their activity. -->
 
 ### 例
 --------------------
@@ -1159,18 +1161,18 @@ curl http://localhost:14265 \
 ### 結果
 
 :::info:
-ノードが再起動するまで活動状況は蓄積されます。
+ノードが再起動するまで活動状況は蓄積されます．
 :::
 
 | **リターンフィールド** | **説明** |
 |--|--|
-| `neighbors` | 次のフィールドを含むオブジェクトの配列。address、connectionType、numberOfAllTransactions、numberOfRandomTransactionRequests、numberOfNewTransactions、numberOfInvalidTransactions、numberOfStaleTransactions、numberOfSentTransactions、およびconnectiontype。 |
+| `neighbors` | 次のフィールドを含むオブジェクトの配列．`address`，`connectionType`，`numberOfAllTransactions`，`numberOfRandomTransactionRequests`，`numberOfNewTransactions`，`numberOfInvalidTransactions`，`numberOfStaleTransactions`，`numberOfSentTransactions`，および `connectiontype`． |
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
 
 ## getNodeInfo
 
-ノードに関する情報を取得します。
-<!-- Get information about a node. -->
+ノードに関する情報を取得します．
+<!-- Gets information about a node. -->
 
 ### 例
 --------------------
@@ -1275,32 +1277,33 @@ curl http://localhost:14265 \
 
 | リターンフィールド | 説明 |
 |--|--|
-| `appName` | IRIネットワークの名前 |
-| `appVersion` | IRIのバージョン |
-| `jreAvailableProcessors` | ノードで使用可能なCPUコア |
-| `jreFreeMemory` | Java仮想マシンの空きメモリ量 |
-| `jreMaxMemory` | Java仮想マシンが使用できる最大メモリ量 |
-| `jreTotalMemory` | Java仮想マシンの総メモリ量 |
-| `jreVersion` | Java実行環境のバージョン |
+| `appName` | IRI ネットワークの名前 |
+| `appVersion` | IRI のバージョン |
+| `jreAvailableProcessors` | ノードで使用可能な CPU コア数 |
+| `jreFreeMemory` | Java 仮想マシンの空きメモリ量 |
+| `jreMaxMemory` | Java 仮想マシンが使用できる最大メモリ量 |
+| `jreTotalMemory` | Java 仮想マシンの総メモリ量 |
+| `jreVersion` | Java 実行環境のバージョン |
 | `latestMilestone` | 最新のマイルストーンのトランザクションハッシュ |
 | `latestMilestoneIndex` | 最新のマイルストーンのインデックス |
 | `latestSolidSubtangleMilestone` | 最新の凝固マイルストーンのトランザクションハッシュ |
 | `latestSolidSubtangleMilestoneIndex` | 最新の凝固マイルストーンのインデックス |
-| `milestoneStartIndex` | 現在のバージョンのIRIが開始したマイルストーンのインデックス |
-| `lastSnapshottedMilestoneIndex` | ノードで[ローカルスナップショット](../concepts/local-snapshot.md)を引き起こした最後のマイルストーンのインデックス |
+| `milestoneStartIndex` | 現在のバージョンの IRI が開始したマイルストーンのインデックス |
+| `lastSnapshottedMilestoneIndex` | ノードで[ローカルスナップショット](root://getting-started/0.1/network/nodes.md#local-snapshots)を引き起こした最後のマイルストーンのインデックス |
 | `neighbors` | 繋がっている隣接ノードの総数 |
 | `packetsQueueSize` | パケットキューのサイズ |
 | `time` | 現在のUNIXタイムスタンプ |
 | `tips` | ネットワーク内のチップ数 |
 | `transactionsToRequest` | ノードの台帳に欠落しているトランザクションの総数 |
-| `features` | 有効な設定オプション |
+| `features` | 有効な構成オプション |
 | `coordinatorAddress` | コーディネーターのアドレス（マークルルート） |
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
 
+
 ## getTips
 
-ノードからチップトランザクションハッシュを取得します。
-<!-- Get tip transaction hashes from a node. -->
+ノードからチップトランザクションハッシュを取得します．
+<!-- Gets tip transaction hashes from a node. -->
 
 ### 例
 --------------------
@@ -1390,11 +1393,11 @@ curl http://localhost:14265 \
 
 ## getTransactionsToApprove
 
-ブランチ/トランクトランザクションとして使用する2つの矛盾しないチップトランザクションハッシュを取得します。
-<!-- Get two consistent tip transaction hashes to use as branch/trunk transactions. -->
+ブランチ/トランクトランザクションとして使用する2つの矛盾しないチップトランザクションハッシュを取得します．
+<!-- Gets two consistent tip transaction hashes to use as branch/trunk transactions. -->
 
 :::info:
-このエンドポイントは、ノードが同期している場合にのみデータを返します。
+このエンドポイントは，ノードが同期している場合にのみデータを返します．
 :::
 <!-- :::info: -->
 <!-- This endpoint returns data only if the node is synchronized. -->
@@ -1405,8 +1408,8 @@ curl http://localhost:14265 \
 
 |**パラメータ**|**必須または任意**|**説明**|**タイプ**|
 |---|---|---|---|
-|`depth`|必須|チップ選択アルゴリズムを開始するために戻るマイルストーンの数。|integer|
-|`reference`|任意|重み付きランダムウォークを開始するトランザクションハッシュ。このパラメータを使用して、返されたチップトランザクションハッシュが与えられた参照トランザクションを確実に承認するようにします。|string|
+|`depth`|必須|チップ選択アルゴリズムを開始するために戻るマイルストーンの数．|integer|
+|`reference`|任意|重み付きランダムウォークを開始するトランザクションハッシュ．このパラメータを使用して，返されたチップトランザクションハッシュが与えられた参照トランザクションを確実に承認するようにします．|string|
 
 ### 例
 --------------------
@@ -1505,14 +1508,14 @@ curl http://localhost:14265 \
 
 ## getTrytes
 
-トライトでトランザクション内容を取得します。
-<!-- Get a transaction's contents in trytes. -->
+トライトでトランザクション内容を取得します．
+<!-- Gets a transaction's contents in trytes. -->
 
 ### パラメータ
 
 | **パラメータ** | **必須または任意** | **説明** | **タイプ** |
 |--|--|--|--|
-| `hashes` | 必須 | トランザクションハッシュ | stringの配列 |
+| `hashes` | 必須 | トランザクションハッシュ | string の配列 |
 
 ### 例
 --------------------
@@ -1610,7 +1613,7 @@ curl http://localhost:14265 \
 
 ### 結果
 
-クライアントライブラリを使用して、返されたトライトをASCII文字に変換できます。
+クライアントライブラリを使用して，返されたトライトを ASCII 文字に変換できます．
 <!-- You can convert the returned trytes to ASCII characters by using the client libraries. -->
 
 | **リターンフィールド** | **説明** |
@@ -1619,13 +1622,13 @@ curl http://localhost:14265 \
 | `duration` | リクエストを完了するのにかかったミリ秒数 |
 
 :::info:
-ノードの台帳に与えられたトランザクションハッシュのトライトがない場合、そのトランザクションハッシュのインデックスの値は`null`または9の文字列です。
+ノードの台帳に与えられたトランザクションハッシュのトライトがない場合，そのトランザクションハッシュのインデックスの値は `null` または9の文字列です．
 :::
 
 ## interruptAttachingToTangle
 
-[`attachToTangle`](#attachToTangle)エンドポイントによって開始されたプロセスを中止します。
-<!-- Abort the process that's started by the [`attachToTangle`](#attachToTangle) endpoint. -->
+[`attachToTangle`](#attachToTangle) エンドポイントによって開始されたプロセスを中止します．
+<!-- Aborts the process that's started by the [`attachToTangle`](#attachToTangle) endpoint. -->
 
 ### 例
 --------------------
@@ -1710,21 +1713,21 @@ curl http://localhost:14265 \
 
 ## removeNeighbors
 
-ノードから隣接ノードのリストを一時的に削除します。
+ノードから隣接ノードのリストを一時的に削除します．
 <!-- Temporarily removes a list of neighbors from a node. -->
 
 :::info:
-ノードが再起動すると、隣接ノードが再び追加されます。ノードから恒久的に隣接ノードを削除したい場合は、 [`NEIGHBORS`](../references/iri-configuration-options.md#neighbors)設定オプションから隣接ノードのURIを削除してください。
+ノードが再起動すると，隣接ノードが再び追加されます．ノードから恒久的に隣接ノードを削除したい場合は，[`NEIGHBORS`](../references/iri-configuration-options.md#neighbors) 構成オプションから隣接ノードの URI を削除してください．
 :::
 
 ### パラメータ
 
-隣接ノードを削除するためのURIフォーマットは`"tcp://IPADDRESS:PORT"`です。
+隣接ノードを削除するための URI フォーマットは `"tcp://IPADDRESS:PORT"` です．
 <!-- The URI format for removing neighbors is `"tcp://IPADDRESS:PORT"`. -->
 
 | **パラメータ** | **必須または任意** | **説明** | **タイプ** |
 |--|--|--|--|
-| `uris` | 必須 | 削除する隣接ノードのURIの文字列 | stringの配列 |
+| `uris` | 必須 | 削除する隣接ノードのURIの文字列 | string の配列 |
 
 ### 例
 --------------------
@@ -1809,17 +1812,17 @@ curl http://localhost:14265 \
 
 ## storeTransactions
 
-トランザクションをノードのローカルストレージに格納します。
-<!-- Store transactions in a node's local storage. -->
+トランザクションをノードのローカルストレージに格納します．
+<!-- Stores transactions in a node's local storage. -->
 
 ### パラメータ
 
-`trytes`パラメータの値は有効でなければなりません。有効なトライトは[`attachToTangle`](#attachToTangle)エンドポイントによって返されます。
+`trytes` パラメーターの値は有効でなければなりません．有効なトライトは [`attachToTangle`](#attachToTangle) エンドポイントによって返されます．
 <!-- The value of the `trytes` parameter must be valid. Valid trytes are returned by the [`attachToTangle`](#attachToTangle) endpoint. -->
 
 | **パラメータ** | **必須または任意** | **説明** | **タイプ** |
 |--|--|--|--|
-| `trytes` | 必須 | トランザクショントライト | stringの配列 |
+| `trytes` | 必須 | トランザクショントライト | string の配列 |
 
 ### 例
 --------------------
@@ -1914,17 +1917,17 @@ curl http://localhost:14265 \
 
 ## wereAddressesSpentFrom
 
-現在のエポックまたは以前のエポックのいずれかで、与えられたアドレスからIOTAトークンが取り出されたことがあるかどうかを確認します。
-<!-- Check if an address was ever withdrawn from, either in the current epoch or in any previous epochs. -->
+現在のエポックまたは以前のエポックのいずれかで，与えられたアドレスから IOTA トークンが取り出されたことがあるかどうかを確認します．
+<!-- Checks if an address was ever withdrawn from, either in the current epoch or in any previous epochs. -->
 
-アドレスにペンディング中のトランザクションがある場合も「使用済み（署名済み）」と見なされます。
+アドレスにペンディング中のトランザクションがある場合も「使用済み（署名済み）」と見なされます．
 <!-- If an address has a pending transaction, it's also considered 'spent'. -->
 
 ### パラメータ
 
 | **パラメータ** | **必須または任意** | **説明** | **タイプ** |
 |--|--|--|--|
-| `addresses` | 必須 | チェックするアドレス（チェックサムを含まない） | stringの配列 |
+| `addresses` | 必須 | チェックするアドレス（チェックサムを含まない） | string の配列 |
 
 ### 例
 --------------------
@@ -2024,5 +2027,5 @@ curl http://localhost:14265 \
 
 | **リターンフィールド** | **説明** |
 |--|--|
-| `states` | `addresses`パラメータの値と同じ順序で指定されたアドレスの状態。`true`は、アドレスからIOTAトークンが取り出されたことがあることを意味します。 |
+| `states` | `addresses` パラメータの値と同じ順序で指定されたアドレスの状態．`true` は，アドレスから IOTA トークンが取り出されたことがあることを意味します． |
 | `duration` | リクエストを完了するのにかかったミリ秒数 |

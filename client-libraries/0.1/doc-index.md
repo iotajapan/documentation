@@ -148,6 +148,10 @@
 
 [MAM/API リファレンス/MAM API リファレンス](/mam/api-reference/mam-api-reference.md)
 
+[API リファレンス/IRI ノード API](root://node-software/0.1/iri/references/api-reference.md)
+
+[API リファレンス/IRI ノード ZMQ イベント](root://node-software/0.1/iri/references/zmq-events.md)
+
 [API リファレンス/C](https://github.com/iotaledger/entangled/tree/develop/cclient/api)
 
 [API リファレンス/Go](https://github.com/iotaledger/iota.go/tree/master/.docs/iota.go/reference)

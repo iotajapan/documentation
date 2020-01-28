@@ -1,8 +1,8 @@
 # Go で条件付きデポジットアドレスを生成する
 <!-- # Generate a conditional deposit address in Go -->
 
-**このガイドでは、条件付きデポジットアドレスを生成し、マグネットリンクにシリアル化し、テスト IOTA トークンを送信します。**
-<!-- **In this guide, you generate a conditional deposit address, serialize it into a magnet link, and send test IOTA tokens to it.** -->
+**このガイドでは、条件付きデポジットアドレス（CDA）を生成し、マグネットリンクにシリアル化し、テスト IOTA トークンを送信します。**
+<!-- **In this guide, you generate a conditional deposit address (CDA), serialize it into a magnet link, and send test IOTA tokens to it.** -->
 
 ## パッケージ
 <!-- ## Packages -->

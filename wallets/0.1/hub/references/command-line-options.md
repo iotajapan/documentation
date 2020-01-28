@@ -1,10 +1,10 @@
 # コマンドラインオプション
 <!-- # Command-line options -->
 
-**ハブまたは署名サーバーを起動すると、コマンドラインオプションを使用してデフォルト設定を上書きできます。**
+**ハブまたは署名サーバーを起動すると，コマンドラインオプションを使用してデフォルト設定を上書きできます．**
 <!-- **When you start Hub or the signing server, you can use the command-line options to override the default settings.** -->
 
-変更するオプションを見つけやすくするために、オプションを次のカテゴリに分けました。
+変更するオプションを見つけやすくするために，オプションを次のカテゴリに分けました．
 <!-- To make it easier to find the options you want to change, we've separated them into the following categories: -->
 
 - **Database:** Configure the database settings

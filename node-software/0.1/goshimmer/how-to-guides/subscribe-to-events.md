@@ -7,16 +7,16 @@
 次のようにして、トランザクションデータをノードから受信することができます。
 <!-- You can receive this transaction data from a node by doing the following: -->
 
-1. オープンソースのZMQライブラリをインストールします。
+1. オープンソースの ZMQ ライブラリをインストールします。
 <!-- 1. Install an open-source ZMQ library -->
 
-2. ZMQソケットを作成してノードに接続します。
+2. ZMQ ソケットを作成してノードに接続します。
 <!-- 2. Create a ZMQ socket and connect it to a node -->
 
-3. ZMQからのイベントを購読します。
+3. ZMQ からのイベントを購読します。
 <!-- 3. Subscribe to events from the ZMQ -->
 
-以下のハウツーガイドではNode.jsとPythonを使用していますが、任意の[ZMQライブラリがサポートしているプログラミング言語](http://zguide.zeromq.org/page:all)を使用できます。
+以下のハウツーガイドでは Node.js と Python を使用していますが、任意の [ZMQ ライブラリがサポートしているプログラミング言語](http://zguide.zeromq.org/page:all)を使用できます。
 <!-- In the following how-to guide we use Node.js and Python, but you could use any [programming language that the ZMQ library supports](http://zguide.zeromq.org/page:all). -->
 
 ## 前提条件
@@ -27,7 +27,7 @@
 
 - [Node.js 8以上](https://nodejs.org/en/)か[Python（3以上）](https://www.python.org/downloads/)と[PIP](https://pip.pypa.io/en/stable/installing/)
 <!-- - [Node.js (8+)](https://nodejs.org/en/) or [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/) -->
-- [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディタ
+- [Visual Studio Code](https://code.visualstudio.com/Download) などのコードエディタ
 <!-- - A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
 - コマンドラインインターフェイスへのアクセス
 <!-- - Access to a command-line interface -->
@@ -35,10 +35,10 @@
 ## トランザクションイベントを購読する
 <!-- ## Subscribe to the transaction event -->
 
-ノードが最近受信したトランザクションを監視するために`tx`イベントを購読することができます。
+ノードが最近受信したトランザクションを監視するために `tx` イベントを購読することができます。
 <!-- You can subscribe to the `tx` event to monitor a node for recently received transactions. -->
 
-1\. `zeromq`パッケージをインストールします。
+1\. `zeromq` パッケージをインストールします。
   <!-- 1\. Install the zeromq package -->
 
 --------------------
@@ -55,7 +55,7 @@ pip install pyzmq
 ```
 --------------------
 
-2\. ライブラリをインポートしてZMQサブスクライブソケットを作成します。
+2\. ライブラリをインポートして ZMQ サブスクライブソケットを作成します。
   <!-- 2\. Import the libraries and create a ZMQ subscribe socket -->
 
 --------------------
@@ -93,7 +93,7 @@ socket.connect('tcp://localhost:5556')
 ```
 --------------------
 
-4\. `tx`イベントを購読します。このイベントは受信トランザクション用です。
+4\. `tx` イベントを購読します。このイベントは受信トランザクション用です。
   <!-- 4\. Subscribe to the `tx` event. This event is for received transactions. -->
 
 --------------------
@@ -158,20 +158,20 @@ FXTZC9KKRBWSBYKCOGUDZOZUWHTQWDNMZPZ9SCVYTWVBQNYIXHREHCTP9DEJCR9LHUEHMBIXXGSDQJUU
 このデータをランダムな例とすると、以下に対応します。
 <!-- If we take this data as a random example, it corresponds to the following: -->
 
-| **データ** | **説明** |
-| :--------- | :------- |
-| YMTMRYBLFPTYCLHAWJVDE... | トランザクションハッシュ |
-| 999999999999999999999... | アドレス |
-| 125204 | トークン量 |
-| 999999999999999999999... | 痕跡タグ |
-| 0 | タイムスタンプ |
-| 0 | バンドル内のこのトランザクションのインデックス |
-| 0 | バンドル内の最後のトランザクションのインデックス |
-| YMTMRYBLFPTYCLHAWJVDE... | バンドルハッシュ |
-| BLFZJUOBAPWCXTGOCSBVJ... | トランクトランザクションハッシュ |
-| FXTZC9KKRBWSBYKCOGUDZ... | ブランチトランザクションハッシュ |
-| 1562247720 | ノードがトランザクションを受信したときのUnixタイムスタンプ |
-| 99999999999999999999... | 空のタグ |
+| **データ**               | **説明**                                           |
+| :---------               | :-------                                           |
+| YMTMRYBLFPTYCLHAWJVDE... | トランザクションハッシュ                           |
+| 999999999999999999999... | アドレス                                           |
+| 125204                   | トークン量                                         |
+| 999999999999999999999... | 痕跡タグ                                           |
+| 0                        | タイムスタンプ                                     |
+| 0                        | バンドル内のこのトランザクションのインデックス     |
+| 0                        | バンドル内の最後のトランザクションのインデックス   |
+| YMTMRYBLFPTYCLHAWJVDE... | バンドルハッシュ                                   |
+| BLFZJUOBAPWCXTGOCSBVJ... | トランクトランザクションハッシュ                   |
+| FXTZC9KKRBWSBYKCOGUDZ... | ブランチトランザクションハッシュ                   |
+| 1562247720               | ノードがトランザクションを受信したときの Unix 時間 |
+| 99999999999999999999...  | 空のタグ                                           |
 
 <!-- | **Data**| **Description**| -->
 <!-- |:--------|:---------------| -->
@@ -186,11 +186,11 @@ FXTZC9KKRBWSBYKCOGUDZOZUWHTQWDNMZPZ9SCVYTWVBQNYIXHREHCTP9DEJCR9LHUEHMBIXXGSDQJUU
 <!-- |YMTMRYBLFPTYCLHAWJVDE...|Bundle hash| -->
 <!-- |BLFZJUOBAPWCXTGOCSBVJ...|Trunk transaction hash| -->
 <!-- |FXTZC9KKRBWSBYKCOGUDZ...|Branch transaction hash| -->
-<!-- |1562247720|Unix timestamp of when the node received the transaction| -->
+<!-- |1562247720|Unix epoch of when the node received the transaction| -->
 <!-- |99999999999999999999...|Empty tag| -->
 
 :::info:
-`トークン量`フィールドは、トランザクションハッシュが各トランザクションに対して一意であるようにゼロではない値を有し、IOTAトークンは転送されません。現時点では、ZMQエンドポイントは`tx`イベントのみをサポートしています。
+`トークン量`フィールドは、トランザクションハッシュが各トランザクションに対して一意であるようにゼロではない値を有し、IOTA トークンは転送されません。現時点では、ZMQ エンドポイントは `tx` イベントのみをサポートしています。
 :::
 <!-- :::info: -->
 <!-- The `value` field has a non-zero value so that the transaction hash is unique for each transaction. No IOTA tokens are transferred. -->

@@ -1,8 +1,8 @@
 # アカウントモジュール概要
 <!-- # Account module overview -->
 
-**アカウントモジュールは、使用済みアドレスからの取り出しやペンディング中のトランザクションのプロモートと再アタッチを心配することなく、IOTA の支払いを簡素化するステートフルパッケージです。**
-<!-- **The account module is a stateful package that simplifies IOTA payments without you having to worry about withdrawing from spent addresses or promoting and reattaching pending transactions.** -->
+**アカウントモジュールはステートフルパッケージであり、使用済みアドレスからの取り出しやペンディング中のトランザクションのプロモートと再アタッチの必要なしに、IOTAの支払いを簡素化します。**
+<!-- **The account module is a stateful package that simplifies IOTA payments without the worry of withdrawing from spent addresses or the need to promote and reattach pending transactions.** -->
 
 ## アカウントモジュールの仕組み
 <!-- ## How the account module works -->

@@ -108,3 +108,36 @@
 
 タングルからの情報のソースとして1つのノードのみに依存している場合、そのノードが正しいと確信することはできません。たとえば、そのノードは、利用可能な残高に関する誤った情報を送信する可能性があります。ノードの信頼性を高めるために、ノードクォーラムから情報をリクエストできます。
 <!-- When you rely only on one node as a source of information from the Tangle, you can't be confident that it's correct. For example, that node could send you the wrong information about your available balance. To increase your confidence in a node, you can request information from a node quorum. -->
+
+## ローカルスナップショット
+<!-- ## Local snapshots -->
+
+IOTA はネットワークへの参加に許可を必要としない（パーミッションレス）ネットワークです。1日24時間、週7日、誰でもタングルに任意の量のデータを無料で保存できます（トランザクションごとに少量の[プルーフオブワーク](root://getting-started/0.1/transactions/proof-of-work.md)のみ必要です）。
+<!-- IOTA is a permissionless network. For 24 hours a day, 7 days a week, anyone can store any amount of data on the Tangle for free (just a small amount of [proof of work](root://getting-started/0.1/transactions/proof-of-work.md) per transaction) -->
+
+その結果、タングルを含むデータベースのサイズは常に増加しており、このストレージスペースには多くの費用がかかります。台帳が大きくなりすぎるのを防ぐために、ノードは多くの場合、ローカルスナップショットを作成します。
+<!-- As a result, the size of the databases that contain the Tangle are always growing, and this storage space costs a lot of money. To stop their ledgers from becoming too large, nodes often do local snapshots. -->
+
+ローカルスナップショットは、ノードが自身の台帳の状態をスナップショットファイルに記録するプロセスです。スナップショットファイルを使用すると、タングルに含まれるトランザクションの数が少なくなるため、ノードはネイバーノードとの同期を大幅に高速化できます。
+<!-- A local snapshot is the process in which a node records the state of its ledger in snapshot files. Using these files, nodes can synchronizing with their neighbors a lot faster because the Tangle contains fewer transactions. -->
+
+## パーマノード
+<!-- ## Permanodes -->
+
+多くのビジネスユースケースでは、IOTA タングルのデータを長期間保存する必要があります。たとえば、財務データは場合によっては10年間保存する必要があり、ID データは ID の存続期間中保持する必要があります。
+<!-- For many business use cases, data in the IOTA Tangle needs to be stored for long periods of time. For example, financial data must be stored for 10 years in some cases, and identity data needs to be kept for the lifetime of the identity. -->
+
+ローカルスナップショットを作成するのではなく、パーマノードはタングルの完全な履歴を保存し、アプリケーションが拡張 API を介してデータを検索できるようにします。
+<!-- Rather than doing local snapshots, a permanode stores the full history of the Tangle and enables applications to search the data through an extended API. -->
+
+## 関連ガイド
+<!-- ## Related guides -->
+
+[IRI](root://node-software/0.1/iri/introduction/overview.md)を実行する。IRI は、パブリック IOTA ネットワークで実行されるノードソフトウェアです。
+<!-- Run [IRI](root://node-software/0.1/iri/introduction/overview.md), the node software that runs on the public IOTA networks. -->
+
+Coordicide につながるプロトタイプノードソフトウェアである [GoShimmer](root://node-software/0.1/goshimmer/introduction/overview.md) を実行する。
+<!-- Run [GoShimmer](root://node-software/0.1/goshimmer/introduction/overview.md), the prototype node software that will lead to Coordicide. -->
+
+IOTA 財団のパーマノードソフトウェアである [Chronicle](root://node-software/0.1/chronicle/introduction/overview.md) を実行する。
+<!-- Run [Chronicle](root://node-software/0.1/chronicle/introduction/overview.md), the IOTA Foundation's permanode software. -->

@@ -1,9 +1,9 @@
 # API
 
-**このリストには、HTTP APIを介してScyllaクラスターと通信するためのコマンドが含まれています。**
+**このリストには、HTTP API を介して Scylla クラスターと通信するためのコマンドが含まれています。**
 <!-- **This list contains the commands for communicating with a Scylla cluster through the HTTP API.** -->
 
-以下のすべてのコマンドには、HTTPヘッダーを含める必要があります。
+以下のすべてのコマンドには、HTTP ヘッダーを含める必要があります。
 <!-- All the following commands must include an HTTP header. -->
 
 | **ヘッダー** | **値** | **必須か任意か** |
@@ -18,7 +18,7 @@
 <!-- | Content-Type | application/json | Optional | -->
 
 :::warning:
-このAPIはベータ版であり、変更される可能性があります。実稼働アプリケーションではこのAPIを使用しないことをお勧めします。
+この API はベータ版であり、変更される可能性があります。実稼働アプリケーションではこの API を使用しないことをお勧めします。
 :::
 <!-- :::warning: -->
 <!-- This API is in beta, and is subject to change. We recommend that you don't use this API in production applications. -->
@@ -138,8 +138,8 @@ curl http://localhost:4000 \
 
 ## findTransactions
 
-トランザクションフィールドに指定された値を含むトランザクションを検索します。パラメータは、`bundles`、`addresses`、`tags`、`approvees`、`hints`など、検索するトランザクションフィールドを定義します。
-<!-- Find transactions that contain the given values in their transaction fields. -->
+トランザクションフィールドに指定された値を含むトランザクションを検索します。パラメータは、`bundles`、`addresses`、`tags`、`approvees`、`hints` など、検索するトランザクションフィールドを定義します。
+<!-- Finds transactions that contain the given values in their transaction fields. -->
 <!-- The parameters define the transaction fields to search for, including `bundles`, `addresses`, `tags`, `approvees`, and `hints`. -->
 
 :::info:
@@ -157,7 +157,7 @@ curl http://localhost:4000 \
 | `addresses` | 検索するアドレス（チェックサムを含めないでください） | 文字列の配列 |
 | `approvees` | 検索する子トランザクションハッシュ | 文字列の配列 |
 | `bundles` | 検索するバンドルハッシュ | 文字列の配列 |
-|`hints` | トランザクションの添付タイムスタンプで検索するタグの一部（少なくとも4トライ）またはアドレス（81トライ）。`month`プロパティと`year`プロパティで検索する添付ファイルのタイムスタンプを指定できます。`page_size`プロパティを使用して、返されるトランザクションハッシュの最大数を指定できます。結果の残りは`paging_state`配列で返されます。 | オブジェクトの配列 |
+|`hints` | トランザクションの添付タイムスタンプで検索するタグの一部（少なくとも4トライ）またはアドレス（81トライ）。`month` プロパティと `year` プロパティで検索する添付ファイルのタイムスタンプを指定できます。`page_size` プロパティを使用して、返されるトランザクションハッシュの最大数を指定できます。結果の残りは `paging_state` 配列で返されます。 | オブジェクトの配列 |
 | `tags` | 検索するタグ | 文字列の配列 |
 
 <!-- |**Parameters** |**Description** | **Type** -->
@@ -269,7 +269,7 @@ curl http://localhost:4000 \
 
 | **リターンフィールド** | **説明** |
 | :----------------- | :--- |
-| `hashes` | 返されるトランザクションハッシュは、入力によって異なります。`bundles`：指定されたバンドルハッシュを含むトランザクションハッシュの配列を返します。`addresses`：` address`フィールドに指定されたアドレスを含むトランザクションハッシュの配列を返します。`tags`：` tag`フィールドに指定された値を含むトランザクションハッシュの配列を返します。`approvees`：` branchTransaction`または`trunkTransaction`フィールドに指定されたトランザクションを含むトランザクションハッシュの配列を返します。`hints`：ヒントオブジェクトの配列を返します。`paging_state`配列を`findTransactions`エンドポイントに渡して、`paging_size`プロパティの値までのトランザクションハッシュをさらに確認します。 |
+| `hashes` | 返されるトランザクションハッシュは、入力によって異なります。`bundles`：指定されたバンドルハッシュを含むトランザクションハッシュの配列を返します。`addresses`：` address` フィールドに指定されたアドレスを含むトランザクションハッシュの配列を返します。`tags`：` tag` フィールドに指定された値を含むトランザクションハッシュの配列を返します。`approvees`：` branchTransaction` または `trunkTransaction` フィールドに指定されたトランザクションを含むトランザクションハッシュの配列を返します。`hints`：ヒントオブジェクトの配列を返します。`paging_state` 配列を `findTransactions` エンドポイントに渡して、`paging_size` プロパティの値までのトランザクションハッシュをさらに確認します。 |
 
 <!-- |**Return field** | **Description** | -->
 <!-- |--|--| -->

@@ -1,10 +1,10 @@
-# Scyllaデータモデル
+# Scylla データモデル
 <!-- # Scylla data model -->
 
-**このセクションでは、クロニクルのScyllaデータベースのデータモデルについて説明します。**
+**このセクションでは、クロニクルの Scylla データベースのデータモデルについて説明します。**
 <!-- **This section describes the data model of the Scylla database for Chronicle.** -->
 
-ScyllaDBデータモデルには、次のテーブルが含まれます。
+ScyllaDB データモデルには、次のテーブルが含まれます。
 <!-- The ScyllaDB data model includes the following tables: -->
 
 - **バンドル：**トランザクションバンドルを保存します。
@@ -22,21 +22,21 @@ ScyllaDBデータモデルには、次のテーブルが含まれます。
 以下の略語を使用して、これらのテーブルのデータを説明します。
 <!-- We use the following abbreviations to describe the data in these tables: -->
 
-| **略語** | **説明** |
-| :--- | :--- |
-| BH | バンドルハッシュ |
-| H_hash | 先頭トランザクションのハッシュ値（IX == LX） |
-| TS | タイムスタンプ |
-| TX_HASH | トランザクションハッシュ |
-| TTL | 有効期間 |
-| EL | 追加ラベル |
-| EX | 追加頂点 |
-| LB | ラベル |
-| V1 | 頂点1 |
-| V2 | 頂点2 |
-| IX | 現在のインデックス |
-| LX | ラストインデックス |
-| SX | スナップショットインデックス |
+| **略語** | **説明**                                     |
+| :------- | :------------------------------------------- |
+| BH       | バンドルハッシュ                             |
+| H_hash   | 先頭トランザクションのハッシュ値（IX == LX） |
+| TS       | タイムスタンプ                               |
+| TX_HASH  | トランザクションハッシュ                     |
+| TTL      | 有効期間                                     |
+| EL       | 追加ラベル                                   |
+| EX       | 追加頂点                                     |
+| LB       | ラベル                                       |
+| V1       | 頂点1                                        |
+| V2       | 頂点2                                        |
+| IX       | 現在のインデックス                           |
+| LX       | ラストインデックス                           |
+| SX       | スナップショットインデックス                 |
 
 <!-- |**Abbreviation**|**Description**| -->
 <!-- |:------------|:------------| -->
@@ -106,7 +106,7 @@ ScyllaDBデータモデルには、次のテーブルが含まれます。
 - 完全なタグとIOTAエリアコード
 <!-- - Full tag and IOTA area code -->
 
-任意の数のトランザクションが同じタグを持つことができます。その結果、このテーブルは、ノードが保存するには大きすぎる可能性があります。1つの解決策は、一定期間後にトランザクションを削除することです。たとえば、タグテーブルには、リアルタイムインデックスとして機能する定義済みのTTLがあります。TTLが1000秒に設定されている場合、行はその時間後に削除されます。タグによる検索は、TTLより前に保存されたトランザクションに対してのみ機能します。
+任意の数のトランザクションが同じタグを持つことができます。その結果、このテーブルは、ノードが保存するには大きすぎる可能性があります。1つの解決策は、一定期間後にトランザクションを削除することです。たとえば、タグテーブルには、リアルタイムインデックスとして機能する定義済みの TTL があります。TTL が1000秒に設定されている場合、行はその時間後に削除されます。タグによる検索は、TTL より前に保存されたトランザクションに対してのみ機能します。
 <!-- Any number of transactions can have the same tag. As a result, this table can become too large for any node to store. One solution is to remove transactions after a given period of time. For example, the tag table has a predefined TTL which acts as a real-time index. When the TTL is set to 1000 seconds, the row will be deleted after that time. Searches by tag only work for transactions that were saved before the TTL. -->
 
 ## ゼロトークンテーブル

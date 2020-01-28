@@ -122,10 +122,10 @@ yarn add @iota/mam @iota/converter
   publishAll()
     .then(async root => {
 
-      // "log Data"コールバック関数を使用して非同期に出力します。
+      // "logData" コールバック関数を使用して非同期的に出力します
       await Mam.fetch(root, mode, null, logData)
 
-      // フェッチが完了すると同期して出力します。
+      // フェッチが完了すると同期的に出力します
       const result = await Mam.fetch(root, mode)
       result.messages.forEach(message => console.log('Fetched and parsed', JSON.parse(trytesToAscii(message)), '\n'))
   ```

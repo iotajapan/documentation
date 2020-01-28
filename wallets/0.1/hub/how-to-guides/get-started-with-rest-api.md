@@ -1,27 +1,27 @@
-# RESTful API入門
+# RESTful API 入門
 <!-- # Get started with the RESTful API -->
 
-**ハブのRESTful APIサーバーを公開すると、HTTPエンドポイントを介してハブと対話できます。これらのエンドポイントを使用すると、ハブデータベースおよびIOTA[ノード](root://getting-started/0.1/network/nodes.md)と対話することにより、ユーザーのIOTAトークンを管理できます。このガイドでは、RESTful APIの基本を学習して、新しい預け入れアドレスを持つ新しいユーザーを作成します。**
+**ハブの RESTful API サーバーを公開すると，HTTP エンドポイントを介してハブと対話できます．これらのエンドポイントを使用すると，ハブデータベースおよび IOTA [ノード](root://getting-started/0.1/network/nodes.md)と対話することにより，ユーザーの IOTA トークンを管理できます．このガイドでは，RESTful API の基本を学習して，新しいデポジットアドレスを持つ新しいユーザーを作成します．**
 <!-- **When you expose Hub's RESTful API server, you can interact with it through HTTP endpoints. These endpoints allow you to manage users' IOTA tokens by interfacing with the Hub database and a [node](root://getting-started/0.1/network/nodes.md). In this guide, you learn the basics of the RESTful API to create a new user with some new deposit addresses.** -->
 
 ## 前提条件
 <!-- ## Prerequisites -->
 
-このガイドのコードサンプルを使用するには、次のものが必要です。
+このガイドのコードサンプルを使用するには，次のものが必要です．
 <!-- To use the code samples in this guide, you must have the following: -->
 
 - [ハブのインスタンス](../how-to-guides/install-hub.md)
 <!-- - An [instance of Hub](../how-to-guides/install-hub.md) -->
-- [Node.js (8以上)](https://nodejs.org/en/)、[Python (3以上)](https://www.python.org/downloads/)と[PIP](https://pip.pypa.io/en/stable/installing/)もしくは[cURL](https://curl.haxx.se/download.html)
+- [Node.js (8以上)](https://nodejs.org/en/)，[Python (3以上)](https://www.python.org/downloads/)と [PIP](https://pip.pypa.io/en/stable/installing/) もしくは [cURL](https://curl.haxx.se/download.html)
 <!-- - [Node.js (8+)](https://nodejs.org/en/), [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/), or [cURL](https://curl.haxx.se/download.html) -->
-- [Visual Studio Code](https://code.visualstudio.com/Download)などのコードエディター
+- [Visual Studio Code](https://code.visualstudio.com/Download) などのコードエディター
 <!-- - A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download) -->
 - コマンドラインインターフェースへのアクセス
 <!-- - Access to a command-line interface -->
 
 ---
 
-1\. 新しいユーザーを作成します。`http://localhost:50051` URLを、ハブのセットアップ時に使用した`--listenAddress`フラグの値に置き換えます。
+1\. 新しいユーザーを作成します．`http://localhost:50051` URL を，ハブのセットアップ時に使用した `--listenAddress` フラグの値に置き換えます．
 <!-- 1\. Create a new user. Replace the `http://localhost:50051` URL with value of the `--listenAddress` flag that you used when you set up Hub. -->
 
 --------------------
@@ -93,17 +93,17 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-コンソールに空のオブジェクトが表示されます。これは、ユーザーが作成されたことを意味します。
+コンソールに空のオブジェクトが表示されます．これは，ユーザーが作成されたことを意味します．
 <!-- You should see an empty object in the console, which means that the user was created. -->
 
 :::info:
-このユーザーは、[`user_account`テーブルのクエリ](../how-to-guides/query-the-database.md)によってハブデータベースで確認できます。
+このユーザーは，[`user_account` テーブルのクエリ](../how-to-guides/query-the-database.md)によってハブデータベースで確認できます．
 :::
 <!-- :::info: -->
 <!-- You can see this user in the Hub database by [querying the `user_account` table](../how-to-guides/query-the-database.md). -->
 <!-- ::: -->
 
-2\. [チェックサム](root://getting-started/0.1/clients/checksums.md)を付随して新しい預け入れアドレスを作成します。
+2\. [チェックサム](root://getting-started/0.1/clients/checksums.md)を付随して新しい預け入れアドレスを作成します．
 <!-- 2\. Create a new deposit address with a [checksum](root://getting-started/0.1/clients/checksums.md) -->
 
 --------------------
@@ -178,7 +178,7 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-標準出力には、90トライトの預け入れアドレスが表示されます。
+標準出力には，90トライトのデポジットアドレスが表示されます．
 <!-- In the output, you should see a 90-tryte deposit address. -->
 
 ```bash
@@ -186,23 +186,23 @@ curl http://localhost:50051 \
 ```
 
 :::info:
-データベースでは、アドレスは常にチェックサムなしで保存されます。
+データベースでは，アドレスは常にチェックサムなしで保存されます．
 :::
 <!-- :::info: -->
 <!-- In the database, addresses are always saved without the checksum. -->
 <!-- ::: -->
 
-3\. ユーザーの預け入れアドレスにIOTAトークンを送信します。
+3\. ユーザーのデポジットアドレスに IOTA トークンを送信します．
 <!-- 3\. Send some IOTA tokens to the user's deposit addresses -->
 
 :::info:
-[公式トリニティウォレット](root://wallets/0.1/trinity/introduction/overview.md)を使用してIOTAトークンを送信できます。
+[公式トリニティウォレット](root://wallets/0.1/trinity/introduction/overview.md)を使用して IOTA トークンを送信できます．
 :::
 <!-- :::info: -->
 <!-- You can use the [official Trinity wallet](root://wallets/0.1/trinity/introduction/overview.md) to send IOTA tokens. -->
 <!-- ::: -->
 
-4\. ユーザーの残高と履歴を取得します。
+4\. ユーザーの残高と履歴を取得します．
 <!-- 4\. Get the balance and history for the user -->
 
 --------------------
@@ -274,7 +274,7 @@ curl http://localhost:50051 \
 ```
 --------------------
 
-IOTAトークンを預け入れアドレスに送信した場合、標準出力には次のように表示されます。
+IOTA トークンをデポジットアドレスに送信した場合，標準出力には次のように表示されます．
 <!-- If you sent IOTA tokens to the deposit address, the output should display something like the following: -->
 
 ```shell
@@ -287,11 +287,11 @@ events {
 }
 ```
 
-[thetangle.org](https://thetangle.org/)などのタングルエクスプローラーで預け入れアドレスの履歴を見ると、ハブが預け入れアドレスから別のアドレス（ユーザーが取り出しを要求するまで資金が集められるハブ所有者のアドレス）に資金を移動したことが分かります。このプロセスは[スウィープ](../concepts/sweeps.md)と呼ばれます。
+[thetangle.org](https://thetangle.org/) などのタングルエクスプローラーでデポジットアドレスの履歴を見ると，ハブがデポジットアドレスから別のアドレス（ユーザーが取り出しを要求するまで資金が集められるハブ所有者のアドレス）に資金を移動したことが分かります．このプロセスは[スウィープ](../concepts/sweeps.md)と呼ばれます．
 <!-- If you look at the deposit address history in a Tangle explorer such as [thetangle.org](https://thetangle.org/), you will see that Hub moved the funds away from the deposit address and into another address (Hub owner's address where funds are aggregated until a user requests a withdrawal). This process is called a [sweep](../concepts/sweeps.md). -->
 
 :::success:おめでとうございます:tada:
-新しいユーザーを正常に作成し、ハブが預け入れを処理する方法をテストしました。
+新しいユーザーを正常に作成し，ハブがデポジットを処理する方法をテストしました．
 :::
 <!-- :::success:Congratulations :tada: -->
 <!-- You've successfully created a new user and tested how Hub handles deposits. -->
@@ -300,8 +300,8 @@ events {
 ## 次のステップ
 <!-- ## Next steps -->
 
-[デモ取引所のセットアップ](../how-to-guides/create-a-demo-exchange.md)を行い、ハブの統合をテストする。
+[デモ取引所のセットアップ](../how-to-guides/create-a-demo-exchange.md)を行い，ハブの統合をテストする．
 <!-- [Set up a demo exchange](../how-to-guides/create-a-demo-exchange.md) to test an integration of Hub. -->
 
-[統合オプションをご覧ください](../how-to-guides/integrate-hub.md)。
+[統合オプションをご覧ください](../how-to-guides/integrate-hub.md)．
 <!-- [See our integration options](../how-to-guides/integrate-hub.md). -->

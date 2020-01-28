@@ -1,8 +1,8 @@
 # JavaScript で1つの CDA に残高をまとめる
 <!-- # Combine your balance into one CDA in JavaScript -->
 
-**残高の大半をできるだけ少ない CDA に保持することをお勧めします。これにより、支払いがより高速になり、必要なトランザクションが少なくなります。このガイドでは、利用可能な残高全体を新しいCDAに移行します。**
-<!-- **You may want to keep the majority of your balance on as few CDAs as possible. This way, making payments is faster and requires fewer transactions. In this guide, you transfer your entire available balance to a new CDA.** -->
+**残高の大半をできるだけ少ない条件付きデポジットアドレス（CDA）に保持することをお勧めします。これにより、支払いがより高速になり、必要なトランザクションが少なくなります。このガイドでは、利用可能な残高全体を新しい CDA に移行します。**
+<!-- **You may want to keep the majority of your balance on as few conditional deposit addresses (CDA) as possible. This way, making payments is faster and requires fewer transactions. In this guide, you transfer your entire available balance to a new CDA.** -->
 
 ## パッケージ
 <!-- ## Packages -->
@@ -44,14 +44,14 @@ yarn add @iota/account @iota/transaction-converter ntp-client
     ```
 
     :::info:
-    使用可能な残高は、期限切れとなったすべての CDA の合計残高であり、取り出しても安全です。
+    アカウントの利用可能残高は、すべての期限切れの CDA の合計残高です。期限切れの CDA に IOTA トークンを送信してはならないため、この残高は取り出しても安全です。
 
-    アカウントの合計残高には、まだアクティブな CDA が含まれているため、アカウントの合計残高からは取り出しできません。
+    アカウントの合計残高には、期限切れと同様にアクティブな CDA が含まれています。
     :::
     <!-- :::info: -->
-    <!-- Available balance is the total balance of all expired CDAs, which are safe to withdraw from. -->
+    <!-- You account's available balance is the total balance of all expired CDAs. This balance is safe to withdraw because no one should send IOTA tokens to an expired CDA. -->
 
-    <!-- Your account's total balance includes CDAs that are still active and so cannot be withdrawn from. -->
+    <!-- Your account's total balance includes CDAs that are still active as well as expired. -->
     <!-- ::: -->
 
 2. CDA にデポジットを送信します。
@@ -81,8 +81,8 @@ yarn add @iota/account @iota/transaction-converter ntp-client
     });
     ```
 
-    バンドルハッシュと同様に、アドレスに送信された IOTA トークンの量を確認する必要があります。
-    <!-- You should see that how many IOTA tokens were sent to your address as well as the bundle hash: -->
+    アドレスに送信された IOTA トークンの量とバンドルハッシュを確認する必要があります。
+    <!-- You should see how many IOTA tokens were sent to your address as well as the bundle hash: -->
 
     ```bash
     Sent 1000 to TIZJIRDCZPRJMMVKSGROPKE9VGIQKOLOUSX9MCUTOEQBBHPMLYBVKBPCXJKY9SDWX9FVMOZTWNMVVEYKX in bundle:  RXIA9CBEOASNY9IRIARZFGDLK9YNGW9ZHJGJLUXOUKVGCZLPNDKALFHZWHZKQQXFTIHEIJJPN9EURO9K9

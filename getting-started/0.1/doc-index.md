@@ -26,6 +26,8 @@
 
 [ネットワーク/コーディネーター](/network/the-coordinator.md)
 
+[ネットワーク/チップ選択](/network/tip-selection.md)
+
 [クライアント/シード](/clients/seeds.md)
 
 [クライアント/IOTAトークン](/clients/token.md)
