@@ -1,30 +1,30 @@
 # トランザクション
 <!-- # Transactions -->
 
-**トランザクションは、[IOTA トークン](../clients/token.md)を[アドレス](../clients/seeds.md)から取り出したり、アドレスにデポジットしたり、ゼロトークン（データ、メッセージ、または署名を含む）にすることができる単一の転送命令です。IOTA ネットワークに何かを送信する場合は、トランザクションとして[ノード](../network/nodes.md)に送信する必要があります。**
+**トランザクションは，[IOTA トークン](../clients/token.md)を[アドレス](../clients/seeds.md)から取り出したり，アドレスにデポジットしたり，ゼロトークン（データ，メッセージ，または署名を含む）にすることができる単一の転送命令です．IOTA ネットワークに何かを送信する場合は，トランザクションとして[ノード](../network/nodes.md)に送信する必要があります．**
 <!-- **A transaction is a single transfer instruction that can either withdraw [IOTA tokens](../clients/token.md) from an [address](../clients/seeds.md), deposit them into an address, or have zero-value (contain data, a message, or a signature). If you want to send anything to an IOTA network, you must send it to a [node](../network/nodes.md) as a transaction.** -->
 
 ## トランザクションの構造
 <!-- ## Structure of a transaction -->
 
-トランザクションは、2,673文字の[トライトにエンコードされた](../introduction/ternary.md#tryte-encoding)文字で構成されています。デコードされると、トランザクションオブジェクトには次のフィールドが含まれます。
+トランザクションは，2,673文字の[トライトにエンコードされた](../introduction/ternary.md#tryte-encoding)文字で構成されています．デコードされると，トランザクションオブジェクトには次のフィールドが含まれます．
 <!-- A transaction consists of 2,673 [tryte-encoded](../introduction/ternary.md#tryte-encoding) characters. When decoded, the transaction object contains the following fields. -->
 
 | **フィールド**                                                    | **型**  | **説明**                                                                                                                                                                                                                       | **長さ(トライト)** |
 | :-----------------------------                                    | :------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------            |
-| `hash`                                                            | string  | トランザクションハッシュ。すべてのトランザクションフィールドの値から導出し、[プルーフオブワーク]の一部が含まれます。                                                                                                           | 81                 |
-| <a name="signatureMessageFragment"></a>`signatureMessageFragment` | string  | [署名]またはメッセージ。両方とも[バンドル]内の多くのトランザクションで_断片化_される可能性があります。このフィールドには、メッセージが定義されていない場合は9でパディングされます。                                            | 2,187              |
-| <a name="address"></a> `address`                                  | string  | 送信者または受信者のアドレスのいずれかが含まれます。トランザクションが[出力トランザクション](#output-transactions)の場合、このフィールドには受信者のアドレスが含まれます。                                                     | 81                 |
+| `hash`                                                            | string  | トランザクションハッシュ．すべてのトランザクションフィールドの値から導出し，[プルーフオブワーク]の一部が含まれます．                                                                                                           | 81                 |
+| <a name="signatureMessageFragment"></a>`signatureMessageFragment` | string  | [署名](../clients/signatures.md)またはメッセージ．両方とも[バンドル](../transactions/bundles.md)内の多くのトランザクションで_断片化_される可能性があります．このフィールドには，メッセージが定義されていない場合は9でパディングされます．                                            | 2,187              |
+| <a name="address"></a> `address`                                  | string  | 送信者または受信者のアドレスのいずれかが含まれます．トランザクションが[出力トランザクション](#output-transactions)の場合，このフィールドには受信者のアドレスが含まれます．                                                     | 81                 |
 | `value`                                                           | integer | アドレスへのデポジット（正の値）またはアドレスからの取り出し（負の値）のIOTAトークンの量                                                                                                                                       | 27                 |
 | `obsoleteTag`                                                     | string  | ユーザー定義のタグ（すぐに削除されます）                                                                                                                                                                                       | 27                 |
-| `timestamp`                                                       | integer | Unix時間（1970年1月1日からの秒数）。このフィールドは強制されておらず、この値は任意です。                                                                                                                             | 9                  |
+| `timestamp`                                                       | integer | Unix時間（1970年1月1日からの秒数）．このフィールドは強制されておらず，この値は任意です．                                                                                                                             | 9                  |
 | `currentIndex`                                                    | integer | バンドル内の現在のトランザクションのインデックス                                                                                                                                                                               | 9                  |
 | `lastIndex`                                                       | integer | バンドル内の最後のトランザクションのインデックス                                                                                                                                                                               | 9                  |
-| `bundle`                                                          | string  | バンドルハッシュ。次のトランザクションフィールドの値のハッシュから導出します。`address`、`value`、`obsoleteTag`、`currentIndex`, `lastIndex`、及び `timestamp`。これらのフィールドはバンドルエッセンスと呼ばれます。          | 81                 |
-| <a name="trunkTransaction"></a> `trunkTransaction`                | string  | [タングル](../network/the-tangle.md)内の既存のトランザクション、またはバンドル内の次のインデックスを持つトランザクションのトランザクションハッシュ。                                                                           | 81                 |
+| `bundle`                                                          | string  | バンドルハッシュ．次のトランザクションフィールドの値のハッシュから導出します．`address`，`value`，`obsoleteTag`，`currentIndex`, `lastIndex`，及び `timestamp`．これらのフィールドはバンドルエッセンスと呼ばれます．          | 81                 |
+| <a name="trunkTransaction"></a> `trunkTransaction`                | string  | [タングル](../network/the-tangle.md)内の既存のトランザクション，またはバンドル内の次のインデックスを持つトランザクションのトランザクションハッシュ．                                                                           | 81                 |
 | <a name="branchTransaction"></a> `branchTransaction`              | string  | タングル内の既存のトランザクションのトランザクションハッシュ                                                                                                                                                                   | 81                 |
 | <a name="tag"></a> `attachmentTag`                                | string  | ユーザー定義のタグ                                                                                                                                                                                                             | 27                 |
-| `attachmentTimestamp`                                             | integer | Unixエポック（[プルーフオブワーク]が行われた直後の1970年1月1日からのミリ秒）                                                                                                                                                   | 9                  |
+| `attachmentTimestamp`                                             | integer | Unixエポック（[プルーフオブワーク](../transactions/proof-of-work.md)が行われた直後の1970年1月1日からのミリ秒）                                                                                                                                                   | 9                  |
 | `attachmentTimestampLowerBound`                                   | integer | `attachmentTimestamp` フィールドの下限（現在は使用されていません）                                                                                                                                                             | 9                  |
 | `attachmentTimestampUpperBound`                                   | integer | `attachmentTimestamp` フィールドの上限（現在は使用されていません）                                                                                                                                                             | 9                  |
 | `nonce`                                                           | string  | プルーフオブワークの証拠を表すトライト                                                                                                                                                                                         | 27                 |
@@ -52,13 +52,13 @@
 ## トランザクションハッシュ
 <!-- ## Transaction hash -->
 
-バンドルハッシュとともに、トランザクションハッシュはタングルをイミュータブルにするものの一部です。トランザクションフィールドの値のいずれかが変更された場合、トランザクションハッシュは無効になり、トランザクションの子と、[タングル](../network/the-tangle.md)上で直接または間接的にそれらを参照するトランザクションも無効になります。
+バンドルハッシュとともに，トランザクションハッシュはタングルをイミュータブルにするものの一部です．トランザクションフィールドの値のいずれかが変更された場合，トランザクションハッシュは無効になり，トランザクションの子と，[タングル](../network/the-tangle.md)上で直接または間接的にそれらを参照するトランザクションも無効になります．
 <!-- Along with the bundle hash, the transaction hash is part of what makes the Tangle immutable. If any of the values in the transaction fields were to change, the transaction hash would be invalid, which would also invalidate the transaction's children and whichever transactions directly or indirectly reference them in [the Tangle](../network/the-tangle.md). -->
 
 ## トランザクションタイプ
 <!-- ## Transaction types -->
 
-トランザクションは、次のタイプのいずれかです。
+トランザクションは，次のタイプのいずれかです．
 <!-- Transactions can be one of the following types: -->
 
 - 入力トランザクション
@@ -71,10 +71,10 @@
 ### 入力トランザクション
 <!-- ### Input transactions -->
 
-入力トランザクションには、アドレスから IOTAトークン を取り出す命令が含まれています。
+入力トランザクションには，アドレスから IOTA トークンを取り出す命令が含まれています．
 <!-- Input transactions contain an instruction to withdraw IOTA tokens from an address. -->
 
-有効な入力トランザクションには、常に次のものが含まれている必要があります。
+有効な入力トランザクションには，常に次のものが含まれている必要があります．
 <!-- A valid input transaction must always contain the following: -->
 
 - `value` フィールドの負の値
@@ -86,7 +86,7 @@
 - 有効なナンス
 <!-- - A valid nonce -->
 
-たとえば、以下の入力トランザクションには、アドレスから100 Mi を取り出す命令が含まれています。
+たとえば，以下の入力トランザクションには，アドレスから100 Mi を取り出す命令が含まれています．
 <!-- For example, this input transaction contains an instruction to withdraw 100 Mi from an address: -->
 
 ```json
@@ -113,10 +113,10 @@
 ### 出力トランザクション
 <!-- ### Output transactions -->
 
-出力トランザクションは IOTA トークンをアドレスにデポジットします。
+出力トランザクションは IOTA トークンをアドレスにデポジットします．
 <!-- Output transactions deposit IOTA tokens into an address. -->
 
-有効な出力トランザクションには、常に以下が含まれている必要があります。
+有効な出力トランザクションには，常に以下が含まれている必要があります．
 <!-- A valid output transaction must always contain the following: -->
 
 - `value` フィールドの正の値
@@ -126,7 +126,7 @@
 - 有効なナンス
 <!-- - A valid nonce -->
 
-たとえば、以下の出力トランザクションには、99.999998 Mi をアドレスにデポジットする命令が含まれています。
+たとえば，以下の出力トランザクションには，99.999998 Mi をアドレスにデポジットする命令が含まれています．
 <!-- For example, this output transaction contains an instruction to deposit 99.999998 Mi into an address: -->
 
 ```json
@@ -153,17 +153,17 @@
 ### ゼロトークントランザクション
 <!-- ### Zero-value transactions -->
 
-ゼロトークントランザクションは、`value` フィールドの値が0です。ゼロトークントランザクションは、IOTA トークンなしでメッセージを送信するのに役立ちます。
+ゼロトークントランザクションは，`value` フィールドの値が0です．ゼロトークントランザクションは，IOTA トークンなしでメッセージを送信するのに役立ちます．
 <!-- A zero-value transaction has a value of 0 in the `value` field. These transactions are useful for sending messages without IOTA tokens. -->
 
 :::info:
-IOTA トークンは転送されないため、アドレスは誰のものである必要はありません。
+IOTA トークンは転送されないため，アドレスは誰のものである必要はありません．
 :::
 <!-- :::info: -->
 <!-- The address does not need to belong to anyone because no value is being transferred. -->
 <!-- ::: -->
 
-たとえば、以下のゼロトークントランザクションにはトライトの `Hello world` メッセージが含まれています。
+たとえば，以下のゼロトークントランザクションにはトライトの `Hello world` メッセージが含まれています．
 <!-- For example, this zero-value transaction contains a `Hello world` message (in trytes): -->
 
 ```json
@@ -190,7 +190,7 @@ IOTA トークンは転送されないため、アドレスは誰のものであ
 ## ユーティリティ
 <!-- ## Utilities -->
 
-以下の IOTA タングルユーティリティは、トランザクションの操作に役立ちます。
+以下の IOTA タングルユーティリティは，トランザクションの操作に役立ちます．
 <!-- These IOTA Tangle utilities are useful for working with transactions: -->
 
 - [トランザクションをデコードするユーティリティ](https://utils.iota.org/transaction-decoder)
@@ -205,11 +205,11 @@ IOTA トークンは転送されないため、アドレスは誰のものであ
 ## 関連ガイド
 <!-- ## Related guides -->
 
-[JavaScript で "hello world" トランザクションを送信する](root://client-libraries/0.1/how-to-guides/js/send-your-first-bundle.md)。
+[JavaScript で "hello world" トランザクションを送信する](root://client-libraries/0.1/how-to-guides/js/send-your-first-bundle.md)．
 <!-- [Send a "hello world" transaction in JavaScript](root://client-libraries/0.1/how-to-guides/js/send-your-first-bundle.md). -->
 
-[JavaScript で IOTA トークンを転送する](root://client-libraries/0.1/how-to-guides/js/transfer-iota-tokens.md)。
+[JavaScript で IOTA トークンを転送する](root://client-libraries/0.1/how-to-guides/js/transfer-iota-tokens.md)．
 <!-- [Transfer IOTA tokens in JavaScript](root://client-libraries/0.1/how-to-guides/js/transfer-iota-tokens.md). -->
 
-[トリニティでトランザクションを送信する](root://wallets/0.1/trinity/how-to-guides/send-a-transaction.md)。
+[トリニティでトランザクションを送信する](root://wallets/0.1/trinity/how-to-guides/send-a-transaction.md)．
 <!-- [Send a transaction in Trinity](root://wallets/0.1/trinity/how-to-guides/send-a-transaction.md). -->
