@@ -1,50 +1,51 @@
 # GoShimmer ノードを実行する
 <!-- # Run a GoShimmer node -->
 
-**このガイドでは、GoShimmer ネットワークにノードをインストールして実行します。GoShimmer ソフトウェアを実行すると、デバイスは GoShimmer ネットワーク内のノードになります。ノードを実行することで、ネットワークをテストし、定期的な変更を最新の状態に保つことができます。すべてのモジュールが使用可能になると、このネットワークは次の IOTA プロトコルのリリース候補になります。**
-<!-- **In this guide, you install and run a node on the GoShimmer network. When you run the GoShimmer software, your device becomes a node in the network. By running a node, you can test the network and keep up to date with regular changes. When all the modules become available, this network will become a release candidate for the next IOTA protocol.** -->
+**このガイドでは，GoShimmer ネットワークにノードをインストールして実行します．ノードを実行することで，ネットワークをテストし，定期的な変更を最新の状態に保つことができます．すべてのモジュールが使用可能になると，このネットワークは次の IOTA プロトコルのリリース候補になります．**
+<!-- **In this guide, you install and run a node on the GoShimmer network. By running a node, you can test the network and keep up to date with regular changes. When all the modules become available, this network will become a release candidate for the next IOTA protocol.** -->
 
-ノードを実行する方法は2つあります。Docker コンテナ内でサービスとしてノードを実行することも、ソースからノードをビルドすることもできます。
+ノードを実行する方法は2つあります．Docker コンテナ内でサービスとしてノードを実行することも，ソースからノードをビルドすることもできます．
 <!-- You have two options for running a node. You either can run the node as a service in a Docker container, or you can build the node from source. -->
 
 ## Docker コンテナ内でノードを実行する
 <!-- ## Run a node in a Docker container -->
 
-Docker コンテナでノードを実行すると、軽量の仮想マシンでノードを実行するのと同じようになります。
+Docker コンテナでノードを実行すると，軽量の仮想マシンでノードを実行するのと同じようになります．
 <!-- When you run a node in a Docker container, it's similar to running it in a lightweight virtual machine. -->
 
-Docker コンテナ内でノードを実行することには、次のような利点があります。
+Docker コンテナ内でノードを実行することには，次のような利点があります．
 <!-- Some of the advantages of running a node in a Docker container include the following: -->
 
-- コンパイラや Go プログラミング言語など、ノードに必要なすべてのツールや依存関係をインストールする必要がありません。
-<!-- - You don't need to install all the tools and dependencies that the node needs such as a compiler and the Go programming language -->
-- ノードは、サポートされているシステムアーキテクチャ上で同じように動作します。
+- コンパイラや Go プログラミング言語など，すべてのツールと依存関係をインストールする必要はありません．
+<!-- - You don't need to install all the tools and dependencies such as a compiler and the Go programming language -->
+- ノードは，サポートされているシステムアーキテクチャ上で同じように動作します．
 <!-- - The node runs in the same way on any supported system architecture -->
-- ノードをバックグラウンドで実行し、停止し、ログを確認する方が簡単です。
+- ノードをバックグラウンドで実行し，停止し，ログを確認する方が簡単です．
 <!-- - It's easier to run the node in the background, to stop it, and to see the logs -->
 
 ### 前提条件
 <!-- ### Prerequisites -->
 
-このガイドを完成するには、次のものが必要です。
+このガイドを完成するには，次のものが必要です．
 <!-- To complete this guide, you need the following: -->
 
 - [Git](https://git-scm.com/downloads)
-- ノードを実行しているデバイスに[ポート14626（TCP/UDP）と14666（TCP）を転送する](root://general/0.1/how-to-guides/expose-your-local-device.md)。
-<!-- - [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node -->
+- ノードを実行しているデバイスに[ポート14626（TCP/UDP）と14666（TCP）を転送する](root://general/0.1/how-to-guides/expose-your-local-device.md)．
+<!-- - [Forward ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node -->
 - パブリック IP アドレス
 <!-- - A public IP address -->
 - [Docker がサポートするシステムアーキテクチャ](https://docs.docker.com/install/#supported-platforms)
 <!-- - [A system architecture that Docker supports](https://docs.docker.com/install/#supported-platforms) -->
 
-Docker コンテナは、以下のオペレーティングシステムに適しています。
+Docker コンテナは，以下のオペレーティングシステムに適しています．
 <!-- The Docker container is suitable for the following operating systems: -->
+
 - Linux
 - macOS
 - Windows
 
 :::info:
-Debian ベースのオペレーティングシステムを使用している場合は、以下のタスクのすべてのコマンドの前に `sudo` を追加します。
+Debian ベースのオペレーティングシステムを使用している場合は，以下のタスクのすべてのコマンドの前に `sudo` を追加します．
 :::
 <!-- :::info: -->
 <!-- If you're using a Debian-based operating system, add `sudo` before all the commands in the following tasks. -->
@@ -53,20 +54,20 @@ Debian ベースのオペレーティングシステムを使用している場�
 ### 手順1. Docker をインストールする
 <!-- ### Step 1. Install Docker -->
 
-Docker コンテナをビルドするには、Docker 17.05（マルチステージビルドサポート用）をデバイスにインストールする必要があります。
+Docker コンテナをビルドするには，Docker 17.05（マルチステージビルドサポート用）をデバイスにインストールする必要があります．
 <!-- To build the Docker container, you must install Docker 17.05+ (for multi-stage build support) on your device. -->
 
-1. [Docker をインストールします](https://docs.docker.com/install/#supported-platforms)。システム要件よりも古いバージョンの macOS または Windows を実行している場合は、代わりに [Docker ツールボックス](https://docs.docker.com/toolbox/overview/)をインストールします。
+1. [Docker をインストールします](https://docs.docker.com/install/#supported-platforms)．システム要件よりも古いバージョンの macOS または Windows を実行している場合は，代わりに [Docker ツールボックス](https://docs.docker.com/toolbox/overview/)をインストールします．
   <!-- 1. [Install Docker](https://docs.docker.com/install/#supported-platforms). If you're running a version of macOS or Windows that's older than the system requirements, install the [Docker toolbox](https://docs.docker.com/toolbox/overview/) instead. -->
 
-2. Docker がインストールされていることを確認します。
+2. Docker がインストールされていることを確認します．
   <!-- 2. Make sure that Docker is installed -->
 
     ```bash
     docker run hello-world
     ```
 
-    以下のような Docker 情報が表示されるはずです。
+    以下のような Docker 情報が表示されるはずです．
     <!-- You should see some Docker information like the following: -->
 
     ```bash
@@ -101,65 +102,71 @@ Docker コンテナをビルドするには、Docker 17.05（マルチステー�
 ### 手順2. ノードを実行する
 <!-- ### Step 2. Run the node -->
 
-ノードを実行すると、IOTA 財団が実行しているエントリノードとの自動ピアリングによってネットワークに参加します。IOTA 財団のエントリノードと自動ピアするには、自動ピアリングポートとゴシップポートがノードに転送されていることを確認する必要があります。デフォルトでは、これらのポートは14666と14626です。これらのポートを転送しなくても、ノードにトランザクションを送信することはできますが、どの隣接ノードとも接続できません。
+ノードを実行すると，IOTA 財団が実行しているエントリノードとの自動ピアリングによってネットワークに参加します．IOTA 財団のエントリノードと自動ピアするには，自動ピアリングポートとゴシップポートがノードに転送されていることを確認する必要があります．デフォルトでは，これらのポートは14666と14626です．これらのポートを転送しなくても，ノードにトランザクションを送信することはできますが，どの隣接ノードとも接続できません．
 <!-- When you run the node, it joins the network by autopeering with the entry node that's run by the IOTA Foundation. To autopeer with this entry node, you must make sure that the autopeering and gossip ports are forwarded to your node. By default, these ports are 14666 and 14626. If you don't forward these ports, you can still send transaction to your node, but it won't be able to connect to any neighbors. -->
 
-1. `goshimmer` リポジトリをクローンします。
+1. `goshimmer` リポジトリをクローンします．
   <!-- 1. Clone the `goshimmer` repository -->
 
     ```bash
     git clone https://github.com/iotaledger/goshimmer.git
+    git submodule init
+    git submodule update
     ```
 
-2. `goshimmer` ディレクトリに移動します。
+2. `goshimmer` ディレクトリに移動します．
   <!-- 2. Change into the `goshimmer` directory -->
 
     ```bash
     cd goshimmer
     ```
 
-3. Docker イメージをビルドします。
+3. Docker イメージをビルドします．
   <!-- 3. Build the Docker image -->
 
     ```bash
     docker build -t goshimmer .
     ```
 
-4. Docker イメージを実行します。
-  <!-- 4. Run the Docker image -->
+4. `docker.config.json` ファイルを開き，`enablePlugins` フィールドを次のものに置き換えて，スパマー API エンドポイントとタングルビジュアライザーを有効にします．
+  <!-- 4. Open the `docker.config.json` file and replace the `enablePlugins` field with the following to enable the spammer API endpoint and the Tangle visualizer -->
 
-    ここでは、Docker イメージをバックグラウンドで実行し、ホストデバイスから Docker コンテナにポートを転送し、[コマンドラインフラグ](../references/command-line-flags.md)を使用してスパマー、ZMQ、およびダッシュボードプラグインを有効にします。これらのプラグインを使用すると、スパムトランザクションを自分のノードに送信したり、着信トランザクションを監視したり、Web ダッシュボードで処理中のトランザクションの総数を表示したりできます。
-    <!-- Here, we run the Docker image in the background, forward the ports from your host device to the Docker container, and use the [command-line flags](../references/command-line-flags.md) to enable the spammer, ZMQ, and dashboard plugins. These plugins allow you to send spam transactions to your node, monitor it for incoming transactions, and view the total number of transactions that it's processing in a web dashboard. -->
+    ```bash
+    "enablePlugins":["spammer", "graph"]
+    ```
 
     :::info:
-    [Docker Compose](https://docs.docker.com/compose/)があれば、`docker-compose up -d`コマンドを使うこともできます。
+    `-h` または `--help` フラグを使用してイメージを実行すると，すべての構成オプションのリストを表示できます．
+    :::
+    <!-- :::info: -->
+    <!-- You can run the image with the `-h` or `--help` flag to see a list of all configuration options. -->
+    <!-- ::: -->
+
+5. Docker イメージを実行します．
+  <!-- 5. Run the Docker image -->
+
+    :::info:
+    [Docker Compose](https://docs.docker.com/compose/)があれば，`docker-compose up -d` コマンドを使うこともできます．
     :::
     <!-- :::info: -->
     <!-- If you have [Docker Compose](https://docs.docker.com/compose/), you can also use the `docker-compose up -d` command. -->
     <!-- ::: -->
 
     ```bash
-    sudo docker run -d --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -p 8081:8081 -it -v mainnetdb:/app/mainnetdb goshimmer --node.enablePlugins "spammer zeromq dashboard"
+    sudo docker run -d --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -p 8081:8081 -it -v mainnetdb:/app/mainnetdb goshimmer
     ```
 
-    コンテナ ID がコンソールに表示されます。
+    コンテナ ID がコンソールに表示されます．
     <!-- The container ID is displayed in the console. -->
 
-    :::info:
-    再起動のたびに Docker コンテナを再起動するには、`run` コマンドに `--restart=always` フラグを追加します。
-    :::
-    <!--  :::info: -->
-    <!-- To have the Docker container restart on every reboot, add the `--restart=always` flag to the `run` command. -->
-    <!-- ::: -->
-
-5. コンテナ ID をコピーし、それを使ってノードのログを読み取ります。`$ContainerID` プレースホルダをあなたのコンテナIDに置き換えます。
+5. コンテナ ID をコピーし，それを使ってノードのログを読み取ります．`$ContainerID` プレースホルダをあなたのコンテナIDに置き換えます．
   <!-- 5. Copy the container ID, and use it to read the node's logs. Replace the `$ContainerID` placeholder with your container ID. -->
 
     ```bash
     docker logs -f $ContainerID
     ```
 
-6. ステータス画面を表示するには、以下の操作を行って Docker コンテナに接続します。`$ContainerID` プレースホルダをあなたのコンテナ ID に置き換えます。
+6. ステータス画面を表示するには，以下の操作を行って Docker コンテナに接続します．`$ContainerID` プレースホルダをあなたのコンテナ ID に置き換えます．
   <!-- 6. To see the status screen, attach the Docker container by doing the following. Replace the `$ContainerID` placeholder with your container ID. -->
 
     ```bash
@@ -167,7 +174,7 @@ Docker コンテナをビルドするには、Docker 17.05（マルチステー�
     ```
 
 :::success:おめでとうございます:tada:
-GoShimmer ノードを実行しています。
+GoShimmer ノードを実行しています．
 :::
 <!-- :::success:Congratulations :tada: -->
 <!-- You're now running a GoShimmer node. -->
@@ -175,22 +182,22 @@ GoShimmer ノードを実行しています。
 
 ![GoShimmer status screen](../images/goshimmer.png)
 
-ステータススクリーンの右上隅に次の統計情報が表示されます。
+ステータススクリーンの右上隅に次の統計情報が表示されます．
 <!-- The status screen displays the following statistics in the top-right corner: -->
 
-- **TPS：**1秒あたりのトランザクション数。2つのカテゴリに分けられます。**received** トランザクションは、ノードがその台帳に追加したばかりのトランザクションです。**new** トランザクションは凝固トランザクションです。
+- **TPS：**1秒あたりのトランザクション数．2つのカテゴリに分けられます．**received** トランザクションは，ノードがその台帳に追加したばかりのトランザクションです．**new** トランザクションは凝固トランザクションです．
 <!-- - **TPS:** The number of transactions per second, which are separated into two categories. The **received** transactions are those that the node has just appended to its ledger. The **new** transactions are solid transactions. -->
-- **Node ID：**固有の ID を付与するノードの公開鍵。
+- **Node ID：**固有の ID を付与するノードの公開鍵．
 <!-- - **Node ID:** The node's public key that gives it a unique identity -->
-- **Neighbors：**ノードが接続している隣接ノードの数。すべてのノードは最大8つの隣接ノードを持つことができます。各ノードは接続する4つの隣接ノードを選択し、自分を選択した他の4つの隣接ノードからの着信接続を受け入れます。
+- **Neighbors：**ノードが接続している隣接ノードの数．すべてのノードは最大8つの隣接ノードを持つことができます．各ノードは接続する4つの隣接ノードを選択し，自分を選択した他の4つの隣接ノードからの着信接続を受け入れます．
 <!-- - **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accepts incoming connections from 4 other neighbors that chose it. -->
-- **Known peers：**ネットワーク内のノードの総数。現時点では、**neighbor** ノードの数は **total** ノードの数と同じです。ネットワークがシャーディングを許可すると、**neighbor** ノードはシャード内にあるノードになります。
+- **Known peers：**ネットワーク内のノードの総数．現時点では，**neighbor** ノードの数は **total** ノードの数と同じです．ネットワークがシャーディングを許可すると，**neighbor** ノードはシャード内にあるノードになります．
 <!-- - **Known peers:** The total number of nodes in the network. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard. -->
-- **Uptime：**ノードが稼働していた合計時間。
+- **Uptime：**ノードが稼働していた合計時間．
 <!-- - **Uptime:** The total amount of time during which the node has been running -->
 
 :::info:
-`accepted` 隣接ノードがない場合は、`autopeering` TCP/UDP ポート（14626）をデバイスに転送していることを確認します。
+`accepted` 隣接ノードがない場合は，`autopeering` TCP/UDP ポート（14626）をデバイスに転送していることを確認します．
 :::
 <!-- :::info: -->
 <!-- If you don't have any accepted neighbors, make sure that you've forwarded your `autopeering` TCP/UDP port (14626) to your device. -->
@@ -199,29 +206,29 @@ GoShimmer ノードを実行しています。
 ## ソースからノードをビルドする
 <!-- ## Build a node from source -->
 
-ソースコードからノードをビルドする場合、GCC や Go プログラミング言語などの前提条件を満たしていることを確認する必要があります。
+ソースコードからノードをビルドする場合，GCC や Go プログラミング言語などの前提条件を満たしていることを確認する必要があります．
 <!-- When you build the node from the source code, you need to make sure that you have the prerequisites such as GCC, and the Go programming language. -->
 
 ### 前提条件
 <!-- ### Prerequisites -->
 
-このガイドを完成するには、次のものが必要です。
+このガイドを完成するには，次のものが必要です．
 <!-- To complete this guide, you need the following: -->
 
-- Go プログラミング言語の少なくともバージョン1.12（最新バージョンをお勧めします）
-<!-- - At least version 1.12 of the Go programming language (we recommend the latest version) -->
-- GCC：macOS の場合は、[Homebrew](https://brew.sh/)（`brew install gcc`）を使って GCC をインストールすることができます。Windows の場合は、[TDM-GCC でインストールできます](http://tdm-gcc.tdragon.net/download)。Linux（Ubuntu 18.04）の場合は、[`build-essential` パッケージ](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/)から GCC をインストールできます。
+- Go プログラミング言語の少なくともバージョン1.13（最新バージョンをお勧めします）
+<!-- - At least version 1.13 of the Go programming language (we recommend the latest version) -->
+- GCC：macOS の場合は，[Homebrew](https://brew.sh/)（`brew install gcc`）を使って GCC をインストールすることができます．Windows の場合は，[TDM-GCC でインストールできます](http://tdm-gcc.tdragon.net/download)．Linux（Ubuntu 18.04）の場合は，[`build-essential` パッケージ](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/)から GCC をインストールできます．
 <!-- - GCC: For macOS, you can install GCC using [Homebrew](https://brew.sh/) (`brew install gcc`). For Windows, you can [install TDM-GCC](http://tdm-gcc.tdragon.net/download). For Linux (Ubuntu 18.04), you can [install GCC from the `build-essential` package](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/). -->
 - [Git](https://git-scm.com/downloads)
-- ノードを実行しているデバイスに[ポート14626（TCP/UDP）と14666（TCP）を転送します](root://general/0.1/how-to-guides/expose-your-local-device.md)。
-<!-- - [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node -->
+- ノードを実行しているデバイスに[ポート14626（TCP/UDP）と14666（TCP）を転送します](root://general/0.1/how-to-guides/expose-your-local-device.md)．
+<!-- - [Forward ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node -->
 - パブリック IP アドレス
 <!-- - A public IP address -->
 
 ### 手順1. コードをダウンロードする
 <!-- ### Step 1. Download the code -->
 
-1. コマンドラインインターフェイスで、`GOPATH` 環境変数を確認します。
+1. コマンドラインインターフェイスで，`GOPATH` 環境変数を確認します．
   <!-- 1. In the command-line interface, check your `GOPATH` environment variable -->
 
     ```bash
@@ -229,62 +236,87 @@ GoShimmer ノードを実行しています。
     ```
 
     :::info:
-    このディレクトリは `$GOPATH` と呼ばれています。
+    このディレクトリは `$GOPATH` と呼ばれています．
     :::
     <!-- :::info: -->
     <!-- This directory is called `$GOPATH`. -->
     <!-- ::: -->
 
-2. `$GOPATH` ではない場所に `goshimmer` リポジトリをクローンします。
+2. `$GOPATH` ではない場所に `goshimmer` リポジトリをクローンします．
   <!-- 2. Clone the `goshimmer` repository anywhere outside of `$GOPATH` -->
 
     ```bash
     git clone https://github.com/iotaledger/goshimmer.git
+    git submodule init
+    git submodule update
     ```
 
 ### 手順2. ノードを実行する
 <!-- ### Step 2. Run the node -->
 
-ノードを実行すると、IOTA 財団が実行しているエントリノードとの自動ピアリングによってネットワークに参加します。IOTA 財団のエントリノードと自動ピアするには、自動ピアリングポートとゴシップポートがノードに転送されていることを確認する必要があります。デフォルトでは、これらのポートは14666と14626です。これらのポートを転送しなくても、ノードにトランザクションを送信することはできますが、どの隣接ノードとも接続できません。
+ノードを実行すると，IOTA 財団が実行しているエントリノードとの自動ピアリングによってネットワークに参加します．IOTA 財団のエントリノードと自動ピアするには，自動ピアリングポートとゴシップポートがノードに転送されていることを確認する必要があります．デフォルトでは，これらのポートは14666と14626です．これらのポートを転送しなくても，ノードにトランザクションを送信することはできますが，どの隣接ノードとも接続できません．
 <!-- When you run the node, it joins the network by autopeering with the entry node that's run by us at the IOTA Foundation. To autopeer with this entry node, you must make sure that the autopeering and gossip ports are forwarded to your node. By default, these ports are 14666 and 14626. If you don't forward these ports, you can still send transaction to your node, but it won't be able to connect to any neighbors. -->
 
-1. `goshimmer` ディレクトリに移動します。
+1. `goshimmer` ディレクトリに移動します．
   <!-- 1. Change into the `goshimmer` directory -->
 
     ```bash
     cd goshimmer
     ```
 
-2. 実行ファイルをビルドします。
-  <!-- 2. Build the executable file -->
+2. オペレーティングシステムに応じて，次のコマンドのいずれかを使用して実行可能ファイルをビルドします．
+  <!-- 2. Use one of the following commands to build your executable file, depending on your operating system -->
 
     ```bash
-    go build -o shimmer
+    # Linux and macOS
+    go build -o goshimmer
+    # Windows
+    go build -o  goshimmer.exe
     ```
 
-    これで実行する必要がある `shimmer` と呼ばれるファイルができました。
-    <!-- Now, you have a file called `shimmer` that you need to execute. -->
+    :::info:
+    Windows PowerShell を使用している場合は，`goshimmer.exe` をシングルクォーテーションで囲みます．例：`go build -o 'goshimmer.exe'`．
+    :::
+    <!-- :::info: -->
+    <!-- If you're using Windows PowerShell, enclose `goshimmer.exe` in single quotation marks. For example: `go build -o 'goshimmer.exe'`. -->
+    <!-- ::: -->
 
-3. オペレーティングシステムに応じて、`shimmer` ファイルを実行します。
-  <!-- 3. Execute the `shimmer` file, according to your operating system: -->
+    これで，実行する必要がある `goshimmer` というファイルが作成されました．
+    <!-- Now, you have a file called `goshimmer` that you need to execute. -->
 
-- **Linux と macOS：**`./shimmer --node.enablePlugins "spammer zeromq dashboard"`
-<!-- - **Linux and macOS:** `./shimmer --node.enablePlugins "spammer zeromq dashboard"` -->
-- **Windows：**ファイルの名前を `shimmer.exe` に変更してから、コマンドラインインターフェイスで `.\shimmer --node.enablePlugins "spammer zeromq dashboard"` を実行します。
-<!-- - **Windows:** Rename the file to `shimmer.exe`, then execute it by doing `.\shimmer --node.enablePlugins "spammer zeromq dashboard"` in the command-line interface -->
+3. `config.json` ファイルを開き，`enablePlugins` フィールドを次のものに置き換えて，スパマー API エンドポイントとタングルビジュアライザーを有効にします．
+  <!-- 3. Open the `config.json` file and replace the `enablePlugins` field with the following to enable the spammer API endpoint and the Tangle visualizer -->
 
-ここでは、ノードをバックグラウンドで実行し、[コマンドラインフラグ](../references/command-line-flags.md)を使用してスパマー、ZMQ、およびダッシュボードプラグインを有効にします。これらのプラグインを使用すると、スパムトランザクションを自分のノードに送信したり、着信トランザクションを監視したり、Webダッシュボードで処理中のトランザクションの総数を表示したりできます。
-<!-- Here, we run the run the node in the background, and use the [command-line flags](../references/command-line-flags.md) to enable the spammer, ZMQ, and dashboard plugins. These plugins allow you to send spam transactions to your node, monitor it for incoming transactions, and view the total number of transactions that it's processing in a web dashboard. -->
+    ```bash
+    "enablePlugins":["spammer", "graph"]
+    ```
 
-:::info:
-`permission denied` というエラーが表示された場合は、管理者としてファイルを実行します。
-:::
-<!-- :::info: -->
-<!-- If you see a `permission denied` error, try executing the file as an administrator. -->
-<!-- ::: -->
+    :::info:
+    `-h` または `--help` フラグを使用してイメージを実行すると，すべての構成オプションのリストを表示できます．
+    :::
+    <!-- :::info: -->
+    <!-- You can run the image with the `-h` or `--help` flag to see a list of all configuration options. -->
+    <!-- ::: -->
+
+4. ご使用のオペレーティングシステムに応じて，以下のコマンドのいずれかを使用して `goshimmer` ファイルを実行します．
+  <!-- 4. Use one of the following commands to execute the `goshimmer` file, depending on your operating system: -->
+
+    ```bash
+    # Linux and macOS
+    ./goshimmer --node.enablePlugins "spammer"
+    # Windows
+    .\ goshimmer --node.enablePlugins "spammer"
+    ```
+
+    :::info:
+    `permission denied` エラーが表示された場合は，管理者としてファイルを実行してみてください．
+    :::
+    <!-- :::info: -->
+    <!-- If you see a `permission denied` error, try executing the file as an administrator. -->
+    <!-- ::: -->
 
 :::success:おめでとうございます:tada:
-GoShimmer ノードを実行しています。
+GoShimmer ノードを実行しています．
 :::
 <!-- :::success:Congratulations :tada: -->
 <!-- You're now running a GoShimmer node. -->
@@ -292,22 +324,22 @@ GoShimmer ノードを実行しています。
 
 ![GoShimmer status screen](../images/goshimmer.png)
 
-ステータススクリーンの右上隅に次の統計情報が表示されます。
+ステータススクリーンの右上隅に次の統計情報が表示されます．
 <!-- The status screen displays the following statistics in the top-right corner: -->
 
-- **TPS：**1秒あたりのトランザクション数。2つのカテゴリに分けられます。**received** トランザクションは、ノードがその台帳に追加したばかりのトランザクションです。**new** トランザクションは凝固トランザクションです。
+- **TPS：**1秒あたりのトランザクション数．2つのカテゴリに分けられます．**received** トランザクションは，ノードがその台帳に追加したばかりのトランザクションです．**new** トランザクションは凝固トランザクションです．
 <!-- - **TPS:** The number of transactions per second, which are separated into two categories. The **received** transactions are those that the node has just appended to its ledger. The **new** transactions are solid transactions. -->
-- **Node ID：**固有の ID を付与するノードの公開鍵。
+- **Node ID：**固有の ID を付与するノードの公開鍵．
 <!-- - **Node ID:** The node's public key that gives it a unique identity -->
-- **Neighbors：**ノードが接続している隣接ノードの数。すべてのノードは最大8つの隣接ノードを持つことができます。各ノードは接続する4つの隣接ノードを選択し、自分を選択した他の4つの隣接ノードからの着信接続を受け入れます。
+- **Neighbors：**ノードが接続している隣接ノードの数．すべてのノードは最大8つの隣接ノードを持つことができます．各ノードは接続する4つの隣接ノードを選択し，自分を選択した他の4つの隣接ノードからの着信接続を受け入れます．
 <!-- - **Neighbors:** The number of neighbors that the node is connected to. All nodes can have a maximum of 8 neighbors. Each node chooses 4 neighbors to connect to and accepts incoming connections from 4 other neighbors that chose it. -->
-- **Known peers：**ネットワーク内のノードの総数。現時点では、**neighbor** ノードの数は **total** ノードの数と同じです。ネットワークがシャーディングを許可すると、**neighbor** ノードはシャード内にあるノードになります。
+- **Known peers：**ネットワーク内のノードの総数．現時点では，**neighbor** ノードの数は **total** ノードの数と同じです．ネットワークがシャーディングを許可すると，**neighbor** ノードはシャード内にあるノードになります．
 <!-- - **Known peers:** The total number of nodes in the network. At the moment, the number of **neighborhood** nodes is the same as the number of **total** nodes. When the network allows sharding, the **neighborhood** nodes will be those that are in the node's shard. -->
-- **Uptime：**ノードが稼働していた合計時間。
+- **Uptime：**ノードが稼働していた合計時間．
 <!-- - **Uptime:** The total amount of time during which the node has been running -->
 
 :::info:
-受け入れた隣接ノードがない場合は、`autopeering` TCP/UDP ポート（14626）をデバイスに転送していることを確認します。
+受け入れた隣接ノードがない場合は，`autopeering` TCP/UDP ポート（14626）をデバイスに転送していることを確認します．
 :::
 <!-- :::info: -->
 <!-- If you don't have any accepted neighbors, make sure that you've forwarded your `autopeering` TCP/UDP port (14626) to your device. -->
@@ -316,5 +348,5 @@ GoShimmer ノードを実行しています。
 ## 次のステップ
 <!-- ## Next steps -->
 
-ノードが稼働しているので、[ノードにスパムトランザクションを送信し](../how-to-guides/send-spam.md)、ノードが毎秒何トランザクションを処理できるかテストすることができます。
+ノードが稼働しているので，[ノードにスパムトランザクションを送信し](../how-to-guides/send-spam.md)，ノードが毎秒何トランザクションを処理できるかテストすることができます．
 <!-- Now that your node is running, you can [send it spam transactions](../how-to-guides/send-spam.md) to test how many transactions per second your node can process. -->

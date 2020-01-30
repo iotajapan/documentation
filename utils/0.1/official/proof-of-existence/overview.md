@@ -1,5 +1,5 @@
 # 存在証明プロバイダー概要
-<!-- # Proof-of-existence provider overview -->
+<!-- # Proof-of-existence provider -->
 
 **ファイルは，さまざまな関係者間で契約などの情報を転送するために重要です．時には，ある関係者が他の関係者達が知らないうちにファイルを変更することがあります．したがって，すべての関係者が，ファイルが変更されていないことを確実に証明して，信頼できるようにする方法が必要です．ファイルが変更されていないことを証明するために，存在の証明ユーティリティを使用してファイルの内容をハッシュ化し，タングルに添付できます．このようにして，どの関係者も後でファイルをハッシュ化し，タングル上のイミュータブルなファイルと比較できます．2つのハッシュ値が同じ場合，ファイルは変更されていません．**
 <!-- **Files are important for transporting information such as contracts among different parties. Sometimes, one party may change a file without the others knowing. So, all parties need a way to reliably prove that a file has not been changed so they can trust it. To prove that a file is unchanged, you can use the proof-of-existence utility to hash the file's contents and attach it to the Tangle. This way, any party can later hash the file and compare it to the immutable one on the Tangle. If the hashes are the same, the file is unchanged.** -->
