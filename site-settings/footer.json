@@ -2,7 +2,7 @@
     "footerDocsSectionTitle": "開発者用ドキュメント",
     "footerSections": [
         {
-            "heading": "IOTA財団",
+            "heading": "IOTA 財団",
             "links": [
                 {
                     "link": "https://www.iota.org/the-foundation/our-vision",
@@ -10,7 +10,7 @@
                 },
                 {
                     "link": "https://www.iota.org/the-foundation/the-iota-foundation",
-                    "name": "IOTA財団について"
+                    "name": "IOTA 財団について"
                 },
                 {
                     "link": "https://www.iota.org/the-foundation/team",
@@ -18,7 +18,7 @@
                 },
                 {
                     "link": "https://www.iota.org/the-foundation/work-at-the-iota-foundation",
-                    "name": "IOTA財団で働く"
+                    "name": "IOTA 財団で働く"
                 }
             ]
         },
@@ -35,11 +35,11 @@
                 },
                 {
                     "link": "https://www.iota.org/verticals/industrial-iot",
-                    "name": "工業用IoT"
+                    "name": "工業用 IoT"
                 },
                 {
                     "link": "https://www.iota.org/verticals/ehealth",
-                    "name": "eヘルス"
+                    "name": "e ヘルス"
                 },
                 {
                     "link": "https://www.iota.org/verticals/smart-energy",
@@ -60,7 +60,7 @@
                 },
                 {
                     "link": "https://www.iota.org/research/roadmap",
-                    "name": "R&Dロードマップ"
+                    "name": "R&D ロードマップ"
                 }
             ]
         }

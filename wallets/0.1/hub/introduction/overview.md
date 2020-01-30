@@ -43,11 +43,9 @@ To help users not to withdraw from [spent addresses](root://getting-started/0.1/
 
 - **Deposit address management:** Hub derives a new address from a new seed for every deposit. To do so, Hub uses the withdrawal management to check whether an address is already spent. If an address is spent, Hub creates a new seed UUID to use to generate a new deposit address.
 
-- **Sweeps:** When issuing a withdrawal, Hub creates a bundle, called a [sweep](../concepts/sweeps.md), which also moves funds from users' deposit addresses to one of the Hub owner's addresses.
->>>>>>> upstream/develop
+- **Sweeps：**取り出しを発行すると、ハブは[スウィープ](../concepts/sweeps.md)と呼ばれるバンドルを作成します。これは、ユーザーのデポジットアドレスからハブ所有者のアドレスのいずれかに資金を移動します。
+<!-- - **Sweeps:** When issuing a withdrawal, Hub creates a bundle, called a [sweep](../concepts/sweeps.md), which also moves funds from users' deposit addresses to one of the Hub owner's addresses. -->
 
-**Sweeps：**取り出しを発行すると、Hubは[スウィープ](../concepts/sweeps.md)と呼ばれるバンドルを作成します。これは、ユーザーの預け入れアドレスからハブ所有者のアドレスのいずれかに資金を移動します。
-<!-- **Sweeps:** When issuing a withdrawal, Hub creates a bundle, called a [sweep](../concepts/sweeps.md), that also moves funds from users' deposit addresses to one of the Hub owner's addresses. -->
 
 ## 制限事項
 <!-- ## Limitations -->
@@ -61,13 +59,13 @@ Read the following blog posts about Hub:
 - [Introducing IOTA Hub](https://blog.iota.org/introducing-iota-hub-5349bb8a29cd)
 - [Hub Update: Easily Integrate IOTA With Your Exchange, Custody Solution, Or Product](https://blog.iota.org/hub-update-easily-integrate-iota-with-your-exchange-custody-solution-or-product-747181b33d37)
 
-ユーザーが使用済みアドレスにトークンを預け入れた場合は、gRPC APIを使用して[それらのトークンを取り出すバンドルを作成](https://github.com/iotaledger/rpchub/blob/master/docs/hip/001-sign_bundle.md)できます。
+ユーザーが使用済みアドレスにトークンをデポジットした場合は、gRPC API を使用して[それらのトークンを取り出すバンドルを作成](https://github.com/iotaledger/rpchub/blob/master/docs/hip/001-sign_bundle.md)できます。
 <!-- If a user deposits tokens into a spent address, you can use the gRPC API to [create a bundle that withdraws those tokens](https://github.com/iotaledger/rpchub/blob/master/docs/hip/001-sign_bundle.md). -->
 
 ## リポジトリ
 <!-- ## Repository -->
 
-[GithubのHubソースコード](https://github.com/iotaledger/hub)を見る。
+[Github のハブソースコード](https://github.com/iotaledger/hub)を見る。
 <!-- Go to the Hub source code on [Github](https://github.com/iotaledger/hub). -->
 
 ## Discord channels
@@ -82,8 +80,4 @@ We have the following channels for Hub:
 
 - **#hub-dev:** A read-only channel where developers discuss topics and where any GitHub updates are displayed
 
-<<<<<<< HEAD
-- `hub-discussion`: An open channel where anyone is free to discuss Hub
-=======
 - **#hub-discussion:** An open channel where anyone is free to discuss Hub
->>>>>>> upstream/develop

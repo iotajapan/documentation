@@ -1,13 +1,13 @@
 # Go でアカウントプラグインを作成する
 <!-- # Create an account plugin in Go -->
 
-**プラグインはアカウントの機能を拡張します。このガイドでは、アカウントのイベントをコンソールに出力するプラグインを作成します。**
+**プラグインはアカウントの機能を拡張します．このガイドでは，アカウントのイベントをコンソールに出力するプラグインを作成します．**
 <!-- **Plugins extend the functionality of an account. In this guide, you create a plugin that prints your account's events to the console.** -->
 
 ## パッケージ
 <!-- ## Packages -->
 
-このガイドを完了するには、以下のパッケージをインストールする必要があります（Go モジュールを使用している場合は、以下のパッケージを参照するだけです）。
+このガイドを完了するには，以下のパッケージをインストールする必要があります（Go モジュールを使用している場合は，以下のパッケージを参照するだけです）．
 <!-- To complete this guide, you need to install the following packages (if you're using Go modules, you just need to reference them): -->
 
 ```bash
@@ -24,16 +24,16 @@ go get github.com/iotaledger/iota.go/account/event/listener
 ## IOTA ネットワーク
 <!-- ## IOTA network -->
 
-このガイドでは、[デブネット](root://getting-started/0.1/network/iota-networks.md#devnet)の[ノード](root://getting-started/0.1/network/nodes.md)に接続します。
+このガイドでは，[デブネット](root://getting-started/0.1/network/iota-networks.md#devnet)の[ノード](root://getting-started/0.1/network/nodes.md)に接続します．
 <!-- In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet). -->
 
 ## 手順1. エベントロガーを作成する
 <!-- ## Step 1. Create the event logger -->
 
-1. `eventLogger.go` という新しいファイルを作成します。
+1. `eventLogger.go` という新しいファイルを作成します．
 <!-- 1. Create a new file called `eventLogger.go` -->
 
-2. `EventMachine` オブジェクトを引数として取り、`account.Plugin` オブジェクトを返す関数を作成します。
+2. `EventMachine` オブジェクトを引数として取り，`account.Plugin` オブジェクトを返す関数を作成します．
   <!-- 2. Create a function that takes an `EventMachine` object as an argument and returns an `account.Plugin` object -->
 
     ```go
@@ -49,7 +49,7 @@ go get github.com/iotaledger/iota.go/account/event/listener
     }
     ```
 
-4. プラグインの名前を返す `Name()` 関数を作成します。
+4. プラグインの名前を返す `Name()` 関数を作成します．
   <!-- 4. Create a `Name()` function that returns the name of the plugin -->
 
     ```go
@@ -59,13 +59,13 @@ go get github.com/iotaledger/iota.go/account/event/listener
     ```
 
     :::info:
-    `account` オブジェクトは、デバッグに役立つようにエラーメッセージでこの名前を使用します。
+    `account` オブジェクトは，デバッグに役立つようにエラーメッセージでこの名前を使用します．
     :::
     <!-- :::info: -->
     <!-- The `account` object uses this name in error messages to help with debugging. -->
     <!-- ::: -->
 
-5. アカウントの開始時に呼び出される `Start()` 関数を作成します。
+5. アカウントの開始時に呼び出される `Start()` 関数を作成します．
   <!-- 5. Create a `Start()` function that will be called when the account starts -->
 
     ```go
@@ -77,13 +77,13 @@ go get github.com/iotaledger/iota.go/account/event/listener
     ```
 
     :::info:
-    すべてのプラグインは独自の Go ルーチンで実行され、アカウントと共に起動およびシャットダウンします。
+    すべてのプラグインは独自の Go ルーチンで実行され，アカウントと共に起動およびシャットダウンします．
     :::
     <!-- :::info: -->
     <!-- All plugins run in their own goroutine and start and shut down together with an account. -->
     <!-- ::: -->
 
-6. アカウントと同時にプラグインをシャットダウンする`Shutdown()` 関数を作成します。
+6. アカウントと同時にプラグインをシャットダウンする`Shutdown()` 関数を作成します．
   <!-- 6. Create a `Shutdown()` function that shuts down the plugin at the same time as the account -->
 
     ```go
@@ -93,7 +93,7 @@ go get github.com/iotaledger/iota.go/account/event/listener
     }
     ```
 
-7. イベント発生時にすべてのイベントをスクリーンに出力する `log()` 関数を作成します。
+7. イベント発生時にすべてのイベントをスクリーンに出力する `log()` 関数を作成します．
   <!-- 7. Create the `log()` function that will print all events to the screen when they happen -->
 
     ```go
@@ -142,23 +142,23 @@ go get github.com/iotaledger/iota.go/account/event/listener
     }
     ```
 
-8. ファイルを保存します。
+8. ファイルを保存します．
   <!-- 8. Save the file -->
 
 ## 手順2. イベントロガーとともにアカウントを起動する
 <!-- ## Step 2. Start your account with the event logger -->
 
-1. `account.go` という新しいファイルを作成します。
+1. `account.go` という新しいファイルを作成します．
   <!-- 1. Create a new file called `account.go` -->
 
-2. イベントマシンを初期化します。
+2. イベントマシンを初期化します．
   <!-- 2. Initialize an event machine -->
 
     ```go
     em := event.NewEventMachine()
     ```
 
-3. `NewEventLoggerPlugin()` 関数を使用してアカウントをビルドします。
+3. `NewEventLoggerPlugin()` 関数を使用してアカウントをビルドします．
   <!-- 3. Build your account with the `NewEventLoggerPlugin()` function -->
 
     ```go
@@ -183,9 +183,9 @@ go get github.com/iotaledger/iota.go/account/event/listener
     ```
 
 :::success:おめでとうございます:tada:
-最初のプラグインを作成しました。
+最初のプラグインを作成しました．
 
-今、アカウントが開始されると、イベントをリッスンするために何もする必要はありません。プラグインはイベントが起こるたびにコンソールにすべてのイベントを出力します。
+今，アカウントが開始されると，イベントをリッスンするために何もする必要はありません．プラグインはイベントが起こるたびにコンソールにすべてのイベントを出力します．
 :::
 <!-- :::success:Congratulations! :tada: -->
 <!-- You've just created your first plugin. -->
@@ -196,16 +196,16 @@ go get github.com/iotaledger/iota.go/account/event/listener
 ## コードを実行する
 <!-- ## Run the code -->
 
-これらのコードサンプルは [GitHub](https://github.com/iota-community/account-module) でホストされています。
+これらのコードサンプルは [GitHub](https://github.com/iota-community/account-module) でホストされています．
 <!-- These code samples are hosted on [GitHub](https://github.com/iota-community/account-module). -->
 
-開始するには、デバイスに [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) がインストールされている必要があります。
+開始するには，デバイスに [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) がインストールされている必要があります．
 <!-- To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device. -->
 
-Go 開発環境がない場合、または Go クライアントライブラリを初めて使用する場合は、[スタートガイド](../../getting-started/go-quickstart.md)を完了してください。
+Go 開発環境がない場合，または Go クライアントライブラリを初めて使用する場合は，[スタートガイド](../../getting-started/go-quickstart.md)を完了してください．
 <!-- If you don't have a Go development environment, or if this is your first time using the Go client library, complete our [getting started guide](../../getting-started/go-quickstart.md). -->
 
-コマンドラインで、次を実行します。
+コマンドラインで，次を実行します．
 <!-- In the command-line, do the following: -->
 
 ```bash
@@ -214,11 +214,11 @@ cd account-module/go/account-module
 go mod download
 go run create-plugin/account.go create-plugin/eventLogger.go
 ```
-アカウントが開始されると、イベントロガーが開始されることがわかります。
+アカウントが開始されると，イベントロガーが開始されることがわかります．
 <!-- You should see that the event logger starts when your account does. -->
 
 ## 次のステップ
 <!-- ## Next steps -->
 
-[条件付きデポジットアドレスを生成する](../go/generate-cda.md)。
+[条件付きデポジットアドレスを生成する](../go/generate-cda.md)．
 <!-- [Generate a conditional deposit address](../go/generate-cda.md). -->

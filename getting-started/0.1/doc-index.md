@@ -1,6 +1,6 @@
 # Index
 
-[序説/IOTA概要](/introduction/overview.md)
+[序説/IOTA 概要](/introduction/overview.md)
 
 [序説/三進法](/introduction/ternary.md)
 
@@ -14,9 +14,9 @@
 
 [クイックスタート/シードを作成する](/tutorials/create-a-seed.md)
 
-[クイックスタート/テストIOTAトークンを入手する](/tutorials/get-test-tokens.md)
+[クイックスタート/テスト IOTA トークンを入手する](/tutorials/get-test-tokens.md)
 
-[ネットワーク/IOTAネットワーク](/network/iota-networks.md)
+[ネットワーク/IOTA ネットワーク](/network/iota-networks.md)
 
 [ネットワーク/ノード](/network/nodes.md)
 
@@ -30,7 +30,7 @@
 
 [クライアント/シード](/clients/seeds.md)
 
-[クライアント/IOTAトークン](/clients/token.md)
+[クライアント/IOTA トークン](/clients/token.md)
 
 [クライアント/アドレス](/clients/addresses.md)
 
@@ -48,7 +48,7 @@
 
 [トランザクション/深度](/transactions/depth.md)
 
-[トランザクション/再アタッチ、再ブロードキャスト、プロモート](/transactions/reattach-rebroadcast-promote.md)
+[トランザクション/再アタッチ，再ブロードキャスト，プロモート](/transactions/reattach-rebroadcast-promote.md)
 
 [参考文献/開発者ハンドブック](/references/quickstart-dev-handbook.md)
 
