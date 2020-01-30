@@ -4,22 +4,35 @@
 **コーディネーターは、IOTA 財団によって実行されるアプリケーションであり、その目的は[タングル](../network/the-tangle.md)を[パラサイトチェーン](https://blog.iota.org/attack-analysis-the-simple-parasite-chain-42a34bfeaf23)などの攻撃から保護することです。[ノード](../network/nodes.md)は、コーディネーターを使用して、トランザクションが確定されるコンセンサスに到達します。**
 <!-- **The Coordinator is an application that's run by the IOTA Foundation and whose purpose is protect the [Tangle](../network/the-tangle.md) from attacks such as [parasite chains](https://blog.iota.org/attack-analysis-the-simple-parasite-chain-42a34bfeaf23). [Nodes](../network/nodes.md) use the Coordinator to reach a consensus on which transactions are confirmed.** -->
 
+[転送バンドル](../transactions/bundles.md#transfer-bundles)を送信すると、その中のすべてのトランザクションが確定されるまで残高は更新されません。
+<!-- When you send a [transfer bundle](../transactions/bundles.md#transfer-bundles), your balance isn't updated until all the transactions in it are confirmed. -->
+
+トランザクションをペンディング中から確定済みに変更できるのはコーディネーターだけです。
+<!-- It's the Coordinator that allows your transactions to go from pending to confirmed. -->
+
+コーディネーターは、台帳内の2つの新しいランダムトランザクションを参照および承認するバンドルを定期的に送信するプログラムです。バンドル内の署名済みテールトランザクションは、マイルストーンと呼ばれます。
+<!-- The Coordinator is a program that regularly sends bundles that reference and approve two new random transactions in the ledger. The signed tail transaction in the bundle is called a milestone. -->
+
 ## マイルストーン
 <!-- ## Milestones -->
 
-同じ [IOTA ネットワーク](../network/iota-networks.md)内のすべてのノードは、コーディネーターの[アドレス](../clients/addresses.md)でハードコーディングされています。
-<!-- All nodes in the same [IOTA network](../network/iota-networks.md) are hard-coded with the [address](../clients/addresses.md) of a Coordinator. -->
+同じ [IOTA ネットワーク](../network/iota-networks.md)のすべてのノードは、コーディネーターの[アドレス](../clients/addresses.md)でハードコーディングされています。そのため、ノードはマイルストーンを見るたびに、次のような多くのチェックを行うことにより、マイルストーンが有効であることを確認します。
+<!-- Every node in the same [IOTA network](../network/iota-networks.md) is hard-coded with the [address](../clients/addresses.md) of a Coordinator. So, whenever nodes see a milestone, they make sure it's valid by doing a number of checks, including: -->
 
-コーディネーターは、コーディネーターのアドレスを所有していることをノード群に証明するために、マイルストーンと呼ばれるトランザクションの[バンドル](../transactions/bundles.md)を定期的に作成、署名、送信します。
-<!-- To prove to nodes that it owns the address, the Coordinator creates, signs, and sends [bundles](../transactions/bundles.md) of transactions called milestones at regular intervals. -->
+- マイルストーンがコーディネーターのアドレスから来ていること．
+<!-- * The milestone came from the Coordinator's address -->
+- マイルストーンが全ての無効なトランザクションを参照していないこと．
+<!-- * The milestone doesn't reference any invalid transactions -->
 
-このバンドルには次のものが含まれています。
-<!-- These bundles contain the following: -->
+結果として、コーディネーターが偽造トランザクションを参照するような無効なマイルストーンを送信した場合、残りのノードはマイルストーンを受け入れません。
+<!-- As a result, if the Coordinator were to ever send an invalid milestone such as one that references counterfeit transactions, the rest of the nodes would not accept it. -->
 
-- 分断化された署名を含めるのに十分なゼロトークントランザクション
-<!-- - Enough zero-value transactions to contain the fragmented signature -->
-- ノードが欠損データを再構築できるように、マークル木からの十分な欠損データが[`signatureMessageFragment` フィールド]に含まれている1つのトランザクション
-<!-- - One transaction whose [`signatureMessageFragment` field](../transactions/transactions.md#signatureMessageFragment) contains enough missing data from the Merkle tree to allow the node to rebuild it -->
+:::info:
+コーディネーターはトークンを失ったり、トランザクションをリバースしたりすることはできません。
+:::
+<!-- :::info: -->
+<!-- The Coordinator can't lose tokens or reverse transactions. -->
+<!-- ::: -->
 
 有効なマイルストーンのトランザクションがタングル上の既存のトランザクションを参照する場合、ノード群はその既存のトランザクションのステートとその履歴全体を確定済みとしてマークします。
 <!-- When a transaction in a valid milestone references an existing transaction in the Tangle, nodes mark the state of that existing transaction and its entire history as confirmed. -->
@@ -41,8 +54,8 @@
 マークル木を生成するには、まず、コーディネーターのシードから多数のアドレスと秘密鍵を生成します。
 <!-- To generate the Merkle tree, first a number of addresses and private keys are generated from the Coordinator's seed. -->
 
-生成されるアドレスの総数は、次の式のマークル木の深さ (depth) に依存します。
-<!-- The total number of addresses that are generated depends on the depth of the Merkle tree in this formula: -->
+アドレスの総数は、次の式のマークル木の深さ（`depth`）に依存します。
+<!-- The total number of addresses depends on the depth of the Merkle tree in this formula: -->
 
 2<sup>depth</sup>
 
@@ -64,16 +77,24 @@
 コーディネーターのアドレスを生成するために、リーフはペアでハッシュされます。
 <!-- To generate the Coordinator's address, the leaves are hashed in pairs: -->
 
-- **ノード 1:** Hash(Hash(リーフ 1) Hash(リーフ 2))
-- **ノード 1:** Hash(Hash(リーフ 1) Hash(リーフ 2))
-- **ノード 2:** Hash(Hash(リーフ 3) Hash(リーフ 4))
-- **コーディネーターのアドレス:** Hash(Hash(ノード 1) Hash(ノード 2))
+- **ノード 1：**Hash(Hash(リーフ 1) Hash(リーフ 2))
+- **ノード 1：**Hash(Hash(リーフ 1) Hash(リーフ 2))
+- **ノード 2：**Hash(Hash(リーフ 3) Hash(リーフ 4))
+- **コーディネーターのアドレス：**Hash(Hash(ノード 1) Hash(ノード 2))
 
 ノード1は、リーフ1とリーフ2のハッシュ結果のハッシュ値です。ノード2は、リーフ3とリーフ4のハッシュ結果のハッシュ値です。コーディネーターのアドレスは、ノード1のハッシュ値とノード2のハッシュ値のハッシュ結果のハッシュ値です。
 <!-- Node 1 is a hash of the result of hashing leaf 1 and leaf 2. Node 2 is a hash of the result of hashing leaf 3 and leaf 4. The Coordinator's address is a hash of the result of hashing the hash of node 1 and node 2. -->
 
 ## ノードによるマイルストーンの検証方法
 <!-- ## How nodes validate milestones -->
+
+アドレスを所有していることをノードに証明するために、コーディネーターのバンドルには次のものが含まれています。
+<!-- To prove to nodes that it owns the address, the Coordinator's bundles contain the following: -->
+
+- 分断化された署名を含めるのに十分なゼロトークントランザクション
+<!-- - Enough zero-value transactions to contain the fragmented signature -->
+- ノードが欠損データを再構築できるように、マークル木からの十分な欠損データが[`signatureMessageFragment` フィールド]に含まれている1つのトランザクション
+<!-- - One transaction whose [`signatureMessageFragment` field](../transactions/transactions.md#signatureMessageFragment) contains enough missing data from the Merkle tree to allow the node to rebuild it -->
 
 ノードは、コーディネーターのアドレスから送信されたトランザクションを見ると、次のことを実行してコーディネーターのアドレスから送信されたトランザクションを検証します。
 <!-- When nodes see a transaction that's been sent from the Coordinator's address, they validate it by doing the following: -->
@@ -114,5 +135,11 @@
 ## コーディサイド
 <!-- ## Coordicide -->
 
-IOTA 財団の研究部門は、コーディネーターの削除の提案である[コーディサイド](https://coordicide.iota.org/)と呼ばれるプロジェクトに焦点を当てています。コーディサイドが発生すると、ノードはマイルストーンなしで合意に達することができます。
-<!-- The Research Department at the IOTA Foundation is focused on a project called [Coordicide](https://coordicide.iota.org/), which is a proposal for the removal of the Coordinator. When this happens, nodes will be able to reach a consensus without milestones. -->
+IOTA 財団の研究部門は、コーディネーターの削除の提案である[コーディサイド](https://coordicide.iota.org/)と呼ばれるプロジェクトに焦点を当てています。コーディサイドが発生すると、ノードはマイルストーンなしで合意に達することができ，IOTA ネットワークが分散化されます．
+<!-- The Research Department at the IOTA Foundation are working on a project called [Coordicide](https://coordicide.iota.org/), which is a proposal for the removal of the Coordinator. When this happens, nodes will be able to reach a consensus without milestones, making IOTA networks decentralized. -->
+
+## 関連ガイド
+<!-- ## Related guides -->
+
+[JavaScript でトランザクションが確定されたかどうかを調べる](root://client-libraries/0.1/how-to-guides/js/check-transaction-confirmation.md)。
+<!-- [Find out if a transaction is confirmed in JavaScript](root://client-libraries/0.1/how-to-guides/js/check-transaction-confirmation.md). -->

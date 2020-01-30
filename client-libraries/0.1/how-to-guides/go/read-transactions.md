@@ -56,10 +56,15 @@ go get github.com/iotaledger/iota.go/transaction
     ```
 
     :::info:
-    [バンドルハッシュ](root://getting-started/0.1/transactions/bundles.md#bundle-hash)とは異なり、`signatureMessageFragment` フィールドはハッシュの一部であるため、末尾トランザクションハッシュを使用します。したがって、トランザクション内のメッセージはイミュータブルです。
+    `signatureMessageFragment` フィールドはハッシュの一部であるため、テールトランザクションハッシュを使用します。したがって、トランザクション内のメッセージはイミュータブルです。
+
+    バンドルハッシュを使用する場合、誰でもテールトランザクション内のメッセージを変更し、バンドルのコピーをタングルにアタッチできるため、別のメッセージが表示される場合があります。
     :::
+
     <!-- :::info: -->
-    <!-- We use the tail transaction hash because, unlike the [bundle hash](root://getting-started/0.1/transactions/bundles.md#bundle-hash), the `signatureMessageFragment` field is part of the hash. Therefore, the message in the transaction is immutable. -->
+    <!-- We use the tail transaction hash because the `signatureMessageFragment` field is part of the hash. Therefore, the message in the transaction is immutable. -->
+
+    <!-- If you were to use the bundle hash, you may see a different message because anyone can change the message in the tail transaction and attach a copy of the bundle to the Tangle. -->
     <!-- ::: -->
 
 4. [`GetBundle()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_get_bundle.md) メソッドを使用して、末尾トランザクションのバンドル内のすべてのトランザクションを取得します。次に、[`ExtractJSON()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/transaction_extract_j_s_o_n.md) メソッドを使用して、トランザクションの `signatureMessageFragment` フィールドの JSON メッセージをデコードし、コンソールに出力します。

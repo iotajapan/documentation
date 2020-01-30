@@ -2,20 +2,24 @@
     "headerTitle": "開発者用ドキュメント",
     "headerTopLinks": [
         {
+            "href": "https://docs.iota.org",
+            "name": "docs(en)"
+        },
+        {
             "href": "https://github.com/iotajapan/documentation-platform",
             "name": "GitHub(ja)"
+        },
+        {
+            "href": "https://github.com/iotaledger/documentation-platform",
+            "name": "GitHub(en)"
         },
         {
             "href": "https://iotajapan.com",
             "name": "IOTA JAPAN"
         },
         {
-            "href": "https://docs.iota.org",
-            "name": "docs(en)"
-        },
-        {
-            "href": "https://github.com/iotaledger/documentation-platform",
-            "name": "GitHub(en)"
+            "href": "https://iota.org",
+            "name": "iota.org"
         },
         {
             "href": "https://roadmap.iota.org/",
@@ -24,10 +28,6 @@
         {
             "href": "https://training.iota.org/",
             "name": "training"
-        },
-        {
-            "href": "https://iota.org",
-            "name": "iota.org"
         },
         {
             "href": "https://utils.iota.org/",
@@ -56,7 +56,7 @@
         {
             "href": "/docs/getting-started/0.1/introduction/overview",
             "image": "1.png",
-            "name": "IOTA概要"
+            "name": "IOTA 概要"
         },
         {
             "href": "/docs/client-libraries/0.1/getting-started/quickstart",

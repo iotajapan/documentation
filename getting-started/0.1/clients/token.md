@@ -1,8 +1,8 @@
 # IOTA トークン
 <!-- # The IOTA token -->
 
-** IOTA トークンは価値のユニット（i、Ki、Mi、Gi、Ti、Pi）であり、[IOTA ネットワーク](../network/iota-networks.md)経由で[転送バンドル](../transactions/bundles.md)を介して転送できます。**
-<!-- **The IOTA token is a unit of value (i, Ki, Mi, Gi, Ti, Pi) that can be transferred over an [IOTA network](../network/iota-networks.md) through [transfer bundles](../transactions/bundles.md).** -->
+** IOTA トークンは価値のユニット（i、Ki、Mi、Gi、Ti、Pi）であり、[転送バンドル](../transactions/bundles.md)を用いた [IOTA ネットワーク](../network/iota-networks.md)経由で転送されます。**
+<!-- **The IOTA token is a unit of value (i, Ki, Mi, Gi, Ti, Pi) that can be transferred over an [IOTA network](../network/iota-networks.md) in [transfer bundles](../transactions/bundles.md).** -->
 
 ## IOTA トークンはどのようにつくられたか
 <!-- ## How the IOTA token was created -->

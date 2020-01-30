@@ -6,33 +6,6 @@
 
 <iframe src="https://www.youtube.com/embed/Gr-LstcDcAw" frameborder="0" width="560" height="315" style="max-width: 100%;"></iframe>
 
-## IOTA はどのように機能するのか？
-<!-- ## How does IOTA work? -->
-
-IOTA ネットワークは[ノード](../network/nodes.md)とクライアントで構成され、ユーザーは[パブリック IOTA ネットワーク](../network/iota-networks.md)の中でノードとしてもクライアントとしても自由に行動できます。
-<!-- An IOTA network consists of [nodes](../network/nodes.md) and clients, and anyone is free to act as either in the [public IOTA networks](../network/iota-networks.md). -->
-
-### ノード
-<!-- ### Nodes -->
-
-ノードは、タングルと呼ばれるトランザクションのイミュータブルな記録への読み取りおよび書き込みアクセス権を持つ唯一のデバイスであるため、IOTA ネットワークのバックボーンです。
-<!-- Nodes are the backbone of an IOTA network as they are the only devices that have read and write access to the immutable record of transactions called the Tangle. -->
-
-相互接続されたノードは、同じ[ノードソフトウェア](root://node-software/0.1/introduction/overview.md)を実行することで IOTA ネットワークを形成し、トランザクションを検証してタングルに接続できるようにします。
-<!-- Interconnected nodes form an IOTA network by running the same [node software](root://node-software/0.1/introduction/overview.md), allowing them to validate transactions and attach them to the Tangle. -->
-
-### クライアント
-<!-- ### Clients -->
-
-クライアントは、タングルでデータを処理または保存するためにノードに接続するデバイスです。
-<!-- Clients are the devices that connect to nodes to transact or store data on the Tangle. -->
-
-IOTA ネットワーク内のすべてのクライアントには、[シード](../clients/seeds.md)と呼ばれる秘密のパスワードがあり、これがIDとして機能します。シードは、クライアントに[アドレス](../clients/addresses.md)へのアクセス権を提供します。アドレスは、IOTA トークンの残高を持つアカウントのようなものです。
-<!-- All clients in an IOTA network have a secret password called a [seed](../clients/seeds.md), which acts as their identity. Seeds give clients access to [addresses](../clients/addresses.md), which are like accounts with a balance of IOTA tokens. -->
-
-IOTA トークンを転送したり、データのみを送信したりするために、クライアントは転送命令を[トランザクション](../transactions/transactions.md)と呼ばれるオブジェクトにパッケージ化し、それらをノードに送信してタングルにアタッチします。
-<!-- To transfer IOTA tokens or even to send only data, clients package the transfer instructions into objects called [transactions](../transactions/transactions.md) and send them to a node to attach to the Tangle. -->
-
 ## IOTA を使うメリット
 <!-- ## Why should I use IOTA? -->
 
@@ -48,29 +21,28 @@ IOTA を使用することにより、次のメリットを享受するアプリ
 - **マイクロペイメント：**手数料を支払うことなく、少量の IOTA トークンを送信できます。
 <!-- - **Micropayments:** Send small amounts of IOTA tokens without paying any fees -->
 
-IOTA ネットワークには、データや価値を転送する従来の方法と比較して多くの利点があります。
-<!-- IOTA networks have many benefits compared to traditional ways of transferring data or value. -->
+![IOTA benefits](../images/iota-benefits.png)
 
-### 信頼性
-<!-- ### Trust -->
+### データの信頼性
+<!-- ### Trust in data -->
 
-IOTA ネットワーク内の各ノードは、トランザクションを検証し、同じことを行う他のノードにトランザクションを送信します。その結果、すべての有効なトランザクションはすべてのノードによって合意され、ネットワーク内の単一のトランザクションを信頼する必要がなくなります。
-<!-- Each node in an IOTA network validates transactions, then sends them to other nodes that do the same. As a result, all valid transactions are agreed on by all nodes, removing the need to trust a single one in the network. -->
+[IOTA ネットワーク](../network/iota-networks.md)内の各[ノード](../network/nodes.md)は、[トランザクション](../transactions/transactions.md)を検証し、同じことを行う他のノードにトランザクションを送信します。その結果、すべての有効なトランザクションはすべてのノードによって合意され、ネットワーク内の単一のトランザクションを信頼する必要がなくなります。
+<!-- Each [node](../network/nodes.md) in an [IOTA network](../network/iota-networks.md) validates [transactions](../transactions/transactions.md), then sends them to other nodes that do the same. As a result, all valid transactions are agreed on by all nodes, removing the need to trust a single one in the network. -->
 
 自分自身のノードを実行して、ネットワーク内のトランザクションの検証を開始することもできます。
 <!-- You can even run your own node to start validating transaction in the network. -->
 
-### イミュータビリティ
-<!-- ### Immutability -->
+#### 整合性
+<!-- #### Integrity -->
 
-タングル内のすべてのトランザクションはイミュータブルで透過的です。
-<!-- All transactions in the Tangle are immutable and transparent. -->
+[タングル](../network/the-tangle.md)内のすべてのトランザクションはイミュータブルで透過的です。
+<!-- All transactions in the [Tangle](../network/the-tangle.md) are immutable and transparent. -->
 
 各トランザクションは、前の2つのトランザクションハッシュを参照します。そのため、任意のトランザクションの内容が変更されると、ハッシュが無効になり、トランザクションが無効になります。
 <!-- Each transaction references the transaction hashes of two previous ones. So, if the contents of any transaction were to change, the hashes would be invalid, making the transactions invalid. -->
 
-### 安全性
-<!-- ### Security -->
+#### 安全性とプライバシー
+<!-- #### Security and privacy -->
 
 IOTA は、量子ロバストなワンタイム[署名](../clients/signatures.md)を使用して、攻撃者が IOTA トークンを盗むのを防ぎます。
 <!-- IOTA uses quantum-robust one-time [signatures](../clients/signatures.md) to stop attackers from stealing IOTA tokens. -->
@@ -92,6 +64,33 @@ IOTA は無料で使用できます。サブスクリプションを支払う必
 
 タングルにアタッチされる各トランザクションごとに、2つの以前のトランザクションが検証されます。このプロセスにより、IOTA が非常にスケーラブルになります。これは、より多くの新しいトランザクションが検証の高速化につながるためです。
 <!-- For each transaction that's attached to the Tangle, two previous transactions are validated. This process makes IOTA incredibly scalable because more new transactions lead to faster validations. -->
+
+## IOTA はどのように機能するか？
+<!-- ## How does IOTA work? -->
+
+IOTA ネットワークはノードとクライアントで構成され、誰でもパブリック IOTA ネットワークのいずれかとして自由に行動できます。
+<!-- An IOTA network consists of nodes and clients, and anyone is free to act as either in the public IOTA networks. -->
+
+### ノード
+<!-- ### Nodes -->
+
+ノードは、タングルと呼ばれるトランザクションのイミュータブルなレコードへの読み取りおよび書き込みアクセスを持つ唯一のデバイスであるため、IOTA ネットワークのバックボーンです。
+<!-- Nodes are the backbone of an IOTA network as they are the only devices that have read and write access to the immutable record of transactions called the Tangle. -->
+
+相互接続されたノードは、同じ[ノードソフトウェア](root://node-software/0.1/introduction/overview.md)を実行することで IOTA ネットワークを形成し、トランザクションを検証してタングルに接続できるようにします。
+<!-- Interconnected nodes form an IOTA network by running the same [node software](root://node-software/0.1/introduction/overview.md), allowing them to validate transactions and attach them to the Tangle. -->
+
+### クライアント
+<!-- ### Clients -->
+
+クライアントは、ノードに接続してタングル上でデータを取引またはタングル上にデータを保存するデバイスです。
+<!-- Clients are the devices that connect to nodes to transact or store data on the Tangle. -->
+
+IOTA ネットワーク内のすべてのクライアントには、[シード](../clients/seeds.md)と呼ばれる秘密のパスワードがあり、これが ID として機能します。シードはクライアントに[アドレス](../clients/addresses.md)へのアクセスを提供します。これは、IOTA トークンの残高を持つアカウントのようなものです。
+<!-- All clients in an IOTA network have a secret password called a [seed](../clients/seeds.md), which acts as their identity. Seeds give clients access to [addresses](../clients/addresses.md), which are like accounts with a balance of IOTA tokens. -->
+
+IOTA トークンを転送したり、データのみを送信したりするために、クライアントは転送命令をトランザクションと呼ばれるオブジェクトにパッケージ化し、ノードに送信してタングルにアタッチします。
+<!-- To transfer IOTA tokens or even to send only data, clients package the transfer instructions into objects called transactions and send them to a node to attach to the Tangle. -->
 
 ## ユースケース
 <!-- ## What are some example use cases? -->

@@ -57,10 +57,15 @@ yarn add @iota/core @iota/extract-json
     ```
 
     :::info:
-    [バンドルハッシュ](root://getting-started/0.1/transactions/bundles.md#bundle-hash)とは異なり、`signatureMessageFragment` フィールドはハッシュの一部であるため、末尾トランザクションハッシュを使用します。したがって、トランザクション内のメッセージはイミュータブルです。
+    `signatureMessageFragment` フィールドはハッシュの一部であるため、テールトランザクションハッシュを使用します。したがって、トランザクション内のメッセージはイミュータブルです。
+
+    バンドルハッシュを使用する場合、誰でも[テールトランザクションのメッセージを変更](../js/change-message-in-bundle.md)してバンドルのコピーをタングルにアタッチできるため、別のメッセージが表示される場合があります。
     :::
+
     <!-- :::info: -->
-    <!-- We use the tail transaction hash because, unlike the [bundle hash](root://getting-started/0.1/transactions/bundles.md#bundle-hash), the `signatureMessageFragment` field is part of the hash. Therefore, the message in the transaction is immutable. -->
+    <!-- We use the tail transaction hash because the `signatureMessageFragment` field is part of the hash. Therefore, the message in the transaction is immutable. -->
+
+    <!-- If you were to use the bundle hash, you may see a different message because anyone can [change the message in the tail transaction](../js/change-message-in-bundle.md) and attach a copy of the bundle to the Tangle. -->
     <!-- ::: -->
 
 4. [`getBundle()`](https://github.com/iotaledger/iota.js/blob/next/api_reference.md#module_core.getBundle) メソッドを使用して、末尾トランザクションのバンドル内のすべてのトランザクションを取得します。次に、[`extractJSON()`](https://github.com/iotaledger/iota.js/tree/next/packages/extract-json) メソッドを使用して、バンドルのトランザクションの `signatureMessageFragment` フィールドの JSON メッセージをデコードし、コンソールに出力します。

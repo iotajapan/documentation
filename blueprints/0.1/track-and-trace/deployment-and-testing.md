@@ -1,31 +1,30 @@
-# トラック&トレースアプリをデプロイしてテストする
-<!-- # Deploy and test the track and trace app -->
+# デモのトラック&トレースをデプロイしてテストする
+<!-- # Deploy and test the track and trace demo -->
 
-**タングルでデータの追跡を開始するには、アプリケーションをデプロイし、IOTA財団のGUIを使用してアセットを検索してアップロードします。**
-<!-- **To start tracking data on the Tangle, deploy the application and use our graphical user interface to search for and upload assets.** -->
+**タングル上でデータのトラッキングを開始するには，トラック&トレースアプリをデプロイし，グラフィカルユーザーインターフェイスを使用して既存の資産をトレースし，新しい資産を作成します．**
+<!-- **To start tracking data on the Tangle, deploy the application and use our graphical user interface to trace existing assets and create new ones.** -->
 
 ## 前提条件
 <!-- ## Prerequisites -->
 
-次のことを行う方法を知っておく必要があります。
-<!-- You must know how to do the following: -->
+このアプリケーションをテストおよびデプロイするには，次のものが必要です．
+<!-- To test and deploy this application, you need the following: -->
 
-- [Firebaseサーバーをデプロイする方法](https://firebase.google.com/)
-<!-- - [Deploy a Firebase server](https://firebase.google.com/) -->
+- デバイスにインストールされたNode.js
+<!-- - Node.js installed on your device -->
+- [Firebase サーバー](https://firebase.google.com/)のインスタンス
+<!-- - An instance of a [Firebase server](https://firebase.google.com/) -->
+- [IRI ノード API](root://node-software/0.1/iri/how-to-guides/get-started-with-the-api.md) へのアクセス
+<!-- - Access to an [IRI node's API](root://node-software/0.1/iri/how-to-guides/get-started-with-the-api.md) -->
 
-- [IRIノードに接続する方法](root://node-software/0.1/iri/how-to-guides/get-started-with-the-api.md)
-<!-- - [Connect to an IRI node](root://node-software/0.1/iri/how-to-guides/get-started-with-the-api.md) -->
+## トラック&トレースアプリをデプロイする
+<!-- ## Deploy the track and trace app -->
 
-- MAMチャネルを作成し、[JavaScriptクライアントライブラリ](https://github.com/iotaledger/mam.client.js )を使用してMAMチャネルを通してメッセージを送信する方法
-<!-- - Create a MAM channel and send messages through it using the [JavaScript client library](https://github.com/iotaledger/mam.client.js ) -->
+このアプリケーションをローカルネットワークに展開するには，[GitHub](https://github.com/iotaledger/trade-poc/blob/master/firebase_functions/README.md) の手順を完了してください．
+<!-- To deploy this application on your local network, complete the instructions on [GitHub](https://github.com/iotaledger/trade-poc/blob/master/firebase_functions/README.md). -->
 
----
+## トラック&トレースアプリをテストする
+<!-- ## Test the track and trace app -->
 
-1. [Trade-PoC GitHubリポジトリ](https://github.com/iotaledger/trade-poc)で詳細や再利用可能なコードを見つけます。
-<!-- 1. Find more details and re-usable code in the [Trade-PoC GitHub repository](https://github.com/iotaledger/trade-poc) -->
-
-2. [これらの手順](https://github.com/iotaledger/trade-poc/blob/master/firebase_functions/README.md)に従い、トラック&トレースWebアプリケーションをデプロイします。
-<!-- 2. To deploy your track and trace web app, follow these [instructions](https://github.com/iotaledger/trade-poc/blob/master/firebase_functions/README.md) -->
-
-3. [これらの手順](https://github.com/iotaledger/trade-poc/blob/master/README.md)に従い、Firebaseサーバーをデプロイします。
-<!-- 3. To deploy the Firebase server, follow these [instructions](https://github.com/iotaledger/trade-poc/blob/master/README.md) -->
+アプリを実行すると，画面上にアセットの作成とトレースの手順が表示されます．
+<!-- When the app is running, you will find on-screen instructions for creating and tracing assets. -->

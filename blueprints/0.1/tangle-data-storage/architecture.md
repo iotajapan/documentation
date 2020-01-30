@@ -1,115 +1,94 @@
 # アプリケーションアーキテクチャ
 <!-- # Application architecture -->
 
-**タングルデータストレージアプリケーションは、Reactで書かれたグラフィカルユーザーインターフェース（GUI）とNodeJSで書かれたバックエンドAPIの2つの部分から構成されています。**
-<!-- **The Tangle data storage application consists of two parts: A graphical user interface (GUI), written in React and a back-end API, written in NodeJS.** -->
+**タングルデータストレージアプリケーションは，React で書かれたグラフィカルユーザーインターフェース（GUI）と NodeJS で書かれたバックエンド API の2つの部分から構成されています．**
+<!-- **The Tangle data storage application consists of two parts: A graphical user interface (GUI) written in React and a back-end API written in NodeJS.** -->
 
 :::warning:免責事項
-人間の努力のように、オープンソースプロジェクトを実行することは、不確実性とトレードオフを伴います。以下に説明するアーキテクチャが、同様のシステムを展開するのに役立つことを願っていますが、間違いが含まれている可能性があり、すべての状況に対処することはできません。あなたのプロジェクトについて何か質問があれば、IOTA財団はあなたがあなた自身の研究をし、専門家を探し、そしてIOTAコミュニティとそれらを話し合うことを奨励します。
+人間の努力のように，オープンソースプロジェクトを実行することは，不確実性とトレードオフを伴います．以下に説明するアーキテクチャが，同様のシステムを展開するのに役立つことを願っていますが，間違いが含まれている可能性があり，すべての状況に対処することはできません．あなたのプロジェクトについて何か質問があれば，IOTA 財団はあなたがあなた自身の研究をし，専門家を探し，そしてIOTA コミュニティとそれらを話し合うことを奨励します．
 :::
 <!-- :::warning:Disclaimer -->
 <!-- Running an open source project, like any human endeavor, involves uncertainty and trade-offs. We hope the architecture described below helps you to deploy similar systems, but it may include mistakes, and can’t address every situation. If you have any questions about your project, we encourage you to do your own research, seek out experts, and discuss them with the IOTA community. -->
 <!-- ::: -->
 
-## 前提条件
-<!-- ## Prerequisites -->
-
-このプロジェクトは、JavaScript、React、Node.jsなど、ある程度のプログラミング知識を前提としています。
-<!-- This projects assumes some level of programming knowledge, specifically in: JavaScript, React and Node.js. -->
-
-## 説明書と技術的概念
-<!-- ## Instructions and technical concepts -->
-
-- [PoCのソースコード](https://github.com/iotaledger/poc-ipfs/blob/master/README.md) - Reactで書かれたフロントエンドGUIとNode.js APIとして書かれたバックエンドの2つの部分から成ります。このPoCを再現するために、専用のハードウェアを配置する必要はありません。
-<!-- - [PoC source code](https://github.com/iotaledger/poc-ipfs/blob/master/README.md) -  -->
-<!-- Consists of two parts a front-end GUI written in React and a back-end written as a Node.js API. -->
-<!-- In order to reproduce this PoC there is no requirement to deploy dedicated hardware. -->
-- [フロントエンドのデプロイ方法](https://github.com/iotaledger/poc-ipfs/blob/master/client/DEPLOYMENT.md)
-<!-- - [Front-end deployment instructions](https://github.com/iotaledger/poc-ipfs/blob/master/client/DEPLOYMENT.md) -->
-- [Node.js APIのデプロイ方法](https://github.com/iotaledger/poc-ipfs/blob/master/api/DEPLOYMENT.md)
-<!-- - [Node.js API deployment instructions](https://github.com/iotaledger/poc-ipfs/blob/master/api/DEPLOYMENT.md) -->
-
-提示されたインフラストラクチャは、IOTAタングルと、あなたが実行している`InterPlanetary File System`（IPFS）ノードを利用します。次の図は、主要なアーキテクチャコンポーネントを示しています。
-<!-- The presented infrastructure makes use of the IOTA Tangle and an `InterPlanetary File System` (IPFS) node that you run yourself. The following image shows the main architecture components. -->
+この設計図では，クライアントが API サーバーにファイルをアップロードする次のアーキテクチャを使用します．API サーバーは，ファイルを InterPlanetary File System（IPFS）ノードに送信し，IPFS ハッシュをタングルのトランザクションにアタッチします．
+<!-- This blueprint uses the following architecture whereby clients upload files to the API server, which sends the files to an InterPlanetary File System (IPFS) node and attaches the IPFS hashes to transactions on the Tangle. -->
 
 ![Data Storage PoC - IOTA/IPFS - Architecture](../images/data-storage-ipfs.png)
 
-:::warning:免責事項
-人間の努力のように、オープンソースプロジェクトを実行することは、不確実性とトレードオフを伴います。以下に説明するアーキテクチャが、同様のシステムを展開するのに役立つことを願っていますが、間違いが含まれている可能性があり、すべての状況に対処することはできません。あなたのプロジェクトについて何か質問があれば、IOTA財団はあなたがあなた自身の研究をし、専門家を探し、そしてIOTAコミュニティとそれらを話し合うことを奨励します。
-:::
-<!-- :::warning:Disclaimer -->
-<!-- Running an open source project, like any human endeavor, involves uncertainty and trade-offs. We hope the architecture described below helps you to deploy similar systems, but it may include mistakes, and can’t address every situation. If you have any questions about your project, we encourage you to do your own research, seek out experts, and discuss them with the IOTA community. -->
-<!-- ::: -->
+## 基礎的要素
+<!-- ## Building blocks -->
 
-## 前提条件
-<!-- ## Prerequisites -->
-
-このアプリケーションをテスト、編集、およびデプロイするには、JavaScript、React、およびNodeJSのプログラミング知識が必要です。
-<!-- To test, edit, and deploy this application, you need programming knowledge in JavaScript, React, and NodeJS. -->
-
-## API
-
-APIは2つのメソッドを実装します。
-<!-- The API implements two methods: -->
+API サーバーは，クライアントに以下の2つのメソッドを公開します．
+<!-- The API server exposes two methods to the client: -->
 
 - `storeFile()`
 - `retrieveFile()`
 
-### ファイルストレージ
-<!-- ### File storage -->
+## storeFile()
 
-APIを使用してファイルを保存するために、クライアントは次のことを行います。
+API を使用してファイルを保存するために，クライアントは次のことを行います．
 <!-- To store a file using the API, the client does the following: -->
 
-- アップロードするファイルを選択します。
+- アップロードするファイルを選択する
 <!-- - Select the file to upload -->
-- ファイルの内容のSHA256ハッシュを生成します。
+- ファイルの内容の SHA256 ハッシュを生成する
 <!-- - Generate SHA256 hash of the file content -->
-- 追加のファイルメタデータをキャプチャします。
-<!-- - Capture additional file meta data -->
-- メタデータ、SHA256ハッシュ、およびファイルの内容をIPFSノードに送信します（POST /ipfs）。
-<!-- - Send the meta data, SHA256 hash, and file contents to the IPFS node (POST /ipfs) -->
+- 追加のファイルメタデータをキャプチャする
+<!-- - Capture additional file metadata -->
 
-
-舞台裏では、APIは次のことを行います。
+舞台裏では，API は次のことを行います．
 <!-- Behind the scenes, the API does the following: -->
 
-- ファイルの内容をIPFSにアップロードします。IPFSはIPFSハッシュを返します。
+- ファイルの内容を IPFS にアップロードします．IPFS は IPFS ハッシュを返します．
 <!-- - Upload the file content to IPFS, which returns the IPFS hash -->
-- メタデータ、SHA256、およびIPFSハッシュをタングルに保存します。これはトランザクションハッシュを返します。
-<!-- - Store the metadata, SHA256 and IPFS hash on the Tangle, which returns a transaction hash -->
-- タングルトランザクションハッシュをクライアントに返します。
-<!-- - Return the Tangle transaction hash to the client -->
+- メタデータ，SHA256，および IPFS ハッシュをトランザクションでタングルにアタッチし，タングルトランザクションハッシュをクライアントに返します．
+<!-- - Attach the file metadata, SHA256 hash, and IPFS hash to the Tangle in a transaction, and return the transaction hash to the client -->
 
 ![Data Storage PoC - IOTA/IPFS - Store File](../images/data-storage-store.png)
 
-`storeFile()`メソッドは次の形式のJSONオブジェクトを取ります。
+### ファイルコンテンツを IPFS にアップロードする
+<!-- ### Uploading file content to the IPFS -->
+
+`storeFile()` メソッドは次の形式の JSON オブジェクトを取ります．
 <!-- The `storeFile()` method takes a JSON object in the following format: -->
 
 ```javascript
 IPFSStoreRequest {
-   /* ファイル名 */
+   /**
+    * ファイル名
+    */
    name: string;
 
-   /* ファイルの説明 */
+   /**
+    * ファイルの説明
+    */
    description: string;
 
-   /* ファイルサイズ */
+   /**
+    * ファイルのサイズ
+    */
    size: number;
 
-   /* ファイルの変更日 */
+   /**
+    * ファイルの変更び
+    */
    modified: Date;
 
-   /* ファイルのsha256のハッシュ値 */
+   /**
+    * ファイルの sha256 ハッシュ
+    */
    sha256: string;
 
-   /* base64でエンコードされたファイルデータ */
+   /**
+    * base64 でエンコードされたファイルデータ
+    */
    data: string;
 }
 ```
 
-JSONオブジェクトを受信すると、ファイルはIPFSノードにアップロードされます。
-<!-- On receipt of the JSON object, the file is uploaded to the IPFS node. -->
+JSON オブジェクトを受信すると，ファイルデータは IPFS ノードにアップロードされます．
+<!-- On receipt of the JSON object, the file data is uploaded to the IPFS node. -->
 
 ```javascript
 import ipfsClient from "ipfs-http-client";
@@ -119,12 +98,17 @@ const ipfs = ipfsClient(config.ipfs);
 const addResponse = await ipfs.add(buffer);
 ```
 
-`add()`メソッドからのレスポンスにはIPFSハッシュが含まれています。これは、タングルに添付される前にメタデータとSHA256ハッシュと組み合わされます。
-<!-- The response from the `add()` method contains the IPFS hash, which is combined with the metadata and the SHA256 hash before being attached to the Tangle. -->
+### タングルにファイルデータをアタッチする
+<!-- ### Attaching the file data to the Tangle -->
+
+`add()` メソッドは IPFS ハッシュを返します．これは，トランザクションでタングルにアタッチされる前に JSON オブジェクト内の他のデータと結合されます．
+<!-- The `add()` method returns the IPFS hash, which is combined with the other data in the JSON object before being attached to the Tangle in a transaction. -->
 
 ```javascript
+// 新しいアドレスを生成する
 const nextAddress = generateAddress(config.seed, 0, 2);
 
+// トランザクションに追加するメッセージを定義する
 const tanglePayload = {
    name: request.name,
    description: request.description,
@@ -134,11 +118,15 @@ const tanglePayload = {
    ipfs: addResponse[0].hash
 };
 
+// IOTA ノードに接続する
 const iota = composeAPI({
         provider: config.provider
     });
 
+// バンドルを作成する
 const trytes = await iota.prepareTransfers(
+   // ここでは，全てが9で構成されるシードを使用します．
+   // これは，シードがトランザクションの署名に使用されないためです．
    "9".repeat(81),
    [
        {
@@ -148,48 +136,60 @@ const trytes = await iota.prepareTransfers(
        }
    ]);
 
+// タングルにトランザクションを送信する
 const bundle = await iota.sendTrytes(trytes, config.depth, config.mwm);
 ```
 
-`sendTrytes()`メソッドから返されたバンドルにはトランザクションハッシュが含まれており、その後トランザクションハッシュはクライアントに返されます。
-<!-- The bundle returned from the `sendTrytes()` method contains the transaction hash that's then returned to the client. -->
+`sendTrytes()` メソッドから返されたバンドルにはトランザクションハッシュが含まれています．これはクライアントに返され，タングル上のデータの読み取りに使用されます．
+<!-- The bundle returned from the `sendTrytes()` method contains the transaction hash, which is returned to the client to use for reading the data on the Tangle. -->
 
-### ファイル検索
-<!-- ### File retrieval -->
+## retrieveFile()
 
-ファイルを取得してその内容を検証するために、クライアントは次のことを行います。
-<!-- To retrieve a file and validate its contents the client does the following: -->
+ファイルを取得してその内容を検証するために，クライアントは次のことを行います．
+<!-- To retrieve a file and validate its contents, the client does the following: -->
 
-- API（GET /ipfs）からのトランザクションハッシュを使用してメタデータ、SHA256ハッシュおよびIPFSハッシュをリクエストします。
-<!-- - Request the metadata, SHA256 and IPFS hash using the transaction hash from the API (GET /ipfs) -->
-- IPFSハッシュを使ってIPFSからファイルの内容を取得します。
-<!-- - Get the file contents from IPFS using the IPFS hash -->
-- 取得したファイルの内容に対してSHA256を実行します。
-<!-- - Perform a SHA256 on the retrieved file content -->
-- 計算したSHA256ハッシュをAPIから返されたSHA256ハッシュと比較します。
-<!-- - Compare the calculated SHA256 with the one returned from the API -->
+- トランザクションハッシュを使用して，タングルからファイルデータを取得する
+<!-- - Get the file data from the Tangle, using the transaction hash -->
+- 返された IPFS ハッシュを使用して IPFS からファイルの内容を取得する
+<!-- - Get the file contents from IPFS using the returned IPFS hash -->
+- ファイルデータに対して SHA256 ハッシュを実行し，計算された SHA256 とタングルから返された SHA256 を比較する
+<!-- - Perform a SHA256 hash on the file data, and compare the calculated SHA256 with the one returned from the Tangle -->
 
 ![Data Storage PoC - IOTA/IPFS - Retrieve File](../images/data-storage-retrieve.png)
 
-ファイルを取得して検証するために、トランザクションハッシュがタングルから読み込まれます。
-<!-- To retrieve and validate the file, the transaction hash is read from the Tangle. -->
+### タングルからファイルデータを取得する
+<!-- ### Getting the file data from the Tangle -->
+
+タングルからファイルデータを取得するには，トランザクションハッシュを使用して IOTA ノードからトランザクションをリクエストします．
+<!-- To get the file data from the Tangle, we request the transaction from the IOTA node, using the transaction hash. -->
 
 ```javascript
+// IOTA ノードに接続する
 const iota = composeAPI({
         provider: config.provider
     });
 
+// 指定されたハッシュを使用して，トランザクショントライトを取得する
 const transactions = await iota.getTrytes([request.transactionHash]);
+// トランザクショントライトをオブジェクトに変換する
 const txObject = asTransactionObject(transactions[0]);
+// メッセージを取得し，ASCII 文字列に変換する
 const ascii = trytesToAscii(txObject.signatureMessageFragment);
+// JSONメッセージをパースする
 const payload = JSON.parse(ascii)
 ```
 
-次に、[Cloudflare](https://cloudflare-ipfs.com/ipfs/:hash)などのパブリックIPFSゲートウェイを使用して、トランザクションハッシュを使用してIPFSノードにファイルをリクエストします。
-<!-- Then, the transaction hash is used to request the file from the IPFS node, using any public IPFS gateway such as [Cloudflare](https://cloudflare-ipfs.com/ipfs/:hash) -->
+### IPFS からファイルデータを取得する
+<!-- ### Getting the file data from the IPFS -->
 
-ファイルがバッファに返されたと仮定すると、ファイルはSHA256アルゴリズムを使用してハッシュされ、結果のハッシュ値はトランザクションのメッセージのハッシュ値と比較されます。
-<!-- Assuming the file was returned into a buffer, the file is hashed using a SHA256 algorithm and the resulting hash is compared to the one from the transaction's message. -->
+トランザクションハッシュは，[Cloudflare](https://cloudflare-ipfs.com/ipfs/) などのパブリック IPFS ゲートウェイを使用して，IPFS ノードからファイルをリクエストするために使用されます．
+<!-- The transaction hash is used to request the file from the IPFS node, using a public IPFS gateway such as [Cloudflare](https://cloudflare-ipfs.com/ipfs/). -->
+
+### データを比較する
+<!-- ### Comparing the data -->
+
+ファイルが IPFS からバッファに返されたと仮定すると，ファイルは SHA256 アルゴリズムを使用してハッシュされ，その結果のハッシュはトランザクションの `signatureMessageFragment` フィールドからのハッシュと比較されます．
+<!-- Assuming the file was returned from the IPFS into a buffer, the file is hashed using a SHA256 algorithm and the resulting hash is compared to the one from the transaction's `signatureMessageFragment` field. -->
 
 ```javascript
 const sha256 = crypto.createHash("sha256");
@@ -198,24 +198,30 @@ const ipfsSha256 = sha256.digest("hex");
 if (ipfsSha256 === payload.sha256) {
    console.log("All Is Well");
 } else {
-   console.log("Oh no, hash does not match");
+   console.log("Oh no, the hash does not match");
 }
 ```
 
-## データセキュリティ
-<!-- ## Data security -->
+## カスタマイズの考慮事項
+<!-- ## Customization considerations -->
 
-IPFSは分散Webであるため、IPFSハッシュを持っている人なら誰でもファイルの内容をダウンロードして読むことができます。
+自分自身のシステムでこの設計図を使用する場合は，次のことを考慮する必要があります．
+<!-- If you want to use this blueprint in your own system, you should consider the following. -->
+
+### データセキュリティ
+<!-- ### Data security -->
+
+IPFS は分散 Web であるため，IPFS ハッシュを持っている人なら誰でもファイルの内容をダウンロードして読むことができます．
 <!-- Because the IPFS is a distributed web, anyone who has the IPFS hash can download and read the contents of the file. -->
 
-許可されていないエンティティがデータを読み取らないようにするには、データをIPFSノードにアップロードする前に暗号化します。
+許可されていないエンティティがデータを読み取らないようにするには，データを IPFS ノードにアップロードする前に暗号化します．
 <!-- To prevent unauthorized entities from reading the data, you could encrypt it before uploading it to the IPFS node. -->
 
-## 代替データストレージソリューション
-<!-- ## Alternative data storage solutions -->
+### 代替データストレージソリューション
+<!-- ### Alternative data storage solutions -->
 
-このアプリケーションでは、データはIPFSノードにアップロードされますが、代替データストレージソリューションにアップロードする場合も同じ原則が適用されます。
+このアプリケーションでは，データは IPFS ノードにアップロードされますが，代替データストレージソリューションにアップロードする場合も同じ原則が適用されます．
 <!-- In this application, data is uploaded to an IPFS node, however the same principles apply if you were to upload to an alternative data storage solution. -->
 
-Amazon S3やAzure Storageなどの代替ストレージソリューションを使用するには、一意のハッシュ（たとえばファイルのSHA256ハッシュ）を使用してデータを代替ストレージソリューションにアップロードするだけです。
+Amazon S3 や Azure Storage などの代替ストレージソリューションを使用するには，一意のハッシュ（たとえばファイルの SHA256 ハッシュ）を使用してデータを代替ストレージソリューションにアップロードするだけです．
 <!-- To use alternative storage solutions such as Amazon S3 or Azure Storage, you just need to upload the data to it with a unique hash (for example the SHA256 hash of the file). -->
