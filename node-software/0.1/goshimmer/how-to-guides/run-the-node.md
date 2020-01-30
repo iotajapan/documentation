@@ -1,8 +1,8 @@
 # GoShimmer ノードを実行する
 <!-- # Run a GoShimmer node -->
 
-**このガイドでは，GoShimmer ネットワークにノードをインストールして実行します．ノードを実行することで，ネットワークをテストし，定期的な変更を最新の状態に保つことができます．すべてのモジュールが使用可能になると，このネットワークは次の IOTA プロトコルのリリース候補になります．**
-<!-- **In this guide, you install and run a node on the GoShimmer network. By running a node, you can test the network and keep up to date with regular changes. When all the modules become available, this network will become a release candidate for the next IOTA protocol.** -->
+**このガイドでは，GoShimmer ネットワークにノードをインストールして実行します． GoShimmer ソフトウェアを実行すると，デバイスはネットワーク内のノードになります．ノードを実行することで，ネットワークをテストし，定期的な変更を最新の状態に保つことができます．すべてのモジュールが使用可能になると，このネットワークは次の IOTA プロトコルのリリース候補になります．**
+<!-- **In this guide, you install and run a node on the GoShimmer network. When you run the GoShimmer software, your device becomes a node in the network. By running a node, you can test the network and keep up to date with regular changes. When all the modules become available, this network will become a release candidate for the next IOTA protocol.** -->
 
 ノードを実行する方法は2つあります．Docker コンテナ内でサービスとしてノードを実行することも，ソースからノードをビルドすることもできます．
 <!-- You have two options for running a node. You either can run the node as a service in a Docker container, or you can build the node from source. -->
@@ -16,8 +16,8 @@ Docker コンテナでノードを実行すると，軽量の仮想マシンで�
 Docker コンテナ内でノードを実行することには，次のような利点があります．
 <!-- Some of the advantages of running a node in a Docker container include the following: -->
 
-- コンパイラや Go プログラミング言語など，すべてのツールと依存関係をインストールする必要はありません．
-<!-- - You don't need to install all the tools and dependencies such as a compiler and the Go programming language -->
+- コンパイラーや Go プログラミング言語など，ノードに必要なすべてのツールと依存関係をインストールする必要はありません．
+<!-- - You don't need to install all the tools and dependencies that the node needs such as a compiler and the Go programming language -->
 - ノードは，サポートされているシステムアーキテクチャ上で同じように動作します．
 <!-- - The node runs in the same way on any supported system architecture -->
 - ノードをバックグラウンドで実行し，停止し，ログを確認する方が簡単です．
@@ -31,8 +31,9 @@ Docker コンテナ内でノードを実行することには，次のような�
 
 - [Git](https://git-scm.com/downloads)
 - ノードを実行しているデバイスに[ポート14626（TCP/UDP）と14666（TCP）を転送する](root://general/0.1/how-to-guides/expose-your-local-device.md)．
-<!-- - [Forward ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node -->
+<!-- - [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node -->
 - パブリック IP アドレス
+<!-- - A public IP address -->
 <!-- - A public IP address -->
 - [Docker がサポートするシステムアーキテクチャ](https://docs.docker.com/install/#supported-platforms)
 <!-- - [A system architecture that Docker supports](https://docs.docker.com/install/#supported-platforms) -->
@@ -110,8 +111,6 @@ Docker コンテナをビルドするには，Docker 17.05（マルチステー�
 
     ```bash
     git clone https://github.com/iotaledger/goshimmer.git
-    git submodule init
-    git submodule update
     ```
 
 2. `goshimmer` ディレクトリに移動します．
@@ -128,22 +127,11 @@ Docker コンテナをビルドするには，Docker 17.05（マルチステー�
     docker build -t goshimmer .
     ```
 
-4. `docker.config.json` ファイルを開き，`enablePlugins` フィールドを次のものに置き換えて，スパマー API エンドポイントとタングルビジュアライザーを有効にします．
-  <!-- 4. Open the `docker.config.json` file and replace the `enablePlugins` field with the following to enable the spammer API endpoint and the Tangle visualizer -->
+4. Docker イメージを実行します．
+  <!-- 4. Run the Docker image -->
 
-    ```bash
-    "enablePlugins":["spammer", "graph"]
-    ```
-
-    :::info:
-    `-h` または `--help` フラグを使用してイメージを実行すると，すべての構成オプションのリストを表示できます．
-    :::
-    <!-- :::info: -->
-    <!-- You can run the image with the `-h` or `--help` flag to see a list of all configuration options. -->
-    <!-- ::: -->
-
-5. Docker イメージを実行します．
-  <!-- 5. Run the Docker image -->
+    ここでは，Docker イメージをバックグラウンドで実行し，ホストデバイスから Docker コンテナにポートを転送し，[コマンドラインフラグ](../references/command-line-flags.md)を使用してスパマー，ZMQ，およびダッシュボードプラグインを有効にします．これらのプラグインを使用すると，スパムトランザクションをノードに送信し，着信トランザクションをモニタリングし，Web ダッシュボードで処理中のトランザクションの総数を表示できます．
+    <!-- Here, we run the Docker image in the background, forward the ports from your host device to the Docker container, and use the [command-line flags](../references/command-line-flags.md) to enable the spammer, ZMQ, and dashboard plugins. These plugins allow you to send spam transactions to your node, monitor it for incoming transactions, and view the total number of transactions that it's processing in a web dashboard. -->
 
     :::info:
     [Docker Compose](https://docs.docker.com/compose/)があれば，`docker-compose up -d` コマンドを使うこともできます．
@@ -153,11 +141,18 @@ Docker コンテナをビルドするには，Docker 17.05（マルチステー�
     <!-- ::: -->
 
     ```bash
-    sudo docker run -d --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -p 8081:8081 -it -v mainnetdb:/app/mainnetdb goshimmer
+    sudo docker run -d --rm -p 14666:14666 -p 14626:14626 -p 14626:14626/udp -p 8080:8080 -p 8081:8081 -it -v mainnetdb:/app/mainnetdb goshimmer --node.enablePlugins "spammer zeromq dashboard"
     ```
 
     コンテナ ID がコンソールに表示されます．
     <!-- The container ID is displayed in the console. -->
+
+    :::info:
+    再起動のたびに Docker コンテナを再起動するには，`run` コマンドに `--restart=always` フラグを追加します．
+    :::
+    <!-- :::info: -->
+    <!-- To have the Docker container restart on every reboot, add the `--restart=always` flag to the `run` command. -->
+    <!-- ::: -->
 
 5. コンテナ ID をコピーし，それを使ってノードのログを読み取ります．`$ContainerID` プレースホルダをあなたのコンテナIDに置き換えます．
   <!-- 5. Copy the container ID, and use it to read the node's logs. Replace the `$ContainerID` placeholder with your container ID. -->
@@ -216,12 +211,12 @@ GoShimmer ノードを実行しています．
 <!-- To complete this guide, you need the following: -->
 
 - Go プログラミング言語の少なくともバージョン1.13（最新バージョンをお勧めします）
-<!-- - At least version 1.13 of the Go programming language (we recommend the latest version) -->
+<!-- - At least version 1.12 of the Go programming language (we recommend the latest version) -->
 - GCC：macOS の場合は，[Homebrew](https://brew.sh/)（`brew install gcc`）を使って GCC をインストールすることができます．Windows の場合は，[TDM-GCC でインストールできます](http://tdm-gcc.tdragon.net/download)．Linux（Ubuntu 18.04）の場合は，[`build-essential` パッケージ](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/)から GCC をインストールできます．
 <!-- - GCC: For macOS, you can install GCC using [Homebrew](https://brew.sh/) (`brew install gcc`). For Windows, you can [install TDM-GCC](http://tdm-gcc.tdragon.net/download). For Linux (Ubuntu 18.04), you can [install GCC from the `build-essential` package](https://linuxize.com/post/how-to-install-gcc-compiler-on-ubuntu-18-04/). -->
 - [Git](https://git-scm.com/downloads)
 - ノードを実行しているデバイスに[ポート14626（TCP/UDP）と14666（TCP）を転送します](root://general/0.1/how-to-guides/expose-your-local-device.md)．
-<!-- - [Forward ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node -->
+<!-- - [Forward the ports](root://general/0.1/how-to-guides/expose-your-local-device.md) 14626(TCP/UDP) and 14666 (TCP) to the device that's running the node -->
 - パブリック IP アドレス
 <!-- - A public IP address -->
 
@@ -247,8 +242,6 @@ GoShimmer ノードを実行しています．
 
     ```bash
     git clone https://github.com/iotaledger/goshimmer.git
-    git submodule init
-    git submodule update
     ```
 
 ### 手順2. ノードを実行する
@@ -264,56 +257,33 @@ GoShimmer ノードを実行しています．
     cd goshimmer
     ```
 
-2. オペレーティングシステムに応じて，次のコマンドのいずれかを使用して実行可能ファイルをビルドします．
-  <!-- 2. Use one of the following commands to build your executable file, depending on your operating system -->
+2. 実行可能ファイルをビルドします．
+  <!-- 2. Build the executable file -->
 
     ```bash
-    # Linux and macOS
-    go build -o goshimmer
-    # Windows
-    go build -o  goshimmer.exe
+    go build -o shimmer
     ```
 
-    :::info:
-    Windows PowerShell を使用している場合は，`goshimmer.exe` をシングルクォーテーションで囲みます．例：`go build -o 'goshimmer.exe'`．
-    :::
-    <!-- :::info: -->
-    <!-- If you're using Windows PowerShell, enclose `goshimmer.exe` in single quotation marks. For example: `go build -o 'goshimmer.exe'`. -->
-    <!-- ::: -->
+    これで，実行する必要がある `shimmer` というファイルが作成されました．
+    <!-- Now, you have a file called `shimmer` that you need to execute. -->
 
-    これで，実行する必要がある `goshimmer` というファイルが作成されました．
-    <!-- Now, you have a file called `goshimmer` that you need to execute. -->
+3. オペレーティングシステムに応じて，`shimmer` ファイルを実行します．
+<!-- 3. Execute the `shimmer` file, according to your operating system: -->
 
-3. `config.json` ファイルを開き，`enablePlugins` フィールドを次のものに置き換えて，スパマー API エンドポイントとタングルビジュアライザーを有効にします．
-  <!-- 3. Open the `config.json` file and replace the `enablePlugins` field with the following to enable the spammer API endpoint and the Tangle visualizer -->
+- **Linux および macOS：**`./shimmer --node.enablePlugins "spammer zeromq dashboard"`
+<!-- - **Linux and macOS:** `./shimmer --node.enablePlugins "spammer zeromq dashboard"` -->
+-**Windows：**ファイルの名前を `shimmer.exe` に変更し，コマンドラインインターフェイスで `.\shimmer --node.enablePlugins "spammer zeromq dashboard"` を実行します．
+<!-- - **Windows:** Rename the file to `shimmer.exe`, then execute it by doing `.\shimmer --node.enablePlugins "spammer zeromq dashboard"` in the command-line interface -->
 
-    ```bash
-    "enablePlugins":["spammer", "graph"]
-    ```
+ここでは，ノードをバックグラウンドで実行し，[コマンドラインフラグ](../references/command-line-flags.md)を使用して，スパマー，ZMQ，およびダッシュボードプラグインを有効にします．これらのプラグインを使用すると，スパムトランザクションをノードに送信し，着信トランザクションをモニタリングし，Web ダッシュボードで処理中のトランザクションの総数を表示できます．
+<!-- Here, we run the run the node in the background, and use the [command-line flags](../references/command-line-flags.md) to enable the spammer, ZMQ, and dashboard plugins. These plugins allow you to send spam transactions to your node, monitor it for incoming transactions, and view the total number of transactions that it's processing in a web dashboard. -->
 
-    :::info:
-    `-h` または `--help` フラグを使用してイメージを実行すると，すべての構成オプションのリストを表示できます．
-    :::
-    <!-- :::info: -->
-    <!-- You can run the image with the `-h` or `--help` flag to see a list of all configuration options. -->
-    <!-- ::: -->
-
-4. ご使用のオペレーティングシステムに応じて，以下のコマンドのいずれかを使用して `goshimmer` ファイルを実行します．
-  <!-- 4. Use one of the following commands to execute the `goshimmer` file, depending on your operating system: -->
-
-    ```bash
-    # Linux and macOS
-    ./goshimmer --node.enablePlugins "spammer"
-    # Windows
-    .\ goshimmer --node.enablePlugins "spammer"
-    ```
-
-    :::info:
-    `permission denied` エラーが表示された場合は，管理者としてファイルを実行してみてください．
-    :::
-    <!-- :::info: -->
-    <!-- If you see a `permission denied` error, try executing the file as an administrator. -->
-    <!-- ::: -->
+:::info:
+`permission denied` エラーが表示された場合は，管理者としてファイルを実行してみてください．
+:::
+<!-- :::info: -->
+<!-- If you see a `permission denied` error, try executing the file as an administrator. -->
+<!-- ::: -->
 
 :::success:おめでとうございます:tada:
 GoShimmer ノードを実行しています．
