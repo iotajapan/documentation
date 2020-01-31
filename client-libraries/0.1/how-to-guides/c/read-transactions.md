@@ -1,16 +1,23 @@
-# Read transactions from the Tangle in C
+# C でタングルからトランザクションを読み取る
+<!-- # Read transactions from the Tangle in C -->
 
-**In this guide, you get [transactions](root://getting-started/0.1/transactions/transactions.md) from the Tangle by connecting to a [node](root://getting-started/0.1/network/nodes.md) and asking it to filter them by their addresses. Then, you decode the message in the transaction and print it to the console.**
+**このガイドでは，[ノード](root://getting-started/0.1/network/nodes.md)に接続し，アドレスでフィルタリングするように要求することにより，[トランザクション](root://getting-started/0.1/transactions/transactions.md)をタングルから取得します．次に，トランザクション内のメッセージをデコードし，コンソールに出力します．**
+<!-- **In this guide, you get [transactions](root://getting-started/0.1/transactions/transactions.md) from the Tangle by connecting to a [node](root://getting-started/0.1/network/nodes.md) and asking it to filter them by their addresses. Then, you decode the message in the transaction and print it to the console.** -->
 
-## IOTA network
+## IOTA ネットワーク
+<!-- ## IOTA network -->
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
+このガイドでは，[デブネット](root://getting-started/0.1/network/iota-networks.md#devnet)の[ノード](root://getting-started/0.1/network/nodes.md)に接続します．
+<!-- In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet). -->
 
-The network settings are defined in a `config.h` file, which we create in the [getting started guide](../../getting-started/c-quickstart.md).
+ネットワーク設定は `config.h` ファイルで定義されます．これは[スタートガイド](../../getting-started/c-quickstart.md)で作成します．
+<!-- The network settings are defined in a `config.h` file, which we create in the [getting started guide](../../getting-started/c-quickstart.md). -->
 
-## Code walkthrough
+## コードウォークスルー
+<!-- ## Code walkthrough -->
 
-1. Import the packages
+1. パッケージをインポートします．
+  <!-- 1. Import the packages -->
 
     ```cpp
     #include "cclient/api/core/core_api.h"
@@ -24,7 +31,8 @@ The network settings are defined in a `config.h` file, which we create in the [g
     #include "iota_client_service/client_service.h"
     ```
 
-2. Define the address that you want to use to filter transactions and convert it to trits
+2. トランザクションをフィルタリングしてトリットに変換するために使用するアドレスを定義します．
+  <!-- 2. Define the address that you want to use to filter transactions and convert it to trits -->
 
     ```cpp
     static tryte_t const *const ADDRESS =
@@ -32,7 +40,7 @@ The network settings are defined in a `config.h` file, which we create in the [g
 
     flex_trit_t hash[FLEX_TRIT_SIZE_243];
 
-    // Convert the address from trytes to trits
+    // アドレスをトライトからトリットへ変換する
     if (flex_trits_from_trytes(hash, NUM_TRITS_HASH, address, NUM_TRYTES_HASH, NUM_TRYTES_HASH) == 0) {
         printf("Failed to convert trytes to trits\n");
         goto done;
@@ -40,24 +48,28 @@ The network settings are defined in a `config.h` file, which we create in the [g
     ```
 
     :::info:
-    The C library expects all transaction fields to be in trits.
+    C ライブラリは，すべてのトランザクションフィールドがトリットであると想定しています．
     :::
+    <!-- :::info: -->
+    <!-- The C library expects all transaction fields to be in trits. -->
+    <!-- ::: -->
 
-3. Use the [`find_transaction_objects()`](https://github.com/iotaledger/entangled/blob/develop/cclient/api/extended/find_transaction_objects.h) method to get transactions by the value of their `address` field. Then, decode the message in the `signatureMessageFragment` fields of the transactions and print it to the console
+3. [`find_transaction_objects()`](https://github.com/iotaledger/entangled/blob/develop/cclient/api/extended/find_transaction_objects.h) メソッドを使用して，`address` フィールドの値でトランザクションを取得します．次に，トランザクションの `signatureMessageFragment` フィールドにあるメッセージをデコードし，コンソールに出力します．
+  <!-- 3. Use the [`find_transaction_objects()`](https://github.com/iotaledger/entangled/blob/develop/cclient/api/extended/find_transaction_objects.h) method to get transactions by the value of their `address` field. Then, decode the message in the `signatureMessageFragment` fields of the transactions and print it to the console -->
 
     ```cpp
-    // Add the address trits to find_transactions_req_t
+    // アドレスのトリットを find_transactions_req_t に追加する
     if ((ret_code = hash243_queue_push(&find_tran->addresses, hash)) != RC_OK) {
         printf("Error: push queue %s\n", error_2_string(ret_code));
         goto done;
     }
 
-    // Find any transactions that were sent to the address
+    // アドレスに送信された全てのトランザクションを見つける
     if ((ret_code = iota_client_find_transaction_objects(s, find_tran, out_tx_objs)) == RC_OK) {
-        // Print the total number of transactions that the node returned
+        // ノードが返したトランザクションの総数を出力する
         printf("find transaction count: %lu\n", transaction_array_len(out_tx_objs));
         iota_transaction_t *tx1 = transaction_array_at(out_tx_objs, TX_INDEX);
-        // Print information about the first transaction that was found
+        // 見つかった最初のトランザクションに関する情報を出力する
         if (tx1) {
             printf("dump first transaction:\n");
             printf("value = %" PRId64 ", current_index in the bundle = %" PRIu64 ", last_index of the bundle = %" PRIu64 "\n", transaction_value(tx1),
@@ -66,7 +78,7 @@ The network settings are defined in a `config.h` file, which we create in the [g
             flex_trit_print(transaction_address(tx1), NUM_TRITS_ADDRESS);
             printf("\n");
 
-            // Print the value in the transaction's signatureMessageFragment field
+            // トランザクションの signatureMessageFragment フィールドの値を出力する
             printf("data: ");
             tryte_t * trytes = transaction_message(tx1);
             size_t tryte_size = strlen((char*)trytes);
@@ -80,16 +92,17 @@ The network settings are defined in a `config.h` file, which we create in the [g
     }
 
     done:
-    // Free the objects
+    // オブジェクトのメモリを開放する
     find_transactions_req_free(&find_tran);
     transaction_array_free(out_tx_objs);
 
     return ret_code;
     ```
 
-    In the console, you should see information about the transaction and its message:
+    コンソールに，トランザクションとそのメッセージに関する情報が表示されます．
+    <!-- In the console, you should see information about the transaction and its message: -->
 
-    ```
+    ```bash
     find transaction count: 84
     dump first transaction:
     value = 0, curr_index = 0, last_index = 0
@@ -98,19 +111,27 @@ The network settings are defined in a `config.h` file, which we create in the [g
     Transaction read
     ```
 
-:::success:Congratulations :tada:
-You've just found and read a transaction from the Tangle.
+:::success:おめでとうございます:tada:
+タングルからトランザクションを見つけて読み取りました．
 :::
+<!-- :::success:Congratulations :tada: -->
+<!-- You've just found and read a transaction from the Tangle. -->
+<!-- ::: -->
 
-## Run the code
+## コードを実行する
+<!-- ## Run the code -->
 
-These code samples are hosted on [GitHub](https://github.com/JakeSCahill/c-iota-workshop).
+これらのコードサンプルは [GitHub](https://github.com/JakeSCahill/c-iota-workshop) でホストされています．
+<!-- These code samples are hosted on [GitHub](https://github.com/JakeSCahill/c-iota-workshop). -->
 
-To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
+開始するには，デバイスに [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) がインストールされている必要があります．
+<!-- To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device. -->
 
-You also need a C development environment. If this is your first time using the C client library, complete our [getting started guide](../../getting-started/c-quickstart.md).
+C 開発環境も必要です． C クライアントライブラリを初めて使用する場合は，[スタートガイド](../../getting-started/c-quickstart.md)を完了してください．
+<!-- You also need a C development environment. If this is your first time using the C client library, complete our [getting started guide](../../getting-started/c-quickstart.md). -->
 
-In the command-line, do the following:
+コマンドラインで，次を実行します．
+<!-- In the command-line, do the following: -->
 
 ```bash
 git clone https://github.com/iota-community/c-iota-workshop.git
@@ -118,9 +139,10 @@ cd c-iota-workshop
 bazel run -c opt examples:receive_hello
 ```
 
-In the console, you should see information about the transaction and its message:
+コンソールに，トランザクションとそのメッセージに関する情報が表示されます．
+<!-- In the console, you should see information about the transaction and its message: -->
 
-```
+```bash
 find transaction count: 84
 dump first transaction:
 value = 0, curr_index = 0, last_index = 0
@@ -129,7 +151,8 @@ data: Hello world
 Transaction read
 ```
 
-## Next steps
+## 次のステップ
+<!-- ## Next steps -->
 
-[Generate a new address](../c/generate-an-address.md).
-
+[新しいアドレスを生成する](../c/generate-an-address.md)．
+<!-- [Generate a new address](../c/generate-an-address.md). -->

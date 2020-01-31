@@ -28,10 +28,10 @@ yarn add @iota/core
 このガイドでは、以下のネットワーク設定で[デブネット](root://getting-started/0.1/network/iota-networks.md#devnet)の[ノード](root://getting-started/0.1/network/nodes.md)に接続します。
 <!-- In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.md) on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) with the following network settings: -->
 
-- **[最小重量値](root://getting-started/0.1/network/minimum-weight-magnitude.md)**: 9
+- **[最小重量値 (MWM)](root://getting-started/0.1/network/minimum-weight-magnitude.md)**：9
 <!-- - **[Minimum weight magnitude](root://getting-started/0.1/network/minimum-weight-magnitude.md)**: 9 -->
 
-- **[深さ](root://getting-started/0.1/transactions/depth.md)**: 3
+- **[深さ (depth)](root://getting-started/0.1/transactions/depth.md)**：3
 <!-- - **[Depth](root://getting-started/0.1/transactions/depth.md)**: 3 -->
 
 ## 手順1. テスト IOTA トークンを取得する
@@ -137,7 +137,7 @@ $b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).
     const trytes = await iota.prepareTransfers(seed, transfers);
     ```
 
-    このメソッドは、シードのアドレスの残高をチェックするようにノードに要求します。アドレスに転送を完了するのに十分な IOTA トークンがある場合、このメソッドは入力トランザクションを作成して、転送を実行するために十分な全残高をアドレスから取り出します。次に、メソッドはこれらのトランザクションを転送バンドルに追加し、IOTA トークンが取り出されるアドレスの秘密鍵でバンドルに署名します。
+    `prepareTransfers()` メソッドは、シードのアドレスの残高をチェックするようにノードに要求します。アドレスに転送を完了するのに十分な IOTA トークンがある場合、`prepareTransfers()` メソッドは入力トランザクションを作成して、転送を実行するために十分な全残高をアドレスから取り出します。次に、`prepareTransfers()` メソッドはこれらのトランザクションを転送バンドルに追加し、IOTA トークンが取り出されるアドレスの秘密鍵でバンドルに署名します。
     <!-- This method asks the node to check the balance of your seed's addresses. If your addresses have enough IOTA tokens to complete the transfer, the method creates input transactions to withdraw the full balance from enough of your addresses to fulfill the transfer. Then, the method adds those transactions to the transfer bundle and signs the bundle with the private keys of any withdrawn addresses. -->
 
     :::info:

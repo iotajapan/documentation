@@ -114,11 +114,11 @@ IOTA のいくつかのアプリケーションは次のとおりです．
 
 | **会社** | **説明** | **リファレンス** |
 | :------: | :------: | :--------------: |
-| bIOTAsphere | bIOTAsphere はテスラ車を IOTA ネットワークに接続しました．自動車は IOTA トークンで動的保険を購入します． | [ユースケースを紹介するYouTubeビデオ](https://www.youtube.com/watch?v=2zvrA5KqeYw) |
-| iampass | iampassは，手のひらを暗号化してスキャンし，IOTA ネットワークのタングルでそのデータを確認することにより，ユーザーを認証するIDおよびアクセス管理システムです． | [iampassのウェブサイト](https://iampass.io/) |
-| +CityxChange consortium | CityxChangeコンソーシアムは，安全なデータ転送レイヤーとして IOTA を使用するスマートシティを構築するプロジェクトです． | [+CityxChangeのウェブサイト](http://cityxchange.eu/) |
-| eCl@ss | eCl@ssは IOTA と協力して，ISO/IEC準拠の製品分類と製品説明の共有と保存を行っています． | [eCl@ssのウェブサイト](https://www.eclass.eu/en/association/cooperation.html) |
-| Elaadnl | Elaadnlは IOTA トークンでの支払いを受け入れる電気自動車充電器を作成しています． | [Elaadnlのウェブサイト](https://www.elaad.nl/news/worlds-first-iota-charging-station-released/) |
+| bIOTAsphere | bIOTAsphere はテスラ車を IOTA ネットワークに接続しました．自動車は IOTA トークンで動的保険を購入します． | [ユースケースを紹介する YouTube ビデオ](https://www.youtube.com/watch?v=2zvrA5KqeYw) |
+| iampass | iampass は，手のひらを暗号化してスキャンし，IOTA ネットワークのタングルでそのデータを確認することにより，ユーザーを認証する ID およびアクセス管理システムです． | [iampass の web サイト](https://iampass.io/) |
+| +CityxChange consortium | CityxChange コンソーシアムは，安全なデータ転送レイヤーとして IOTA を使用するスマートシティを構築するプロジェクトです． | [+CityxChange の web サイト](http://cityxchange.eu/) |
+| eCl@ss | eCl@ss は IOTA と協力して，ISO/IEC 準拠の製品分類と製品説明の共有と保存を行っています． | [eCl@ss の web サイト](https://www.eclass.eu/en/association/cooperation.html) |
+| Elaadnl | Elaadnl は IOTA トークンでの支払いを受け入れる電気自動車充電器を作成しています． | [Elaadnl の web サイト](https://www.elaad.nl/news/worlds-first-iota-charging-station-released/) |
 
 ## IOTA を使う出発点
 <!-- ## Where do I start? -->

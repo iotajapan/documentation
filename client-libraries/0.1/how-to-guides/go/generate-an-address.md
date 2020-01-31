@@ -78,7 +78,7 @@ go get github.com/iotaledger/iota.go/trinary
 - 使用済みアドレスのリスト内にアドレスがあるかどうかを検索する。
 <!-- - Search for the address in the list of spent addresses -->
 
-指定されたインデックスのアドレスが使用されていると、ノードは使用されていないアドレスを見つけるまでインデックスを増分します。
+指定されたインデックスのアドレスが使用されていると、ノードは使用されていないアドレスを見つけるまでインデックスをインクリメントします。
 <!-- If an address with the given index is spent, the index is incremented until the node finds one that isn't spent. -->
 
 :::warning:

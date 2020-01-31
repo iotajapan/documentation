@@ -28,14 +28,14 @@
         <div id="output"></div>
     ```
 
-2. ダウンロードした`mam.web.min.js`コードへのパスを`<script>`タグに入れます。
+2. ダウンロードした `mam.web.min.js` コードへのパスを`<script>`タグに入れます。
   <!-- 2. Put the path to your downloaded` mam.web.min.js`code in a `<script>` tag -->
 
     ```html
         <script src="../lib/mam.web.min.js"></script>
     ```
 
-3. ドキュメントの下部で、終了</body>タグの前に、`<script></script>`要素を追加します。
+3. ドキュメントの下部で、終了</body>タグの前に、`<script></script>` 要素を追加します。
   <!-- 3. At the bottom of your document, before the closing </body> tag, add a `<script></script>` element -->
 
 4. `<script></script>`要素内で、ポリフィル関数を作成して、ASCII文字とトライトを変換します。

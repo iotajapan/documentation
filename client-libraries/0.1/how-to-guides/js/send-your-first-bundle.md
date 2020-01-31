@@ -28,10 +28,10 @@ yarn add @iota/core @iota/converter
 このガイドでは、以下のネットワーク設定で[デブネット](root://getting-started/0.1/network/iota-networks.md#devnet)の[ノード](root://getting-started/0.1/network/nodes.md)に接続します。
 <!-- In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.md) on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) with the following network settings: -->
 
-- **[最小重量値](root://getting-started/0.1/network/minimum-weight-magnitude.md)**: 9
+- **[最小重量値 (MWM)](root://getting-started/0.1/network/minimum-weight-magnitude.md)**：9
 <!-- - **[Minimum weight magnitude](root://getting-started/0.1/network/minimum-weight-magnitude.md)**: 9 -->
 
-- **[深度](root://getting-started/0.1/transactions/depth.md)**: 3
+- **[深度 (depth)](root://getting-started/0.1/transactions/depth.md)**：3
 <!-- - **[Depth](root://getting-started/0.1/transactions/depth.md)**: 3 -->
 
 ## コードウォークスルー

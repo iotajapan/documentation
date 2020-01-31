@@ -13,6 +13,7 @@ IOTA には次のパブリックネットワークがあります．
 - **デブネット：**デブネットトークン（無料）
 <!-- - **Devnet:** Devnet token (free) -->
 
+<a name="mainnet"></a>
 ## メインネット
 <!-- ## Mainnet -->
 

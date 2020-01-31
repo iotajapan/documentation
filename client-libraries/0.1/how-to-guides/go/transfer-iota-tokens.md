@@ -22,10 +22,10 @@ go get github.com/iotaledger/iota.go/trinary
 このガイドでは、以下のネットワーク設定で[デブネット](root://getting-started/0.1/network/iota-networks.md#devnet)の[ノード](root://getting-started/0.1/network/nodes.md)に接続します。
 <!-- In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.md) on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) with the following network settings: -->
 
-- **[最小重量値](root://getting-started/0.1/network/minimum-weight-magnitude.md)**: 9
+- **[最小重量値 (MWM)](root://getting-started/0.1/network/minimum-weight-magnitude.md)**：9
 <!-- - **[Minimum weight magnitude](root://getting-started/0.1/network/minimum-weight-magnitude.md)**: 9 -->
 
-- **[深さ](root://getting-started/0.1/transactions/depth.md)**: 3
+- **[深さ (depth)](root://getting-started/0.1/transactions/depth.md)**：3
 <!-- - **[Depth](root://getting-started/0.1/transactions/depth.md)**: 3 -->
 
 ## 手順1. テスト IOTA トークンを取得する
@@ -99,7 +99,7 @@ $b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).
     const minimumWeightMagnitude = 9;
     ```
 
-4. シードを定義します。 このシードを、テスト IOTA トークンを持つアドレスを所有するシードに置き換えます。
+4. シードを定義します。このシードを、テスト IOTA トークンを持つアドレスを所有するシードに置き換えます。
   <!-- 4. Define your seed. Replace this seed with one that owns an address with test IOTA tokens -->
 
     ```go
@@ -165,7 +165,6 @@ $b=[byte[]] (1..81);(new-object Security.Cryptography.RNGCryptoServiceProvider).
 
     fmt.Println(myBundle)
     ```
-
 
     コンソールには、バンドル内のトランザクションに関する情報が表示されます。
     <!-- In the console, you'll see information about the transactions in the bundle. -->
