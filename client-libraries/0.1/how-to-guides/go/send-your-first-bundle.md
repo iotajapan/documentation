@@ -56,7 +56,7 @@ go get github.com/iotaledger/iota.go/trinary
     must(err)
     ```
 
-3. 深度さと最小重量値を定義します．
+3. 深度と最小重量値を定義します．
   <!-- 3. Define the depth and the minimum weight magnitude -->
 
     ```go
