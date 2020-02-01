@@ -16,6 +16,11 @@ IOTA 財団では，以下のユーティリティを管理しています．こ
 IOTA トランザクションにジオロケーションのタグを付け，同じタグを持つ他のトランザクションを見つけます．
 <!-- Tag an IOTA transaction with a geo-location, and find others with the same tag. -->
 ---
+#### **Client load balancer** ####
+[Link](../official/load-balancer/overview.md)
+
+Configure the JavaScript client library with backup nodes in case of request errors
+---
 
 #### **存在証明プロバイダー** ####
 [Link](../official/proof-of-existence/overview.md)

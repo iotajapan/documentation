@@ -16,8 +16,8 @@
 ### 前提条件
 <!-- ### Prerequisites -->
 
-このチュートリアルを完了するには，次のものが必要です．
-<!-- To complete this tutorial, you need the following: -->
+このガイドを完了するには，次のものが必要です．
+<!-- To complete this guide, you need the following: -->
 
 - Node.js 8，または Node.js 10以降． [最新の LTS](https://nodejs.org/en/download/) をお勧めします．
 <!-- - Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
@@ -27,6 +27,24 @@
 <!-- - Access to a command-line interface -->
 - [`axios`](https://www.npmjs.com/package/axios) パッケージ
 <!-- - The [`axios`](https://www.npmjs.com/package/axios) package -->
+
+### パッケージ
+<!-- ### Packages -->
+
+このガイドを完了するには，次のパッケージをインストールする必要があります．
+<!-- To complete this guide, you need to install the following package: -->
+
+--------------------
+### npm
+```bash
+npm install axios
+```
+---
+### Yarn
+```bash
+yarn add axios
+```
+--------------------
 
 ### 手順1. API 認証情報を取得する
 <!-- ### Step 1. Get API credentials -->

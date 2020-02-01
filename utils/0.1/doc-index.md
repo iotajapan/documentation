@@ -12,6 +12,8 @@
 
 [公式サポート/IOTAエリアコード/IOTAエリアコード入門](/official/iota-area-codes/overview.md)
 
+[公式サポート/クライアントロードバランサー/クラアントロードバランサー入門](/official/load-balancer/overview.md)
+
 [公式サポート/存在証明プロバイダー/存在証明プロバイダー入門](/official/proof-of-existence/overview.md)
 
 [公式サポート/Pow プロキシサーバー/PoW プロキシサーバー入門](/official/proof-of-work-proxy/overview.md)

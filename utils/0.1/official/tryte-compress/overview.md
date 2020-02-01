@@ -22,8 +22,8 @@
 ### 前提条件
 <!-- ### Prerequisites -->
 
-このチュートリアルを完了するには，次のものが必要です．
-<!-- To complete this tutorial, you need the following: -->
+このガイドを完了するには，次のものが必要です．
+<!-- To complete this guide, you need the following: -->
 
 - Node.js 8，または Node.js 10以上． [最新の LTS](https://nodejs.org/en/download/) をお勧めします．
 <!-- - Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
@@ -33,6 +33,24 @@
 <!-- - Access to a command-line interface -->
 - `@iota/core` パッケージと `@iota/converter` パッケージと `@iota/tryte-compress` パッケージ
 <!-- - The `@iota/core`, `@iota/converter`, and `@iota/tryte-compress` packages -->
+
+### パッケージ
+<!-- ### Packages -->
+
+このガイドを完了するには，次のパッケージをインストールする必要があります．
+<!-- To complete this guide, you need to install the following packages: -->
+
+--------------------
+### npm
+```bash
+npm install @iota/core @iota/converter @iota/tryte-compress
+```
+---
+### Yarn
+```bash
+yarn add @iota/core @iota/converter @iota/tryte-compress
+```
+--------------------
 
 ### 手順1. サンプルをセットアップする
 <!-- ### Step 1. Set up the sample -->

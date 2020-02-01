@@ -26,8 +26,8 @@
 ### 前提条件
 <!-- ### Prerequisites -->
 
-このチュートリアルを完了するには，次のものが必要です．
-<!-- To complete this tutorial, you need the following: -->
+このガイドを完了するには，次のものが必要です．
+<!-- To complete this guide, you need the following: -->
 
 - Node.js 8，または Node.js 10以降． [最新の LTS](https://nodejs.org/en/download/) をお勧めします．
 <!-- - Node.js 8, or Node.js 10 or higher. We recommend the [latest LTS](https://nodejs.org/en/download/). -->
@@ -38,15 +38,34 @@
 * [`@iota/poex-tool`](https://www.npmjs.com/package/iota-poex-tool) パッケージおよび [`regenerator-runtime`](https://www.npmjs.com/package/regenerator-runtime) パッケージ
 <!-- - The [`@iota/poex-tool`](https://www.npmjs.com/package/iota-poex-tool) and the [`regenerator-runtime`](https://www.npmjs.com/package/regenerator-runtime) packages -->
 
+### パッケージ
+<!-- ### Packages -->
+
+このガイドを完了するには，次のパッケージをインストールする必要があります．
+<!-- To complete this guide, you need to install the following packages: -->
+
+--------------------
+### npm
+```bash
+npm install @iota/poex-tool regenerator-runtime
+```
+---
+### Yarn
+```bash
+yarn add @iota/poex-tool regenerator-runtime
+```
+--------------------
+
 ### 手順1. サンプルコントラクトを作成する
 <!-- ### Step 1. Create an example contract -->
 
-作業ディレクトリに `contract.txt` という新しいファイルを作成し，次のテキストをコピーします．
-<!-- Create a new file called `contract.txt` in your working directory, then copy in the following text -->
+作業ディレクトリに `contract.txt` という新しいファイルを作成し，次のテキストを追加します．
+  <!-- Create a new file called `contract.txt` in your working directory, then add the following text to it -->
 
   ```bash
   My super secret contract.
   ```
+
 
 ### 手順2. サンプルをセットアップする
 <!-- ### Step 2. Set up the sample -->
