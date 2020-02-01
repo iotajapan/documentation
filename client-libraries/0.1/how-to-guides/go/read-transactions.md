@@ -1,7 +1,7 @@
 # Go でタングルからトランザクションを読み取る
 <!-- # Read transactions from the Tangle in Go -->
 
-**このガイドでは，[ノード](root://getting-started/0.1/network/nodes.md)に末尾トランザクションハッシュを与えることで，タングルから "hello world" [トランザクション](root://getting-started/0.1/transactions/transactions.md)を読み取ります．**
+**このガイドでは，[ノード](root://getting-started/0.1/network/nodes.md)にテールトランザクションハッシュを与えることで，タングルから "hello world" [トランザクション](root://getting-started/0.1/transactions/transactions.md)を読み取ります．**
 <!-- **In this guide, you read your "hello world" [transaction](root://getting-started/0.1/transactions/transactions.md) from the Tangle by giving a [node](root://getting-started/0.1/network/nodes.md) your tail transaction hash.** -->
 
 ## パッケージ
@@ -48,7 +48,7 @@ go get github.com/iotaledger/iota.go/transaction
     must(err)
     ```
 
-3. トランザクションのフィルタリングに使用する末尾トランザクションハッシュを定義します．
+3. トランザクションのフィルタリングに使用するテールトランザクションハッシュを定義します．
   <!-- 3. Define the tail transaction hash that you want to use to filter transactions -->
 
     ```go
@@ -67,7 +67,7 @@ go get github.com/iotaledger/iota.go/transaction
     <!-- If you were to use the bundle hash, you may see a different message because anyone can change the message in the tail transaction and attach a copy of the bundle to the Tangle. -->
     <!-- ::: -->
 
-4. [`GetBundle()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_get_bundle.md) メソッドを使用して，末尾トランザクションのバンドル内のすべてのトランザクションを取得します．次に，[`ExtractJSON()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/transaction_extract_j_s_o_n.md) メソッドを使用して，トランザクションの `signatureMessageFragment` フィールドの JSON メッセージをデコードし，コンソールに出力します．
+4. [`GetBundle()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_get_bundle.md) メソッドを使用して，テールトランザクションのバンドル内のすべてのトランザクションを取得します．次に，[`ExtractJSON()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/transaction_extract_j_s_o_n.md) メソッドを使用して，トランザクションの `signatureMessageFragment` フィールドの JSON メッセージをデコードし，コンソールに出力します．
   <!-- 4. Use the [`GetBundle()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/api_get_bundle.md) method to get all transactions in the tail transaction's bundle. Then, use the [`ExtractJSON()`](https://github.com/iotaledger/iota.go/blob/master/.docs/iota.go/reference/transaction_extract_j_s_o_n.md) method to decode the JSON messages in the `signatureMessageFragment` fields of the transactions and print them to the console -->
 
     ```go

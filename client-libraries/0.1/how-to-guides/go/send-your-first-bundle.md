@@ -143,7 +143,7 @@ go get github.com/iotaledger/iota.go/trinary
 :::success:おめでとうございます:tada:
 最初のゼロトークントランザクションを送信しました．トランザクションはタングルにアタッチされ，ネットワークの残りの部分に転送されます．
 
-この末尾トランザクションハッシュを使用して，タングルからトランザクションを読み取ることができます．
+このテールトランザクションハッシュを使用して，タングルからトランザクションを読み取ることができます．
 :::
 <!-- :::success:Congratulations :tada: -->
 <!-- You've just sent your first zero-value transaction. Your transaction is attached to the Tangle, and will be forwarded to the rest of the network. -->
