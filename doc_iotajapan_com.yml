@@ -6,6 +6,9 @@ rules:
   - expected: ，
     pattern:  、
     prh: 読点は全角カンマを使用する．
+  - expected: アドレス
+    pattern:  住所
+    prh: address はアドレスと翻訳する．
   - expected: アタッチ
     pattern:  添付
     prh: attach はアタッチと翻訳する．
