@@ -4,7 +4,7 @@
 **このリファレンスガイドを使用して，トリニティに関連する問題を解決してください．**
 <!-- **Use this reference guide to resolve issues related to Trinity.** -->
 
-問題の解決策が見つからない場合は，公式IOTA [Discord](https://discord.iota.org/) の`ヘルプ`チャンネルでトリニティチームに連絡してください．
+問題の解決策が見つからない場合は，公式IOTA [Discord](https://discord.iota.org/) の `help` チャンネルでトリニティチームに連絡してください．
 <!-- If you can't find the solution to your issue, reach out to the Trinity team on the `help` channel of the official IOTA [Discord](https://discord.iota.org/). -->
 
 ## 不正確な残高

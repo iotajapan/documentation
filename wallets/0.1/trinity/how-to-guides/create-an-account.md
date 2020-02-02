@@ -8,7 +8,7 @@
 <!-- 1. [Download Trinity](https://trinity.iota.org/) and open it -->
 
 2. シードを持っているかどうかを選択します．
-<!-- 2. Select whether you have a seed -->
+  <!-- 2. Select whether you have a seed -->
 
     :::info:
     [ハードウェアウォレット](../concepts/hardware-wallet.md)をお持ちの場合は，ハードウェアウォレットを接続して画面の指示に従います．ハードウェアウォレットを使う場合は，シードをバックアップする必要はありません．

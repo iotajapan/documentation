@@ -1,10 +1,10 @@
 # ハードウェアウォレット
 <!-- # Hardware wallet -->
 
-**コールドストレージと呼ばれることもあるハードウェアウォレットは，シードを保存してバンドルを署名する物理的な電子デバイスです． [ハードウェアウォレットでトリニティアカウントを作成](https://trinity.iota.org/hardware)した場合，ハードウェアウォレットなしではトランザクションを送信できません．**
+**コールドストレージと呼ばれることもあるハードウェアウォレットは，シードを保存してバンドルを署名する物理的な電子デバイスです．[ハードウェアウォレットでトリニティアカウントを作成](https://trinity.iota.org/hardware)した場合，ハードウェアウォレットなしではトランザクションを送信できません．**
 <!-- **A hardware wallet, sometimes referred to as cold storage, is a physical electronic device that stores your seed and signs bundles for you offline. If you [create a Trinity account with a hardware wallet](https://trinity.iota.org/hardware), you can't send transactions without it.** -->
 
-##シードの作成および保存方法
+## シードの作成および保存方法
 <!-- ## How seeds are created and stored -->
 
 シードは，ランダムに生成された単語のシーケンスを使用して作成されます．これらの言葉はデバイスの鍵です．ハードウェアウォレットを設定すると，書き留めて，ランダムに生成された単語を失うことのないように指示が表示されます．

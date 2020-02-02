@@ -21,6 +21,12 @@ rules:
   - expected: ビルド
     pattern:  構築
     prh: build はビルドと翻訳する．
+  - expected: コンピューター
+    pattern:  /コンピュータ(?!ー)/
+    prh: computer はコンピューターと翻訳する．
+    specs:
+      - from: エクスプローラ
+        to:   エクスプローラー
   - expected: 条件付きデポジットアドレス
     pattern:  条件付き預け入れアドレス
     prh: conditional deposit address はデポジットと翻訳する．

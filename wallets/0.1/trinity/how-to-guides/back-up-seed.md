@@ -52,9 +52,9 @@
 
 - シードをスクリーンショットで撮影すること．
 <!-- - Screenshot your seed. -->
-- PDFファイルでシードを保存すること．
+- PDF ファイルでシードを保存すること．
 <!-- - Print your seed on PDF file -->
-- 公共のプリンターや公共のWiFiに接続されたプリンターでシードを印刷すること．
+- 公共のプリンターや公共の WiFi に接続されたプリンターでシードを印刷すること．
 <!-- - Print your seed from a public printer or one that's connected to WiFi -->
 
 :::success:
