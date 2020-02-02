@@ -33,6 +33,7 @@
 | Inclusion states              | 包含状態                                             |
 | Input transaction             | 入力トランザクション                                 |
 | Ledger                        | 台帳                                                 |
+| Ledger state                  | 台帳ステート                                         |
 | List                          | リスト，一覧                                         |
 | Mainnet                       | メインネット                                         |
 | Micropayment                  | マイクロペイメント，少額決済                         |
@@ -49,7 +50,6 @@
 | Seed state                    | シードステート，シード状態                           |
 | Solid                         | ソリッド，凝固済み                                   |
 | Spent address                 | 使用済みアドレス                                     |
-| Ledger state                  | 台帳のステート                                       |
 | Subscribe                     | サブスクライブする，購読する                         |
 | Tail transaction              | テールトランザクション，末尾トランザクション         |
 | Tip seleciton                 | チップ選択                                           |
