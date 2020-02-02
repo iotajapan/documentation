@@ -4,10 +4,11 @@
 **バンドルは，互いの有効性に依存する[トランザクション](../transactions/transactions.md)のグループです．たとえば，[IOTA トークン](../clients/token.md)を[アドレス](../clients/addresses.md) A へデポジットするトランザクションは，アドレス B から IOTA トークンを取り出すトランザクションに依存しています．したがって，これらのトランザクションは同じバンドル内にある必要があります．**
 <!-- **A bundle is a group of [transactions](../transactions/transactions.md) that rely on each other's validity. For example, a transaction that deposits [IOTA tokens](../clients/token.md) into an [address](../clients/addresses.md) relies on another transaction to withdraw those IOTA tokens from another address. Therefore, those transactions must be in the same bundle.** -->
 
+<a name="structure-of-a-bundle"></a>
 ## バンドルの構造
 <!-- ## Structure of a bundle -->
 
-バンドルは，ヘッドトランザクション，ボディトランザクション，テールトランザクションで構成されます．テールトランザクションは，`currentIndex` フィールドに0を持つトランザクション（バンドル内の最初のトランザクション）であり，ヘッドトランザクションは`lastIndex` フィールドに最大値を持つトランザクション（バンドル内の最後のトランザクション）です．．
+バンドルは，ヘッドトランザクション，ボディトランザクション，テールトランザクションで構成されます．テールトランザクションは，`currentIndex` フィールドに0を持つトランザクション（バンドル内の最初のトランザクション）であり，ヘッドトランザクションは`lastIndex` フィールドに最大値を持つトランザクション（バンドル内の最後のトランザクション）です．
 <!-- A bundle consists of a head, a body, and a tail, where the tail transaction is the one with a 0 in the `currentIndex` field (the first transaction in the bundle), and the head transaction is the one with the largest value in the `lastIndex` field (the last transaction in the bundle). -->
 
 ヘッドトランザクションを除くバンドル内のすべてのトランザクションは，`trunkTransaction` フィールドを介して相互に接続されます．これらの接続により，[ノード](../network/nodes.md)は同じバンドル内のすべてのトランザクションを検索して検証できます．
@@ -32,10 +33,11 @@
 <!-- |2 | Transaction index 3 in this bundle| The same branch transaction hash as transaction index 0 and 1|This transaction is linked to transaction index 1 and 3 through the `trunkTransaction` field | -->
 <!-- |3 | The same branch transaction hash as all other transactions in this bundle| Transaction hash of an existing transaction in the Tangle| This transaction is called the **head transaction** | -->
 
+<a name="bundle-essence"></a>
 ## バンドルエッセンス
 <!-- ## Bundle essence -->
 
-同じバンドル内のすべてのトランザクションは，`バンドル`フィールドに同じバンドルハッシュを持ち，バンドル内のトランザクションをすべて結び付けます．
+同じバンドル内のすべてのトランザクションは，`bundle` フィールドに同じバンドルハッシュを持ち，バンドル内のトランザクションをすべて結び付けます．
 <!-- All transactions in the same bundle have the same bundle hash in their `bundle` field to tie them all together. -->
 
 このハッシュは，次のトランザクションフィールドの値のハッシュである**バンドルエッセンス**から導出されます．
@@ -51,7 +53,8 @@
 その結果，バンドルエッセンスの値が変更されると，バンドルハッシュが変更され，バンドル内のすべてのトランザクションが無効になります．
 <!-- As a result, if any values of the bundle essence were to change, the bundle hash would change, invalidating all transactions in the bundle. -->
 
-## バンドルとライト
+<a name="bundle-types"></a>
+## バンドルタイプ
 <!-- ## Bundle types -->
 
 バンドルは，次のタイプのいずれかです．
