@@ -11,6 +11,11 @@
 コントリビューションをしてくださる方は以下をご覧ください．
 - [style guide](./contribution/0.1/style-guide.md)
 
+## 翻訳チェック
+- vim-textlint, textlint-rule-prh を使用する．
+- 詳しは下記リンクを参照のこと．
+- https://github.com/solareenlo/dotfiles/tree/master/textlint
+
 ## 重要単語の英日対訳表
 
 | English                       | 日本語                                               |
