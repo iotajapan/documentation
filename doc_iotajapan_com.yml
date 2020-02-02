@@ -12,6 +12,9 @@ rules:
   - expected: アタッチ
     pattern:  添付
     prh: attach はアタッチと翻訳する．
+  - expected: 設計図
+    pattern:  ブループリント
+    prh: blueprint は設計図と翻訳する．
   - expected: ボディトランザクション
     pattern: 本体トランザクション
     prh: body transaction はボディトランザクションと翻訳する．
@@ -28,7 +31,7 @@ rules:
     pattern:  深さ
     prh: depth は深度と翻訳する．
   - expected: デポジット
-    pattern:  預け入れ
+    pattern:  預け入れる
     prh: deposit はデポジットと翻訳する．
   - expected: デバイス
     pattern:  端末
@@ -36,6 +39,12 @@ rules:
   - expected: デブネット
     pattern:  テストネット
     prh: devnet はデブネットと翻訳する．
+  - expected: エクスプローラー
+    pattern:  /エクスプローラ(?!ー)/
+    prh: explorer はエクスプローラーと翻訳する．
+    specs:
+      - from: エクスプローラ
+        to:   エクスプローラー
   - expected: フラグメント
     pattern:  断片
     prh: fragment はフラグメントと翻訳する．
@@ -75,7 +84,7 @@ rules:
     pattern:
       - ネイバーノード
       - ネイバー
-    prh: neighbor
+    prh: neighbor は隣接ノードと翻訳する．
   - expected: ナンス
     pattern: ノンス
     prh: nonce はナンスと翻訳する．
