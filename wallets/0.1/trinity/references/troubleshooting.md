@@ -4,6 +4,13 @@
 **このリファレンスガイドを使用して，トリニティに関連する問題を解決してください．**
 <!-- **Use this reference guide to resolve issues related to Trinity.** -->
 
+:::danger:
+2020年2月11日、IOTA 財団は、一部のユーザーのシードと Trinity パスワードが侵害された Trinity ウォレットに対する攻撃に気付きました。[Trinity アカウントの保護](../how-to-guides/protect-trinity-account.md)に関するアドバイスを確認してください。
+:::
+<!-- :::danger: -->
+<!-- On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md). -->
+<!-- ::: -->
+
 問題の解決策が見つからない場合は，公式IOTA [Discord](https://discord.iota.org/) の `help` チャンネルでトリニティチームに連絡してください．
 <!-- If you can't find the solution to your issue, reach out to the Trinity team on the `help` channel of the official IOTA [Discord](https://discord.iota.org/). -->
 
@@ -22,10 +29,17 @@
 この問題を解決するために，トリニティは生成されたアドレスのリストを保持して，トリニティが次にノードに接続したときに再同期できるようにします．
 <!-- To fix this problem, Trinity keeps a list of your generated addresses so that you can re-synchronize it the next time Trinity connects to a node. -->
 
-残高が間違っていて，かつグローバルスナップショットが発生していないと思われる場合は，**設定** > **アカウント** > **アカウント管理** > **ツール** > **アカウントを同期**に移動して，トリニティを同期できます ．
-<!-- If you think your balance is wrong and a global snapshot hasn't occurred), you can synchronize Trinity by going to **Settings** > **Account** > **Account management** > **Tools** > **Sync account**. -->
+残高が間違っていると思われる場合は、**設定** > **アカウント** > **アカウント設定** > **ツール** > **アカウントの同期** に移動して、Trinity を同期できます。または[スナップショットの移行を実行する](../how-to-guides/perform-a-snapshot-transition.md)こともできます。
+<!-- If you think your balance is wrong, you can synchronize Trinity by going to **Settings** > **Account** > **Account management** > **Tools** > **Sync account**, or you can [perform a snapshot transition](../how-to-guides/perform-a-snapshot-transition.md). -->
 
 ![Manual update](../images/sync.jpg)
+
+:::info:
+[個々のアドレスの残高を表示する](../how-to-guides/manage-your-account.md#view-the-addresses-of-an-account)こともできます。
+:::
+<!-- :::info: -->
+<!-- You can also [view the balance of individual addresses](../how-to-guides/manage-your-account.md#view-the-addresses-of-an-account). -->
+<!-- ::: -->
 
 ### グローバルスナップショット
 <!-- ### Global snapshots -->
@@ -40,8 +54,11 @@
 <!-- Trinity is stateful, which means that it stores a local copy of your transaction history on your device. As a result, you can still see your transaction history after a global snapshot. -->
 <!-- ::: -->
 
-1. **アカウント管理** > **ツール** > **移行** に移動します．
-<!-- 1. Go to Account management > **Tools** > **Transition** -->
+1. **アカウント** > **アカウント設定** > **ツール** に移動します．
+<!-- 1. Go to **Account** > **Account management** > **Tools** -->
+
+2. **トランザクション** をクリックします．
+<!-- 2. Click **Transition** -->
 
 ![Snapshot transition](../images/transition.jpg)
 

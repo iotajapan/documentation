@@ -4,13 +4,20 @@
 **送信者にアドレスやメッセージなどのトランザクション情報を入力させないようにするために，トリニティのトランザクションフィールドに自動入力する QR コードを作成できます．このガイドでは，IOTA ユーティリティ Web サイトを使用して QR コードを作成します．**
 <!-- **To avoid making senders enter transaction information such as your address or a message, you can create a QR code that auto-populates the transaction fields in Trinity. In this guide, you create a QR code, using the IOTA utility website.** -->
 
+:::danger:
+2020年2月11日、IOTA 財団は、一部のユーザーのシードと Trinity パスワードが侵害された Trinity ウォレットに対する攻撃に気付きました。[Trinity アカウントの保護](../how-to-guides/protect-trinity-account.md)に関するアドバイスを確認してください。
+:::
+<!-- :::danger: -->
+<!-- On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md). -->
+<!-- ::: -->
+
 QRコードは，アドレス，金額，およびメッセージの各フィールドに自動入力することで，トリニティでトランザクションを送信するプロセスをスピードアップします．送信者が QR コードをスキャンできるようにすることで，e コマース Web サイトなどの受信者は，顧客が購入を完了するのにかかる時間を短縮できます．
 <!-- QR codes speed up the process of sending a transaction in Trinity by auto-populating the Address, Value, and Message fields. By allowing senders to scan a QR code, recipients such as ecommerce websites can reduce the time it takes for customers to complete a purchase. -->
 
 ![Example QR code](../images/qr-code.png)
 
-1. トリニティで新しいアドレスを生成します．
-  <!-- 1. Generate a new address in Trinity -->
+1. **受信** > **アドレスの生成**をクリックして、Trinity で新しいアドレスを生成します。
+  <!-- 1. Generate a new address in Trinity by clicking **Receive** > **Generate address** -->
 
     :::info:
     トリニティのアドレスに送信するには，アドレスに9トライトのチェックサムを含める必要があります．トリニティで新しいアドレスを生成した場合，そのアドレスにはすでにチェックサムが含まれています．

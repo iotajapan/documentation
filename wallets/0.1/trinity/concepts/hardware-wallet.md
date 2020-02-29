@@ -4,6 +4,13 @@
 **コールドストレージと呼ばれることもあるハードウェアウォレットは，シードを保存してバンドルを署名する物理的な電子デバイスです．[ハードウェアウォレットでトリニティアカウントを作成](https://trinity.iota.org/hardware)した場合，ハードウェアウォレットなしではトランザクションを送信できません．**
 <!-- **A hardware wallet, sometimes referred to as cold storage, is a physical electronic device that stores your seed and signs bundles for you offline. If you [create a Trinity account with a hardware wallet](https://trinity.iota.org/hardware), you can't send transactions without it.** -->
 
+:::danger:
+2020年2月11日、IOTA 財団は、一部のユーザーのシードと Trinity パスワードが侵害された Trinity ウォレットに対する攻撃に気付きました。[Trinity アカウントの保護](../how-to-guides/protect-trinity-account.md)に関するアドバイスを確認してください。
+:::
+<!-- :::danger: -->
+<!-- On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md). -->
+<!-- ::: -->
+
 ## シードの作成および保存方法
 <!-- ## How seeds are created and stored -->
 

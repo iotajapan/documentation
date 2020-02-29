@@ -26,12 +26,16 @@
             "name": "roadmap"
         },
         {
+            "href": "https://status.iota.org/",
+            "name": "status"
+        },
+        {
             "href": "https://training.iota.org/",
             "name": "training"
         },
         {
             "href": "https://utils.iota.org/",
-            "name": "utils"
+            "name": "utilities"
         }
     ],
     "popularTopics": [
@@ -64,9 +68,9 @@
             "name": "ライブラリ入門"
         },
         {
-            "href": "/docs/getting-started/0.1/references/quickstart-dev-handbook",
+            "href": "/docs/wallets/0.1/trinity/how-to-guides/protect-trinity-account",
             "image": "2.png",
-            "name": "開発者ハンドブック"
+            "name": "シード移行ツール"
         }
     ]
 }

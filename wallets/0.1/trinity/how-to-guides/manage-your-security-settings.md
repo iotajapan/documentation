@@ -4,6 +4,13 @@
 **生体認証は，指紋を使用してトリニティにログインできるセキュリティプロセスです．このガイドでは，指紋またはパスワードのいずれかを使用してトリニティにログインする生体認証を設定します．**
 <!-- **Biometric authentication is a security process that allows you to log into Trinity with your fingerprint. In this guide, you set up biometric authentication so that you have the option to log into Trinity, using either your fingerprint or your password.** -->
 
+:::danger:
+2020年2月11日、IOTA 財団は、一部のユーザーのシードと Trinity パスワードが侵害された Trinity ウォレットに対する攻撃に気付きました。[Trinity アカウントの保護](../how-to-guides/protect-trinity-account.md)に関するアドバイスを確認してください。
+:::
+<!-- :::danger: -->
+<!-- On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md). -->
+<!-- ::: -->
+
 ![Biometric authentication](../images/2fa.jpg)
 
 1. **設定** > **セキュリティ設定** に進みます．
@@ -28,8 +35,5 @@
 ## 次のステップ
 <!-- ## Next steps -->
 
-[IOTA トークンを購入する](../how-to-guides/buy-iota.md)
-<!-- [Buy IOTA tokens](../how-to-guides/buy-iota.md). -->
-
-[トランザクションを送信する](../how-to-guides/send-a-transaction.md)
+[トランザクションを送信する](../how-to-guides/send-a-transaction.md)．
 <!-- [Send a transaction](../how-to-guides/send-a-transaction.md). -->

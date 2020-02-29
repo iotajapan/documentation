@@ -4,17 +4,17 @@
 
 [序説/三進法](/introduction/ternary.md)
 
-[クイックスタート/開発者向け入門](root://client-libraries/0.1/getting-started/quickstart.md)
+[クイックスタート/開発者](root://client-libraries/0.1/getting-started/quickstart.md)
 
-[クイックスタート/取引所向け入門](root://wallets/0.1/hub/how-to-guides/quickstart.md)
+[クイックスタート/取引所・カストディアン](root://wallets/0.1/hub/how-to-guides/quickstart.md)
 
-[クイックスタート/トリニティ入門](root://wallets/0.1/trinity/how-to-guides/quickstart.md)
+[クイックスタート/トリニティユーザー](root://wallets/0.1/trinity/how-to-guides/quickstart.md)
 
-[クイックスタート/ノード入門](root://node-software/0.1/iri/how-to-guides/quickstart.md)
+[クイックスタート/ノードオーナー](root://node-software/0.1/iri/how-to-guides/quickstart.md)
 
-[クイックスタート/シードを作成する](/tutorials/create-a-seed.md)
+[ハウツーガイド/シードを作成する](/tutorials/create-a-seed.md)
 
-[クイックスタート/テスト IOTA トークンを入手する](/tutorials/get-test-tokens.md)
+[ハウツーガイド/テスト IOTA トークンを入手する](/tutorials/get-test-tokens.md)
 
 [ネットワーク/IOTA ネットワーク](/network/iota-networks.md)
 

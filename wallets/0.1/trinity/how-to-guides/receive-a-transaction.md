@@ -4,6 +4,13 @@
 **トランザクションを受信するには，新しい[アドレス](root://getting-started/0.1/clients/addresses.md)を生成して送信者に渡す必要があります．このガイドでは，トリニティで新しいアドレスを生成し，送信者に提供する形式を検討します．**
 <!-- **To receive a transaction, you need to generate a new [address](root://getting-started/0.1/clients/addresses.md) and give it to the sender. In this guide, you generate a new address in Trinity and consider in which format to give it to the sender.** -->
 
+:::danger:
+2020年2月11日、IOTA 財団は、一部のユーザーのシードと Trinity パスワードが侵害された Trinity ウォレットに対する攻撃に気付きました。[Trinity アカウントの保護](../how-to-guides/protect-trinity-account.md)に関するアドバイスを確認してください。
+:::
+<!-- :::danger: -->
+<!-- On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md). -->
+<!-- ::: -->
+
 1. **受取**をクリックします．
 <!-- 1. Click **Receive** -->
 

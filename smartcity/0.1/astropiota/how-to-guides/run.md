@@ -109,8 +109,7 @@ Raspbian JessieにはNodeRedが付属していますが、NodeRedは削除する
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'X-IOTA-API-Version': '1',
-      'Content-Length': Buffer.byteLength(JSON.stringify(command))
+      'X-IOTA-API-Version': '1'
     },
     json: command
   };

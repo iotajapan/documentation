@@ -2,6 +2,20 @@
 
 [序説/概要](/introduction/overview.md)
 
+[CryptoCore/序説/CryptoCore入門](/cryptocore/introduction/get-started.md)
+
+[CryptoCore/IOTA プロジェクト/ゼロトークントランザクションを送信する](/cryptocore/iota-projects/send-zero-value.md)
+
+[CryptoCore/IOTA プロジェクト/プルーフオブワークを実行する](/cryptocore/iota-projects/do-proof-of-work.md)
+
+[CryptoCore/IOTA プロジェクト/安全にシードを生成する](/cryptocore/iota-projects/generate-a-seed.md)
+
+[CryptoCore/参考文献/API リファレンス](/cryptocore/references/api-reference.md)
+
+[CryptoCore/参考文献/ユーティリティスクリプト](/cryptocore/references/scripts.md)
+
+[CryptoCore/参考文献/CryptoCore マニュアル](https://gitlab.com/iccfpga-rv/iccfpga-manual/blob/master/iccfpga.pdf)
+
 [ESP32/序説/ESP32 入門](/esp32/introduction/get-started.md)
 
 [ESP32/IOTA プロジェクト/コマンドラインウォレットを実行する](/esp32/iota-projects/create-a-wallet.md)

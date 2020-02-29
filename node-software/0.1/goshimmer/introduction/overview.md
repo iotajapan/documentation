@@ -7,9 +7,9 @@ GoShimmer ノードは、以下のコーディサイドモジュールを含む�
 <!-- GoShimmer nodes run the prototype software that includes the following Coordicide modules: -->
 
 - **自動ピアリング：**ネットワーク上の新しい各ノードは、4つの隣接ノードへの接続を試み、さらに4つの隣接ノードからの接続を受け入れます。
-<!-- - **Auto-peering:** Each new node on the network tries to connect to four neighbors and accepts connections from a further four neighbors -->
+<!-- - **Autopeering:** Each new node on the network tries to connect to four neighbors and accepts connections from a further four neighbors -->
 - **ノード ID：**各ノードは、固有の公開/秘密鍵ペアを作成します。公開鍵は、自動ピアリング中にノードを識別するために使用されます。将来、これらの ID はノードがマナを受け取ることを可能にするでしょう。
-<!-- - **Node identities:** Each node creates a unique public/private key pair. The public key is used to identify nodes during auto-peering. In the future, these identities will allow nodes to receive mana. -->
+<!-- - **Node identities:** Each node creates a unique public/private key pair. The public key is used to identify nodes during autopeering. In the future, these identities will allow nodes to receive mana. -->
 
 GoShimmer ノードを実行することにより、IOTA プロトコルの次の段階で最先端の開発をテストできます。
 <!-- By running a GoShimmer node, you can test the cutting-edge developments in the next stage of the IOTA protocol. -->
@@ -56,11 +56,11 @@ GoShimmer に関するチャンネルは以下の2つです。
 - **#goshimmer-dev：**開発者がトピックについて議論し、GitHub の更新が表示される読み取り専用チャンネル
 <!-- - **#goshimmer-dev:** A read-only channel where developers discuss topics and where any GitHub updates are displayed -->
 
-- **#goshimmer-discussion：**誰でも自由に GoShimmer について議論できるオープンチャンネル
+- **#goshimmer-discussion：**GoShimmer について誰でも自由に議論できるオープンチャンネル
 <!-- - **#goshimmer-discussion:** An open channel where anyone is free to discuss GoShimmer -->
 
 ## 次のステップ
 <!-- ## Next steps -->
 
-[GoShimmer を実行](../how-to-guides/run-the-node.md)を使用して、モジュールのテストを開始します。
-<!-- [Run GoShimmer](../how-to-guides/run-the-node.md) to get started with testing the modules. -->
+[GoShimmer を実行](../how-to-guides/run-the-node.md)を使用して、自分自身のノードを開始してモジュールをテストします。
+<!-- [Run GoShimmer](../how-to-guides/run-the-node.md) to get started with your own node and test the modules. -->

@@ -6,8 +6,13 @@
 [シード](/0.1/clients/seeds.md)
 ## IOTA の全員とすべてがどのように取引できるかを発見する．
 
+<<<<<<< HEAD
 [トランザクション](/0.1/clients/transactions.md)
 ## IOTA を使用してデータと価値を送信する方法を学ぶ．
+=======
+[Transactions](/0.1/transactions/transactions.md)
+## Learn how data and value are sent using IOTA
+>>>>>>> upstream/develop
 
 [IOTA トークン](/0.1/clients/token.md)
 ## IOTA トークンが何に使用できるのか，なぜ価値があるのかを学ぶ．

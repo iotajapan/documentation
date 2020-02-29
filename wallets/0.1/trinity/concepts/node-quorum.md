@@ -4,6 +4,13 @@
 **トリニティをより堅牢にするために，[ノードクォーラム](root://getting-started/0.1/network/nodes.md#node-quorum)から残高などの情報をリクエストし，結果を比較できます．トリニティでは，クォーラムはハードコードされたノード，リモートパブリックノード，および/またはユーザー定義のカスタムノードで構成されます**
 <!-- **To make Trinity more robust, it can request information such as balances from a [node quorum](root://getting-started/0.1/network/nodes.md#node-quorum) and compare the results. In Trinity, the quorum consists of hard-coded nodes, remote public nodes and/or any user-defined custom nodes** -->
 
+:::danger:
+2020年2月11日、IOTA 財団は、一部のユーザーのシードと Trinity パスワードが侵害された Trinity ウォレットに対する攻撃に気付きました。[Trinity アカウントの保護](../how-to-guides/protect-trinity-account.md)に関するアドバイスを確認してください。
+:::
+<!-- :::danger: -->
+<!-- On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md). -->
+<!-- ::: -->
+
 トリニティがノードクォーラムに情報のリクエストを送信すると，それぞれからの結果が比較されます．少なくとも67％（4つのうち3つ）のノードが同じ結果を返す場合，トリニティは情報が正しいという高いレベルの信頼性を持ちます．一致するノード数が少ない場合，ノードクォーラムは失敗し，トリニティは安全な代替結果を表示します．
 <!-- When Trinity sends a request for information to a node quorum, it compares the results from each of them. If at least 67% (3 out of 4) nodes return the same result, then Trinity has a high level of confidence that the information is correct. If fewer nodes agree, the quorum fails and Trinity displays a _safe_ fallback result. -->
 

@@ -90,7 +90,7 @@ MWM = 14
 このファイルは，IRI をデブネットで実行するように構成し，ポート14265で API を公開し，ローカルスナップショットを実行します．
 
 以下の隣接ノードは自動ピアリングが有効になっているため，自動的に隣接ノードとして追加されます．
-<!-- These neighbors have auto-peering enabled, so they will automatically add you as a neighbor. -->
+<!-- These neighbors have autopeering enabled, so they will automatically add you as a neighbor. -->
 
 ```shell
 [IRI]
@@ -405,7 +405,8 @@ MWM = 14
 
 このコマンドは，IRI をデブネットと互換性があるように構成し，ポート14265で API を公開し，ローカルスナップショットを実行します．
 
-これらの隣接ノードは自動ピアリングが有効になっているため，自動的に隣接ノードとして追加されます．
+以下の隣接ノードは自動ピアリングが有効になっているため，あなたのノードは自動的に隣接ノードとして追加されます．
+<!-- These neighbors have autopeering enabled, so they will automatically add you as a neighbor. -->
 
 ```shell
 [IRI]

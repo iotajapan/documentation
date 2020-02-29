@@ -115,6 +115,9 @@ rules:
   - expected: 再ブロードキャスト
     pattern:  再放送
     prh: rebroadcast は再ブロードキャストと翻訳する．
+  - expected: 参考資料
+    pattern: 参考文献
+    prh: References は参考資料と翻訳する．
   - expected: 出力トランザクション
     pattern:  アウトプットトランザクション
     prh: output transaction は出力トランザクションと翻訳する．

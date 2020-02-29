@@ -1,5 +1,5 @@
-# Node.js クイックスタート
-<!-- # Node.js quickstart -->
+# JavaScript クイックスタート
+<!-- # JavaScript quickstart -->
 
 **このクイックスタートでは，開発環境の設定からタングルでのライブトランザクションのリッスンまで，Node.js での IOTA 開発の基本を学びます．**
 <!-- **In this quickstart, you learn the basics of IOTA development in Node.js, from setting up a development environment to listening for live transaction on the Tangle.** -->

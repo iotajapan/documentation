@@ -4,6 +4,17 @@
 **ノードがトランザクションを受信すると，ノードは受信したトランザクションをトランザクションイベントとしてゼロメッセージキュー（ZMQ）と呼ばれるサービスに発行します．クライアントとして，このイベントをサブスクライブして，ノードの着信トランザクションをモニタリングすることができます．**
 <!-- **When your node receives transactions, it publishes them as a transaction event to a service called zero message queue (ZMQ). As a client, you can subscribe to this event to monitor your node for incoming transactions.** -->
 
+:::info:
+GoShimmer の最新バージョンは、ZMQ をサポートしなくなりました。
+
+次のバージョンでは、ZMQ は MQTT に置き換えられ、ノードのトランザクションをモニタリングできるようになります。
+:::
+<!-- :::info: -->
+<!-- The latest version of GoShimmer no longer supports ZMQ. -->
+
+<!-- In the next version, ZMQ will be replaced by MQTT to allow you to monitor a node for transactions. -->
+<!-- ::: -->
+
 次のようにして，トランザクションデータをノードから受信することができます．
 <!-- You can receive this transaction data from a node by doing the following: -->
 

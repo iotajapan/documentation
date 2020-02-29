@@ -39,11 +39,8 @@ C クライアントライブラリを使用するには，開発環境を構成
     <!-- If you're new to [Bazel](https://docs.bazel.build/versions/master/getting-started.html), we recommend reading their getting-started documentation. -->
     <!-- ::: -->
 
-2. [Linux ターミナル](https://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/)を開きます．
-<!-- 2. Open the [Linux Terminal](https://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/) -->
-
-3. プロジェクトのディレクトリを作成します．
-  <!-- 3. Create a directory for your project -->
+2. プロジェクトのディレクトリを作成します．
+	<!-- 2. Create a directory for your project -->
 
     ```bash
     sudo mkdir my-c-iota-project

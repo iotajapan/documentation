@@ -54,9 +54,6 @@ IOTA トークンの単位は [SI 表記](https://en.wikipedia.org/wiki/Metric_p
 # 関連ガイド
 <!-- ## Related guides -->
 
-[トリニティで IOTA トークンを購入する](root://wallets/0.1/trinity/how-to-guides/buy-iota.md)．
-<!-- [Buy IOTA tokens in Trinity](root://wallets/0.1/trinity/how-to-guides/buy-iota.md). -->
-
 [トリニティでトランザクションを送信する](root://wallets/0.1/trinity/how-to-guides/send-a-transaction.md)．
 <!-- [Send a transaction in Trinity](root://wallets/0.1/trinity/how-to-guides/send-a-transaction.md). -->
 

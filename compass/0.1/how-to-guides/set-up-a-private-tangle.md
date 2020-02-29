@@ -110,7 +110,7 @@
 <!-- ::: -->
 
 コンパスリポジトリには、後で使用するためにマークル木を作成して`data`ディレクトリに保存するためのツールが含まれています。
-<!-- The Compass repository includes a tool to compute a Merkle tree and save it in a `data` directory for Compass to use later on.  -->
+<!-- The Compass repository includes a tool to compute a Merkle tree and save it in a `data` directory for Compass to use later on. -->
 
 1. コンパスのGitHubリポジトリをクローンします。
   <!-- 1. Clone the Compass GitHub repository -->
@@ -127,10 +127,17 @@
     bazel run //docker:layers_calculator
     ```
 
+    :::info:
+    `no such package @io_netty_netty_tcnative_boringssl_static//jar`エラーが表示された場合は、[関連問題](https://github.com/iotaledger/compass/issues/142#issuecomment-586735326)のガイダンスを参照してください．
+    :::
+    <!-- :::info: -->
+    <!-- If you see a `no such package @io_netty_netty_tcnative_boringssl_static//jar` error, see the [related issue](https://github.com/iotaledger/compass/issues/142#issuecomment-586735326) for guidance. -->
+    <!-- ::: -->
+
     このプロセスには少し時間がかかります。標準出力に次のように表示されます。
     <!-- This process can take some time. You should see the following in the output: -->
 
-    ```
+    ```bash
     INFO: SHA256 (https://github.com/grpc/grpc-java/archive/fe7f043504d66e1b3f674c0514ce794c8a56884e.zip) = 19c51698d4837d1978a10ed7a01f4e45a0b15bcbd3db44de2a2a1c3bdd1cf234
     Analyzing: target //docker:layers_calculator (8 packages loaded)
     ```
@@ -145,7 +152,7 @@
 4. シードのバックアップを作成します。
   <!-- 4. Create a backup of the seed -->
 
-    :::danger:シードを安全に保管します
+    :::danger:シードを安全に保管してください
     シードを持つ攻撃者が不正なマイルストーンを送信し、ネットワークの動作を妨害する可能性があります。
     :::
     <!-- :::danger:Keep your seed safe -->
@@ -407,8 +414,7 @@ APIエンドポイントの一覧については、[IRI APIリファレンス](r
      method: 'POST',
      headers: {
      'Content-Type': 'application/json',
-     'X-IOTA-API-Version': '1',
-     'Content-Length': Buffer.byteLength(JSON.stringify(command))
+     'X-IOTA-API-Version': '1'
      },
      json: command
      };

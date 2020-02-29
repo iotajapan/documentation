@@ -10,8 +10,22 @@
 このガイドを完了するには，未使用のアドレスが必要です．
 <!-- To complete this guide, you need an unspent address. -->
 
+<<<<<<< HEAD
 :::danger:重要！
 メインネットで IOTA トークンを所有している場合は，デブネットで使用する[新しいシードの作成](../tutorials/create-a-seed.md)をお勧めします．
+=======
+You can generate an unspent address, using any of the following options:
+
+- [C client library](root://client-libraries/0.1/how-to-guides/c/generate-an-address.md)
+- [Go client library](root://client-libraries/0.1/how-to-guides/go/generate-an-address.md)
+- [Java client library](root://client-libraries/0.1/how-to-guides/java/generate-an-address.md)
+- [JavaScript client library](root://client-libraries/0.1/how-to-guides/js/generate-an-address.md)
+- [Python client library](root://client-libraries/0.1/how-to-guides/python/generate-an-address.md)
+- [Trinity wallet](root://wallets/0.1/trinity/how-to-guides/receive-a-transaction.md)
+
+:::danger:Important
+If you own IOTA tokens on the Mainnet, we recommend [creating a new seed](../tutorials/create-a-seed.md) to use on the Devnet.
+>>>>>>> upstream/develop
 :::
 <!-- :::danger:Important -->
 <!-- If you own IOTA tokens on the Mainnet, we recommend [creating a new seed](../tutorials/create-a-seed.md) to use on the Devnet. -->
@@ -19,8 +33,12 @@
 
 ---
 
+<<<<<<< HEAD
 いくつかのテストトークンを取得するには，1 Ki のひと塊でトークンを配布するデブネット蛇口 Web サイトからいくつかを要求する必要があります．
 <!-- To get some test tokens, you need to request some from the Devnet faucet website, which distributes tokens in batches of 1 Ki. -->
+=======
+To get some test tokens, you need to request some from a Devnet faucet website, which distributes tokens in batches of 1 Ki.
+>>>>>>> upstream/develop
 
 1. [デブネット蛇口](https://faucet.devnet.iota.org/)へアクセスします．
 <!-- 1. Go to [the Devnet faucet](https://faucet.devnet.iota.org/) -->
@@ -35,7 +53,11 @@
   <!-- 4. Click **Request** -->
 
     :::info:
+<<<<<<< HEAD
     リクエストボタンは，アドレスが有効な場合にのみ表示されます．
+=======
+    The Request button appears only if your address is valid (81 or 90 trytes long).
+>>>>>>> upstream/develop
     :::
     <!-- :::info: -->
     <!-- The Request button appears only if your address is valid. -->
@@ -54,8 +76,16 @@
 <!-- You can use these tokens only when you're connected to a Devnet node. Other IOTA networks have neither received nor validated the bundle that transferred the tokens to your address. As a result, they haven't updated the balance of your address. -->
 <!-- ::: -->
 
+<<<<<<< HEAD
 ## 次のステップ
 <!-- ## Next steps -->
+=======
+## Troubleshooting
+
+If the Devnet faucet is not working, feel free to try the [community-built faucet](https://faucet.einfachiota.de/).
+
+## Next steps
+>>>>>>> upstream/develop
 
 トリニティまたはクライアントライブラリのいずれかを使用して，今回取得したテストトークンをデブネットで転送できます．
 <!-- You can transfer these tokens on the Devnet, using Trinity or one of the client libraries: -->

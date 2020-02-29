@@ -4,6 +4,13 @@
 **一般設定では，ユーザーインターフェースの要素の変更，パスワードの変更，トリニティの接続先ノードの変更ができます．このガイドでは，一般設定を変更する方法を学びます．**
 <!-- **The general settings allow you to change elements of the user interface, change your password, and change the nodes to which Trinity connects. In this guide, you learn how to change the general settings.** -->
 
+:::danger:
+2020年2月11日、IOTA 財団は、一部のユーザーのシードと Trinity パスワードが侵害された Trinity ウォレットに対する攻撃に気付きました。[Trinity アカウントの保護](../how-to-guides/protect-trinity-account.md)に関するアドバイスを確認してください。
+:::
+<!-- :::danger: -->
+<!-- On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md). -->
+<!-- ::: -->
+
 ## ディスプレイ言語を変更する
 <!-- ## Change the display language -->
 
@@ -38,6 +45,3 @@
 <!-- - **Standard mode:** Displays only the most relevant information for standard users -->
 - **上級モード：**上級ユーザー向けのエラーログなどの技術情報を表示します．
 <!-- - **Advanced mode:** Displays technical information, such as error logs, for advanced users -->
-
-## 次のステップ
-<!-- ## Next steps -->

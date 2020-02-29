@@ -4,6 +4,13 @@
 **トリニティでは1つ以上のアカウントを持つことができ，それぞれに固有のシードがあります．**
 <!-- **Trinity allows you to have more than one account, each of which has a unique seed.** -->
 
+:::danger:
+2020年2月11日、IOTA 財団は、一部のユーザーのシードと Trinity パスワードが侵害された Trinity ウォレットに対する攻撃に気付きました。[Trinity アカウントの保護](../how-to-guides/protect-trinity-account.md)に関するアドバイスを確認してください。
+:::
+<!-- :::danger: -->
+<!-- On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md). -->
+<!-- ::: -->
+
 アカウントごとに，次のことを実行できます．
 <!-- For each of your accounts, you can do the following: -->
 
@@ -17,13 +24,24 @@
 これらのタスクを実行する前に，管理する正しいアカウントを必ず選択してください．
 <!-- Make sure that you select the correct account to manage before completing any of these tasks. -->
 
-モバイル端末のアカウント設定にアクセスするには，**設定** > **アカウント設定**に移動します．
-<!-- To access Account management on a mobile device, go to **Settings** > **Account management**. -->
+--------------------
+### デスクトップ
+<!-- ### Desktop -->
 
-デスクトップでアカウント設定にアクセスするには，**バーガーメニュー** > **アカウント** > **アカウント設定**に移動します．
-<!-- To access Account management on a desktop, go to the burger menu >  **Account** > **Account management**. -->
+アカウント設定にアクセスするには，**Trinity** > **設定** > **アカウント設定**に移動します．
+<!-- To access Account management, go to **Trinity** > **Settings** > **Account management** -->
 
 ![Account management](../images/account-management-menu.png)
+
+---
+### モバイル
+<!-- ### Mobile -->
+
+アカウント設定にアクセスするには，**設定** > **アカウント設定**に移動します．
+<!-- To access Account management, go to **Settings** > **Account management** -->
+
+![Account management](../images/account-management-menu-mobile.jpg)
+--------------------
 
 ## シードにアクセスする
 <!-- ## Access your seed -->
@@ -65,14 +83,23 @@
 トリニティはシードを保存し（[ハードウェアウォレット](../concepts/hardware-wallet.md)を使わない限り），そしてパスワードでログインすることを可能にします．
 <!-- Trinity stores your seeds for you (unless you use a [hardware wallet](../concepts/hardware-wallet.md)) and allows you to log in with a password. -->
 
-デスクトップでログインパスワードを変更するには，**設定** > **パスワード変更**に移動します．
-<!-- To change the login password on a desktop, go to **Settings** > **Change password**. -->
+--------------------
+### デスクトップ
+<!-- ### Desktop -->
 
-モバイル端末のログインパスワードを変更するには，**設定** > **セキュリティ設定** > **パスワード変更**に移動します．
-<!-- To change the login password on a mobile device, go to **Settings** > **Security settings** > **Change password**. -->
+ログインパスワードを変更するには，**Trinity** > **設定** > **パスワード変更**に移動します．
+<!-- To change the login password, go to **Trinity** > **Settings** > **Change password** -->
+
+---
+### モバイル
+<!-- ### Mobile -->
+
+ログインパスワードを変更するには，**設定** > **セキュリティ設定** > **パスワード変更**に移動します．
+<!-- To change the login password, go to **Settings** > **Security settings** > **Change password** -->
+--------------------
 
 ## 次のステップ
 <!-- ## Next steps -->
 
-[IOTA トークンを購入する](../how-to-guides/buy-iota.md)
-<!-- [Buy IOTA tokens](../how-to-guides/buy-iota.md) -->
+[トランザクションを送信する](../how-to-guides/send-a-transaction.md)．
+<!-- [Send a transaction](../how-to-guides/send-a-transaction.md) -->

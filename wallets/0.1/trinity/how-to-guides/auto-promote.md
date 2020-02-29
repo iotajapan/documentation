@@ -4,21 +4,33 @@
 **トランザクションが確実に確定されるように，トリニティはトランザクションを自動プロモート（[プロモートと再アタッチ](root://getting-started/0.1/transactions/reattach-rebroadcast-promote.md)）できます．このガイドでは，自動プロモート設定を有効にする方法を学習します．**
 <!-- **To make sure that transactions are confirmed, Trinity can auto-promote ([promote and reattach](root://getting-started/0.1/transactions/reattach-rebroadcast-promote.md)) them. In this guide, you learn how to enable the auto-promotion setting.** -->
 
-1. **設定** > **詳細設定**に行きます．
-<!-- 1. Go to **Settings** > **Advanced settings** -->
+:::danger:
+2020年2月11日、IOTA 財団は、一部のユーザーのシードと Trinity パスワードが侵害された Trinity ウォレットに対する攻撃に気付きました。[Trinity アカウントの保護](../how-to-guides/protect-trinity-account.md)に関するアドバイスを確認してください。
+:::
+<!-- :::danger: -->
+<!-- On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md). -->
+<!-- ::: -->
 
+--------------------
+### デスクトップ
+<!-- ### Desktop -->
+
+1. **Trinity** > **設定** > **詳細設定**に行きます．
+<!-- 1. Go to **Trinity** > **Settings** > **Advanced settings** -->
 2. **自動プロモート**設定を有効にします．
   <!-- 2. Enable the **Auto-promotion** setting -->
+---
+### モバイル
+<!-- ### Mobile -->
 
-    この設定を有効にすると，トリニティはトランザクションが確定されるまでプロモートおよび再アタッチを行います．
-    <!-- When this setting is enabled, Trinity promotes and reattaches your transactions until they are confirmed. -->
+1. **設定** > **詳細設定**に行きます．
+<!-- 1. Go to **Settings** > **Account management** -->
+2. **自動プロモート**設定を有効にします．
+<!-- 2. Enable the **Auto-promotion** setting -->
 
-    :::info:
-    モバイルデバイスでは，トリニティはトランザクションがフォアグラウンドにある間のみトランザクションを促進と再添付を行います．
-    :::
-    <!-- :::info: -->
-    <!-- On mobile devices, Trinity promotes and reattaches transactions only while it's in the foreground. -->
-    <!-- ::: -->
+トリニティはトランザクションがフォアグラウンドにある間のみトランザクションのプロモートと再アタッチを行います．
+<!-- Trinity promotes and reattaches transactions only while it's in the foreground. -->
+--------------------
 
 :::success:
 これで，トランザクションが確定される可能性が高くなります．

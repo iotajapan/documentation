@@ -4,6 +4,13 @@
 **トリニティでは，[アドレス](root://getting-started/0.1/clients/addresses.md)，メッセージ，または[IOTAトークン](root://getting-started/0.1/clients/token.md)の量を入力することにより，[ノード](root://getting-started/0.1/network/nodes.md)にトランザクションを送信できます．このガイドでは，トリニティでトランザクションを送信する方法を学習します．**
 <!-- **In Trinity, you can send a transaction to a [node](root://getting-started/0.1/network/nodes.md) by entering an [address](root://getting-started/0.1/clients/addresses.md), a message, and/or an amount of [IOTA tokens](root://getting-started/0.1/clients/token.md). In this guide, you learn how to send a transaction in Trinity.** -->
 
+:::danger:
+2020年2月11日、IOTA 財団は、一部のユーザーのシードと Trinity パスワードが侵害された Trinity ウォレットに対する攻撃に気付きました。[Trinity アカウントの保護](../how-to-guides/protect-trinity-account.md)に関するアドバイスを確認してください。
+:::
+<!-- :::danger: -->
+<!-- On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md). -->
+<!-- ::: -->
+
 ![A received transaction](../images/trinity-receive-message.png)
 
 :::info:

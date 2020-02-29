@@ -2,7 +2,14 @@
 <!-- # Develop features on Trinity -->
 
 **アプリケーションだけでなく，トリニティは新しい機能を開発できるオープンソースプラットフォームです．このガイドでは，トリニティ用の自分自身の機能を開発する方法を学びます．**
-**As well as an application, Trinity is an open-source platform on which you can develop new features. In this guide, you learn how to develop your own features for Trinity.**
+<!-- **As well as an application, Trinity is an open-source platform on which you can develop new features. In this guide, you learn how to develop your own features for Trinity.** -->
+
+:::danger:
+2020年2月11日、IOTA 財団は、一部のユーザーのシードと Trinity パスワードが侵害された Trinity ウォレットに対する攻撃に気付きました。[Trinity アカウントの保護](../how-to-guides/protect-trinity-account.md)に関するアドバイスを確認してください。
+:::
+<!-- :::danger: -->
+<!-- On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md). -->
+<!-- ::: -->
 
 トリニティ開発を始めるには，次のようにします．
 <!-- To get started with Trinity development, do the following: -->

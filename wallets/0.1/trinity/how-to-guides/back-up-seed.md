@@ -4,6 +4,13 @@
 **トリニティは，デバイス上の[シード](root://getting-started/0.1/clients/seeds.md)を保護および保存します．その結果，モバイルデバイスまたはコンピューターを紛失した場合，シードは失われます．シード（および IOTA トークン）が失われないようにするには，シードをバックアップし，バックアップを安全な場所に保管する必要があります．このガイドでは，シードをバックアップする方法を学びます．**
 <!-- **Trinity secures and stores your [seed](root://getting-started/0.1/clients/seeds.md) on your device. As a result, if you were to ever lose your mobile device or computer, your seed would be lost. To avoid losing your seed (and your IOTA tokens), you must back it up and keep the backup in a safe place. In this guide, you learn how to back up your seed.** -->
 
+:::danger:
+2020年2月11日、IOTA 財団は、一部のユーザーのシードと Trinity パスワードが侵害された Trinity ウォレットに対する攻撃に気付きました。[Trinity アカウントの保護](../how-to-guides/protect-trinity-account.md)に関するアドバイスを確認してください。
+:::
+<!-- :::danger: -->
+<!-- On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md). -->
+<!-- ::: -->
+
 アカウントを作成すると（または[アカウント設定ページからシードにアクセスする](../how-to-guides/manage-your-account.md)と），次のいずれかの方法でシードをバックアップできます．
 <!-- When you create an account (or [access your seed from the account management page](../how-to-guides/manage-your-account.md)) you can back up your seed, using one of the following options: -->
 
@@ -67,5 +74,5 @@
 ## 次のステップ
 <!-- ## Next steps -->
 
-[IOTA トークンを購入する](../how-to-guides/buy-iota.md)
-<!-- [Buy IOTA tokens](../how-to-guides/buy-iota.md) -->
+[トランザクションを送信する](../how-to-guides/send-a-transaction.md)．
+<!-- [Send a transaction](../how-to-guides/send-a-transaction.md) -->
