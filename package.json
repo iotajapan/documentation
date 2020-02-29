@@ -10,7 +10,8 @@
         "url": "https://github.com/iotaledger/documentation/issues"
     },
     "scripts": {
-        "validate": "node buildProjects.js --no-remote"
+        "validate": "node buildProjects.js --no-remote",
+        "textlint": "./node_modules/.bin/textlint ./**/*.md"
     },
     "pre-commit": [
         "validate"
