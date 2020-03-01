@@ -1,6 +1,11 @@
 {
   "filters": {},
   "rules": {
+    "preset-ja-technical-writing": {
+      "ja-no-mixed-period": {
+          "periodMark": "．"
+      }
+    },
     "prh": {
         "rulePaths" :[
           "./doc_iotajapan_com.yml"
