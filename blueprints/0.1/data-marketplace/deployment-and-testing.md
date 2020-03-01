@@ -67,7 +67,7 @@
 ### IOTA の知識
 <!-- ### IOTA knowledge -->
 
-[MAM チャンネル](root://client-libraries/0.1/mam/introduction/overview.md)についての理解
+[MAM チャンネル](root://client-libraries/0.1/mam/introduction/overview.md)についての理解．
 <!-- An understanding of [MAM channels](root://client-libraries/0.1/mam/introduction/overview.md). -->
 
 ## データマーケットプレイスアプリをデプロイする
@@ -92,7 +92,7 @@
   <!-- 2. Create a new device -->
 
     :::info:
-    デフォルト設定では，アカウントごとに最大5つのデバイスを作成できます．この数はリクエストに応じて調整することができます．
+    デフォルト設定では，アカウントごとに最大5つのデバイスを作成できます．この数はリクエストに応じて調整できます．
     :::
     <!-- :::info: -->
     <!-- You can create up to 5 devices per account with the default settings. This number can be adjusted upon request. -->
@@ -107,7 +107,7 @@
   <!-- * **Device Type**: Plain text type description, that helps other Data Marketplace participants identify potential usage of the sensors’ data stream. Typical examples: “weather station”, “tracking device”, “charging station”. -->
   * **カンパニー：**センサーを所有および管理している会社の名前を入力します．この情報は，センサーの所有者とデータストリームの購入に関心のあるデータマーケットプレイスユーザーとの間の信頼関係を高めます．
   <!-- * **Company**: Provide the name of the company that owns and maintains the sensor. This information creates more trust between sensor owners and Data Marketplace users who are interested in purchasing the data stream. -->
-  * **場所（市/国）：**この情報は，センサーデータが購入に値するかどうかを識別するのに役立ちます．たとえば，一部のユーザーは，特定の地域にある気象センサーや環境センサーからデータストリームを購入することに関心があるかもしれません．
+  * **場所（市/国）：**この情報は，センサーデータが購入に値するかどうかを識別するのに役立ちます．たとえば，一部のユーザーは，特定の地域にある気象センサーや環境センサーからデータストリームを購入することに関心があります．
   <!-- * **Location (city / country)**: This information helps to identify if the sensor data is relevant for purchasing. For example, some users might be interested in purchasing data streams from weather or environmental sensors located in a specific region. -->
   * **GPS座標（経度/緯度）：**https://www.gps-coordinates.net/ などのサービスを使用して，センサーに適した GPS データを取得できます．負の値の場合はハイフン（"-"）と小数点記号（"."）を先頭に付けることができます．文字や特殊文字を入力しないでください．
   <!-- * **GPS Coordinates (latitude / longitude)**: You can use a service like https://www.gps-coordinates.net/ to get the right GPS data for your sensor. We accept coordinates as a number of digits ([0–9]), that could be prepended by a hyphen (“-”) for negative value, and a decimal separator (“.”). Please do not enter any letters or special characters. -->
@@ -142,10 +142,10 @@
     スクリプトは，選択したデバイスのデータを公開するように事前設定されています．`config.json`ファイルにセンサー ID とその秘密鍵があります．
     <!-- The script is pre-configured to publish data for the selected device. You’ll find the sensor ID and its secret key in the `config.json` file. -->
 
-    複数のセンサーに同じスクリプトを使用する場合は，秘密鍵も変更する必要があります．そうしないと，公開したデータを復号化することができません．
+    複数のセンサーに同じスクリプトを使用する場合は，秘密鍵も変更する必要があります．そうしないと，公開したデータをデコードできません．
     <!-- If you decide to use the same script for multiple sensors, please note that the secret key should be changed as well. Otherwise you won’t be able to decrypt your published data. -->
 
-    デフォルトでは，スクリプトはデバッグモードで実行されます．つまり，データは公開されません．キャプチャされたデータはすべてコンソールに出力されるので，確認して調整することができます．ペイロードが良好に見えたら，`config.json` ファイルで debug 変数を `false` に設定してデバッグモードを無効にし（下記のスクリーンショットを参照），データを公開することができます．
+    デフォルトでは，スクリプトはデバッグモードで実行されます．つまり，データは公開されません．キャプチャされたデータはすべてコンソールに出力されるので，確認して調整できます．ペイロードが良好に見えたら，`config.json` ファイルで debug 変数を `false` に設定してデバッグモードを無効にし（下記のスクリーンショットを参照），データを公開できます．
     <!-- By default the script runs in debug mode, which means that no data is published. All captured data is printed out in the console, so you can verify and adjust it. Once the payload looks good, you can disable debug mode by setting the debug variable to false in the `config.json` file (see screenshot below), and let data be published. -->
 
     プルーフオブワークはすべてのデータパッケージに対して実行されることに注意してください．ハードウェアによっては最大60秒かかる場合があります．これを考慮して，この操作の実行中にスクリプトを中断しないでください．
@@ -157,7 +157,7 @@
 ### 新しいウォレットを作成して資金を供給する
 <!-- ### Create and fund a new wallet -->
 
-無料のIOTAトークンをデバイスのウォレットに供給することができます．通常，[100 Ki と 1 Mi](root://getting-started/0.1/clients/token.md) のデブネットトークンを無料で新しいデバイスのウォレットに転送します．
+無料のIOTAトークンをデバイスのウォレットに供給できます．通常，[100 Ki と 1 Mi](root://getting-started/0.1/clients/token.md) のデブネットトークンを無料で新しいデバイスのウォレットに転送します．
 <!-- You can fund a device's wallet with free IOTA tokens. We usually transfer between [100 Ki and 1 Mi](root://getting-started/0.1/clients/token.md) of Devnet tokens for free to your new device's wallet. -->
 
 :::info:
@@ -182,7 +182,7 @@
 ### 既存のウォレットに資金を供給する
 <!-- ### Fund an existing wallet -->
 
-ウォレットの残高が少ない場合は，[IOTA 蛇口](root://getting-started/0.1/tutorials/get-test-tokens.md)を使用してより多くのデブネットトークンをウォレットに供給することができます．
+ウォレットの残高が少ない場合は，[IOTA 蛇口](root://getting-started/0.1/tutorials/get-test-tokens.md)を使用してより多くのデブネットトークンをウォレットに供給できます．
 <!-- If your wallet balance is low, you can fund it with more Devnet tokens by using the [IOTA faucet](root://getting-started/0.1/tutorials/get-test-tokens.md). -->
 
 :::info:
@@ -213,7 +213,7 @@
 ### データストリームを購入する
 <!-- ### Buy a data stream -->
 
-ウォレットの残高を使ってデバイスのデータストリームを購入することができます．データストリームを購入すると，MAM チャンネルのルートへのアクセス権が付与されるので，タングルでデータを見つけることができます．
+ウォレットの残高を使ってデバイスのデータストリームを購入できます．データストリームを購入すると，MAM チャンネルのルートへのアクセス権が付与されるので，タングルでデータを見つけられます．
 <!-- You can buy a device's data stream using the balance of the wallet. When you buy a data stream, you're given access to the MAM channel's root so that you can find the data on the Tangle. -->
 
 1. センサーページに行きます．
