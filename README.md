@@ -15,15 +15,14 @@
 Text の Lint には
 - [textlint](https://github.com/textlint/textlint)
 - [textlint-rule-preset-ja-technical-writing](https://github.com/textlint-ja/textlint-rule-preset-ja-technical-writing)
-を使用しています．
+- を使用しています．
 
 ## 翻訳チェック
 翻訳チェックには
 - [prh](https://github.com/prh/prh)
 - [textlint-rule-prh](https://github.com/textlint-rule/textlint-rule-prh)
-を使用しています．
-- 詳しくは下記リンクを参照のこと．
-- https://github.com/solareenlo/dotfiles/tree/master/textlint
+- を使用しています．
+- 詳しい翻訳対応表は `doc_iotajapan_com.yml` を参照のこと．
 
 ## 重要単語の英日対訳表
 
