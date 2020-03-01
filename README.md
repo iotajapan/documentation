@@ -11,9 +11,18 @@
 コントリビューションをしてくださる方は以下をご覧ください．
 - [style guide](./contribution/0.1/style-guide.md)
 
+## Lint
+Text の Lint には
+- [textlint](https://github.com/textlint/textlint)
+- [textlint-rule-preset-ja-technical-writing](https://github.com/textlint-ja/textlint-rule-preset-ja-technical-writing)
+を使用しています．
+
 ## 翻訳チェック
-- vim-textlint, textlint-rule-prh を使用する．
-- 詳しは下記リンクを参照のこと．
+翻訳チェックには
+- [prh](https://github.com/prh/prh)
+- [textlint-rule-prh](https://github.com/textlint-rule/textlint-rule-prh)
+を使用しています．
+- 詳しくは下記リンクを参照のこと．
 - https://github.com/solareenlo/dotfiles/tree/master/textlint
 
 ## 重要単語の英日対訳表
