@@ -11,20 +11,27 @@
 コントリビューションをしてくださる方は以下をご覧ください．
 - [style guide](./contribution/0.1/style-guide.md)
 
-## Lint
+## Lint と翻訳チェック
+### Lint
 Text の Lint には
 - [textlint](https://github.com/textlint/textlint)
 - [textlint-rule-preset-ja-technical-writing](https://github.com/textlint-ja/textlint-rule-preset-ja-technical-writing)
 - を使用しています．
 
-## 翻訳チェック
+### 翻訳チェック
 翻訳チェックには
 - [prh](https://github.com/prh/prh)
 - [textlint-rule-prh](https://github.com/textlint-rule/textlint-rule-prh)
 - を使用しています．
 - 詳しい翻訳対応表は `doc_iotajapan_com.yml` を参照のこと．
 
-## 重要単語の英日対訳表
+### Usage
+- textlint と翻訳チェックを行うには以下を実行します．
+
+```bash
+npm run textlint
+```
+### 重要単語の英日対訳表
 
 | English                       | 日本語                                               |
 |:------------------------------|:-----------------------------------------------------|
