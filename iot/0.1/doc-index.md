@@ -10,6 +10,8 @@
 
 [CryptoCore/IOTA プロジェクト/安全にシードを生成する](/cryptocore/iota-projects/generate-a-seed.md)
 
+[CryptoCore/IOTA プロジェクト/IOTA トークンを転送する](/cryptocore/iota-projects/send-value-transaction.md)
+
 [CryptoCore/参考文献/API リファレンス](/cryptocore/references/api-reference.md)
 
 [CryptoCore/参考文献/ユーティリティスクリプト](/cryptocore/references/scripts.md)

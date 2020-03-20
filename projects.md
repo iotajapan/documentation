@@ -8,4 +8,4 @@
 [IoT プロジェクト](/iot)
 [AstroPiOTA](/smartcity)
 [一般](/general)
-[貢献](/contribution)
+[貢献](/contributing)

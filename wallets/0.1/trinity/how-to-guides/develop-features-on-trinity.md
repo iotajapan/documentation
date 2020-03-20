@@ -5,7 +5,7 @@
 <!-- **As well as an application, Trinity is an open-source platform on which you can develop new features. In this guide, you learn how to develop your own features for Trinity.** -->
 
 :::danger:
-2020年2月11日、IOTA 財団は、一部のユーザーのシードと Trinity パスワードが侵害された Trinity ウォレットに対する攻撃に気付きました。[Trinity アカウントの保護](../how-to-guides/protect-trinity-account.md)に関するアドバイスを確認してください。
+2020年2月11日，IOTA 財団は，一部のユーザーのシードと Trinity パスワードが侵害された Trinity ウォレットに対する攻撃に気付きました．[Trinity アカウントの保護](../how-to-guides/protect-trinity-account.md)に関するアドバイスを確認してください．
 :::
 <!-- :::danger: -->
 <!-- On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md). -->
@@ -34,23 +34,22 @@
 
 トリニティで開発するには，コンピュータに以下のものが必要です．
 <!-- To develop on Trinity, your computer must have the following: -->
-- [Node.js の LTS 版](https://nodejs.org/en/)（バージョン10.15.3を推奨）
-<!-- - [An LTS version of Node.js](https://nodejs.org/en/) (we recommend version 10.15.3) -->
+- [Node.js 10 or 11](https://nodejs.org/dist/)
 - [Yarn](https://yarnpkg.com/lang/en/docs/install/)
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 :::info:
-これらのプログラムをインストールした後にコンピュータを再起動してください．
+これらのプログラムをインストールした後にデバイスを再起動してください．
 :::
 <!-- :::info: -->
-<!-- Restart your computer after installing these programs. -->
+<!-- Restart your device after installing these programs. -->
 <!-- ::: -->
 
 ## 共有依存関係をインストールする
 <!-- ## Install the shared dependencies -->
 
-1. トリニティのリポジトリをクローンします．
-  <!-- 1. Clone the Trinity repository -->
+1. `trinity-wallet` のリポジトリをクローンします．
+  <!-- 1. Clone the `trinity-wallet` repository -->
 
     ```bash
     git clone https://github.com/iotaledger/trinity-wallet.git
@@ -70,14 +69,14 @@
     yarn deps:shared
     ```
 
-これで，デスクトップまたはモバイル開発環境のどちらかをインストールできます．
-<!-- Now, you can install either the desktop or the mobile development environment. -->
+次に，新しい機能を構築するプラットフォームに応じて，デスクトップまたはモバイル開発環境のいずれかをインストールします．
+<!-- Now, depending on which platform you want to build your new feature, install either the desktop or mobile development environment. -->
 
 ## デスクトップ開発環境をインストールする
 <!-- ## Install the desktop development environment -->
 
-Windows または Linux オペレーティングシステムを使用している場合は，追加のビルドツールまたはパッケージをインストールする必要があります．
-<!-- If you're using a Windows or Linux operating system, you need to install some extra build tools or packages. -->
+1\. Windows または Linux オペレーティングシステムを使用している場合は，追加のツールとパッケージをインストールする必要があります．
+<!-- 1\. If you're using a Windows or Linux operating system, you need to install some extra tools and packages. -->
 
 --------------------
 ### Linux
@@ -94,6 +93,7 @@ yum install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev libusbx-de
 ```
 ---
 ### Windows Vista と Windows 7
+
 1. [.NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=4077) をインストールします．
 
 2. Visual C++ ビルドツールと Python 2.7 をインストールします．
@@ -112,6 +112,7 @@ yum install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev libusbx-de
     ```
 ---
 ### その他の Windows バージョン
+
 1. Visual C++ ビルドツールと Python 2.7 をインストールします．
 
     ```bash
@@ -128,29 +129,29 @@ yum install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev libusbx-de
     ```
 --------------------
 
-1. デスクトップの依存関係をインストールします．
-  <!-- 1. Install the desktop dependencies -->
+2\. デスクトップの依存関係をインストールします．
+  <!-- 2\. Install the desktop dependencies -->
 
-    ```bash
-    npm run deps:desktop
-    ```
+```bash
+npm run deps:desktop
+```
 
-2. `desktop` ディレクトリに移動します．
-  <!-- 2. Change into the `desktop` directory -->
+3\. `desktop` ディレクトリに移動します．
+  <!-- 3\. Change into the `desktop` directory -->
 
-    ```bash
-    cd src/desktop
-    ```
+```bash
+cd src/desktop
+```
 
-3. トリニティデスクトップをビルドします．
-  <!-- 3. Build Trinity desktop -->
+4\.. トリニティデスクトップをビルドします．
+  <!-- 4\. Build Trinity desktop -->
 
-    ```bash
-    npm run build
-    ```
+```bash
+npm run build
+```
 
-4. これで，実行可能ファイルをコンパイルすることも，開発モードでトリニティを実行することもできます．
-  <!-- 4. Now, you can either compile an executable file, or run Trinity in development mode -->
+5\. これで，実行可能ファイルをコンパイルすることも，開発モードでトリニティを実行することもできます．
+  <!-- 5\. Now, you can either compile an executable file, or run Trinity in development mode -->
 
 - 実行可能ファイルが必要な場合は，トリニティをコンパイルします．
   <!-- - If you want an executable file, compile Trinity -->
@@ -185,26 +186,20 @@ yum install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev libusbx-de
 1. [React Native の依存関係をインストールします](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies-2)．
   <!-- 1. [Install the React Native dependencies](https://facebook.github.io/react-native/docs/getting-started.html#installing-dependencies-2) -->
 
-    :::info:
-    iOS をターゲットにしていて Xcode 10+ を使用している場合は，従来のビルドシステムを有効にします．
-    :::
-    <!-- :::info: -->
-    <!-- If you are targeting iOS and are using Xcode 10+, enable the legacy build system. -->
-    <!-- ::: -->
-
 2. iOS オペレーティングシステムをターゲットにしている場合は，[CocoaPod をインストールします](https://cocoapods.org/#install)．
-  <!-- 2. If you are targeting the iOS operating system, [install CocoaPods](https://cocoapods.org/#install). -->
+  <!-- 2. If you are targeting the iOS operating system, [install CocoaPods](https://cocoapods.org/#install) -->
 
-3. モバイルの依存関係をインストールします．
-  <!-- 3. Install the mobile dependencies -->
+3. iOS オペレーティングシステムをターゲットとし，Xcode 10を使用している場合，[レガシービルドシステムを有効にします](https://stackoverflow.com/questions/51205221/how-can-i-use-the-legacy-build-system-with-xcode-10s-xcodebuild)．
+  <!-- 3. If you are targeting the iOS operating system and you are using Xcode 10+, [enable the legacy build system](https://stackoverflow.com/questions/51205221/how-can-i-use-the-legacy-build-system-with-xcode-10s-xcodebuild) -->
 
+4. モバイルの依存関係をインストールします．
+  <!-- 4. Install the mobile dependencies -->
     ```bash
     yarn deps:mobile
     ```
 
-4. `mobile` ディレクトリに移動します．
-  <!-- 4. Change into the `mobile` directory -->
-
+5. `mobile` ディレクトリに移動します．
+  <!-- 5. Change into the `mobile` directory -->
     ```bash
     cd src/mobile
     ```
@@ -253,14 +248,14 @@ yum install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev libusbx-de
   <!-- 1. Create a new Git branch from the `develop` branch -->
 
     ```bash
-    git checkout -b feature/my-awesome-new-feature
+    git checkout -b feat/my-awesome-new-feature
     ```
 
 :::info:
-あなたのブランチに名前をつけるために接頭辞を使ってください（例えば，`feature/my-awesome-new-feature` または `bugfix/something-not-working`）．
+あなたのブランチに名前をつけるために接頭辞を使ってください（例えば，`feat/my-awesome-new-feature` または `bug/something-not-working`）．
 :::
 <!-- :::info: -->
-<!-- Use a prefix to name your branches (for example, `feature/my-awesome-new-feature` or `bugfix/something-not-working`). -->
+<!-- Use a prefix to name your branches (for example, `feat/my-awesome-new-feature` or `bug/something-not-working`). -->
 <!-- ::: -->
 
 このブランチにすべての変更を加えます．
@@ -333,8 +328,8 @@ yum install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev libusbx-de
 ### プルリクエストを送信する
 <!-- ### Submit a pull request -->
 
-変更を加えたら，GitHub で新しいプルリクエストを作成します．
-<!-- After you've made your changes, create a new pull request on GitHub. -->
+変更を加えたら，GitHub で新しいプルリクエストを送信します．
+<!-- After you've made your changes, submit a new pull request on GitHub. -->
 
 あなたのブランチをソースブランチとして使用し，`develop` ブランチをターゲットブランチとして使用します．
 <!-- Use your branch as the source branch and use the `develop` branch as the target branch. -->
@@ -351,8 +346,8 @@ yum install build-essential libudev-dev libusb-1.0-0 libusb-1.0-0-dev libusbx-de
 1. 場合によっては，IOTA 財団は依存関係を更新して構成を変更します．`trinity-wallet` ディレクトリで `npm install` を実行して，依存関係を再インストールしてください．次に，`npm run build` を実行して，ウォレットをもう一度ビルドします．
   <!-- 1. Sometimes, we update the dependencies and change the configurations. Try to reinstall the dependencies by doing `npm install` in the `trinity-wallet` directory. Then, build the wallet again by doing `npm run build` -->
 
-2. 開発環境は，異なるバージョンのトリニティを切り替えるときにユーザー構成ファイルを消去しません．以前に別のバージョンのトリニティを実行したことがある場合は，構成ファイルを削除してから，もう一度トリニティを実行してください．
-  <!-- 2. The development environment does not clear the user configuration files when you switch between different versions of Trinity. If you have run a different version of Trinity before, remove the configuration files, then try and run Trinity again -->
+2. トリニティの異なるバージョン間で切り替えると，開発環境はユーザー構成ファイルをクリアしません．以前に別のバージョンのトリニティを実行したことがある場合は，構成ファイルを削除してから，トリニティを再試行してください．
+  <!-- 2. When you switch between different versions of Trinity, the development environment does not clear the user configuration files. If you have ever ran a different version of Trinity before, remove the configuration files, then try and run Trinity again -->
 
 --------------------
 ### macOS
@@ -378,4 +373,3 @@ rm -rf ~/.config/Electron
   <!-- 1. Reload Trinity by pressing **Ctrl**+ **R** (**cmd**+**R** on macOS) while the Developer tools window is open and in focus. -->
 
 2. 開発者ツールのコンソールでエラーを確認します．エラーを修正するか，GitHub で [issue](https://github.com/iotaledger/trinity-wallet/issues) として報告してください．
-  <!-- 2. Check the Developer tools console for any errors. Try to fix them or report them as an [issue](https://github.com/iotaledger/trinity-wallet/issues) on GitHub. -->

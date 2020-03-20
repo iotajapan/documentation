@@ -98,8 +98,8 @@
 ## コードを実行する
 <!-- ## Run the code -->
 
-これらのコードサンプルは [GitHub](https://github.com/JakeSCahill/c-iota-workshop) でホストされています．
-<!-- These code samples are hosted on [GitHub](https://github.com/JakeSCahill/c-iota-workshop). -->
+これらのコードサンプルは [GitHub](https://github.com/iota-community/c-iota-workshop) でホストされています．
+<!-- These code samples are hosted on [GitHub](https://github.com/iota-community/c-iota-workshop). -->
 
 開始するには，デバイスに [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) がインストールされている必要があります．
 <!-- To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device. -->

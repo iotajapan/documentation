@@ -1,8 +1,8 @@
 # 三進数
 <!-- # Ternary -->
 
-**IOTA では，データはトリットとトライトで構成される[三進数システム](https://en.wikipedia.org/wiki/Ternary_numeral_system)に従って表されます．[二進法](https://en.wikipedia.org/wiki/Binary_number)と比較して，三進法コンピューティングは2つではなく3つの状態のデータを表すことができるため，理論上はより効率的であると考えられています．**
-<!-- **In IOTA, data is represented according to the [ternary numeral system](https://en.wikipedia.org/wiki/Ternary_numeral_system), which consists of trits and trytes. Compared to [binary](https://en.wikipedia.org/wiki/Binary_number), ternary computing is considered to be more efficient as it can represent data in three states rather then just two.** -->
+**すべてのトランザクションには、トライトと呼ばれる文字が含まれています。これらのトライトは、[3進数システム](https://en.wikipedia.org/wiki/Ternary_numeral_system)の一部です。IOTAはこの3進数システムを使用します。なぜなら、[バイナリ](https://en.wikipedia.org/wiki/Binary_number)と比較して、3進コンピューティングは2つではなく3つの状態でデータを表すことができるため、より効率的であると考えられているためです。**
+<!-- **All transactions contain characters called trytes. These trytes are part of the [ternary numeral system](https://en.wikipedia.org/wiki/Ternary_numeral_system). IOTA uses this system because, compared to [binary](https://en.wikipedia.org/wiki/Binary_number), ternary computing is considered to be more efficient as it can represent data in three states rather then just two.** -->
 
 IOTA では，データは1，0，または-1で構成される平衡三進法で表されます．これらの値はトリットと呼ばれ，3トリットで1トライトに相当し，表現可能な27（3<sup>3</sup>）の値を持つことができます．
 <!-- In IOTA, data is represented in balanced ternary, which consists of 1, 0, or -1. These values are called trits, and three of them are equal to one tryte, which can have 27 (3<sup>3</sup>) possible values. -->
@@ -42,6 +42,76 @@ IOTA では，データは1，0，または-1で構成される平衡三進法�
 |                                   X | 0, -1,  0    |    -3      |
 |                                   Y | 1, -1,  0    |    -2      |
 |                                   Z | -1,  0,  0   |    -1      |
+
+## ASCII 文字をトライトに変換する方法
+<!-- ## How ASCII characters are converted to trytes -->
+
+IOTA クライアントライブラリでは、[ASCII 文字](https://en.wikipedia.org/wiki/ASCII)をトライトとの間で変換できます。
+<!-- In the IOTA client libraries, you can convert [ASCII characters](https://en.wikipedia.org/wiki/ASCII) to and from trytes. -->
+
+この機能は、`Your coffee is ready` などの ASCII メッセージをトライトに変換するのに役立ちます。そして変換したトライトをトランザクションに追加して、タングルにアタッチします。
+<!-- This feature is useful for converting an ASCII message such as `Your coffee is ready` to trytes, which you can add to a transaction and attach to the Tangle. -->
+
+各 ASCII 文字は、以下のことを行うことで2つのトライトとして表されます。
+<!-- Each ASCII character is represented as 2 trytes by doing the following: -->
+
+1. ASCII 文字の10進 Unicode 値を見つけます．
+  <!-- 1. Find the decimal Unicode value of an ASCII character -->
+
+	たとえば、 `Z` の10進 Unicode 値は90です。
+    <!-- For example, the decimal Unicode value of `Z` is 90. -->
+
+2. 次の方程式で10進数の Unicode 値を使用します。
+  <!-- 2. Use the decimal Unicode value in the following equations: -->
+
+    ```
+    decimal % 27
+    (decimal - 9) / 27
+    ```
+
+	たとえば、`Z` の場合、結果は次のようになります．
+    <!-- For example, for `Z`, the result would be -->
+
+    ```
+    90 % 27 = 9
+    (90 - 9) / 27 = 3
+    ```
+
+3. 方程式の結果をインデックスとして使用して、ASCII 文字のトライト値を見つけます．
+  <!-- 3. Use the results of the equations as indices to find the character's tryte value -->
+
+    | **インデックス** | **トライト** |
+    |------------------|--------------|
+    | 0                | 9            |
+    | 1                | A            |
+    | 2                | B            |
+    | **__3__**        | **__C__**    |
+    | 4                | D            |
+    | 5                | E            |
+    | 6                | F            |
+    | 7                | G            |
+    | 8                | H            |
+    | **__9__**        | **__I__**    |
+    | 10               | J            |
+    | 11               | K            |
+    | 12               | L            |
+    | 13               | M            |
+    | 14               | N            |
+    | 15               | O            |
+    | 16               | P            |
+    | 17               | Q            |
+    | 18               | R            |
+    | 19               | S            |
+    | 20               | T            |
+    | 21               | U            |
+    | 22               | V            |
+    | 23               | W            |
+    | 24               | X            |
+    | 25               | Y            |
+    | 26               | Z            |
+
+	たとえば、ASCII 文字 `Z` は、トライトでは `IC` として表されます。
+    <!-- For example, the ASCII character `Z` is represented as `IC` in trytes. -->
 
 ## ユーティリティ
 <!-- ## Utilities -->
