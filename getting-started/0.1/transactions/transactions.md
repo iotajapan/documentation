@@ -1,7 +1,7 @@
 # トランザクション
 <!-- # Transactions -->
 
-**トランザクションは，[IOTA トークン](../clients/token.md)を[アドレス](../clients/seeds.md)から取り出したり，アドレスにデポジットしたり，ゼロトークン（データ，メッセージ，または署名を含む）にすることができる単一の転送命令です．IOTA ネットワークに何かを送信する場合は，トランザクションとして[ノード](../network/nodes.md)に送信する必要があります．**
+**トランザクションは，[IOTA トークン](../clients/token.md)を[アドレス](../clients/addresses.md)から取り出したり，アドレスにデポジットしたり，ゼロトークン（データ，メッセージ，または署名を含む）にすることができる単一の転送命令です．IOTA ネットワークに何かを送信する場合は，トランザクションとして[ノード](../network/nodes.md)に送信する必要があります．**
 <!-- **A transaction is a single transfer instruction that can either withdraw [IOTA tokens](../clients/token.md) from an [address](../clients/seeds.md), deposit them into an address, or have zero-value (contain data, a message, or a signature). If you want to send anything to an IOTA network, you must send it to a [node](../network/nodes.md) as a transaction.** -->
 
 ## トランザクションの構造
